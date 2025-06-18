@@ -1,0 +1,1044 @@
+{
+  "curso": "CIÊNCIAS AMBIENTAIS",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUÇÃO À FILOSOFIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "GEM0006",
+          "nome": "BIOLOGIA GERAL E EVOLUÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0272",
+          "nome": "MICROECONOMIA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "ECO0261",
+          "nome": "PLANEJAMENTO PÚBLICO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0262",
+          "nome": "ECONOMIA AMBIENTAL E ECOLÓGICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUÇÃO AO SISTEMA DE INFORMAÇÕES GEOGRÁFICAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0257",
+          "nome": "CONCEITOS FUNDAMENTAIS EM QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "CDS0008",
+          "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CDS0010",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATÍSTICA APLICADA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FDD0282",
+          "nome": "FUNDAMENTOS DO DIREITO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0282",
+          "nome": "REAÇÕES QUÍMICAS E O AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "ECO0266",
+          "nome": "ECONOMIA DA POLÍTICA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0268",
+          "nome": "ANÁLISE CUSTO BENEFÍCIO AMBIENTAL DE PROJETOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "GEA0011",
+          "nome": "GEOGRAFIA FISICA 2: METEOROLOGIA E CLIMATOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "ECO0270",
+          "nome": "PLANEJAMENTO DE INVESTIMENTOS AMBIENTAIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0259",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "ECO0273",
+          "nome": "ECONOMIA DO SETOR EXTERNO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0274",
+          "nome": "ESPAÇO REGIONAL URBANO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "ECO0275",
+          "nome": "INSTRUMENTO DE POLÍTICA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0276",
+          "nome": "AVALIAÇÃO AMBIENTAL ESTRATÉGICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0261",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO CONCLUSÃO DE CURSO",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "IFD0299",
+          "nome": "FISICA 1 PARA QUIMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0005",
+          "nome": "FÍSICA TEÓRICA PARA CIÊNCIAS AGRÁRIAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "BOT0078",
+          "nome": "DIVERSIDADE VEGETAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUÇÃO À CONTABILIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0001",
+          "nome": "PLANEJAMENTO E AVALIAÇÃO SOCIOAMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0002",
+          "nome": "HISTÓRIA AMBIENTAL DO BRASIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0004",
+          "nome": "AGRICULTURA E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0005",
+          "nome": "EPISTEMOLOGIA, TECNOLOGIA E SUSTENTABILIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0006",
+          "nome": "GOVERNANÇA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0009",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0011",
+          "nome": "SISTEMAS SOCIOAMBIENTAIS E COMPLEXIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0012",
+          "nome": "POLÍTICAS PÚBLICAS E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0013",
+          "nome": "POPULAÇÃO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0014",
+          "nome": "TEORIAS DO DESENVOLVIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0015",
+          "nome": "INDICADORES DE DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0016",
+          "nome": "EDUCAÇÃO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0019",
+          "nome": "PRÁTICA DE PESQUISA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0020",
+          "nome": "PRÁTICAS EM DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0021",
+          "nome": "ANÁLISE DA PAISAGEM APLICADA À SUSTENTABILIDADE URBANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0119",
+          "nome": "DIVERSIDADE MICROBIANA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "COT0001",
+          "nome": "ECONOMIA E GESTÃO DE ÁREAS PROTEGIDAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0005",
+          "nome": "ECOLOGIA VEGETAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0008",
+          "nome": "ESTAGIO EM ECOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0013",
+          "nome": "LIMNOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0021",
+          "nome": "ECOLOGIA ANIMAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0036",
+          "nome": "EDUCAÇÃO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0037",
+          "nome": "ECOLOGIA TROPICAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0040",
+          "nome": "TÓPICOS EM ECOSSISTEMAS DO CERRADO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0044",
+          "nome": "MÉTODOS EM ECOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0045",
+          "nome": "ECOLOGIA DO FOGO NO CERRADO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0046",
+          "nome": "SOLOS E VEGETAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0049",
+          "nome": "BIOLOGIA E ECOLOGIA DE PEIXES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0052",
+          "nome": "BIODIVERSIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0053",
+          "nome": "MUDANÇAS AMBIENTAIS GLOBAIS E BIODIVERSIDADE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0054",
+          "nome": "ETNOBIOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0055",
+          "nome": "ECOLOGIA DA PAISAGEM E CONSERVAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUÇÃO À ECONOMIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0197",
+          "nome": "ECONOMIA ESTATISTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0199",
+          "nome": "TEORIA DO DESENVOLVIMENTO ECONOMICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0252",
+          "nome": "ECONOMIA DO MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0258",
+          "nome": "SEMINÁRIOS - VISÕES EM CIÊNCIAS AMBIENTAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0265",
+          "nome": "FUNDAMENTOS DE ECONOMIA DO MEIO AMBIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0171",
+          "nome": "QUALIDADE DA AGUA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0254",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1 - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0061",
+          "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0068",
+          "nome": "FERTILIDADE DO SOLO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUIÇÕES DE DIREITO PÚBLICO E PRIVADO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOÇÕES DE DIREITO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FDD0277",
+          "nome": "DIREITO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRÁTICA DESPORTIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FIT0001",
+          "nome": "DIVERSIDADE MICROBIANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FIT0035",
+          "nome": "DIVERSIDADE MICROBIANA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0257",
+          "nome": "EPIDEMIOLOGIA AMBIENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0411",
+          "nome": "GESTÃO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0443",
+          "nome": "INTRODUÇÃO À SAÚDE PÚBLICA E AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0009",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0031",
+          "nome": "RECURSOS NATURAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0044",
+          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0066",
+          "nome": "BIOLOGIA E GENÉTICA DA CONSERVAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ICB0077",
+          "nome": "EDUCAÇÃO  AMBIENTAL SUSTENTÁVEL",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ICB0266",
+          "nome": "GESTÃO DE DADOS E COLEÇÕES DE HISTÓRIA NATURAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ICB0272",
+          "nome": "DIVERSIDADE MICROBIANA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0005",
+          "nome": "FÍSICA TEÓRICA PARA CIÊNCIAS AGRÁRIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0299",
+          "nome": "FISICA 1 PARA QUIMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0010",
+          "nome": "RECURSOS HÍDRICOS PARA CIÊNCIAS AMBIENTAIS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0011",
+          "nome": "TÓPICOS ESPECIAIS EM CIÊNCIAS AMBIENTAIS 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0012",
+          "nome": "TÓPICOS ESPECIAIS EM CIÊNCIAS AMBIENTAIS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0013",
+          "nome": "TÓPICOS ESPECIAIS EM CIÊNCIAS AMBIENTAIS 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0014",
+          "nome": "TÓPICOA ESPECIAIS EM CIÊNCIAS AMBIENTAIS 4",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0015",
+          "nome": "TÓPICOA ESPECIAIS EM CIÊNCIAS AMBIENTAIS 5",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0016",
+          "nome": "TÓPICOA ESPECIAIS EM CIÊNCIAS AMBIENTAIS 6",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0017",
+          "nome": "TÓPICOA ESPECIAIS EM CIÊNCIAS AMBIENTAIS 7",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0018",
+          "nome": "TÓPICOA ESPECIAIS EM CIÊNCIAS AMBIENTAIS 8",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0028",
+          "nome": "PEDOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0126",
+          "nome": "ESTÁGIO SUPERVISIONADO EM GEOCIÊNCIAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0141",
+          "nome": "GEOQUÍMICA ANALÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0159",
+          "nome": "INTRODUÇÃO AO PROCESSAMENTO DE IMAGENS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUÇÃO A MINERALOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0210",
+          "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0254",
+          "nome": "RECURSOS HÍDRICOS SUPERFICIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0255",
+          "nome": "RECURSOS HÍDRICOS SUBTERRÂNEOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0256",
+          "nome": "REABILITAÇÃO E RESTAURAÇÃO DE ECOSSISTEMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0257",
+          "nome": "RECUPERAÇÃO DE ÁREAS DEGRADADAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0258",
+          "nome": "INTRODUÇÃO A PEDOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0260",
+          "nome": "INTRODUÇÃO A GEOMORFOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUÍMICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUÍMICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUÍMICA INORGÂNICA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUÍMICA GERAL E INORGÂNICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0156",
+          "nome": "SEGURANÇA EM LABORATÓRIOS QUÍMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0288",
+          "nome": "TÓPICOS EM QUÍMICA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0290",
+          "nome": "QUÍMICA DA ÁGUA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0292",
+          "nome": "GERENCIAMENTO DE RESÍDUOS E SOLOS CONTAMINADOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0293",
+          "nome": "QUÍMICA ATMOSFÉRICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LÍNGUA ESPANHOLA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLÊS INSTRUMENTAL 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLÊS INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0334",
+          "nome": "INGLÊS: COMPREENSÃO DA LÍNGUA ORAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUÊS INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUÇÃO À SOCIOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ZOO0025",
+          "nome": "ESTAGIO EM ZOOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ZOO0048",
+          "nome": "BIOGEOGRAFIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ZOO0049",
+          "nome": "DIVERSIDADE ANIMAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,744 @@
+{
+  "curso": "CIÊNCIAS CONTÁBEIS",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0153",
+          "nome": "MATEMÁTICA FINANCEIRA APLICADA ÀS CIÊNCIAS CONTÁBEIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUÇÃO À ECONOMIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CÁLCULO 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0077",
+          "nome": "CONTABILIDADE GERAL 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0111",
+          "nome": "METODOLOGIA DA PESQUISA EM CIÊNCIAS CONTÁBEIS",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUIÇÕES DE DIREITO PÚBLICO E PRIVADO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0081",
+          "nome": "TEORIA CONTABIL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0183",
+          "nome": "MÉTODOS QUANTITATIVOS APLICADOS ÀS CIÊNCIAS CONTÁBEIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLAÇÃO SOCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUÇÃO À SOCIOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0076",
+          "nome": "LEGISLACAO COMERCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0175",
+          "nome": "FINANÇAS CORPORATIVAS 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0179",
+          "nome": "CONTABILIDADE EMPRESARIAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0169",
+          "nome": "FINANÇAS DO SETOR PÚBLICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0176",
+          "nome": "FINANÇAS CORPORATIVAS 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0178",
+          "nome": "CONTABILIDADE AVANÇADA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLAÇÃO TRIBUTÁRIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0024",
+          "nome": "AUDITORIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0170",
+          "nome": "ORÇAMENTO DO SETOR PÚBLICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0177",
+          "nome": "FINANÇAS CORPORATIVAS 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0180",
+          "nome": "SISTEMAS DE CONTROLE GERENCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0181",
+          "nome": "CONTABILIDADE TRIBUTÁRIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0026",
+          "nome": "AUDITORIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0069",
+          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0127",
+          "nome": "PERÍCIA CONTÁBIL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0171",
+          "nome": "CONTABILIDADE DO SETOR PÚBLICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0184",
+          "nome": "TEORIA DO LUCRO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0149",
+          "nome": "ATUÁRIA BÁSICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0182",
+          "nome": "FILOSOFIA E ÉTICA PROFISSIONAL EM CONTABILIDADE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0172",
+          "nome": "PESQUISA EM CONTABILIDADE 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CCA0174",
+          "nome": "LABORATÓRIO CONTÁBIL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "CCA0173",
+          "nome": "PESQUISA EM CONTABILIDADE 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "ADM0057",
+          "nome": "ADMINISTRACAO DE RECURSOS ORCAMENTARIOS E FINANCEIROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ADM0064",
+          "nome": "ADMINISTRAÇÃO DE MARKETING",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0002",
+          "nome": "CUSTOS APLICADOS AO SETOR PÚBLICO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0003",
+          "nome": "MANAGEMENT ACCOUNTING AND CONTROL SYSTEMS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0005",
+          "nome": "FINANÇAS COMPORTAMENTAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0007",
+          "nome": "TÓPICOS CONTEMPORÂNEOS EM CONTABILIDADE PÚBLICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0009",
+          "nome": "GOVERNANÇA APLICADA AO SETOR PÚBLICO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0010",
+          "nome": "INSTRUMENTOS FINANCEIROS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0011",
+          "nome": "GESTÃO E PRESTAÇÃO DE CONTAS NO TERCEIRO SETOR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0012",
+          "nome": "TEORIA DOS JOGOS APLICADA À GESTÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0031",
+          "nome": "ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0046",
+          "nome": "CONTABILIDADE DE INSTITUICOES FINANCEIRAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0051",
+          "nome": "ESTÁGIO EM CIÊNCIAS CONTÁBEIS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0058",
+          "nome": "CONTABILIDADE SECURITARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0121",
+          "nome": "GOVERNANÇA CORPORATIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0123",
+          "nome": "CONTABILIDADE INTERNACIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0137",
+          "nome": "ANÁLISE DAS DEMONSTRAÇÕES CONTÁBEIS GOVERNAMENTAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0143",
+          "nome": "PLANEJAMENTO TRIBUTÁRIO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0145",
+          "nome": "CONTABILIDADE DO SETOR PREVIDENCIÁRIO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0147",
+          "nome": "CONTABILIDADE DO AGRONEGÓCIO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0157",
+          "nome": "CONTABILIDADE DE MICRO E PEQUENOS EMPREENDIMENTOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0158",
+          "nome": "NORMAS INTERNACIONAIS DE CONTABILIDADE PARA O SETOR PÚBLICO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0159",
+          "nome": "PRÁTICA CONTÁBIL DO SETOR PÚBLICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0160",
+          "nome": "CONTABILIDADE SOCIOAMBIENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0161",
+          "nome": "HISTÓRIA DO PENSAMENTO CONTÁBIL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0162",
+          "nome": "EPISTEMOLOGIA DA PESQUISA EM CIÊNCIAS CONTÁBEIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0163",
+          "nome": "MÉTODOS QUALITATIVO EM CIÊNCIAS CONTÁBEIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0164",
+          "nome": "TÓPICOS EM CONTABILIDADE 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0165",
+          "nome": "TÓPICOS EM CONTABILIDADE 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0166",
+          "nome": "TÓPICOS EM CONTABILIDADE 3",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0167",
+          "nome": "TÓPICOS EM CONTABILIDADE 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0168",
+          "nome": "TÓPICOS EM CONTABILIDADE 5",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0185",
+          "nome": "CONTABILIDADE DE INSTRUMENTOS FINANCEIROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0186",
+          "nome": "TÓPICOS EM CONTABILIDADE 6",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CCA0227",
+          "nome": "AUDITORIA SETOR PÚBLICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0016",
+          "nome": "EDUCAÇÃO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DAN0061",
+          "nome": "ESTUDOS AFRO-BRASILEIROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0141",
+          "nome": "ECONOMIA DO SETOR PUBLICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0056",
+          "nome": "INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0065",
+          "nome": "GESTÃO ESTRATÉGICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GPP0032",
+          "nome": "FINANÇAS PÚBLICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRAÇÃO PÚBLICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUÇÃO AO ESTUDO DAS RELAÇÕES INTERNACIONAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IRI0023",
+          "nome": "POLÍTICA EXTERNA BRASILEIRA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IRI0093",
+          "nome": "INDIVÍDUO E GLOBALIZAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PST0051",
+          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

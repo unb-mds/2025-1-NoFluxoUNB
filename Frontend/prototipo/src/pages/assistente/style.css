@@ -1,0 +1,340 @@
+/* Base styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+}
+
+/* Graffiti wall background */
+.graffiti-wall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='brick-pattern' patternUnits='userSpaceOnUse' width='100' height='50' patternTransform='scale(2)'%3E%3Crect width='100' height='50' fill='%231a1a1a'/%3E%3Crect width='50' height='25' fill='%23222222'/%3E%3Crect x='50' y='25' width='50' height='25' fill='%23222222'/%3E%3Cpath d='M0 0 L100 0 L100 50 L0 50 Z' fill='none' stroke='%23333333' stroke-width='1'/%3E%3Cpath d='M50 0 L50 25 M0 25 L100 25' fill='none' stroke='%23333333' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23brick-pattern)'/%3E%3C/svg%3E");
+    z-index: -3;
+}
+
+/* Gradient overlay */
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(74, 29, 150, 0.8) 0%, 
+        rgba(225, 29, 72, 0.8) 30%, 
+        rgba(234, 88, 12, 0.8) 50%, 
+        rgba(202, 138, 4, 0.8) 70%, 
+        rgba(0, 0, 0, 0.8) 100%);
+    z-index: -2;
+    opacity: 0.7;
+}
+
+/* Cracks overlay for urban mural effect */
+.cracks-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='crack' patternUnits='userSpaceOnUse' width='200' height='200'%3E%3Cpath d='M100 0 L110 50 L130 60 L100 100 L150 150 L100 200 M0 100 L50 110 L60 130 L100 100 L150 50 L200 100' stroke='%23ffffff' stroke-width='1' fill='none' stroke-opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23crack)'/%3E%3C/svg%3E");
+    z-index: -1;
+    opacity: 0.15;
+}
+
+/* Graffiti style font for navbar */
+.graffiti-font {
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 1px;
+}
+
+/* Logo with graffiti effect */
+.logo-container {
+    position: relative;
+    display: inline-block;
+}
+
+.logo-text {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #4A1D96, #E11D48, #EA580C, #CA8A04);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+
+/* Navigation items */
+.nav-item {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item:hover {
+    transform: scale(1.05);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #4A1D96, #E11D48);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Hamburger menu */
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+    z-index: 100;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: rotate(0);
+    transition: all 0.5s;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+/* Main content styles */
+.main-title {
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.highlight-text {
+    color: #FF5CA0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Chat container styles */
+.chat-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Chat messages */
+.message {
+    max-width: 80%;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.message-user {
+    background: linear-gradient(90deg, #4A1D96, #8B5CF6);
+    color: white;
+    border-top-right-radius: 0;
+    margin-left: auto;
+}
+
+.message-bot {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-top-left-radius: 0;
+}
+
+/* Bot avatar */
+.bot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E11D48, #FF5CA0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* Course recommendation card */
+.course-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Input field */
+.chat-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.chat-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Send button */
+.send-button {
+    background: linear-gradient(90deg, #4A1D96, #8B5CF6);
+    transition: all 0.3s ease;
+}
+
+.send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+    animation: typing 1.5s infinite;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes typing {
+    0% { opacity: 0; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-5px); }
+    100% { opacity: 0; transform: translateY(0); }
+}
+
+/* Interest tags */
+.interest-tag {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.interest-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.interest-tag.selected {
+    background: linear-gradient(90deg, #4A1D96, #E11D48);
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.interest-tag.selected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    transform: translateX(-100%);
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Add button */
+.add-button {
+    background: linear-gradient(90deg, #16A34A, #4ADE80);
+    transition: all 0.3s ease;
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-container {
+        height: calc(100vh - 180px);
+    }
+} 
