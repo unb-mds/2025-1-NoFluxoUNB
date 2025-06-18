@@ -28,6 +28,7 @@ CORS(app)
 padrao_ira = re.compile(r"IRA[:\s]+(\d+\.\d+)", re.IGNORECASE)
 padrao_curriculo = r'(\d+/\d+(?:\s*-\s*\d{4}\.\d)?)'
 padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
+padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
 # --- Disciplinas Padrão (com professor) ---
 padrao_status = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
@@ -113,7 +114,7 @@ def upload_pdf():
             match_ira = padrao_ira.search(linha)
             if match_ira:
                 ira = match_ira.group(1)
-                disciplinas.append({"tipo_dado": "IRA", "valor": ira})
+                disciplinas.append({"IRA": "IRA", "valor": ira})
                 print(f"  -> IRA encontrado: {ira}")
 
             # 2. Encontrar o Currículo
@@ -143,6 +144,7 @@ def upload_pdf():
                 match_mencao = padrao_mencao.findall(linha)
                 match_codigo = padrao_codigo.search(linha)
                 match_horas = padrao_horas.search(linha) # Usar search para pegar o primeiro match
+                match_natureza = padrao_natureza.findall(linha)
 
                 if match_status and match_codigo and match_horas:
                     status = match_status.group(1)
@@ -150,6 +152,8 @@ def upload_pdf():
                     codigo = match_codigo.group()
                     carga_horaria = int(match_horas.group(1))
                     creditos = int(carga_horaria / 15)
+                    natureza = match_natureza[-1] if match_natureza else " "
+                    
 
                     nome_disciplina = "Nome da Disciplina N/A"
                     if i - 1 >= 0:
@@ -172,12 +176,13 @@ def upload_pdf():
                     
                     disciplinas.append({
                         "tipo_dado": "Disciplina Regular",
-                        "nome_disciplina": nome_disciplina,
+                        "nome": nome_disciplina,
                         "status": status,
                         "mencao": mencao,
                         "creditos": creditos,
                         "codigo": codigo,
-                        "ch": carga_horaria
+                        "carga_horaria": carga_horaria,
+                        "natureza": natureza
                     })
                     print(f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})")
                 # else:
@@ -215,12 +220,12 @@ def upload_pdf():
                 if nome_materia_cump != "Nome da Disciplina CUMP N/A" or codigo != "Código CUMP N/A":
                     disciplinas.append({
                         "tipo_dado": "Disciplina CUMP",
-                        "nome_disciplina": nome_materia_cump,
+                        "nome": nome_materia_cump,
                         "status": 'CUMP',
                         "mencao": '-',
                         "creditos": creditos_cump,
                         "codigo": codigo,
-                        "ch": carga_horaria
+                        "carga_horaria": carga_horaria
                     })
                     print(f"  -> Disciplina CUMP encontrada: '{nome_materia_cump}' (Carga Horária: {carga_horaria})")
                 # else:
