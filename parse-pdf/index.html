@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de PDF Avançado</title>
+    <!-- Inclui Tailwind CSS para estilização fácil e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclui a fonte Inter do Google Fonts para uma tipografia moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos para o corpo da página e contêiner principal */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Cor de fundo suave */
+            color: #333; /* Cor de texto padrão */
+        }
+        .container {
+            max-width: 1200px; /* Largura máxima do contêiner */
+            margin: 2rem auto; /* Centraliza e adiciona margem */
+            padding: 2rem; /* Preenchimento interno */
+            background-color: #ffffff; /* Fundo branco para o card */
+            border-radius: 12px; /* Cantos arredondados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra para profundidade */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* Espaçamento entre os elementos filhos */
+        }
+        /* Estilo para o wrapper do input de arquivo */
+        .file-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Espaçamento entre os elementos */
+        }
+        /* Estilo para o input de arquivo personalizado (label) */
+        .custom-file-upload {
+            border: 2px dashed #d1d5db; /* Borda tracejada */
+            padding: 1rem 1.5rem; /* Preenchimento */
+            border-radius: 8px; /* Cantos arredondados */
+            background-color: #f9fafb; /* Fundo claro */
+            cursor: pointer; /* Cursor de ponteiro */
+            transition: all 0.2s ease-in-out; /* Transição suave */
+            text-align: center; /* Centraliza o texto */
+            flex-grow: 1; /* Permite que o elemento cresça */
+        }
+        .custom-file-upload:hover {
+            border-color: #9ca3af; /* Cor da borda ao passar o mouse */
+            background-color: #eff6ff; /* Cor de fundo ao passar o mouse */
+        }
+        /* Estilo para o botão principal */
+        .button-primary {
+            background-color: #4f46e5; /* Cor de fundo roxa */
+            color: white; /* Texto branco */
+            padding: 0.8rem 1.5rem; /* Preenchimento */
+            border-radius: 8px; /* Cantos arredondados */
+            font-weight: 600; /* Peso da fonte */
+            transition: background-color 0.2s ease-in-out; /* Transição suave */
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); /* Sombra para o botão */
+            cursor: pointer; /* Cursor de ponteiro */
+        }
+        .button-primary:hover {
+            background-color: #4338ca; /* Cor de fundo ao passar o mouse */
+        }
+        /* Estilo para as seções de resultado */
+        .result-section {
+            background-color: #f9fafb; /* Fundo claro */
+            border: 1px solid #e5e7eb; /* Borda */
+            border-radius: 8px; /* Cantos arredondados */
+            padding: 1.5rem; /* Preenchimento */
+        }
+        /* Estilo para blocos de código pré-formatados (pre) */
+        pre {
+            background-color: #e2e8f0; /* Fundo cinza claro */
+            padding: 1rem; /* Preenchimento */
+            border-radius: 6px; /* Cantos arredondados */
+            overflow-x: auto; /* Adiciona scroll horizontal se necessário */
+            white-space: pre-wrap; /* Quebra de linha para texto longo */
+            word-wrap: break-word; /* Quebra de palavras longas */
+            max-height: 400px; /* Altura máxima com scroll */
+            font-size: 0.875rem; /* Tamanho da fonte menor */
+        }
+        /* Estilo para o spinner de carregamento */
+        .loading-spinner {
+            border: 4px solid #f3f3f3; /* Borda externa */
+            border-top: 4px solid #4f46e5; /* Borda superior colorida */
+            border-radius: 50%; /* Faz um círculo */
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite; /* Animação de rotação */
+            display: none; /* Escondido por padrão */
+            margin: 0 auto; /* Centraliza */
+        }
+        /* Animação para o spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Mensagens de erro e sucesso */
+        .error-message {
+            color: #dc2626; /* Texto vermelho */
+            background-color: #fee2e2; /* Fundo vermelho claro */
+            padding: 0.75rem 1.25rem;
+            border: 1px solid #ef4444; /* Borda vermelha */
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        .success-message {
+            color: #16a34a; /* Texto verde */
+            background-color: #dcfce7; /* Fundo verde claro */
+            padding: 0.75rem 1.25rem;
+            border: 1px solid #22c55e; /* Borda verde */
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        /* Media query para responsividade em telas menores */
+        @media (max-width: 768px) {
+            .file-input-wrapper {
+                flex-direction: column; /* Empilha os elementos em telas menores */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Leitor de PDF Avançado</h1>
+
+        <!-- Seção de upload de arquivo -->
+        <div class="file-input-wrapper">
+            <!-- Input de arquivo escondido, estilizado por um label -->
+            <input type="file" id="pdfInput" accept=".pdf" class="hidden">
+            <label for="pdfInput" class="custom-file-upload">
+                <span id="fileName" class="block text-gray-600">Selecione um arquivo PDF...</span>
+                <span class="block text-sm text-gray-400 mt-1">Clique para selecionar ou arraste aqui.</span>
+            </label>
+            <button id="uploadButton" class="button-primary whitespace-nowrap">Processar PDF</button>
+        </div>
+
+        <!-- Contêiner para mensagens (erro, sucesso) -->
+        <div id="messageContainer" class="mt-4 text-center"></div>
+        <!-- Spinner de carregamento -->
+        <div id="loadingSpinner" class="loading-spinner mt-4"></div>
+
+        <!-- Seção de resultados (escondida por padrão) -->
+        <div id="results" class="hidden mt-6 space-y-4">
+            <h2 class="text-2xl font-semibold text-gray-700">Resultados da Extração</h2>
+
+            <!-- Seção para exibir os dados JSON -->
+            <div class="result-section">
+                <h3 class="text-xl font-medium text-gray-600 mb-2">Dados JSON Extraídos</h3>
+                <pre id="jsonOutput" class="text-sm"></pre>
+            </div>
+
+            <!-- Seção para exibir o texto completo -->
+            <div class="result-section">
+                <h3 class="text-xl font-medium text-gray-600 mb-2">Texto Completo do PDF</h3>
+                <pre id="textOutput" class="text-sm"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtém referências para os elementos do DOM
+        const pdfInput = document.getElementById('pdfInput');
+        const fileNameSpan = document.getElementById('fileName');
+        const uploadButton = document.getElementById('uploadButton');
+        const messageContainer = document.getElementById('messageContainer');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const resultsDiv = document.getElementById('results');
+        const jsonOutput = document.getElementById('jsonOutput');
+        const textOutput = document.getElementById('textOutput');
+
+        // Atualiza o nome do arquivo exibido quando um PDF é selecionado
+        pdfInput.addEventListener('change', () => {
+            if (pdfInput.files.length > 0) {
+                fileNameSpan.textContent = pdfInput.files[0].name;
+                resultsDiv.classList.add('hidden'); // Esconde resultados anteriores
+                messageContainer.innerHTML = ''; // Limpa mensagens anteriores
+            } else {
+                fileNameSpan.textContent = 'Selecione um arquivo PDF...';
+            }
+        });
+
+        // Lida com o arrastar e soltar de arquivos
+        const customFileUpload = document.querySelector('.custom-file-upload');
+        customFileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault(); // Previne o comportamento padrão (abrir o arquivo)
+            customFileUpload.classList.add('border-blue-500', 'bg-blue-50'); // Adiciona estilo visual
+        });
+        customFileUpload.addEventListener('dragleave', () => {
+            customFileUpload.classList.remove('border-blue-500', 'bg-blue-50'); // Remove estilo visual
+        });
+        customFileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            customFileUpload.classList.remove('border-blue-500', 'bg-blue-50');
+            const files = e.dataTransfer.files;
+            if (files.length > 0 && files[0].type === 'application/pdf') {
+                pdfInput.files = files; // Atribui os arquivos soltos ao input de arquivo
+                fileNameSpan.textContent = files[0].name;
+                resultsDiv.classList.add('hidden');
+                messageContainer.innerHTML = '';
+            } else {
+                displayMessage('Por favor, arraste um arquivo PDF válido.', 'error');
+            }
+        });
+
+        // Lida com o clique do botão de upload
+        uploadButton.addEventListener('click', async () => {
+            if (pdfInput.files.length === 0) {
+                displayMessage('Por favor, selecione um arquivo PDF antes de processar.', 'error');
+                return;
+            }
+
+            // Cria um objeto FormData para enviar o arquivo
+            const formData = new FormData();
+            formData.append('pdf', pdfInput.files[0]);
+
+            messageContainer.innerHTML = ''; // Limpa mensagens anteriores
+            resultsDiv.classList.add('hidden'); // Esconde resultados anteriores
+            loadingSpinner.style.display = 'block'; // Mostra o spinner de carregamento
+
+            try {
+                // Envia o arquivo para o backend Flask
+                const response = await fetch('http://127.0.0.1:5000/upload-pdf', { // Altere a URL se o Flask estiver rodando em outro local
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json(); // Pega a resposta JSON do servidor
+
+                if (response.ok) {
+                    // Se a requisição foi bem-sucedida, exibe os dados
+                    displayMessage(data.message || 'PDF processado com sucesso!', 'success');
+                    jsonOutput.textContent = JSON.stringify(data.extracted_data, null, 4); // Formata o JSON para exibição
+                    textOutput.textContent = data.full_text;
+                    resultsDiv.classList.remove('hidden'); // Mostra a seção de resultados
+                } else {
+                    // Se houver um erro na resposta do servidor
+                    displayMessage(data.error || 'Erro desconhecido ao processar o PDF.', 'error');
+                }
+            } catch (error) {
+                // Lida com erros de rede ou outros problemas na requisição
+                console.error('Erro na requisição:', error);
+                displayMessage('Erro na comunicação com o servidor. Tente novamente.', 'error');
+            } finally {
+                loadingSpinner.style.display = 'none'; // Esconde o spinner de carregamento
+            }
+        });
+
+        // Função auxiliar para exibir mensagens de status
+        function displayMessage(message, type) {
+            messageContainer.innerHTML = `<div class="${type}-message rounded-lg">${message}</div>`;
+        }
+    </script>
+</body>
+</html>
