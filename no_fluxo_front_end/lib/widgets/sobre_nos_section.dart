@@ -349,7 +349,7 @@ class _AnimatedSobreNosCardState extends State<_AnimatedSobreNosCard> {
               ),
               shape: BoxShape.circle,
             ),
-            child: Center(
+            child: const Center(
               child: Icon(Icons.check, color: Colors.white, size: 18),
             ),
           ),

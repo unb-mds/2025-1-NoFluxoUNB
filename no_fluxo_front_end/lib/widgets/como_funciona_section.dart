@@ -26,23 +26,23 @@ class ComoFuncionaSection extends StatelessWidget {
             builder: (context, constraints) {
               bool isWide = constraints.maxWidth > 900;
               final cards = [
-                FeatureCard(
+                const FeatureCard(
                   icon: Icons.assignment,
                   title: 'VISUALIZE SEU FLUXO',
                   description: 'Veja todas as disciplinas do seu curso organizadas por semestre e pré-requisitos.',
-                  gradientColors: const [Color(0xFF9333EA), Color(0xFFEC4899)],
+                  gradientColors: [Color(0xFF9333EA), Color(0xFFEC4899)],
                 ),
-                FeatureCard(
+                const FeatureCard(
                   icon: Icons.add_circle_outline,
                   title: 'ADICIONE OPTATIVAS',
                   description: 'Personalize seu fluxograma adicionando matérias optativas de acordo com seus interesses.',
-                  gradientColors: const [Color(0xFFEC4899), Color(0xFFF97316)],
+                  gradientColors: [Color(0xFFEC4899), Color(0xFFF97316)],
                 ),
-                FeatureCard(
+                const FeatureCard(
                   icon: Icons.check_circle_outline,
                   title: 'ACOMPANHE SEU PROGRESSO',
                   description: 'Marque as disciplinas já cursadas e visualize seu progresso no curso de forma clara.',
-                  gradientColors: const [Color(0xFFF97316), Color(0xFFEAB308)],
+                  gradientColors: [Color(0xFFF97316), Color(0xFFEAB308)],
                 ),
               ];
               if (isWide) {
