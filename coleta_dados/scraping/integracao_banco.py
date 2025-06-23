@@ -3,6 +3,7 @@ import json
 from supabase import create_client, Client
 import time
 from tenacity import retry, stop_after_attempt, wait_exponential
+import re
 
 print("Iniciando script...")
 
@@ -13,27 +14,47 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def reconectar_supabase():
     global supabase
     print("Reconectando ao Supabase...")
-    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+    try:
+        supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+        print("Reconexão bem-sucedida!")
+    except Exception as e:
+        print(f"Erro na reconexão: {e}")
+        raise
 
-@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=4, max=10))
+@retry(stop=stop_after_attempt(5), wait=wait_exponential(multiplier=1, min=2, max=15))
 def executar_operacao(operacao, *args, **kwargs):
     try:
-        return operacao(*args, **kwargs)
+        print(f"[DEBUG] Executando operação...")
+        resultado = operacao(*args, **kwargs)
+        print(f"[DEBUG] Operação executada com sucesso")
+        return resultado
     except Exception as e:
+        error_msg = str(e).lower()
+        
         # Se for erro de duplicidade, não tenta reconectar
-        if 'duplicate key value violates unique constraint' in str(e):
+        if 'duplicate key value violates unique constraint' in error_msg:
+            print(f"[DEBUG] Erro de duplicidade detectado: {str(e)}")
             raise  # Re-lança a exceção sem tentar reconectar
         
+        # Se for erro de conexão ou timeout
+        if any(keyword in error_msg for keyword in ['connection', 'timeout', 'network', 'socket']):
+            print(f"Erro de conexão detectado: {str(e)}")
+            print("Tentando reconectar...")
+            reconectar_supabase()
+            time.sleep(3)  # Espera 3 segundos antes de tentar novamente
+            raise  # Re-lança a exceção para o retry
+        
+        # Para outros erros, também tenta reconectar
         print(f"Erro na operação: {str(e)}")
         print("Tentando reconectar...")
         reconectar_supabase()
-        time.sleep(2)  # Espera 2 segundos antes de tentar novamente
-        raise  # Re-lança a exceção para o retry
+        time.sleep(2)
+        raise
 
 print("Testando conexão com o Supabase...")
 # Teste de conexão com o Supabase
 try:
-    resposta = executar_operacao(supabase.table('cursos').select('id, nome').limit(1).execute)
+    resposta = executar_operacao(supabase.table('cursos').select('id_curso, nome_curso').limit(1).execute)
     print('Conexão com Supabase bem-sucedida! Exemplo de curso:', resposta.data)
 except Exception as e:
     print('Erro ao conectar com o Supabase. Verifique sua SUPABASE_URL e SUPABASE_KEY.')
@@ -49,52 +70,57 @@ def recarregar_caches():
     print("Iniciando recarga de caches...")
     cursos_existentes = {}
     print("Buscando cursos existentes...")
-    result = executar_operacao(supabase.table('cursos').select('id, nome').execute)
-    if result.data:
-        for c in result.data:
-            cursos_existentes[c['nome']] = c['id']
-    print(f"Encontrados {len(cursos_existentes)} cursos")
-
-    niveis_existentes = {}
-    print("Buscando níveis existentes...")
-    result = executar_operacao(supabase.table('niveis').select('id, nome, curso_id').execute)
-    if result.data:
-        for n in result.data:
-            niveis_existentes[(n['nome'], n['curso_id'])] = n['id']
-    print(f"Encontrados {len(niveis_existentes)} níveis")
+    try:
+        result = executar_operacao(supabase.table('cursos').select('id_curso, nome_curso').execute)
+        if result.data:
+            for c in result.data:
+                cursos_existentes[c['nome_curso']] = c['id_curso']
+        print(f"Encontrados {len(cursos_existentes)} cursos")
+    except Exception as e:
+        print(f"Erro ao buscar cursos: {e}")
+        return {}, {}, {}
 
     materias_existentes = {}
     print("Buscando matérias existentes...")
-    result = executar_operacao(supabase.table('materias').select('id, codigo').execute)
-    if result.data:
-        for m in result.data:
-            materias_existentes[m['codigo']] = m['id']
-    print(f"Encontradas {len(materias_existentes)} matérias")
+    try:
+        result = executar_operacao(supabase.table('materias').select('id_materia, codigo_materia').execute)
+        if result.data:
+            for m in result.data:
+                materias_existentes[m['codigo_materia']] = m['id_materia']
+        print(f"Encontradas {len(materias_existentes)} matérias")
+    except Exception as e:
+        print(f"Erro ao buscar matérias: {e}")
+        return cursos_existentes, {}, {}
 
-    # Agora vamos carregar as relações materia-nivel com o curso_id
-    materias_niveis_existentes = set()
-    print("Buscando relações materia-nivel existentes...")
-    # Primeiro, vamos buscar todas as relações materia-nivel
-    result = executar_operacao(supabase.table('materias_niveis').select('materia_id, nivel_id').execute)
-    if result.data:
-        # Para cada relação, vamos buscar o curso_id do nível
-        for mn in result.data:
-            nivel_result = executar_operacao(supabase.table('niveis').select('curso_id').eq('id', mn['nivel_id']).execute)
-            if nivel_result.data:
-                curso_id = nivel_result.data[0]['curso_id']
-                materias_niveis_existentes.add((mn['materia_id'], mn['nivel_id'], curso_id))
-    print(f"Encontradas {len(materias_niveis_existentes)} relações materia-nivel")
+    # Carregar relações materia-curso existentes
+    materias_por_curso_existentes = set()
+    print("Buscando relações materia-curso existentes...")
+    try:
+        result = executar_operacao(supabase.table('materias_por_curso').select('id_materia, id_curso, nivel').execute)
+        if result.data:
+            for mpc in result.data:
+                materias_por_curso_existentes.add((mpc['id_materia'], mpc['id_curso'], mpc['nivel']))
+        print(f"Encontradas {len(materias_por_curso_existentes)} relações materia-curso")
+    except Exception as e:
+        print(f"Erro ao buscar relações materia-curso: {e}")
+        return cursos_existentes, materias_existentes, set()
     
-    return cursos_existentes, niveis_existentes, materias_existentes, materias_niveis_existentes
+    return cursos_existentes, materias_existentes, materias_por_curso_existentes
 
 print("Recarregando caches do banco...")
 # Recarregar caches do banco antes de processar
-cursos_existentes, niveis_existentes, materias_existentes, materias_niveis_existentes = recarregar_caches()
+cursos_existentes, materias_existentes, materias_por_curso_existentes = recarregar_caches()
 
 print("Iniciando processamento dos arquivos JSON...")
+arquivos_processados = 0
+erros_arquivos = 0
+
 for arquivo in os.listdir(pasta):
     if arquivo.endswith('.json'):
-        print(f"\nProcessando arquivo: {arquivo}")
+        print(f"\n{'='*50}")
+        print(f"Processando arquivo: {arquivo}")
+        print(f"{'='*50}")
+        
         try:
             with open(os.path.join(pasta, arquivo), 'r', encoding='utf-8') as f:
                 dados = json.load(f)
@@ -103,102 +129,118 @@ for arquivo in os.listdir(pasta):
                 print(f"Curso: {curso_nome} - {len(niveis)} níveis encontrados")
 
                 # Curso
-                if curso_nome in cursos_existentes:
-                    curso_id = cursos_existentes[curso_nome]
-                    print(f"[DEBUG] Curso já existe: {curso_nome} (id: {curso_id})")
-                else:
-                    curso_id = executar_operacao(supabase.table('cursos').insert({'nome': curso_nome}).execute).data[0]['id']
-                    cursos_existentes[curso_nome] = curso_id
-                    print(f"[DEBUG] Inserindo novo curso: {curso_nome} (id: {curso_id})")
-
-                nivel_chaves = set()
-                for ordem, nivel in enumerate(niveis, start=1):
-                    nivel_nome = nivel['nivel']
-                    chave = (nivel_nome, curso_id)
-                    if chave in nivel_chaves:
-                        print(f"[DEBUG] Nível já processado: {nivel_nome} para curso {curso_nome}")
-                        continue  # já processou esse nível para esse curso
-                    nivel_chaves.add(chave)
-                    if (nivel_nome, curso_id) in niveis_existentes:
-                        nivel_id = niveis_existentes[(nivel_nome, curso_id)]
-                        print(f"[DEBUG] Nível já existe: {nivel_nome} (id: {nivel_id}) para curso {curso_nome}")
+                try:
+                    if curso_nome in cursos_existentes:
+                        curso_id = cursos_existentes[curso_nome]
+                        print(f"[DEBUG] Curso já existe: {curso_nome} (id: {curso_id})")
                     else:
-                        try:
-                            nivel_id = executar_operacao(supabase.table('niveis').insert({'nome': nivel_nome, 'curso_id': curso_id, 'ordem': ordem}).execute).data[0]['id']
-                            niveis_existentes[(nivel_nome, curso_id)] = nivel_id
-                            print(f"[DEBUG] Inserindo novo nível: {nivel_nome} (id: {nivel_id}) para curso {curso_nome}")
-                        except Exception as e:
-                            if 'duplicate key value violates unique constraint' in str(e):
-                                result = executar_operacao(supabase.table('niveis').select('id').eq('nome', nivel_nome).eq('curso_id', curso_id).execute)
-                                if result.data:
-                                    nivel_id = result.data[0]['id']
-                                    niveis_existentes[(nivel_nome, curso_id)] = nivel_id
-                                    print(f"[DEBUG] Nível encontrado após erro de duplicidade: {nivel_nome} (id: {nivel_id})")
-                                else:
-                                    raise
+                        curso_id = executar_operacao(supabase.table('cursos').insert({'nome_curso': curso_nome}).execute).data[0]['id_curso']
+                        cursos_existentes[curso_nome] = curso_id
+                        print(f"[DEBUG] Inserindo novo curso: {curso_nome} (id: {curso_id})")
+                except Exception as e:
+                    print(f"Erro ao processar curso {curso_nome}: {e}")
+                    continue
+
+                materias_processadas = 0
+                for ordem, nivel in enumerate(niveis, start=1):
+                    try:
+                        # Usar o nível do JSON, não a ordem
+                        nivel_raw = nivel.get('nivel', ordem)
+                        
+                        # Extrair apenas o número do nível (remover "º Semestre", etc.)
+                        if isinstance(nivel_raw, str):
+                            # Extrair apenas dígitos da string
+                            numeros = re.findall(r'\d+', nivel_raw)
+                            if numeros:
+                                nivel_numero = int(numeros[0])
                             else:
-                                raise
-
-                    for materia in nivel['materias']:
-                        materia_dict = {
-                            'nome': materia['nome'],
-                            'carga_horaria': materia['carga_horaria'],
-                            'natureza': materia['natureza'],
-                            'ementa': materia.get('ementa', None),
-                        }
-                        codigo = materia['codigo']
-                        if codigo in materias_existentes:
-                            materia_id = materias_existentes[codigo]
-                            print(f"[DEBUG] Matéria já existe: {codigo} - {materia['nome']} (id: {materia_id})")
+                                nivel_numero = ordem
                         else:
-                            try:
-                                materia_id = executar_operacao(supabase.table('materias').insert({'codigo': codigo, **materia_dict}).execute).data[0]['id']
-                                materias_existentes[codigo] = materia_id
-                                print(f"[DEBUG] Inserindo nova matéria: {codigo} - {materia['nome']} (id: {materia_id})")
-                            except Exception as e:
-                                # Se for erro de duplicidade, busca o id no banco
-                                if 'duplicate key value violates unique constraint' in str(e):
-                                    result = executar_operacao(supabase.table('materias').select('id').eq('codigo', codigo).execute)
-                                    if result.data:
-                                        materia_id = result.data[0]['id']
-                                        materias_existentes[codigo] = materia_id
-                                        print(f"[DEBUG] Matéria encontrada após erro de duplicidade: {codigo} - {materia['nome']} (id: {materia_id})")
-                                    else:
-                                        raise
-                                else:
-                                    raise
+                            nivel_numero = int(nivel_raw)
+                            
+                        print(f"[DEBUG] Processando nível {nivel_numero} (original: {nivel_raw}) para curso {curso_nome}")
 
-                        # Cria relação materia-nivel
-                        if (materia_id, nivel_id, curso_id) not in materias_niveis_existentes:
+                        for materia in nivel['materias']:
                             try:
-                                # Primeiro, verifica se já existe uma relação com a mesma matéria e nível em outro curso
-                                result = executar_operacao(supabase.table('materias_niveis')
-                                    .select('id')
-                                    .eq('materia_id', materia_id)
-                                    .eq('nivel_id', nivel_id)
-                                    .execute)
+                                # Determinar o nível final da matéria
+                                nivel_final = nivel_numero
                                 
-                                if result.data:
-                                    print(f"[DEBUG] Relação já existe em outro curso: materia_id: {materia_id} com nivel_id: {nivel_id}")
-                                    # Adiciona ao cache para evitar tentativas futuras
-                                    materias_niveis_existentes.add((materia_id, nivel_id, curso_id))
+                                # Se a matéria é optativa, definir nível como 0
+                                if materia.get('natureza') == 'Optativa':
+                                    nivel_final = 0
+                                    print(f"[DEBUG] Matéria optativa detectada: {materia['nome']} - definindo nível como 0")
+                                
+                                # Preparar dados da matéria
+                                materia_dict = {
+                                    'nome_materia': materia['nome'],
+                                    'codigo_materia': materia['codigo'],
+                                    'carga_horaria': materia['carga_horaria']
+                                }
+                                
+                                codigo = materia['codigo']
+                                if codigo in materias_existentes:
+                                    materia_id = materias_existentes[codigo]
+                                    print(f"[DEBUG] Matéria já existe: {codigo} - {materia['nome']} (id: {materia_id})")
                                 else:
-                                    rel_id = executar_operacao(supabase.table('materias_niveis')
-                                        .insert({'materia_id': materia_id, 'nivel_id': nivel_id})
-                                        .execute).data[0]['id']
-                                    materias_niveis_existentes.add((materia_id, nivel_id, curso_id))
-                                    print(f"[DEBUG] Relacionando materia_id: {materia_id} com nivel_id: {nivel_id} no curso {curso_nome} (materias_niveis.id: {rel_id})")
+                                    try:
+                                        materia_id = executar_operacao(supabase.table('materias').insert(materia_dict).execute).data[0]['id_materia']
+                                        materias_existentes[codigo] = materia_id
+                                        print(f"[DEBUG] Inserindo nova matéria: {codigo} - {materia['nome']} (id: {materia_id})")
+                                    except Exception as e:
+                                        # Se for erro de duplicidade, busca o id no banco
+                                        if 'duplicate key value violates unique constraint' in str(e):
+                                            result = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', codigo).execute)
+                                            if result.data:
+                                                materia_id = result.data[0]['id_materia']
+                                                materias_existentes[codigo] = materia_id
+                                                print(f"[DEBUG] Matéria encontrada após erro de duplicidade: {codigo} - {materia['nome']} (id: {materia_id})")
+                                            else:
+                                                raise
+                                        else:
+                                            raise
+
+                                # Criar relação materia-curso
+                                if (materia_id, curso_id, nivel_final) not in materias_por_curso_existentes:
+                                    try:
+                                        rel_id = executar_operacao(supabase.table('materias_por_curso')
+                                            .insert({
+                                                'id_materia': materia_id, 
+                                                'id_curso': curso_id, 
+                                                'nivel': nivel_final
+                                            })
+                                            .execute).data[0]['id_materia_curso']
+                                        materias_por_curso_existentes.add((materia_id, curso_id, nivel_final))
+                                        print(f"[DEBUG] Relacionando materia_id: {materia_id} com curso_id: {curso_id} no nível {nivel_final} (materias_por_curso.id: {rel_id})")
+                                        materias_processadas += 1
+                                    except Exception as e:
+                                        if 'duplicate key value violates unique constraint' in str(e):
+                                            print(f"[DEBUG] Relação já existe: materia_id: {materia_id} com curso_id: {curso_id} no nível {nivel_final}")
+                                            # Adiciona ao cache para evitar tentativas futuras
+                                            materias_por_curso_existentes.add((materia_id, curso_id, nivel_final))
+                                        else:
+                                            raise
+                                else:
+                                    print(f"[DEBUG] Relação já existe: materia_id: {materia_id} com curso_id: {curso_id} no nível {nivel_final}")
+                                    
                             except Exception as e:
-                                if 'duplicate key value violates unique constraint' in str(e):
-                                    print(f"[DEBUG] Relação já existe: materia_id: {materia_id} com nivel_id: {nivel_id} no curso {curso_nome}")
-                                    # Adiciona ao cache para evitar tentativas futuras
-                                    materias_niveis_existentes.add((materia_id, nivel_id, curso_id))
-                                else:
-                                    raise
-                        else:
-                            print(f"[DEBUG] Relação já existe: materia_id: {materia_id} com nivel_id: {nivel_id} no curso {curso_nome}")
+                                print(f"Erro ao processar matéria {materia.get('nome', 'N/A')}: {e}")
+                                continue
+                                
+                    except Exception as e:
+                        print(f"Erro ao processar nível {ordem}: {e}")
+                        continue
+                
+                print(f"Arquivo {arquivo} processado com sucesso! {materias_processadas} matérias processadas.")
+                arquivos_processados += 1
+                
         except Exception as e:
             print(f"Erro ao processar arquivo {arquivo}: {str(e)}")
+            erros_arquivos += 1
             continue
 
-print("\nProcessamento concluído!")
+print(f"\n{'='*50}")
+print("PROCESSAMENTO CONCLUÍDO!")
+print(f"{'='*50}")
+print(f"Arquivos processados com sucesso: {arquivos_processados}")
+print(f"Arquivos com erro: {erros_arquivos}")
+print(f"Total de arquivos: {arquivos_processados + erros_arquivos}")
