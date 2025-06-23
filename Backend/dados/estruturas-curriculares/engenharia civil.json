@@ -1,0 +1,2339 @@
+{
+  "curso": "ENGENHARIA CIVIL",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CÁLCULO 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0246",
+          "nome": "INTRODUCAO A ENGENHARIA CIVIL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATÍSTICA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CÁLCULO 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUÇÃO À ECONOMIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CÁLCULO 3",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0128",
+          "nome": "PROJETO ARQUITETÔNICO DE EDIFICAÇÕES",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0132",
+          "nome": "MECANICA DOS SOLIDOS 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0240",
+          "nome": "LABORATÓRIO DE GEOTECNIA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0241",
+          "nome": "GEOTECNIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZAÇÃO INDUSTRIAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0133",
+          "nome": "MECANICA DOS SOLIDOS 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0254",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1 - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0255",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1 - EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOÇÕES DE DIREITO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUÇÃO À SOCIOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0037",
+          "nome": "TRANSFERÊNCIA DE ENERGIA E MASSA",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0137",
+          "nome": "ISOSTATICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0134",
+          "nome": "MECANICA DOS SOLIDOS 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0166",
+          "nome": "HIDROLOGIA APLICADA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0203",
+          "nome": "PLANEJAMENTO DE TRANSPORTES",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0235",
+          "nome": "GEOTECNIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0251",
+          "nome": "HIDRAULICA - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0252",
+          "nome": "HIDRAULICA EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0135",
+          "nome": "TEORIA DAS ESTRUTURAS 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0140",
+          "nome": "TECNOLOGIA DAS CONSTRUCOES 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0199",
+          "nome": "PROJETO DE ESTRADAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0121",
+          "nome": "GEOTECNIA 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0169",
+          "nome": "SISTEMAS HIDRAULICOS DE SANEAMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0197",
+          "nome": "MECANICA DOS SOLOS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0145",
+          "nome": "PLANEJAMENTO E CONTROLE DE CONSTRUCOES",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0146",
+          "nome": "ESTRUTURA DE CONCRETO ARMADO 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0148",
+          "nome": "ESTRUTURAS METALICAS E DE MADEIRA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0168",
+          "nome": "SANEAMENTO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0211",
+          "nome": "ASPECTOS GEOTÉCNICOS DE FUNDAÇÕES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0002",
+          "nome": "LABORATÓRIO DE ELETRICIDADE BÁSICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0242",
+          "nome": "PROJETO FINAL EM ENGENHARIA CIVIL 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANÇA DO TRABALHO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0038",
+          "nome": "PROJETO DE INSTALAÇÃO PREDIAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0147",
+          "nome": "ESTRUTURAS DE CONCRETO ARMADO 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0243",
+          "nome": "PROJETO FINAL EM ENGENHARIA CIVIL 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "11º Semestre",
+      "materias": [
+        {
+          "codigo": "ENC0252",
+          "nome": "HIDRAULICA EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0167",
+          "nome": "HIDRAULICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0251",
+          "nome": "HIDRAULICA - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0235",
+          "nome": "GEOTECNIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0121",
+          "nome": "GEOTECNIA 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0197",
+          "nome": "MECANICA DOS SOLOS 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENE0243",
+          "nome": "ELETRICIDADE",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENE0002",
+          "nome": "LABORATÓRIO DE ELETRICIDADE BÁSICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "carga_horaria": "75h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0037",
+          "nome": "TRANSFERÊNCIA DE ENERGIA E MASSA",
+          "carga_horaria": "75h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0038",
+          "nome": "PROJETO DE INSTALAÇÃO PREDIAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0170",
+          "nome": "SISTEMAS HIDRAULICOS PREDIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ENC0215",
+          "nome": "TECNOLOGIA DAS CONSTRUCAO CIVIL - INSTALACOES PREDIAIS ELETRICAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUÍMICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "BOT0004",
+          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "BOT0006",
+          "nome": "ANATOMIA DAS MADEIRAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "BOT0020",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "BOT0021",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "BOT0042",
+          "nome": "ANATOMIA VEGETAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMÁTICA FANEROFÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "BOT0049",
+          "nome": "MORFOLOGIA VEGETAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "210h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "240h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "300h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "330h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "360h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "390h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "480h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "510h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "240h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "240h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "300h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "330h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "360h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "390h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "480h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSÃO",
+          "carga_horaria": "510h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0030",
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EFL0010",
+          "nome": "INICIACAO A ENGENHARIA FLORESTAL",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EFL0044",
+          "nome": "TECNOLOGIA DE PRODUTOS FLORESTAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EFL0049",
+          "nome": "TECNOLOGIA DA MADEIRA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EFL0085",
+          "nome": "COMPÓSITOS LIGNOCELUSÓSICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0001",
+          "nome": "CINÉTICA, PROCESSOS E OPERAÇÕES UNITÁRIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0004",
+          "nome": "SANEAMENTO, MEIO AMBIENTE E PLANEJAMENTO URBANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0006",
+          "nome": "TRATAMENTO DE ÁGUAS RESIDUÁRIAS URBANAS",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0009",
+          "nome": "TRATAMENTO DE ÁGUA PARA CONSUMO HUMANO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0019",
+          "nome": "TRATAMENTO AVANÇADO DE ÁGUAS PARA CONSUMO HUMANO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0032",
+          "nome": "TOPICOS ESPECIAIS EM GESTÃO DE RECURSOS HÍDRICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0034",
+          "nome": "INTRODUÇÃO Á ENGENHARIA TERRITORIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUÇÃO À MECÂNICA DOS SÓLIDOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0039",
+          "nome": "PROJETO DE INSTALAÇÃO PREDIAL 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0040",
+          "nome": "ANÁLISE DE CONFIABILIDADE E RISCO ESTRUTURAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0041",
+          "nome": "TÓPICOS ESPECIAIS EM CONSTRUÇÃO CIVIL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0042",
+          "nome": "PLANEJAMENTO DE REDES LOGÍSTICAS NA CONSTRUÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0043",
+          "nome": "MODELAGEM DA INFORMAÇÃO DA CONSTRUÇÃO APLICADA À ENGENHARIA - BIM II",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0044",
+          "nome": "SISTEMAS DE INFORMAÇÃO GEOGRÁFICA APLICADA AOS TRANSPORTES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0045",
+          "nome": "BIM APLICADO À ENGENHARIA I - ARQUITETURA E ESTRUTURAS DE EDIFICAÇÕES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0047",
+          "nome": "SISTEMAS DE REVESTIMENTO E IMPERMEABILIZAÇÃO DE EDIFÍCIOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0048",
+          "nome": "TECNOLOGIA DO CONCRETO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0049",
+          "nome": "MANUTENÇÃO DE RODOVIAS COM GERÊNCIA DE PAVIMENTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0051",
+          "nome": "SISTEMAS DE ESGOTO SANITÁRIO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0052",
+          "nome": "RESÍDUOS SÓLIDOS URBANOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0054",
+          "nome": "GEOMETRIA DESCRITIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0062",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA CIVIL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0064",
+          "nome": "TOPICOS ESPECIAIS DE ENGENHARIA HIDRAULICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0066",
+          "nome": "TOPICOS ESPECIAIS EM ESTRUTURAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0095",
+          "nome": "ESTRUTURAS HIDRAULICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0122",
+          "nome": "GERENCIA DE PROJETOS EM ENGENHARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0123",
+          "nome": "ENGENHARIA DE SEGURANCA VIARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0124",
+          "nome": "CARTOGRAFIA GEOTECNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0129",
+          "nome": "GEOTECNIA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0136",
+          "nome": "TEORIA DAS ESTRUTURAS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0138",
+          "nome": "ELASTICIDADE E PLASTICIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0139",
+          "nome": "CALCULO PLASTICO DAS ESTRUTURAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0141",
+          "nome": "TECNOLOGIA DAS CONSTRUCOES 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0142",
+          "nome": "TECNOLOGIA DAS CONSTRUCOES 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0143",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0144",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0149",
+          "nome": "ESTRUTURA DE ACO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0150",
+          "nome": "ESTRUTURA DE CONCRETO PROTENDIDO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0151",
+          "nome": "ESTRUTURAS DE FUNDACOES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0152",
+          "nome": "PROJETO DE EDIFICIOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0153",
+          "nome": "PROJETOS DE ESTRUTURAS ESPECIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0154",
+          "nome": "PROJETO DE PONTES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0155",
+          "nome": "PROJETO DE ESTRUTURAS DE ACO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0156",
+          "nome": "PROJETO DE ESTRUTURAS HIDRAULICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0157",
+          "nome": "LEGISLACAO PROFISSIONAL DE ENGENHARIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0158",
+          "nome": "PLANEJAMENTO REGIONAL INTEGRADO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0159",
+          "nome": "PLANEJAMENTO DE USO DO SOLO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0160",
+          "nome": "TOPICOS ESPECIAIS EM SANEAMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0162",
+          "nome": "TOPICOS ESPECIAIS EM HIDRAULICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0164",
+          "nome": "TOPICOS ESPECIAIS EM RECURSOS HIDRICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0165",
+          "nome": "SISTEMAS DE IRRIGACAO E DRENAGEM",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0167",
+          "nome": "HIDRAULICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0170",
+          "nome": "SISTEMAS HIDRAULICOS PREDIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0171",
+          "nome": "QUALIDADE DA AGUA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0172",
+          "nome": "AGUAS SUBTERRANEAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0173",
+          "nome": "APROVEITAMENTO HIDROELETRICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0174",
+          "nome": "CARTOGRAFIA GEOTECNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0176",
+          "nome": "TRATAMENTO DE AGUAS DE ABASTECIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0178",
+          "nome": "TRATAMENTO DE AGUAS RESIDUARIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0179",
+          "nome": "TEORIA DOS MODELOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0180",
+          "nome": "SISTEMAS DE DRENAGEM URBANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0182",
+          "nome": "SISTEMAS HIDROVIARIOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0183",
+          "nome": "GEOTECNIA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0184",
+          "nome": "ANALISE DE SISTEMAS HIDRICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0185",
+          "nome": "HIDRAULICA DE CANAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0186",
+          "nome": "PROGRAMAS DE SISTEMAS HABITACIONAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0187",
+          "nome": "SISTEMA DE ABASTECIMENTO DE AGUA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0188",
+          "nome": "INVESTIGACOES GEOTECNICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0191",
+          "nome": "TOPICOS ESPECIAIS EM GEOTECNIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0192",
+          "nome": "LABORATORIO EM MECANICA DOS SOLOS",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0193",
+          "nome": "INTRODUCAO A DINAMICA DE ESTRUTURAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0195",
+          "nome": "MECANICA DOS SOLOS 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0200",
+          "nome": "PROJETO DE ESTRADAS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0202",
+          "nome": "ENGENHARIA DE TRAFEGO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0206",
+          "nome": "PAVIMENTACAO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0207",
+          "nome": "PROJETO DE AEROPORTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0208",
+          "nome": "DESENVOLVIMENTO URBANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0214",
+          "nome": "BARRAGENS DE TERRA E ENROCAMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0215",
+          "nome": "TECNOLOGIA DAS CONSTRUCAO CIVIL - INSTALACOES PREDIAIS ELETRICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0216",
+          "nome": "TOPICOS ESPECIAIS EM TRANSPORTES 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0217",
+          "nome": "TOPICOS ESPECIAIS EM TRANSPORTE 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0218",
+          "nome": "TOPICOS ESPECIAIS EM TRANSPOTES 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0219",
+          "nome": "INTRODUCAO AO METODO DOS ELEMENTOS FINITOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0221",
+          "nome": "ESTAGIO ORIENTADO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0223",
+          "nome": "ESTAGIO ORIENTADO 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0224",
+          "nome": "CONTROLE DA POLUICAO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0225",
+          "nome": "AVALIACAO ECONOMICA DE PROJETOS EM ENGENHARIA CIVIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0226",
+          "nome": "ORGANIZACAO E OPERACAO DE TRANSPORTES PUBLICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0227",
+          "nome": "TECNOLOGIA DE TRANSPORTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0228",
+          "nome": "PATOLOGIA DAS CONSTRUCOES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0229",
+          "nome": "MATERIAIS DE CONSTRUÇÃO - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0231",
+          "nome": "ANALISE ESTRUTURAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0232",
+          "nome": "TOPICOS ESPECIAIS EM INSTALACOES 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0237",
+          "nome": "TÓPICOS ESPECIAIS EM GEOTECNIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0238",
+          "nome": "LABORATÓRIO DE GEOTECNIA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0239",
+          "nome": "MÉTODOS COMPUTACIONAIS EM GEOTECNIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0244",
+          "nome": "SENSORIAMENTO REMOTO APLICADO A ENGENHARIA CIVIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0245",
+          "nome": "METODOS NUMERICOS EM HIDROLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0247",
+          "nome": "GESTAO AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0248",
+          "nome": "MECANICA DAS ROCHAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0249",
+          "nome": "MECANICA DOS SOLOS 1 - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0250",
+          "nome": "MECANICA DOS SOLOS 1 - LABORATORIO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0253",
+          "nome": "FUNDAMENTOS DA GESTAO DA AGUA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0256",
+          "nome": "INTRODUÇÃO À REALIDADE VIRTUAL E A TÉCNICAS INTERATIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0257",
+          "nome": "QUALIDADE E SUSTENTABILIDADE NA CONSTRUÇÃO CIVIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0258",
+          "nome": "GEOSSINTÉTICOS EM GEOTECNIA E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0260",
+          "nome": "CONCRETOS ESPECIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0261",
+          "nome": "GESTÃO DE PROJETOS E EQUIPES MULTIDISCIPLINARES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0262",
+          "nome": "ORGANIZAÇÃO DO PROCESSO DE PROJETO DE EDIFÍCIOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0263",
+          "nome": "INTRODUÇÃO À ENGENHARIA AMBIENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0265",
+          "nome": "INTRODUÇÃO À ENGENHARIA URBANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0267",
+          "nome": "CARTOGRAFIA E GEOPROCESSAMENTO APLICADO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0274",
+          "nome": "ESTATÍSTICA APLICADA À ENGENHARIA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0278",
+          "nome": "OBRAS SUBTERRÂNEAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0279",
+          "nome": "ESTACAS TROCADORAS DE CALOR PARA CLIMATIZAÇÃO SUSTENTÁVEL DE ESTRUTURAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0009",
+          "nome": "ARQUITETURA E PROTOCOLOS DE REDES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0011",
+          "nome": "LABORATÓRIO DE REDES",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0013",
+          "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0015",
+          "nome": "FUNDAMENTOS DE REDES 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0039",
+          "nome": "SISTEMAS DIGITAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0040",
+          "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0056",
+          "nome": "SISTEMAS MICROPROCESSADOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0058",
+          "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUÇÃO AOS CIRCUITOS ELÉTRICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0091",
+          "nome": "SISTEMAS OPERACIONAIS DE REDES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0155",
+          "nome": "INTRODUCAO A ENGENHARIA ELETRICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0172",
+          "nome": "CIRCUITOS ELETRICOS 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0229",
+          "nome": "INSTALAÇÕES ELETRICAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0237",
+          "nome": "ARQUITETURA E PROTOCOLOS DE REDES",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0243",
+          "nome": "ELETRICIDADE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0274",
+          "nome": "FUNDAMENTOS DE REDES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0289",
+          "nome": "CIRCUITOS POLIFASICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELÉTRICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0332",
+          "nome": "TOPICOS EM ENGENHARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0333",
+          "nome": "REDES DE COMUNICACAO DE DADOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0334",
+          "nome": "COMPUTACAO PARA ENGENHARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0335",
+          "nome": "SISTEMAS DE PROGRAMACAO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0027",
+          "nome": "TECNOLOGIAS DE COMANDO NUMERICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0068",
+          "nome": "TERMODINAMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0071",
+          "nome": "TRANSFERENCIA DE CALOR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0072",
+          "nome": "INSTALACOES TERMOMECANICAS 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0082",
+          "nome": "MECANICA DOS FLUIDOS 2",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0090",
+          "nome": "MATERIAIS DE CONSTRUCAO MECANICA 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0112",
+          "nome": "MECANISMOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0120",
+          "nome": "MECANICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0121",
+          "nome": "MECANICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0122",
+          "nome": "PROJETO DE MAQUINAS 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0123",
+          "nome": "PROJETO DE MAQUINAS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0124",
+          "nome": "PROJETO DE SISTEMAS MECANICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUÇÃO À CIÊNCIA DOS MATERIAIS",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0127",
+          "nome": "TECNOLOGIA DE FABRICACAO 1",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0128",
+          "nome": "TRANSPORTE DE CALOR E MASSA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0131",
+          "nome": "DESENHO MECANICO ASSISTIDO POR COMPUTADOR 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0132",
+          "nome": "DESENHO MECANICO ASSISTIDO POR COMPUTADOR 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0133",
+          "nome": "INTRODUCAO A ENGENHARIA MECATRONICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0134",
+          "nome": "SISTEMAS INTEGRADOS DE MANUFATURA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0140",
+          "nome": "MECANICA DOS FLUIDOS 1",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0143",
+          "nome": "INTRODUCAO A ENGENHARIA MECANICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0145",
+          "nome": "METROLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0146",
+          "nome": "TECNOLOGIA MECANICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0163",
+          "nome": "MECANICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0164",
+          "nome": "MECANICA DOS MATERIAIS 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0165",
+          "nome": "MECANICA DOS MATERIAIS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0171",
+          "nome": "PROCESSOS DE FABRICACAO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0172",
+          "nome": "MATERIAIS INDUSTRIAIS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0174",
+          "nome": "SISTEMAS ENERGETICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0176",
+          "nome": "INTRODUÇÃO A ECOLOGIA INDUSTRIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECÂNICO PARA ENGENHARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0051",
+          "nome": "GESTÃO DE PROJETOS AVANÇADOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0056",
+          "nome": "INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0057",
+          "nome": "INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO E À QUALIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0058",
+          "nome": "INSTALACOES INDUSTRIAIS 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0060",
+          "nome": "INSTALACOES INDUSTRIAIS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0061",
+          "nome": "FORMAÇÃO DE VALOR EM SISTEMAS DE PRODUÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0063",
+          "nome": "ERGONOMIA E COMPORTAMENTO HUMANO NO TRABALHO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0069",
+          "nome": "METODOLOGIA DE PROJETO DE SISTEMAS DE PRODUÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0071",
+          "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EPR0073",
+          "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0074",
+          "nome": "HIDRAULICA AGRICOLA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0148",
+          "nome": "EDAFOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0218",
+          "nome": "DRENAGEM AGRICOLA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRÁTICA DESPORTIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SÓLIDOS 1 PARA ENGENHARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FGA0204",
+          "nome": "DINÂMICA DOS FLUÍDOS",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FTD0008",
+          "nome": "EMPRESA JUNIOR 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEA0011",
+          "nome": "GEOGRAFIA FISICA 2: METEOROLOGIA E CLIMATOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ICB0250",
+          "nome": "DESENVOLVIMENTO EMBRIONÁRIO E EVOLUÇÃO EM ANIMAIS E VEGETAIS 1",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ICB0251",
+          "nome": "DESENVOLVIMENTO EMBRIONÁRIO E EVOLUÇÃO EM ANIMAIS E VEGETAIS 2",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0072",
+          "nome": "ELETRICIDADE MAGNETISMO",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0210",
+          "nome": "FISICA GERAL 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0217",
+          "nome": "FISICA GERAL 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0299",
+          "nome": "FISICA 1 PARA QUIMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0302",
+          "nome": "FISICA 1 EXPERIMENTAL PARA QUIMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0043",
+          "nome": "TOPOGRAFIA FOTOGRAMETRIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0003",
+          "nome": "INTRODUÇÃO À COMPUTAÇÃO APLICADA AOS PROCESSOS QUÍMICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0005",
+          "nome": "TRANSFERÊNCIA DE QUANTIDADE DE MOVIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0009",
+          "nome": "OPERAÇÕES UNITÁRIAS DA ENGENHARIA QUÍMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0010",
+          "nome": "TRANSFERÊNCIA DE MASSA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0011",
+          "nome": "OPERAÇÕES UNITÁRIAS DA ENGENHARIA QUÍMICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0012",
+          "nome": "OPERAÇÕES UNITÁRIAS DA ENGENHARIA QUÍMICA 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0014",
+          "nome": "LABORATÓRIO DE ENGENHARIA QUÍMICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0015",
+          "nome": "PROJETO DE ENGENHARIA QUÍMICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0032",
+          "nome": "CINÉTICA QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0046",
+          "nome": "TERMODINÂMICA APLICADA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0048",
+          "nome": "ENGENHARIA DE REATORES QUÍMICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUÍMICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUÍMICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0063",
+          "nome": "QUIMICA ANALITICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0101",
+          "nome": "TERMODINÂMICA QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0103",
+          "nome": "EQUILÍBRIO E CINÉTICA QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUÍMICA GERAL E INORGÂNICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FÍSICO-QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LÍNGUA CHINESA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMÁTICOS DA FÍSICA 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PRO0011",
+          "nome": "PROJETO ARQUITETONICO 1",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEC0018",
+          "nome": "SISTEMAS ESTRUTURAIS NA ARQUITETURA",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0246",
+          "nome": "INTRODUCAO A ENGENHARIA CIVIL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0037",
+          "nome": "TRANSFERÊNCIA DE ENERGIA E MASSA",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0137",
+          "nome": "ISOSTATICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0235",
+          "nome": "GEOTECNIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0251",
+          "nome": "HIDRAULICA - TEORIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0252",
+          "nome": "HIDRAULICA EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0121",
+          "nome": "GEOTECNIA 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0169",
+          "nome": "SISTEMAS HIDRAULICOS DE SANEAMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0197",
+          "nome": "MECANICA DOS SOLOS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0211",
+          "nome": "ASPECTOS GEOTÉCNICOS DE FUNDAÇÕES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENE0002",
+          "nome": "LABORATÓRIO DE ELETRICIDADE BÁSICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0038",
+          "nome": "PROJETO DE INSTALAÇÃO PREDIAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENC0147",
+          "nome": "ESTRUTURAS DE CONCRETO ARMADO 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

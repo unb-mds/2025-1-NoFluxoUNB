@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoFluxo UNB - Assistente de Recomendação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Graffiti Wall Background -->
+    <div class="graffiti-wall"></div>
+    <div class="gradient-overlay"></div>
+    <div class="cracks-overlay"></div>
+
+    <!-- Header/Navbar -->
+    <header class="sticky top-0 w-full px-6 py-4 z-50 bg-black bg-opacity-30 backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo with Graffiti Effect -->
+            <div class="logo-container">
+                <a href="../fluxogramas/index.html" class="logo-text graffiti-font text-white text-2xl sm:text-3xl">NOFLX UNB</a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="../home/index.html" class="nav-item graffiti-font text-white text-xl">HOME</a>
+                <a href="../fluxogramas/index.html" class="nav-item graffiti-font text-white text-xl">FLUXOGRAMAS</a>
+                <a href="../home/index.html#sobre" class="nav-item graffiti-font text-white text-xl">SOBRE NÓS</a>
+                <a href="../assistente/index.html" class="nav-item graffiti-font text-white text-xl">ASSISTENTE</a>
+            </nav>
+            
+            <!-- Hamburger Button -->
+            <button id="menu-btn" class="hamburger md:hidden focus:outline-none relative z-50">
+                <span class="hamburger-top"></span>
+                <span class="hamburger-middle"></span>
+                <span class="hamburger-bottom"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-black bg-opacity-95 z-40 p-6 pt-20 shadow-lg">
+        <nav class="flex flex-col space-y-6">
+            <a href="../home/index.html" class="nav-item graffiti-font text-white text-2xl">HOME</a>
+            <a href="../fluxogramas/index.html" class="nav-item graffiti-font text-white text-2xl">FLUXOGRAMAS</a>
+            <a href="../home/index.html#sobre" class="nav-item graffiti-font text-white text-2xl">SOBRE NÓS</a>
+            <a href="../assistente/index.html" class="nav-item graffiti-font text-white text-2xl">ASSISTENTE</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Left Side - Chat Interface -->
+            <div class="w-full lg:w-2/3">
+                <!-- Chat Header -->
+                <div class="flex items-center justify-between mb-4">
+                    <h1 class="main-title text-2xl sm:text-3xl text-white">
+                        ASSISTENTE <span class="highlight-text">NOFLUXO</span>
+                    </h1>
+                    <div class="flex items-center">
+                        <span class="inline-block w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                        <span class="text-white text-sm">Online</span>
+                    </div>
+                </div>
+                
+                <!-- Chat Container -->
+                <div class="chat-container rounded-lg overflow-hidden flex flex-col h-[600px]">
+                    <!-- Chat Messages -->
+                    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4">
+                        <!-- Bot Welcome Message -->
+                        <div class="flex items-start gap-3">
+                            <div class="bot-avatar">A</div>
+                            <div class="message message-bot">
+                                <p>Olá! Sou o assistente NoFluxo. Estou aqui para te ajudar a encontrar matérias interessantes para adicionar ao seu fluxograma.</p>
+                                <p class="mt-2">Me conte quais áreas você tem interesse ou quais habilidades gostaria de desenvolver!</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Suggested Interest Tags -->
+                        <div class="flex items-start gap-3">
+                            <div class="bot-avatar">A</div>
+                            <div class="message message-bot">
+                                <p>Você pode selecionar algumas áreas de interesse:</p>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <button class="interest-tag px-3 py-1 rounded-full text-sm text-white">Programação</button>
+                                    <button class="interest-tag px-3 py-1 rounded-full text-sm text-white">Dados</button>
+                                    <button class="interest-tag px-3 py-1 rounded-full text-sm text-white">Design</button>
+                                    <button class="interest-tag px-3 py-1 rounded-full text-sm text-white">Gestão</button>
+                                    <button class="interest-tag px-3 py-1 rounded-full text-sm text-white">Pesquisa</button>
+                                    <button class="interest-tag px-3 py-1 rounded-full text-sm text-white">Inovação</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Typing Indicator -->
+                        <div id="typing-indicator" class="flex items-start gap-3 hidden">
+                            <div class="bot-avatar">A</div>
+                            <div class="message message-bot">
+                                <div class="typing-indicator">
+                                    <div class="typing-dot"></div>
+                                    <div class="typing-dot"></div>
+                                    <div class="typing-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Input -->
+                    <div class="p-4 border-t border-gray-700">
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input" class="chat-input flex-1 rounded-full py-3 px-4 focus:outline-none" placeholder="Digite sua mensagem...">
+                            <button id="send-button" class="send-button rounded-full w-12 h-12 flex items-center justify-center text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Selected Courses & Fluxogram Preview -->
+            <div class="w-full lg:w-1/3">
+                <!-- Selected Courses -->
+                <div class="bg-black bg-opacity-30 rounded-lg p-4 mb-6">
+                    <h2 class="text-white text-xl font-bold mb-4">Matérias Selecionadas</h2>
+                    
+                    <div class="space-y-3">
+                        <!-- No courses selected message -->
+                        <div class="text-center py-6 text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <p>Nenhuma matéria selecionada</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Add to Fluxogram Button -->
+                    <button id="add-fluxogram-btn" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg mt-4 font-bold hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
+                        ADICIONAR AO FLUXOGRAMA
+                    </button>
+                    <input type="file" id="fluxogram-file-input" accept=".pdf" style="display: none;" />
+                </div>
+                
+                <!-- Fluxogram Preview -->
+                <div class="bg-black bg-opacity-30 rounded-lg p-4">
+                    <h2 class="text-white text-xl font-bold mb-4">Seu Fluxograma</h2>
+                    
+                    <!-- Fluxogram SVG Preview -->
+                    <div class="bg-black bg-opacity-50 rounded-lg p-4 overflow-hidden">
+                        <svg class="w-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Semester Headers -->
+                            <text x="50" y="20" font-family="Arial" font-size="12" fill="#ffffff">1º Semestre</text>
+                            <text x="50" y="90" font-family="Arial" font-size="12" fill="#ffffff">2º Semestre</text>
+                            <text x="50" y="160" font-family="Arial" font-size="12" fill="#ffffff">3º Semestre</text>
+                            <text x="50" y="230" font-family="Arial" font-size="12" fill="#ffffff">4º Semestre</text>
+                            
+                            <!-- Semester 1 - Completed -->
+                            <rect x="20" y="30" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="60" y="55" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Algoritmos</text>
+                            
+                            <rect x="110" y="30" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="150" y="55" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Cálculo 1</text>
+                            
+                            <rect x="200" y="30" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="240" y="55" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">APC</text>
+                            
+                            <rect x="290" y="30" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="330" y="55" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Introdução ES</text>
+                            
+                            <!-- Semester 2 - Completed -->
+                            <rect x="20" y="100" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="60" y="125" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">EDA</text>
+                            
+                            <rect x="110" y="100" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="150" y="125" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Cálculo 2</text>
+                            
+                            <rect x="200" y="100" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="240" y="125" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">OO</text>
+                            
+                            <rect x="290" y="100" width="80" height="40" rx="5" fill="#4ade80" opacity="0.8" />
+                            <text x="330" y="125" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Requisitos</text>
+                            
+                            <!-- Semester 3 - Current -->
+                            <rect x="20" y="170" width="80" height="40" rx="5" fill="#a78bfa" opacity="0.8" />
+                            <text x="60" y="195" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Projeto 1</text>
+                            
+                            <rect x="110" y="170" width="80" height="40" rx="5" fill="#a78bfa" opacity="0.8" />
+                            <text x="150" y="195" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Métodos</text>
+                            
+                            <rect x="200" y="170" width="80" height="40" rx="5" fill="#a78bfa" opacity="0.8" />
+                            <text x="240" y="195" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Arquitetura</text>
+                            
+                            <rect x="290" y="170" width="80" height="40" rx="5" fill="#fb7185" opacity="0.8" />
+                            <text x="330" y="195" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">Bancos de Dados</text>
+                            
+                            <!-- Semester 4 - Future -->
+                            <rect x="20" y="240" width="80" height="40" rx="5" fill="#475569" opacity="0.4" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" />
+                            <text x="60" y="265" font-family="Arial" font-size="10" fill="#ffffff" opacity="0.5" text-anchor="middle">Projeto 2</text>
+                            
+                            <rect x="110" y="240" width="80" height="40" rx="5" fill="#475569" opacity="0.4" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" />
+                            <text x="150" y="265" font-family="Arial" font-size="10" fill="#ffffff" opacity="0.5" text-anchor="middle">Qualidade</text>
+                            
+                            <rect x="200" y="240" width="80" height="40" rx="5" fill="#475569" opacity="0.4" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" />
+                            <text x="240" y="265" font-family="Arial" font-size="10" fill="#ffffff" opacity="0.5" text-anchor="middle">Testes</text>
+                            
+                            <rect x="290" y="240" width="80" height="40" rx="5" fill="#475569" opacity="0.4" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" />
+                            <text x="330" y="265" font-family="Arial" font-size="10" fill="#ffffff" opacity="0.5" text-anchor="middle">GPP</text>
+                            
+                            <!-- Connection Lines -->
+                            <line x1="60" y1="70" x2="60" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="150" y1="70" x2="150" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="240" y1="70" x2="240" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="330" y1="70" x2="330" y2="100" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            
+                            <line x1="60" y1="140" x2="60" y2="170" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="150" y1="140" x2="150" y2="170" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="240" y1="140" x2="240" y2="170" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="330" y1="140" x2="330" y2="170" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            
+                            <line x1="60" y1="210" x2="60" y2="240" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="150" y1="210" x2="150" y2="240" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="240" y1="210" x2="240" y2="240" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                            <line x1="330" y1="210" x2="330" y2="240" stroke="#ffffff" stroke-width="1" opacity="0.5" />
+                        </svg>
+                    </div>
+                    
+                    <!-- View Full Fluxogram Button -->
+                    <a href="../fluxogramas/engenharia-software.html" class="block text-center bg-white bg-opacity-10 hover:bg-opacity-20 text-white py-2 rounded-lg mt-4 transition-all duration-300">
+                        VER FLUXOGRAMA COMPLETO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Equivalent Courses Modal -->
+    <div id="equivalent-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+        <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full mx-4 relative">
+            <!-- Close Button -->
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+            
+            <div class="mt-6 flex justify-end">
+                <button id="confirm-equivalent" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-2 px-4 rounded-lg font-bold hover:from-purple-700 hover:to-pink-700 transition-all duration-300">
+                    ENTENDI
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html> 

@@ -53,19 +53,24 @@ plugins:
 
 nav:
   - Início: index.md
-  - Levantamento de Requisitos: requisitos.md
+  - Levantamento de Requisitos: planejamento/Requivitos/requisitos.md
   - Planejamento:
     - Story Map: planejamento/storymap.md
-    - Identidade visual: planejamento/idv.md
+    - Identidade visual: planejamento/idv/idv.md
   
   - Ata de Reuniões: 
-    - Reunião 1 - 27-29/03/2025: Atas/27-29-03-25.md
+    - Reunião 1 - 27-29/03/2025: Atas/27 e 29-03-25.md
     - Reunião 2 - 04/04/2025: Atas/04-04-25.md
     - Reunião 3 - 08/04/2025: Atas/08-04-25.md
     - Reunião 4 - 15/04/2025: Atas/15-04-25.md
     - Reunião 5 - 17/04/2025: Atas/17-04-25.md
     - Reunião 6 - 22/04/2025: Atas/22-04-25.md
     - Reunião 7 - 24/04/2025: Atas/24-04-25.md
+    - Reunião 8 - 02/05/2025: Atas/02-05-25.md
+    - Reunião 9 - 20/05/2025: Atas/20-05-25.md
+    - Reunião 10 - 22/05/2025: Atas/22-05-25.md
+    - Reunião 11 - 27/05/2025: Atas/27-05-25.md
+    - Reunião 12 - 29/05/2025: Atas/29-05-25.md
 
 markdown_extensions:
   - pymdownx.highlight

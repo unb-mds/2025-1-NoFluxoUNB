@@ -1,0 +1,9923 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class=" ext-strict"><head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<title>SIGAA - Sistema Integrado de Gestão de Atividades Acadêmicas</title>
+	<link class="component" href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" rel="stylesheet" type="text/css"><link class="component" href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" rel="stylesheet" type="text/css"><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src="/sigaa/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.jsf" type="text/javascript"></script><link rel="shortcut icon" href="/sigaa/img/sigaa.ico">
+	
+	<script type="text/javascript" src="/shared/jsBundles/jawr_loader.js"></script>
+	<script src="/sigaa/javascript/prevenir-duplo-clique.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		JAWR.loader.style('/javascript/ext-2.0.a.1/resources/css/ext-all.css', 'all');
+		JAWR.loader.style('/css/public.css','all');
+	 	JAWR.loader.script('/bundles/js/sigaa_base.js');
+	 	JAWR.loader.script('/bundles/js/ext2_all.js');
+
+	 	
+	</script> <link rel="stylesheet" type="text/css" media="all" href="/shared/cssBundles/gzip_086847611/javascript/ext-2.0.a.1/resources/css/ext-all.css">  <link rel="stylesheet" type="text/css" media="all" href="/shared/cssBundles/gzip_098577918/css/public.css">  <script type="text/javascript" src="/shared/jsBundles/gzip_404685069/bundles/js/sigaa_base.js"> </script>  <script type="text/javascript" src="/shared/jsBundles/gzip_203901949/bundles/js/ext2_all.js"> </script> 
+	<link rel="stylesheet" type="text/css" media="all" href="/sigaa/cssBundles/gzip_N1328554985/public/css/public.css">
+
+	
+	<link rel="stylesheet" type="text/css" href="/shared/beta/css/font-awesome.css" media="screen">
+	
+	<script src="/shared/javascript/STICookieConsent.js"></script>
+	<script>
+	    document.addEventListener("DOMContentLoaded", () => {
+	    	generateCookieConsentModal("SIGAA", "N&#243;s usamos cookies para melhorar sua experi&#234;ncia de navega&#231;&#227;o no portal. Ao utilizar o %sitename%, voc&#234; concorda com a pol&#237;tica de monitoramento de cookies. Para ter mais informa&#231;&#245;es sobre como isso &#233; feito e como remover, acesse a <a href=%cookie-policy%>Pol&#237;tica de Prote&#231;&#227;o de Dados Pessoais</a>. Para saber como a UnB trata os dados, acesse a <a href=%privacy-policy%> Pol&#237;tica de cookies</a>. Se voc&#234; concorda, clique em %button-text%.", "https://protecaodedados.unb.br", "https://sti.unb.br/doc-politicas");
+	    })
+	</script>
+	
+</head>
+
+<body id="ext-gen6" class="ext-safari vsc-initialized">
+	<div id="container">
+	
+
+	<div id="container-inner">
+
+	<div id="cabecalho">
+		<div id="logo">
+				<a href="/sigaa/public/"> <img src="https://sig.unb.br/shared/img/instituicao/brasao.png"> </a>		
+		</div>
+		<div id="identificacao">
+			<span class="ufrn"> Universidade de Brasília </span>
+			<span class="data">
+				 Brasília, 
+				 14 de Maio de 
+				 2025 
+			</span>
+			<a id="home" href="/sigaa/public/" title="Página inicial" style="width: 450px;"> </a>
+			<div id="menu_info">
+				<ul>
+					<li class="acessibilidade">
+						<a href="https://autenticacao.unb.br/sso-server/login?service=https://sig.unb.br/sigaa/login/cas?acessibilidade=true" alt="Acessível para pessoas com deficiência visual" title="Acessível para pessoas com deficiência visual">
+							Acessível para pessoas com deficiência visual
+						</a>
+					</li>
+					
+					<li class="login">
+						<a href="/sigaa/" alt="Clique aqui para logar-se no SIGAA" title="Clique aqui para logar-se no SIGAA">
+							Login
+						<i class="fa fa-angle-right"></i></a>	
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+		<br clear="all">
+	</div>
+
+
+	<div id="corpo">
+	
+
+
+
+
+<script>
+	var marcar = function(idCheck) {
+		$(idCheck).checked = true;
+	}
+</script>
+
+	<h2 class="title">Consulta de Cursos -
+	GRADUAÇÃO</h2>
+
+	
+	<div class="descricaoOperacao">
+	
+	<p>Nesta página você pode consultar os cursos de
+	GRADUAÇÃO oferecidos pela UnB. </p>
+	<p>Para cada curso listado é possível consultar mais detalhes sobre ele,
+	incluindo os Projetos Pedagógicos dos Cursos, as Estruturas Curriculares ou os componentes curriculares.</p>
+	<p>Utilize o formulário abaixo para filtrar os cursos de acordo com
+	os critérios desejados.</p>
+	</div>
+
+	
+	
+<form id="form" name="form" method="post" action="/sigaa/public/curso/lista.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="form" value="form">
+
+		<input type="hidden" name="nivel" value="G">
+		<table class="formulario" style="width: 60%;">
+			<caption>Informe os critérios de filtragem</caption>
+			<tbody><tr>
+				<td width="3%"><input id="form:checkNome" type="checkbox" name="form:checkNome" class="noborder"></td>
+				<td width="25%">Nome do Curso:</td>
+				<td><input id="form:nomeDoCurso" type="text" name="form:nomeDoCurso" onchange="marcar('form:checkNome');" onkeydown="marcar('form:checkNome')" style="width:95%;"></td>
+			</tr>
+
+			
+				<tr>
+					<td><input id="form:checkModalidade" type="checkbox" name="form:checkModalidade" class="noborder"></td>
+					<td>Modalidade de Ensino:</td>
+					<td><select id="form:modalidadeDeEnsino" name="form:modalidadeDeEnsino" size="1" onchange="marcar('form:checkModalidade');" style="width: 60%">	<option value="0" selected="selected">-- SELECIONE UMA MODALIDADE --</option>
+	<option value="2">A Distância</option>
+	<option value="1">Presencial</option>
+</select></td>
+				</tr>
+			
+			
+			</tbody><tfoot>
+				<tr>
+					<td colspan="3"><input id="form:consultarCursos" type="submit" name="form:consultarCursos" value="Consultar">
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	<input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3">
+</form>
+
+	
+	
+	
+		<br>
+		<div class="legenda" style="width: 90%;">
+			<img src="/sigaa/img/view.gif">:
+			
+				
+				
+				&nbsp;Visualizar Página do Curso
+				
+			
+		</div>	
+		
+<form id="formListagemCursos" name="formListagemCursos" method="post" action="/sigaa/public/curso/lista.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="formListagemCursos" value="formListagemCursos">
+
+			<input type="hidden" name="nivel" value="G">
+			<table class="listagem" style="width: 90%;">
+				<caption>Cursos (157) </caption>
+				<thead>
+					<tr>
+						<th>Nome</th>
+						
+						
+						    						
+							
+								
+								
+									<th>Grau Acadêmico</th>
+								
+							
+						  <th>Turno</th>
+						  
+						  	<th>Sede</th>
+						  
+						  
+						
+						
+							<th>Modalidade</th>
+							<th>Coordenação</th> 
+						
+
+						<th></th>
+
+					</tr>
+				</thead>
+
+				<tbody>
+					
+					
+					
+						
+						
+							
+							<tr>
+								
+									
+								
+							</tr>
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ADM - DEPTO ADMINISTRAÇÃO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ADMINISTRAÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>VANESSA CABRAL GOMES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414112&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ADMINISTRAÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>OLINDA MARIA GOMES LESSES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414099&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										CCA - DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS CONTÁBEIS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FRANCISCA APARECIDA DE SOUZA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414130&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							CIÊNCIAS CONTÁBEIS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>EDMILSON SOARES CAMPOS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414131&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										CEN - DEPTO ARTES CÊNICAS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ARTES CÊNICAS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LUCIANA DA COSTA DIAS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414437&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ARTES CÊNICAS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JOSE JACKSON SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702696&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ARTES CÊNICAS - INTERPRETAÇÃO TEATRAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ALISSON ARAUJO DE ALMEIDA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414436&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										CET - CENTRO DE EXCELÊNCIA EM TURISMO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							TURISMO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANA ROSA DOMINGUES DOS SANTOS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414088&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										CIC - DEPTO CIÊNCIAS DA COMPUTAÇÃO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIA DA COMPUTAÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARCELO GRANDI MANDELLI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414599&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							COMPUTAÇÃO
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JORGE HENRIQUE CABRAL FERNANDES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414608&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA DE COMPUTAÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>GUILHERME NOVAES RAMOS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414610&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										DAN - DEPTO ANTROPOLOGIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							CIÊNCIAS SOCIAIS - ANTROPOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JOAO MIGUEL MANZOLILLO SAUTCHUK</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414407&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										DIN - DEPARTAMENTO DE DESIGN (11.01.01.14.04)
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							DESENHO INDUSTRIAL - PROGRAMAÇÃO VISUAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414966&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							DESIGN - PROJETO DO PRODUTO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FLAVIA MARIETA MAGALHAES RIGONI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414971&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							DESIGN - PROGRAMAÇÃO VISUAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARISA COBBE MAASS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414970&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										DSC - DEPTO SAUDE COLETIVA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							SAÚDE COLETIVA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ROSAMARIA GIATTI CARNEIRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414291&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ECO - DEPTO ECONOMIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS ECONÔMICAS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DEBORAH OLIVEIRA MARTINS DOS REIS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414699&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										EFL - DEPTO ENGENHARIA FLORESTAL
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA FLORESTAL
+							</td>
+							
+								<td>
+									Engenheiro Florestal
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MAURO ELOI NAPPO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414342&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ELA - DEPARTAMENTO DE ESTUDOS LATINO AMERICANO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS SOCIAIS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414404&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ENC - DEPTO ENGENHARIA CIVIL E AMBIENTAL
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA AMBIENTAL
+							</td>
+							
+								<td>
+									Engenheiro
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FRANCISCO JAVIER CONTRERAS PINEDA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414345&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA CIVIL
+							</td>
+							
+								<td>
+									Engenheiro Civil
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FABIO ZANCHETTA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414350&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ENE - DEPTO ENGENHARIA ELETRICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA DE REDES DE COMUNICAÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JOAO JOSE COSTA GONDIM</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414330&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA ELÉTRICA
+							</td>
+							
+								<td>
+									Engenheiro Eletricista
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DANIEL ORQUIZA DE CARVALHO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414360&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ENF - DEPTO ENFERMAGEM
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENFERMAGEM
+							</td>
+							
+								<td>
+									Enfermeiro
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>THATIANNY TANFERRI DE BRITO PARANAGUA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414295&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ENM - DEPARTAMENTO DE ENGENHARIA MECANICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA MECÂNICA
+							</td>
+							
+								<td>
+									Engenheiro Mecânico
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANDRE VON BORRIES LOPES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414368&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										EPR - DEPTO ENGENHARIA DE PRODUCAO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA DE PRODUÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARCELO CARNEIRO GONCALVES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414326&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										EST - DEPTO ESTATÍSTICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ESTATÍSTICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LEANDRO TAVARES CORREIA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414620&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FAC/COM - DEPARTAMENTO DE COMUNICAÇÃO ORGANIZACIONAL/COM
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							COMUNICAÇÃO SOCIAL - COMUNICAÇÃO ORGANIZACIONAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARLISE VIEGAS BRENOL</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414137&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FAC/DAP - DEPARTAMENTO DE AUDIOVISUAIS E PUBLICIDADE/DAP
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							COMUNICAÇÃO SOCIAL - AUDIOVISUAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DENISE MORAES CAVALCANTE</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414151&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							COMUNICAÇÃO SOCIAL - PUBLICIDADE E PROPAGANDA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LUCIANO MENDES DE SOUZA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414156&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FAC/JOR - DEPARTAMENTO DE JORNALISMO/JOR
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							COMUNICAÇÃO SOCIAL - JORNALISMO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414164&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							JORNALISMO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CELIA KINUKO MATSUNAGA HIGAWA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414165&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FAU - FACULDADE DE ARQUITETURA E URBANISMO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ARQUITETURA E URBANISMO
+							</td>
+							
+								<td>
+									Arquiteto e Urbanista
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANA CAROLINA CORDEIRO CORREIA LIMA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414181&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ARQUITETURA E URBANISMO
+							</td>
+							
+								<td>
+									Arquiteto e Urbanista
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>VANIA RAQUEL TELES LOUREIRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414180&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FAV - FACULDADE DE AGRONOMIA E MEDICINA VETERINÁRIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							AGRONOMIA
+							</td>
+							
+								<td>
+									Engenheiro Agrônomo
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARCELO FAGIOLI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414196&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							GESTÃO DE AGRONEGÓCIOS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JAIM JOSE DA SILVA JUNIOR</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414198&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MEDICINA VETERINÁRIA
+							</td>
+							
+								<td>
+									Médico Veterinário
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CRISTIANE DA SILVA PEREIRA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414202&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FCI - FACULDADE DE CIÊNCIA DA INFORMAÇÃO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ARQUIVOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>SHIRLEY CARVALHEDO FRANCO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414931&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							BIBLIOTECONOMIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>RODRIGO RABELLO DA SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414940&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MUSEOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARIJARA SOUZA QUEIROZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702704&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FCS - FACULDADE DE CIÊNCIAS DA SAÚDE
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							FARMÁCIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>RODRIGO FONSECA LIMA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414287&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FARMÁCIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>GERLON DE ALMEIDA RIBEIRO OLIVEIRA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414286&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FCTE - CAMPUS UNB GAMA: FACULDADE DE CIÊNCIAS E TECNOLOGIAS EM ENGENHARIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MATHEUS BERNARDINI DE SOUZA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414915&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA AEROESPACIAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ARTUR ELIAS DE MORAIS BERTOLDI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414916&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA AUTOMOTIVA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>HIMILSYS HERNANDEZ GONZALEZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414919&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA DE ENERGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANDREIA ALVES COSTA LINDINGER</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414922&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENGENHARIA DE SOFTWARE
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JOHN LENON CARDOSO GARDENGHI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414924&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA ELETRÔNICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DANIEL COSTA ARAUJO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414926&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FCTS - CAMPUS UNB CEILÂNDIA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM SAÚDE
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ENFERMAGEM
+							</td>
+							
+								<td>
+									Enfermeiro
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JULIANA MACHADO SCHARDOSIM</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414902&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FARMÁCIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ELIANA FORTES GRIS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414906&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							FISIOTERAPIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JULIANA DE FARIA FRACON E ROMAO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414908&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FONOAUDIOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ISABELLA MONTEIRO DE CASTRO SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414909&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							SAÚDE COLETIVA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JOSE ANTONIO ITURRI DE LA MATA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414912&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							TERAPIA OCUPACIONAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414914&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FDD - FACULDADE DE DIREITO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							DIREITO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MIKHAIL VIEIRA DE LORENZI CANCELIER</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414221&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							DIREITO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LIVIA GIMENES DIAS DA FONSECA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414220&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FED - FACULDADE DE EDUCAÇÃO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							PEDAGOGIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>ETIENNE BALDEZ LOUZADA BARBOSA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414231&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							PEDAGOGIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>SILMARA CARINA DORNELAS MUNHOZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414229&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							PEDAGOGIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>PAULO HENRIQUE PEREIRA SILVA DE FELIPE</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414230&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FEF - FACULDADE DE EDUCAÇÃO FÍSICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							EDUCAÇÃO FÍSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414275&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							EDUCAÇÃO FÍSICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ROMULO MAIA CARLOS FONSECA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414276&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							EDUCAÇÃO FÍSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ROSANA AMARO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414274&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							EDUCAÇÃO FÍSICA - CICLO BÁSICO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ROMULO MAIA CARLOS FONSECA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=15958221&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FIL - DEPTO FILOSOFIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FILOSOFIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414713&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							FILOSOFIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>PHILIPPE CLAUDE THIERRY LACOUR</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414715&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FILOSOFIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414714&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FMD - FACULDADE DE MEDICINA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MEDICINA
+							</td>
+							
+								<td>
+									Médico
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>GERALDO MAGELA FERNANDES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414280&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FTD - FACULDADE DE TECNOLOGIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO
+							</td>
+							
+								<td>
+									Engenheiro de Controle e Automação
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARCUS VINICIUS LAMAR</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414333&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										FUP - FACULDADE DE PLANALTINA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS NATURAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ISMAEL VICTOR DE LUCENA COSTA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702703&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							CIÊNCIAS NATURAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FRANCO DE SALLES PORTO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702702&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							EDUCAÇÃO DO CAMPO - CIÊNCIAS DA NATUREZA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CYNARA CAROLINE KERN BARRETO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414881&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							EDUCAÇÃO DO CAMPO - CIÊNCIAS DA NATUREZA E MATEMÁTICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414882&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							EDUCAÇÃO DO CAMPO - LINGUAGENS, ARTES E LITERATURA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CYNARA CAROLINE KERN BARRETO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414885&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							EDUCAÇÃO DO CAMPO - MATEMÁTICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CYNARA CAROLINE KERN BARRETO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414886&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							GESTÃO AMBIENTAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>TANIA CRISTINA DA SILVA CRUZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414888&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							GESTÃO DO AGRONEGÓCIO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MAURO EDUARDO DEL GROSSI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414889&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										GEA - DEPTO GEOGRAFIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							GEOGRAFIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>RAFAEL RODRIGUES DA FRANCA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414730&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							GEOGRAFIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>RAFAEL RODRIGUES DA FRANCA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414731&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										GPP - DEPARTAMENTO DE GESTAO DE POLITICAS PUBL
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							GESTÃO DE POLÍTICAS PÚBLICAS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANA PAULA ANTUNES MARTINS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414093&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										HIS - DEPTO HISTÓRIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							HISTÓRIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LEANDRO DUARTE RUST</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414745&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							HISTÓRIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARINA THOME BEZZI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702700&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							HISTÓRIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LEA MARIA CARRER IAMASHITA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414748&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ICB - INSTITUTO DE CIÊNCIAS BIOLÓGICAS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							BIOTECNOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>TALITA SOUZA CARMO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414371&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							CIÊNCIAS BIOLÓGICAS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414393&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS BIOLÓGICAS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JOSE ROBERTO PUJOL LUZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414392&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							CIÊNCIAS BIOLÓGICAS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARCOS ANTONIO DOS SANTOS SILVA FERRAZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414391&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ICH - INSTITUTO DE CIÊNCIAS HUMANAS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							GEOGRAFIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>RUTH ELIAS DE PAULA LARANJA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414687&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IDA1 - INSTITUTO DE ARTES
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ARTES VISUAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>GREGORIO SOARES RODRIGUES DE OLIVEIRA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=434774&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>ULIANA DIAS CAMPOS FERLIM</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414430&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							TEATRO
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>TIAGO ELIAS MUNDIM</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=694213&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IFD - INSTITUTO DE FÍSICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							FÍSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>ALESSANDRA FERREIRA ALBERNAZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414664&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FÍSICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LETICIA GONCALVES NUNES COELHO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414663&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							FÍSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>KHALIL OLIVEIRA PORTUGAL</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414657&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							FÍSICA COMPUTACIONAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414662&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IGD - INSTITUTO DE GEOCIÊNCIAS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS AMBIENTAIS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANGELO HENRIQUE DE LIRA MACHADO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414667&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							GEOFÍSICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MONICA GIANNOCCARO VON HUELSEN</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414669&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							GEOLOGIA
+							</td>
+							
+								<td>
+									Geólogo
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>SUZAN WALESKA PEQUENO RODRIGUES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414677&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ILD - INSTITUTO DE LETRAS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - LÍNGUA PORTUGUESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>A Distância</td>
+								<td>ROBERTA CANTARELA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414772&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - TRADUÇÃO - ESPANHOL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARIA DEL MAR PARAMOS CEBEY</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414775&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IPD - INSTITUTO DE PSICOLOGIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							PSICOLOGIA
+							</td>
+							
+								<td>
+									Psicólogo
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARISTELA ROSSATO MARTINS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414962&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							PSICOLOGIA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ISABELA MACHADO DA SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414961&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							PSICOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ISABELA MACHADO DA SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414960&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IPOL - INSTITUTO DE CIÊNCIA POLÍTICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIA POLÍTICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DENILSON BANDEIRA COELHO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414892&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IQD - INSTITUTO DE QUÍMICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ENGENHARIA QUÍMICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FABIO MOREIRA DA SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414862&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							QUÍMICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANA CRISTI BASILE DIAS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414870&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							QUÍMICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>EDUARDO LUIZ DIAS CAVALCANTI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414871&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							QUÍMICA TECNOLÓGICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>GESLEY ALEX VELOSO MARTINS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414873&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										IREL - INSTITUTO DE RELAÇÕES INTERNACIONAIS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							RELAÇÕES INTERNACIONAIS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>FIDEL IRVING PEREZ FLORES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414899&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										LET - DEPTO LÍNGUAS ESTRANGEIRAS E TRADUÇÃO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - LÍNGUA E LITERATURA JAPONESA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>KYOKO SEKINO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414779&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - LÍNGUA ESPANHOLA E LITERATURA ESPANHOLA E HISPANO-AMERICANA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ROSILEI JUSTINIANO CARAYANNIS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414782&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - LÍNGUA FRANCESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>MARIA DEL CARMEN DE LA TORRE ARANDA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414796&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - LÍNGUA FRANCESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANNE LOUISE DIAS</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414795&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - LÍNGUA INGLESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>VIRGINIA ANDREA GARRIDO MEIRELLES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702701&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - LÍNGUA INGLESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CLAUDIO ROBERTO VIEIRA BRAGA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414809&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - TRADUÇÃO - FRANCÊS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ECLAIR ANTONIO ALMEIDA FILHO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414813&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - TRADUÇÃO - INGLÊS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>NORMA DIANA HAMILTON</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414822&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LÍNGUAS ESTRANGEIRAS APLICADAS - MSI
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>SUSANA MARTINEZ MARTINEZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414823&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										LIP - DEPTO LINGUISTICA, PORT. LING. CLASSICAS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - LÍNGUA PORTUGUESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>GABRIEL VICTOR ROCHA PINEZI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414843&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - LÍNGUA PORTUGUESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CINTIA DA SILVA PACHECO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414845&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LETRAS - LÍNGUA PORTUGUESA E RESPECTIVA LITERATURA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>RONALDO MANGUEIRA LIMA JUNIOR</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414844&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							LETRAS - PORTUGUÊS DO BRASIL COMO SEGUNDA LÍNGUA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JANAINA DE AQUINO FERRAZ</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414848&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							LÍNGUA DE SINAIS BRASILEIRA -PORTUGUÊS COMO SEGUNDA LÍNGUA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CRISTIANE BATISTA DO NASCIMENTO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414849&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										MAT - DEPARTAMENTO DE MATEMÁTICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MATEMÁTICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>TARCISIO CASTRO SILVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414638&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MATEMÁTICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DANIELE DA SILVA BARATELA MARTINS NETO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414639&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MATEMÁTICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LUIS ROBERTO LUCINGER DE ALMEIDA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414640&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										MUS - DEPTO MÚSICA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							EDUCAÇÃO ARTÍSTICA - MÚSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414453&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>SIMONE LACORTE RECÔVA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414460&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>JESSICA DE ALMEIDA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414459&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702698&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - CANTO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414465&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - CLARINETA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414469&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - COMPOSIÇÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414473&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - CONTRABAIXO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414479&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - FAGOTE
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414484&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - FLAUTA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414489&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - OBOÉ
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414495&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - PIANO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414500&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - REGÊNCIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414504&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - SAXOFONE
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414509&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - TROMBONE
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414513&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - TROMPA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=1841275&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - TROMPETE
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414523&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - VIOLA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414528&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - VIOLÃO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414533&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							MÚSICA - VIOLINO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414538&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							MÚSICA - VIOLONCELO
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>BEATRIZ DUARTE PEREIRA DE MAGALHAES CASTRO</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414543&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										NUT - DEPTO NUTRICAO
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							NUTRIÇÃO
+							</td>
+							
+								<td>
+									Nutricionista
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>LEANDRO DA CUNHA BAIA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414314&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										ODT - DEPTO ODONTOLOGIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ODONTOLOGIA
+							</td>
+							
+								<td>
+									Cirurgião Dentista
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ALINE URSULA ROCHA FERNANDES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414321&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										SER - DEPTO SERVIÇO SOCIAL
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							SERVIÇO SOCIAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANDREIA DE OLIVEIRA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414765&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							SERVIÇO SOCIAL
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>RAI VIEIRA SOARES</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414764&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										SOL - DEPARTAMENTO DE SOCIOLOGIA
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							CIÊNCIAS SOCIAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>DANIELA FELIX MARTINS KAWABE</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=702695&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							CIÊNCIAS SOCIAIS - SOCIOLOGIA
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>TANIA MARA PASSARELLI TONHATI</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414425&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+							
+							<tr>
+								
+									
+									
+										<td colspan="7" class="subFormulario">
+										VIS - DEPTO ARTES VISUAIS
+										</td> 
+									
+								
+							</tr>
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ARTES VISUAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414553&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ARTES VISUAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td></td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414544&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							ARTES VISUAIS
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											DIURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>CESAR AUGUSTO FLORES BECKER</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414552&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaImpar">
+							<td>
+							ARTES VISUAIS
+							</td>
+							
+								<td>
+									Licenciatura
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>ANA PAULA APARECIDA CAIXETA</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414551&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+						
+						
+						
+						
+						
+						<tr class="linhaPar">
+							<td>
+							TEORIA, CRÍTICA E HISTÓRIA DA ARTE
+							</td>
+							
+								<td>
+									Bacharelado
+									
+								</td>
+							
+							
+								
+								
+									
+									
+										<td>
+											NOTURNO
+											
+										</td>
+									
+								
+								
+								
+							
+							
+							
+							
+								<td>
+								BRASÍLIA
+								
+								</td>
+							
+							
+							
+							
+								<td>Presencial</td>
+								<td>PEDRO DE ANDRADE ALVIM</td>
+							
+
+							<td>
+							
+								
+								
+									<a href="portal.jsf?id=414435&amp;lc=pt_BR&amp;nivel=G" title="Visualizar Página do Curso">
+										<img src="/sigaa/img/view.gif">
+									</a>
+								
+								
+							
+							</td>
+						</tr>
+					
+				</tbody>
+			</table>
+		<input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id3">
+</form>
+	
+
+	<br>
+	<div style="width: 80%; text-align: center; margin: 0 auto;">
+		<a href="/sigaa/public/home.jsf" style="color: #404E82;">&lt;&lt; Voltar ao menu principal</a>
+	</div>
+<br>
+
+	
+	<div class="clear"></div>
+	</div>
+
+	<div id="rodape">
+		<p>	
+			SIGAA | Secretaria de Tecnologia da Informação - STI - (61)  3107-0102 | Copyright © 2006-2025 - UFRN - app38.sigaa38
+			 
+				<a onclick="javascript:versao();">v4.9.10.159</a>
+			
+		</p>
+	</div>
+
+	<!-- Fim dos containers -->
+	</div>
+	</div>
+	
+
+
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', '0', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>	
+
+
+<!-- MYFACES JAVASCRIPT -->
+
+
+
+
+
+ 
+	<script type="text/javascript" charset="UTF-8">
+		function versao(){
+			var msg='';
+			msg+='SIGAA 4.9.10.159,  publicado em: 06/05/2025 14:27\n\n';
+			msg+='Depend\u00eancias:\n';
+			msg+='Arquitetura 4.4.0\n';
+			msg+='Entidades Comuns 2.3.3\n';
+			msg+='Servicos Integrados 2.0.8\n';
+			msg+='SharedResources 2.1.2\n';
+			msg+='Servicos Remoto Biblioteca null\n';
+			msg+='SIGAA Mobile Objects 1.0.0\n\n';
+			msg+='Copyright SINFO/UFRN';
+			alert(msg);
+		}	
+	</script>
+
+<style>
+a.linkMobile:link {
+	color: #003395;
+	font-weight: bold;
+	font-size: inherit;
+	text-decoration: none;
+}
+
+a.linkMobile:visited {
+	color: #003390;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a.linkMobile:active {
+	color: #444444;
+	text-decoration: none;
+	font-weight: bold;
+}
+</style>
+
+
+
+<style type="text/css">
+
+a:link, a:visited {
+	text-decoration: none;
+	color: #333; 
+	}
+
+a:active {
+	text-decoration: none;
+	}
+
+/*Tarefa 9175 UnB*/
+a:hover {
+	text-decoration: none;
+	color:blue;
+
+	}
+ 
+.fcu{
+ background-color: #CECFCF;
+ font-weight: bold;
+}
+
+.dpto{
+ background-color: #E4E4E4;
+ font-weight: bold;
+}
+
+.progr{
+ background-color: #F3F3F3;
+ font-weight: bold;
+ 
+}
+/*Fim tarefa 9175 UnB*/	
+</style></body></html>
