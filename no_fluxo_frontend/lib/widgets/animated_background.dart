@@ -6,43 +6,81 @@ class AnimatedBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.purple.withOpacity(0.8),
-            AppColors.pink.withOpacity(0.8),
-            AppColors.yellow.withOpacity(0.8),
-          ],
-        ),
-      ),
+    return SizedBox.expand(
       child: Stack(
         children: [
-          Positioned(
-            top: -100,
-            left: -100,
-            child: SmokeEffect(
-              size: 300,
-              color: AppColors.purple.withOpacity(0.3),
-            ),
+          // Fundo escuro
+          Container(color: Colors.black),
+          // Círculos coloridos borrados animados
+          const _AnimatedSmoke(
+            size: 300,
+            color: Color(0xFF6B19C9),
+            topPercent: 0.10,
+            leftPercent: 0.05,
+            durationSeconds: 18,
           ),
-          Positioned(
-            top: 200,
-            right: -100,
-            child: SmokeEffect(
-              size: 250,
-              color: AppColors.pink.withOpacity(0.3),
-            ),
+          const _AnimatedSmoke(
+            size: 400,
+            color: Color(0xFFE63783),
+            topPercent: 0.60,
+            leftPercent: 0.70,
+            durationSeconds: 22,
           ),
-          Positioned(
-            bottom: -100,
-            left: 100,
-            child: SmokeEffect(
-              size: 280,
-              color: AppColors.yellow.withOpacity(0.3),
-            ),
+          const _AnimatedSmoke(
+            size: 350,
+            color: Color(0xFFF0C419),
+            topPercent: 0.30,
+            leftPercent: 0.60,
+            durationSeconds: 20,
+          ),
+          const _AnimatedSmoke(
+            size: 250,
+            color: Color(0xFF6B19C9),
+            topPercent: 0.70,
+            leftPercent: 0.20,
+            durationSeconds: 19,
+          ),
+          const _AnimatedSmoke(
+            size: 200,
+            color: Color(0xFFE63783),
+            topPercent: 0.15,
+            leftPercent: 0.80,
+            durationSeconds: 17,
+          ),
+          const _AnimatedSmoke(
+            size: 262,
+            color: Color(0xFFF0C419),
+            topPercent: 0.51,
+            leftPercent: 0.76,
+            durationSeconds: 21,
+          ),
+          const _AnimatedSmoke(
+            size: 445,
+            color: Color(0xFFF0C419),
+            topPercent: 0.76,
+            leftPercent: 0.43,
+            durationSeconds: 25,
+          ),
+          const _AnimatedSmoke(
+            size: 443,
+            color: Color(0xFFE63783),
+            topPercent: 0.18,
+            leftPercent: 0.58,
+            durationSeconds: 23,
+          ),
+          const _AnimatedSmoke(
+            size: 288,
+            color: Color(0xFFE63783),
+            topPercent: 0.24,
+            leftPercent: 0.94,
+            durationSeconds: 16,
+          ),
+          const _AnimatedSmoke(
+            size: 439,
+            color: Color(0xFFF0C419),
+            topPercent: 0.19,
+            leftPercent: 0.40,
+            durationSeconds: 24,
           ),
         ],
       ),
@@ -50,21 +88,28 @@ class AnimatedBackground extends StatelessWidget {
   }
 }
 
-class SmokeEffect extends StatefulWidget {
+class _AnimatedSmoke extends StatefulWidget {
   final double size;
   final Color color;
+  final double topPercent;
+  final double leftPercent;
+  final int durationSeconds;
 
-  const SmokeEffect({
+  const _AnimatedSmoke({
     super.key,
     required this.size,
     required this.color,
+    required this.topPercent,
+    required this.leftPercent,
+    required this.durationSeconds,
   });
 
   @override
-  State<SmokeEffect> createState() => _SmokeEffectState();
+  State<_AnimatedSmoke> createState() => _AnimatedSmokeState();
 }
 
-class _SmokeEffectState extends State<SmokeEffect> with SingleTickerProviderStateMixin {
+class _AnimatedSmokeState extends State<_AnimatedSmoke>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -72,17 +117,12 @@ class _SmokeEffectState extends State<SmokeEffect> with SingleTickerProviderStat
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 10),
+      duration: Duration(seconds: widget.durationSeconds),
       vsync: this,
-    )..repeat();
-
-    _animation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    ));
+    )..repeat(reverse: true);
+    _animation = Tween<double>(begin: -0.03, end: 0.03).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -93,27 +133,27 @@ class _SmokeEffectState extends State<SmokeEffect> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
-        return Transform.translate(
-          offset: Offset(
-            widget.size * 0.2 * _animation.value,
-            widget.size * 0.1 * _animation.value,
-          ),
+        return Positioned(
+          top: height * (widget.topPercent + _animation.value),
+          left: width * (widget.leftPercent + _animation.value),
           child: Opacity(
-            opacity: 0.5 + 0.5 * _animation.value,
+            opacity: 1.0,
             child: Container(
               width: widget.size,
               height: widget.size,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: widget.color,
+                color: Colors.transparent,
                 boxShadow: [
                   BoxShadow(
-                    color: widget.color.withOpacity(0.1),
-                    blurRadius: widget.size * 0.3,
-                    spreadRadius: widget.size * 0.1,
+                    color: widget.color.withOpacity(0.55),
+                    blurRadius: widget.size * 1.6,
+                    spreadRadius: widget.size * 0.5,
                   ),
                 ],
               ),
@@ -123,4 +163,4 @@ class _SmokeEffectState extends State<SmokeEffect> with SingleTickerProviderStat
       },
     );
   }
-} 
+}

@@ -6,6 +6,7 @@ import '../screens/auth/auth_page.dart';
 import '../screens/auth/login_form.dart';
 import '../screens/auth/signup_form.dart';
 import '../screens/auth/password_recovery_screen.dart';
+import '../screens/upload_historico_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -59,6 +60,13 @@ class AppRouter {
         path: '/password-recovery',
         name: 'password-recovery',
         builder: (context, state) => const PasswordRecoveryScreen(),
+      ),
+
+      // Upload Histórico Acadêmico Route
+      GoRoute(
+        path: '/upload-historico',
+        name: 'upload-historico',
+        builder: (context, state) => const UploadHistoricoScreen(),
       ),
 
       // Fluxogramas Route (placeholder - será implementada depois)

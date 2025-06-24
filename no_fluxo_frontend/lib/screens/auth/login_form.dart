@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../constants/app_colors.dart';
 import 'password_recovery_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -164,7 +165,9 @@ class _LoginFormState extends State<LoginForm> {
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  // TODO: Implementar login
+                  // Redireciona usando GoRouter
+                  // ignore: use_build_context_synchronously
+                  context.go('/upload-historico');
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -208,4 +211,4 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
-} 
+}
