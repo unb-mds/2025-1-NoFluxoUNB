@@ -2,7 +2,7 @@ attrs==22.2.0
 ConfigParser==5.3.0
 contextlib2==21.6.0
 cryptography==40.0.2
-docutils==0.21.1
+docutils==0.17.1         
 filelock==3.12.0
 importlib_metadata==4.13.0
 ipython==8.12.0
