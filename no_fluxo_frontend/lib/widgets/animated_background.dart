@@ -129,9 +129,10 @@ class _AnimatedSmokeState extends State<_AnimatedSmoke>
                   color: Colors.transparent,
                   boxShadow: [
                     BoxShadow(
-                      color: widget.color.withOpacity(0.65),
-                      blurRadius: widget.size * 1.5, // ainda muito borrado
-                      spreadRadius: widget.size * 0.7, // ainda muito borrado
+                      color: widget.color.withOpacity(1.0),
+                      blurRadius: widget.size * 1.2, // um pouco menos borrado
+                      spreadRadius:
+                          widget.size * 0.56, // um pouco menos espalhado
                     ),
                   ],
                 ),
