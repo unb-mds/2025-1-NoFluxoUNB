@@ -28,7 +28,7 @@ jobs:
           - name: Install dependencies
             run: |
               pip install wheel
-              pip install --no-build-isolation -r scraping/requirements.txt
+              pip install --no-build-isolation -r coleta_dados/scraping/requirements.txt
 
           - name: Execute Script
             run:
