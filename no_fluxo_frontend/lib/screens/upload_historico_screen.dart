@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import '../widgets/app_navbar.dart';
 import '../widgets/animated_background.dart';
+import 'package:http/http.dart' as http;
+import 'dart:io';
+import 'package:http_parser/http_parser.dart';
+import 'dart:typed_data';
 
 class UploadHistoricoScreen extends StatefulWidget {
   const UploadHistoricoScreen({Key? key}) : super(key: key);
@@ -17,13 +21,12 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
   void _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
-      allowedExtensions: ['pdf', 'doc', 'docx', 'txt', 'html'],
+      allowedExtensions: ['pdf'],
     );
-    if (result != null) {
-      setState(() {
-        _fileName = result.files.single.name;
-      });
-      // TODO: processar o arquivo
+
+    if (result != null && result.files.single.bytes != null) {
+      await uploadPdfBytes(
+          result.files.single.bytes!, result.files.single.name);
     }
   }
 
@@ -147,6 +150,15 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
         );
       },
     );
+  }
+
+  Future<void> _handleFileUpload(File file) async {
+    try {
+      await uploadPdf(file);
+      // Trate a resposta aqui
+    } catch (e) {
+      print('Erro ao enviar PDF: $e');
+    }
   }
 
   @override
@@ -351,5 +363,52 @@ class _PassoHistorico extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+Future<void> uploadPdf(File file) async {
+  try {
+    var uri = Uri.parse('http://localhost:3000/fluxograma/read_pdf');
+    var request = http.MultipartRequest('POST', uri);
+    request.files.add(await http.MultipartFile.fromPath('pdf', file.path));
+    var response = await request.send();
+
+    if (response.statusCode == 200) {
+      print('PDF enviado e processado com sucesso!');
+      // Trate a resposta aqui
+    } else {
+      print('Erro ao enviar PDF: ${response.statusCode}');
+    }
+  } catch (e) {
+    print('Erro ao enviar PDF: $e');
+  }
+}
+
+Future<void> uploadPdfBytes(Uint8List bytes, String fileName) async {
+  try {
+    var uri = Uri.parse('http://localhost:3000/fluxograma/read_pdf');
+    var request = http.MultipartRequest('POST', uri);
+
+    // Adiciona o arquivo como bytes
+    request.files.add(
+      http.MultipartFile.fromBytes(
+        'pdf', // nome do campo esperado pelo backend
+        bytes,
+        filename: fileName,
+        contentType: MediaType('application',
+            'pdf'), // precisa importar 'package:http_parser/http_parser.dart'
+      ),
+    );
+
+    var response = await request.send();
+
+    if (response.statusCode == 200) {
+      print('PDF enviado e processado com sucesso!');
+      // Trate a resposta aqui
+    } else {
+      print('Erro ao enviar PDF: ${response.statusCode}');
+    }
+  } catch (e) {
+    print('Erro ao enviar PDF: $e');
   }
 }

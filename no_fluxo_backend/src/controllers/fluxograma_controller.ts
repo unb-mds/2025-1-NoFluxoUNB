@@ -2,6 +2,8 @@ import { EndpointController, RequestType } from "../interfaces";
 import { Pair } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
+import axios from 'axios';
+import FormData from 'form-data';
 
 
 export const FluxogramaController: EndpointController = {
@@ -32,11 +34,27 @@ export const FluxogramaController: EndpointController = {
         }),
 
         "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
-            const pdf_file = req.body.pdf_file;
-            const pdf_file_path = req.body.pdf_file_path;
-            const pdf_file_name = req.body.pdf_file_name;
-            const pdf_file_type = req.body.pdf_file_type;
-            
+            try {
+                if (!req.files || !req.files.pdf) {
+                    return res.status(400).json({ error: "Arquivo PDF não enviado." });
+                }
+
+                const pdfFile = Array.isArray(req.files.pdf) ? req.files.pdf[0] : req.files.pdf;
+                const form = new FormData();
+                form.append('pdf', pdfFile.data, pdfFile.name);
+
+                // Envia para o Python
+                const response = await axios.post(
+                    'http://localhost:3001/upload-pdf',
+                    form,
+                    { headers: form.getHeaders() }
+                );
+
+                // Retorna a resposta do Python para o frontend
+                return res.status(200).json(response.data);
+            } catch (error: any) {
+                return res.status(500).json({ error: error.message || "Erro ao processar PDF" });
+            }
         })
     }
 }
