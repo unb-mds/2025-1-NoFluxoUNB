@@ -3,6 +3,7 @@ import '../../widgets/animated_background.dart';
 import '../../widgets/app_navbar.dart';
 import 'login_form.dart';
 import 'signup_form.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -27,34 +28,41 @@ class _AuthPageState extends State<AuthPage> {
         children: [
           const AnimatedBackground(),
           SafeArea(
-            child: Column(
-              children: [
-                const AppNavbar(),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Center(
-                      child: Container(
-                        constraints: const BoxConstraints(maxWidth: 400),
-                        padding: const EdgeInsets.all(24.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            const SizedBox(height: 40),
-                            if (isLogin)
-                              LoginForm(onToggleView: toggleView)
-                            else
-                              SignupForm(onToggleView: toggleView),
-                          ],
+            child: DefaultTextStyle(
+              style: GoogleFonts.inter(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+              child: Column(
+                children: [
+                  const AppNavbar(),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Center(
+                        child: Container(
+                          constraints: const BoxConstraints(maxWidth: 400),
+                          padding: const EdgeInsets.all(24.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              const SizedBox(height: 40),
+                              if (isLogin)
+                                LoginForm(onToggleView: toggleView)
+                              else
+                                SignupForm(onToggleView: toggleView),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
       ),
     );
   }
-} 
+}

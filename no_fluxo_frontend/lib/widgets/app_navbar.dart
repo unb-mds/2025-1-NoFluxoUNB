@@ -57,23 +57,43 @@ class _AppNavbarState extends State<AppNavbar> {
               MouseRegion(
                 onEnter: (_) => setState(() => _isHoveringHome = true),
                 onExit: (_) => setState(() => _isHoveringHome = false),
-                child: AnimatedScale(
-                  scale: _isHoveringHome ? 1.05 : 1.0,
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  child: TextButton(
-                    onPressed: () {
-                      context.go('/');
-                    },
-                    child: Text(
-                      'HOME',
-                      style: GoogleFonts.permanentMarker(
-                        fontSize: 19,
-                        color: _isHoveringHome
-                            ? AppColors.primary
-                            : AppColors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                child: GestureDetector(
+                  onTap: () => context.go('/'),
+                  child: AnimatedScale(
+                    scale: _isHoveringHome ? 1.05 : 1.0,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4.0),
+                          child: Text(
+                            'HOME',
+                            style: GoogleFonts.permanentMarker(
+                              fontSize: 19,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.ease,
+                          height: 2,
+                          width: _isHoveringHome
+                              ? 48
+                              : 0, // Ajuste para o tamanho do texto
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF4A1D96), Color(0xFFE11D48)],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -82,23 +102,43 @@ class _AppNavbarState extends State<AppNavbar> {
               MouseRegion(
                 onEnter: (_) => setState(() => _isHoveringAbout = true),
                 onExit: (_) => setState(() => _isHoveringAbout = false),
-                child: AnimatedScale(
-                  scale: _isHoveringAbout ? 1.05 : 1.0,
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  child: TextButton(
-                    onPressed: () {
-                      context.go('/#sobre');
-                    },
-                    child: Text(
-                      'SOBRE NÓS',
-                      style: GoogleFonts.permanentMarker(
-                        fontSize: 19,
-                        color: _isHoveringAbout
-                            ? AppColors.primary
-                            : AppColors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                child: GestureDetector(
+                  onTap: () => context.go('/#sobre'),
+                  child: AnimatedScale(
+                    scale: _isHoveringAbout ? 1.05 : 1.0,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                    child: Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4.0),
+                          child: Text(
+                            'SOBRE NÓS',
+                            style: GoogleFonts.permanentMarker(
+                              fontSize: 19,
+                              color: AppColors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.ease,
+                          height: 2,
+                          width: _isHoveringAbout
+                              ? 80
+                              : 0, // Ajuste para o tamanho do texto
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                              colors: [Color(0xFF4A1D96), Color(0xFFE11D48)],
+                              begin: Alignment.centerLeft,
+                              end: Alignment.centerRight,
+                            ),
+                            borderRadius: BorderRadius.circular(2),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
