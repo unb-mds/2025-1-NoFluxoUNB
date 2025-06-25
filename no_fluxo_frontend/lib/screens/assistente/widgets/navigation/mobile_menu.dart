@@ -18,7 +18,7 @@ class MobileMenu extends StatelessWidget {
           child: GestureDetector(
             onTap: onClose,
             child: Container(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withValues(alpha: 0.5 * 255),
             ),
           ),
         ),
@@ -31,10 +31,10 @@ class MobileMenu extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.75,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.95),
+              color: Colors.black.withValues(alpha: 0.95 * 255),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
+                  color: Colors.black.withValues(alpha: 0.3 * 255),
                   blurRadius: 10,
                   offset: const Offset(-5, 0),
                 ),
@@ -54,7 +54,7 @@ class MobileMenu extends StatelessWidget {
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.1),
+                            color: Colors.white.withValues(alpha: 0.1 * 255),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Icon(
