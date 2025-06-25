@@ -55,7 +55,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
+                        const Expanded(
                           child: Text(
                             'Como obter seu histórico acadêmico',
                             style: TextStyle(
@@ -76,9 +76,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                     ),
                     const SizedBox(height: 8),
                     // Passo 1
-                    _PassoHistorico(
+                    const _PassoHistorico(
                       titulo: '1º PASSO - Acesse o SIGAA',
-                      descricao: const Text.rich(
+                      descricao: Text.rich(
                         TextSpan(
                           children: [
                             TextSpan(text: 'Entre no '),
@@ -101,9 +101,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                       alt: 'Tela de login do SIGAA',
                     ),
                     // Passo 2
-                    _PassoHistorico(
+                    const _PassoHistorico(
                       titulo: '2º PASSO - Selecione "Emitir Histórico"',
-                      descricao: const Text(
+                      descricao: Text(
                         'No menu lateral, clique em Ensino e depois em Emitir Histórico.',
                         style:
                             TextStyle(fontSize: 16, color: Color(0xFF1A202C)),
@@ -112,10 +112,10 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                       alt: 'Menu Emitir Histórico no SIGAA',
                     ),
                     // Passo 3
-                    _PassoHistorico(
+                    const _PassoHistorico(
                       titulo:
                           '3º PASSO - Faça o upload do PDF para o NoFluxoUNB',
-                      descricao: const Text(
+                      descricao: Text(
                         'Salve o arquivo PDF gerado em seu computador e faça o upload nesta página.',
                         style:
                             TextStyle(fontSize: 16, color: Color(0xFF1A202C)),
@@ -127,7 +127,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                     Center(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF1B469B),
+                          backgroundColor: const Color(0xFF1B469B),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 32, vertical: 14),
                           shape: RoundedRectangleBorder(
@@ -166,14 +166,14 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                 // Card central
                 Center(
                   child: DragTarget<PlatformFile>(
-                    onWillAccept: (data) {
+                    onWillAcceptWithDetails: (data) {
                       setState(() => _isDragging = true);
                       return true;
                     },
                     onLeave: (data) => setState(() => _isDragging = false),
-                    onAccept: (data) {
+                    onAcceptWithDetails: (data) {
                       setState(() {
-                        _fileName = data.name;
+                        _fileName = data.data.name;
                         _isDragging = false;
                       });
                       // TODO: processar o arquivo
@@ -183,12 +183,12 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen> {
                         duration: const Duration(milliseconds: 200),
                         padding: const EdgeInsets.all(40),
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.5),
+                          color: Colors.black.withValues(alpha: 0.5 * 255),
                           borderRadius: BorderRadius.circular(24),
                           border: Border.all(
                             color: _isDragging
                                 ? Colors.blue
-                                : Colors.white.withOpacity(0.5),
+                                : Colors.white.withValues(alpha: 0.5 * 255),
                             width: 2,
                             style: BorderStyle.solid,
                           ),
@@ -323,7 +323,7 @@ class _PassoHistorico extends StatelessWidget {
                   border: Border.all(color: Colors.black12),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: Colors.black.withValues(alpha: (0.08 * 255)),
                       blurRadius: 12,
                       offset: const Offset(0, 4),
                     ),
