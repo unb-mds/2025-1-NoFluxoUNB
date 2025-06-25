@@ -23,14 +23,14 @@ class _ChatContainerState extends State<ChatContainer> {
 
   void _addWelcomeMessage() {
     _messages.add(
-      ChatMessage(
+      const ChatMessage(
         text:
             'Olá! Sou o assistente NoFluxo. Estou aqui para te ajudar a encontrar matérias interessantes para adicionar ao seu fluxograma.',
         isBot: true,
       ),
     );
     _messages.add(
-      ChatMessage(
+      const ChatMessage(
         text:
             'Me conte quais áreas você tem interesse ou quais habilidades gostaria de desenvolver!',
         isBot: true,
@@ -95,7 +95,7 @@ class _ChatContainerState extends State<ChatContainer> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   'ASSISTENTE NOFLUXO',
                   style: TextStyle(
                     color: Colors.white,

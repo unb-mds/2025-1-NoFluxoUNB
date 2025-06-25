@@ -73,7 +73,7 @@ class EquivalentCoursesModal extends StatelessWidget {
                   color: Colors.black.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     _EquivalentCourseItem(
                       name: 'Programação Orientada a Objetos',
@@ -81,14 +81,14 @@ class EquivalentCoursesModal extends StatelessWidget {
                       credits: 4,
                       department: 'Ciência da Computação',
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     _EquivalentCourseItem(
                       name: 'Desenvolvimento de Software',
                       code: 'CIC0002',
                       credits: 3,
                       department: 'Ciência da Computação',
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     _EquivalentCourseItem(
                       name: 'Estruturas de Dados',
                       code: 'CIC0003',

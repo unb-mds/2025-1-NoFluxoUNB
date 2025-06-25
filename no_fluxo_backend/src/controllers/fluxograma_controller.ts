@@ -29,7 +29,14 @@ export const FluxogramaController: EndpointController = {
             console.log(data);
 
             return res.status(200).json(data);
+        }),
 
+        "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const pdf_file = req.body.pdf_file;
+            const pdf_file_path = req.body.pdf_file_path;
+            const pdf_file_name = req.body.pdf_file_name;
+            const pdf_file_type = req.body.pdf_file_type;
+            
         })
     }
 }
