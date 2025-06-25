@@ -18,7 +18,7 @@ class AppHeader extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withValues(alpha: 0.3 * 255),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +74,7 @@ class AppHeader extends StatelessWidget {
                     width: 40,
                     height: 40,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1 * 255),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Icon(
