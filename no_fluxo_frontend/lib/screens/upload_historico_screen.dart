@@ -507,7 +507,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
             // Formatos aceitos
             const Text(
-              'Formatos aceitos: PDF, DOC, DOCX, TXT, HTML',
+              'Somente arquivos PDF são aceitos',
               style: TextStyle(
                 color: Colors.white70,
                 fontSize: 14,
