@@ -9,7 +9,7 @@ class FluxogramPreview extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3 * 255),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -29,7 +29,7 @@ class FluxogramPreview extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withValues(alpha: 0.5 * 255),
               borderRadius: BorderRadius.circular(8),
             ),
             child: CustomPaint(
@@ -54,7 +54,8 @@ class FluxogramPreview extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                side: BorderSide(color: Colors.white.withOpacity(0.3)),
+                side: BorderSide(
+                    color: Colors.white.withValues(alpha: 0.3 * 255)),
               ),
               child: const Text(
                 'VER FLUXOGRAMA COMPLETO',
