@@ -49,6 +49,8 @@ def limpar_nome_disciplina(nome):
     if not nome:
         return nome
     
+    nome_original = nome
+    
     # Remove padrões de período como "2023.1", "2024.2", etc.
     nome_limpo = re.sub(r'^\d{4}\.\d\s*', '', nome)
     
@@ -61,6 +63,10 @@ def limpar_nome_disciplina(nome):
     
     # Remove espaços extras
     nome_limpo = re.sub(r'\s+', ' ', nome_limpo).strip()
+    
+    # Debug: mostrar quando o nome foi alterado
+    if nome_original != nome_limpo:
+        print(f"🔧 Limpeza: '{nome_original}' → '{nome_limpo}'")
     
     return nome_limpo
 
@@ -180,16 +186,16 @@ def upload_pdf():
                     nome_disciplina = "Nome da Disciplina N/A"
                     if i - 1 >= 0:
                         prev_line = lines[i - 1].strip()
-                        # Nova regex para capturar o nome da disciplina, lidando com formatos variados
-                        # Tenta capturar tudo que pareça um nome, antes de números ou status no final da linha.
-                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-]+?)(?:\s+\d+\s*(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—)?)?$', prev_line, re.IGNORECASE)
+                        # Regex melhorada para capturar o nome da disciplina incluindo números
+                        # Captura tudo até encontrar status no final da linha
+                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
                         if name_match:
                             nome_disciplina = name_match.group(1).strip()
                             # Aplica a função de limpeza para remover períodos e outros elementos
                             nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                         else:
                             # Fallback se o padrão mais específico não funcionar
-                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+\d+)?(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
+                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
                             if fallback_name_match:
                                 nome_disciplina = fallback_name_match.group(1).strip()
                                 # Aplica a função de limpeza para remover períodos e outros elementos
@@ -210,6 +216,10 @@ def upload_pdf():
                         "natureza": natureza
                     })
                     print(f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})")
+                    
+                    # Debug: verificar se a disciplina contém números
+                    if re.search(r'\d', nome_disciplina):
+                        print(f"    📊 Disciplina com números: '{nome_disciplina}'")
                 # else:
                     # print(f"  -> Linha de professor, mas dados insuficientes para disciplina regular. Status: {match_status}, Codigo: {match_codigo}, Horas: {match_horas}")
 

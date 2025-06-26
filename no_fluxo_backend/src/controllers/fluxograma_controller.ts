@@ -99,14 +99,48 @@ export const FluxogramaController: EndpointController = {
                 }
 
                 const materiasBancoList = materiasBanco[0].materias_por_curso;
-                // Filtrar apenas matérias obrigatórias (nivel > 0)
+                // Filtrar matérias obrigatórias (nivel > 0) e optativas (nivel = 0)
                 const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
+                const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
                 const disciplinasCasadas: any[] = [];
                 const materiasConcluidas: any[] = [];
                 const materiasPendentes: any[] = [];
+                const materiasOptativasConcluidas: any[] = [];
+                const materiasOptativasPendentes: any[] = [];
 
                 console.log(`📚 Total de matérias no curso: ${materiasBancoList.length}`);
                 console.log(`📖 Matérias obrigatórias (nivel > 0): ${materiasObrigatorias.length}`);
+                console.log(`🎯 Matérias optativas (nivel = 0): ${materiasOptativas.length}`);
+                
+                // Extrair dados de validação do PDF
+                const dadosValidacao = {
+                    ira: null as number | null,
+                    horas_integralizadas: 0,
+                    pendencias: []
+                };
+
+                // Buscar dados de validação nos dados extraídos
+                for (const item of dados_extraidos.extracted_data) {
+                    if (item.IRA) {
+                        dadosValidacao.ira = parseFloat(item.valor);
+                        console.log(`📊 IRA extraído do PDF: ${dadosValidacao.ira}`);
+                    }
+                    if (item.tipo_dado === 'Pendencias') {
+                        dadosValidacao.pendencias = item.valores || [];
+                        console.log(`⚠️ Pendências extraídas do PDF: ${dadosValidacao.pendencias.join(', ')}`);
+                    }
+                }
+
+                // Calcular horas integralizadas das disciplinas processadas
+                let horasIntegralizadas = 0;
+                for (const disciplina of dados_extraidos.extracted_data) {
+                    if ((disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') && 
+                        (disciplina.status === 'APR' || disciplina.status === 'CUMP')) {
+                        horasIntegralizadas += disciplina.carga_horaria || 0;
+                    }
+                }
+                dadosValidacao.horas_integralizadas = horasIntegralizadas;
+                console.log(`⏱️ Horas integralizadas calculadas: ${horasIntegralizadas}h`);
                 
                 // Debug: verificar se há matérias com nível 0 ou nulo
                 const materiasNivelZero = materiasBancoList.filter((m: any) => m.nivel === 0 || m.nivel === null);
@@ -143,11 +177,21 @@ export const FluxogramaController: EndpointController = {
                 for (const disciplina of dados_extraidos.extracted_data) {
                     if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
                         
-                        const materiaBanco = materiasObrigatorias.find((m: any) => {
+                        // Tentar casar primeiro com matérias obrigatórias
+                        let materiaBanco = materiasObrigatorias.find((m: any) => {
                             const nomeMatch = m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
                             const codigoMatch = m.materias.codigo_materia.toLowerCase().trim() === (disciplina.codigo || '').toLowerCase().trim();
                             return nomeMatch || codigoMatch;
                         });
+
+                        // Se não encontrou nas obrigatórias, tentar nas optativas
+                        if (!materiaBanco) {
+                            materiaBanco = materiasOptativas.find((m: any) => {
+                                const nomeMatch = m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
+                                const codigoMatch = m.materias.codigo_materia.toLowerCase().trim() === (disciplina.codigo || '').toLowerCase().trim();
+                                return nomeMatch || codigoMatch;
+                            });
+                        }
 
                         if (materiaBanco) {
                             // Verificar se já existe uma disciplina casada com o mesmo ID
@@ -172,7 +216,8 @@ export const FluxogramaController: EndpointController = {
                                         ...disciplina,
                                         id_materia: materiaBanco.materias.id_materia,
                                         encontrada_no_banco: true,
-                                        nivel: materiaBanco.nivel
+                                        nivel: materiaBanco.nivel,
+                                        tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
                                     };
                                     console.log(`🔄 Atualizando status de "${disciplina.nome}": ${statusAtual} → ${statusNovo}`);
                                 }
@@ -182,17 +227,71 @@ export const FluxogramaController: EndpointController = {
                                     ...disciplina,
                                     id_materia: materiaBanco.materias.id_materia,
                                     encontrada_no_banco: true,
-                                    nivel: materiaBanco.nivel
+                                    nivel: materiaBanco.nivel,
+                                    tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
                                 };
                                 disciplinasCasadas.push(disciplinaCasada);
                             }
+                        } else {
+                            // Disciplina não encontrada no banco (nem obrigatória nem optativa)
+                            const disciplinaNaoEncontrada = {
+                                ...disciplina,
+                                id_materia: null,
+                                encontrada_no_banco: false,
+                                nivel: null,
+                                tipo: 'nao_encontrada'
+                            };
+                            disciplinasCasadas.push(disciplinaNaoEncontrada);
+                        }
+                    }
+                }
+
+                // Classificar as disciplinas casadas por status e tipo
+                for (const disciplinaCasada of disciplinasCasadas) {
+                    if (disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP') {
+                        // Matéria concluída
+                        if (disciplinaCasada.tipo === 'optativa') {
+                            materiasOptativasConcluidas.push({
+                                ...disciplinaCasada,
+                                status_fluxograma: 'concluida'
+                            });
+                        } else {
+                            materiasConcluidas.push({
+                                ...disciplinaCasada,
+                                status_fluxograma: 'concluida'
+                            });
+                        }
+                    } else if (disciplinaCasada.status === 'MATR') {
+                        // Matéria em andamento
+                        if (disciplinaCasada.tipo === 'optativa') {
+                            materiasOptativasPendentes.push({
+                                ...disciplinaCasada,
+                                status_fluxograma: 'em_andamento'
+                            });
+                        } else {
+                            materiasPendentes.push({
+                                ...disciplinaCasada,
+                                status_fluxograma: 'em_andamento'
+                            });
+                        }
+                    } else {
+                        // Matéria não concluída (REP, etc.)
+                        if (disciplinaCasada.tipo === 'optativa') {
+                            materiasOptativasPendentes.push({
+                                ...disciplinaCasada,
+                                status_fluxograma: 'pendente'
+                            });
+                        } else {
+                            materiasPendentes.push({
+                                ...disciplinaCasada,
+                                status_fluxograma: 'pendente'
+                            });
                         }
                     }
                 }
 
                 // Adicionar matérias obrigatórias do banco que não foram encontradas no histórico
-                const materiasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
-                    // Verifica se a matéria NÃO foi encontrada em nenhuma disciplina casada
+                const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) => 
                         disc.id_materia === materiaBanco.materias.id_materia
                     );
@@ -203,73 +302,37 @@ export const FluxogramaController: EndpointController = {
                     nivel: materiaBanco.nivel,
                     encontrada_no_banco: true,
                     encontrada_no_historico: false,
+                    tipo: 'obrigatoria',
                     status_fluxograma: 'nao_cursada'
                 }));
 
-                // Combinar todas as matérias pendentes (apenas as que não foram encontradas no histórico)
-                const todasMateriasPendentes = [...materiasPendentes, ...materiasNaoEncontradas];
+                // Combinar todas as matérias pendentes
+                const todasMateriasPendentes = [...materiasPendentes, ...materiasObrigatoriasNaoEncontradas];
+                const todasMateriasOptativas = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
 
                 console.log(`🔍 BREAKDOWN DA CONTAGEM:`);
                 console.log(`   Matérias obrigatórias no banco: ${materiasObrigatorias.length}`);
+                console.log(`   Matérias optativas no banco: ${materiasOptativas.length}`);
                 console.log(`   Disciplinas casadas: ${disciplinasCasadas.length}`);
-                console.log(`   Matérias concluídas: ${materiasConcluidas.length}`);
-                console.log(`   Matérias pendentes (do histórico): ${materiasPendentes.length}`);
-                console.log(`   Matérias não encontradas no histórico: ${materiasNaoEncontradas.length}`);
-                console.log(`   TOTAL matérias pendentes: ${todasMateriasPendentes.length}`);
-                console.log(`   SOMA: ${materiasConcluidas.length + todasMateriasPendentes.length}`);
-                console.log(`   VERIFICAÇÃO: ${materiasConcluidas.length + materiasPendentes.length + materiasNaoEncontradas.length} (deveria ser ${materiasObrigatorias.length})`);
-                
-                // Debug detalhado das categorias
-                console.log(`\n🔍 DEBUG DETALHADO:`);
-                console.log(`📚 MATÉRIAS CONCLUÍDAS (${materiasConcluidas.length}):`);
-                materiasConcluidas.forEach((m: any, i: number) => console.log(`   ${i+1}. ${m.nome} (${m.status})`));
-                
-                console.log(`📚 MATÉRIAS PENDENTES DO HISTÓRICO (${materiasPendentes.length}):`);
-                materiasPendentes.forEach((m: any, i: number) => console.log(`   ${i+1}. ${m.nome} (${m.status})`));
-                
-                console.log(`📚 MATÉRIAS NÃO ENCONTRADAS NO HISTÓRICO (${materiasNaoEncontradas.length}):`);
-                materiasNaoEncontradas.forEach((m: any, i: number) => console.log(`   ${i+1}. ${m.nome}`));
-                
-                // Verificar se há IDs duplicados
-                const todosIds = [...materiasConcluidas, ...materiasPendentes, ...materiasNaoEncontradas].map(m => m.id_materia);
-                const idsUnicos = [...new Set(todosIds)];
-                console.log(`🔍 Verificação de IDs: ${todosIds.length} total, ${idsUnicos.length} únicos`);
-                if (todosIds.length !== idsUnicos.length) {
-                    console.log(`⚠️  IDs DUPLICADOS ENCONTRADOS!`);
-                }
-
-                // Classificar as disciplinas casadas por status
-                for (const disciplinaCasada of disciplinasCasadas) {
-                    if (disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP') {
-                        // Matéria concluída
-                        materiasConcluidas.push({
-                            ...disciplinaCasada,
-                            status_fluxograma: 'concluida'
-                        });
-                    } else if (disciplinaCasada.status === 'MATR') {
-                        // Matéria em andamento
-                        materiasPendentes.push({
-                            ...disciplinaCasada,
-                            status_fluxograma: 'em_andamento'
-                        });
-                    } else {
-                        // Matéria não concluída (REP, etc.)
-                        materiasPendentes.push({
-                            ...disciplinaCasada,
-                            status_fluxograma: 'pendente'
-                        });
-                    }
-                }
+                console.log(`   Matérias obrigatórias concluídas: ${materiasConcluidas.length}`);
+                console.log(`   Matérias obrigatórias pendentes: ${todasMateriasPendentes.length}`);
+                console.log(`   Matérias optativas concluídas: ${materiasOptativasConcluidas.length}`);
+                console.log(`   Matérias optativas pendentes: ${materiasOptativasPendentes.length}`);
+                console.log(`   SOMA obrigatórias: ${materiasConcluidas.length + todasMateriasPendentes.length}`);
+                console.log(`   TOTAL optativas: ${todasMateriasOptativas.length}`);
 
                 return res.status(200).json({
                     disciplinas_casadas: disciplinasCasadas,
                     materias_concluidas: materiasConcluidas,
                     materias_pendentes: todasMateriasPendentes,
+                    materias_optativas: todasMateriasOptativas,
+                    dados_validacao: dadosValidacao,
                     resumo: {
                         total_disciplinas: disciplinasCasadas.length,
-                        total_concluidas: materiasConcluidas.length,
-                        total_pendentes: todasMateriasPendentes.length,
-                        percentual_conclusao: materiasConcluidas.length / (materiasConcluidas.length + todasMateriasPendentes.length) * 100
+                        total_obrigatorias_concluidas: materiasConcluidas.length,
+                        total_obrigatorias_pendentes: todasMateriasPendentes.length,
+                        total_optativas: todasMateriasOptativas.length,
+                        percentual_conclusao_obrigatorias: materiasConcluidas.length / (materiasConcluidas.length + todasMateriasPendentes.length) * 100
                     }
                 });
 

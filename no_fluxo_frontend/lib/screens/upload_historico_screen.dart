@@ -37,6 +37,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   late Animation<double> _progressGradientAnimation;
   Map<String, dynamic>? _dadosExtraidos;
   List<Map<String, dynamic>>? _disciplinasCasadas;
+  Map<String, dynamic>? _dadosValidacao;
+  List<Map<String, dynamic>>? _materiasOptativas;
 
   @override
   void initState() {
@@ -353,6 +355,26 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                         Text(
                             '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false).length}',
                             style: TextStyle(color: Colors.orange)),
+                        if (_materiasOptativas != null) ...[
+                          const SizedBox(height: 8),
+                          Text(
+                              '🎯 Matérias optativas: ${_materiasOptativas!.length}',
+                              style: TextStyle(color: Colors.purple)),
+                        ],
+                        if (_dadosValidacao != null) ...[
+                          const SizedBox(height: 8),
+                          Text(
+                              '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
+                              style: TextStyle(color: Colors.blue)),
+                          Text(
+                              '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
+                              style: TextStyle(color: Colors.blue)),
+                          if (_dadosValidacao!['pendencias'] != null &&
+                              _dadosValidacao!['pendencias'].isNotEmpty)
+                            Text(
+                                '⚠️ Pendências: ${_dadosValidacao!['pendencias'].join(', ')}',
+                                style: TextStyle(color: Colors.orange)),
+                        ],
                         const SizedBox(height: 8),
                         Text('💡 Dica: Verifique o console para mais detalhes',
                             style:
@@ -957,17 +979,33 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         setState(() {
           _disciplinasCasadas =
               List<Map<String, dynamic>>.from(resultado['disciplinas_casadas']);
+          _dadosValidacao = resultado['dados_validacao'];
+          _materiasOptativas = resultado['materias_optativas'] != null
+              ? List<Map<String, dynamic>>.from(resultado['materias_optativas'])
+              : null;
         });
 
         // Logs detalhados
         print(
             '📋 Total disciplinas casadas: ${resultado['disciplinas_casadas']?.length}');
         print(
-            '✅ Matérias concluídas: ${resultado['materias_concluidas']?.length}');
+            '✅ Matérias obrigatórias concluídas: ${resultado['materias_concluidas']?.length}');
         print(
-            '❌ Matérias pendentes: ${resultado['materias_pendentes']?.length}');
+            '❌ Matérias obrigatórias pendentes: ${resultado['materias_pendentes']?.length}');
         print(
-            '📊 Percentual de conclusão: ${resultado['resumo']?['percentual_conclusao']?.toStringAsFixed(1)}%');
+            '🎯 Matérias optativas: ${resultado['materias_optativas']?.length ?? 0}');
+        print(
+            '📊 Percentual de conclusão obrigatórias: ${resultado['resumo']?['percentual_conclusao_obrigatorias']?.toStringAsFixed(1)}%');
+
+        // Logs de validação
+        if (resultado['dados_validacao']) {
+          print('📊 DADOS DE VALIDAÇÃO:');
+          print('   IRA: ${resultado['dados_validacao']['ira']}');
+          print(
+              '   Horas integralizadas: ${resultado['dados_validacao']['horas_integralizadas']}h');
+          print(
+              '   Pendências: ${resultado['dados_validacao']['pendencias'].join(', ')}');
+        }
 
         // Debug detalhado das disciplinas não encontradas
         if (resultado['disciplinas_casadas'] != null) {
