@@ -49,9 +49,6 @@ def limpar_nome_disciplina(nome):
     if not nome:
         return nome
     
-    nome_original = nome
-    print(f"🔧 Limpando nome da disciplina: '{nome_original}'")
-    
     # Remove padrões de período como "2023.1", "2024.2", etc.
     nome_limpo = re.sub(r'^\d{4}\.\d\s*', '', nome)
     
@@ -59,14 +56,11 @@ def limpar_nome_disciplina(nome):
     nome_limpo = re.sub(r'^--\s*', '', nome_limpo)
     nome_limpo = re.sub(r'^—\s*', '', nome_limpo)
     
-    # Remove caracteres não-alfabéticos do início e fim
-    nome_limpo = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_limpo)
+    # Remove apenas caracteres especiais do início e fim, preservando letras, números e espaços
+    nome_limpo = re.sub(r'^[^\w\s]+|[^\w\s]+$', '', nome_limpo)
     
     # Remove espaços extras
     nome_limpo = re.sub(r'\s+', ' ', nome_limpo).strip()
-    
-    if nome_original != nome_limpo:
-        print(f"✅ Nome limpo: '{nome_limpo}'")
     
     return nome_limpo
 
