@@ -197,7 +197,7 @@ class _LoginFormState extends State<LoginForm> {
                 height: 24,
                 width: 24,
                 errorBuilder: (context, error, stackTrace) =>
-                    Icon(Icons.login, color: Colors.red),
+                    const Icon(Icons.login, color: Colors.red),
               ),
               label: const Text(
                 'Entrar com Google',
