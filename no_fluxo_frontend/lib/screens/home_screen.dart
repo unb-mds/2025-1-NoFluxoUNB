@@ -169,7 +169,7 @@ class _AnimatedAcesseButtonState extends State<_AnimatedAcesseButton> {
               borderRadius: BorderRadius.circular(32.0),
             ),
             backgroundColor: Colors.transparent,
-            shadowColor: const Color(0xFF1D4ED8).withOpacity(0.3),
+            shadowColor: const Color(0xFF1D4ED8).withValues(alpha: 0.3 * 255),
           ),
           child: Ink(
             decoration: BoxDecoration(

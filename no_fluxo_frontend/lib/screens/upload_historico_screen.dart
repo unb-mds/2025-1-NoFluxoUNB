@@ -21,7 +21,6 @@ class UploadHistoricoScreen extends StatefulWidget {
 class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     with TickerProviderStateMixin {
   String? _fileName;
-  bool _isDragging = false;
   bool _isHovering = false;
   bool _isCloseIconHovering = false;
   UploadState _uploadState = UploadState.initial;
@@ -101,16 +100,24 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   }
 
   void _pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['pdf', 'doc', 'docx', 'txt', 'html'],
-    );
+    try {
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf', 'doc', 'docx', 'txt', 'html'],
+      );
 
-    if (result != null && result.files.single.bytes != null) {
-      setState(() {
-        _fileName = result.files.single.name;
-      });
-      await _simulateUpload();
+      if (result != null && result.files.single.bytes != null) {
+        setState(() {
+          _fileName = result.files.single.name;
+        });
+        await uploadPdfBytes(
+            result.files.single.bytes!, result.files.single.name);
+        await _simulateUpload();
+      }
+    } catch (e) {
+      // Debugger e mensagem de erro
+      debugPrint('Erro ao selecionar o arquivo: ' + e.toString());
+      assert(false, 'Erro ao selecionar o arquivo: ' + e.toString());
     }
   }
 
@@ -337,7 +344,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           builder: (context, child) {
             return Center(
               child: Container(
-                constraints: BoxConstraints(maxWidth: 800),
+                constraints: const BoxConstraints(maxWidth: 800),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [Color(0xFF7B2FF2), Color(0xFFF357A8)],
@@ -409,11 +416,11 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                 return Transform.translate(
                   offset: Offset(0, -5 * _hoverAnimation.value),
                   child: DottedBorder(
-                    options: RoundedRectDottedBorderOptions(
+                    options: const RoundedRectDottedBorderOptions(
                       color: Colors.white,
                       strokeWidth: 2,
-                      radius: const Radius.circular(16),
-                      dashPattern: const [8, 6],
+                      radius: Radius.circular(16),
+                      dashPattern: [8, 6],
                       padding: EdgeInsets.zero,
                     ),
                     child: Container(
@@ -666,11 +673,11 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         children: [
           // Card de sucesso com borda pontilhada branca
           DottedBorder(
-            options: RoundedRectDottedBorderOptions(
+            options: const RoundedRectDottedBorderOptions(
               color: Colors.white,
               strokeWidth: 2,
-              radius: const Radius.circular(20),
-              dashPattern: const [8, 6],
+              radius: Radius.circular(20),
+              dashPattern: [8, 6],
               padding: EdgeInsets.zero,
             ),
             child: Container(
