@@ -41,6 +41,16 @@ class AppRouter {
       ),
 
       GoRoute(
+        path: '/auth/upload',
+        name: 'auth-upload',
+        builder: (context, state) {
+          print(
+              '📁 Navegando para UPLOAD HISTÓRICO: [36m[1m[4m${state.uri.path}[0m');
+          return const UploadHistoricoScreen();
+        },
+      ),
+
+      GoRoute(
         path: '/login',
         name: 'login',
         builder: (context, state) => LoginForm(
@@ -60,13 +70,6 @@ class AppRouter {
         path: '/password-recovery',
         name: 'password-recovery',
         builder: (context, state) => const PasswordRecoveryScreen(),
-      ),
-
-      // Upload Histórico Acadêmico Route
-      GoRoute(
-        path: '/upload-historico',
-        name: 'upload-historico',
-        builder: (context, state) => const UploadHistoricoScreen(),
       ),
 
       // Fluxogramas Route (placeholder - será implementada depois)

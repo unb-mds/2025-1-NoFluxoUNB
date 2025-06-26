@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
 
 class AnimatedBackground extends StatelessWidget {
   const AnimatedBackground({super.key});
@@ -61,7 +60,6 @@ class _AnimatedSmoke extends StatefulWidget {
   final int durationSeconds;
 
   const _AnimatedSmoke({
-    super.key,
     required this.size,
     required this.color,
     required this.topPercent,

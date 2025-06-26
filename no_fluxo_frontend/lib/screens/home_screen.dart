@@ -54,7 +54,8 @@ class HomeScreen extends StatelessWidget {
                                               shadows: [
                                                 Shadow(
                                                   color: AppColors.black
-                                                      .withOpacity(0.3),
+                                                      .withValues(
+                                                          alpha: 0.3 * 255),
                                                   offset: const Offset(3, 3),
                                                   blurRadius: 6,
                                                 ),
@@ -71,7 +72,8 @@ class HomeScreen extends StatelessWidget {
                                               shadows: [
                                                 Shadow(
                                                   color: AppColors.black
-                                                      .withOpacity(0.3),
+                                                      .withValues(
+                                                          alpha: 0.3 * 255),
                                                   offset: const Offset(3, 3),
                                                   blurRadius: 6,
                                                 ),
@@ -91,8 +93,8 @@ class HomeScreen extends StatelessWidget {
                                         'O NO FLUXO UNB TE AJUDA A VER O FLUXOGRAMA DO SEU CURSO E AINDA TE PERMITE ADICIONAR MATÉRIAS OPTATIVAS DE ACORDO COM SUAS ÁREAS DE INTERESSE!',
                                         style: GoogleFonts.poppins(
                                           fontSize: 20,
-                                          color:
-                                              AppColors.white.withOpacity(0.95),
+                                          color: AppColors.white
+                                              .withValues(alpha: 0.95 * 255),
                                           fontWeight: FontWeight.w400,
                                           letterSpacing: 0.5,
                                         ),
@@ -167,7 +169,7 @@ class _AnimatedAcesseButtonState extends State<_AnimatedAcesseButton> {
               borderRadius: BorderRadius.circular(32.0),
             ),
             backgroundColor: Colors.transparent,
-            shadowColor: const Color(0xFF1D4ED8).withOpacity(0.3),
+            shadowColor: const Color(0xFF1D4ED8).withValues(alpha: 0.3 * 255),
           ),
           child: Ink(
             decoration: BoxDecoration(

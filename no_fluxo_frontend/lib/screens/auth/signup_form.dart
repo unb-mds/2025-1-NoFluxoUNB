@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../constants/app_colors.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -158,7 +159,9 @@ class _SignupFormState extends State<SignupForm> {
                 prefixIcon: const Icon(Icons.lock, color: AppColors.white),
                 suffixIcon: IconButton(
                   icon: Icon(
-                    _obscureConfirmPassword ? Icons.visibility : Icons.visibility_off,
+                    _obscureConfirmPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
                     color: AppColors.white,
                   ),
                   onPressed: () {
@@ -224,7 +227,9 @@ class _SignupFormState extends State<SignupForm> {
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate() && _acceptTerms) {
-                  // TODO: Implementar cadastro
+                  // Redireciona usando GoRouter
+                  // ignore: use_build_context_synchronously
+                  context.go('/auth/upload');
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -268,4 +273,4 @@ class _SignupFormState extends State<SignupForm> {
       ),
     );
   }
-} 
+}

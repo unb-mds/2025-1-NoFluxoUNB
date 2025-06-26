@@ -40,6 +40,7 @@ dependencies:
   go_router: ^13.2.0
   url_strategy: ^0.3.0
   http: ^1.2.1
+  dotted_border: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/fonts/
+    - assets/help/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

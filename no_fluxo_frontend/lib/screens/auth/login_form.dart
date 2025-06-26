@@ -167,7 +167,7 @@ class _LoginFormState extends State<LoginForm> {
                 if (_formKey.currentState!.validate()) {
                   // Redireciona usando GoRouter
                   // ignore: use_build_context_synchronously
-                  context.go('/upload-historico');
+                  context.go('/auth/upload');
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -184,6 +184,38 @@ class _LoginFormState extends State<LoginForm> {
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            // Botão de login com Google
+            ElevatedButton.icon(
+              onPressed: () {
+                // TODO: Implementar autenticação Google
+              },
+              icon: Image.asset(
+                'assets/icons/google.png',
+                height: 24,
+                width: 24,
+                errorBuilder: (context, error, stackTrace) =>
+                    const Icon(Icons.login, color: Colors.red),
+              ),
+              label: const Text(
+                'Entrar com Google',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black87,
+                elevation: 2,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                shadowColor: Colors.black12,
               ),
             ),
             const SizedBox(height: 16),
