@@ -8,6 +8,7 @@ import 'package:http_parser/http_parser.dart';
 import 'dart:typed_data';
 import 'package:go_router/go_router.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'dart:convert';
 
 enum UploadState { initial, uploading, success }
 
@@ -34,6 +35,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   late Animation<double> _hoverAnimation;
   late Animation<double> _pulseAnimation;
   late Animation<double> _progressGradientAnimation;
+  Map<String, dynamic>? _dadosExtraidos;
+  List<Map<String, dynamic>>? _disciplinasCasadas;
 
   @override
   void initState() {
@@ -103,19 +106,24 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
-        allowedExtensions: ['pdf', 'doc', 'docx', 'txt', 'html'],
+        allowedExtensions: ['pdf'],
       );
 
       if (result != null && result.files.single.bytes != null) {
         setState(() {
           _fileName = result.files.single.name;
         });
-        await uploadPdfBytes(
+        final dados = await uploadPdfBytes(
             result.files.single.bytes!, result.files.single.name);
+        if (dados != null) {
+          setState(() {
+            _dadosExtraidos = dados;
+          });
+          await _casarDisciplinasComBanco();
+        }
         await _simulateUpload();
       }
     } catch (e) {
-      // Debugger e mensagem de erro
       debugPrint('Erro ao selecionar o arquivo: ' + e.toString());
       assert(false, 'Erro ao selecionar o arquivo: ' + e.toString());
     }
@@ -319,6 +327,40 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                     child: _buildHelpButton(),
                   ),
                 const Spacer(),
+                if (_disciplinasCasadas != null) ...[
+                  const SizedBox(height: 24),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('📊 Resultado do Processamento:',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18)),
+                        const SizedBox(height: 12),
+                        Text(
+                            '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
+                            style: TextStyle(color: Colors.white)),
+                        Text(
+                            '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true).length}',
+                            style: TextStyle(color: Colors.green)),
+                        Text(
+                            '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false).length}',
+                            style: TextStyle(color: Colors.orange)),
+                        const SizedBox(height: 8),
+                        Text('💡 Dica: Verifique o console para mais detalhes',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -888,6 +930,53 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       },
     );
   }
+
+  Future<void> _casarDisciplinasComBanco() async {
+    if (_dadosExtraidos == null) return;
+
+    try {
+      print('🔄 Enviando dados para casamento...');
+      print(
+          '📊 Dados extraídos: ${_dadosExtraidos?['extracted_data']?.length} disciplinas');
+
+      final response = await http.post(
+        Uri.parse('http://localhost:3000/fluxograma/casar_disciplinas'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'dados_extraidos': _dadosExtraidos,
+          'nome_curso': 'ENGENHARIA DE SOFTWARE'
+        }),
+      );
+
+      print('📡 Status da resposta: ${response.statusCode}');
+
+      if (response.statusCode == 200) {
+        final resultado = jsonDecode(response.body);
+        print('✅ Resposta do backend: $resultado');
+
+        setState(() {
+          _disciplinasCasadas =
+              List<Map<String, dynamic>>.from(resultado['disciplinas_casadas']);
+        });
+
+        // Logs detalhados
+        print(
+            '📋 Total disciplinas casadas: ${resultado['disciplinas_casadas']?.length}');
+        print(
+            '✅ Matérias concluídas: ${resultado['materias_concluidas']?.length}');
+        print(
+            '❌ Matérias pendentes: ${resultado['materias_pendentes']?.length}');
+        print(
+            '📊 Percentual de conclusão: ${resultado['resumo']?['percentual_conclusao']?.toStringAsFixed(1)}%');
+      } else {
+        print('❌ Erro na resposta: ${response.statusCode}');
+        final errorBody = response.body;
+        print('❌ Detalhes do erro: $errorBody');
+      }
+    } catch (e) {
+      print('💥 Erro ao casar disciplinas: $e');
+    }
+  }
 }
 
 class _PassoHistorico extends StatelessWidget {
@@ -978,31 +1067,31 @@ Future<void> uploadPdf(File file) async {
   }
 }
 
-Future<void> uploadPdfBytes(Uint8List bytes, String fileName) async {
+Future<Map<String, dynamic>?> uploadPdfBytes(
+    Uint8List bytes, String fileName) async {
   try {
     var uri = Uri.parse('http://localhost:3000/fluxograma/read_pdf');
     var request = http.MultipartRequest('POST', uri);
-
-    // Adiciona o arquivo como bytes
     request.files.add(
       http.MultipartFile.fromBytes(
-        'pdf', // nome do campo esperado pelo backend
+        'pdf',
         bytes,
         filename: fileName,
-        contentType: MediaType('application',
-            'pdf'), // precisa importar 'package:http_parser/http_parser.dart'
+        contentType: MediaType('application', 'pdf'),
       ),
     );
-
     var response = await request.send();
 
     if (response.statusCode == 200) {
-      print('PDF enviado e processado com sucesso!');
-      // Trate a resposta aqui
+      final respStr = await response.stream.bytesToString();
+      final data = jsonDecode(respStr);
+      return data;
     } else {
-      print('Erro ao enviar PDF: ${response.statusCode}');
+      print('Erro ao enviar PDF: [31m${response.statusCode}[0m');
+      return null;
     }
   } catch (e) {
     print('Erro ao enviar PDF: $e');
+    return null;
   }
 }
