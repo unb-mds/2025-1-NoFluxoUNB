@@ -71,7 +71,7 @@ export const FluxogramaController: EndpointController = {
                 // Buscar matérias do curso no banco
                 const { data: materiasBanco, error } = await SupabaseWrapper.get()
                     .from("cursos")
-                    .select("*,materias_por_curso(materias(*))")
+                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
                     .like("nome_curso", "%" + nome_curso + "%");
 
                 if (error) {
@@ -113,10 +113,31 @@ export const FluxogramaController: EndpointController = {
                     console.log(`🔍 Exemplo de matéria:`, materiasBancoList[0]);
                     console.log(`🔍 Níveis encontrados:`, materiasBancoList.map((m: any) => m.nivel));
                 }
+                
+                // Debug: mostrar algumas matérias do banco
+                console.log(`📚 PRIMEIRAS 5 MATÉRIAS DO BANCO:`);
+                materiasObrigatorias.slice(0, 5).forEach((m: any, index: number) => {
+                    console.log(`${index + 1}. "${m.materias.nome_materia}" (${m.materias.codigo_materia}) - Nível: ${m.nivel}`);
+                });
 
                 // Casamento das disciplinas
                 for (const disciplina of dados_extraidos.extracted_data) {
                     if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
+                        
+                        // Debug específico para "ENGENHARIA E AMBIENTE"
+                        if (disciplina.nome && disciplina.nome.toLowerCase().includes('engenharia') && disciplina.nome.toLowerCase().includes('ambiente')) {
+                            console.log(`🔍 DEBUG ESPECÍFICO - "ENGENHARIA E AMBIENTE":`);
+                            console.log(`   Nome extraído: "${disciplina.nome}"`);
+                            console.log(`   Código extraído: "${disciplina.codigo || 'N/A'}"`);
+                            
+                            // Procurar por matérias similares no banco
+                            const materiasSimilares = materiasObrigatorias.filter((m: any) => 
+                                m.materias.nome_materia.toLowerCase().includes('engenharia') || 
+                                m.materias.nome_materia.toLowerCase().includes('ambiente')
+                            );
+                            console.log(`   Matérias similares no banco:`, materiasSimilares.map((m: any) => m.materias.nome_materia));
+                        }
+                        
                         const materiaBanco = materiasObrigatorias.find((m: any) => {
                             const nomeMatch = m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
                             const codigoMatch = m.materias.codigo_materia.toLowerCase().trim() === (disciplina.codigo || '').toLowerCase().trim();

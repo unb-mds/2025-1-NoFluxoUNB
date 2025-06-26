@@ -968,6 +968,21 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
             '❌ Matérias pendentes: ${resultado['materias_pendentes']?.length}');
         print(
             '📊 Percentual de conclusão: ${resultado['resumo']?['percentual_conclusao']?.toStringAsFixed(1)}%');
+
+        // Debug detalhado das disciplinas não encontradas
+        if (resultado['disciplinas_casadas'] != null) {
+          print('\n🔍 DEBUG DETALHADO:');
+          for (var i = 0; i < resultado['disciplinas_casadas'].length; i++) {
+            var disc = resultado['disciplinas_casadas'][i];
+            if (disc['encontrada_no_banco'] == false) {
+              print(
+                  '❌ NÃO ENCONTRADA: "${disc['nome']}" (Código: ${disc['codigo'] ?? 'N/A'})');
+            } else {
+              print(
+                  '✅ ENCONTRADA: "${disc['nome']}" (ID: ${disc['id_materia']})');
+            }
+          }
+        }
       } else {
         print('❌ Erro na resposta: ${response.statusCode}');
         final errorBody = response.body;

@@ -8,6 +8,7 @@ from flask_cors import CORS
 from PIL import Image # Importar a biblioteca Pillow (PIL)
 from pdf2image import convert_from_bytes # Para converter PDF para imagem
 import pytesseract # Para o OCR
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)
@@ -41,6 +42,33 @@ padrao_cump = re.compile(r"--\s+CUMP\b")
 # Regex para extrair carga horária de matérias CUMP (o número antes de "100,0")
 padrao_horas_cump = re.compile(r"\b\w+\d+\s+(\d+)\s+\d{1,3},\d\b") # Ex: LET0331 60 100,0
 
+def limpar_nome_disciplina(nome):
+    """
+    Remove períodos e outros elementos desnecessários do nome da disciplina
+    """
+    if not nome:
+        return nome
+    
+    nome_original = nome
+    print(f"🔧 Limpando nome da disciplina: '{nome_original}'")
+    
+    # Remove padrões de período como "2023.1", "2024.2", etc.
+    nome_limpo = re.sub(r'^\d{4}\.\d\s*', '', nome)
+    
+    # Remove outros padrões comuns que podem aparecer no início
+    nome_limpo = re.sub(r'^--\s*', '', nome_limpo)
+    nome_limpo = re.sub(r'^—\s*', '', nome_limpo)
+    
+    # Remove caracteres não-alfabéticos do início e fim
+    nome_limpo = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_limpo)
+    
+    # Remove espaços extras
+    nome_limpo = re.sub(r'\s+', ' ', nome_limpo).strip()
+    
+    if nome_original != nome_limpo:
+        print(f"✅ Nome limpo: '{nome_limpo}'")
+    
+    return nome_limpo
 
 @app.route('/upload-pdf', methods=['POST'])
 def upload_pdf():
@@ -163,16 +191,19 @@ def upload_pdf():
                         name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-]+?)(?:\s+\d+\s*(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—)?)?$', prev_line, re.IGNORECASE)
                         if name_match:
                             nome_disciplina = name_match.group(1).strip()
-                            # Limpa potenciais caracteres não-alfabéticos que sobraram no início/fim do nome
-                            nome_disciplina = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_disciplina).strip()
+                            # Aplica a função de limpeza para remover períodos e outros elementos
+                            nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                         else:
                             # Fallback se o padrão mais específico não funcionar
                             fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+\d+)?(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
                             if fallback_name_match:
                                 nome_disciplina = fallback_name_match.group(1).strip()
-                                nome_disciplina = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_disciplina).strip()
+                                # Aplica a função de limpeza para remover períodos e outros elementos
+                                nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                             else:
                                 nome_disciplina = prev_line # Último recurso: usa a linha anterior inteira
+                                # Aplica a função de limpeza mesmo no fallback
+                                nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                     
                     disciplinas.append({
                         "tipo_dado": "Disciplina Regular",
@@ -203,8 +234,8 @@ def upload_pdf():
                 cump_name_match = re.search(r"^(?:--\s*|\d{4}\.\d\s*)(.*?)(?:\s+--|\s+—)\s*CUMP", linha, re.IGNORECASE)
                 if cump_name_match:
                     nome_materia_cump = cump_name_match.group(1).strip()
-                    # Limpa potenciais caracteres não-alfabéticos que sobraram no início/fim do nome
-                    nome_materia_cump = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_materia_cump).strip()
+                    # Aplica a função de limpeza para remover períodos e outros elementos
+                    nome_materia_cump = limpar_nome_disciplina(nome_materia_cump)
 
 
                 if match_padrao_horas_cump:
