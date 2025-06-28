@@ -31,6 +31,10 @@ padrao_curriculo = r'(\d+/\d+(?:\s*-\s*\d{4}\.\d)?)'
 padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
+# --- Extração de Curso ---
+padrao_curso = re.compile(r'(?:CURSO|GRADUAÇÃO|BACHARELADO|LICENCIATURA)[:\s]+([A-ZÀ-Ÿ\s]+?)(?:\n|$)', re.IGNORECASE)
+padrao_curso_alternativo = re.compile(r'(?:ENGENHARIA|CIÊNCIA|ADMINISTRAÇÃO|DIREITO|MEDICINA|PEDAGOGIA|LETRAS|HISTÓRIA|GEOGRAFIA|MATEMÁTICA|FÍSICA|QUÍMICA|BIOLOGIA|PSICOLOGIA|SOCIOLOGIA|FILOSOFIA|ECONOMIA|CONTABILIDADE|SISTEMAS|COMPUTAÇÃO|INFORMÁTICA|TECNOLOGIA)[\s\wÀ-Ÿ]+', re.IGNORECASE)
+
 # --- Disciplinas Padrão (com professor) ---
 padrao_status = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_mencao = re.compile(r"\b(SS|MS|MM|MI|II|SR)\b")
@@ -41,6 +45,27 @@ padrao_codigo = re.compile(r"\b[A-Z]{2,}\d{3,}\b") # Códigos como FGA0133, LET0
 padrao_cump = re.compile(r"--\s+CUMP\b")
 # Regex para extrair carga horária de matérias CUMP (o número antes de "100,0")
 padrao_horas_cump = re.compile(r"\b\w+\d+\s+(\d+)\s+\d{1,3},\d\b") # Ex: LET0331 60 100,0
+
+def extrair_curso(texto):
+    """
+    Extrai o nome do curso do texto do PDF
+    """
+    # Tentar padrão específico primeiro
+    match_curso = padrao_curso.search(texto)
+    if match_curso:
+        curso = match_curso.group(1).strip()
+        print(f"🎓 Curso extraído: {curso}")
+        return curso
+    
+    # Tentar padrão alternativo
+    match_curso_alt = padrao_curso_alternativo.search(texto)
+    if match_curso_alt:
+        curso = match_curso_alt.group(0).strip()
+        print(f"🎓 Curso extraído (padrão alternativo): {curso}")
+        return curso
+    
+    print("⚠️ Curso não encontrado no PDF")
+    return None
 
 def limpar_nome_disciplina(nome):
     """
@@ -127,6 +152,9 @@ def upload_pdf():
         print("\n--- Texto Completo Extraído (Primeiras 500 chars) ---")
         print(texto_total[:500] + "..." if len(texto_total) > 500 else texto_total)
         print("----------------------------------------------------\n")
+
+        # Extrair curso do texto
+        curso_extraido = extrair_curso(texto_total)
 
         disciplinas = [] # Lista para armazenar os dados extraídos das disciplinas
         lines = texto_total.splitlines()
@@ -274,6 +302,7 @@ def upload_pdf():
             'message': 'PDF processado com sucesso!',
             'filename': filename,
             'matricula': matricula,
+            'curso_extraido': curso_extraido,
             'full_text': texto_total,
             'extracted_data': disciplinas
         })

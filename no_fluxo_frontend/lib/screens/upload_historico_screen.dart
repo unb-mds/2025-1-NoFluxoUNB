@@ -350,10 +350,10 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                             '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
                             style: TextStyle(color: Colors.white)),
                         Text(
-                            '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true).length}',
+                            '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true || d['encontrada_no_banco'] == 'true').length}',
                             style: TextStyle(color: Colors.green)),
                         Text(
-                            '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false).length}',
+                            '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false || d['encontrada_no_banco'] == 'false').length}',
                             style: TextStyle(color: Colors.orange)),
                         if (_materiasOptativas != null) ...[
                           const SizedBox(height: 8),
@@ -370,9 +370,10 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                               '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
                               style: TextStyle(color: Colors.blue)),
                           if (_dadosValidacao!['pendencias'] != null &&
+                              _dadosValidacao!['pendencias'] is List &&
                               _dadosValidacao!['pendencias'].isNotEmpty)
                             Text(
-                                '⚠️ Pendências: ${_dadosValidacao!['pendencias'].join(', ')}',
+                                '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
                                 style: TextStyle(color: Colors.orange)),
                         ],
                         const SizedBox(height: 8),
@@ -979,7 +980,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         setState(() {
           _disciplinasCasadas =
               List<Map<String, dynamic>>.from(resultado['disciplinas_casadas']);
-          _dadosValidacao = resultado['dados_validacao'];
+          _dadosValidacao = resultado['dados_validacao'] != null
+              ? Map<String, dynamic>.from(resultado['dados_validacao'])
+              : null;
           _materiasOptativas = resultado['materias_optativas'] != null
               ? List<Map<String, dynamic>>.from(resultado['materias_optativas'])
               : null;
@@ -1012,7 +1015,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           print('\n🔍 DEBUG DETALHADO:');
           for (var i = 0; i < resultado['disciplinas_casadas'].length; i++) {
             var disc = resultado['disciplinas_casadas'][i];
-            if (disc['encontrada_no_banco'] == false) {
+            bool encontrada = disc['encontrada_no_banco'] == true ||
+                disc['encontrada_no_banco'] == 'true';
+            if (!encontrada) {
               print(
                   '❌ NÃO ENCONTRADA: "${disc['nome']}" (Código: ${disc['codigo'] ?? 'N/A'})');
             } else {

@@ -131,17 +131,6 @@ export const FluxogramaController: EndpointController = {
                     }
                 }
 
-                // Calcular horas integralizadas das disciplinas processadas
-                let horasIntegralizadas = 0;
-                for (const disciplina of dados_extraidos.extracted_data) {
-                    if ((disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') && 
-                        (disciplina.status === 'APR' || disciplina.status === 'CUMP')) {
-                        horasIntegralizadas += disciplina.carga_horaria || 0;
-                    }
-                }
-                dadosValidacao.horas_integralizadas = horasIntegralizadas;
-                console.log(`⏱️ Horas integralizadas calculadas: ${horasIntegralizadas}h`);
-                
                 // Debug: verificar se há matérias com nível 0 ou nulo
                 const materiasNivelZero = materiasBancoList.filter((m: any) => m.nivel === 0 || m.nivel === null);
                 console.log(`🔍 Matérias com nível 0 ou nulo: ${materiasNivelZero.length}`);
@@ -309,6 +298,21 @@ export const FluxogramaController: EndpointController = {
                 // Combinar todas as matérias pendentes
                 const todasMateriasPendentes = [...materiasPendentes, ...materiasObrigatoriasNaoEncontradas];
                 const todasMateriasOptativas = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
+
+                // Calcular horas integralizadas das disciplinas casadas e concluídas
+                let horasIntegralizadas = 0;
+                console.log(`\n⏱️ CÁLCULO DETALHADO DE HORAS:`);
+                for (const disciplina of disciplinasCasadas) {
+                    if ((disciplina.status === 'APR' || disciplina.status === 'CUMP') && disciplina.carga_horaria) {
+                        console.log(`   ✅ "${disciplina.nome}" - ${disciplina.carga_horaria}h (${disciplina.status})`);
+                        horasIntegralizadas += disciplina.carga_horaria;
+                    } else if (disciplina.status === 'APR' || disciplina.status === 'CUMP') {
+                        console.log(`   ⚠️ "${disciplina.nome}" - Sem carga horária (${disciplina.status})`);
+                    }
+                }
+                dadosValidacao.horas_integralizadas = horasIntegralizadas;
+                console.log(`⏱️ TOTAL Horas integralizadas: ${horasIntegralizadas}h`);
+                console.log(`📊 Disciplinas concluídas consideradas: ${disciplinasCasadas.filter(d => d.status === 'APR' || d.status === 'CUMP').length}`);
 
                 console.log(`🔍 BREAKDOWN DA CONTAGEM:`);
                 console.log(`   Matérias obrigatórias no banco: ${materiasObrigatorias.length}`);
