@@ -5,7 +5,7 @@ Esta documentação descreve os endpoints de teste criados para substituir os lo
 ## Endpoints Disponíveis
 
 ### 1. Teste de Conexão com Banco
-**GET** `/fluxograma/teste_banco`
+**GET** `/testes/banco`
 
 Testa a conexão com o banco de dados e verifica a estrutura das tabelas.
 
@@ -36,7 +36,7 @@ Testa a conexão com o banco de dados e verifica a estrutura das tabelas.
 ```
 
 ### 2. Teste de Busca de Curso
-**GET** `/fluxograma/teste_curso?nome_curso=Engenharia de Software`
+**GET** `/testes/curso?nome_curso=Engenharia de Software`
 
 Testa a busca de um curso específico e analisa suas matérias.
 
@@ -72,7 +72,7 @@ Testa a busca de um curso específico e analisa suas matérias.
 ```
 
 ### 3. Teste de Casamento de Disciplinas
-**POST** `/fluxograma/teste_casamento`
+**POST** `/testes/casamento`
 
 Testa o processo de casamento entre disciplinas extraídas do PDF e as matérias do banco.
 
@@ -132,7 +132,7 @@ Testa o processo de casamento entre disciplinas extraídas do PDF e as matérias
 ```
 
 ### 4. Teste Completo
-**POST** `/fluxograma/teste_completo`
+**POST** `/testes/completo`
 
 Executa todos os testes em sequência para um curso e dados específicos.
 
@@ -176,13 +176,13 @@ Executa todos os testes em sequência para um curso e dados específicos.
 
 ```bash
 # Teste de banco
-curl -X GET "http://localhost:3000/fluxograma/teste_banco"
+curl -X GET "http://localhost:3000/testes/banco"
 
 # Teste de curso
-curl -X GET "http://localhost:3000/fluxograma/teste_curso?nome_curso=Engenharia%20de%20Software"
+curl -X GET "http://localhost:3000/testes/curso?nome_curso=Engenharia%20de%20Software"
 
 # Teste de casamento
-curl -X POST "http://localhost:3000/fluxograma/teste_casamento" \
+curl -X POST "http://localhost:3000/testes/casamento" \
   -H "Content-Type: application/json" \
   -d '{
     "nome_curso": "Engenharia de Software",
@@ -200,7 +200,7 @@ curl -X POST "http://localhost:3000/fluxograma/teste_casamento" \
   }'
 
 # Teste completo
-curl -X POST "http://localhost:3000/fluxograma/teste_completo" \
+curl -X POST "http://localhost:3000/testes/completo" \
   -H "Content-Type: application/json" \
   -d '{
     "nome_curso": "Engenharia de Software",
@@ -244,17 +244,17 @@ curl -X POST "http://localhost:3000/fluxograma/teste_completo" \
 
 ### Verificar se há duplicatas no banco:
 ```bash
-curl -X GET "http://localhost:3000/fluxograma/teste_banco" | jq '.resultados.verificar_duplicatas'
+curl -X GET "http://localhost:3000/testes/banco" | jq '.resultados.verificar_duplicatas'
 ```
 
 ### Verificar matérias de um curso específico:
 ```bash
-curl -X GET "http://localhost:3000/fluxograma/teste_curso?nome_curso=Engenharia%20de%20Software" | jq '.resultados'
+curl -X GET "http://localhost:3000/testes/curso?nome_curso=Engenharia%20de%20Software" | jq '.resultados'
 ```
 
 ### Testar casamento com dados reais:
 ```bash
-curl -X POST "http://localhost:3000/fluxograma/teste_casamento" \
+curl -X POST "http://localhost:3000/testes/casamento" \
   -H "Content-Type: application/json" \
   -d @dados_teste.json
 ``` 

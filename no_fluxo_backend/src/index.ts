@@ -10,6 +10,7 @@ import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
 import cors from "cors";
 import { FluxogramaController } from './controllers/fluxograma_controller';
+import { TestesController } from './controllers/testes_controller';
 
 
 dotenv.config();
@@ -19,7 +20,8 @@ SupabaseWrapper.init();
 const router = express.Router();
 
 const controllers: EndpointController[] = [
-    FluxogramaController
+    FluxogramaController,
+    TestesController
 ];
 
 controllers.forEach(controller => {

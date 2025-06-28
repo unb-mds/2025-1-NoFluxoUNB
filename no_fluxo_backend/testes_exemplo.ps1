@@ -1,7 +1,7 @@
 # Script de exemplo para testar a API de testes do NoFluxo Backend
 # Certifique-se de que o servidor está rodando em localhost:3000
 
-$BaseUrl = "http://localhost:3000/fluxograma"
+$BaseUrl = "http://localhost:3000/testes"
 
 Write-Host "🧪 Iniciando testes da API NoFluxo Backend" -ForegroundColor Green
 Write-Host "==========================================" -ForegroundColor Green
@@ -10,7 +10,7 @@ Write-Host "==========================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "1️⃣ Testando conexão com banco..." -ForegroundColor Yellow
 try {
-    $response = Invoke-RestMethod -Uri "$BaseUrl/teste_banco" -Method GET
+    $response = Invoke-RestMethod -Uri "$BaseUrl/banco" -Method GET
     $response | ConvertTo-Json -Depth 10
 } catch {
     Write-Host "❌ Erro ao testar conexão com banco: $($_.Exception.Message)" -ForegroundColor Red
@@ -22,7 +22,7 @@ Write-Host "2️⃣ Testando busca de curso..." -ForegroundColor Yellow
 try {
     $curso = "Engenharia de Software"
     $encodedCurso = [System.Web.HttpUtility]::UrlEncode($curso)
-    $response = Invoke-RestMethod -Uri "$BaseUrl/teste_curso?nome_curso=$encodedCurso" -Method GET
+    $response = Invoke-RestMethod -Uri "$BaseUrl/curso?nome_curso=$encodedCurso" -Method GET
     $response | ConvertTo-Json -Depth 10
 } catch {
     Write-Host "❌ Erro ao testar busca de curso: $($_.Exception.Message)" -ForegroundColor Red
@@ -65,7 +65,7 @@ try {
         "Content-Type" = "application/json"
     }
 
-    $response = Invoke-RestMethod -Uri "$BaseUrl/teste_casamento" -Method POST -Body $body -Headers $headers
+    $response = Invoke-RestMethod -Uri "$BaseUrl/casamento" -Method POST -Body $body -Headers $headers
     $response | ConvertTo-Json -Depth 10
 } catch {
     Write-Host "❌ Erro ao testar casamento de disciplinas: $($_.Exception.Message)" -ForegroundColor Red
@@ -101,7 +101,7 @@ try {
         "Content-Type" = "application/json"
     }
 
-    $response = Invoke-RestMethod -Uri "$BaseUrl/teste_completo" -Method POST -Body $body -Headers $headers
+    $response = Invoke-RestMethod -Uri "$BaseUrl/completo" -Method POST -Body $body -Headers $headers
     $response | ConvertTo-Json -Depth 10
 } catch {
     Write-Host "❌ Erro ao executar teste completo: $($_.Exception.Message)" -ForegroundColor Red
