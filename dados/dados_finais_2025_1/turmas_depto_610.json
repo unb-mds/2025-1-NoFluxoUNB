@@ -1,0 +1,584 @@
+[
+    {
+        "disciplina": " INTRODUCAO A COMPUTACAO APLICADA AOS PROCESSOS QUIMICOS",
+        "codigo": "IQD0003 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Linguagens e ambientes de Programacao - Caracteristicas gerais da construcao de algoritmos e estrutura de dados. Aplicacao de programacao em problemas envolvendo balancos materiais, de movimento e de energia. Desenvolvimento de programas computacionais para resolucao problemas em diferentes graus de complexibilidade. Fundamentos de programacao e uso de software computacional."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE PRODUCAO DE CERVEJA",
+        "codigo": "IQD0004 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Introducao a cultura cervejeira. Conceitos basicos de materias- primas. Calculos praticos aplicados a producao de cerveja. Nocoes de tecnologia cervejeira. Nocoes sobre analise sensorial. Legislacao brasileira sobre \ta bebida. \tEstilos e Tipos de cervejas."
+    },
+    {
+        "disciplina": " TRANSFERENCIA DE QUANTIDADE DE MOVIMENTO",
+        "codigo": "IQD0005 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Introducao e definicao de conceitos fundamentais Estatica dos FluidosEquacoes de balanco na forma integral e diferencial Escoamento defluido ideal incompressivel Analise dimensional e semelhancaEscoamento de fluidos em dutos Fluidos Nao-Newtonianos Teoriada Camada Limite Escoamento Turbulento Escoamento de fluidoscompressiveis"
+    },
+    {
+        "disciplina": " LABORATORIO DE ENGENHARIA QUIMICA 2",
+        "codigo": "IQD0007 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Desenvolver experimentos relacionados as operacoes unitarias de destilacao continua e descontinua, extracao solido-liquido e liquido-liquido, secagem, humidificacao e desumidificacao."
+    },
+    {
+        "disciplina": " OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 1",
+        "codigo": "IQD0009 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Transporte de fluidos por bombas, compressores e ventiladores. Propriedades de particulas solidas. Reducao de tamanho de solidos e classificacao.  Transporte de solidos. Sistemas solido-fluido: caracterizacao e dinamica de particulas.. Agitacao e mistura. Escoamento em meio porosos. Filtracao. Tecnologia de membranas. Sedimentacao e Centrifugacao."
+    },
+    {
+        "disciplina": " TRANSFERENCIA DE MASSA",
+        "codigo": "IQD0010 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Transferencia de massa por difusao. Transferencia de massa por conveccao. Equacoes de transferencia de massa. Difusao em estado estacionario com e sem reacao quimica. Difusao em regime transiente. Conveccao Massica. Correlacoes para o calculo dos coeficientes de transferencia de massa."
+    },
+    {
+        "disciplina": " OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 2",
+        "codigo": "IQD0011 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "A disciplina Operacoes Unitarias II engloba as operacoes basicas ondeintervem processos de transferencia de calor, entre as que destacam aevaporacao, cristalizacao, secagem de solidos e umidificacao. Levandoem consideracao estas premissas, os objetivos basicos da disciplinaserao:- Conhecer os equipamentos basicos usados para a transmissao decalor (trocadores de calor e fornos), junto com os fundamentos queregem seu desenho.- Conhecer e compreender os fundamentos basicos e as equacoes dedesenho das operacoes basicas baseadas na transferencia de calore de materia simultaneas.- Aplicar a metodologia de calculo necessaria para o desenho dosequipamentos usados em tais operacoes."
+    },
+    {
+        "disciplina": " OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 3",
+        "codigo": "IQD0012 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "1. Elementos relacionados com a representacao e interpretacao de diagramas de fases2. Metodos de separacao fisica em sistemas multicomponente: destilacao e extracao3. Conceitos de prato teorico, prato real e estagio de equilibrio4. Principais metodos graficos de representacao de operacoes multiestagios5. Operacoes multiestagios continuas e descontinuas: destilacao e extracao6. Operacoes multiestagios concorrentes e em contracorrente."
+    },
+    {
+        "disciplina": " LABORATORIO DE ENGENHARIA QUIMICA 1",
+        "codigo": "IQD0014 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Desenvolver experimentos relacionados as operacoes unitarias de cominuicao e granulometria, leito fluidizado, elutriacao, filtracao, classificacao por ciclones, e de bombeamento de liquidos com bombas centrifugas."
+    },
+    {
+        "disciplina": " PROJETO DE ENGENHARIA QUIMICA 1",
+        "codigo": "IQD0015 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Discussao de aspectos fundamentais ao projeto de processos daindustria quimica com enfase na implantacao, planejamento,simbologia, layout e tipos de fluxogramas comuns as plantasindustriais. Metodologias empregadas para a avaliacao,planejamento e implementacao de projetos.Estudo economico de processos quimicos e identificacao dasprincipais variaveis, parametros e equacoes de projeto visandocom foco na otimizacao do processo. Balancos de massa e energiadas correntes de processo e integracao energetica.Selecao e especificacao de equipamentos industriais e uso desimuladores para avaliacao do projeto de processos.Definicao de um processo quimico especifico (estudo de caso) eestudo preliminar do processo com enfase na elaboracao, analisedo processo."
+    },
+    {
+        "disciplina": " MODELAGEM E SIMULACAO DE PROCESSOS QUIMICOS",
+        "codigo": "IQD0016 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Conceitos basicos de modelagem e simulacao de processos\tApresentacao dos simuladores utilizados na disciplina Definicao de correntes materiais Simulacao de processos envolvendo os principais equipamentos da industria quimica: bombas,compressores, valvulas, controladores, misturadores e divisores decorrentes, tanques de armazenamento, vasos de\t expansao, trocadores de calor, reatores quimicos, colunas de destilacao e colunas de adsorcao Simulacao de\t processos tipicos da Engenharia Quimica usando simuladores."
+    },
+    {
+        "disciplina": " PROJETO DE ENGENHARIA QUIMICA 2",
+        "codigo": "IQD0019 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo de um processo quimico especifico (definido na disciplina Projetos de Engenharia Quimica I) e implantacao do projeto detalhado do processo com enfase no planejamento, simbologia, layout, fluxogramas, selecao, especificacao e dimensionamento de equipamentos industriais, balancos de massa e energia, avaliacao economica, equacoes de projeto e otimizacao do processo."
+    },
+    {
+        "disciplina": " QUIMICA ANALITICA EXPERIMENTAL",
+        "codigo": "IQD0021 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo experimental das principais tecnicas classicas e instrumentais de quimica analitica aplicadas na realizacao de analises de diversos tipos de amostras quimicas."
+    },
+    {
+        "disciplina": " PRINCIPIOS DE QUIMICA ANALITICA",
+        "codigo": "IQD0022 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo dos principios das principais tecnicas classicas e instrumentais de quimica analitica e suas aplicacoes em analises quimicas."
+    },
+    {
+        "disciplina": " TECNOLOGIA DO MEIO AMBIENTE 1",
+        "codigo": "IQD0023 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "1) Conceituar e definir poluicao e poluentes.2) Legislacao Ambiental e Normas.3) Poluicao das aguas: compreender e propor sistemas de tratamento de efluentes liquidos, reuso e conservacao da agua.4) Residuos solidos: classificacao, gerenciamento, processos de tratamento e disposicao final.5) Poluicao atmosferica: classificacao, fontes de emissao, efeitos regionais e globais, controle de emissoes."
+    },
+    {
+        "disciplina": " LABORATORIO DE QUIMICA ANALITICA 1",
+        "codigo": "IQD0024 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo experimental dos equilibrios acido-base, de complexacao, de precipitacao eredox com tecnicas de analise qualitativa para identificacao de cations dos principaisgrupos e de anions."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE ANALISE INSTRUMENTAL 2",
+        "codigo": "IQD0026 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " LABORATORIO DE SINTESE INORGANICA",
+        "codigo": "IQD0027 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " REACOES ORGANICAS E SEUS MECANISMOS 2",
+        "codigo": "IQD0028 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " ESPECTROSCOPIA ATOMICA E MOLECULAR",
+        "codigo": "IQD0029 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " CINETICA QUIMICA",
+        "codigo": "IQD0032 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "1. Fundamentar os conceitos de extensao de reacao, taxa de conversao, ordem de reacao 2. Deduzir as leis e constantes de velocidade (taxa) de reacao 3. Estudar os metodos para determinacao das equacoes de velocidade 4. Estudar o efeito da temperatura sobre as taxas de reacao 5. Estudar mecanismos de reacoes particulares (reacoes enzimaticas, polimerizacao, catalise) 6. Estudar as teorias de cinetica de reacoes (Energia de ativacao. Teoria das colisoes e do complexo ativado. Teoria do estado de transicao. Entropia e energia livre de ativacao)."
+    },
+    {
+        "disciplina": " TRABALHO DE CONCLUSAO DE CURSO 2 ",
+        "codigo": "IQD0036 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "*"
+    },
+    {
+        "disciplina": " ESTAGIO EM REGENCIA NO ENSINO DE QUIMICA 1",
+        "codigo": "IQD0038 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Indissociabilidade entre teoria e pratica e a atividade docente. Reproducao da praxis\ne inovacao educacional. Observacao e reflexao sobre a pratica de ensino de Quimica\nna Educacao Basica, no contexto da formacao do cidadao. Regencia de ensino com\nexercicio de todas as funcoes inerentes ao professor de Quimica na Educacao\nBasica. Analise reflexiva e vivencial de problemas atinentes ao ensino da Quimica e\ndas possibilidades de superacao e inovacao"
+    },
+    {
+        "disciplina": " PRATICA INTERDISCIPLINAR EM ENSINO DE QUIMICA 2",
+        "codigo": "IQD0041 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " DIDATICA DA QUIMICA",
+        "codigo": "IQD0043 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " TERMODINAMICA APLICADA",
+        "codigo": "IQD0046 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Modelagem Termodinamicas de Sistemas Multicomponentes Nao Ideais. Fugacidade. Equacoes de estado do virial e empiricas (Van der Waals, Redlich-Kwong, Soave Redlich-Kwong, Peng Robinson). Regra de Mistura. Equilibrio de Fases de Sistemas multicomponentes: Equilibrio Liquido-Vapor (abordagem gama-phi e phi-phi). Equilibrio Liquido-Liquido."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM TECNOLOGIA E ENGENHARIA QUIMICA",
+        "codigo": "IQD0047 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " ENGENHARIA DE REATORES QUIMICOS",
+        "codigo": "IQD0048 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Elementos de cinetica quimica. Ordem de reacao e molecularidade. Estequiometria e taxa de reacao. Constante cinetica. Efeitos de pressao, temperatura e concentracao para a taxa de reacao. Balanco material e balanco global e especifico. Balanco de energia. Cinetica de reacoes nao-elementares: reacoes enzimaticas, biorreatores, polimerizacao. Reatores ideais: tanque agitado continuo, tanque agitado descontinuo, reator de fluxo empistonado: conceito e exemplos. Conceitos de tempo espacial, tempo de residencia e velocidade espacial. Arranjos de reatores em serie e em paralelo. Reciclo. Otimizacao de arranjos de reatores. Metodos de determinacao da taxa de reacao: metodo diferencial, metodo integral, metodo da taxa inicial, metodo de excesso. Balanco energetico."
+    },
+    {
+        "disciplina": " QUIMICA INORGANICA 1 EXPERIMENTAL",
+        "codigo": "IQD0056 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "PREPARACAO DE COMPOSTOS INORGANICOS DIVERSOS."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE QUIMICA",
+        "codigo": "IQD0058 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Abordagem conceitual dos principios fundamentais da Quimica e suas aplicacoes. Interface da Quimica com outras areas do conhecimento."
+    },
+    {
+        "disciplina": " LABORATORIO DE QUIMICA FUNDAMENTAL",
+        "codigo": "IQD0061 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Introducao ao trabalho em laboratorio de quimica. Nocoes de seguranca. O metodo cientifico e elaboracao de relatorios cientificos. Observacao e interpretacao de fenomenos quimicos atraves da realizacao de experimentos simples. Aplicacao de conceitos fundamentais de quimica em  experimentos representativos. Execucao de experimentos que correlacionem o aspecto conceitual a vida cotidiana de uma maneira estimulante."
+    },
+    {
+        "disciplina": " QUIMICA ANALITICA 1",
+        "codigo": "IQD0063 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo dos equilibrios quimicos envolvidos em reacoes classicas da Quimica Analitica. Fundamentacao teorica e resolucao de problemas relacionados a determinacao de especies quimicas em solucoes aquosas."
+    },
+    {
+        "disciplina": " QUIMICA ANALITICA 2",
+        "codigo": "IQD0065 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo dos metodos estatisticos empregados em quimica analitica quantitativa. Fundamentacao teorica dos metodos volumetricos de analise baseados em equilibrios acido-base, de solubilidade, de formacao de complexos e de oxidacao-reducao. Estudo dos metodos instrumentais baseados em meditas potenciometricas."
+    },
+    {
+        "disciplina": " INTRODUCAO A QUIMICA ORGANICA",
+        "codigo": "IQD0072 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "PRINCIPIOS DE VALENCIA E LIGACAO. ASPECTOS ESTRUTURAIS DAS  SUBS- TANCIAS ORGANICAS. EFEITOS NA ESTRUTURA EM ACIDEZ E BASICIDADE. EFEITOS ESTRUTURAIS E ELETRICOS EM MOLECULAS ORGANICAS. REATIVIDADE DE  COMPOS- TOS ORGANICOS. NOMECLATURA. ALQUENOS E ALQUINOS. COMPOSTOS  AROMATICOS. ALCOOIS E FENOIS. ETERES, HALETOS ORGANICOS. ALDEIDOS E CETONAS. ACIDOS CARBOXILICOS DE DERIVADOS. ESTEREOISOMERISMO. REACOES ESPECIFICAS."
+    },
+    {
+        "disciplina": " QUIMICA INORGANICA BASICA",
+        "codigo": "IQD0092 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "A) Ligacoes quimicas e estrutura molecular acidos e bases - oxidacao - reducao.B) Quimica descritiva sistematica dos elementos representativos."
+    },
+    {
+        "disciplina": " TERMODINAMICA QUIMICA",
+        "codigo": "IQD0101 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo do comportamento P,V,T da materia nos estados gas, liquido e solido. Calor e trabalho. Primeira lei da termodinamica.  Entalpia e energetica das reacoes quimicas.  Maquinas termicas e o surgimento da segunda lei.  Entropia.  A terceira lei.  Espontaneidade e energia livre."
+    },
+    {
+        "disciplina": " EQUILIBRIO E CINETICA QUIMICA",
+        "codigo": "IQD0103 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Substancias puras e equilibrio de fases.  Solucao ideal e propriedades coligativas.  Solucao diluida ideal. Misturas binarias. Equilibrio em sistemas nao ideais. Equilibrio eletroquimico.Cinetica Quimica.  Leis empiricas e mecanismos. Teoria da colisoes e do complexo ativado."
+    },
+    {
+        "disciplina": " QUIMICA QUANTICA",
+        "codigo": "IQD0105 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Teorias classicas da materia e radiacao.  Origem historica da teoria quantica. Dualidade onda-particula. Evolucao historica dos modelos atomicos.  Postulados e formalismo da mecanica quantica.  Equacao de Schrodinger e solucoes exatas : particula livre, particula na caixa, tunelamento, oscilador harmonico,  rotor rigido.  Atomo de hidrogenio, solucao exata. Espectros atomicos.  Introducao ao metodo LCAO para moleculas polieletronicas, metodo variacional, teoria do campo autoconsistente e teoria de perturbacao"
+    },
+    {
+        "disciplina": " QUIMICA ANALITICA QUALITATIVA",
+        "codigo": "IQD0118 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Metodos analiticos. Solucoes e concentracoes de solucoes.Equilibrio quimico - acidos e bases fortes e  fracos. Auto-ionizacao da agua.Forca ionica. Balanco de massas e cargas. acidos proliproticos. Hidrolise de sais. Equilibrio de solubilidade. Equilibrio de formacao de complexos. Equilibrio de oxi-reducao."
+    },
+    {
+        "disciplina": " QUIMICA GERAL TEORICA",
+        "codigo": "IQD0125 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Abordagem conceitual dos principios fundamentais da Quimica e suas aplicacoes, usando exemplo de compostos organicos e inorganicos. Enfase a interface da Quimica com as diversas areas do conhecimento. Introducao ao trabalho em laboratorio de quimica. Observacao e interpretacao de fenomenos quimicos atraves da realizacao de experimentos representativos que correlacionem o aspecto conceitual a vida cotidiana de uma maneira estimulante."
+    },
+    {
+        "disciplina": " QUIMICA GERAL EXPERIMENTAL",
+        "codigo": "IQD0126 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "CARACTERIZACAO DA NATUREZA E DO PAPEL DAS INVESTIGACOES EXPERIMEN-TAIS EM QUIMICA. ESTUDO DE  MEDIDAS E DE  ALGARISMOS SIGNIFICATIVOS. DE-SENVOLVIMENTO DE HABILIDADES DE  MANUSEIO DE APARELHOS  VOLUMETRICOS, DESISTEMAS DE FILTRACAO, DE SISTEMAS DE DESTILACAO E DE PROCESSO QUIMICOS.DESENVOLVIMENTO DO  ESPIRITO DE  OBSERVACAO, ANALISE E  INTERPRETACAO DEFENOMENOS QUIMICOS. ESTUDO EXPERIMENTAL DE PROCESSOS QUIMICOS  ELEMENTA-RES."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE QUIMICA ORGANICA",
+        "codigo": "IQD0133 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Apresentacao dos principios fundamentais da Quimica Organica e sua abrangencia. Aspectos estruturais e eletronicos das moleculas organicas, incluindo intermediarios de reacoes. Correlacao entre estrutura e propriedades quimicas e fisicas de substancias organicas representativas. Exemplos de algumas reacoes quimicas caracteristicas dos grupos funcionais abordados e seus mecanismos gerais Fontes naturais de obtencao de compostos organicos. Importancia da Quimica Organica para a Sociedade."
+    },
+    {
+        "disciplina": " REACOES ORGANICAS E SEUS MECANISMOS 1",
+        "codigo": "IQD0137 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Conceitos fundamentais associados ao estudo de reacoes organicas e seus mecanismos. Aspectos termodinamicos e cineticos das reacoes organicas.  Descricao dos mecanismos dos principais tipos de reacoes organicas: substituicoes, adicoes a ligacoes multiplas, eliminacoes e rearranjos. Correlacao dos aspectos estruturais das moleculas com a reatividade e orientacao experimentalmente observados. Introducao a sintese organica: interconversoes funcionais, grupos protetores, analise retrossintetica, exemplos da literatura corrente de sinteses com varias etapas. Aplicacoes e interfaces da quimica organica com a biologia e a industria quimica."
+    },
+    {
+        "disciplina": " QUIMICA DOS ELEMENTOS DE TRANSICAO",
+        "codigo": "IQD0139 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Introducao a Quimica de Coordenacao.O Conceito de Campo Ligante.Quimica descritiva sistematica dos Elementos de Transicao."
+    },
+    {
+        "disciplina": " INTRODUCAO A QUIMICA TECNOLOGICA",
+        "codigo": "IQD0152 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "O objetivo fundamental da disciplina e a aquisicao por parte do aluno dos conteudos globais relacionado com a area da quimica industrial e os aspectos mais caracteristicos das profissoes de Quimico Tecnologico/Engenheiro Quimico. Realizar-se-a em cada unidade uma aproximacao a materias fundamentais: operacoes unitarias, transferencia de massa, quimica industrial, engenharia da reacao quimica, economia, etc. Pretende-se tambem que os alunos se iniciem no conceito de operacao basica e os diferentes tipos existentes, variaveis de processo e que operem com destreza os sistemas de magnitudes e unidades, bem como a mudanca destas. Finalmente, os alunos serao iniciados no calculo de balancos de massa e energia globais de processos quimicos."
+    },
+    {
+        "disciplina": " QUIMICA GERAL E INORGANICA",
+        "codigo": "IQD0153 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "- RECAO QUIMICAS                                                        - TERMOQUIMICA                                                          - EQUILIRIO QUIMICO                                                     - ESTRUTURA ATOMICA                                                     - LIGACOES QUIMICAS                                                     - ACIDOS E BASES                                                        - OXIDACAO E REDUCAO                                                    - QUIMICA DESCRITIVA DOS PRINCIPAIS ELEMENTOS REPRESENTATIVOS E DE        TRANSICAO"
+    },
+    {
+        "disciplina": " TRABALHO DE CONCLUSAO DE CURSO 1 ",
+        "codigo": "IQD0155 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Questoes epistemologicas e metodologicas ligadas a natureza da investigacao em Ensino de Quimica. A logica do processo de investigacao. Estrutura dos projetos de investigacao. Analise global das fases do processo de elaboracao de um projeto de investigacao em Ensino de Quimica. As formalidades nos projetos de investigacao. O Projeto de Ensino de Quimica como Monografia de Graduacao exigida para a conclusao do curso de Licenciatura em Quimica da UnB."
+    },
+    {
+        "disciplina": " INTRODUCAO A MODELAGEM MOLECULAR",
+        "codigo": "IQD0161 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " A EXPERIMENTACAO NO ENSINO DE QUIMICA",
+        "codigo": "IQD0165 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "O papel da experimentacao no ensino medio de Quimica. Concepcoes de professores sobre o papel da experimentacao. Grau de diretividade dos experimentos. A observacao macroscopica, a interpretacao microscopica e a expressao representacional de fenomenos quimicos. Transposicao didatica e livros para-didaticos associados aos experimentos. Avaliacao de aprendizagem."
+    },
+    {
+        "disciplina": " INTRODUCAO A ESPECTROSCOPIA ORGANICA",
+        "codigo": "IQD0167 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Introducao aos metodos fisicos de analise e caracterizacao de substancias organicas puras metodos espectroscopicos (UV, IV, RMN 1H  e 13C). Analise sistematica de compostos organicos (criterios de pureza e uso de metodos fisico-quimicos para identificacao de compostos organicos puros)."
+    },
+    {
+        "disciplina": " LABORATORIO DE QUIMICA ORGANICA",
+        "codigo": "IQD0168 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Nocoes de toxicologia e uso da literatura referente a quimica organica experimental. Metodos fisico-quimicos de separacao e purificacao de substancias organicas. Introducao aos metodos fisicos de analise e caracterizacao de substancias organicas puras (criterios de pureza e uso de metodos fisico-quimicos para identificacao de compostos organicos puros). Analise sistematica de substancias organicas - Estudo experimental de propriedades fisicas e quimicas de compostos organicos contendo diferentes grupos funcionais (interconversoes funcionais e preparacao de derivados)."
+    },
+    {
+        "disciplina": " TOPICOS EM QUIMICA INORGANICA",
+        "codigo": "IQD0173 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo teorico-pratico de topicos especiais na area de Quimica Inorganica: organometalicos de elementos representativos organometalicos de elementos de transicao, quimica bioinorganica e mecanismos de reacoes inorganicas."
+    },
+    {
+        "disciplina": " INTRODUCAO AO CURSO DE BACHARELADO EM QUIMICA",
+        "codigo": "IQD0178 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Visao geral da estrutura organizacional e administrativa da UnB. Metodologia de estudo e elaboracao de trabalhos. A natureza da atividade cientifica. A quimica e o papel do quimico. Caracterizacao do curso de Bacharelado em Quimica. O quimico: atribuicoes, locais de trabalho e o codigo de etica."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE ANALISE INSTRUMENTAL 1",
+        "codigo": "IQD0187 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo teorico sobre: analise estatistica de dados curvas de calibracao e fundamentos de metodos espectroscopicos e eletroquimicos de analise."
+    },
+    {
+        "disciplina": " INTRODUCAO A QUIMICA MODERNA",
+        "codigo": "IQD0191 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Discutir os experimentos que culminaram na criacao da mecanica quantica. Aplicar essa teoria em modelos simples capazes de demonstrar a natureza quantica dos fenomenos."
+    },
+    {
+        "disciplina": " LABORATORIO DE FISICO",
+        "codigo": "IQD0192 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Determinacao experimental de grandezas fisico-quimicas em substancias puras, misturas nao reativas e reacoes quimicas."
+    },
+    {
+        "disciplina": " LABORATORIO DE SINTESE ORGANICA",
+        "codigo": "IQD0212 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo experimental das classes de reacoes organicas (interconversoes funcionais e preparacao de compostos organicos). Sintese de compostos organicos em varias etapas. Uso de metodos cromatrograficos (Cromatografia Gasosa, capilar e CG/EM). Uso de  metodos fisico-quimicos e espectroscopicos na  identificacao de compostos organicos puros."
+    },
+    {
+        "disciplina": " QUIMICA BIOLOGICA",
+        "codigo": "IQD0213 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "A importancia da agua e solucoes aquosas nos sistemas biologicos. Termodinamica quimica aplicada aos sistemas biologicos. Aspectos estruturais e atividade das biomoleculas. Reacoes quimicas e mecanismos de atuacao das biomoleculas nos sistemas vivos, enfatizando-se os aspectos estereoquimicos. Visao geral das diversas reacoes organicas que ocorrem no metabolismo celular."
+    },
+    {
+        "disciplina": " LABORATORIO DE QUIMICA INORGANICA",
+        "codigo": "IQD0223 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Sintese e caracterizacao de compostos inorganicos diversos."
+    },
+    {
+        "disciplina": " LABORATORIO DE ANALISE INSTRUMENTAL",
+        "codigo": "IQD0226 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo experimental de metodos eletroquimicos e espectroscopicos de analise."
+    },
+    {
+        "disciplina": " LABORATORIO DE QUIMICA ANALITICA 2",
+        "codigo": "IQD0228 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Promover o estudo e a compreensao dos metodos gravimetricos, volumetricos baseados em titulacao e potenciometricos de analise atraves da realizacao de aplicacao na analise de diversas amostras."
+    },
+    {
+        "disciplina": " TECNOLOGIA DO PETROLEO",
+        "codigo": "IQD0233 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Compreender, de forma geral e abrangente, o assunto petroleo nos seus varios componentes, tais como: teorias sobre a origem e formacao reservas nacionais e internacionais geopolitica formas de exploracao e transporte historia da tecnologia de refino quadro atual do refino principais grupos de utilizacao de derivados  distribuicao dos derivados."
+    },
+    {
+        "disciplina": " TECNOLOGIA DOS OLEOS E GORDURAS",
+        "codigo": "IQD0235 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Compreender o conjunto dos oleos, gorduras e ceras naturais, nos seus varios aspectos tecnologicos, de interesse quimico, dentre eles, os seguintes: fontes e formas de coleta classificacoes por fonte, por composicao e por uso composicao, propriedades e metodos de analise beneficiamento e purificacao usos domesticos e industriais principais tecnologias de industrializacao quadro geral do mercado."
+    },
+    {
+        "disciplina": " TECNOLOGIA DOS POLIMEROS",
+        "codigo": "IQD0236 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Compreender, de maneira generica e ampla, a materia de polimeros quimicos, sinteticos e naturais, nos seus variados aspectos tecnologicos: sistemas de classificacao dos polimeros materias-primas e constituintes preparacao de polimeros metodos de avaliacao de caracteristicas e determinacao de propriedades correlacao entre estruturas polimericas, propriedades e utilizacoes economia e mercado de polimeros."
+    },
+    {
+        "disciplina": " INTRODUCAO AO CURSO DE LICENCIATURA EM QUIMICA",
+        "codigo": "IQD0237 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Visao geral da estrutura organizacional e administrativa da Universidade de Brasilia. Metodologia de estudo e elaboracao de trabalhos didaticos. A natureza da atividade cientifica. A quimica e o papel do quimico. Caracterizacao do curso de Licenciatura em Quimica. O educador em Quimica: aspectos do trabalho docente."
+    },
+    {
+        "disciplina": " LABORATORIO DE QUIMICA TECNOLOGICA",
+        "codigo": "IQD0238 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "· Desenvolver experimentos tecnologicos· Visitar industrias do Distrito Federal e Entorno"
+    },
+    {
+        "disciplina": " ESTAGIO EM REGENCIA NO ENSINO DE QUIMICA 2",
+        "codigo": "IQD0242 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "EMENTAINDISSOCIABILIDADE ENTRE TEORIA E PRATICA NA ATIVIDADE DOCENTE. A PRATICA DE ENSINO DE QUIMICA NO CONTEXTO DA FORMACAO DO CIDADAO. REGENCIA DE ENSINO COM EXERCICIO DE TODAS AS FUNCOES INERENTES AO PROFESSOR DE ENSINO MEDIO DE QUIMICA, COMO REPRODUCAO DA PRAXIS E INOVACAO EDUCACIONAL. ANALISE REFLEXIVA E VIVENCIAL DE PROBLEMAS ATINENTES AO ENSINO DA QUIMICA E DAS POSSIBILIDADES DE SUPERACAO E INOVACAO.BIBLIOGRAFIAVIANNA, Heraldo Marelim. Pesquisa em Educacao: a observacao. Brasilia: Plano Editora, 2003.MORALES, Pedro. A relacao professor-aluno, o que e, como se faz. Tradutor Gilmar Saint'Clair Ribeiro. 5a ed.Sao Paulo: Loyola. 1999.FREIRE. Paulo. Pedagogia da autonomia. Saberes necessarios a pratica educativa. 25a ed. Sao Paulo: Paz e Terra, 1996.Brasil, Ministerio da Educacao, Secretaria de Educacao Media e Tecnologica. Parametros curriculares nacionais: ensino medio./ Ministerio da Educacao. Secretaria de Media e Tecnologica. - Brasilia: Ministerio da Educacao, 1999.Ciencias da natureza, matematica e suas tecnologias./Secretaria de Educacao Media e Tecnologica - Brasilia: MEC SEMTEC, 2002.PROGRAMA- Observacao e reflexao sobre a pratica de ensino de Quimica. - Concepcao e planejamento de aulas de Quimica.- Regencia em ensino.- Problemas do ensino de Quimica e possibilidade de superacao."
+    },
+    {
+        "disciplina": " QUIMICA ORGANICA FUNDAMENTAL",
+        "codigo": "IQD0245 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Ementa:Apresentacao de principios fundamentais de Quimica no contexto da Quimica Organica. Aspectos estruturais e eletronicos das moleculas organicas, incluindo intermediarios de reacoes. Correlacao entre estrutura e propriedades quimicas e fisicas de substancias organicas. Apresentacao dos principais tipos de reacoes organicas com abordagem dirigida para a formacao de alunos dos cursos de Ciencias Biologicas, Agronomia, Engenharia Florestal, Medicina Veterinaria e areas afins."
+    },
+    {
+        "disciplina": " SEMINARIO DE GRADUACAO EM QUIMICA",
+        "codigo": "IQD0246 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "APRESENTACAO DE SEMINARIOS SOBRE TEMAS QUE ENVOLVAM CONCEITOS ESPECIFICOS DA QUIMICA, ENGLOBANDO ASPECTOS SOCIAIS, TECNOLOGICOS E DO ENSINO DA QUIMICA. ELABORACAO DE PESQUISA BIBLIOGRAFICA E REDACAO DE RESUMOS SOBRE OS TEMAS ESTUDADOS."
+    },
+    {
+        "disciplina": " QUIMICA GERAL E ORGANICA TEORICA",
+        "codigo": "IQD0252 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Apresentacao dos principios fundamentais da Quimica Organica e sua abrangencia. Aspectos estruturais e eletronicos das moleculas organicas, incluindo intermediarios de reacoes. Correlacao entre estrutura e propriedades quimicas e fisicas de substancias organicas. Apresentacao dos principais tipos de reacoes organicas com abordagem dirigida para a formacao de alunos de Agronomia."
+    },
+    {
+        "disciplina": " QUIMIOMETRIA",
+        "codigo": "IQD0256 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Planejamento e otimizacao de experimentos modelagem empirica, metodologia de superficie de resposta e analise mutivariada"
+    },
+    {
+        "disciplina": " CONCEITOS FUNDAMENTAIS EM QUIMICA",
+        "codigo": "IQD0257 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Apresentacao dos principios fundamentais de Quimica e sua abrangencia. Aspectos estruturais e eletronicos de moleculas e cristais. Correlacao entre estrutura e propriedades quimicas e fisicas de substancias representativas. 1o Principio da Termodinamica. Equilibrio quimico em solucao aquosa. Energia de ligacao. Termoquimica. 2o Principio da termodinamica. Entropia e energia livre. Ligacao quimica. Funcoes organicas e Inorganicas."
+    },
+    {
+        "disciplina": " PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+        "codigo": "IQD0259 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Conceito geral do equilibrio quimico em meio aquoso, Lei da Acao das Massas, constante de equilibrio principio de Le Chatelier fatores que afetam o equilibrio, aspectos termodinamicos e cineticos envolvendo reacoes quimicas simples, solubilidade e sais pouco soluveis, teorias acido-base e conceitos basicos de eletroquimica."
+    },
+    {
+        "disciplina": " CALCULOS BASICOS DE QUIMICA",
+        "codigo": "IQD0260 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Abordagem dos calculos quimicos mais simples realizados por profissionais da Quimica utilizando o Metodo de Analise Dimensional. Uso correto da Algebra de Grandezas e das recomendacoes da IUPAC (Uniao Internacional de Quimica Pura e Aplicada), da ISO ( Organizacao Internacional para Padronizacao) e do Sistema Internacional de Unidades."
+    },
+    {
+        "disciplina": " ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+        "codigo": "IQD0262 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Abordagem fundamental dos principios evolutivos da Estrutura Atomica ea Lei Periodica: Modelos Atomicos ate a Mecanica Quantica. A ligacaoquimica: estruturas, modelos e teorias de ligacao."
+    },
+    {
+        "disciplina": " PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+        "codigo": "IQD0263 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Abordagem conceitual dos principios fundamentais da Termodinamica Quimica e da Cinetica Quimica e suas aplicacoes. Interface da Termodinamica Quimica e da Cinetica Quimica com outras areas do conhecimento."
+    },
+    {
+        "disciplina": " PRATICA DE ENSINO DE QUIMICA 2",
+        "codigo": "IQD0264 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Identificacao, analise e interpretacao das formas de atuacao do professor de Quimica no nivel basico. Observacao de aulas de Quimica, com reflexao critica. Vivencia no ensino de Quimica na educacao formal e/ou informal, por meio da regencia de classe ou em projetos especiais. Analise da regencia vivenciada."
+    },
+    {
+        "disciplina": " FENOMENOS DE TRANSPORTE DE MASSA, ENERGIA E MOMENTUM",
+        "codigo": "IQD0266 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Conceitos e equacoes fundamentais de fluidos Escoamento em regime laminar e turbulento. Analise dimensional. Transferencia de calor por conducao e conveccao Radiacao. Transferencia de massa por difusao e conveccao.Experimentos de transporte de quantidade de movimento, calor e massa."
+    },
+    {
+        "disciplina": " PROCESSOS DA INDUSTRIA DE ALIMENTOS",
+        "codigo": "IQD0267 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Aspectos gerais da Industria de Alimentos. Principios de Higiene Industrial. Principios de Conservacao de alimentos: calor, refrigeracao, secagem, metodos de barreiras. Legislacao de Alimentos. Nocoes de Analise Sensorial. Processamento de oleos e gorduras, Processamento de leite e derivados, processamentos de produtos carneos, processamentos de cereais."
+    },
+    {
+        "disciplina": " ELEMENTOS DE OPERACOES UNITARIAS",
+        "codigo": "IQD0268 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Conhecimento dos processos fisicos empregados nas\nindustrias quimicas. Compreensao dos fenomenos envolvidos nas\noperacoes unitarias. Estudos das principais equacoes e formulas das\noperacoes unitarias. Identificacao dos parametros que influenciam as\nOPs. Derivacao e compreensao das equacoes e formulas que\ndeterminam as OPs. Calculos dos balancos de massa e termicos\nenvolvidos."
+    },
+    {
+        "disciplina": " LABORATORIO DE ELEMENTOS DE OPERACOES UNITARIAS",
+        "codigo": "IQD0269 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Conhecimento dos processos fisicos empregados nas industrias\nquimicas. Compreensao dos fenomenos envolvidos nas operacoes\nunitarias. Estudos das principais equacoes e formulas das operacoes\nunitarias."
+    },
+    {
+        "disciplina": " TECNOLOGIA DO MEIO AMBIENTE 2",
+        "codigo": "IQD0272 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Residuos solidos: caracterizacao e classificacao.Aproveitamento e reciclagem de rejeitos solidos.Tecnicas de tratamentos e disposicao final de residuos urbanos e industriais.Gestao e legislacao ambiental.Principais poluentes atmosfericos.Macro poluicao.Gases de efeito estufa (GEE).Particulados e gases: principais caracteristicas e efeitos.Tecnicas de reducao na fonte.Equipamentos de controle.Poluicao por fontes moveis e fixas.Dispersao e transporte de poluentes."
+    },
+    {
+        "disciplina": " TECNOLOGIA DOS PRODUTOS AGROINDUSTRIAIS",
+        "codigo": "IQD0277 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " TECNOLOGIA DE INDUSTRIA DE BASE INORGANICA",
+        "codigo": "IQD0278 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo descritivo dos processos industriais de base inorganica em que as materias primas naturais se transformam em produtos quimicos ou materiais de consumo massivo como o cimento, ceramica e vidro."
+    },
+    {
+        "disciplina": " REACOES QUIMICAS E O AMBIENTE",
+        "codigo": "IQD0282 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Aspectos qualitativos das reacoes organicas que ocorrem no meio aquoso (solos e sedimentos) e na atmosfera e os efeitos de seus produtos no ambiente (meios abioticos e bioticos). Abordagem a partir dos grupos funcionais, indicando: estrutura molecular, nomenclatura e propriedades fisicas das substancias representativas de cada grupo. Aspectos cineticos e termodinamicos e os mecanismos das reacoes. Hidrocarbonetos: Alcanos, Alcenos, Alcinos, Aromaticos e Poliaromaticos. Deslocalizacao e Conjugacao. Acidos, bases e pKa. Haletos de alquila e haletos de arila. Alcoois Eteres, Tiois e Tioeteres. Aldeidos e cetonas. Acidos carboxilicos e seus derivados. Aminas. Mecanismos de formacao do Smog - aspectos fotoquimicos."
+    },
+    {
+        "disciplina": " ANALISE DE LIVROS DIDATICOS DE ENSINO DE QUIMICA",
+        "codigo": "IQD0284 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Analise de Livros Didaticos de Quimica, na perspectiva de discutir o seu papel no ensino de Quimica, considerados os pressupostos legais e a literatura especializada."
+    },
+    {
+        "disciplina": " LABORATORIO DE TECNICAS QUIMICAS BASICAS",
+        "codigo": "IQD0286 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " QUIMICA DA AGUA",
+        "codigo": "IQD0290 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Cinetica e equilibrio quimico da agua: conceitos fundamentais. Reacoes em sistema aquoso: oxi-reducao, acido-base, complexacao e precipitacao. Regulacao da composicao quimica de aguas naturais. Analise Ambiental Instrumental. Poluicao das aguas e seu controle quimico."
+    },
+    {
+        "disciplina": " QUIMICA ATMOSFERICA",
+        "codigo": "IQD0294 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estrutura e evolucao da atmosfera terrestre, reacoes fotoquimicas na atmosfera, poluentes atmosfericos, quimica da estratosfera e a camada de ozonio, efeito estufa e aquecimento global, quimica da troposfera (smog fotoquimico, chuva acida e material particulado), atmosferas confinadas, controle, monitoramento e legislacao ambiental."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE FISICO",
+        "codigo": "IQD0296 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Estudo do comportamento p,V,T da materia nos estados gas, liquido e solido. Primeiro Principio da Termodinamica. Energia. Calor e trabalho. Principio de Conservacao de Energia. Entalpia e energetica das reacoes quimicas. Maquinas termicas e o surgimento do Segundo Principio. Entropia. Espontaneidade e energia livre.Potencial quimico de misturas. Substancias puras e equilibrio de fases. Diagramas de fases. Solucoes ideais e propriedades coligativas. Solucoes diluidas ideais. Misturas binarias. Equilibrio em sistemas nao ideais. Equacao de Clapeyron. Equacao de Clausius-Clapeyron. Regra das fases.Cinetica Quimica. Leis empiricas e mecanismos. Teoria das colisoes e do complexo ativado."
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA QUIMICA",
+        "codigo": "IQD0297 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Apresentar aos estudantes o funcionamento do curso de Engenharia Quimica dentro da Universidade, os professores da FT e do Instituto de Quimica, particularmente aqueles da Divisao de Quimica Tecnologica, suas atividades de pesquisa e extensao, estabelecer a comparacao e o contraste entre as atribuicoes e as atividades dos diferentes profissionais da quimica, trazer aos estudantes encontros com profissionais de diferentes areas de tecnologia quimica e de diferentes segmentos da industria, etc."
+    },
+    {
+        "disciplina": " CINETICA DOS REATORES QUIMICOS",
+        "codigo": "IQD0298 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Elementos de cinetica quimica. Ordem de reacao e molecularidade. Estequiometria e taxa de reacao. Constante cinetica. Efeitos de pressao, temperatura e concentracao para a taxa de reacao. Balanco material e balanco global e especifico. Reatores ideais: tanque agitado continuo, tanque agitado descontinuo, reator de fluxo empistonado: conceito e exemplos. Conceitos de tempo espacial, tempo de residencia e velocidade espacial. Arranjos de reatores em serie e em paralelo. Reciclo. Otimizacao de arranjos de reatores. Metodos de determinacao da taxa de reacao: metodo diferencial, metodo integral, metodo da taxa inicial, metodo de excesso. Balanco energetico:"
+    },
+    {
+        "disciplina": " ESTAGIO SUPERVISIONADO DE LICENCIATURA EM QUIMICA 1",
+        "codigo": "IQD0415 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Diagnostico de contexto escolar, entendido como levantamento de informacoes que subsidiem respectivas analise e interpretacao que possibilitem entender a escola como campo de trabalho docente, identificando seus problemas e perspectivas."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE ENSINO DE QUIMICA",
+        "codigo": "IQD0449 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Fundamentos pedagogicos, cientificos, teoricos e metodologicos do ensino de ciencias e do ensino de quimica. Dimensoes cognitivas, epistemologicas, politicas, sociais e institucionais da ciencia. Producao, propagacao, recontextualizacao, transposicao e evolucao do saber cientifico. Praticas associadas a processos, espacos e tempos de construcao e de propagacao do saber cientifico. Conteudos, metodos, culturas e representacoes relacionados as ciencias e a quimica no contexto de seu ensino. Problematizacao do ensino de ciencias e de quimica. Analise de aspectos historicos, teoricos e metodologicos do ensino de ciencias e de quimica. Pesquisa em Ensino de Quimica para a formacao de professores."
+    },
+    {
+        "disciplina": " EMPREENDEDORISMO TECNOLOGICO: PRINCIPIOS E ESTRATEGIAS PARA CRIACAO SPIN",
+        "codigo": "IQD0451 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Capacitar os alunos para o empreendedorismo cientifico, com enfase em inovacao tecnologica e desenvolvimento de produtos. Tambem serao utilizadas atividades extensionistas que ja constam na estrutura do curso para que sejam integralizadas executando atividades que incentivam a interacao com ambientes de inovacao, empresas, e a comunidade empreendedora, proporcionando uma experiencia pratica que conecta o conhecimento cientifico ao mercado."
+    },
+    {
+        "disciplina": " QUIMICA DE PRODUTOS NATURAIS",
+        "codigo": "IQD0457 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "A presente disciplina tem como foco proporcionar aos estudantes uma introducao aos fundamentos da quimica de produtos naturais. Serao apresentados temas relevantes da area, tais como: Biossintese, papel evolutivo e funcoes biologicas dos metabolitos do metabolismo secundario; Ferramentas classicas e atuais para o estudo de produtos naturais sob o ponto de vista quimico e biologico. Esses temas sao bastante relevantes, pois ao contemplar a origem, funcao e metodos de obtencao e caracterizacao de uma grande variedade de classes de substancias com importancia medicinal e tecnologica, torna-se uma area de estudo com apelo interdisciplinar, sendo assim, essa e uma disciplina relevante nao apenas para os estudantes de quimica organica, mas tambem para estudantes e pesquisadores das areas de ciencias farmaceuticas e biologicas."
+    },
+    {
+        "disciplina": " INTRODUCAO AO CURSO",
+        "codigo": "IQD0467 ",
+        "unidade_responsavel": "INSTITUTO DE QUIMICA ",
+        "ementa": "Tipo de Material"
+    }
+]

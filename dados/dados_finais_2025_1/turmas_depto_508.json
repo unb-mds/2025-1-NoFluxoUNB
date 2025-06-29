@@ -1,0 +1,332 @@
+[
+    {
+        "disciplina": " FUNDAMENTOS TEORICOS DA COMPUTACAO",
+        "codigo": "CIC0002 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Estudo de fundamentos de logica, tecnicas de prova, inducao matematica, teoria de conjuntos, analise combinatoria, funcoes, recursao, relacoes em conjuntos."
+    },
+    {
+        "disciplina": " INTRODUCAO AOS SISTEMAS COMPUTACIONAIS",
+        "codigo": "CIC0003 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Os cursos de graduacao em computacao da UnB. Normas e curriculos. Historico e evolucao da computacao. Conceitos basicos de eletricidade e eletronica digital. Representacao de Dados. Introducao a Algebra Booleana. Nocoes basicas de organizacao e arquitetura de computadores."
+    },
+    {
+        "disciplina": " ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+        "codigo": "CIC0004 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Principios fundamentais de construcao de programas. Construcao de algoritmos e sua representacao em pseudocodigo e linguagens de alto nivel. Nocoes de abstracao. Especificacao de variaveis e funcoes. Testes e depuracao. Padroes de solucoes em programacao. Nocoes de programacao estruturada. Identificadores e tipos. Operadores e expressoes. Estruturas de controle: condicional e repeticao. Entrada e saida de dados. Estruturas de dados estaticas: agregados homogeneos e heterogeneos. Iteracao e recursao. Nocoes de analise de custo e complexidade. Desenvolvimento sistematico e implementacao de programas. Estruturacao, depuracao, testes e documentacao de programas. Resolucao de problemas. Aplicacoes em casos reais e questoes ambientais."
+    },
+    {
+        "disciplina": " FORMACAO DOCENTE EM COMPUTACAO",
+        "codigo": "CIC0005 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "O Sistema Nacional de Avaliacao da Educacao Superior (SINAES): conceitos, indicadores e instrumentos Diretrizes Curriculares Nacionais e Diretrizes dos Cursos de Computacao e de Licenciatura Avaliacao de cursos de graduacao e de licenciatura.  Exames Nacionais de Avaliacao Educacional: matrizes de referencia de avaliacao da Educacao Basica IDEB ENEM ENADE. Prova docente. A formacao profissional docente: dimensao teorica, pratica e emancipatoria na perspectiva da formacao da pessoa, do trabalho e das praticas. Investigacao e pesquisa sobre o trabalho docente: metodos qualitativos e de intervencao avaliacao do trabalho docente no contexto escolar e nao escolar. Etica da profissao docente: a dimensao da linguagem e de competencia dialogica. Campos de trabalho da Computacao e Licenciatura."
+    },
+    {
+        "disciplina": " INTRODUCAO A CIENCIA DA COMPUTACAO",
+        "codigo": "CIC0007 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Ementa1. Introducao2. Pensamento Computacional3. Variaveis e entrada de dados4. Estruturas Condicionais5. Estruturas de Repeticao6. Estrutura de dados - agregados homogeneos7. Funcoes/Procedimentos8. Estrutura de dados - agregados heterogeneos9. Arquivos10. Bibliotecas--------------------------"
+    },
+    {
+        "disciplina": " TOPICOS AVANCADOS EM COMPUTADORES",
+        "codigo": "CIC0087 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "EMENTA VARIAVEL A CADA SEMESTRE."
+    },
+    {
+        "disciplina": " ESTRUTURAS DE DADOS",
+        "codigo": "CIC0090 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Gerenciamento dinamico da memoria. Listas. Pilhas. Filas. Arvores. Ordenacao e Pesquisa.Pesquisa em Arvores. Grafos. Analise e aplicacao de estruturas avancadas em problemas de programacao. Resolucao de problemas. Aplicacoes em problemas ambientais."
+    },
+    {
+        "disciplina": " LINGUAGENS DE PROGRAMACAO",
+        "codigo": "CIC0093 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "INTRODUCAO CONCEITOS: VARIAVEIS, EXPRESSOES, ESCOPO, COMANDOS,  TI- PAGEM, PROCEDIMENTOS, TIPOS DE DADOS, ABSTRACAO, CONTROLE ETC. PARADIG- MAS E LINGUAGEM DE PROGRAMACAO: IMPERATIVAS, LOGICAS, E ORIENTADAS  POR OBJETOS."
+    },
+    {
+        "disciplina": " TEORIA DA COMPUTACAO",
+        "codigo": "CIC0095 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "FUNCOES COMPUTAVEIS. FUNCOES RECURSIVAS PRIMITIVAS. TESE DE CHUR- CH. ENUMERACAO DE GODEL. MAQUINAS ABSTRATAS. MAQUINAS DE  TURING. O DE- CIMO PROBLEMA DE HILBERT. EQUACOES DIOFANTINAS. INDECIDIBILIDADE."
+    },
+    {
+        "disciplina": " BANCOS DE DADOS",
+        "codigo": "CIC0097 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "NIVEIS DE ABSTRACAO DE INFORMACOES E DADOS MODELO RELACIONAL MODELODE REDE MODELO HIERARQUICO SEGRUANCA, INTEGRIDADE  E CONCORRENCIA ES-TUDO DE CASOS NOVAS APLICACOES PARA BANCO DE DADOS."
+    },
+    {
+        "disciplina": " ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+        "codigo": "CIC0099 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Desempenho de Processadores. Arquitetura do Conjunto de Instrucoes e Linguagem de Maquina. Aritmetica Computacional. Organizacao e Projeto de Processadores (Uniciclo, Multiciclo e Pipeline). HIerarquia de Memoria. Sistemas de entrada e saida. Introducao ao Multiprocessamento."
+    },
+    {
+        "disciplina": " SISTEMAS DE INFORMACAO",
+        "codigo": "CIC0101 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "FUNDAMENTOS DA  TEORIA  GERAL DE  SISTEMAS TEORIA DA INFORMACAO: CONCEITO DE INFORMACAO, CONCEITO DE DADOS, REPRESENTACAO DE  DADOS E DE CONHECIMENTO SISTEMAS DE  INFORMACOES:  FASES E  ETAPAS DOCUMENTACAO PROTOTIPACAO MODELAGEM CONCEITURAL: ABSTRACAO, MODELO ENTIDADE-RELACI- ONAMENTO, ANALISE FUNCIONAL, ADMINISTRACAO DE DADOS ESTUDO DE CASO."
+    },
+    {
+        "disciplina": " SOFTWARE BASICO",
+        "codigo": "CIC0104 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Linguagem de montagem montadores, ligadores e carregadores controladores de dispositivos"
+    },
+    {
+        "disciplina": " ENGENHARIA DE SOFTWARE",
+        "codigo": "CIC0105 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "SOFTWARE E ENGENHARIA DE SOFTWARE PLANEJAMENTO DO PROJETO DE SOFT-  WARE FUNDAMENTOS E METODOS  DE  ANALISE  FUNDAMENTOS  DO  PROJETO  DE  SOFTWARE ASSEGURANDO A QUALIDADE DO SOFTWARE: FATORES  E  ATIVIDADES  FORMAIS METODOS DE QUALIDADE TECNICAS DE TESTES MANUTENCAO AUTOMA-  CAO DO PROCESSO DE DESENVOLVIMENTO DE SOFTWARE: AMBIENTES APOIADOS  EM  SISTEMAS OPERACIONAIS, LINGUAGENS E METODOLOGIAS FERRAMENTAS  INTELI-  GENTES PARA AUXILIO A PRODUCAO DE SOFTWARE."
+    },
+    {
+        "disciplina": " SISTEMAS OPERACIONAIS",
+        "codigo": "CIC0108 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "CONCEITOS BASICOS E HISTORICOS GERENCIA DE PROCESSOS E PROGRAMA- CAO CONCORRENTE GERENCIA DE DISPOSITIVOS GERENCIA DE MEMORIA  SISTE- TEMA DE ARQUIVOS ESTUDO DE SISTEMAS OPERACIONAIS EXISTENTES."
+    },
+    {
+        "disciplina": " REDES DE COMPUTADORES",
+        "codigo": "CIC0124 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Nocoes basicas de transmissao de dados: tipos de enlace, codigos, modos e meios de transmissao. Redes de computadores: locais, metropolitanas e de longa distancia. Terminologia e aplicacoes, topologias, modelos de arquitetura (OSI/ISO e TCP/IP) e protocolos. Interconexao de redes. Nivel de transporte."
+    },
+    {
+        "disciplina": " INTRODUCAO AOS SISTEMAS EMBARCADOS",
+        "codigo": "CIC0130 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "CIRCUITOS ESPECIALIZADOS: ARQUITETURA E PROGRAMACAO. BARRAMENTOS  PARALELOS E SERIAIS COMUNICACOES ASSICRONAS. APLICACOES."
+    },
+    {
+        "disciplina": " INTRODUCAO A INTELIGENCIA ARTIFICIAL",
+        "codigo": "CIC0135 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Introducao a historico e conceitos de IA. Agentes Inteligentes. Resolucao de\nproblemas por Metodos de Busca. Conhecimento e Raciocinio Logico.\nRepresentacao de Conhecimento em Logica de Primeira Ordem. Regras de\nProducao. Nocoes de Logica Difusa. Construcao de Sistemas Baseados em\nConhecimento. Nocoes de Incerteza. Aprendizagem de Maquinas. Modelos\nSupervisionados e Nao Supervisionados. Aplicacoes de IA."
+    },
+    {
+        "disciplina": " INFORMATICA E SOCIEDADE",
+        "codigo": "CIC0142 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "FUNDAMENTOS DE SOCIEDADE, INFORMATICA E CONHECIMENTO TECNICO-CIEN-TIFICO DESENVOLVIMENTO TECNOLOGICO, APLICACOES E PERSPECTIVAS DA INFOR-MATICA IMPACTOS DA TECNOLOGIA DE INFORMATICA INFORMATICA NO BRASIL."
+    },
+    {
+        "disciplina": " INTRODUCAO A MICROINFORMATICA",
+        "codigo": "CIC0152 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "MICROCOMPUTADORES. SISTEMAS OPERACIONAIS. AMBIENTES   OPERACIO- NAIS. EDITORES DE TEXTOS. PLANILHAS ELETRONICAS. GERENCIADORES DE  BAN- COS DE DADOS. INTERNET."
+    },
+    {
+        "disciplina": " INFORMATICA APLICADA A EDUCACAO",
+        "codigo": "CIC0158 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Introducao a Informatica Aplicada a Educacao. Reflexao sobre o computador como apoio aos processos de ensino e de aprendizagem. Discussao sobre programas e politicas publicas relacionados a Informatica na Educacao. Introducao a Informatica na Educacao Especial. Investigacao sobre Educacao a Distancia: conceitos basicos, gestao de ambientes virtuais e legislacao. Reflexao sobre a formacao docente para o uso pedagogico das tecnologias. Analise do cenario atual da IAE no Brasil e no Mundo."
+    },
+    {
+        "disciplina": " AUTOMATOS E COMPUTABILIDADE",
+        "codigo": "CIC0161 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Ementa:Linguagens regulares, livres de contexto, sensiveis ao contexto, recursivas, recursivamente enumeraveis e nao recursivamente enumeraveis: reconhecedores e geradores. Computabilidade: maquinas de Turing e funcoes recursivas. Decidibilidade, redutibilidade. Complexidade: NP-completude, espaco-completude."
+    },
+    {
+        "disciplina": " PROGRAMACAO COMPETITIVA",
+        "codigo": "CIC0169 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Fundamentos das linguagens de programacao C e C++. Alocacao dinamica de memoria. Estruturas de dados lineares (lista, pilha, filas) e nao-lineares (arvores binarias de busca). Soma de prefixos e Codificacao Delta. Operacoes Bit a Bit. Two Pointers. Paradigmas de resolucao de problemas: algoritmos gulosos, divisao e conquista, busca completa e programacao dinamica."
+    },
+    {
+        "disciplina": " ARQUITETURA DE PROCESSADORES DIGITAIS",
+        "codigo": "CIC0177 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "HISTORICO DOS COMPUTADORES,  CONCEITOS FUNDAMENTAIS, DISPOSITIVOS  DEMEMORIA,  UNIDADE CENTRAL  DE PROCESSAMENTO (UCP),  PERIFERICOS  DA UCP,PROGRAMANDO COMPUTADORES, ARQUITETURA DO MICROCOMPUTADOR PESSOAL."
+    },
+    {
+        "disciplina": " LOGICA COMPUTACIONAL 1",
+        "codigo": "CIC0182 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "1. Nocoes Basicas   a. Linguagem Natural vs Linguagens Formais   b. Verdade, Validade, Satisfatibilidade   c. Logica Proposicional:       i.   Sintaxe e Semantica       ii.  Propriedades e Relacoes Semanticas       iii. Consequencia Logica       iv.  Simplificacao de Formulas   d. Logica de Primeira Ordem:       i.   Sintaxe e Semantica       ii.  Propriedades e Relacoes Semanticas   e. Formas Normais.2. Metodos de Validacao   a. Metodos Diretos de Prova   b. Metodos de Prova por Contradicao   c. Inducao.3. Linguagem para experimentacao   a. Aplicacoes Basicas."
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA DE COMPUTACAO",
+        "codigo": "CIC0188 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " PROJETO E ANALISE DE ALGORITMOS",
+        "codigo": "CIC0189 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Fundamentos matematicos para analise de algoritmos Analise assintotica de algoritmos Paradigmas de projeto de algoritmos Algoritmos eficientes para ordenacao, comparacao de sequencias, problemas em grafos Fundamentos de complexidade computacional, reducao entre problemas, classes P e NP, problemas NP-Completos."
+    },
+    {
+        "disciplina": " INTRODUCAO A SISTEMAS MULTIAGENTE",
+        "codigo": "CIC0190 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "A programacao orientada a agentes e apresentada como uma nova metafora para a descricao e programacao de sistemas computacionais distribuidos. Esta disciplina foi dividida em capitulos que proporcionam uma perspectiva global das tecnicas associadas a especificacao e desenvolvimento de agentes computacionais, bem como realca a sua importancia pratica apresentando exemplos de aplicacao. Introduz-se o conceito de agente numa comunidade de Sistemas Multiagente (SMA), onde sao apresentados metodos, linguagens, protocolos de comunicacao e de interacao, alem de plataformas para o desenvolvimento de aplicacoes SMA."
+    },
+    {
+        "disciplina": " INTRODUCAO AO DESENVOLVIMENTO DE JOGOS",
+        "codigo": "CIC0191 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Topicos introdutorios ao desenvolvimento de jogos. linguagens e arquitetura de jogos. fundamentos de programacao aplicados ao desenvolvimento de jogos. topicos avancados em desenvolvimento de jogos, tais como deteccao de colisao e inteligencia artificial."
+    },
+    {
+        "disciplina": " TECNICAS DE PROGRAMACAO 1",
+        "codigo": "CIC0197 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Decomposicao de problemas usando classes e objetos. Reuso com heranca e composicao de classes. Polimorfismo por subtipos/parametrizado. Tratamento de excecoes. Tecnicas de desenho e programacao OO. Topicos especiais (distribuicao, concorrencia). Tecnicas avancadas de modularizacao."
+    },
+    {
+        "disciplina": " TECNICAS DE PROGRAMACAO 2",
+        "codigo": "CIC0198 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Concepcao, arquitetura, projeto e implementacao de software de complexidade superior (em termos de requisitos e tamanho). Decomposicao de um sistema em modulos. Tecnicas de programacao sistematica e estilos de programacao para resolucao de problemas. Tecnicas de construcao de software com qualidade. Metodologias para gerenciamento da construcao de software. Tecnicas e ferramentas para construcao de um software com complexidade superior: Gerencia de configuracao e versionamento; Automacao do processo de build; Testes automatizados e refatoracao; Inspecao de codigo manual, analise estatica e dinamica; Depuracao de codigo; Verificacao avancada de programas; Produtividade do desenvolvedor."
+    },
+    {
+        "disciplina": " TEORIA E APLICACAO DE GRAFOS",
+        "codigo": "CIC0199 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Introducao a teoria dos grafos: motivacao, exemplos de aplicacoes, conceitos basicos (grafos e subgrafos, grau de vertices, caminhos e ciclos, grafos regulares e bipartidos, grafos eulerianos e hamiltonianos, grafos direcionados, grafos ponderados, conectividade e planaridade). Representacao de grafos: tipos de representacoes (matrizes de adjacencias, listas de adjacencias e hash). Operacoes: uniao, intersecao, diferenca, complemento, produto, composicao. Implementacao de algoritmos em grafos: exploracao e ordenacao (algoritmos de busca em profundidade, busca em amplitude e ordenacao topologica), conectividade (algoritmo de Tarjan), arvore geradora minima (algoritmos de Kruskal e Prim), menores caminhos a partir de uma fonte (algoritmos de Dijkstra e Bellman-Ford), coloracao. Aplicacao dos algoritmos em problemas de Ciencia da Computacao. Aplicacoes em Problemas Ambientais."
+    },
+    {
+        "disciplina": " METODOLOGIA CIENTIFICA",
+        "codigo": "CIC0200 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "O conhecimento cientifico. Metodos e tecnicas cientificas. Conceitos, teorias, leis e doutrinas. A pesquisa: conceitos e definicoes. Elaboracao e comunicacao da pesquisa. Estrutura, forma e conteudo de relatorios academicos. Tecnicas de apresentacao. Ferramentas para producao academica (Latex)."
+    },
+    {
+        "disciplina": " SEGURANCA COMPUTACIONAL",
+        "codigo": "CIC0201 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Nocoes preliminares Fundamentos Elementos do processo de seguranca Tipos basicos de protocolos para seguranca Tecnicas criptograficas Topicos especiais e atuais."
+    },
+    {
+        "disciplina": " PROGRAMACAO CONCORRENTE",
+        "codigo": "CIC0202 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Introducao threads e processos: comunicacao e sincronizacao Programacao concorrente baseada em variaveis compartilhadas (locks, semaforos e monitores) Problemas classicos (produtor/consumidor, leitores/escritores, jantar dos filosofos). Programacao concorrente baseada em troca de mensagens (primitivas send/receive) Introducao a Programacao Paralela estudos de caso (linguagens)."
+    },
+    {
+        "disciplina": " COMPUTACAO EXPERIMENTAL",
+        "codigo": "CIC0203 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Ciencia e o Metodo Cientifico Metodos para Revisao de Literatura Tipos de estudos empiricos: experimentos, estudos de caso, surveys Metodos quantitativos para analise dos dados."
+    },
+    {
+        "disciplina": " COMPILADORES",
+        "codigo": "CIC0204 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Historico. Classificacao de tradutores. Estrutura geral de um tradutor. Analise lexica. Analise sintatica. Analise semantica. Geracao de codigo. Especificacao e implementacao."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
+        "codigo": "CIC0205 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Conceitos basicos. Gerencia de processos. Gerencia de memoria. Gerencia de arquivos. Gerencia de dispositivos de entrada e saida. Estudo de Fundamentos de Sistemas Operacionais existentes."
+    },
+    {
+        "disciplina": " METODOS DE PESQUISA NA LICENCIATURA EM COMPUTACAO",
+        "codigo": "CIC0206 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "O conhecimento cientifico. A epistemologia da Ciencia da Computacao. Problema de pesquisa. Abordagens, metodos e tecnicas cientificas. Fonte, busca, selecao e uso da informacao em pesquisa cientifica.  Estrutura, forma e normas de trabalhos academicos. Ferramentas de producao academica. Etica na pesquisa. Publicacao cientifica. Tecnicas de apresentacao e comunicacao cientifica. Elaboracao de plano de pesquisa."
+    },
+    {
+        "disciplina": " PROJETO INTERDISCIPLINAR DE LICENCIATURA EM COMPUTACAO",
+        "codigo": "CIC0207 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Sob orientacao de um docente, realizacao de projeto e planejamento de projeto articulado com outras disciplinas de pratica docente. Sao tonicas: preparar o licenciando para a percepcao e consciencia de seu papel como educador estabelecimento das bases de processos de convivencia, respeito, trabalho cooperativo, aprendizagem e transformacao pela educacao desenvolvimento da percepcao etica e atitude frente ao seu papel como aprendiz e educador integracao da teoria e pratica na formacao do licenciando abordagem de questoes etnico-raciais e direitos humanos."
+    },
+    {
+        "disciplina": " PRODUCAO DE MATERIAL DIDATICO",
+        "codigo": "CIC0208 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Materiais didaticos e educativos. Conteudos para o ensino de computacao na educacao basica. Etapas de construcao de material didatico em ensino de computacao. Material didatico e direito autoral. Producao de material didatico para solucao de problemas de comunidades."
+    },
+    {
+        "disciplina": " SUPERVISAO DE PRODUCAO DE MATERIAL DIDATICO",
+        "codigo": "CIC0209 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Supervisao de atividades realizadas na disciplina Producao de Material Didatico."
+    },
+    {
+        "disciplina": " SUPERVISAO DE PRATICA PEDAGOGICA EM COMPUTACAO 1",
+        "codigo": "CIC0212 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Fundamentos de ensino e aprendizagem: objetivos educacionais e taxonomia de Bloom aprendizagem significativa e representacao do conhecimento modelagem com mapa de conceitos.Comunicacao e linguagem: ferramentas e aplicacoes da ontologia da linguagem na educacao mediacao em ambientes virtuais.Pratica pedagogica: processos de aprendizagem multi, inter e transdisciplinar atividades e projetos colaborativos aplicacoes em rede social e comunidade virtual desafios para a inclusao, integracao e gestao da diversidade.Recursos e materiais didaticos: selecao, planejamento, producao, desenvolvimento e uso de recursos educacionais em ambientes virtuais de aprendizagem producao colaborativa de recursos educacionais com o uso de tecnologias de informacao e comunicacao. Estagio supervisionado externo em instituicao conveniada."
+    },
+    {
+        "disciplina": " SUPERVISAO DE PRATICA PEDAGOGICA EM COMPUTACAO 2",
+        "codigo": "CIC0213 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Planejamento educacional: projeto politico pedagogico habilidades e competencias planejamento de curso, de aula/atividade educacional.Fundamentos de ensino e aprendizagem: objetivos educacionais e taxonomia de Bloom aprendizagem significativa e representacao do conhecimento modelagem com mapa de conceitos.Comunicacao e linguagem: ferramentas e aplicacoes da ontologia da linguagem na educacao mediacao em ambientes virtuais. Avaliacao de ensino e aprendizagem: avaliacao de sistemas e de processos educacionais avaliacao formativa e somativa medidas e instrumentos de avaliacao matriz de avaliacao avaliacao de produtos e de processos em EADPratica pedagogica: processos de aprendizagem multi, inter e transdisciplinar atividades e projetos colaborativos aplicacoes em rede social e comunidade virtual desafios para a inclusao, integracao e gestao da diversidade.Recursos e materiais didaticos: selecao, planejamento, producao, desenvolvimento e uso de recursos educacionais em ambientes virtuais de aprendizagem producao colaborativa de recursos educacionais com o uso de tecnologias de informacao e comunicacao. Estagio supervisionado externo em instituicao conveniada."
+    },
+    {
+        "disciplina": " SUPERVISAO DE ESTAGIO EM LICENCIATURA EM COMPUTACAO 1",
+        "codigo": "CIC0218 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Orientacao acerca de atividades praticas de intervencao escolar em locais exernos a UnB estabelecidos pela Coordenacao, sob a orientacao de docente orientador de estagio supervisionado e em consonancia com o Regulamento de Estagios Supervisionados Obrigatorios."
+    },
+    {
+        "disciplina": " SUPERVISAO DE ESTAGIO EM LICENCIATURA EM COMPUTACAO 2",
+        "codigo": "CIC0220 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Orientacao acerca de atividades praticas de intervencao escolar em locais exernos a UnB estabelecidos pela Coordenacao, sob a orientacao de docente orientador de estagio supervisionado e em consonancia com o Regulamento de Estagios Supervisionados Obrigatorios."
+    },
+    {
+        "disciplina": " SUPERVISAO DE ESTAGIO EM LICENCIATURA EM COMPUTACAO 3",
+        "codigo": "CIC0222 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Orientacao acerca de atividades praticas de intervencao escolar em locais exernos a UnB estabelecidos pela Coordenacao, sob a orientacao de docente orientador de estagio supervisionado e em consonancia com o Regulamento de Estagios Supervisionados Obrigatorios."
+    },
+    {
+        "disciplina": " INTRODUCAO A SISTEMAS OPERACIONAIS",
+        "codigo": "CIC0225 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Conceitos Basicos e Historicos Funcionalidades de Sistemas Operacionais Gerencia de Processos Gerencia de Memoria Gerencia de Dispositivos de Entrada e Saida Sistema de Arquivos Estudos de Caso."
+    },
+    {
+        "disciplina": " CIRCUITOS LOGICOS",
+        "codigo": "CIC0229 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Algebra Booleana. Estruturas de Portas Logicas. Circuitos Combinacionais. Memorias. Circuitos Sequenciais. Conversao A/D e D/A."
+    },
+    {
+        "disciplina": " LABORATORIO DE CIRCUITOS LOGICOS",
+        "codigo": "CIC0231 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Linguagem de Descricao de Hardware. Portas Logicas. Circuitos Combinacionais. Elementos de Estado. Circuitos Sequenciais. Conversao A/D e D/A. Projeto aplicativo."
+    },
+    {
+        "disciplina": " TELEINFORMATICA E REDES 1",
+        "codigo": "CIC0235 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Introducao : arquitetura de redes, modelo de protocolo em camadas, sistemas multimidia de redes, computacao distribuida, paradigmas cliente-servidor, peer-to-peer,  conceitos de computacao movel, padroes de redes. Capacidade de canal. Taxa de transmissao. Codificacao analogica-digital, digital-digital e digital-analogica. Principios dos modelos das redes de computadores: OSI e TCP/IP. Meios de transmissao de dados.  Protocolos e tecnologias de enlace de dados. Redes de comutacao de circuito e de pacotes."
+    },
+    {
+        "disciplina": " TELEINFORMATICA E REDES 2",
+        "codigo": "CIC0236 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Camada de Rede TCP/IP: internetworking, enderecamento, roteamento, protocolos. Camada de Aplicacao: conceitos e protocolos. Aspectos de seguranca em redes de computadores. Dispositivos de interconexao, conceito de processadores de redes. Protocolos leves. Metodos formais para especificacao e verificacao de protocolos. Introducao a gerencia de redes."
+    },
+    {
+        "disciplina": " INTRODUCAO AO AMBIENTE UNIVERSITARIO NA COMPUTACAO",
+        "codigo": "CIC0247 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "A transicao do ensino medio ao ambiente universitario. A Universidade de Brasilia e o Departamento de Ciencia da Computacao. Os cursos de computacao na UnB, competencias e habilidades. Servicos da UnB de apoio ao estudante. O papel do estudante nos cursos de computacao. Fundamentos e tecnicas de inclusao e relacionamento interpessoal, entre estudantes e entre estudantes e professores."
+    },
+    {
+        "disciplina": " SISTEMAS DE TEMPO REAL",
+        "codigo": "CIC0248 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Introducao. Caracteristicas de sistemas em tempo real. Aspectos funcionais e temporais. Modelo de programa cao sincrona. Abordagens Assincrona e Sincrona. Concorrencia. Comunicacao e sincronizacao de processos. Sistemas Embarcados.  Algoritmos de escalonamento de processos para sistemas em tempo real embarcados. Modelagem de sistemas em tempo real. Sistemas Operacionais  de tempo real. Linguagens de programacao para sistemas em tempo real. Projeto pratico de sistema de tempo real embarcados."
+    },
+    {
+        "disciplina": " PRATICA EXTENSIONISTA EM COMPUTACAO A",
+        "codigo": "CIC0256 ",
+        "unidade_responsavel": "DEPTO CIENCIAS DA COMPUTACAO ",
+        "ementa": "Promover a expansao e o acesso dos conhecimentos em Computacao para a sociedade. Os estudantes serao, nesta disciplina, protagonistas, sob a orientacao docente."
+    }
+]

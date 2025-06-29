@@ -21,11 +21,12 @@ def gerar_nomes_pastas():
     semestre = 1 if hoje.month <= 6 else 2
     
     sufixo_semestre = f"{ano}_{semestre}"
+    diretorio_base = "dados"
     
     nomes = {
-        "dados_finais": f"dados_finais_{sufixo_semestre}",
-        "chunks": f"chunks_finais_{sufixo_semestre}",
-        "formatados": f"chunks_finais_formatados_{sufixo_semestre}"
+        "dados_finais": os.path.join(diretorio_base, f"dados_finais_{sufixo_semestre}"),
+        "chunks": os.path.join(diretorio_base, f"chunks_finais_{sufixo_semestre}"),
+        "formatados": os.path.join(diretorio_base, f"chunks_finais_formatados_{sufixo_semestre}")
     }
     print(f"Pastas a serem utilizadas neste semestre ({sufixo_semestre}):")
     print(f" - Dados brutos: {nomes['dados_finais']}")

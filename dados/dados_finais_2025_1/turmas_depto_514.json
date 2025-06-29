@@ -1,0 +1,152 @@
+[
+    {
+        "disciplina": " COMPUTACAO EM ESTATISTICA 1",
+        "codigo": "EST0001 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Entrada e manipulacao de base de dados e estatistica descritiva usando R."
+    },
+    {
+        "disciplina": " ESTATISTICA COMPUTACIONAL",
+        "codigo": "EST0004 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Introducao. Geracao de numeros aleatorios e simulacao. Estimacao e teste de hipoteses. Nocoes de metodos MCMC (simulacao dinamica). Otimizacao Numerica."
+    },
+    {
+        "disciplina": " INFERENCIA BAYESIANA",
+        "codigo": "EST0005 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Teorema de Bayes. Distribuicoes a Priori e a Posteriori. Distribuicoes a Priori Conjugadas. Funcao Perda. Estimadores de Bayes. Testes Bayesianos. Computacao Bayesiana."
+    },
+    {
+        "disciplina": " MODELOS LINEARES GENERALIZADOS",
+        "codigo": "EST0011 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Revisao de alguns resultados de Inferencia Estatistica e Probabilidade. Introducao aos MLG. Metodos de Estimacao e Algoritmos. Medidas de Qualidade de Ajuste. Testes de Hipoteses e Selecao de Modelos. Analise de Residuos e Diagnosticos. Analise de Dados Normais. Analise de Dados Binarios e Proporcoes. Analise de Dados de Contagem. Modelos para Tabelas de Contingencia. Analise de Dados com Sobredispersao. Extensoes dos MLG."
+    },
+    {
+        "disciplina": " METODOS ESTATISTICOS 2",
+        "codigo": "EST0017 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Metodos parametricos e nao parametricos - Estimacao e testes baseados na binomial. Analise de tabelas de contingencia com testes qui quadrado. Testes de ajustamento.  Teste de hipoteses para varias medias- ANOVA. Testes baseados em postos (Mann- Whitney, Kruskal-Wallis, Wilcoxon para postos sinalizados, Friedman)"
+    },
+    {
+        "disciplina": " ESTATISTICA APLICADA",
+        "codigo": "EST0019 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "CONCEITOS BASICOS - DISTRIBUICAO DE FREQUENCIAS E SUAS CARACTERISTICAS - INTRODUCAO A  PROBABILIDADE  -  AJUSTAMENTO  DE  FUNCOES  REAIS - CORRELACAO E REGRESSAO LINEAR - NOCOES DE AMOSTRAGEM E TESTES DE  HIPOTESE."
+    },
+    {
+        "disciplina": " PROBABILIDADE E ESTATISTICA",
+        "codigo": "EST0023 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Analise Descritiva, Calculo de Probabilidades, Variaveis Aleatorias Discretas, Variaveis Aleatorias Continuas, Variaveis Aleatorias Multidimensionais, Nocoes de Amostragem e Estimacao, Testes de Hipoteses."
+    },
+    {
+        "disciplina": " BIOESTATISTICA",
+        "codigo": "EST0027 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "ESTATISTICA DESCRITIVA. NOCOES DE PROBABILIDADE. PRINCIPAIS MODELOS  DISCRETOS E CONTINUOS. AJUSTAMENTO DE MODELOS PROBABILISTICOS.  NOCOES  DE AMOSTRAGEM E ESTIMACAO. NOCOES DE TESTES DE HIPOTESES.  ANALISE  DE  VARIANCIA:  CLASSIFICACAO  SIMPLES.  CORRELACAO  E  REGRESSAO  LINEAR.  NOCOES SOBRE EXPERIMENTOS E LEVANTAMENTOS."
+    },
+    {
+        "disciplina": " ESTATISTICA EXPLORATORIA",
+        "codigo": "EST0033 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "A Estatistica no Brasil. Fases do Trabalho Estatistico. Elaboracao de Tabelas e Graficos. Medidas Descritivas Unidimensionais. Medidas Bi-dimensionais (Pearson, Spearman, Qui-quadrado, Contigencia modificado e Cramer). Introducao a um Pacote Estatistico."
+    },
+    {
+        "disciplina": " INFERENCIA ESTATISTICA",
+        "codigo": "EST0035 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Distribuicoes amostrais de probabilidade. Metodos de estimacao. Propriedades de estimadores. Suficencia. Estimacao intervalar. Testes de Hipoteses."
+    },
+    {
+        "disciplina": " TECNICAS DE AMOSTRAGEM",
+        "codigo": "EST0036 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Amostra Aleatoria simples, estratificada, sistematica e por conglomerados. Probabilidades desiguais de selecao. Variaveis auxiliares. Aplicacoes."
+    },
+    {
+        "disciplina": " ANALISE DE REGRESSAO LINEAR",
+        "codigo": "EST0038 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Formas Quadraticas. Regressao Linear Simples. Regressao Linear Multipla. Metodos para selecao de variaveis. Diagnosticos. Aplicacoes"
+    },
+    {
+        "disciplina": " DELINEAMENTO E ANALISE DE EXPERIMENTOS",
+        "codigo": "EST0042 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Delineamento de Experimentos. Delineamento Inteiramente Casualizado. Delineamento em Blocos Casualizados. Quadrado Latino. Experimentos Fatoriais. Aplicacoes."
+    },
+    {
+        "disciplina": " DEMOGRAFIA",
+        "codigo": "EST0046 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Fontes de dados. Diagrama de Lexis. Indicadores de Mortalidade, Fecundidade e Migracao. Padronizacao de dados demograficos. Ajuste de dados demograficos. Piramides populacionais. Modelos de populacao. Projecao de populacao."
+    },
+    {
+        "disciplina": " PROCESSOS ESTOCASTICOS",
+        "codigo": "EST0048 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "TEOREMAS  DE  LIMITES  -  ESPERANCAS E  DISTRIBUICOES  CONDICIONADAS PROCESSOS ESTOCASTICOS - PROCESSOS  ESTACIONARIOS -  CADEIAS DE  MARKOV EQUACOES DE CHAPMAN - KOLMOGOROV - PROCESSOS DE POISSON E DE  RAMIFICA- CAO - MODELOS  EXPONENCIAIS  -  GENERALIZACAO  DE  ESPACOS  DE  ESTADOS TEORIA DE RENOVACAO - APLICACOES."
+    },
+    {
+        "disciplina": " ANALISE DE SERIES TEMPORAIS",
+        "codigo": "EST0051 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Conceitos Basicos. Exemplos. Objetivos. Analise Descritiva em Series Temporais. Estacionariedade. Processos ARMA e ARIMA. Identificacao. Estimacao. Previsao. Aplicacoes Especiais."
+    },
+    {
+        "disciplina": " ANALISE DE DADOS CATEGORIZADOS",
+        "codigo": "EST0064 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Tabelas de contingencia Bidimensionais. Tabelas de Contingencia  Tridimensionais. Modelos para Variaveis com Resposta Binarias. Modelos Log-Lineares. Regressao de Poisson."
+    },
+    {
+        "disciplina": " INTRODUCAO A PROBABILIDADE",
+        "codigo": "EST0069 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Teoria Classica da Probabilidade. Variavel Aleatoria Unidimensional. Variavel Aleatoria Discreta Bidimensional. Modelos Probabilisticos Discretos, Distribuicoes continuas, Normal e t-Student."
+    },
+    {
+        "disciplina": " METODOS ESTATISTICOS 1",
+        "codigo": "EST0070 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Populacao e amostra, distribuicoes amostrais. Propriedades dos estimadores. Conceitos basicos de estimacao via metodos dos momentos, minimos quadrados e maxima verossimilhanca. Intervalos de confianca para a media e proporcao populacionais. Testes de hipoteses para media, proporcao e variancia. Testes de hipoteses para a igualdade de medias e igualdade de variancias. Testes de independencia e de aderencia.  Correlacao e regressao."
+    },
+    {
+        "disciplina": " TRABALHO DE CONCLUSAO DE CURSO 1",
+        "codigo": "EST0081 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "O Estagio Supervisionado 1 consiste em definir um problema relevante em Estatistica, na elaboracao de uma proposta de projeto para resolve-lo, e iniciar o desenvolvimento do mesmo, incluindo, quando for o caso, a coleta de dados."
+    },
+    {
+        "disciplina": " ANALISE DE SOBREVIVENCIA",
+        "codigo": "EST0086 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Natureza dos dados temporais. Tipos de Censuras. Estimadores nao parametricos da funcao de sobrevivencia. Principais modelos parametricos. Regressao parametrica para dados temporais. Modelos de tempos de vida acelerados. O modelo de regressao de Cox. Modelo de riscos aditivos de Aalen."
+    },
+    {
+        "disciplina": " PRATICAS DE EXTENSAO EM ESTATISTICA 2",
+        "codigo": "EST0088 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Promover a expansao e o acesso dos conhecimentos em Estatistica para a sociedade. Os estudantes serao, nesta disciplina, protagonistas, sob a orientacao docente. As atividades serao direcionadas aos aspectos cientificos, tecnologicos, sociais e ambientais da estatistica, contribuindo, assim, para a promocao do conhecimento e da cidadania."
+    },
+    {
+        "disciplina": " COMPUTACAO EM ESTATISTICA 2: R",
+        "codigo": "EST0091 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Programacao em software estatistico disponivel no Departamento de Estatistica (EST), para manipulacao e analise exploratoria de dados."
+    },
+    {
+        "disciplina": " COMPUTACAO EM ESTATISTICA 2: PYTHON",
+        "codigo": "EST0092 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Programacao em software estatistico disponivel no Departamento de Estatistica (EST), para manipulacao e analise exploratoria de dados."
+    },
+    {
+        "disciplina": " LABORATORIO DE ESTATISTICA 1",
+        "codigo": "EST0124 ",
+        "unidade_responsavel": "DEPTO ESTATISTICA ",
+        "ementa": "Disciplina de extensao baseada na implementacao de projetos de estatistica ou desenvolvimento de solucoes de problemas estatisticos, sob a abordagem do aprendizado focado em projetos/problemas reais da comunidade. Promove a troca de experiencia com profissionais da area da estatistica, a interacao com a comunidade e o protagonismo do discente."
+    }
+]

@@ -1,0 +1,824 @@
+[
+    {
+        "disciplina": " FUNDAMENTOS LOGICOS DE INTELIGENCIA ARTIFICIAL",
+        "codigo": "FCTE0001 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao a logica classica;\n\nLogica de primeira ordem;\n\nRepresentacoes proposicionais;\n\nProcedimentos automaticos de prova;\n\nProblema de satisfatibilidade (SAT);\n\nAlgoritmos para SAT;\n\nBusca em grafos;\n\nFormas nao clausais de representacao;\n\nPlanejamento automatizado;\n\nAplicacoes em planejamento automatizado."
+    },
+    {
+        "disciplina": " PARADIGMAS DE SOLUCAO DE PROBLEMAS",
+        "codigo": "FCTE0002 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Busca completa\n\n(a) Backtracking\n\n(b) Meet in the middle\n\n2. Algoritmos gulosos\n\n(a) Definicao e propriedades\n\n(b) Dois ponteiros\n\n3. Divisao e conquista\n\n(a) Busca binaria\n\n(b) Busca ternaria\n\n(c) Transformada de Fourier\n\n4. Programacao Dinamica\n\n(a) Definicao e propriedades\n\n(b) Max range sum\n\n(c) Problema do troco\n\n(d) Problema da mochila\n\n(e) Maior subsequencia crescente\n\n(f) Problema do caixeiro viajante\n\n(g) DP de digitos\n\n(h) Mascaras binarias\n\n(i) Otimizacoes e tecnicas avancadas"
+    },
+    {
+        "disciplina": " COMPILADORES 1",
+        "codigo": "FGA0003 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Automatos. Gramaticas. Analisador lexico. Analisador Sintatico. Geracao de Codigo."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE EQUACOES DIFERENCIAIS PARA ENGENHARIA",
+        "codigo": "FGA0006 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1.Equacoes Diferenciais Parciais de Primeira Ordem- Leis de Conservacao (Metodo das Caracteristicas)2.Equacoes Diferenciais Parciais de Segunda Ordem em Dominios Limitados-Separacao de Variaveis-Serie de Fourier3.Teoria de Sturm-Liouville-Expansao por Series Ortogonais-Equacoes Nao-Homogeneas4.Transformadas Discretas-Funcoes de Bessel5.Equacoes Diferenciais Parciais de Segunda Ordem em Dominios Ilimitados-Transformada de Fourier6.Introducao as Equacoes Diferenciais Nao-Lineares"
+    },
+    {
+        "disciplina": " SISTEMAS AEROESPACIAIS",
+        "codigo": "FGA0008 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introduz principios fundamentais da aerodinamica, da propulsao e da mecanica orbital para a analise de projetos de avioes, foguetes e naves espaciais Topicos em aeronaves incluem introducao: ao desempenho de cruzeiro, ao projeto da asa, a propulsao, a estabilidade, ao controle e as estruturas Topicos em espaconaves incluem introducao: ao projeto e teste de foguetes espaciais, a propulsao, a orbitas e missoes, aos sistemas de lancamento e aos subsistemas de espaconaves."
+    },
+    {
+        "disciplina": " PROCESSAMENTO DIGITAL DE IMAGENS",
+        "codigo": "FGA0015 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Fundamentos do processamento digital de imagens Processamento de imagens em cores Relacoes de conectividade e transformacoes de intensidade Transformada de wavelets e processamento multirresolucao Realce de imagens e filtragem espacialIntroducao a compressao de imagens e de video Transformada de Fourier e filtragem de imagens no dominio da frequencia Introducao a morfologia matematica e aplicacoes em imagens Analise e restauracao de imagens Introducao a segmentacao, representacao, descricao e classificacao de padroes."
+    },
+    {
+        "disciplina": " PROJETOS DE CIRCUITOS INTEGRADOS 1",
+        "codigo": "FGA0017 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao ao Projeto de Circuitos Integrados  Teoria dos transistores CMOS, regioes de operacao e caracteristicas I-V Processo de fabricacao de transistores CMOS Amplificadores de 1 estagio Amplificadores Diferenciais Espelhos de corrente ativos Amplificadores de 2 estagios Amplificadores Operacionais CMOS."
+    },
+    {
+        "disciplina": " DINAMICA DOS MECANISMOS",
+        "codigo": "FGA0023 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Cinematica 2- Dinamica"
+    },
+    {
+        "disciplina": " SISTEMAS DE ENERGIA SOLAR E EOLICA",
+        "codigo": "FGA0025 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Fundamentos teoricos: conversao e armazenamento de energia, calor, eletricidade, trabalho, termodinamica e eletromagnetismo Tecnologias de transformacao e armazenamento de energia: solar e eolica, e baterias e acumuladores\tFontes energia solar e eolica no Mundo e no Brasil."
+    },
+    {
+        "disciplina": " ESTRUTURAS DE DADOS 2",
+        "codigo": "FGA0030 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Estruturas nao-lineares. Arvores. Tabelas hash. Grafos- Filas de prioridade. Heap- Algoritmos de ordenacao avancados O(n log n), O(n)- Algoritmos de manipulacao e analise de grafos- Aplicacoes"
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM ENGENHARIA AEROESPACIAL",
+        "codigo": "FGA0037 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A definir"
+    },
+    {
+        "disciplina": " AERODINAMICA DE SISTEMAS AEROESPACIAIS",
+        "codigo": "FGA0038 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introduz principios fundamentais da aerodinamica de sistemas aeroespaciais: veiculos aereos e espaciais, estudando elementos de escoamentos de alta e baixa velocidade, internos e externos Topicos em escoamentos incompressiveis incluem: teoria e modelagem escoamentos incompressiveis bidimensionais e tridimensionais, e camada limite laminar e turbulenta aplicadas a aerofolios e asas Topicos em escoamentos compressiveis incluem: teoria e modelagem de propagacao de ondas de choque e camada limite compressivel aplicadas a aerofolios, asas, bocais, difusores e tuneis de vento."
+    },
+    {
+        "disciplina": " MECANICA DE ESTRUTURAS AEROESPACIAIS",
+        "codigo": "FGA0039 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Ementa1 - Analise e projeto de estruturas de alta tecnologia aplicadas no campo aeroespacial2 - Revisao e aprofundamento de conceitos de mecanica dos solidos como teoria tridimensional de elasticidade, tensao, deformacao, materiais anisotropicos, efeitos termicos, estado plano de tensao e de deformacao bidimensional, teoria de torcao para secoes arbitrarias, e flexao de secoes assimetricas e de barras de  material composito 3 - Topicos incluem, ainda, flexao, cisalhamento, e torcao de vigas e cascas de parede fina, e fenomenos ligados a estabilidade e instabilidade de deformacao de colunas4 - Estrategias de abordagem para solucao de problemas incluem ferramentas analiticas e numericas (elementos finitos, elementos de contorno, etc)."
+    },
+    {
+        "disciplina": " SISTEMAS DE CONTROLE AUTOMOTIVO",
+        "codigo": "FGA0040 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao ao problema de sistemas de controle. Modelagem matematica de sistemas dinamicos. Estabilidade. Regime transitorio e permanente. Algoritmos de controle. Aplicacao de controladores em sistemas automotivos."
+    },
+    {
+        "disciplina": " DINAMICA DOS GASES PARA SISTEMAS AEROESPACIAIS",
+        "codigo": "FGA0043 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Escoamentos supersonicos Escoamentos hipersonicos Equilibrio e nao-equilibrio, escoamentos congelados e escoamentos reativos Camada limite e turbulenciaEscoamentos rarefeitos"
+    },
+    {
+        "disciplina": " MECANICA DO VOO",
+        "codigo": "FGA0045 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Equacionamento do movimento de uma aeronave considerada como corpo rigido: analise dinamica e cinematica Conceitos fundamentais da dinamica e controle de atitude de aeronaves Construcao do modelo da aeronave e superficies de controle: aerodinamica basica, forcas e momentos, o modelo nao-linear da aeronave, modelos lineares e derivadas de estabilidade e as relacoes com o desempenho e projeto da aeronave Ferramentas Analiticas e Computacionais: modelos dos subsistemas, modelos de aeronave para simulacao, voo permanente compensado, solucao numerica das equacoes de estado, linearizacao, simulacao com equacoes lineares invariantes no tempo, controle com realimentacao."
+    },
+    {
+        "disciplina": " PROCESSOS PETROQUIMICOS",
+        "codigo": "FGA0047 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Fundamentos teoricos: visao geral sobre a refinariaII. Caracteristicas fisico-quimicas da materia prima e dos produtos obtidos do refinoIII. Unidades de uma refinaria: destilacao atmosferica e a vacuo, coqueamento retardado, craqueamentos termico e catalitico, reforma catalitica, alquilacao e isomerizacao, hidrorrefino, tratamentos convencionais de derivados, geracao de hidrogenio e recuperacao de enxofreIV. Processos ambientais existentes nas refinarias"
+    },
+    {
+        "disciplina": " MECANICA DO VOO ESPACIAL",
+        "codigo": "FGA0048 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Problemas de dois e tres corpos. Elementos orbitais Trajetoria de misseis balisticos. Lancamento de um satelite artificial Manobras orbitais basicas Dinamica e controle de atitude Trajetorias de baixo empuxo."
+    },
+    {
+        "disciplina": " DINAMICA DE ESTRUTURAS AEROESPACIAIS",
+        "codigo": "FGA0050 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Aplica conceitos de dinamica, estruturas e matematica a dinamica de componentes estruturais aeroespaciais, incluindo metodos de analise dinamica, vibracoes caracteristicas, medicao de vibracoes, estabilidade dinamica, teorema da energia cinetica, principio dos trabalhos virtuais, principio de D'Alembert, equacoes de Euler e Lagrange. Estrategias de abordagem para solucao de problemas incluem ferramentas analiticas e numericas (elementos finitos, elementos de contorno, etc)."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM PROGRAMACAO",
+        "codigo": "FGA0053 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Ementa variavel, abordando temas que solicitam uma reflexao academica, voltada para questoes praticas. A cada semestre a disciplina tera uma ementa especifica, a ser definida pelo professor responsavel."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM GOVERNANCA DE TECNOLOGIA DA INFORMACAO",
+        "codigo": "FGA0054 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Ementa variavel, abordando temas que solicitam uma reflexao academica, voltada para questoes praticas. A cada semestre a disciplina tera uma ementa especifica, a ser definida pelo professor responsavel."
+    },
+    {
+        "disciplina": " TECNOLOGIAS DE FABRICACAO 1",
+        "codigo": "FGA0055 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Tolerancias, Ajustes e Acabamento Superficial2. Fundamentos de Usinagem dos Metais 3. Fundamentos de Conformacao Mecanica"
+    },
+    {
+        "disciplina": " TECNOLOGIAS DE FABRICACAO 2",
+        "codigo": "FGA0056 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Fundicao e Fusao dos Metais 2. Processos de soldagem"
+    },
+    {
+        "disciplina": " SISTEMAS DE BANCO DE DADOS 2",
+        "codigo": "FGA0060 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "EmentaProjeto Fisico de Banco de Dados RelacionalProgramacao no Servidor de Banco de Dados RelacionalAlternativas de modelagem conceitual em relacao ao paradigma ERTecnologias e modelagens voltadas para dados semiestruturados e nao estruturadosArquiteturas e estrateegias para grandes volumes de dados"
+    },
+    {
+        "disciplina": " PROJETO DE SISTEMAS DE OBSERVACAO DA TERRA",
+        "codigo": "FGA0062 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao aos SOT: historico, elementos e fundamentos fisicos.Aquisicao de imagens: cameras, imagens digitais, satelites de observacao, varreduras multiespectral, termal, hiperespectral e por micro-ondas sensoriamento por sistemas de radar e lidar.Fundamentos de processamento digital de imagens e reconhecimento de padroes.Aplicacoes e estudos de caso."
+    },
+    {
+        "disciplina": " PROPULSAO AERONAUTICA",
+        "codigo": "FGA0063 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Fundamentos teoricos: ciclos termodinamicos e escoamentos quase-1D compressiveis, introducao aos escoamentos reativos.Motores a combustao interna (pistoes).Motores a jato: turbinas a gas, estatoreatores."
+    },
+    {
+        "disciplina": " TEORIA DE CIRCUITOS ELETRONICOS 1",
+        "codigo": "FGA0067 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Grandezas eletricas e conceitos basicos de circuitos eletricos Leis de Kirchhoff e circuitos resistivos, Metodos de resolucao: analise nodal e analise de malhas Tecnicas de analise: superposicao, transformacao de fontes equivalentes Thevenin e Norton  Elementos armazenadores de energia Funcoes singulares: degrau unitario, rampa unitaria, impulso Transformada de Laplace: Analise de transitorios e em regime permanente senoidal Diodo ideal e Amplificadores Operacionais Circuitos de 1a e 2a ordens."
+    },
+    {
+        "disciplina": " TEORIA DE CIRCUITOS ELETRONICOS 2",
+        "codigo": "FGA0068 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Funcoes de transferencia no dominio da frequencia Diodos Transistor de juncao bipolar (TJB) Introducao a Fisica dos Dispositivos FET."
+    },
+    {
+        "disciplina": " PRATICA DE CIRCUITOS ELETRONICOS 1",
+        "codigo": "FGA0069 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Grandezas eletricas e conceitos basicos de circuitos eletricos Leis de Kirchhoff e circuitos resistivos, Metodos de resolucao: analise nodal e analise de malhas Tecnicas de analise: superposicao, transformacao de fontes equivalentes Thevenin e Norton Elementos armazenadores de energia Funcoes singulares: degrau unitario, rampa unitaria, impulso Transformada de Laplace: Analise de transitorios e em regime permanente senoidal Diodo ideal e Amplificadores Operacionais Circuitos de 1a e 2a ordens."
+    },
+    {
+        "disciplina": " PRATICA DE CIRCUITOS ELETRONICOS 2",
+        "codigo": "FGA0070 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Funcoes de transferencia no dominio da frequencia Diodos Transistor de juncao bipolar (TJB) Introducao a Fisica dos Dispositivos FET."
+    },
+    {
+        "disciplina": " PRATICA DE ELETRONICA DIGITAL 1",
+        "codigo": "FGA0071 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Sistemas de Numeracao e Codigos Portas Logicas e Algebra Booleana Circuitos Logicos Combinacionais VHDL Aritmetica Digital: Operacoes e Circuitos Circuitos Logicos MSI Principios de Sistemas Sequenciais"
+    },
+    {
+        "disciplina": " PRATICA DE ELETRONICA DIGITAL 2",
+        "codigo": "FGA0072 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Logica sequencial Descricao de circuitos sequenciais em VHDL Maquinas de estados finitos Descricao de FSMs em VHDL Memorias Projeto em nivel de transferencia de registradores (RTL) Arquitetura de microprocessadores"
+    },
+    {
+        "disciplina": " TEORIA DE ELETRONICA DIGITAL 1",
+        "codigo": "FGA0073 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Sistemas de Numeracao e CodigosPortas Logicas e Algebra BooleanaCircuitos Logicos CombinacionaisVHDLAritmetica Digital: Operacoes e CircuitosCircuitos Logicos MSIPrincipios de Sistemas Sequenciais"
+    },
+    {
+        "disciplina": " TEORIA DE ELETRONICA DIGITAL 2",
+        "codigo": "FGA0074 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Logica sequencial Descricao de circuitos sequenciais em VHDL Maquinas de estados finitos Descricao de FSMs em VHDL Memorias Projeto em nivel de transferencia de registradores (RTL) Arquitetura de microprocessadores"
+    },
+    {
+        "disciplina": " LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+        "codigo": "FGA0075 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Nocoes de seguranca e elaboracao de  relatorio cientifico  2. Estrutura e arranjos cristalinos 3. Ensaios de Tracao  4. Metalografia 5. Micro dureza  6. Ensaios de Impacto 7. Fusao e degradacao de Materiais."
+    },
+    {
+        "disciplina": " EQUIPAMENTOS TERMOFLUIDOS AUTOMOTIVOS",
+        "codigo": "FGA0076 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Fudamentos de termodinamica 2. Sistema de Refrigeracao ou Arrefecimento do Motor 3. Componentes do sistema de refrigeracao a Ar 4. Componentes do Sistema de refrigeracao a Agua 5. Sistema de alimentacao de combustivel 6. Direcao Hidraulica 7. Sistemas de conforto termico 8. Sistema de Sobrealimentacao"
+    },
+    {
+        "disciplina": " INTRODUCAO AO DESGASTE",
+        "codigo": "FGA0077 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Visao geral da tribologia 2.  Aspectos economicos 3. Analise de superficies 4. Parametros de rugosidade 5. Contato entre superficies 6. Desgaste: classificacao, variaveis, modelos 7. Ensaios de desgaste 8. Atrito: coeficiente de atrito estatico e dinamico 9. Atrito em metais 10. Lubrificacao e regimes de lubrificacao"
+    },
+    {
+        "disciplina": " TEORIA DE MATERIAIS DE CONSTRUCAO",
+        "codigo": "FGA0078 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Estrutura atomica e ligacoes quimicas 2. Estrutura dos solidos cristalinos 3. Imperfeicoes em solidos 4. Propriedades mecanicas 5. Diagramas de fase 6. Processamento termico em ligas metalicas 7. Ligas metalicas 8. Estruturas e propriedades das ceramicas 9. Estruturas e propriedades polimetricas 10. Materiais composicos 11. Selecao de materiais para engenharia."
+    },
+    {
+        "disciplina": " APRENDIZADO DE MAQUINA",
+        "codigo": "FGA0083 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao a metodos de aprendizado de maquina que sao comumente utilizados em aplicacoes de reconhecimento de padroes em sinais (texto, som e imagem).Regressao.ClassificacaoAprendizado nao supervisionado.Maquinas de vetores de suporte.Redes neurais artificiais."
+    },
+    {
+        "disciplina": " MATEMATICA DISCRETA 1",
+        "codigo": "FGA0085 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Logica Proposicional Booleana Teoria dos Conjuntos Demonstracao de TeoremasAnalise Combinatoria Permutacoes, Combinacoes e Arranjos."
+    },
+    {
+        "disciplina": " TEORIA DE ELETRICIDADE APLICADA",
+        "codigo": "FGA0086 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Regime Estacionario Senoidal.II. Circuitos Trifasicos.III. Circuitos Eletricos em baixa tensao.IV. Maquinas Eletricas."
+    },
+    {
+        "disciplina": " LABORATORIO DE ELETRICIDADE APLICADA",
+        "codigo": "FGA0087 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Regime Estacionario Senoidal.II. Circuitos Trifasicos.III. Circuitos Eletricos em baixa tensao.IV. Maquinas Eletricas."
+    },
+    {
+        "disciplina": " TEORIA DE SISTEMAS DE CONVERSAO DE ENERGIA",
+        "codigo": "FGA0088 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Circuitos MagneticosII. TransformadoresIII. Principios de Conversao Eletromecanica de EnergiaIV. Maquinas de Corrente ContinuaV. Maquinas SincronasVI. Motor de Inducao"
+    },
+    {
+        "disciplina": " LABORATORIO DE SISTEMAS DE CONVERSAO DE ENERGIA",
+        "codigo": "FGA0089 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. ServoacionamentoII. Maquinas de Corrente ContinuaIII. Maquinas SincronasIV. Motor de Inducao"
+    },
+    {
+        "disciplina": " ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+        "codigo": "FGA0090 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1.\tOndas 2. Termodinamica 3. Transferencia de Calor."
+    },
+    {
+        "disciplina": " MAQUINAS DE FLUIDO",
+        "codigo": "FGA0091 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Introducao as maquinas de fluidoII. Bombas HidraulicasIII. Turbinas HidraulicasIV. Turbinas a gasV. Turbinas a vaporVI. VentiladoresVII. CompressoresVIII. Calculos estequiometricos da combustaoIX. Motores de Combustao Interna"
+    },
+    {
+        "disciplina": " PRINCIPIOS DE COMUNICACAO PARA ENGENHARIA",
+        "codigo": "FGA0092 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1 - Espectro e Modulacao Linear2 - Modulacao Angular\t3 - Ruido em Sistemas Analogicos\t4 - Comunicacao Digital em Banda-Base5 - Nocoes sobre Desempenho de Enlaces de Comunicacao Digital6 - Nocoes de Protocolos e Redes de Comunicacao"
+    },
+    {
+        "disciplina": " PRINCIPIOS DE CONTROLE",
+        "codigo": "FGA0093 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1 - Introducao Modelagem linear\t2 - Funcao de Transferencia, Diagrama de blocos e Grafos de fluxo de sinal\t3 - Estabilidade\t4 - Analise Sistemas de Controle no dominio do tempo\t5 - Lugar Geometrico das Raizes6 - Analise Sistemas de Controle no dominio da frequencia7 - Projeto de Sistemas de Controle8 - Analise em espaco de estados"
+    },
+    {
+        "disciplina": " ANTENAS IMPRESSAS",
+        "codigo": "FGA0094 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " ELETRONICA DE RADIO FREQUENCIA",
+        "codigo": "FGA0097 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Historia da comunicacao de dados sem fio Arquiteturas de transceptores Redes passivas RLC Casamento de impedancias utilizando redes L, PI e T Casamento de impedancias utilizando a Carta de Smith Projeto de amplificadores de pequenos sinais para RF utilizando parametros Y Projeto de amplificadores de pequenos sinais para RF utilizando parametros S Introducao a projeto de circuitos integrados de radio frequencia Amplificadores de Baixo Ruido Misturadores de Frequencia PLL"
+    },
+    {
+        "disciplina": " PRATICA DE CIRCUITOS ELETRONICOS 3",
+        "codigo": "FGA0098 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Quadripolos Realimentacao\tEspecificacao de Amplificadores Operacionais Reais\tConversores de dados Osciladores Amplificadores de potencia."
+    },
+    {
+        "disciplina": " TEORIA DE CIRCUITOS ELETRONICOS 3",
+        "codigo": "FGA0099 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Quadripolos  Realimentacao\tEspecificacao de Amplificadores Operacionais Reais\tConversores de dados Osciladores Amplificadores de potencia."
+    },
+    {
+        "disciplina": " PRATICA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+        "codigo": "FGA0100 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Realizacao de uma sequencia de experimentos em laboratorio, com o objetivo de ilustrar os diversos conceitos\r\nfundamentais, com o ajuste de modelos fisico-matematicos. Alguns dos experimentos listados abaixo poderao ser\r\napresentados apenas na forma de demonstracoes, por razoes de seguranca e de logistica, ou em funcao da disponibilidade\r\nde materiais e de equipamentos, a criterio do professor.\r\n\r\n1) Resistencia de Folha; \r\n2) Lampada Eletrica de Filamento;\r\n3) Termistores PTC e NTC;\r\n4) LDR – Modelamento e Caracterizacao do comportamento eletrico de um LDR (Light Dependent Resistor);\r\n5) Sensor Hall;\r\n6) Efeito Piezoeletrico;\r\n7) Diodos Schottky e Zener;\r\n8) Efeitos Peltier e Seebeck (Termoeletricidade);\r\n9) Diodo: Chave de RF;\r\n10) LED e Fotodiodo;\r\n11) Transistores de Juncao Bipolar (NPN e PNP);\r\n12) Transistores de Efeito de Campo CMOS;\r\n13) Neuronio Artificial CMOS.\r\n\r\nEXPERIMENTOS COMPLEMENTARES:\r\na) Transformadores (Histerese e Saturacao);\r\nb) Pilhas e Baterias;\r\nc) Supercapacitor;\r\nd) Lampada Neon;\r\ne) Valvulas Termionicas;\r\nf) Memorias DRAM e SRAM;\r\ng) Oscilador em Anel CMOS.\r\n\r\nOBJETIVOS DA DISCIPLINA:\r\nPratica de laboratorio com diversos materiais e dispositivos eletronicos, buscando uma compreensao dos principios\r\nfundamentais do seu comportamento fisico-eletrico, sob uma analise que utiliza modelos classicos, semiclassicos e aqueles\r\nbaseados em conceitos fundamentais da Mecanica Quantica. Serao levantados dados experimentais que serao utilizados no\r\najuste dos modelos fisico-matematicos adotados, a partir principalmente da caracterizacao eletrica de materiais e\r\ndispositivos, com a obtencao de curvas de corrente e de tensao."
+    },
+    {
+        "disciplina": " TEORIA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+        "codigo": "FGA0101 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Fundamentos de Mecanica Quantica2. Materiais e Dispositivos Dieletricos3. Transporte de Corrente4. Materiais e Dispositivos Optoeletronicos5. Teoria de Bandas de Energia em Solidos6. Materiais e Dispositivos Microeletromecanicos (MEMs)7. Materiais e Dispositivos Semicondutores8. Materiais e Dispositivos Eletroquimicos9. Materiais e Dispositivos Magneticos10. Simulacao Numerica de Dispositivos Eletronicos"
+    },
+    {
+        "disciplina": " SINAIS E SISTEMAS PARA ENGENHARIA",
+        "codigo": "FGA0102 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao as variaveis Complexas Sistemas Lineares e Invariantes no TempoTransformada de Fourier Continua Transformada de Fourier Discreta Convolucao Amostragem Transformada de Laplace Transformada Z Residuos para a transformada Z inversa"
+    },
+    {
+        "disciplina": " QUIMICA ORGANICA APLICADA A ENGENHARIA",
+        "codigo": "FGA0104 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Caracteristicas gerais das moleculas organicasII. Hibridizacao e teoria do orbital molecularIII. HidrocarbonetosIV. Grupos funcionaisV. Reacoes de compostos organicos contendo oxigenioVI. Polimeros organicosVII. Estudo material da combustaoVIII. Calculos estequiometricos da combustaoIX. Estudo termico da combustaoX. Calculo do poder calorificoXI. Temperatura teorica da combustaoXII. Calculo da temperatura teorica da combustao"
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS 2 EM ENGENHARIA AEROESPACIAL",
+        "codigo": "FGA0105 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A definir"
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS 3 EM ENGENHARIA AEROESPACIAL",
+        "codigo": "FGA0106 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A definir"
+    },
+    {
+        "disciplina": " LABORATORIO DE ONDULATORIA E FISICA TERMICA PARA A ENGENHARIA",
+        "codigo": "FGA0107 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Relacao entre torque e rotacao 2. Movimento harmonico e movimento circular 3. Movimento ondulatorio 4. Ondas estacionarias 5. Temperatura e calor 6. Capacidade calorifica 7. Dilatacao termica de solidos 8. Introducao a conducao de calor"
+    },
+    {
+        "disciplina": " MATEMATICA DISCRETA 2",
+        "codigo": "FGA0108 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Inducao. Divisibilidade. Numeros primos- Aritmetica modular. Congruencia- Grupos- Aneis- Corpos"
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE SISTEMAS EMBARCADOS",
+        "codigo": "FGA0109 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Definicoes e aplicacoes.Metodologias de desenvolvimento de sistemas embarcados.Interfaceamento analogico e digital (Protocolos de Comunicacao).Desenvolvimento de drivers e firmware.Sistemas em Tempo Real."
+    },
+    {
+        "disciplina": " TEORIA DE ELETROMAGNETISMO",
+        "codigo": "FGA0119 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "EletrostaticaMagnetostaticaEletrodinamica"
+    },
+    {
+        "disciplina": " PRATICA DE ELETROMAGNETISMO",
+        "codigo": "FGA0120 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Esta prevista a realizacao de 5 experiencias de simulacao mais 5 experiencias praticas. Cada experiencia abordara os seguintes temas:Experiencia[1]\tEletrostatica: Lei de Coulomb, Distribuicoes continuas de cargasExperiencia[2]\tCampos eletrostaticos, Lei de Gauss, Potencial eletrico, Capacitancia, Dieletricos, Energia eletricaExperiencia[3]\tMagnetostatica: Corrente eletrica, Condutividade eletrica, Campo magnetico, Lei de Biot-SavartExperiencia[4]\tLei de Ampere, Forca magnetica, Lei da inducao de Faraday. Experiencia[5]          Eletrodinamica: Equacoes de Maxwell, Equacao da continuidade, Ondas eletromagneticas, Propagacao de ondas eletromagneticas em meios materiais."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS 4 EM ENGENHARIA AEROESPACIAL",
+        "codigo": "FGA0121 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A definir"
+    },
+    {
+        "disciplina": " EFICIENCIA ENERGETICA EM INSTALACOES ELETRICAS INDUSTRIAIS",
+        "codigo": "FGA0122 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Diagnostico Energetico2. Medicao e Verificacao3. Estudos Luminotecnicos4. Estudos Termoenergeticos5. Etiquetagem6. Eficiencia Energetica: Conceitos e Legislacao"
+    },
+    {
+        "disciplina": " PROJETO DE ALGORITMOS",
+        "codigo": "FGA0124 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Complexidade Computacional- Maquinas de Turing- Problemas NP e NP-Completos- Algoritmos avancados em grafos- Algoritmos gulosos- Dividir para conquistar- Programacao Dinamica- Aplicacoes"
+    },
+    {
+        "disciplina": " ENGENHARIA DE SOFTWARE AUTOMOTIVO",
+        "codigo": "FGA0131 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1.\tIntroducao 2.\tSistemas automotivos 3.\tConceitos basicos para desenvolvimento de sistemas. 4.\tIntroducao ao padrao OSEK-VDX (ISO 17356). 5.\tConfiabilidade, seguranca, monitoramento e diagnostico automotivo. 6.\tProcesso de desenvolvimento de software automotivo.7.\tIntroducao ao projeto baseado em modelos."
+    },
+    {
+        "disciplina": " INSTRUMENTACAO ELETRONICA PARA ENGENHARIA",
+        "codigo": "FGA0132 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": ""
+    },
+    {
+        "disciplina": " ENGENHARIA ECONOMICA",
+        "codigo": "FGA0133 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "O ambiente economico. Relacoes preco-demanda e custo-volume. Lei da oferta e da procura. Diagrama de break-even.  Relacoes entre juros e pagamentos.  Valor e depreciacao. Pay back. Engenharia financeira. Elementos de custo de um projeto.  Metodos de analise de projetos: taxa minima de atratividade, valor presente liquido. Engenharia do valor, Eficiencia fisico-economica e processos de Engenharia. Risco, incerteza e sensibilidade. A questao ambiental. Principais determinantes socioeconomicos e tecnologicos da demanda de energia nos setores consumidores. Desagregacao da demanda de energia por usos finais. Metodos de analise do consumo de energia. Analise economica de producao e geracao de energia."
+    },
+    {
+        "disciplina": " SISTEMAS DE BANCO DE DADOS 1",
+        "codigo": "FGA0137 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceitos de sistemas de banco de dadosSistema Gerenciador de Banco de DadosModelagem de dados: modelagem conceitual e modelo relacional (modelagem logica)Banco de dados relacional: restricoes de integridade e algebra relacionalLinguagem SQL (Structured Query Language)Projeto de banco de dados relacional: dependencias funcionais, formas normais e implementacao fisicaProcessamento de transacoes"
+    },
+    {
+        "disciplina": " GESTAO AMBIENTAL NO SETOR ENERGETICO",
+        "codigo": "FGA0141 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- O problema ambiental e o desenvolvimento sustentavel: a evolucao historica e politica da questao ambiental no Brasil.- Gestao ambiental: conceitos, historico e paradigma- Instrumentos de gestao ambiental- Instrumentos de gestao ambiental- Estudo de caso."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES",
+        "codigo": "FGA0142 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Historico Arquiteturas RISC X CISC Aritmetica computacionalPipeline unidade de controle barramentosIntroducao a Programacao em linguagem de montagem caminho de dados de um processador RISCHierarquia de memoria: modos de enderecamento, memoria virtual, memoria cache."
+    },
+    {
+        "disciplina": " ESTRUTURAS DE DADOS 1",
+        "codigo": "FGA0146 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Recursividade- Ponteiros e alocacao dinamica de memoria- Estruturas lineares. Arrays. Listas. Filas. Pilhas- Introducao a Complexidade computacional e notacao Big-O- Algoritmos de busca- Algoritmos de ordenacao O(nˆ2)- Algoritmos em arvores binarias- Organizacao de arquivos- Aplicacoes."
+    },
+    {
+        "disciplina": " ENGENHARIA DE SEGURANCA DO TRABALHO",
+        "codigo": "FGA0148 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Introducao: Interligacao entre as varias engenharias e a engenharia de seguranca do trabalho 2. Legislacao 3. Organizacao da area SSST 4. Acidente de trabalho e acidente de trajeto  5. Doencas profissionais e doencas do trabalho 6. Comunicacao e treinamento 7. Normalizacao-NRs 8. Riscos profissionais: avaliacao e controle 9. Ergonomia 10. Outros assuntos em seguranca e higiente do trabalho."
+    },
+    {
+        "disciplina": " ERGONOMIA DO PRODUTO",
+        "codigo": "FGA0152 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Antropometria e dimensionamento do posto de trabalho Biomecanica, aspectos da postura e movimentos do corpo, esforco fisico Aspectos sensoriais e cognicao, concepcao de dispositivos de informacao Fatores ambientais no trabalho e o espaco de trabalho Projeto com enfase em Conforto Ergonomia e Design de produtos Package Automotivo e Normas Tecnicas Living Space (adequacao dos espacos de interior) Concepcao de assentos Concepcao de dispositivos de informacao aplicados aos veiculos automotores Concepcao de dispositivos de comando Concepcao de interior de um veiculo Aspectos visuais na conducao de veiculos automotores Validacao de projeto de interior – CAD 3D e mock up experimental."
+    },
+    {
+        "disciplina": " MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+        "codigo": "FGA0154 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Equilibrio dos corpos rigidos Analise estrutural Tensoes e deformacoes Deformacao por esforco axial Geometria das massas."
+    },
+    {
+        "disciplina": " INTRODUCAO AO DESIGN E CONCEPCAO DE VEICULOS",
+        "codigo": "FGA0155 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1-Introducao ao Curso 2-Tecnicas de desenho e ilustracao- Sketches manuais e digitais 3-Historia do Design Automotivo-Evolucao Tecnologica, Economia e Sociedade 3- Ergonomia do Produto-Introducao a Ergonomia/Projeto de \"Hard Points\" e funcao dos sistemas/Conforto e Seguranca 4- Design de Interiores-Relacao com o usuario final/Materiais (Color &Trim)/Tendencias de Mercado5- Mock-Up Eletronico-Modelagem de um produto/Integracao de sistemas/Apresentacao final de produto 6-Laboratorio da Forma."
+    },
+    {
+        "disciplina": " COMBUSTIVEIS E BIOCOMBUSTIVEIS",
+        "codigo": "FGA0156 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Combustiveis fosseis- Energia renovavel- Biodiesel- Bioetanol- Celulas combustiveis- Contexto macroeconomico dos biocombustiveis"
+    },
+    {
+        "disciplina": " PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+        "codigo": "FGA0157 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceitos e nocoes fundamentais. Variaveis aleatorias. Distribuicoes das Variaveis aleatorias. Intervalo de confianca. Teste de hipoteses. Erros do Tipo I/II. Medidas descritivas (medidas de tendencia central, medidas separatrizes, medidas de dispersao, medidas de assimetria, medidas de curtose). Testes de aderencia de distribuicoes teoricas a dados empiricos (Chi-quadrado e kolmogorov-Smirnov). Correlacao. Teoria da Confiabilidade Estrutural."
+    },
+    {
+        "disciplina": " ORIENTACAO A OBJETOS",
+        "codigo": "FGA0158 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceitos basicos em orientacao a objetos.Modelagem orientada a objeto.Programacao orientada a objetos."
+    },
+    {
+        "disciplina": " METODOS NUMERICOS PARA ENGENHARIA",
+        "codigo": "FGA0160 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Fontes de erros em metodos numericosZeros reais de funcoes reaisResolucao de sistemas linearesInterpolacaoAjuste de curvas pelo metodo dos quadrados minimosIntegracao numericaSolucoes numericas de EDOMetodo das diferencas finitas"
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA",
+        "codigo": "FGA0163 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A estrutura da Universidade de Brasilia. A estrutura do Curso de Engenharia. Tecnicas de administracao de tempo. Tecnicas de estudo. Nocoes de Engenharia Automotiva. Nocoes de Engenharia Eletronica. Nocoes de Engenharia de Energia. Nocoes de Engenharia de Software. Nocoes de Engenharia Aeroespacial"
+    },
+    {
+        "disciplina": " HUMANIDADES E CIDADANIA",
+        "codigo": "FGA0164 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Apresentar os conceitos de humanidades, ciencias sociais e cidadania para fomentar a visao critica e consciencia das questoes humanisticas, sociais, politicas, economicas, eticas, e ambientais envolvidas na acao profissional do engenheiro."
+    },
+    {
+        "disciplina": " ELEMENTOS E METODOS EM ELETRONICA",
+        "codigo": "FGA0166 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Esta disciplina visa preparar o aluno para as futuras materias profissionalizante do curso, em consonancia com o desenvolvimento das competencias necessarias as atividades tecnicas rotineiras de um engenheiro eletronico. - Desenho e interpretacao de diagramas esquematicos- Nocoes de topologias de circuitos- Aspectos praticos da conversao A/D- Apresentacao dos tipos de interface e comunicacao de dados- Principio de Layout de placas- Introducao a microcontroladores de DSPs"
+    },
+    {
+        "disciplina": " SISTEMAS AUTOMOTIVOS",
+        "codigo": "FGA0167 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1-Conceitos basicos dos sistemas que compoem o veiculo 2- Chassi e carroceria 3-Sistema de suspensao 4- Sistema de controle de estabilidade de veiculos 5-Sistema de freio 6-Sistema de controle de tracao 7- Sistema de potencia 8- Sistemas de injecao eletronica 9- Sistema de transmissao."
+    },
+    {
+        "disciplina": " DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+        "codigo": "FGA0168 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Desenvolvimento de produto QFD 2- Introducao ao CAD 3- Normatizacao em desenho tecnico 4- Modelagem basica - edicao, alteracao, configuracao, montagem e manipulacao de bibliotecas 5- Projecoes ortogonais 6- Vistas em corte e auxiliares 7- Desenho perspectiva 8- Cotagem e escalas 9- Transformacoes, translacoes, rotacao e reflexao 10- Integracao de sistemas (CAD/CAE/CAM)."
+    },
+    {
+        "disciplina": " FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+        "codigo": "FGA0169 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "-Fundamentos teoricos: conversao de energia, calor e trabalho, leis da Termodinamica- Principais fontes e tecnologias de transformacao de energia: solar, combustiveis, fosseis, fotovoltaica, eolica, hidricas, biomassa, geotermica, nuclear - A questao das fontes energeticas no Brasil."
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
+        "codigo": "FGA0170 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Principios e caracteristicas dos sistemas operacionaisGerencia de processos e threads, gerencia de memoriaGerencia de dispositivos de entrada e saidaSistemas de arquivosSeguranca e protecao Virtualizacao."
+    },
+    {
+        "disciplina": " INTERACAO HUMANO COMPUTADOR",
+        "codigo": "FGA0173 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Fatores Humanos em Software Interativo: Teoria, Principios e Regras Basicas. Estilos Interativos. Linguagens de Comandos. Manipulacao Direta. Dispositivos de Interacao. Padroes para Interface. Usabilidade: Definicao e Metodos para Avaliacao. A Natureza da Iteracao com o Usuario e Ambientes Virtuais."
+    },
+    {
+        "disciplina": " DESENVOLVIMENTO SUSTENTAVEL",
+        "codigo": "FGA0174 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A evolucao da discussao dos problemas ambientais e suas repercussoes na formacao politica brasileira. Introducao ao Conceito Desenvolvimento Sustentavel.  Sistemas de indicadores de Sustentabilidade. Conflitos Socioambientais."
+    },
+    {
+        "disciplina": " ENGENHARIA DE PETROLEO E GAS",
+        "codigo": "FGA0175 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1.\tO petroleo2.\tNocoes de Engenharia de Petroleo3.\tProspeccao de Petroleo4.\tPerfuracao5.\tAvaliacao de Formacoes6.\tCompletacao7.\tReservatorios8.\tElevacao9.\tProcessamento primario de fluidos10.\tRefino do petroleo"
+    },
+    {
+        "disciplina": " MECANICA DOS SOLIDOS 2 PARA ENGENHARIA",
+        "codigo": "FGA0179 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1-\tAnalise de Tensoes 2-\tTeoria da elasticidade 3-\tCriterios de falha 4-\tDeflexao de vigas"
+    },
+    {
+        "disciplina": " METODOS EXPERIMENTAIS PARA ENGENHARIA",
+        "codigo": "FGA0188 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Introducao 2. Unidade de medida e o sistema internacional de medidas 3. Erro de medicao 4. Sistemas de medicao  5. Calibracao de sistemas de medicao. 6.\tResultado de medicoes diretas 7. Resultado de medicoes indiretas 8.\tPropagacao de incertezas atraves de modulos 9. Controle de qualidade 10.\tPlanejamento experimental e experimento fatorial 11. Multivariaveis"
+    },
+    {
+        "disciplina": " PROJETO DE ELEMENTOS AUTOMOTIVOS",
+        "codigo": "FGA0190 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1-Introducao ao projeto de elementos de maquinas2- Definicoes de projeto3- Metodologia ao dimensionamento de componentes4- Fatores de seguranca e conabilidade5- Revisao de resistencia dos materiais, fadiga e fratura6- Juntas de atrito, positivas e juntas roscadas7- Molas helicoidais8- Elementos de vedacao9- Transmissao por elementos  exiveis10-Transmissao por engrenagens11- Eixos"
+    },
+    {
+        "disciplina": " MATERIAIS COMPOSTOS E PLASTICOS",
+        "codigo": "FGA0191 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Polimeros: Introducao. Termoplasticos e Termorigidos. Blendas. Polimerizacao. Cristalinidade e Viscoelasticidade. Processamento de polimeros. Aditivos para polimeros. Polimeros de alto desempenho 2- Compositos: Introducao. Classificacao e propriedades do enchimento ou reforco. Classificacao e propriedades de matrizes. Processos de obtencao de compositos. Interface entre reforco e matriz. Compositos avancados 3- Propriedades mecanicas e termicas, e metodos de caracterizacao destrutiva e nao destrutiva de polimeros e compositos."
+    },
+    {
+        "disciplina": " ARQUITETURA DE MOTORES DE COMBUSTAO INTERNA",
+        "codigo": "FGA0194 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Desenvolvimento tecnico e historico dos motores 2- Motores alternativos de combustao interna 3- Ciclos termicos 4- Parametros de projeto e operacao dos motores alternativos 5- Termoquimica das misturas ar-combustivel 6- Curvas caracteristicas 7- Transferencia de calor nos motores de combustao interna"
+    },
+    {
+        "disciplina": " PROJETO COM CIRCUITOS RECONFIGURAVEIS",
+        "codigo": "FGA0198 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Etapas do Projeto com Dispositivos Logicos Programaveis, Comparacao entre ASICs, FPGAs e Microprocessadores, Arquitetura Interna de um FPGA (Blocos Basicos, Estrutura de Roteamento), Simulacao Funcional, Sintese Logica para FPGAs, Algoritmos de Mapeamento e Roteamento, Conceito de Timming, Estimacao de Desempenho, Uso de Blocos de Propriedade Intelectual, Co-projeto Hardware-Software, Conceitos de System on Chip, Projeto de Sistemas Embarcados com FPGAs, Tolerancia a Falhas usando FPGAs, Reconfiguracao Dinamica Parcial."
+    },
+    {
+        "disciplina": " DINAMICA DOS FLUIDOS",
+        "codigo": "FGA0204 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Hipotese de meio continuo e cinematica dos fluidosLeis basicas do escoamento de fluidosEscoamento de fluidos viscososTeoria da camada limiteIntroducao a turbulencia em fluidos.Introducao ao Escoamento Compressivel."
+    },
+    {
+        "disciplina": " ARQUITETURA E DESENHO DE SOFTWARE",
+        "codigo": "FGA0208 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Contextualizacao para Desenho de Software.- Projeto/Desenho de Software Orientado a Objetos.- Padroes de Projeto (GRASP e GoF).- Contextualizacao para Arquitetura de Software.- Estilos Arquiteturais.- Padroes Arquiteturais.- Documentacao de Arquitetura de Software.- Model Driven Architecture (MDA).- Framework."
+    },
+    {
+        "disciplina": " PARADIGMAS DE PROGRAMACAO",
+        "codigo": "FGA0210 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Fundamentos de Linguagens de Programacao- Definicao e caracterizacao dos principais paradigmas de programacao- Pratica de programacao com os principais paradigmas de programacao"
+    },
+    {
+        "disciplina": " FUNDAMENTOS DE REDES DE COMPUTADORES",
+        "codigo": "FGA0211 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao as redes de computadoresCamadas de Aplicacao, transporte e redeRedes MultimidiaSeguranca em Redes de Computadores"
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM ENGENHARIA AUTOMOTIVA",
+        "codigo": "FGA0214 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Ementa variavel, abordando temas e tecnicas nao tratadas nas disciplinas sistematizadas do curso. Com o avanco rapido das tecnologias da area, serao tratados aqueles assuntos que solicitam uma reflexao academica, voltada para questoes praticas. A cada semestre a disciplina tera uma ementa especifica, a ser definida pelo professor responsavel."
+    },
+    {
+        "disciplina": " PROCESSAMENTO DE SINAIS",
+        "codigo": "FGA0219 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Sinais e sistemas no dominio do tempoSinais e sistemas no dominio da frequenciaAnalises de sistemasProjetos de filtrosTopicos avancados."
+    },
+    {
+        "disciplina": " INTELIGENCIA ARTIFICIAL",
+        "codigo": "FGA0221 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "DESCRICAO:O estado da arte em IA. Engenharia do conhecimento. Ontologias. Arquiteturas de sistemas baseados em conhecimento. Metodologias para desenvolvimento de sistemas inteligentes. Paradigmas simbolico, conexionista, evolucionario e hibrido. Outros assuntos relevantes dependendo o periodo e ano a ser ministrada esta disciplina. Aplicacoes. Projeto."
+    },
+    {
+        "disciplina": " ELETRONICA VEICULAR",
+        "codigo": "FGA0226 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Introducao sistemas eletricos automotivos 2. Componentes automotivos basicos 3. Baterias automotivas 4. Sistema de carregamento 5. Sistemas de partida do motor 6. Sistema de ignicao 7. Injecao eletronica e gerenciamento do motor 8. Sistemas de iluminacao 9. Sistema eletrico do chassi 10. Diagnostico de Bordo 11. Introducao a redes veiculares."
+    },
+    {
+        "disciplina": " PROJETO DE SISTEMAS AUTOMOTIVOS",
+        "codigo": "FGA0228 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Estudo dos diferentes sistemas automotivos, destacando a sua evolucao (historia), finalidade, caracteristicas, funcionamento,componentes, dimensionamento, legislacao e normas2- Motores, pistoes e cilindros, valvulas e eixo de comandos4- Sistemas de transmissao, embreagem, eixo carda e diferencial5- Chassi e sistema de suspensao, carroceria6- Alinhamento e balanceamento7- Sistemas de direcao, freios e ABS8- Orientacao sobre projeto de sistemas automotivos via CAD/CAE9 - Avaliacao do sistema e subsistema por analise estatica, modal e fadiga."
+    },
+    {
+        "disciplina": " ANALISE ESTRUTURAL METODO DOS ELEMENTOS FINITOS",
+        "codigo": "FGA0229 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "OBJETIVOS DA DISCIPLINATrabalhar os conhecimentos basicos sobre a analise estrutural atraves de metodologias direta e aproximada sob o enfoque estatico de elementos finitos. Oferecer os subsidios necessarios para a analise de estruturas em softwares de elementos finitos.EMENTA DO PROGRAMAMetodo direto Metodos Aproximados Introducao ao Metodo dos Elementos Finitos Elementos unidimensionais, bi-dimensionais e tri-dimensionais. Aplicacao pratica em software de elementos finitos."
+    },
+    {
+        "disciplina": " DINAMICA DE VEICULOS",
+        "codigo": "FGA0230 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1. Introducao2. Desempenho de Aceleracao3. Desempenho de Frenagem4. Carregamentos do terreno5. Pneus6. Percurso7. Dinamica vertical do veiculo8. Dinamica longitudinal do veiculo9. Dinamica lateral do veiculo"
+    },
+    {
+        "disciplina": " INTEGRACAO E TESTES",
+        "codigo": "FGA0232 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "\"\tFornecer ao estudante ferramentas direcionadas a elaboracao, analise e experimentacao de projetos de engenharia.\"\tRevisar e apresentar novos conceitos oriundos da estatistica aplicada a engenharia, no sentido da melhoria da qualidade, e da reducao do tempo na experimentacao.\"\tPromover a integracao de conhecimentos com o objetivo de validar modelos de engenharia e prototipos, propiciando a geracao de solucoes capazes de resolver problemas multidisciplinares"
+    },
+    {
+        "disciplina": " SENSORES E TRANSDUTORES",
+        "codigo": "FGA0233 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Fundamentos de instrumentacao 2- Introducao aos sensores e transdutores 3- Caracteristicas estaticas 4- Caracteristicas dinamicas 5- Medicao dimensional e de movimento 6- Medicao de temperatura 7- Medicao de pressao 8- Medicao de vazao"
+    },
+    {
+        "disciplina": " BIORREFINARIAS",
+        "codigo": "FGA0236 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Principios e fundamentosBioquimica e fisiologia do crescimento e metabolismo microbianoEstequiometria e cinetica do crescimento microbianoOperacao e desenho de reatores para a producao de bicombustiveisTransferencia de massa e calor em bioreatoresProducao de etanolProducao de biodieselProducao biologica de hidrogenioProducao biologica de biogas"
+    },
+    {
+        "disciplina": " TECNICAS DE PROGRAMACAO EM PLATAFORMAS EMERGENTES",
+        "codigo": "FGA0242 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "- Programacao Defensiva.- Assertivas e Programacao por Contrato.- Documentacao de Codigo.- Tratamento de Erros e Depuracao de Codigo.- Boas Praticas de Programacao e Projeto.- Refatoracao.- Frameworks.- Desenvolvimento Avancado de Software."
+    },
+    {
+        "disciplina": " PROGRAMACAO PARA SISTEMAS PARALELOS E DISTRIBUIDOS",
+        "codigo": "FGA0244 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceituacao de Sistemas Distribuidos. Principios de Sistemas Distribuidos. Arquiteturas de Sistemas Distribuidos. Paradigmas de Sistemas Distribuidos."
+    },
+    {
+        "disciplina": " SISTEMAS HIDROELETRICOS",
+        "codigo": "FGA0252 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Energia Hidraulica: Conceitos BasicosCentrais HidroeletricasEstudos HidrologicosSistemas de Baixa e Alta PressaoTurbinas HidraulicasEstudos Sociais, Economicos e Ambientais"
+    },
+    {
+        "disciplina": " CIENCIAS AEROESPACIAIS",
+        "codigo": "FGA0254 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introduz os principios e conceitos fundamentais de termodinamica, de calor, de fisica dos fluidos, de dinamica de corpos rigidos, de gravitacao e de ondas aplicados a sistemas de tecnologia aeroespacial Enfatiza a sintese das ciencias basicas, fisica, quimica, matematica e metodos experimentais que formam a base para analises quantitativas e qualitativas dos sistemas de tecnologia aeroespacial."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM ELETRONICA",
+        "codigo": "FGA0261 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Ementa variavel, abordando temas e tecnicas nao tratadas nas disciplinas sistematizadas do curso. Com o avanco rapido das tecnologias da area, serao tratados aqueles assuntos que solicitam uma reflexao academica, voltada para questoes praticas. A cada semestre a disciplina tera uma ementa especifica, a ser definida pelo professor responsavel"
+    },
+    {
+        "disciplina": " TRANSMISSAO E DISTRIBUICAO DE ENERGIA ELETRICA",
+        "codigo": "FGA0262 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Transmissao: transporte de energia eletrica, sistemas eletricos - estrutura basica, niveis de tensoes de transmissao - padronizacao. Transmissao CA e transmissao CC: aspectos comparativos. Tipos e arranjos de subestacoes. Equipamentos usados em subestacoes. Configuracao dos sistemas de distribuicao e de transmissao. Distribuicao: Caracteristicas das cargas: definicao basica, relacao entre a carga e fatores de perdas, demanda diversificada maxima, crescimento de carga, comportamento, modelamento e medicao da curva de carga."
+    },
+    {
+        "disciplina": " ECONOMIA DE ENERGIA",
+        "codigo": "FGA0265 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Aspectos conceituais da teoria economica aplicada a energia. A formacao historica da economia mundial da energia. Economia da industria do petroleo. Economia da industria eletrica. Economia da industria do gas natural."
+    },
+    {
+        "disciplina": " ACUSTICA E VIBRACOES VEICULARES",
+        "codigo": "FGA0266 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Fundamentos de Vibracoes 2- Sistemas com 1 e mais graus de liberdade 3-Balanceamento e Neutralizadores Dinamicos 4- Instrumentacao para vibracoes 5- Conceitos Fundamentais do Som 6- Instrumentacao para acustica 7- Propagacao sonora ao ar livre 8- Legislacao e Ruido de trafego 9- Ruido em cavidades."
+    },
+    {
+        "disciplina": " PROJETO DE ESTRUTURAS DE VEICULOS",
+        "codigo": "FGA0267 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "A disciplina tem como foco o desenvolvimento de tecnicas analiticas e numericas voltadas para o projeto e a fabricacao de estruturas veiculares, tais como componentes de suspensao, chassis tubulares e carrocerias. A selecao de materiais, melhoria na forma, bem como peso e dimensoes, analise ergonomicas e demais caracteristicas de um projeto automotivo tambem sao consideradas ao longo das avaliacoes ministradas. Ao longo de toda a disciplina, o aluno recebera informacoes necessarias para as atividades a serem desenvolvidas no projeto, na forma de aulas expositivas e praticas."
+    },
+    {
+        "disciplina": " SISTEMAS HIDRAULICOS E PNEUMATICOS",
+        "codigo": "FGA0270 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1- Sistemas Hidraulicos 2- Sistemas Pneumaticos."
+    },
+    {
+        "disciplina": " INTRODUCAO A MECANICA DA FRATURA",
+        "codigo": "FGA0285 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceitos basicos na analise da vida em servico de estruturas. Comportamento mecanico de componentes estruturais na presenca de trincas. Mecanica da Fratura Linear Elastica. Propagacao de trincas sob acao de carregamentos ciclicos. Topicos de Mecanica da Fratura Elastoplastica. Aplicacoes."
+    },
+    {
+        "disciplina": " MECANICA DE ESTRUTURAS AERONAUTICAS",
+        "codigo": "FGA0291 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Introducao aos conceitos fundamentais de analise estrutural aplicada as aeronaves. Reflexao sobre aplicacao dos conceitos principais de mecanica dos solidos para analise de tensao e deformacao nas estruturas aeronauticas. Revisao de problemas estruturais relacionados aos componentes de asa e fuselagem de aeronaves."
+    },
+    {
+        "disciplina": " INSTALACOES ELETRICAS EM SISTEMAS DE ENERGIA",
+        "codigo": "FGA0301 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Materiais e equipamentos eletricos empregados em sistemas de energia; \n\nSistema de iluminacao; \n\nDimensionamento de condutores eletricos; \n\nSistemas de Protecao contra Descargas Atmosfericas e Aterramento;\n\nSistemas de geracao solar fotovoltaico."
+    },
+    {
+        "disciplina": " ENGENHARIA E AMBIENTE",
+        "codigo": "FGA0302 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Conceitos basicos;\nII. A terra com um sistema;\nIII. Vida em meio ambiente;\nIV. Sustentando a vida;\nV. Poluicao;\nVI. Meio ambiente e sociedade."
+    },
+    {
+        "disciplina": " PROJETO INTEGRADOR DE ENGENHARIA 1",
+        "codigo": "FGA0303 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Nocoes de Projeto e Gestao de Projeto\nII. Sintese da Profissao de Engenheiro\nIII. Projeto: Definicoes e Modelos\nIV. Nocoes de Gerenciamento de Projeto (Ciclo de Vida e Organizacao de Projeto, Processos de Gerenciamento de Projetos, Gerenciamento do Escopo, Gerenciamento do Tempo do Projeto, Gerenciamento de Custos, Gerenciamento de Qualidade, Gerenciamento de Recursos Humanos, Gerenciamento das Comunicacoes no Projeto e Gerenciamento de Riscos)\nV. Casos de Estudo\nVI. Pratica com Projeto Integrador."
+    },
+    {
+        "disciplina": " PROJETO INTEGRADOR DE ENGENHARIA 2",
+        "codigo": "FGA0304 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. A disciplina tem por objetivo aprofundar os objetivos da disciplina de Projeto Integrador 1 que visa trabalhar com estudante o projeto de engenharia como atividade sintese da profissao de engenheiro\nII. Integrar os conhecimentos e as habilidades tecnicas adquiridas ao longo dos cursos de graduacao na solucao de problemas, por meio do desenvolvimento de um tema real de projeto\n\nIII. Apresentar os fundamentos metodologicos do processo de projeto e de solucao de problemas\nIV. Desenvolver a habilidade de geracao de empreender a identificacao, formulacao e solucao de problemas\n\nV. Desenvolver a habilidade de geracao de novas solucoes para problemas de engenharia, por meio da analise, sintese e otimizacao de sistemas\nVI. Promover a interdisciplinaridade\nVII. Desenvolver a capacidade de comunicacao tecnica escrita e oral\nVIII. Desenvolver a capacidade de pensamento critico independente, investigacao racional e auto-aprendizagem\nIX. Desenvolver a capacidade de trabalho em equipe\nX. Promover a compreensao das responsabilidades sociais, culturais e ambientais do engenheiro e a necessidade do desenvolvimento sustentavel\nXI. Abertura a novas ideias."
+    },
+    {
+        "disciplina": " GESTAO DA PRODUCAO E QUALIDADE",
+        "codigo": "FGA0307 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "I. Aspectos introdutorios no estudo da gestao da producao e da qualidade de produtos e operacoes\nII. Sistemas de producao; Planejamento e controle da producao; logistica basica\nIII. Aspectos da pesquisa operacional relacionados a gestao da producao e operacoes\nIV. Controle e melhoria de processos;\nV. Gestao, Sistemas e Normalizacao da Qualidade\nVI. Qualidade e desenvolvimento de produtos\nVII. Metodos de pesquisa adotados na gestao da producao e operacoes."
+    },
+    {
+        "disciplina": " ELETRONICA EMBARCADA",
+        "codigo": "FGA0308 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1 - Microcontroladores: visao geral.\n\n2 - Programacao para microcontroladores: linguagens C e Assemblyfuncoes e interrupcoes sistemas em tempo real.\n\n3 - Entrada e saida digital e analogica.\n\n4 - Temporizadores.\n\n5 - Comunicacao serial.\n\n6 - Sistemas em tempo real.\n\n7 - Laboratorios."
+    },
+    {
+        "disciplina": " SISTEMAS OPERACIONAIS EMBARCADOS",
+        "codigo": "FGA0309 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "1 - Definicoes e aplicacoes.\n\n2 - Metodologias de desenvolvimento de sistemas embarcados.\n\n3 - Desenvolvimento de firmware.\n\n4 - Estado da arte em sistemas embarcados e em tempo real.\n\n5 - Arquiteturade microcontroladores.\n\n6 - Interfaceamento analogico e digital.\n\n7 - Laboratorios."
+    },
+    {
+        "disciplina": " METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+        "codigo": "FGA0312 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Modelos de ciclo de vida e de processos. Processo Unificado. Desenvolvimento rapido de software. Metodos de desenvolvimento de software (orientado a dados, orientado a funcoes, orientado a objetos, orientado a aspectos, ageis). Ferramentas."
+    },
+    {
+        "disciplina": " REQUISITOS DE SOFTWARE",
+        "codigo": "FGA0313 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceitos basicos de requisitos e diferentes paradigmas para definicao de requisitos.\n\nAtributos de qualidade.\n\nClassificacao de requisitos.\n\nProcesso de requisitos: tecnicas de levantamento de requisitos.\n\nIdentificacao do Problema.\n\nModelagem, especificacao e analise de requisitos de software.\n\nGerenciamento de requisitos: priorizacao de requisitos, rastreabilidade de requisitos, gerencia de mudanca de requisitos.\n\nVerificacao e validacao em requisitos.\n\nEngenharia de Requisitos no contexto das normas e dos modelos de melhoria de processo de software.\n\nFerramentas."
+    },
+    {
+        "disciplina": " TESTES DE SOFTWARE",
+        "codigo": "FGA0314 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Conceitos basicos\n\nPrincipios, tecnicas e ferramentas de testes de software\n\nDesenvolvimento orientado a testes (TDD)\n\nUtilizacao de dubles (mocks) para testes\n\nTestes orientados a requisitos nao funcionais\n\nUso de ferramentas para apoiar testes de software"
+    },
+    {
+        "disciplina": " QUALIDADE DE SOFTWARE 1",
+        "codigo": "FGA0315 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Definicao, terminologia de qualidade de software\n\nA qualidade no contexto de desenvolvimento de software e atributos da qualidade\n\nDefinicao, terminologia e Modelos de metricas em qualidade de software\n\nTecnicas estaticas de Verificacao e Validacao de software"
+    },
+    {
+        "disciplina": " ENGENHARIA DE PRODUTO DE SOFTWARE",
+        "codigo": "FGA0316 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Teorias que suportam o Desenvolvimento de Produtos.\n\nDiferencas e semelhancas da Producao na Manufatura e no Software.\n\nGestao do escopo, tempo, custos, qualidade, recursos materiais, pessoas, comunicacoes, riscos em diferentes paradigmas (ex: tradicional e agil).\n\nGestao estrategica de projetos (portfolios e programas).\n\nGestao de Projetos de software no contexto das normas e dos modelos de melhoria de processo de software.\n\nProjetos e implementacao de sistema usando modelos de gerenciamento."
+    },
+    {
+        "disciplina": " GERENCIA DE CONFIGURACAO E EVOLUCAO DE SOFTWARE",
+        "codigo": "FGA0317 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Identificacao de configuracao (itens e linha-base)\n\nControle de mudancas e versoes\n\nIntegracao e entrega continua\n\nMonitoramento do desenvolvimento de software\n\nGerenciamento do processo de construcao/build (mapeamento para ferramentas para - ambientes de desenvolvimento e producao)\n\nPacotes e dependencia de software\n\nPrincipios e tecnicas de manutencao de software\n\nSustentacao de software"
+    },
+    {
+        "disciplina": " FELICIDADE",
+        "codigo": "FGA0320 ",
+        "unidade_responsavel": "CAMPUS UNB GAMA: FACULDADE DE CIENCIAS E TECNOLOGIAS EM ENGENHARIA ",
+        "ementa": "Saude Mental e Felicidade no ambiente academico.\n\nAutoconhecimento.\n\nPrincipais resultados de pesquisas cientifico-academicas sobre felicidade.\n\nA aceitacao de si mesmo e as multiplas formas de ser, pensar e sentir no mundo.\n\nA dimensao do afeto e o “cuidar” no ambiente academico.\n\nEstrategias de enfrentamento aos fatores psicologicos que interferem no desempenho academico (inseguranca, desamparo, ansiedade, depressao, timidez...).\n\nVivencias geradoras de felicidade."
+    }
+]
