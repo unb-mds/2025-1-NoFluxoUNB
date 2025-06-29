@@ -11,9 +11,9 @@ import random
 import unicodedata
 from pathlib import Path
 """
-ESTE ARQUIVO CONTÉM O CODIGO DE SCRAPPING PARA TODAS OS DEPTOS
-ESTE ARQUIVO UTILIZA DE FUNÇÕES PARA EXECUTAR O SCRAPPING EM PARALELO
-PORTANTO, É MAIS RÁPIDO. UTILIZE SEMPRE ESSE ARRQUIVO!
+ESTE ARQUIVO CONTÉM O CODIGO DE SCRAPPING PARA TODAS OS DEPTOS,
+Este arquivo extrai as equivalencias(especificas ou gerias),corequisitos e prerequisitos das materias
+Além de extrair seu nome, seu respectivo codigo e ementa.
 """
 
 def _remover_acentos(texto_com_acento):

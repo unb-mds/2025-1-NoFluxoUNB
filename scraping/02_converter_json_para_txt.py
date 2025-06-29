@@ -2,6 +2,10 @@ import json
 import os
 import sys
 
+'''
+Este arquivo visa converter o .json obtido do arquivo '01_extrair_turmas_sigaa.py', para .txt
+'''
+
 
 # Caminho onde estão seus arquivos .json
 #entrada = "dados_finais"

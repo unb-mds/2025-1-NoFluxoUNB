@@ -17,8 +17,8 @@ import datetime
 
 """
 ESTE ARQUIVO CONTÉM O CODIGO DE SCRAPPING PARA TODAS OS DEPTOS
-ESTE ARQUIVO UTILIZA DE FUNÇÕES PARA EXECUTAR O SCRAPPING EM PARALELO
-PORTANTO, É MAIS RÁPIDO. UTILIZE SEMPRE ESSE ARRQUIVO!
+Ele extrai as disciplinas ativas de cada departamento.
+Extraindo apenas : Nome, Unidade Responsavel, Codigo e Ementa.
 """
 
 # Função auxiliar para remover acentos

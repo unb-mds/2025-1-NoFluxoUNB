@@ -3,6 +3,13 @@ import sys
 import os
 import datetime
 
+'''
+Este arquivo, junta os demas arquivos com iniciais '01', '02' e '03' , para serem executados em 1 arquivo só (o  arquivo atual)
+Os resultados extraidos desse arquivo visam estruturar esses dados obtidos para alimentar a base de conhecimento do RagFlow.
+
+'''
+
+
 def gerar_nomes_pastas():
     """
     Gera nomes de pasta dinâmicos com base no ano e semestre atuais.

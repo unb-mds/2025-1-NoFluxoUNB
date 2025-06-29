@@ -6,7 +6,12 @@ from urllib.parse import urljoin
 import os
 import re
 
+'''
+Este arquivo extrai os "IDs" dos departamentos, que serão usados nos arquivos de scraping, tais como : 'executar_fluxo_dados_Ragflow.py',
+ou 'scraping_equivalencias.py' .
 
+Sem os dados extraidos desse arquivo, os demais não funcionam.
+'''
 
 url = 'https://sigaa.unb.br/sigaa/public/turmas/listar.jsf'
 

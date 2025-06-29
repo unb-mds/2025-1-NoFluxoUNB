@@ -2,6 +2,13 @@ import re
 import os
 import sys
 
+'''
+Este arquivo visa converter o .txt obtido do arquivo '02_converter_json_para_txt.py', para também um arquivo .txt,
+porém formatado para melhor estruturação no RagFlow
+
+'''
+
+
 def preprocess_disciplines_txt_from_folder(input_folder, output_folder, internal_field_separator="; ", record_delimiter="\n\n"):
     """
     Pré-processa arquivos .txt de disciplinas de uma pasta de entrada,
