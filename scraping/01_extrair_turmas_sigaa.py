@@ -279,7 +279,7 @@ def carregar_ids_departamentos():
         ids = []
         # Certifique-se que o arquivo 'departamentos_unb_2.csv' está no mesmo diretório
         # ou forneça o caminho completo.
-        with open('departamentos_unb_2.csv', 'r', encoding='utf-8') as file:
+        with open('dados/departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
             csv_reader = csv.reader(file)
             next(csv_reader, None) # Pula o cabeçalho, se houver
             for row in csv_reader:
@@ -360,8 +360,8 @@ def main():
         return
 
     todos_dados_por_depto = [] # Para acumular todos os resultados para o CSV final
-    #total_departamentos = len(ids)
-    total_departamentos = 1
+    total_departamentos = len(ids)
+    #total_departamentos = 1
     lote_size = 20 
     
     for i in range(0, total_departamentos, lote_size):
