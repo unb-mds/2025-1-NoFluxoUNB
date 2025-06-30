@@ -1,0 +1,82 @@
+[
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "GRE0001"
+    },
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "ICE0001"
+    },
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "GRE0002"
+    },
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "ICE0002"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "( GRE0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "GRE1102"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "( ICE0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ICE0003"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "( ICE0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ICE0004"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS EXATAS ",
+        "pre_requisitos": "( GRE0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "GRE1103"
+    }
+]

@@ -1,0 +1,820 @@
+[
+    {
+        "nome": "ARQUITERURA E URBANISMO DA AMERICA LATINA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0009 ) OU ( FAU0225 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0190 )",
+        "equivalencias_especificas": [],
+        "ementa": "Produção arquitetônica pré-colombiana. A formação de rede urbana e a arquitetura do período colonial. As manifestações nacionais até o presente.",
+        "codigo": "TAU0010"
+    },
+    {
+        "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0006 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0187 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0113 ) ) OU ( FAU0187 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0113 ) ) OU ( FAU0187 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0113 ) ) OU ( FAU0187 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Princípios urbanísticos e correntes arquitetônicas, edifícios, arquitetos e técnicas de edificação desde o século XVIII até a segunda guerra mundial.",
+        "codigo": "TAU0007"
+    },
+    {
+        "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0189 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0225 ) ) OU ( FAU0189 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0225 ) ) OU ( FAU0189 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0225 ) ) OU ( FAU0189 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A produção  arquitetônica e o processo de urbanização do descobrimento até fins do século XIX. Arquitetura indígena, venácula e dos imigrantes.",
+        "codigo": "TAU0009"
+    },
+    {
+        "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0188 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0114 ) ) OU ( FAU0188 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0114 ) ) OU ( FAU0188 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0114 ) ) OU ( FAU0188 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0114 ) ) OU ( FAU0188 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0114 ) ) OU ( FAU0188 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Produção e teoria da arquitetura e do urbanismo no Brasil da República até o presente. A Presente disciplina pretende familiarizar os estudantes com a produção e o pensamento arquitetônico corrente no Brasil de meados da década de 1920 a meados da década de 1980. Para que possam compreender a formação de desenvolvimento de vocabulário formal da arquitetura moderna brasileira, assim como localizar os principais paradigmas teóricos que justificam a atuação dos arquitetos brasileiros neste período e sua postura atual.",
+        "codigo": "TAU0008"
+    },
+    {
+        "nome": "ARQUITETURA E ESTETICA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Reconhecimento,  apreciação e descrição da dimensão estética de projetos de arquitetura e urbanismo. Estudo das condições capazes de qualificar um projeto de arquitetura na condição de obra de arte.",
+        "codigo": "TAU0014"
+    },
+    {
+        "nome": "ARQUITETURA E URBANISMO DA ATUALIDADE",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0191 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo da situação presente da arquitetura e do urbanismo: produção, pensamento e tendências.",
+        "codigo": "TAU0011"
+    },
+    {
+        "nome": "ARTE COMPARADA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TAU0027"
+    },
+    {
+        "nome": "ARTE E FILOSOFIA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "TAU0028"
+    },
+    {
+        "nome": "BRASÍLIA, EXPERIÊNCIA URBANISTICA - PRÁTICA E TEORIA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TAU0026"
+    },
+    {
+        "nome": "CONFIGURACAO URBANA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0008 ) OU ( FAU0114 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0227 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como objetivo o espaço urbano considerado como espaço arquitetônico à escala da cidade. Em outras palavras, observa-se o fato físico dos processos urbanos como espaço tridimensional histórico e socialmente usado. Estudo do espaço urbano assim considerado tentando compreende-lo como expressão dos agentes sociais, políticos e econômicos que são responsáveis pelo desenho das cidades em tempos específicos.  A configuração como um dos aspectos estruturais do espaço urbano arquitetônico que tem objeto as estruturas de formas físicas, que são dinâmicas e historiucamente definidas. A configuração do espaço urbano como instrumento de aprendizagem contínuo dos individuais: o desempenho cognitivo das morfologias urbanas.",
+        "codigo": "TAU0015"
+    },
+    {
+        "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TAU0045 OU FAU0192 OU FAU0193 OU FAU0194 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho orientado com duração de um semestre, com base em pesquisa bibliográfica ou levantamento de campo visando a sistematização de informação histórica e a análise teórica de assunto temático de livre escolha do aluno.",
+        "codigo": "TAU0012"
+    },
+    {
+        "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( TAU0012 )",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho orientado com duração de um semestre, com base em pesquisa bibliográfica ou levantamento de campo visando a sistematização de informação histórica e a análise teórica de assunto temático de livre escolha do aluno.",
+        "codigo": "TAU0045"
+    },
+    {
+        "nome": "ESTÉTICA DO ESPAÇO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0024 OU TAU0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "## => RECONHECIMENTO, DESCRIÇÃO E INTERPRETAÇÃO DO espaço ENQUANTO CATEGORIA ESTETICAMENTE QUALIFICADA: COMO   OBJETO   DE CONHECI-MENTO SENSÍVEL. ESPAÇO   COMO   DE   EXPRESSÃO   ARTÍSTICA.  ESPAÇO DE NAS ARTES PLÁSTICAS: PINTURA, ESCULTURA, ARQUITETURA  E URBANISMO.DISTINÇÃO DO ESPAÇO ESPAÇO ENQUANTO CATEGORIA TEÓRICA, PRÁTICA  EESTÉTICA.TAXONOMIA  DE  RECONHECIMENTO  DOS ESPAÇOS ESTETICAMEN-TE QUALIFICADOS. DESENVOLVIMENTO HISTÓRICO.",
+        "codigo": "TAU0023"
+    },
+    {
+        "nome": "ESTÉTICA E HISTÓRIA DA ARTE",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0006 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( TAU0024 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( TAU0028 ) OU ( TAU0014 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0028 ) ) OU ( TAU0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( TAU0028 ) OU ( TAU0014 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( TAU0028 ) OU ( TAU0014 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TAU0028 ) ) OU ( TAU0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Reconhecimento, apreciação e descrição de artefatos esteticamente qualificados. Arte como uma das formas de criação da natureza propriamente humana. Como práxis historicamente construída.",
+        "codigo": "TAU0025"
+    },
+    {
+        "nome": "ESTRUTURAS URBANAS",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0008 E PRO0020 ) OU ( TAU0006 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0234 )",
+        "equivalencias_especificas": [],
+        "ementa": "A estrutura interna das cidades e das redes urbanas. O fenômeno da urbanização: perspectivas históricas. A cidade da sociedade contemporânea. Àrea de influência das cidades, hierarquia das cidades, realções entre cidades. Análise dos  espaços urb anos: morfologia, relações intr-urbanas, estratificação espacial.",
+        "codigo": "TAU0020"
+    },
+    {
+        "nome": "HISTORIA DA ARQUITETURA E DA ARTE 1",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0185 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0003 OU VIS0060 ) ) OU ( FAU0185 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0003 OU VIS0060 ) ) OU ( FAU0185 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0003 OU VIS0060 ) ) OU ( FAU0185 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "História do urbanismo, da arquitetura e da arte no contexto de seus condicionantes sociais, economicos e políticos, desde os primórdios da civilização até o gótico.",
+        "codigo": "TAU0005"
+    },
+    {
+        "nome": "HISTORIA DA ARQUITETURA E DA ARTE 2",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0005 ) OU ( VIS0060 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0186 )",
+        "equivalencias_especificas": [],
+        "ementa": "História das cidades, dos edifícios e da edificação na tradição européia a partir do início do Renascimento na Itália até o século XVIII. Ttransposição da tradição técnico-construtiva e arquitetônica da Europa para as colônias americanas de fala inglesa e francesa.",
+        "codigo": "TAU0006"
+    },
+    {
+        "nome": "INICIAÇÃO CIENTÍFICA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TAU0044 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho orientado com duração de um ou dois semestre, com base em pesquisa bibliográfica ou levantamento de campo visando a sistematização de informação histórica e a análise teórica de assunto temático de livre escolha do aluno.",
+        "codigo": "TAU0001"
+    },
+    {
+        "nome": "INICIAÇÃO CIENTÍFICA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( TAU0001 )",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho orientado com duração de um ou dois semestre, com base em pesquisa bibliográfica ou levantamento de campo visando a sistematização de informação histórica e a análise teórica de assunto temático de livre escolha do aluno",
+        "codigo": "TAU0044"
+    },
+    {
+        "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0106 ) OU ( FAU0107 )",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos Fundamentais de arquitetura e urbanismo. A experiência do espaço. Sociedade, cultura e arquitetura. Função, técnica e estética produção e uso.",
+        "codigo": "TAU0002"
+    },
+    {
+        "nome": "INTRODUÇÃO A PESQUISA E A EXTENSÃO EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( TAU0016 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TAU0017"
+    },
+    {
+        "nome": "METODOS E TECNICAS NA PROJETACAO ARQUITETONICA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( FAU0111 ) OU ( PRO0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0129 )",
+        "equivalencias_especificas": [],
+        "ementa": "Racionalização do processo de projetação. Organização das várias interferentes na resolução de problemas de edificação mediante aplicação de técnicas disponíveis ( teoria dos conjuntos, análise de sistemas, método de caminho crítico, teoria dos jogos). Conceito de processos estocásticos. Metodologia de projetação de edificações mediante abordagem de processos sistematizados de análise , síntese  e avaliação morfológica. Apklicação dos meios de linguagem das técnicas de sistematização de projeto e sua expressão (matrizes, gráficos e modelos).",
+        "codigo": "TAU0003"
+    },
+    {
+        "nome": "MONITORIA EM ARQUITERURA E URBANISMO DA AMERICA LATINA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0053"
+    },
+    {
+        "nome": "MONITORIA EM ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0035"
+    },
+    {
+        "nome": "MONITORIA EM ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0042"
+    },
+    {
+        "nome": "MONITORIA EM ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0036"
+    },
+    {
+        "nome": "MONITORIA EM ARQUITETURA E ESTETICA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0057"
+    },
+    {
+        "nome": "MONITORIA EM ARQUITETURA E URBANISMO DA ATUALIDADE",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0037"
+    },
+    {
+        "nome": "MONITORIA EM ARTE COMPARADA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0068"
+    },
+    {
+        "nome": "MONITORIA EM ARTE E FILOSOFIA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0069"
+    },
+    {
+        "nome": "MONITORIA EM BRASÍLIA, EXPERIÊNCIA URBANISTICA - PRÁTICA E TEORIA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0067"
+    },
+    {
+        "nome": "MONITORIA EM CONFIGURACAO URBANA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0058"
+    },
+    {
+        "nome": "MONITORIA EM ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0038"
+    },
+    {
+        "nome": "MONITORIA EM ESTÉTICA DO ESPAÇO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0065"
+    },
+    {
+        "nome": "MONITORIA EM ESTÉTICA E HISTÓRIA DA ARTE",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0043"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURAS URBANAS",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0062"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA ARQUITETURA E DA ARTE 1",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0033"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA ARQUITETURA E DA ARTE 2",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0034"
+    },
+    {
+        "nome": "MONITORIA EM INICIAÇÃO CIENTÍFICA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0041"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0032"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A PESQUISA E A EXTENSÃO EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0059"
+    },
+    {
+        "nome": "MONITORIA EM METODOS E TECNICAS NA PROJETACAO ARQUITETONICA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0046"
+    },
+    {
+        "nome": "MONITORIA EM MORFOLOGIA ARQUITETONICA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0047"
+    },
+    {
+        "nome": "MONITORIA EM MORFOLOGIA URBANA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0060"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO HABITACIONAL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0040"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO URBANO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0039"
+    },
+    {
+        "nome": "MONITORIA EM SEMIÓTICA DA  CULTURA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0070"
+    },
+    {
+        "nome": "MONITORIA EM SINTAXE URBANA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0064"
+    },
+    {
+        "nome": "MONITORIA EM TEORIAS ESTÉTICAS",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0071"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA URBANO-REGIONAL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0061"
+    },
+    {
+        "nome": "MONITORIA EM URBANISMO E URBANIZAÇÃO NO BRASIL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( TAU0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TAU0072"
+    },
+    {
+        "nome": "MORFOLOGIA ARQUITETONICA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0006 E TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0184 )",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução aos estudos em arquitetura. Configuração, morfologia e tipologia em arquitetura. Metodologia de representação das configurações arquitetônicas. Gramáticas formais. Morfologia arquitetônica em projeto, em ciência da construção e em estudos históricos. Análise morfológica de edifícios complexos.",
+        "codigo": "TAU0004"
+    },
+    {
+        "nome": "MORFOLOGIA URBANA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0230 )",
+        "equivalencias_especificas": [],
+        "ementa": "A  Estrutura morfológica dos fatos urbanos construídos. Atipologia dos fatos urbanos (habitacional, elementos polarizadores, visuais dos espaços abertos e a indústria). Imagem da cidade e paisagem urbana. A projetação urbana. Forma de ocupação e uso do solo.",
+        "codigo": "TAU0018"
+    },
+    {
+        "nome": "PLANEJAMENTO HABITACIONAL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0008 E FAU0114 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0243 ) OU ( FAU0244 )",
+        "equivalencias_especificas": [],
+        "ementa": "O objetivo mais geral é ensejar um melhor conhecimento do problema habitacional no Brasil, especialmente quanto às possibilidades das ações de planejamento. Especialmente, tenciona-se melhorar o nível de atendimento das seguinte questões relacionadas ao planejamento habitacional: - utilização de instrumental técnico para o Planejamento da habitação - compreensão metodológica dos procedimentos técnicos relativosao planejamento da habitação.",
+        "codigo": "TAU0021"
+    },
+    {
+        "nome": "PLANEJAMENTO URBANO",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0197 ) OU ( FAU0198 )",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução à teoria, à prática e à evolução histórica do planejamento urbano e regional. Planejamento em diferentes sistemas sociais. As teorias do planejamento. A evolução de políticas de planejamento. A evolução de políticas de planejamento regional no Brasil. As teorias do crescimento e da organização de cidades. de regiões urbanas e de sistema de cidades. Introdução a alguns métodos de análise e de planejamento urbano e regional. Projetaçãio de população, localização de equipamento, perfis urbanos etc.",
+        "codigo": "TAU0013"
+    },
+    {
+        "nome": "SEMIÓTICA DA  CULTURA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Tipo de Material",
+        "codigo": "TAU0029"
+    },
+    {
+        "nome": "SINTAXE URBANA",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0247 ) OU ( FAU0248 )",
+        "equivalencias_especificas": [],
+        "ementa": "A cidade entendida como sistema de permeabilidade e barreiras ao movimento dos habitantes. Relações entre morfologia física e estruturações sociais. Simulação do desempenho de formas alternativas face ao uso social.",
+        "codigo": "TAU0022"
+    },
+    {
+        "nome": "TEORIAS ESTÉTICAS",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TAU0030"
+    },
+    {
+        "nome": "TEORIA URBANO-REGIONAL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0008 E PRO0020 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0233 )",
+        "equivalencias_especificas": [],
+        "ementa": "Cidades e urbanização. Regiões, regionalismo e desenvolvimento regional em contexto histórico. Teoria de Von Thunen de polarização espacial Teoria de Concentração e de Dispersão Espacial Teoria de Especialização Geográfia. Teoria da ação coletiva no desenho, administração e planejamento de cidades. Tweoria sociológica do \"Mundo  de vida\" urbano e de sistemas e -sistemas de integração urbana. População, recursos, meio ambiente e a urbanização. Teorias de planejamento urbano e regional e da formulação de políticas urbanas regionais.",
+        "codigo": "TAU0019"
+    },
+    {
+        "nome": "URBANISMO E URBANIZAÇÃO NO BRASIL",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As cidades brasileiras e sua problematização, social e urbana (final século XIX - século XX). Reforma urbana e cidades planejadas. O processo de metropolização. A formação do pensamento urbanístico no Brasil e sua inserção no debate internacional. As políticas urbanas do século XX e suas implicações socioeconômicas e culturais",
+        "codigo": "TAU0031"
+    }
+]

@@ -1,0 +1,583 @@
+[
+    {
+        "nome": "AGRICULTURA E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0007 ) OU ( IGD0173 ) OU ( FAV0280 ) OU ( DAN0022 ) OU ( BOT0008 ) OU ( ECL0033 ) OU ( ENC0263 ) OU ( EFL0010 ) OU ( FIT0003 ) OU ( GEM0014 ) OU ( GEA0051 ) OU ( ICB0077 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O objetivo deste curso é proporcionar um entendimento básico da história da agricultura e sua relação com o meio ambiente, assim como ferramentas introdutórias de análise de agroecossistemas quanto as suas características funcionais, produtivas e impactos ambientais.",
+        "codigo": "CDS0004"
+    },
+    {
+        "nome": "ANÁLISE DA PAISAGEM APLICADA À SUSTENTABILIDADE URBANA",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0008 ) OU ( CDS0007 E IGD0160 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A DEFINIR",
+        "codigo": "CDS0021"
+    },
+    {
+        "nome": "COMIDA, CULTURA E SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CDS0003"
+    },
+    {
+        "nome": "COMUNICAÇÃO SOCIOAMBIENTAL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Coleta, organização e divulgação, para público leigo, de resultados de pesquisa, fatos históricos, biografias, legislação, planos, programas, políticas ambientais e atividades desenvolvidas no âmbito do curso de Ciências Ambientais. Elaboração de campanhas de sensibilização pública. Desenvolvimento de ferramentas de comunicação. Criação e alimentação de redes sociais, páginas web, canais no Youtube e Podcast, entre outros.",
+        "codigo": "CDS0035"
+    },
+    {
+        "nome": "EDUCAÇÃO E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( TEF0082 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - CONSERVACAO E USO DA BIODIVERSIDADE - N",
+                "curriculo": "2321/-4 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECL0035 OU ECL0036 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - CONSERVACAO E USO DA BIODIVERSIDADE - N",
+                "curriculo": "2321/-4 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECL0035 OU ECL0036 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - POLITICAS E SUSTENTABILIDADE - N",
+                "curriculo": "2321/1 - 2014.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEF0082 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - POLITICAS E SUSTENTABILIDADE - N",
+                "curriculo": "2321/1 - 2014.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECL0035 OU ECL0036 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - MANEJO E CONSERVACAO DE RECURSOS HIDRICOS E SOLOS - N",
+                "curriculo": "2321/-2 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEF0082 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - MANEJO E CONSERVACAO DE RECURSOS HIDRICOS E SOLOS - N",
+                "curriculo": "2321/-2 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECL0035 OU ECL0036 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - PLANEJAMENTO AMBIENTAL - N",
+                "curriculo": "2321/-3 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEF0082 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - PLANEJAMENTO AMBIENTAL - N",
+                "curriculo": "2321/-3 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O curso provoca uma reflexão sobre os desafios socioambientais dos tempos atuais, abordando os fundamentos do pensamento ambiental, em uma perspectiva histórica, as ideias de crise, mudança de paradigma e sustentabilidade em articulação com conceitos de educação e meio ambiente. São utilizados os eixos filosóficos e conceituais para a inserção da dimensão educativa nos processos socioambientais. O objetivo é compreender as principais questões ambientais inseridas e contextualizadas em suas dimensões: econômica, política, social e cultural. Os objetivos específicos são:\tRefletir sobre os saberes e valores que orientam projetos e práticas de educação ambiental\tIdentificar o estado da arte no campo da educação ambiental: formação e tendências atuais \tDiscutir e experimentar metodologias de educação ambiental \t                Mudança de paradigma: complexidade, transdisciplinaridade e educação\tA formação dos educadores ambientais, redes de educação ambiental e experiências de EA no Brasil.",
+        "codigo": "CDS0016"
+    },
+    {
+        "nome": "EPISTEMOLOGIA, TECNOLOGIA E SUSTENTABILIDADE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CDS0005"
+    },
+    {
+        "nome": "ESTUDOS DOS SISTEMAS AGRÁRIOS",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos e aplicação da teoria sistêmica para o estudo de realidades agrárias complexas. Origem, evolução e diferenciação dos sistemas agrários. Caracterização, evolução e diferenciação dos sistemas agrários. Relações com as políticas públicas agrária e ambiental. A disciplina é voltada para a apreensão da metodologia de estudo dos sistemas agrários e suas ferramentas voltadas ao estudo de realidades agrícolas complexas, com vistas à intervenção. Instrumentar os estudantes de ferramentas que auxiliem na elaboração de políticas públicas ambientais e de ações de desenvolvimento para os atores sociais do campo.",
+        "codigo": "CDS0032"
+    },
+    {
+        "nome": "FUNDAMENTOS DO DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CDS0009"
+    },
+    {
+        "nome": "GOVERNANÇA AMBIENTAL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0007 E ECO0262 ) OU ( CDS0008 ) OU ( ECO0261 ) OU ( ECO0275 ) OU ( CDS0014 ) OU ( CDS0001 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CDS0006"
+    },
+    {
+        "nome": "HISTÓRIA AMBIENTAL DO BRASIL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0008 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina trata das características dos biomas brasileiros e de sua ocupação por populações humanas ao longo da história. Discute os processos de ocupação de diversos trechos de território brasileiro, os padrões de uso dos recursos naturais, os efeitos gerados sobre os ecossistemas, os tipos de conhecimento popular e científico sobre a natureza no Brasil, e o surgimento das preocupações com a conservação da natureza, com o uso racional dos recursos naturais e com a qualidade do meio ambiente. O foco maior recairá sobre o Bioma da Mata Atlântica.Esta disciplina optativa é oferecida regularmente pelo CDS aos alunos do Curso de Graduação em Ciências AmbientaisA disciplina será desenvolvida em aulas expositivas, com atividades presenciais, algumas individuais, algumas coletivas, mesclando aulas expositivas, exibição comentada de filmes e vídeos, exposições dos alunos, testes e exercícios em sala de aula, leitura e comentário de pequenos textos em sala de aula, além de prova e testes. A disciplina tem os seguintes objetivos: (a)\tintroduzir os alunos às dimensões históricas das relações entre sociedades humanas e os ambientes naturais, com atenção particular para o atual território brasileiro e os povos que o habitaram e habitam (b)\tfamiliarizar os alunos com abordagens, obras e autores que focalizam essas dimensões históricas e(c)\thabilitar os alunos a entender e abordar questões ambientais contemporâneas levando em conta os processos e padrões históricos de relacionamento entre sociedades humanas e a natureza biofísica.",
+        "codigo": "CDS0002"
+    },
+    {
+        "nome": "INDICADORES DE DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O objetivo da disciplina é oferecer uma revisão das principais abordagens relacionadas à avaliação da sustentabilidade do desenvolvimento, as premissas conceituais e metodológicas adotadas por algumas correntes de pensamento no campo das ciências socioambientais e econômicas e seus reflexos na percepção da sustentabilidade por parte do meio acadêmico, da mídia, das organizações e da sociedade em geral. A disciplina irá debater em que medida os diversos indicadores existentes auxiliam na elaboração e condução das políticas públicas. Como isso pode ser mensurado e avaliado. Qual a importância de construção e utilização dos indicadores relacionados ás questões da sustentabilidade. Introduz-se, também, as principais abordagens utilizadas para agregação dos indicadores de sustentabilidade sob forma de índices, ressaltando a importância da relação entre suas quatro dimensões: institucional, econômica, social e ecológica. Prevê-se que os alunos matriculados na disciplina sairão dela com conhecimento metodológico, substantivo e aplicado sobre os indicadores de desenvolvimento sustentável, e outros sistemas de indicadores comumente usados, referentes às diversas dimensões da realidade social e econômica, de modo a aplicá-lo em seus trabalhos acadêmicos e técnicos.",
+        "codigo": "CDS0015"
+    },
+    {
+        "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - CONSERVACAO E USO DA BIODIVERSIDADE - N",
+                "curriculo": "2321/-4 - 2009.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-2 - 2014.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-3 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/1 - 2018.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/-2 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - POLITICAS E SUSTENTABILIDADE - N",
+                "curriculo": "2321/1 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - MANEJO E CONSERVACAO DE RECURSOS HIDRICOS E SOLOS - N",
+                "curriculo": "2321/-2 - 2009.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "CIENCIAS AMBIENTAIS - Bacharelado - Presencial - PLANEJAMENTO AMBIENTAL - N",
+                "curriculo": "2321/-3 - 2009.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0174 ) )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/1 - 2016.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina foi desenhada para apresentar os principais debates relacionados ao tema do Desenvolvimento Sustentável (DS), de forma compreensível e útil para as diversas áreas do conhecimento, bem como demonstrar a necessidade da interdisciplinaridade no trato das questões ambientais. São considerados aspectos conceituais, temáticos, analíticos e institucionais, bem como algumas ferramentas e instrumentos fundamentais para a implementação de ações e práticas que tenham o DS como objetivo. De forma crítica, o curso salienta os temas mais importantes da interação sociedade-natureza e das suas relações com as principais problemáticas atuais. O curso é realizado por meio de aulas expositivas ministradas pelos professores do Programa de Pós-graduação em Desenvolvimento Sustentável do CDS/UnB e utiliza-se de recursos audiovisuais e dinâmicas de grupo para discussão das temáticas abordadas, bem como de visitas técnicas de campo.",
+        "codigo": "CDS0007"
+    },
+    {
+        "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": ": A disciplina busca ampliar o conhecimento da literatura clássica e oferecer instrumentação conceitual para que os alunos possam (re) interpretar criticamente fenômenos característicos da modernidade sobre a perspectiva da sustentabilidade, assim como aprofundar a análise dos fundamentos que colocam em discussão a relação entre sociedade, cultura e natureza.",
+        "codigo": "CDS0008"
+    },
+    {
+        "nome": "MONITORIA EM AGRICULTURA E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0024"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DA PAISAGEM APLICADA À SUSTENTABILIDADE URBANA",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0051"
+    },
+    {
+        "nome": "MONITORIA EM COMIDA, CULTURA E SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0034"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO SOCIOAMBIENTAL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0039"
+    },
+    {
+        "nome": "MONITORIA EM EDUCAÇÃO E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0030"
+    },
+    {
+        "nome": "MONITORIA EM EPISTEMOLOGIA, TECNOLOGIA E SUSTENTABILIDADE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0036"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS DOS SISTEMAS AGRÁRIOS",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0038"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DO DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0040"
+    },
+    {
+        "nome": "MONITORIA EM GOVERNANÇA AMBIENTAL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0037"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA AMBIENTAL DO BRASIL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0033"
+    },
+    {
+        "nome": "MONITORIA EM INDICADORES DE DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0029"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0025"
+    },
+    {
+        "nome": "MONITORIA EM MEIO AMBIENTE, CULTURA E SOCIEDADE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0026"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO E AVALIAÇÃO SOCIOAMBIENTAL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0023"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICAS PÚBLICAS E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0043"
+    },
+    {
+        "nome": "MONITORIA EM POPULAÇÃO E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0044"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA DE PESQUISA 1",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0031"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0050"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS SOCIOAMBIENTAIS E COMPLEXIDADE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0022"
+    },
+    {
+        "nome": "MONITORIA EM TEORIAS DO DESENVOLVIMENTO",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0028"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0027"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO INTERDISCIPLINAR INTEGRADO 3",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CDS0048"
+    },
+    {
+        "nome": "PLANEJAMENTO E AVALIAÇÃO SOCIOAMBIENTAL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O objetivo do curso é identificar e analisar as práticas, normas e indicadores que orientam a implantação de empreendimentos ou ações que causam impactos socioambientais. Serão apresentados os instrumentos de planejamento e avaliação de impactos, os seus conceitos, o histórico e a evolução das ferramentas, bem como, a legislação e as normas que incidem sobre o processo de avaliação socioambiental.",
+        "codigo": "CDS0001"
+    },
+    {
+        "nome": "POLÍTICAS PÚBLICAS E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( CDS0010 OU POL0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O curso parte de uma retrospectiva histórica sobre a formação e o papel do Estado moderno, estuda a evolução da relação entre aumento das atribuições do poder público e o crescimento das estruturas estatais, investiga a gênese e o desenvolvimento das políticas públicas de natureza social, analisa o contexto do surgimento do planejamento governamental como processo, avalia a crise atual do Estado e discute, à luz das tendências internacionais e das características nacionais, os rumos das políticas públicas. As políticas ambientais são apresentadas como um momento na evolução da regulação pública, quando o Estado passa a ter também a atribuição de assegurar um ambiente adequado à sociedade.",
+        "codigo": "CDS0012"
+    },
+    {
+        "nome": "POPULAÇÃO E MEIO AMBIENTE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0008 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As relações homem-natureza englobam três dimensões básicas: o mundo biofísico, o mundo humano e suas estruturas sociais e o relacionamento dinâmico e interdependente entre esses dois mundos. A disciplina busca apresentar bases práticas e teóricas para entender esse terceiro ponto, a parte relacional, em suas diferentes abordagens. Assim, o objetivo da disciplina é o estudo das interações entre dinâmica populacional, meio ambiente e desenvolvimento sustentável. Serão alternados diferentes recursos formativos, entre aulas expositivas leitura e discussão dos textos-base trabalhos em grupos de estudo dirigido exibição e discussão de vídeos seminários de apresentação de textos/documentos entre outros.",
+        "codigo": "CDS0013"
+    },
+    {
+        "nome": "PRÁTICA DE PESQUISA 1",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O curso visa preparar os alunos para elaborar e realizar projetos de pesquisa, explorando problemas que podem ser tratados como objetivos de pesquisa. Será feita uma iniciação às discussões epistemológicas e metodológicas de pesquisa interdisciplinar em Ciências Ambientais, e os principais tipos e modalidades de pesquisa. Serão apresentados e treinados juntos aos alunos, por meio de exercícios de construção de raciocínio lógico, os principais conceitos e categorias do processo de pesquisa: problema, pergunta/objetivo, hipóteses. Os diferentes métodos, técnicas e práticas de pesquisa, e respectivas formas de levantamento, análise e interpretação dos dados. Exercícios por meio de ferramentas para levantamento de dados e interpretação de informações pertinentes ao(s) problema(s) estudado(s): bibliografia, dados estatísticos, entrevistas e questionários, etc. Por fim, serão tratados os aspectos referentes à redação do trabalho científico, em termos de modalidades e normas de redação.",
+        "codigo": "CDS0019"
+    },
+    {
+        "nome": "PRÁTICAS EM DESENVOLVIMENTO SUSTENTÁVEL",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0008 ) OU ( CDS0007 E ECL0033 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de um projeto de pesquisa, envolvendo trabalho teórico ou experimental, sob orientação de docentes do curso de ciências ambientais, a ser desenvolvido nas dependências do(s) laboratório(s) do IB, IQ, IG, FACE, CDS ou em Instituições credenciadas pela UnB. Nesse estágio o aluno desenvolverá as  habilidades necessárias à formação de um pesquisador atuante nas Ciências Ambientais, com foco em sustentabilidade. A realização das atividades e condução da disciplina ficará a cargo do CDS, com a possibilidade de colaboração de outras Unidades consorciadas do curso de graduação em Ciências Ambientais.",
+        "codigo": "CDS0020"
+    },
+    {
+        "nome": "SISTEMAS SOCIOAMBIENTAIS E COMPLEXIDADE",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0008 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina procura analisar e discutir, a partir de uma perspectiva das ciências naturais, os conceitos e metodologias para melhor compreender as complexas interações entre os vários componentes dos sistemas socioambientais (biofísico, socioeconômico, político e cultural). Esta discussão se apoiará na análise das relações entre as propriedades emergentes dos sistemas e os conceitos da complexidade. Espera-se também qualificar os alunos e as alunas para analisar situações socioambientais complexas e contribuir para a definição de estratégias de gestão participativa dos sistemas socioambientais, da escala local até a escala global, voltada para construção de soluções integradas que promovam a melhoria das condições de vida das populações e a sustentabilidade dos ecossistemas.",
+        "codigo": "CDS0011"
+    },
+    {
+        "nome": "TEORIAS DO DESENVOLVIMENTO",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( CDS0008 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Os padrões históricos de industrialização e desenvolvimento capitalista e a emergência das Teorias do Desenvolvimento Econômico.O crescimento econômico na perspectiva dos economistas clássicos, a construção do mainstream da teoria do Desenvolvimento Econômico, e abordagens críticas heterodoxas.O Paradigma Estruturalista da CEPAL e sua crítica, teorias da dependência e do desenvolvimento capitalista tardio.Temas em Teoria do Desenvolvimento Econômico no atual contexto do processo de globalização: Meio-ambiente e Desenvolvimento Sustentável, Desenvolvimento Local e Desenvolvimento Territorial, Democracia e Liberdade, Neoliberalismo e Neodesenvolvimentismo.",
+        "codigo": "CDS0014"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM DESENVOLVIMENTO SUSTENTÁVEL 1",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina pretende apresentar o que temos de mais contemporâneo nos debates nacionais e internacionais em relação ao conceito de desenvolvimento sustentável. Abordará temas contemporâneos dentro deste campo, como: justiça ambiental, racismo, desigualdade, comunicação para o clima, juventude e movimentos sociais, sustentabilidade urbana, transporte e mobilidade ativa, clima e energia. Por meio de metodologias teóricas e/ou empíricas pretende-se desenvolver capacidades reflexivas a seus interessados/as, que os/as ajudem a tomarem decisão no caminho de um desenvolvimento de cunho ambiental, cultural, social e economicamente sustentável",
+        "codigo": "CDS0041"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM DESENVOLVIMENTO SUSTENTÁVEL 2",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina pretende apresentar o que temos de mais contemporâneo nos debates nacionais e internacionais em relação ao conceito de desenvolvimento sustentável. Abordará temas contemporâneos dentro deste campo, como: justiça ambiental, racismo, desigualdade, comunicação para o clima, juventude e movimentos sociais, sustentabilidade urbana, transporte e mobilidade ativa, clima e energia. Por meio de metodologias teóricas e/ou empíricas pretende-se desenvolver capacidades reflexivas a seus interessados/as, que os/as ajudem a tomarem decisão no caminho de um desenvolvimento de cunho ambiental, cultural, social e economicamente sustentável.",
+        "codigo": "CDS0042"
+    },
+    {
+        "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( ECO0261 E CDS0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IGD0245 )",
+        "equivalencias_especificas": [],
+        "ementa": "Objetivos: Apresentar aos estudantes os princípios do trabalho de extensão em geral e na área ambiental, em particular.  Ao planejar e executar ações de extensão na área ambiental, os estudantes devem explicitar qual a relevância para a comunidade, a relação custo benefício, a viabilidade e as implicações. As diferentes modalidades de extensão serão abordadas. Os alunos deverão ser capacitados a explicitar problemas e formular soluções de forma independente. Conceitualmente, o trabalho deverá possibilitar a integração horizontal e vertical das áreas de conhecimento, concomitantemente ao avanço do estudante ao longo do Curso. Nessa abordagem inicial, os alunos deverão elaborar projeto de extensão que inclui um documento com detalhamento do planejamento e da realização ordenada de todas as atividades. A atividade de extensão escolhida será \"mini-curso\". A atividade deverá ser conduzida pelos alunos no final do semestre com temas na área ambiental para audiências diversificadas a serem definidas ao longo do período de atividade.",
+        "codigo": "CDS0010"
+    },
+    {
+        "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 3",
+        "unidade_responsavel": "CENTRO DE DESENVOLVIMENTO SUSTENTÁVEL ",
+        "pre_requisitos": "( ( IGD0259 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CDS0018"
+    }
+]

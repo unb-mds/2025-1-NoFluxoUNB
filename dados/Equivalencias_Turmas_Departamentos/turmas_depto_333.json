@@ -1,0 +1,3875 @@
+[
+    {
+        "nome": "ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0091 ) OU ( CCA0170 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0119 ) OU ( CCA0030 )",
+        "equivalencias_especificas": [],
+        "ementa": "A Fazenda Pública. Aspectos Qualitativos e Quantitativos do Patrimônio. Gestão Administrativa. Receita e Despesa Públicas. Princípios e Elaboração Orçamentária. Objeto e Classificação dos Inventários. Sistema e Plano de Contas. Escrituração das Operações Econômico-Financeiras. Apuração dos Resultados Econômico-Financeiros.",
+        "codigo": "CCA0031"
+    },
+    {
+        "nome": "ANALISE DA LIQUIDEZ",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0211 ) OU ( CCA0088 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0175",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0175",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0175",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0175 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0175",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0175 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0175",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0175 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0175 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conceitos, métodos e análise da liquidez. Planejamento e controle para um eficiente uso do caixa. Equilíbrio financeiro e necessidades de capital de giro. Integração entre o capital de giro, caixa e lucro. Análise e controle dos estoques e valores a receber. O dilema risco x rentabilidade. Sistemas de informação na gestão integrada do capital de giro. Gestão do capital de giro internacional. Gestão do Valor no Capital de Giro. Aspectos comportamentais na gestão do capital de giro.",
+        "codigo": "CCA0089"
+    },
+    {
+        "nome": "ANÁLISE DAS DEMONSTRAÇÕES CONTÁBEIS GOVERNAMENTAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0021 E CCA0031 ) OU ( CCA0021 E CCA0099 ) OU ( CCA0175 E CCA0031 ) OU ( CCA0175 E CCA0171 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0136 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estrutura das demonstrações contábeis governamentais. Composição e conteúdo das demonstrações contábeis governamentais. Análise e interpretação das demonstrações contábeis governamentais. Índices e indicadores extraídos das demonstrações contábeis governamentais.",
+        "codigo": "CCA0137"
+    },
+    {
+        "nome": "ANÁLISE ECONÔMICO-FINANCEIRA 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0040 ) OU ( ADM0052 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( CCA0019 ) OU ( CCA0020 ) OU ( CCA0175 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0176",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0176",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0176",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0176 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0176",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0176 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0176",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0176 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0176 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conceituar a análise econômico-financeira para assegurar a avaliação de desempenho das empresas com base nas informações disponíveis através das demonstrações financeiras e gerar relatórios para auxilio na tomada de decisões para público interno/externo.",
+        "codigo": "CCA0021"
+    },
+    {
+        "nome": "ANÁLISE ECONÔMICO-FINANCEIRA 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0072 ) OU ( CCA0073 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0177",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0177",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0177",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0177 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0177",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0177 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0177",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0177 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0177 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "As funções e os objetivos da Administração Financeira. Mercados Financeiros e de Capitais. Conceitos financeiros básicos.  Técnicas de investimento de capital. CAPM-Capital Asset Pricing Model. Custo de Capital. Política de dividendos. Fontes de Financiamento de longo Prazo. Planejamento e finanças de curto prazo.",
+        "codigo": "CCA0074"
+    },
+    {
+        "nome": "ATUÁRIA BÁSICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0155 ) OU ( CCA0183 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0148 )",
+        "equivalencias_especificas": [],
+        "ementa": "Atuária: ciência, carreira, evolução e aplicações. Principais conceitos atuariais. Matemática atuarial. Estatística na ciência atuarial. Seguros. Risco. Reserva matemática.",
+        "codigo": "CCA0149"
+    },
+    {
+        "nome": "AUDITORIA 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0179 ) OU ( CCA0040 ) OU ( CCA0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0022 ) OU ( CCA0023 )",
+        "equivalencias_especificas": [],
+        "ementa": "Campo de atuação e marco legal da auditoria classificações. Princípios, normas e técnicas de auditoria. Controles internos planejamento, execução e avaliação dos trabalhos. Papéis de trabalho, pareceres e relatórios de auditoria.",
+        "codigo": "CCA0024"
+    },
+    {
+        "nome": "AUDITORIA 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0024 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0114 ) OU ( CCA0025 )",
+        "equivalencias_especificas": [],
+        "ementa": "Enfoque de ciclo em um processo de auditoria integrada. Auditoria das receitas e contas relacionadas. Auditoria do ciclo de compra, pagamento e estoques. Auditoria de caixa e outros ativos líquidos. Auditoria de caixa e outros ativos líquidos. Auditoria de ativos de longo prazo e contas relacionadas de despesas. Auditoria de passivos de longo prazo, patrimônio líquido e transações com partes relacionadas. Tópicos avançados envolvendo julgamentos complexos de auditoria.",
+        "codigo": "CCA0026"
+    },
+    {
+        "nome": "AUDITORIA DE SISTEMAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0024 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0132 )",
+        "equivalencias_especificas": [],
+        "ementa": "Noções de auditoria de sistemas. Segurança de sistemas. Análise de riscos em sistemas de informação contábeis. Plano de contingência. Técnicas de avaliação de sistemas. Situações de vulnerabilidade: vírus, fraudes, criptografia, acesso não autorizado.",
+        "codigo": "CCA0133"
+    },
+    {
+        "nome": "AUDITORIA EM SISTEMAS COMPUTADORIZADOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0026 E CCA0069 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0200 ) OU ( CCA0070 )",
+        "equivalencias_especificas": [],
+        "ementa": "INTRIODUCAO AOS SISTEMAS COMPUTADORIZADOS. BASNCOS DE  DADOS. ME- TODOLOGIAS DE PROJETOS DE  SISTEMAS. SEGURANCA DE  DADOS. AUDITORIA  DO PROJETO DE SISTEMA. AUDITORIA DA SEGURANCA DOS DADOS. AUDITORIA DA DES- TINACAO DOS RELATORIOS. AUDITORIA DAS MODIFICACOES DO SISTEMA.",
+        "codigo": "CCA0071"
+    },
+    {
+        "nome": "AUDITORIA SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0024 E CCA0091 ) OU ( CCA0024 E CCA0031 ) OU ( CCA0024 E CCA0170 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0130 ) OU ( CCA0131 )",
+        "equivalencias_especificas": [],
+        "ementa": "A teoria que rege a auditoria pública, com os diversos tipos de auditoria aplicáveis ao setor público. Demonstrações e documentos a serem verificados, e leis e regulamentos com os quais deverão ser confrontados. Técnicas de auditoria e avaliações de controles a serem observados. Modelos de auditoria de receitas e despesas orçamentárias. Auditoria do ativo e do passivo Públicos.",
+        "codigo": "CCA0227"
+    },
+    {
+        "nome": "AVALIAÇÃO DE EMPRESAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Métodos de avaliação. Taxa de desconto. Determinação dos fluxos de caixa (livre, dos acionistas e da dívida). Fluxo de Caixa descontado. Tópicos adicionais em avaliação.",
+        "codigo": "CCA0004"
+    },
+    {
+        "nome": "AVALIAÇÃO DE PROJETOS DE INVESTIMENTO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0021 ) OU ( ADM0052 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0055 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0078 OU ECO0079 ) OU ( CCA0055 ) OU ( CCA0153 E CCA0177 ) )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0078 OU ECO0079 ) OU ( CCA0055 ) OU ( CCA0153 E CCA0177 ) )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0078 OU ECO0079 ) OU ( CCA0055 ) OU ( CCA0153 E CCA0177 ) )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0153 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0078 OU ECO0079 ) OU ( CCA0055 ) OU ( CCA0153 E CCA0177 ) )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0153 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0078 OU ECO0079 ) OU ( CCA0055 ) OU ( CCA0153 E CCA0177 ) )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0153 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0153 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Matemática financeira e avaliação de projetos de investimento sob o ponto de vista econômico-financeiro. Métodos quantitativos voltados para a elaboração de projeções econômico-financeiras. Cálculo do custo de capital das diversas fontes possíveis de recursos de longo prazo. Montagem da engenharia financeira que irá equacionar a necessidade de recursos de longo prazo para o projeto. Técnicas para avaliação projetos em condições de risco.",
+        "codigo": "CCA0056"
+    },
+    {
+        "nome": "COMÉRCIO EXTERIOR",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0015 ) OU ( CCA0103 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0122 ) OU ( CCA0123 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estrutura e o funcionamento do comércio internacional em termos de acordos de mercado único, acordos comerciais regionais, megarregionais, bilateriais e internacionais. Estrutura e funcionamento dos organismos supranacionais (como OMC e Banco Mundial). Cadeias Globais de Valor e as implicações contábeis para empresas e governos, bem como a participação de empresas brasileiras. Restrições comerciais e políticas de proteção legítimas e não legítimas. Estrutura legal do Brasil voltada ao comércio exterior, os custos e procedimentos, bem como as implicações contábeis e financeiras para as empresas importadoras e exportadoras, especialmente aquelas que atuam no agronegócio. A adequação de normas contábeis às transformações globais.",
+        "codigo": "CCA0124"
+    },
+    {
+        "nome": "CONTABILIDADE AGRARIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0062 )",
+        "equivalencias_especificas": [],
+        "ementa": "Análise e compreensão da atividade rural. Fluxo contábil na atividade agrícola. Ativos biológicos. Depreciação na agropecuária. Planificação contábil na atividade agrícola. Contabilidade da pecuária. Custos na pecuária. Cálculo do custo do bezerro. Imposto de renda. Fluxo de caixa no setor rural.",
+        "codigo": "CCA0063"
+    },
+    {
+        "nome": "CONTABILIDADE AVANÇADA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0081 E CCA0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0085 )",
+        "equivalencias_especificas": [],
+        "ementa": "Ações e debêntures. Dividendos e juros sobre o capital próprio. Avaliação de investimentos. Consolidação das demonstrações contábeis. Combinação de negócios. Fusão, cisão e incorporação. Partes Beneficiárias. Políticas contábeis, mudanças de estimativa e retificação de erros.",
+        "codigo": "CCA0178"
+    },
+    {
+        "nome": "CONTABILIDADE BÁSICA - SEMI PRESENCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( CCA0015 ) OU ( CCA0103 ) OU ( CCA0104 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0105"
+    },
+    {
+        "nome": "CONTABILIDADE COMERCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0015 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( CCA0027 ) OU ( CCA0028 ) OU ( CCA0179 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0179",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Campo de aplicacao da contabilidade comercial. Plano de contas. Constituição de empresas. Operações típicas das empresas comerciais. Implicações fiscais na contabilização. Balanço e demonstrações financeiras.",
+        "codigo": "CCA0029"
+    },
+    {
+        "nome": "CONTABILIDADE DE COMPANHIAS ABERTAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0204 OU CCA0084 OU CCA0178 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0178",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Discutir e contextualizar as operações das companhias abertas que envolvem: Ações e debêntures. Arrendamento mercantil. Conversão das Demonstrações Contábeis. Tributos sobre o lucro. Correção monetária integral. Dividendos e juros sobre o capital próprio. Avaliação de investimentos. Consolidação das demonstrações contábeis. Reorganizações societárias.",
+        "codigo": "CCA0085"
+    },
+    {
+        "nome": "CONTABILIDADE DE INSTITUICOES FINANCEIRAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0128 ) OU ( CCA0045 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ADM0108 OU ADM0109 ) ) OU ( ADM0128 OU CCA0045 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0108 OU ADM0109 ) ) OU ( ADM0128 OU CCA0045 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0108 OU ADM0109 ) ) OU ( ADM0128 OU CCA0045 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Sistema Financeiro Nacional. Banco Central do Brasil (Bacen). Instituições Financeiras. Plano Contábil das Instituições do Sistema Financeiro Nacional (Cosif). Registro das operações ativas: disponibilidades, aplicações interfinanceiras de liquidez, títulos e valores mobiliários, relações interfinanceiras, relações interdependências, operações de crédito, operações de arrendamento mercantil, Permanente. Contabilização das Operações Passivas: depósitos, obrigações por operações compromissadas, captações em títulos, relações interfinanceiras, relações interdependências, obrigações por empréstimos e repasses. Patrimônio Líquido. Contas de Compensação. Elaboração do Balancete. Elaboração do Balanço Patrimonial. Elaboração da Demonstração do Resultado.",
+        "codigo": "CCA0046"
+    },
+    {
+        "nome": "CONTABILIDADE DE INSTRUMENTOS FINANCEIROS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Pronunciamentos CPC e IFRS relacionados aos instrumentos financeiros. Instrumentos financeiros: classificação, reconhecimento, desreconhecimento e mensuração. Impairment de instrumentos financeiros. Contabilidade de hedge (hedge accounting).",
+        "codigo": "CCA0185"
+    },
+    {
+        "nome": "CONTABILIDADE DE MICRO E PEQUENOS EMPREENDIMENTOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0029 E CCA0018 ) OU ( CCA0179 E CCA0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0156 )",
+        "equivalencias_especificas": [],
+        "ementa": "Microempresa e empresa de pequeno porte. Regulamentações da escritura contábil. Escrituração contábil simplificada. Demonstrações contábeis para micro e pequenas empresas. Obrigações simplificadas às micro e pequenas empresas. Pronunciamento técnico PME – CPC. Associativismo. Mercado para micro e pequenas empresas. Linhas de crédito para ME e EPP.",
+        "codigo": "CCA0157"
+    },
+    {
+        "nome": "CONTABILIDADE DO AGRONEGÓCIO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0040 E CCA0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0146 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0147"
+    },
+    {
+        "nome": "CONTABILIDADE DO SETOR PREVIDENCIÁRIO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0099 ) OU ( CCA0171 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0144 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0145"
+    },
+    {
+        "nome": "CONTABILIDADE DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0170 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0099 )",
+        "equivalencias_especificas": [],
+        "ementa": "A contabilidade pública e seu ambiente.\n\nPlano de contas e sistemas da contabilidade pública.\n\nLançamentos usuais. Estrutura e análise de balanços públicos.\n\nA busca da contabilidade patrimonial e seus critérios de mensuração, reconhecimento e evidenciação.\n\nProcedimentos contábeis orçamentários x procedimentos contábeis patrimoniais.\n\nNovo plano de contas aplicado ao setor público.\n\nNovas demonstrações contábeis aplicadas ao setor público.\n\nEfeitos práticos da nova visão patrimonial sobre procedimentos específicos.\n\nProcesso de convergência às Normas Internacionais de Contabilidade Aplicadas ao Setor Público.",
+        "codigo": "CCA0171"
+    },
+    {
+        "nome": "CONTABILIDADE E ANALISE DE BALANCOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0146 ) OU ( CCA0064 )",
+        "equivalencias_especificas": [],
+        "ementa": "NOCOES DE CONTABLIDADE. METODO DAS PARTIDAS  DOBRADAS. OPERACOES  COMMERCADORIAS. DEMONSTRATIVOS CONTAEIS. PROBLEMAS CONTABEIS DIVERSOS. ANA-LISE ECONOMICO-FINANCEIRA.",
+        "codigo": "CCA0065"
+    },
+    {
+        "nome": "CONTABILIDADE E COMPANHIAS TRANSNACIONAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0094 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo da contabilidade internacional, que influencia na contabilidade das empresas transnacionais, envolvendo padrões internacionais de contabilidade e auditoria. Conversão de transações e balanços em moeda estrangeira. Análise de demonstrações financeiras em moeda estrangeira e as implicações na contabilidade gerencial. Estudo da auditoria de transnacionais.",
+        "codigo": "CCA0095"
+    },
+    {
+        "nome": "CONTABILIDADE EMPRESARIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0029 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0029 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0029 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Comércio e Instituições Comerciais. Constituição de Empresas. Aspectos fiscais e legais da contabilidade: regime tributário do simples. Conciliação bancária. Operações típicas em empresas comerciais: impostos e taxas sobre vendas, operações com mercadorias, apuração de resultado. Operações de empresas de serviços: impostos e taxas sobre serviços, retenções de tributos e apuração de resultados. Operações financeiras (descontos de duplicatas, antecipação de valores, operações com cartão de crédito). Folha de Pagamento. Matriz e filial.",
+        "codigo": "CCA0179"
+    },
+    {
+        "nome": "CONTABILIDADE FISCAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0040 E FDD0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0059 OU CCA0060 OU CCA0181 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0181",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Contabilidade Financeira e Direito Contábil. Obrigações tributárias principais e acessórias. Escrituração mercantil e auxiliar. Planejamento tributário. Interferências da legislação nos princípios contábeis. Lucro contábil e lucro real. Controle da apuração e quitação dos principais tributos e contribuições.",
+        "codigo": "CCA0061"
+    },
+    {
+        "nome": "CONTABILIDADE GERAL 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( CCA0105 ) OU ( CCA0013 ) OU ( CCA0014 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-5 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Bacharelado - Presencial - D",
+                "curriculo": "1341/-2 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Bacharelado - Presencial - D",
+                "curriculo": "1341/-3 - 2011.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-3 - 2015.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-4 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-5 - 2011.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0100 OU CCA0101 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ARQUIVOLOGIA - Bacharelado - Presencial - N",
+                "curriculo": "8192/1 - 2013.1",
+                "data_vigencia": "1991.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0100 OU CCA0101 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ARQUIVOLOGIA - Bacharelado - Presencial - N",
+                "curriculo": "8192/-2 - 2006.2",
+                "data_vigencia": "1991.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0049 OU ECO0050 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-3 - 2016.1",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0049 OU ECO0050 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-4 - 2009.2",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-4 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-5 - 2015.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-6 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-7 - 2011.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-2 - 2016.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-3 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-4 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Bacharelado - Presencial - D",
+                "curriculo": "1341/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0049 OU ECO0050 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-2 - 2017.1",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/1 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-3 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-2 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0077 OU CCA0078 OU CCA0079 ) E ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/1 - 2020.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-2 - 2018.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/1 - 2018.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0049 OU ECO0050 ) ) OU ( CCA0013 OU CCA0014 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/1 - 2020.1",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Introdução e detalhamento das demonstrações contábeis. Sistema de informação contábil. Regime de competência. Operações com mercadorias e inventário.",
+        "codigo": "CCA0015"
+    },
+    {
+        "nome": "CONTABILIDADE GERAL 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0015 E CCA0153 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0078 ) OU ( CCA0079 )",
+        "equivalencias_especificas": [],
+        "ementa": "-",
+        "codigo": "CCA0077"
+    },
+    {
+        "nome": "CONTABILIDADE GERAL 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0015 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0077 ) OU ( CCA0078 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estrutura conceitual da Contabilidade. Balanço Patrimonial. Reconhecimento, mensuração e evidenciação de ativos e passivos. Patrimônio Líquido.",
+        "codigo": "CCA0079"
+    },
+    {
+        "nome": "CONTABILIDADE GERAL 3",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0079 ) OU ( CCA0077 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0037 ) OU ( CCA0038 ) OU ( CCA0039 )",
+        "equivalencias_especificas": [],
+        "ementa": "Evidenciação contábil. Balanço Patrimonial. Demonstração de Resultado do Exercício. Demonstração do Resultado Abrangente. Demonstração das Mutações do Patrimônio Líquido. Demonstração dos Fluxos de Caixa. Demonstração do Valor Adicionado. Notas Explicativas e Informações complementares.Investimento avaliado pelo custo e equivalência patrimonial.",
+        "codigo": "CCA0040"
+    },
+    {
+        "nome": "CONTABILIDADE INDUSTRIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0129 ) OU ( CCA0047 )",
+        "equivalencias_especificas": [],
+        "ementa": "Empresas industriais: organização administrativa e gestão dos empreendimentos industriais. O custeamento. Formas de custeamento. Registros das operações contábeis. Demonstrativos contábeis e apuração de resultados.",
+        "codigo": "CCA0048"
+    },
+    {
+        "nome": "CONTABILIDADE INTERNACIONAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0122 ) OU ( CCA0124 )",
+        "equivalencias_especificas": [],
+        "ementa": "x",
+        "codigo": "CCA0123"
+    },
+    {
+        "nome": "CONTABILIDADE SECURITARIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0057 )",
+        "equivalencias_especificas": [],
+        "ementa": "Origem, evolução e perspectivas históricas do seguro. Conceitos básicos (risco, mutualismo, prêmio, ramos do seguro, mecanismos de pulverização do risco etc.) e legislação vigente. Estrutura e funcionamento do Sistema Nacional de Seguros Privados (CNSP, CRSNSP, SUSEP, IRB, Seguradoras, Corretores etc.). Evidenciação dos tipos de seguros do mercado securitário brasileiro. A contabilidade nas Companhias de Seguros (clico econômico, esquema contábil,  lucro contábil, lucro econômico, plano de contas, constituição de provisões técnicas etc.).Livros, escrituração e  demonstrações contábeis apresentadas pelas Seguradoras.",
+        "codigo": "CCA0058"
+    },
+    {
+        "nome": "CONTABILIDADE SOCIAL CORPORATIVA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0114 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo do impacto da atividade econômica na sociedade por meio de projetos de responsabilidade social. Avaliação de informações que tratam dos propósitos da empresa, políticas, programas, desempenho e contribuição de seus projetos sociais, em seus aspectos quantitativos e qualitativos, evidenciados em seus relatórios e demonstrações contábeis. Balanço Social e seus vários modelos e Demonstração do Valor Adicionado e suas controvérsias.",
+        "codigo": "CCA0115"
+    },
+    {
+        "nome": "CONTABILIDADE SOCIOAMBIENTAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0015 OU CCA0103 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "- Balanço Social.\n\n- Responsabilidade Social.\n\n- Desenvolvimento sustentável.\n\n- Contabilização de eventos ambientais;\n\n- Gastos, ativos, passivos, despesas, receitas e custos ambientais;\n\n- Divulgação e transparência de informações ambientais;\n\n- Indicadores ambientais e socioeconômicos do desempenho sustentável",
+        "codigo": "CCA0160"
+    },
+    {
+        "nome": "CONTABILIDADE TRIBUTÁRIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0179 E CCA0076 E FDD0015 E FDD0141 ) OU ( CCA0029 E CCA0076 E FDD0015 E FDD0141 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0061 )",
+        "equivalencias_especificas": [],
+        "ementa": "Contabilidade Financeira e Direito Contábil. Obrigações tributárias principais e acessórias. Escrituração mercantil e auxiliar. Planejamento tributário. Interferências da legislação nos princípios contábeis. Lucro contábil e lucro real. Controle da apuração e quitação dos principais tributos e contribuições.",
+        "codigo": "CCA0181"
+    },
+    {
+        "nome": "CONTROLADORIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0021 E CCA0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0126 OU ADM0127 OU CCA0043 OU CCA0180 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0180",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A função da Controladoria. Métodos de custeio. Métodos de controle e decisão. Orçamento de capital. Os fluxos financeiros da empresa. Formação de preços. Análise de custos e orçamentos. Análise da margem de contribuição. Planejamento do lucro. Controle por Departamento. Rentabilidade de produtos.",
+        "codigo": "CCA0044"
+    },
+    {
+        "nome": "CONTROLE E AVALIACAO DA GESTAO PUBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0091 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0098 OU CCA0171 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0171",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A Contabilidade Pública e seu Ambiente. Plano de Contas e Sistemas da Contabilidade Pública. Estrutura e Análise de Balanços Públicos. A busca da Contabilidade Patrimonial e seus critérios de mensuração, reconhecimento e evidenciação. Procedimentos Contábeis Orçamentários x Procedimentos Contábeis Patrimoniais. Novo Plano de Contas Aplicado ao Setor Público. Novas Demonstrações Contábeis Aplicadas ao Setor Público. Efeitos práticos da nova visão patrimonial sobre procedimentos específicos.",
+        "codigo": "CCA0099"
+    },
+    {
+        "nome": "CUSTOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0079 ) OU ( ADM0051 ) OU ( CCA0077 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0016 ) OU ( CCA0017 )",
+        "equivalencias_especificas": [],
+        "ementa": "Analise de custos nas empresas. Ponto de equilíbrio: analise custo - volume - lucro. Custeio padrão. Custeio variável. Custeio por absorção. Margem de contribuição.",
+        "codigo": "CCA0018"
+    },
+    {
+        "nome": "CUSTOS APLICADOS AO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0002"
+    },
+    {
+        "nome": "EPISTEMOLOGIA DA PESQUISA EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "- Aspectos ontológicos, epistemológicos e metodológicos da pesquisa nas Ciências Sociais Aplicadas e em Contabilidade\n- Tradições de pesquisa em Contabilidade e Finanças: positivismo, interpretativismo e estudos críticos\n- Estratégias de pesquisa positivista\n- Estratégias de pesquisa interpretativas e estudos",
+        "codigo": "CCA0162"
+    },
+    {
+        "nome": "ESTÁGIO EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0130 ) OU ( ADM0131 ) OU ( ADM0132 ) OU ( CCA0049 ) OU ( CCA0050 )",
+        "equivalencias_especificas": [],
+        "ementa": "Realização de atividades práticas, com supervisão acadêmica e profissional, na área de contabilidade aplicada, controladoria ou auditoria.",
+        "codigo": "CCA0051"
+    },
+    {
+        "nome": "ETICA PROFISSIONAL EM CIENCIAS CONTABEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0092 OU CCA0182 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0182",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0182",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0182",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0182",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0182",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0182",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Identidade profissional e socialização. Educação na área contábil no Brasil. Fundamentos, concepções e importância da ética. Ética profissional do contabilista. Ética profissional e mercado.",
+        "codigo": "CCA0093"
+    },
+    {
+        "nome": "EXECUCAO DA GESTAO PUBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0090 OU CCA0170 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0170",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Plano plurianual. Lei de diretrizes orçamentárias. Lei orçamentária anual. Evolução conceitual do orçamento governamental. Princípios orçamentários. Natureza jurídica do orçamento. Organização do plano plurianual e do orçamento anual. Projeto de lei orçamentária no Poder Legislativo. Execução orçamentária: programação dos desembolsos estágios da despesa créditos adicionais restos a pagar.",
+        "codigo": "CCA0091"
+    },
+    {
+        "nome": "FILOSOFIA E ÉTICA PROFISSIONAL EM CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0093 )",
+        "equivalencias_especificas": [],
+        "ementa": "O pensamento filosófico. Estudo de problemas, conceitos e sistemas filosóficos. Identidade profissional e socialização. Fundamentos, concepções e importância da ética. Ética profissional do contabilista. Ética profissional e mercado.",
+        "codigo": "CCA0182"
+    },
+    {
+        "nome": "FINANÇAS COMPORTAMENTAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0005"
+    },
+    {
+        "nome": "FINANÇAS CORPORATIVAS 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0089 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0089 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0089 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0089 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Avaliação do desempenho empresarial. Análise do desempenho empresarial, vertical e horizontal, indicadores de desempenho empresarial, liquidez, endividamento, rentabilidade e atividade. Planejamento financeiro de curto prazo. Gestão de caixa, recebíveis e estoques, análise e controle dos estoques e valores a receber. Análise e dimensionamento de capital de giro. Equilíbrio financeiro e necessidades de capital de giro. Integração entre o capital de giro, caixa e lucro.",
+        "codigo": "CCA0175"
+    },
+    {
+        "nome": "FINANÇAS CORPORATIVAS 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0175 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0021 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0021 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0021 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0021 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Risco e Retorno. Gestão baseada no valor e medidas de criação de valor. Risco do negócio e risco financeiro. Avaliação de ações, risco e retorno de ativos e carteiras. Mercados de capitais e precificação do risco. Teoria da carteira e Diversificação. Modelo de precificação de ativos de mercado – CAPM. Modelos alternativos de risco sistêmico.",
+        "codigo": "CCA0176"
+    },
+    {
+        "nome": "FINANÇAS CORPORATIVAS 3",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0176 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0074 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0074 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0074 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0074 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Tópicos especiais em Finanças. Custo e estrutura de Capital, Cálculo do Beta. Arbitragem e Política de Dividendos. Derivativos, mercados a termo, futuros, swaps e opções. Mercado futuro de taxas de juros. Opções de compra, venda e modelo de Black e Scholes. Operações de Fusões e Aquisições. Intermediação financeira de Bancos e o Sistema Financeiro Nacional.",
+        "codigo": "CCA0177"
+    },
+    {
+        "nome": "FINANÇAS DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ECO0050 OU ECO0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0067 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0067 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0067 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "As atribuições econômicas do Estado e o crescimento das despesas públicas.\n\nBens públicos, semipúblicos e privados.\n\nFinanciamento dos gastos públicos.\n\nPrincípios teóricos da tributação. Política fiscal.\n\nNecessidades de financiamento do setor público, déficits e dívida pública.\n\nFederalismo fiscal.\n\nTópicos especiais: reforma tributária e reforma previdenciária.",
+        "codigo": "CCA0169"
+    },
+    {
+        "nome": "FINANÇAS PESSOAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0125 )",
+        "equivalencias_especificas": [],
+        "ementa": "Receita. Despesas. Fluxo de Caixa. Poupar: renda fixa, renda variável. Comprar a vista ou a prazo. Cálculos Financeiros. Fazer dívidas. Investir: moto, automóvel, imóvel. Seguro. Riscos. Quando se aposentar. Previdência.",
+        "codigo": "CCA0126"
+    },
+    {
+        "nome": "GESTÃO E PRESTAÇÃO DE CONTAS NO TERCEIRO SETOR",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( ADM0023 E CCA0015 ) OU ( ADM0023 E CCA0103 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Panorama do terceiro setor no Brasil. O terceiro setor na economia. Organizações da sociedade civil (OSC): características, objeto social, evolução, políticas e organização, áreas de atuação. Estrutura organizacional e funcionamento: atos constitutivos, linhas de negócio e reguladores. Títulos de certificação: finalidade e benefícios. Fontes de financiamento e contratualização: instrumentos jurídicos, plano de trabalho. Renúncia fiscal: requisitos, cumprimento de obrigação , mensuração, reconhecimento e divulgação. Renúncia de receita: requisitos, cumprimento, cumprimento de obrigação, mensuração e reconhecimento. O trabalho voluntário: características, classificação, mensuração, reconhecimento e divulgação. Accountability: instrumentos de controle organização, políticas e práticas contábeis elaboração e apresentação de relatórios financeiros relatórios de gestão e prestação de contas. Gestão: estabelecimento de metas e análise dos resultados. Pesquisa no terceiro setor: abordagens qualitativa e quantitativa.",
+        "codigo": "CCA0011"
+    },
+    {
+        "nome": "GOVERNANÇA APLICADA AO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( ADM0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0008 )",
+        "equivalencias_especificas": [],
+        "ementa": "As Bases Teóricas e Históricas da Governança na Administração Pública. Transparência Características da Governança no Setor Público. Formas de Governança no Setor Público - o Estudo 13 do PSC/IFAC.  A Governança Pública e a rediscussão do papel da Administração Pública. Indicadores de Governança de Países. O Papel dos Órgãos de Controle na Governança do Setor Público.",
+        "codigo": "CCA0009"
+    },
+    {
+        "nome": "GOVERNANÇA CORPORATIVA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) OU ( ADM0052 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0120 )",
+        "equivalencias_especificas": [],
+        "ementa": "Governança corporativa. Códigos de governança corporativa. Divulgação de informações e governança. Fatores de influência sobre a governança corporativa.",
+        "codigo": "CCA0121"
+    },
+    {
+        "nome": "HISTÓRIA DO PENSAMENTO CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "- Evolução Histórica da Contabilidade\n\n- Escolas do Pensamento Contábil\n\n- História da Contabilidade no Brasil\n\n- Campo de atuação da contabilidade\n\n- Novas áreas de atuação",
+        "codigo": "CCA0161"
+    },
+    {
+        "nome": "INFORMAÇÕES CONTABEIS COMPLEMENTARES",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0112 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo das informações contábeis qualitativas (notas explicativas e relatórios da administração) e não obrigatórias (Relatório sócio-ambiental, DVA e fatos relevantes), que são apresentados com o objetivo de complementar as demonstrações contábeis obrigatórias.",
+        "codigo": "CCA0113"
+    },
+    {
+        "nome": "INSTRUMENTOS FINANCEIROS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0015 ) OU ( CCA0103 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamentos e Escopo do CPC 48 / IFRS 9Instrumentos financeiros: classificaçãoInstrumentos financeiros: reconhecimento, mensuração e desreconhecimentoInstrumentos financeiros: ReclassificaçãoInstrumentos financeiros: impairmentFundamentos de contabilidade de hedge (hedge accounting)",
+        "codigo": "CCA0010"
+    },
+    {
+        "nome": "INSTRUMENTOS FINANCEIROS DERIVATIVOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0153 ) OU ( ADM0192 E EST0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0001"
+    },
+    {
+        "nome": "INTRODUCAO A ATUARIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0096 )",
+        "equivalencias_especificas": [],
+        "ementa": "A Ciência Atuarial, o Atuário e seu campo de atuação. Metodologia de cálculo do prêmio puro e comercial. Influência do perfil demográfico e da tábua biométrica no custo dos planos de previdência complementar aberta e fechada, bem como dos seguros. A matemática financeira aplicada ao cálculo atuarial. Planos de benefícios (legislação, tipos, modelagem, custo, financiamento, passivo atuarial, reserva matemática, contabilização, equilíbrio atuarial etc.).",
+        "codigo": "CCA0097"
+    },
+    {
+        "nome": "INTRODUÇÃO À CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( CCA0105 ) OU ( FUP0289 ) OU ( CCA0102 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-5 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Bacharelado - Presencial - D",
+                "curriculo": "1341/-2 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Bacharelado - Presencial - D",
+                "curriculo": "1341/-3 - 2011.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-3 - 2015.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-4 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-5 - 2011.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0146 OU CCA0064 OU CCA0065 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "GESTAO DE AGRONEGOCIOS - Bacharelado - Presencial - N",
+                "curriculo": "6262/-2 - 2010.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-4 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-5 - 2015.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-6 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-7 - 2011.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-2 - 2016.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-3 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/-4 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0146 OU CCA0064 OU CCA0065 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "GESTAO DE AGRONEGOCIOS - Bacharelado - Presencial - N",
+                "curriculo": "6262/1 - 2014.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Bacharelado - Presencial - D",
+                "curriculo": "1341/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "MATEMATICA - Licenciatura - Presencial - D",
+                "curriculo": "1325/1 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0013 OU CCA0014 OU CCA0015 OU CCA0102 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-3 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-2 - 2017.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/1 - 2020.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-2 - 2018.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/1 - 2018.2",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0013 OU CCA0014 OU CCA0015 ) ) OU ( CCA0102 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Campo de Atuação. Objeto da Contabilidade. O patrimônio: estrutura e variação. Registros contábeis. Despesas e receitas. Balanço Patrimonial. Plano de Contas. Indicadores Econômicos e Financeiros.",
+        "codigo": "CCA0103"
+    },
+    {
+        "nome": "JOGOS CONTÁBEIS DE EMPRESAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0018 E CCA0029 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0134 )",
+        "equivalencias_especificas": [],
+        "ementa": "Jogos de empresas: realização de simulações empresariais. Tomadas de decisões nas empresas simuladas em ambientes competitivos. Visão sistêmica e as forças competitivas de Porter.",
+        "codigo": "CCA0135"
+    },
+    {
+        "nome": "LABORATÓRIO CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0178 E CCA0181 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Realização de trabalhos práticos na área de contabilidade empresarial, sob a orientação de um professor responsável.\n\nProcedimentos para abertura de empresas.\n\nEscrituração contábil e fiscal de empresas.\n\nUtilização de softwares específicos de contabilidade.\n\nRegistro, análise e auditoria de informações contábeis.\n\nAnálise e crítica do sistema de informações empresariais por meio de softwares de contabilidade.",
+        "codigo": "CCA0174"
+    },
+    {
+        "nome": "LABORATORIO CONTABIL - EMPRESARIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0106 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0174 E CCA0172 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0172 E CCA0174 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0172 E CCA0174 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "CCA0107"
+    },
+    {
+        "nome": "LABORATÓRIO EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0061 E CCA0026 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0122 ) OU ( ADM0123 ) OU ( CCA0032 ) OU ( CCA0033 ) OU ( CCA0034 ) OU ( CCA0035 )",
+        "equivalencias_especificas": [],
+        "ementa": "REALIZACAO DE TRABALHOS PRATICOS, NA AREA DE CONTABILIDADE  APLI- CADA, NO SETOR PUBLICO OU NO SETOR PRIVADO, SOB A MODALIDADE DE ESTAGIO SUPERVISIONADO, REGULADO PELA LEGISLACAO FEDERAL, COM A  ORIENTACAO DE PROFESSORES PREVIAMENTE DESIGNADOS E A SUPERVISAO DIRETA DE  PROFISSIO- NAL DO CAMPO DE ESTAGIO.",
+        "codigo": "CCA0036"
+    },
+    {
+        "nome": "LEGISLACAO COMERCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( FDD0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0201 ) OU ( CCA0075 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0071 OU FDD0072 ) E ( FDD0073 OU FDD0074 ) E ( FDD0173 OU FDD0174 ) ) OU ( ADM0201 OU CCA0075 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aspectos Legais. Atos do Comercio. Teoria da Empresa. Tipos de Sociedades. Títulos de Crédito.",
+        "codigo": "CCA0076"
+    },
+    {
+        "nome": "MANAGEMENT ACCOUNTING AND CONTROL SYSTEMS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "This course aims to provide a comprehensive theoretical understanding of the management control systems. Furthermore, to develop student´s ability in both practical skills and formal discussions concerning control issues.Learning Objectives At the end of the course, students must be able to:-\tDemonstrate relevant knowledge and understanding of management control systems-\tDemonstrate ability to use theoretical domain in both management control and management accounting issues-\tHelp managers in their organization´s strategies and plans-\tDeveloping a reasonable English vocabulary in management control area.",
+        "codigo": "CCA0003"
+    },
+    {
+        "nome": "MATEMÁTICA FINANCEIRA APLICADA ÀS CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0150 ) OU ( CCA0151 ) OU ( CCA0152 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0056 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0056 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0056 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0056 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Valor do Dinheiro no tempo. Juros simples compostos, juros - equivalentes, proporcionais, efetivos, formação de taxas de juros, avaliação de títulos de renda fixa. Sistemas de amortização e de capitalização. Métodos quantitativos voltados para a avaliação de fluxos de caixa.",
+        "codigo": "CCA0153"
+    },
+    {
+        "nome": "METODOLOGIA DA PESQUISA EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0110 )",
+        "equivalencias_especificas": [],
+        "ementa": "Projeto de pesquisa, abordagens metodológicas, tipos e técnicas de pesquisa, coleta e análise de dados, validação, formatação e apresentação oral e escrita de trabalhos acadêmicos-científicos e processo de orientação de trabalhos acadêmicos-científicos",
+        "codigo": "CCA0111"
+    },
+    {
+        "nome": "MÉTODOS QUALITATIVO EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "- Princípios, conceitos e delineamento da pesquisa qualitativa.\n\n- Métodos: etnografia e observação, entrevistas, textos, diálogo, imagens.\n\n- Estratégias de pesquisa qualitativa: pesquisa documental, estudo de caso qualitativo, história de vida e história oral, pesquisa-ação, grounded-theory.\n\n- Procedimentos para coleta de dados: estudo documental, entrevistas, grupo focal. Interpretação e análise de dados qualitativos.\n\n- Redação e estilo de relatório na pesquisa qualitativa.",
+        "codigo": "CCA0163"
+    },
+    {
+        "nome": "MÉTODOS QUANTITATIVOS APLICADOS AS CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( MAT0022 E EST0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0154 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0183 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0183 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0183 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0183 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0183 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "CCA0155"
+    },
+    {
+        "nome": "MÉTODOS QUANTITATIVOS APLICADOS ÀS CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( EST0023 OU EST0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Definição de análise de regressão, tipos de dados, regressão linear simples, hipóteses do modelo de regressão linear clássico, regressão linear múltipla, inferência estatística, violação das hipóteses do modelo de regressão linear clássico, análise de séries de tempo, análise de dados em painel, programas computacionais de análise de regressão e bases de dados.",
+        "codigo": "CCA0183"
+    },
+    {
+        "nome": "MODELOS DE AJUSTAMENTOS CONTABEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0203 ) OU ( CCA0082 )",
+        "equivalencias_especificas": [],
+        "ementa": "A Contabilidade em face das flutuações de preços. Conversão das demonstrações contábeis utilizando métodos contábeis que reconheçam os efeitos inflacionários e as variações específicas de preços.",
+        "codigo": "CCA0083"
+    },
+    {
+        "nome": "MONITORIA EM ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0259"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE DA LIQUIDEZ",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0089 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0266"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DAS DEMONSTRAÇÕES CONTÁBEIS GOVERNAMENTAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0341"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE ECONÔMICO-FINANCEIRA 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0256"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE ECONÔMICO-FINANCEIRA 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0236"
+    },
+    {
+        "nome": "MONITORIA EM ATUÁRIA BÁSICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0149 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0347"
+    },
+    {
+        "nome": "MONITORIA EM AUDITORIA 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0257"
+    },
+    {
+        "nome": "MONITORIA EM AUDITORIA 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0258"
+    },
+    {
+        "nome": "MONITORIA EM AUDITORIA DE SISTEMAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0133 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0339"
+    },
+    {
+        "nome": "MONITORIA EM AUDITORIA EM SISTEMAS COMPUTADORIZADOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0071 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0308"
+    },
+    {
+        "nome": "MONITORIA EM AUDITORIA SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0227 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0275"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO DE EMPRESAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0251"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO DE PROJETOS DE INVESTIMENTO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0261"
+    },
+    {
+        "nome": "MONITORIA EM COMÉRCIO EXTERIOR",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0124 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0272"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE AGRARIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0262"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE AVANÇADA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0178 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0371"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE BÁSICA - SEMI PRESENCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0105 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0325"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE COMERCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0230"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DE COMPANHIAS ABERTAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0264"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DE INSTITUICOES FINANCEIRAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0297"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DE INSTRUMENTOS FINANCEIROS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0185 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0248"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DE MICRO E PEQUENOS EMPREENDIMENTOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0157 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0245"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DO AGRONEGÓCIO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0147 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0346"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DO SETOR PREVIDENCIÁRIO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0145 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0345"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0171 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0364"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE E ANALISE DE BALANCOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0305"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE E COMPANHIAS TRANSNACIONAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0095 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0320"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE EMPRESARIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0179 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0372"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE FISCAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0234"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE GERAL 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0228"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE GERAL 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0238"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE GERAL 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0311"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE GERAL 3",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0231"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE INDUSTRIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0298"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE INTERNACIONAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0123 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0334"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE SECURITARIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0302"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE SOCIAL CORPORATIVA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0115 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0330"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE SOCIOAMBIENTAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0160 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0353"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE TRIBUTÁRIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0181 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0374"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLADORIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0232"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLE E AVALIACAO DA GESTAO PUBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0240"
+    },
+    {
+        "nome": "MONITORIA EM CUSTOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0255"
+    },
+    {
+        "nome": "MONITORIA EM CUSTOS APLICADOS AO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0249"
+    },
+    {
+        "nome": "MONITORIA EM EPISTEMOLOGIA DA PESQUISA EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0162 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0355"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0233"
+    },
+    {
+        "nome": "MONITORIA EM ETICA PROFISSIONAL EM CIENCIAS CONTABEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0093 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0268"
+    },
+    {
+        "nome": "MONITORIA EM EXECUCAO DA GESTAO PUBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0091 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0267"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA E ÉTICA PROFISSIONAL EM CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0182 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0375"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS COMPORTAMENTAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0280"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS CORPORATIVAS 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0175 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0368"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS CORPORATIVAS 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0176 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0369"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS CORPORATIVAS 3",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0177 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0370"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0169 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0362"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS PESSOAIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0243"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO E PRESTAÇÃO DE CONTAS NO TERCEIRO SETOR",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0253"
+    },
+    {
+        "nome": "MONITORIA EM GOVERNANÇA APLICADA AO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0252"
+    },
+    {
+        "nome": "MONITORIA EM GOVERNANÇA CORPORATIVA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0121 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0271"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DO PENSAMENTO CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0161 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0354"
+    },
+    {
+        "nome": "MONITORIA EM INFORMAÇÕES CONTABEIS COMPLEMENTARES",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0113 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0329"
+    },
+    {
+        "nome": "MONITORIA EM INSTRUMENTOS FINANCEIROS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0283"
+    },
+    {
+        "nome": "MONITORIA EM INSTRUMENTOS FINANCEIROS DERIVATIVOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0276"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A ATUARIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0097 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0321"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0103 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0241"
+    },
+    {
+        "nome": "MONITORIA EM JOGOS CONTÁBEIS DE EMPRESAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0135 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0340"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0174 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0367"
+    },
+    {
+        "nome": "MONITORIA EM LABORATORIO CONTABIL - EMPRESARIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0107 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0242"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0293"
+    },
+    {
+        "nome": "MONITORIA EM LEGISLACAO COMERCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0076 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0237"
+    },
+    {
+        "nome": "MONITORIA EM MANAGEMENT ACCOUNTING AND CONTROL SYSTEMS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0250"
+    },
+    {
+        "nome": "MONITORIA EM MATEMÁTICA FINANCEIRA APLICADA ÀS CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0153 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0274"
+    },
+    {
+        "nome": "MONITORIA EM METODOLOGIA DA PESQUISA EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0111 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0270"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS QUALITATIVO EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0163 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0356"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS QUANTITATIVOS APLICADOS AS CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0155 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0349"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS QUANTITATIVOS APLICADOS ÀS CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0183 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0376"
+    },
+    {
+        "nome": "MONITORIA EM MODELOS DE AJUSTAMENTOS CONTABEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0314"
+    },
+    {
+        "nome": "MONITORIA EM NORMAS INTERNACIONAIS DE CONTABILIDADE PARA O SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0158 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0351"
+    },
+    {
+        "nome": "MONITORIA EM NORMAS NORTE AMERICANAS DE CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0139 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0342"
+    },
+    {
+        "nome": "MONITORIA EM ORÇAMENTO DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0170 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0363"
+    },
+    {
+        "nome": "MONITORIA EM PERÍCIA CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0129 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0244"
+    },
+    {
+        "nome": "MONITORIA EM PERÍCIA CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0127 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0337"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0109 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0269"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CONTABILIDADE 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0172 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0365"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CONTABILIDADE 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0173 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0366"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO TRIBUTÁRIO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0143 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0273"
+    },
+    {
+        "nome": "MONITORIA EM PRATICA COMERCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0260"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA CONTÁBIL DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0159 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0352"
+    },
+    {
+        "nome": "MONITORIA EM PREVISÃO DE INSOLVÊNCIAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0117 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0331"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO FISCAL E FINANCEIRA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0263"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS CONTABEIS APLICADOS A ARQUIVOLOGIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0101 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0323"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS CONTABEIS COMPUTADORIZADOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0300"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS DE CONTROLE GERENCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0180 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0373"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS DE INFORMACOES CONTABEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0069 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0235"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA CONTABIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0239"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DA CONTABILIDADE GERENCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0343"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DA CONTABILIDADE POSITIVA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0119 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0332"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DO LUCRO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0184 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0377"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DOS JOGOS APLICADA À GESTÃO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0254"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS CONTEMPORANEOS EM CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0087 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0265"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS CONTEMPORÂNEOS EM CONTABILIDADE PÚBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0281"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONTABILIDADE 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0164 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0357"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONTABILIDADE 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0165 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0358"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONTABILIDADE 3",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0166 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0359"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONTABILIDADE 4",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0167 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0360"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONTABILIDADE 5",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0168 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0361"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONTABILIDADE 6",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0186 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "CCA0379"
+    },
+    {
+        "nome": "NORMAS INTERNACIONAIS DE CONTABILIDADE PARA O SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0015 OU CCA0103 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "- Função e objetivos do International Public Sector Accounting Standards Board (IPSASB);\n\n- Conceito de “Setor Público”\n\n- Definição de “Demonstrações Contábeis”\n\n- Alcance e Aplicabilidade das Normas Internacionais de Contabilidade para o Setor Público.\n\n- IPSASs para os Regimes de Competência e Caixa.\n\n- Transição do Regime de Caixa para o Regime de Competência\n\n- Aplicabilidade das Normas Internacionais de Contabilidade para o Setor Público\n\n- Normas Internacionais de Contabilidade para o Setor Público (IPSASs): 1 a 31.",
+        "codigo": "CCA0158"
+    },
+    {
+        "nome": "NORMAS NORTE AMERICANAS DE CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0138 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estrutura dos órgãos normatizadores da contabilidade nos Estados Unidas da América estrutura das normas contábeis norte-americanas o papel da profissão contábil e do mercado de capitais Normas do FASB - tipos e abrangência Normas específicas.",
+        "codigo": "CCA0139"
+    },
+    {
+        "nome": "ORÇAMENTO DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0169 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0091 )",
+        "equivalencias_especificas": [],
+        "ementa": "Evolução conceitual do orçamento governamental: do orçamento tradicional ao orçamento-programa e ao orçamento por resultados.\n\nSistema orçamentário brasileiro: plano plurianual, lei de diretrizes orçamentárias e lei orçamentária anual.\n\nPrincípios orçamentários.\n\nNatureza jurídica do orçamento.\n\nOrganização do plano plurianual e do orçamento anual.\n\nElaboração do projeto de lei orçamentária. As vinculações de receita e a rigidez orçamentária.\n\nO incrementalismo.\n\nA participação do Poder Legislativo na apreciação das matérias orçamentárias.\n\nProgramação financeira.\n\nEstágios da despesa.\n\nRetificação do orçamento durante a execução (créditos adicionais).\n\nRestos a pagar.\n\nEncerramento do exercício e Regime de apuração das receitas e despesas.",
+        "codigo": "CCA0170"
+    },
+    {
+        "nome": "PERÍCIA CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0181 OU CCA0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0128 ) OU ( CCA0129 )",
+        "equivalencias_especificas": [],
+        "ementa": "-",
+        "codigo": "CCA0127"
+    },
+    {
+        "nome": "PERÍCIA CONTÁBIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0024 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0127 ) OU ( CCA0128 )",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução ao estudo da prova pericial. A perícia contábil, conceitos, tipos e finalidades. Legislação aplicada à perícia e ao perito. Planejamento da perícia. Execução e conclusão dos trabalhos periciais. Importância da perícia contábil.",
+        "codigo": "CCA0129"
+    },
+    {
+        "nome": "PESQUISA EM CIÊNCIAS CONTÁBEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0108 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0172 E CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0172 E CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0172 E CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0172 E CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0172 E CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0173 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Elaboração de pesquisa de cunho científico realizada pelo aluno sob orientação de um professor. Projeto de pesquisa - passos a serem seguidos na confecção de trabalhos científicos partes do trabalho científico: Introdução, referencial teórico, metodologia ou proceder metodológico, resultados de pesquisa e sua análise considerações finais (conclusão, sugestões para outras pesquisas). Defesa pública e apresentação formal de acordo com regimento específico do CCA.",
+        "codigo": "CCA0109"
+    },
+    {
+        "nome": "PESQUISA EM CONTABILIDADE 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0111 E CCA0178 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0107 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Elaboração do Projeto de Pesquisa.\n\nConstrução da problemática do estudo.\n\nRelação da literatura com a pesquisa.\n\nDefinição do método e estratégias de pesquisa.\n\nContribuições da pesquisa para a literatura e sociedade.\n\nProcesso de orientação de trabalhos acadêmicos-científicos.",
+        "codigo": "CCA0172"
+    },
+    {
+        "nome": "PESQUISA EM CONTABILIDADE 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0172 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( CCA0109 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0109 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0109 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( CCA0109 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/2 - 2021.2",
+                "data_vigencia": "2025.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Elaboração de pesquisa de cunho científico realizada pelo aluno sob orientação de um professor.\n\nProjeto de pesquisa - passos a serem seguidos na confecção de trabalhos científicos;\n\nPartes do trabalho científico: Introdução, referencial teórico, metodologia ou proceder metodológico, resultados de pesquisa e sua análise; considerações finais (conclusão, sugestões para outras pesquisas).\n\nDefesa pública e apresentação formal de acordo com regimento específico do CCA.",
+        "codigo": "CCA0173"
+    },
+    {
+        "nome": "PLANEJAMENTO TRIBUTÁRIO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0061 ) OU ( CCA0181 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0142 )",
+        "equivalencias_especificas": [],
+        "ementa": "Sistema Tributário Nacional. O Estatuto de Defesa do Contribuinte. Exame dos Principais Impostos. O Sistema Tributário e a Empresa. O Planejamento Tributário esua Importância para a Empresa. Casos práticos.",
+        "codigo": "CCA0143"
+    },
+    {
+        "nome": "PRATICA COMERCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0015 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0124 ) OU ( ADM0125 ) OU ( CCA0041 )",
+        "equivalencias_especificas": [],
+        "ementa": "Constituição e legalização da empresa. Estrutura física e administrativa. Escrituração contábil, fiscal, notas fiscais e livros obrigatórios. Impostos, encargos e formulários oficiais. Estabelecimento comercial e industrial. Compras e vendas. Estocagem e controle de mercadoria para venda e consumo. Relacionamento da empresa com o sistema financeiro: instituições financeiras, aplicação e captação de recursos. Títulos de credito. Operações no mercado de capitais. Publicidade. Recrutamento de pessoal. Plano de contas. Equipamentos de processamento de dados. Software, suas aplicações e impactos nas organizações.",
+        "codigo": "CCA0042"
+    },
+    {
+        "nome": "PRÁTICA CONTÁBIL DO SETOR PÚBLICO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0015 OU CCA0103 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "- Regimes contábeis no Setor Público;\n\n- Orçamento público;\n\n- Receita e despesa pública;\n\n- Restos a pagar;\n\n- Dívida pública;\n\n- Regime de adiantamento;\n\n- Patrimônio Público;\n\n- Créditos Adicionais\n\n- Fundos Especiais;\n\n- Levantamento de Balanços",
+        "codigo": "CCA0159"
+    },
+    {
+        "nome": "PREVISÃO DE INSOLVÊNCIAS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0116 )",
+        "equivalencias_especificas": [],
+        "ementa": "Sintomas de debilidade financeira. Tópicos da nova lei de Falências (Lei 11.101, de 09/02/2005),  Recuperação judicial e falência Análise discriminante Modelos de previsão de insolvência.",
+        "codigo": "CCA0117"
+    },
+    {
+        "nome": "PROGRAMACAO FISCAL E FINANCEIRA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( ECO0050 ) OU ( ECO0072 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ADM0193 ) OU ( CCA0066 ) OU ( CCA0169 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-4 - 2008.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/1 - 2019.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "CCA0169",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - N",
+                "curriculo": "8583/-2 - 2017.2",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Teoria das Finanças Públicas. Conceitos básicos (resultado nominal, resultado primário, dívida pública). Finanças Públicas no Brasil. Tópicos sobre Finanças Públicas (Sistema Tributário, Previdência Social, Sistema Federativo e outros).",
+        "codigo": "CCA0067"
+    },
+    {
+        "nome": "SISTEMAS CONTABEIS APLICADOS A ARQUIVOLOGIA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0100 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0100 )",
+                "matriz_curricular": "ARQUIVOLOGIA - Bacharelado - Presencial - N",
+                "curriculo": "8192/1 - 2013.1",
+                "data_vigencia": "1991.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0100 )",
+                "matriz_curricular": "ARQUIVOLOGIA - Bacharelado - Presencial - N",
+                "curriculo": "8192/1 - 2013.1",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0100 )",
+                "matriz_curricular": "ARQUIVOLOGIA - Bacharelado - Presencial - N",
+                "curriculo": "8192/-2 - 2006.2",
+                "data_vigencia": "2005.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0102 OU CCA0103 ) ) OU ( CCA0100 )",
+                "matriz_curricular": "ARQUIVOLOGIA - Bacharelado - Presencial - N",
+                "curriculo": "8192/-2 - 2006.2",
+                "data_vigencia": "1991.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Informações empresariais. Linguagem contábil. Características das informações contábeis. Fluxo da informação contábil na empresa. Documentos contábeis. Prescrição dos documentos.",
+        "codigo": "CCA0101"
+    },
+    {
+        "nome": "SISTEMAS CONTABEIS COMPUTADORIZADOS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0069 ) OU ( CCA0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0138 ) OU ( ADM0139 ) OU ( CCA0053 )",
+        "equivalencias_especificas": [],
+        "ementa": "PROGRAMAS DISPONIVEIS NO MERCADO. LINGUAGENS E SISTEMAS OPERACIO- NAIS. IMPLANTACAO DE COMPUTADORES NA EMPRESA. DESENVOLVIMENTO DE SISTE- MA DE INFORMACAO CONTABIL, CONTROLE E SEGURANCA DOS  DADOS. CARACTERIS- TICAS DOS SISTEMAS CONTABEIS. DIMENSIONAMENTO DA NECESSIDADE DE UMA EM- PRESA. IMPLANTACAO DE UM SISTEMA CONTSABIL - PRATICA.",
+        "codigo": "CCA0054"
+    },
+    {
+        "nome": "SISTEMAS DE CONTROLE GERENCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0044 )",
+        "equivalencias_especificas": [],
+        "ementa": "Conceito e funções de controle gerencial. Diferenciação entre contabilidade gerencial e financeira. Contabilidade para planejamento, controle e decisão. Planejamento do lucro (orçamento estático). Orçamento Flexível. Custo Padrão. Medidas financeiras e não financeiras. Balanced Scorecard. Descentralização e centros de responsabilidade. Preço de Transferência.  Análise Diferencial. Formação de preços.",
+        "codigo": "CCA0180"
+    },
+    {
+        "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0180 ) OU ( CCA0018 E CCA0029 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0199 ) OU ( CCA0068 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CIC0062 OU CIC0063 OU CIC0064 ) ) OU ( ADM0199 OU CCA0068 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CIC0062 OU CIC0063 OU CIC0064 ) ) OU ( ADM0199 OU CCA0068 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CIC0062 OU CIC0063 OU CIC0064 ) ) OU ( ADM0199 OU CCA0068 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A contabilidade como sistema de informações. A linguagem contábil, suas potencialidades e limitações. Características dos principais tipos de sistemas de informações contábeis no âmbito de uma empresa. Os componentes do Sistema de Gestão Empresarial. Integração dos diversos sistemas de informações. A informática e a automação. A busca de novas modalidades de linguagem e de comunicação entre a empresa e os usuários da informação. Organização, sistemas e métodos e as tecnologias de gestão organizacional.",
+        "codigo": "CCA0069"
+    },
+    {
+        "nome": "TEORIA CONTABIL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0111 E CCA0077 ) OU ( CCA0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0202 ) OU ( CCA0080 )",
+        "equivalencias_especificas": [],
+        "ementa": "Antecedentes históricos da contabilidade. Busca de princípios. Estrutura conceitual da contabilidade. Ambiente econômico da contabilidade. O processo de tomada de decisão. Estabelecimento de normas contábeis. Conceito de lucro. Receitas, despesas, ganhos e perdas. Ativo e sua avaliação. Passivo e sua mensuração. Patrimônio líquido. Evidenciação Contábil.",
+        "codigo": "CCA0081"
+    },
+    {
+        "nome": "TEORIA DA CONTABILIDADE GERENCIAL",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0018 E CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0140 )",
+        "equivalencias_especificas": [],
+        "ementa": "Teoria neoclássica da firma Teoria das relações humanas. Teoria institucional",
+        "codigo": "CCA0141"
+    },
+    {
+        "nome": "TEORIA DA CONTABILIDADE POSITIVA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0118 )",
+        "equivalencias_especificas": [],
+        "ementa": "Contabilidade Positiva: Conceitos, Premissas e Características. Críticas à Contabilidade Positiva. Teoria Contratual da Firma. Contratos de Remuneração Variada e Emissão de Dívidas. A Contabilidade e o Processo Político. A Contabilidade Positiva no Brasil.",
+        "codigo": "CCA0119"
+    },
+    {
+        "nome": "TEORIA DO LUCRO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( CCA0040 E CCA0153 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A Contabilidade em face das flutuações de preços. Conversão das demonstrações contábeis utilizando métodos contábeis que reconheçam os efeitos inflacionários e as variações específicas de preços.",
+        "codigo": "CCA0184"
+    },
+    {
+        "nome": "TEORIA DOS JOGOS APLICADA À GESTÃO",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0012"
+    },
+    {
+        "nome": "TOPICOS CONTEMPORANEOS EM CONTABILIDADE",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ADM0205 ) OU ( CCA0086 )",
+        "equivalencias_especificas": [],
+        "ementa": "Temas contemporâneos em contabilidade e relacionados à teoria e prática contábil.",
+        "codigo": "CCA0087"
+    },
+    {
+        "nome": "TÓPICOS CONTEMPORÂNEOS EM CONTABILIDADE PÚBLICA",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "( ( CCA0091 ) OU ( CCA0170 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( CCA0006 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "CCA0007"
+    },
+    {
+        "nome": "TÓPICOS EM CONTABILIDADE 1",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com conteúdo variável abordando atualidades da área contábil, tais como: compliance, governança corporativa, gestão de riscos, relato integrado, contabilidade previdenciária e outros temas afins.",
+        "codigo": "CCA0164"
+    },
+    {
+        "nome": "TÓPICOS EM CONTABILIDADE 2",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com conteúdo variável abordando atualidades da área contábil, tais como: compliance, governança corporativa, gestão de riscos, relato integrado, contabilidade previdenciária e outros temas afins.",
+        "codigo": "CCA0165"
+    },
+    {
+        "nome": "TÓPICOS EM CONTABILIDADE 3",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com conteúdo variável abordando atualidades da área contábil, tais como: compliance, governança corporativa, gestão de riscos, relato integrado, contabilidade previdenciária e outros temas afins.",
+        "codigo": "CCA0166"
+    },
+    {
+        "nome": "TÓPICOS EM CONTABILIDADE 4",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com conteúdo variável abordando atualidades da área contábil, tais como: compliance, governança corporativa, gestão de riscos, relato integrado, contabilidade previdenciária e outros temas afins.",
+        "codigo": "CCA0167"
+    },
+    {
+        "nome": "TÓPICOS EM CONTABILIDADE 5",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com conteúdo variável abordando atualidades da área contábil, tais como: compliance, governança corporativa, gestão de riscos, relato integrado, contabilidade previdenciária e outros temas afins.",
+        "codigo": "CCA0168"
+    },
+    {
+        "nome": "TÓPICOS EM CONTABILIDADE 6",
+        "unidade_responsavel": "DEPTO CIÊNCIAS CONTÁBEIS ATUARIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com conteúdo variável abordando atualidades da área contábil, tais como: compliance, governança corporativa, gestão de riscos, relato integrado, contabilidade previdenciária e outros temas afins.",
+        "codigo": "CCA0186"
+    }
+]

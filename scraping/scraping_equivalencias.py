@@ -42,10 +42,10 @@ def limpar_texto(texto):
 
 
 # Configurações
-MAX_WORKERS = 3  # Reduzido para evitar bloqueios
+MAX_WORKERS = 6  # Reduzido para evitar bloqueios
 REQUEST_DELAY = (2, 5)  # Intervalo maior entre requisições
 MAX_RETRIES = 5  # Mais tentativas por departamento
-OUTPUT_DIR = "Equivalencias_Turmas_Departamentos"
+OUTPUT_DIR = os.path.join("dados", "Equivalencias_Turmas_Departamentos")
 DEBUG = True  # Ativar para ver logs detalhados
 
 def limpar_texto(texto):
@@ -371,7 +371,7 @@ def carregar_ids_departamentos():
     try:
         import csv
         ids = []
-        with open('departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
+        with open('dados/departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
             csv_reader = csv.reader(file)
             for row in csv_reader:
                 if row and row[0].isdigit():

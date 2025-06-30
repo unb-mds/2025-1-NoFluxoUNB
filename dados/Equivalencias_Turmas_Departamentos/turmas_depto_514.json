@@ -1,0 +1,2703 @@
+[
+    {
+        "nome": "ANALISE DE DADOS CATEGORIZADOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Tabelas de contingência Bidimensionais. Tabelas de Contingência  Tridimensionais. Modelos para Variáveis com Resposta Binárias. Modelos Log-Lineares. Regressão de Poisson.",
+        "codigo": "EST0064"
+    },
+    {
+        "nome": "ANÁLISE DE REGRESSÃO LINEAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0035 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0037 )",
+        "equivalencias_especificas": [],
+        "ementa": "Formas Quadráticas. Regressão Linear Simples. Regressão Linear Múltipla. Métodos para seleção de variáveis. Diagnósticos. Aplicações",
+        "codigo": "EST0038"
+    },
+    {
+        "nome": "ANÁLISE DE SÉRIES TEMPORAIS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0049 ) OU ( EST0050 )",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos Básicos. Exemplos. Objetivos. Análise Descritiva em Séries Temporais. Estacionariedade. Processos ARMA e ARIMA. Identificação. Estimação. Previsão. Aplicações Especiais.",
+        "codigo": "EST0051"
+    },
+    {
+        "nome": "ANÁLISE DE SÉRIES TEMPORAIS 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0051 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos básicos em análise de séries temporais não lineares. Modelos de longa memória: ARFIMA. Modelos de Volatilidade: GARCH e MVE.  Modelos Mistos: AR-GARCH e variações. Tópicos adicionais.",
+        "codigo": "EST0012"
+    },
+    {
+        "nome": "ANÁLISE DE SOBREVIVÊNCIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0085 )",
+        "equivalencias_especificas": [],
+        "ementa": "Natureza dos dados temporais. Tipos de Censuras. Estimadores não paramétricos da função de sobrevivência. Principais modelos paramétricos. Regressão paramétrica para dados temporais. Modelos de tempos de vida acelerados. O modelo de regressão de Cox. Modelo de riscos aditivos de Aalen.",
+        "codigo": "EST0086"
+    },
+    {
+        "nome": "ANÁLISE ESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0026 E EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0030 ) OU ( EST0068 E EST0069 E EST0070 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "VARIAVEIS, ATRIBUTOS E MEDIDAS. NUMEROS INDICES. AJUSTAMENTO PROBABI-LISTICO DISCRETOS E CONTINUOS. INTRODUCAO A ANALISE DE SERIES TEMPORAIS.NOCOES DE TEORIA DE AMOSTRAGEM. DISTRIBUICOES  ASSINTOTICAS.  INTRODUCAOAO ESTADO DA REGRESSAO E CORRELACAO. REGRESSAO LINEAR SIMPLES.",
+        "codigo": "EST0034"
+    },
+    {
+        "nome": "ANÁLISE MULTIVARIADA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0035 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0039 )",
+        "equivalencias_especificas": [],
+        "ementa": "Revisão de álgebra linear e distribuição normal multivariada. Análise de componentes principais. Análise fatorial. Correlação Canônica. Análise de Correspondência. Métodos de classificação e análise de discriminantes. Análise de conglomerados. Tópicos adicionais",
+        "codigo": "EST0040"
+    },
+    {
+        "nome": "ANÁLISE MULTIVARIADA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0040 E EST0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Distribuição normal multivariada e distribuições relacionadas. Distribuição de Wishart. Estatísticas T2 de Hotteling e Lambda. Coe?cientes de Correlação. Modelos Multivariados de Análise de Variância (MANOVA). Regressão Multivariada. Matrizes de covariância. Tópicos adicionais.",
+        "codigo": "EST0018"
+    },
+    {
+        "nome": "APLICACOES DA ESTATISTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O PROBLEMA DA INFORMACAO - CONTROLE DE ERROS - O CONFRONTO REALIDADE X MODELO - O CUSTO DE OPORTUNIDADE - O FATOR TEMPO NAS DECISOES  - NOR- MAS DE  ELABORACAO DE  UM  TRABALHO CIENTIFICO  -  TOPICOS ESPECIAIS EM ESTATISTICA APLICADA - APRESENTACAO E DISCUSSAO DE TRABALHOS.",
+        "codigo": "EST0047"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0146"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0129"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0132"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0150"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0152"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0126"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0140"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0154"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0155"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0153"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0134"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0138"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0125"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0143"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0156"
+    },
+    {
+        "nome": "ATIVIDADE COMPLEMENTAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação em conferências, oficinas, palestras, seminários, TCC2 (EST), workshops, encontros profissionais e estudantis, congressos e reuniões científicas (sem apresentação de trabalho), congressos e reuniões científicas (com apresentação de trabalho - excluso PIBIC), cursos e minicursos, trabalhos sob orientação de docente (elaboração de material didático, participação em programa de tutoria e bolsa REUNI), programas PET, PIBIC, PIBID, PIBEX e outros programas oficiais de iniciação científica, outros projetos sob orientação docente, publicação de resumos em anais de congressos, publicação em revistas ou jornais científicos, auxílio na organização de eventos (encontros estudantis, profissionais, divulgação do curso, semana de extensão) e estágios extracurriculares.",
+        "codigo": "EST0157"
+    },
+    {
+        "nome": "ATIVIDADE INTEGRADORA DE FORMAÇÃO: EXTENSÃO EM ESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação, com protagonismo discente, em: disciplinas com créditos de extensão, programas de extensão, projetos de extensão, prestações de serviços, cursos e eventos.",
+        "codigo": "EST0159"
+    },
+    {
+        "nome": "BIOESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0022 ) OU ( MAT0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0033 E EST0069 E EST0070 ) OU ( EST0026 ) OU ( FUP0288 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTATISTICA DESCRITIVA. NOCOES DE PROBABILIDADE. PRINCIPAIS MODELOS  DISCRETOS E CONTINUOS. AJUSTAMENTO DE MODELOS PROBABILISTICOS.  NOCOES  DE AMOSTRAGEM E ESTIMACAO. NOCOES DE TESTES DE HIPOTESES.  ANALISE  DE  VARIANCIA:  CLASSIFICACAO  SIMPLES.  CORRELACAO  E  REGRESSAO  LINEAR.  NOCOES SOBRE EXPERIMENTOS E LEVANTAMENTOS.",
+        "codigo": "EST0027"
+    },
+    {
+        "nome": "COMPUTAÇÃO EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Entrada e manipulação de base de dados e estatística descritiva usando R.",
+        "codigo": "EST0001"
+    },
+    {
+        "nome": "COMPUTAÇÃO EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0001 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0002 )",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução a Banco de Dados. Aplicações com Ambiente de Programação em R ou Pacote estatístico disponível no Departamento de Estatística (EST).",
+        "codigo": "EST0003"
+    },
+    {
+        "nome": "COMPUTAÇÃO EM ESTATÍSTICA 2: PYTHON",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Programação em software estatístico disponível no Departamento de Estatística (EST), para manipulação e análise exploratória de dados.",
+        "codigo": "EST0092"
+    },
+    {
+        "nome": "COMPUTAÇÃO EM ESTATÍSTICA 2: R",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Programação em software estatístico disponível no Departamento de Estatística (EST), para manipulação e análise exploratória de dados.",
+        "codigo": "EST0091"
+    },
+    {
+        "nome": "COMPUTAÇÃO EM ESTATÍSTICA 2: SAS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "EST0001",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Programação em software estatístico disponível no Departamento de Estatística (EST), para manipulação e análise exploratória de dados.",
+        "codigo": "EST0090"
+    },
+    {
+        "nome": "CONSULTORIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 E EST0036 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Os alunos matriculados nessa disciplina trabalham no planejamento, desenvolvimento e análise de dados de problemas reais sob a supervisão de professores do departamento. Dessa forma, os alunos terão a oportunidade de participar de reuniões com pesquisadores, acompanhar e executar os projetos e redigir relatórios técnicos.",
+        "codigo": "EST0010"
+    },
+    {
+        "nome": "CONTROLE DE QUALIDADE NA PRODUCAO",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "PRINCIPIOS BASICOS DO PLANEJAMENTO DE PRODUCAO.  TIPOS  DE  CONTROLE.ATRIBUTOS E VARIAVEIS-GRAFICOS. INSPECAO  DE  QUALIDADE.  OS  PLANOS  DEAMOSTRAGEM. TABUAS E ORGANOGRAMAS. APLICACOES..",
+        "codigo": "EST0059"
+    },
+    {
+        "nome": "CONTROLE ESTATISTICO DE QUALIDADE",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) OU ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos e Filosofias de Qualidade. Métodos e filosofias do Controle Estatístico de Qualidade. Gráficos de Controle. Medidas de Capacidade de Processos. Análise de Sistema de Medição. Introdução a Experimentos Fatoriais e Fatoriais Fracionados. Amostragem para Aceitação.",
+        "codigo": "EST0045"
+    },
+    {
+        "nome": "DELINEAMENTO E ANÁLISE DE EXPERIMENTOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0035 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0041 )",
+        "equivalencias_especificas": [],
+        "ementa": "Delineamento de Experimentos. Delineamento Inteiramente Casualizado. Delineamento em Blocos Casualizados. Quadrado Latino. Experimentos Fatoriais. Aplicações.",
+        "codigo": "EST0042"
+    },
+    {
+        "nome": "DELINEAMENTO E ANÁLISE DE EXPERIMENTOS 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0043 )",
+        "equivalencias_especificas": [],
+        "ementa": "Delineamento de Experimentos complexos. Efeitos aleatórios, mistos, blocos incompletos, fatoriais fracionados e outros.",
+        "codigo": "EST0044"
+    },
+    {
+        "nome": "DEMOGRAFIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) OU ( EST0019 ) OU ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fontes de dados. Diagrama de Lexis. Indicadores de Mortalidade, Fecundidade e Migração. Padronização de dados demográficos. Ajuste de dados demográficos. Pirâmides populacionais. Modelos de população. Projeção de população.",
+        "codigo": "EST0046"
+    },
+    {
+        "nome": "DEMOGRAFIA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0046 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Sub-registro de óbitos e nascimentos. Tábuas de Múltiplos Decrementos e Multi-estado. Aplicações de Tábuas de Vida em estudos atuariais. Principais metodologias para projeção de população em pequenas áreas. Técnicas indiretas aplicadas à migração.",
+        "codigo": "EST0013"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0065 OU EST0066 OU EST0067 ) E ( EST0079 OU EST0080 OU EST0081 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0065 OU EST0066 OU EST0067 ) E ( EST0079 OU EST0080 OU EST0081 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0065 OU EST0066 OU EST0067 ) E ( EST0079 OU EST0080 OU EST0081 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0065 OU EST0066 OU EST0067 ) E ( EST0079 OU EST0080 OU EST0081 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O ESTAGIO CONSISTE NO PLANEJAMENTO E REALIZACAO DE TAREFAS NA AREA DEESTATISTICA EM ORGAOS PUBLICOS, EM ENTIDADES PRIVADAS,  OU  NA   PROPRIAUNIVERSIDADE DE BRASILIA, SOB A ORIENTACAO DE PROFESSORES DO DEPARTAMEN-TO.",
+        "codigo": "EST0058"
+    },
+    {
+        "nome": "ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0026 E EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "VARIAVEIS ALEATORIAS COM UM NUMERO FINITO DE DIMENSOES  -  FUNCOES DE  VARIAVEIS ALEATORIAS                                                  - MOMENTOS E TIPOS - FUNCOES  GERATRIZES  -  SEMIVARIANTES  -  REGRESSAO  MEDIA QUADRATICA - INTRODUCAO A AMOSTRAGEM E A ESTIMACAO  -  FUNCAO DE  VEROSSIMILHANCA - ESTUDO DOS PRINCIPAIS TESTES  PARAMETRICOS -  ESTUDO  DE ALGUNS TESTES NAO-PARAMETICOS.",
+        "codigo": "EST0024"
+    },
+    {
+        "nome": "ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0024 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "INTRODUCAO AOS PROCESSOS ESTOCASTICOS -  MODELOS  DE  AMOSTRAGEM  -  INTRODUCAO A ANALISE DE DEPENDENCIA FUNCIONAL - REGRESSAO  FATORIAL  E  PATH ANALYSIS: COMPARACAO DOS MODELOS NOCOES DE CONTROLE DE  QUALIDADE  - AMOSTRAGEM NO CONTROLE DE QUALIDADE.",
+        "codigo": "EST0025"
+    },
+    {
+        "nome": "ESTATÍSTICA APLICADA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0023 OU EST0022 ) OU ( EST0028 ) OU ( EST0061 E ECO0197 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-5 - 2012.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-5 - 2012.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-6 - 2008.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-6 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-5 - 2012.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-6 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-6 - 2008.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DE AGRONEGOCIOS - Bacharelado - Presencial - N",
+                "curriculo": "6262/-2 - 2010.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "TURISMO - Bacharelado - Presencial - D",
+                "curriculo": "6271/-2 - 2010.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-3 - 2016.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-4 - 2014.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-2 - 2017.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-3 - 2016.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-4 - 2014.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-3 - 2016.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-4 - 2014.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DE AGRONEGOCIOS - Bacharelado - Presencial - N",
+                "curriculo": "6262/1 - 2014.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-2 - 2017.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-2 - 2017.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0028 ) )",
+                "matriz_curricular": "TURISMO - Bacharelado - Presencial - D",
+                "curriculo": "6271/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "CONCEITOS BASICOS - DISTRIBUICAO DE FREQUENCIAS E SUAS CARACTERISTICAS - INTRODUCAO A  PROBABILIDADE  -  AJUSTAMENTO  DE  FUNCOES  REAIS - CORRELACAO E REGRESSAO LINEAR - NOCOES DE AMOSTRAGEM E TESTES DE  HIPOTESE.",
+        "codigo": "EST0019"
+    },
+    {
+        "nome": "ESTATÍSTICA APLICADA À EDUCAÇÃO 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0019 ) OU ( PAD0046 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "COLETA E APRESENTACAO DE DADOS - SERIES ESTATISTICAS  E  GRAFICOS  - MEIDAS CARACTERISTICAS DE UMA  DISTRIBUICAO -  AJUSTAMENTO  DE  FUNCOES REAIS E SERIES TEMPORAIS -  CORRELACAO E  REGRESSAO  LINEAR  -  MODELOS PROBABILISTICOS - APLICACOES DA ESTATISTICA NA EDUCACAO.",
+        "codigo": "EST0020"
+    },
+    {
+        "nome": "ESTATÍSTICA APLICADA À EDUCAÇÃO 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0020 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "DISTRIBUICOES PARA TESTES DE SIGNIFICANCIA - PRINCIPAIS TESTES PARA- METRICOS E NAO-PARAMETRICOS - MODELOS DE AMOSTRAGEM - FATORES PREPONDE- RANTES NA ELABORACAO DE UM PLANO - ASSOCIACAO E CORRELACAO - CORRELACAO ORDINAL - TABELAS DE CONTIGENCIA - INTRODUCAO A ANALISE FATORIAL.",
+        "codigo": "EST0021"
+    },
+    {
+        "nome": "ESTATÍSTICA APLICADA À PSICOLOGIA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0033 E EST0069 E EST0070 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-5 - 2012.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-5 - 2012.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-6 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-6 - 2008.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-5 - 2012.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-6 - 2008.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-6 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "TURISMO - Bacharelado - Presencial - D",
+                "curriculo": "6271/-2 - 2010.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-3 - 2016.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-4 - 2014.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-2 - 2017.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-3 - 2016.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-4 - 2014.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-3 - 2016.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-4 - 2014.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-2 - 2017.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "2712/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Psicologo - Presencial - D",
+                "curriculo": "2739/-2 - 2017.1",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "PSICOLOGIA - Licenciatura - Presencial - D",
+                "curriculo": "2721/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0019 ) )",
+                "matriz_curricular": "TURISMO - Bacharelado - Presencial - D",
+                "curriculo": "6271/1 - 2017.2",
+                "data_vigencia": "1986.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "NOCOES DE PROBABILIDADE. PRINCIPAIS MODELOS DISCRETOS  E  CONTINUOS. DISTRIBUICOES OBSERVADAS. AJUSTAMENTO DE MODELOS PROBABILISTICOS. PRIN- CIPAIS ESCALAS: PERCENTILICA E NORMALIZADA. SEPARATRIZES  NA  AVALIACAO DE TESTES EM PSICOLOGIA. NOCOES DE AMOSTRAGEM A  ESTIMACAO.  TESTES  DE HIPOTESES. ANALISE DE VARIANCIA. REGRESSAO LINEAR SIMPLES. ASSOCIACAO E CORRELACAO. COEFICIENTES DE PEARSON, DE KENDALL E TETRACORICO. INDEPEN- DENCIA: O TESTE QUI-QUADRADO. PROVA DE KRUSKAL-WALLIS. APLICACOES.",
+        "codigo": "EST0028"
+    },
+    {
+        "nome": "ESTATÍSTICA APLICADA À PSICOLOGIA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0028 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O MODELO REGRESSIVO NA PSICOLOGIA - TESTES DE SIGNIFICANCIA - INTRO- DUCAO A ANALISE FATORIAL - METODOS DE FATORACAO -  ROTACAO  DE  EIXOS - UTILIZACAO DO COMPUTADOR - APLICACOES A PROBLEMAS REAIS.",
+        "codigo": "EST0029"
+    },
+    {
+        "nome": "ESTATÍSTICA COMPUTACIONAL",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( CIC0007 E MAT0053 E EST0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução. Geração de números aleatórios e simulação. Estimação e teste de hipóteses. Noções de métodos MCMC (simulação dinâmica). Otimização Numérica.",
+        "codigo": "EST0004"
+    },
+    {
+        "nome": "ESTATÍSTICA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0034 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0062 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0062 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0062 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0062 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0062 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "NUMEROS INDICES - TENDENCIA DE SERIES ECONOMICAS - PRINCIPAIS FUNCOES- CONCENTRACAO DE FATORES ECONOMICAS - CURVA DE LORENZ-GINI - ANALISE DECORRELLACAO E REGRESSAO LINEAR - INTRODUCAO A TECNOLOGIA DA AMOSTRAGEM.",
+        "codigo": "EST0030"
+    },
+    {
+        "nome": "ESTATISTICA ECONOMICA AVANCADA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0062 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0128 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "MODELOS REGRESSIVOS. ANALISE DE SERIES TEMPORAIS.  MEDIDAS  DE  CON- CENTRACAO.",
+        "codigo": "EST0063"
+    },
+    {
+        "nome": "ESTATISTICA ECONOMICA INTERMEDIARIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0061 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0197 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0030 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRINCIPAIS DISTRIBUICOES DISCRETAS. PRINCIPAIS  DISTRIBUICOES  CONTI-NUAS. NOCOES DE AMOSTRAGEM E ESTIMACAO. TESTES DE HIPOTESES. AJUSTAMENTODE MODELOS PROBABILISTICOS.",
+        "codigo": "EST0062"
+    },
+    {
+        "nome": "ESTATÍSTICA ESPACIAL",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução à análise espacial. Análise de dados pontuais. Análise de dados de área. Análise de superfícies.",
+        "codigo": "EST0007"
+    },
+    {
+        "nome": "ESTATÍSTICA EXPLORATÓRIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0031 ) OU ( EST0032 )",
+        "equivalencias_especificas": [],
+        "ementa": "A Estatística no Brasil. Fases do Trabalho Estatístico. Elaboração de Tabelas e Gráficos. Medidas Descritivas Unidimensionais. Medidas Bi-dimensionais (Pearson, Spearman, Qui-quadrado, Contigência modificado e Cramer). Introdução a um Pacote Estatístico.",
+        "codigo": "EST0033"
+    },
+    {
+        "nome": "ESTATISTICA EXPLORATORIA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0033 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0023 E EST0034 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Séries Estatísticas bidimensionais. Teoria da Associação. Modelos Exploratórios de tabelas de Contingências. Relação entre variáveis e correlação. Introdução a Componentes Principais. Introdução a Séries Temporais. A Estatística e a Metodologia da Ciência. Indicadores. Teoria Clássica de Números Índices.",
+        "codigo": "EST0068"
+    },
+    {
+        "nome": "ESTATÍSTICA MATEMÁTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Ementa: 1. Experimento aleatório.  2. Espaço de probabilidade.  3. probabilidade condicional. 4. Variáveis aleatórias. 5. Esperança, variância e momentos. 6. distribuição conjunta de vetores aleatórios. 7. Principais distribuições de probabilidade. 8. Funções geradoras de momentos e características. 9. Tipos de convergência. 10. Teoremas limites.",
+        "codigo": "DPG0777"
+    },
+    {
+        "nome": "ESTATISTICA NAO PARAMETRICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0017 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0017 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0017 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0017 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "METODOS NAO PARAMETRICOS. FORMULACAO GERAL DE UM TESTE DE SIGNIFICAN-CIA. ESTUDO DOS PRINCIPAIS TESTES NAO PARAMETRICOS. MEDIDAS DE  CORRELA-CAO E SUA SIGNIFICANCIA.",
+        "codigo": "EST0057"
+    },
+    {
+        "nome": "HISTORIA DA ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0035 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A ESTATISTICA DESDE A ANTIGUIDADE ATE O MOMENTO ATUAL - ORIGENS E    EVOLUCAO DO CALCULO DE PROBALIDADES - O ADVENTO  DA INFERENCIA  -  A    ESTATISTICA COMO CIENCIA E COMO METODO.",
+        "codigo": "EST0052"
+    },
+    {
+        "nome": "INFERÊNCIA BAYESIANA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "EST0035",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Teorema de Bayes. Distribuições a Priori e a Posteriori. Distribuições a Priori Conjugadas. Função Perda. Estimadores de Bayes. Testes Bayesianos. Computação Bayesiana.",
+        "codigo": "EST0005"
+    },
+    {
+        "nome": "INFERÊNCIA BAYESIANA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Ementa:  1. Conceitos básicos. 2. Modelos com um parâmetro. 3. Modelos com mais de um parâmetro. 4. Modelos hierárquicos. 5. Avaliação do modelo. 6. Aspectos computacionais. 7. Modelos de regressão. 8. Modelos específicos.",
+        "codigo": "DPG0688"
+    },
+    {
+        "nome": "INFERENCIA ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0031 E MAT0075 E MAT0027 E EST0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Distribuições amostrais de probabilidade. Métodos de estimação. Propriedades de estimadores. Suficência. Estimação intervalar. Testes de Hipóteses.",
+        "codigo": "EST0035"
+    },
+    {
+        "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0033 E EST0068 E EST0069 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTATISTICA DESCRITIVA. INDICADORES ECONOMICOS. NOCOES DE PROBABILI- DADE. DISTRIBUICOES DE PROBABILIDADE E SUAS CARACTERISTICAS.",
+        "codigo": "EST0061"
+    },
+    {
+        "nome": "INTRODUÇÃO À INFERÊNCIA BAYESIANA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0075 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0005 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EST0084"
+    },
+    {
+        "nome": "INTRODUCAO A PROBABILIDADE",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0023 OU EST0022 ) OU ( EST0023 E EST0034 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Teoria Clássica da Probabilidade. Variável Aleatória Unidimensional. Variável Aleatória Discreta Bidimensional. Modelos Probabilísticos Discretos, Distribuições contínuas, Normal e t-Student.",
+        "codigo": "EST0069"
+    },
+    {
+        "nome": "LABORATÓRIO DE ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0124 )",
+        "equivalencias_especificas": [],
+        "ementa": "Implementação de projetos de estatística ou desenvolvimento de soluções de problemas estatísticos, sob a abordagem do aprendizado baseado em projetos/problemas.",
+        "codigo": "EST0008"
+    },
+    {
+        "nome": "LABORATÓRIO DE ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de extensão baseada na implementação de projetos de estatística ou desenvolvimento de soluções de problemas estatísticos, sob a abordagem do aprendizado focado em projetos/problemas reais da comunidade. Promove a troca de experiência com profissionais da área da estatística, a interação com a comunidade e o protagonismo do discente.",
+        "codigo": "EST0124"
+    },
+    {
+        "nome": "LABORATÓRIO DE ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 E EST0036 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Implementação de projetos de estatística ou desenvolvimento de soluções de problemas estatísticos, sob a abordagem do aprendizado baseado em projetos/problemas.",
+        "codigo": "EST0009"
+    },
+    {
+        "nome": "MEDIDAS DE INFORMAÇÃO E APLICAÇÕES",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) OU ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução. Entropia e Generalizações. Divergência Dirigida e Generalizações. Outras Medidas de Informação. Conexões com Medidas Estatísticas. Aplicações.",
+        "codigo": "EST0074"
+    },
+    {
+        "nome": "MÉTODOS APLICADOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0071 ) OU ( EST0072 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos teóricos ESPECIAIS EM métodos estatísticos – apresentação e discussão de trabalhos.",
+        "codigo": "EST0073"
+    },
+    {
+        "nome": "METODOS ESTATISTICOS 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0033 E EST0069 ) OU ( EST0033 E EST0023 ) OU ( EST0033 E FGA0157 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0023 E EST0034 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "População e amostra, distribuições amostrais. Propriedades dos estimadores. Conceitos básicos de estimação via métodos dos momentos, mínimos quadrados e máxima verossimilhança. Intervalos de confiança para a média e proporção populacionais. Testes de hipóteses para média, proporção e variância. Testes de hipóteses para a igualdade de médias e igualdade de variâncias. Testes de independência e de aderência.  Correlação e regressão.",
+        "codigo": "EST0070"
+    },
+    {
+        "nome": "MÉTODOS ESTATÍSTICOS 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0057 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0057 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0057 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0057 ) )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Métodos paramétricos e não paramétricos - Estimação e testes baseados na binomial. Análise de tabelas de contingência com testes qui quadrado. Testes de ajustamento.  Teste de hipóteses para várias médias- ANOVA. Testes baseados em postos (Mann- Whitney, Kruskal-Wallis, Wilcoxon para postos sinalizados, Friedman)",
+        "codigo": "EST0017"
+    },
+    {
+        "nome": "MODELOS LÍNEARES",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Álgebra Matricial. Distribuições Multivariadas. Modelos Lineares de Postos Completo e Incompleto. Outros Modelos. Tópicos Adicionais.",
+        "codigo": "EST0016"
+    },
+    {
+        "nome": "MODELOS LINEARES GENERALIZADOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Revisão de alguns resultados de Inferência Estatística e Probabilidade. Introdução aos MLG. Métodos de Estimação e Algoritmos. Medidas de Qualidade de Ajuste. Testes de Hipóteses e Seleção de Modelos. Análise de Resíduos e Diagnósticos. Análise de Dados Normais. Análise de Dados Binários e Proporções. Análise de Dados de Contagem. Modelos para Tabelas de Contingência. Análise de Dados com Sobredispersão. Extensões dos MLG.",
+        "codigo": "EST0011"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE DE DADOS CATEGORIZADOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0120"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DE REGRESSÃO LINEAR",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0038 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0118"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DE SÉRIES TEMPORAIS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0102"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DE SÉRIES TEMPORAIS 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0133"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DE SOBREVIVÊNCIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0086 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0186"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE ESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0151"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE MULTIVARIADA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0106"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE MULTIVARIADA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0139"
+    },
+    {
+        "nome": "MONITORIA EM APLICACOES DA ESTATISTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0160"
+    },
+    {
+        "nome": "MONITORIA EM BIOESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0099"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTAÇÃO EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0093"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTAÇÃO EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0094"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTAÇÃO EM ESTATÍSTICA 2: PYTHON",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0092 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0191"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTAÇÃO EM ESTATÍSTICA 2: R",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0091 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0112"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTAÇÃO EM ESTATÍSTICA 2: SAS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0090 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0111"
+    },
+    {
+        "nome": "MONITORIA EM CONSULTORIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0131"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLE DE QUALIDADE NA PRODUCAO",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0168"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLE ESTATISTICO DE QUALIDADE",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0158"
+    },
+    {
+        "nome": "MONITORIA EM DELINEAMENTO E ANÁLISE DE EXPERIMENTOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0119"
+    },
+    {
+        "nome": "MONITORIA EM DELINEAMENTO E ANÁLISE DE EXPERIMENTOS 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0107"
+    },
+    {
+        "nome": "MONITORIA EM DEMOGRAFIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0101"
+    },
+    {
+        "nome": "MONITORIA EM DEMOGRAFIA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0114"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0167"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0144"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0145"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA APLICADA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0097"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA APLICADA À EDUCAÇÃO 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0141"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA APLICADA À EDUCAÇÃO 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0142"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA APLICADA À PSICOLOGIA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0147"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA APLICADA À PSICOLOGIA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0148"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA COMPUTACIONAL",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0095"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0149"
+    },
+    {
+        "nome": "MONITORIA EM ESTATISTICA ECONOMICA AVANCADA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0172"
+    },
+    {
+        "nome": "MONITORIA EM ESTATISTICA ECONOMICA INTERMEDIARIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0062 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0171"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA ESPACIAL",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0128"
+    },
+    {
+        "nome": "MONITORIA EM ESTATÍSTICA EXPLORATÓRIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0100"
+    },
+    {
+        "nome": "MONITORIA EM ESTATISTICA EXPLORATORIA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0175"
+    },
+    {
+        "nome": "MONITORIA EM ESTATISTICA NAO PARAMETRICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0166"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0163"
+    },
+    {
+        "nome": "MONITORIA EM INFERÊNCIA BAYESIANA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0113"
+    },
+    {
+        "nome": "MONITORIA EM INFERENCIA ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0116"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A ESTATISTICA ECONOMICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0170"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À INFERÊNCIA BAYESIANA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0084 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0185"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A PROBABILIDADE",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0069 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0103"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO DE ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0096"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO DE ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0130"
+    },
+    {
+        "nome": "MONITORIA EM MATEMATICA FINANCEIRA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0169"
+    },
+    {
+        "nome": "MONITORIA EM MEDIDAS DE INFORMAÇÃO E APLICAÇÕES",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0109"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS APLICADOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0178"
+    },
+    {
+        "nome": "MONITORIA EM METODOS ESTATISTICOS 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0104"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS ESTATÍSTICOS 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0115"
+    },
+    {
+        "nome": "MONITORIA EM MODELOS LÍNEARES",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0137"
+    },
+    {
+        "nome": "MONITORIA EM MODELOS LINEARES GENERALIZADOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0105"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA OPERACIONAL 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0164"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA OPERACIONAL 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0165"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS DE EXTENSÃO EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0087 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0187"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS DE EXTENSÃO EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0188"
+    },
+    {
+        "nome": "MONITORIA EM PROBABILIDADE E ESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0098"
+    },
+    {
+        "nome": "MONITORIA EM PROBABILIDADE E ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0110"
+    },
+    {
+        "nome": "MONITORIA EM PROCESSOS ESTOCASTICOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0108"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMAS - PRODUTO EM ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0181"
+    },
+    {
+        "nome": "MONITORIA EM TECNICAS DE AMOSTRAGEM",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0117"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICAS DE AMOSTRAGEM 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0127"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DA RESPOSTA AO ÍTEM",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0135"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM CONSULTORIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0183"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0136"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0180"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0122"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EST0121"
+    },
+    {
+        "nome": "PESQUISA OPERACIONAL 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0031 E MAT0026 E EST0069 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0053 )",
+        "equivalencias_especificas": [],
+        "ementa": "Origens e Fundamentos da Pesquisa Operacional. O Problema da programação linear. A Metodologia Simplex. Dualidade e Sensibilidade na Programação Linear. Problemas de Transporte e Designação. Problemas de Redes.",
+        "codigo": "EST0054"
+    },
+    {
+        "nome": "PESQUISA OPERACIONAL 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0054 E MAT0027 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0055 )",
+        "equivalencias_especificas": [],
+        "ementa": "Programação Não-Linear.  Programação linear Inteira. Noções de Programação Dinâmica. Problemas Especiais.",
+        "codigo": "EST0056"
+    },
+    {
+        "nome": "PRÁTICAS DE EXTENSÃO EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Promover a expansão e o acesso dos conhecimentos em Estatística para a sociedade. Os estudantes serão, nesta disciplina, protagonistas, sob a orientação docente. As atividades serão direcionadas aos aspectos científicos, tecnológicos, sociais e ambientais da estatística, contribuindo, assim, para a promoção do conhecimento e da cidadania.",
+        "codigo": "EST0087"
+    },
+    {
+        "nome": "PRÁTICAS DE EXTENSÃO EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Promover a expansão e o acesso dos conhecimentos em Estatística para a sociedade. Os estudantes serão, nesta disciplina, protagonistas, sob a orientação docente. As atividades serão direcionadas aos aspectos científicos, tecnológicos, sociais e ambientais da estatística, contribuindo, assim, para a promoção do conhecimento e da cidadania.",
+        "codigo": "EST0088"
+    },
+    {
+        "nome": "PROBABILIDADE E ESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0023 ) OU ( EST0069 E EST0070 ) OU ( FGA0157 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Análise Descritiva, Cálculo de Probabilidades, Variáveis Aleatórias Discretas, Variáveis Aleatórias Contínuas, Variáveis Aleatórias Multidimensionais, Noções de Amostragem e Estimação, Testes de Hipóteses.",
+        "codigo": "EST0022"
+    },
+    {
+        "nome": "PROBABILIDADE E ESTATÍSTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0025 ) OU ( MAT0022 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0022 ) OU ( EST0069 E EST0070 ) OU ( FGA0157 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-2 - 2009.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-3 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-4 - 2015.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-5 - 2013.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-6 - 2009.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-4 - 2015.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-5 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-2 - 2013.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-3 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-3 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AUTOMOTIVA - Bacharelado - Presencial - D",
+                "curriculo": "6297/-3 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AUTOMOTIVA - Bacharelado - Presencial - D",
+                "curriculo": "6297/-4 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AUTOMOTIVA - Bacharelado - Presencial - D",
+                "curriculo": "6297/-5 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1741/-2 - 2009.2",
+                "data_vigencia": "2012.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-2 - 2014.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-3 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/-3 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA QUIMICA - Bacharelado - Presencial - D",
+                "curriculo": "60844/1 - 2015.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA QUIMICA - Bacharelado - Presencial - D",
+                "curriculo": "60844/-2 - 2012.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/1 - 2018.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/-2 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AUTOMOTIVA - Bacharelado - Presencial - D",
+                "curriculo": "6297/-2 - 2015.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1741/1 - 2016.1",
+                "data_vigencia": "2012.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/1 - 2016.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/1 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/1 - 2018.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/-2 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-3 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/1 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/1 - 2018.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-2 - 2017.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-3 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/1 - 2018.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-2 - 2016.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0196 ) OU ( ECO0197 ) OU ( EST0061 ) )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "2017.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA AUTOMOTIVA - Bacharelado - Presencial - D",
+                "curriculo": "6297/1 - 2018.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-2 - 2018.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( EST0070 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0157 ) ) OU ( EST0022 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/1 - 2019.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Análise Descritiva, Cálculo de Probabilidades, Variáveis Aleatórias Discretas, Variáveis Aleatórias Contínuas, Variáveis Aleatórias Multidimensionais, Noções de Amostragem e Estimação, Testes de Hipóteses.",
+        "codigo": "EST0023"
+    },
+    {
+        "nome": "PROBABILIDADE E ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0023 ) OU ( EST0022 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Nesta disciplina espera-se que o aluno seja capaz de aplicar e compreender questões relativas a teste para igualdade de médias de duas populações normais, testes para a variância e igualdade de proporções, inferência para várias populações, análise de aderência e associação e regressão linear simples. Em tópicos adicionais o professor poderá estimular o estudo de regressão linear múltipla e outros assuntos associados à teoria estatística que, porventura, julgue necessários de acordo com o tempo e a turma.",
+        "codigo": "EST0083"
+    },
+    {
+        "nome": "PROCESSOS ESTOCASTICOS",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0076 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "TEOREMAS  DE  LIMITES  -  ESPERANCAS E  DISTRIBUICOES  CONDICIONADAS PROCESSOS ESTOCASTICOS - PROCESSOS  ESTACIONARIOS -  CADEIAS DE  MARKOV EQUACOES DE CHAPMAN - KOLMOGOROV - PROCESSOS DE POISSON E DE  RAMIFICA- CAO - MODELOS  EXPONENCIAIS  -  GENERALIZACAO  DE  ESPACOS  DE  ESTADOS TEORIA DE RENOVACAO - APLICACOES.",
+        "codigo": "EST0048"
+    },
+    {
+        "nome": "PROGRAMAS - PRODUTO EM ESTATISTICA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "NOCOES GERAIS DE COMPUTADOR DIGITAL. PRINCIPAIS LINGUAGENS CIENTIFI- CAS. PRINCIPAIS PROGRAMAS-PRODUTO EM ESTATISTICA E SUA UTILIZACAO.",
+        "codigo": "EST0078"
+    },
+    {
+        "nome": "TECNICAS DE AMOSTRAGEM",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( MAT0075 E EST0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Amostra Aleatória simples, estratificada, sistemática e por conglomerados. Probabilidades desiguais de seleção. Variáveis auxiliares. Aplicações.",
+        "codigo": "EST0036"
+    },
+    {
+        "nome": "TÉCNICAS DE AMOSTRAGEM 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( EST0036 )",
+        "co_requisitos": "( EST0038 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Dados amostrais complexos. Modelos estatísticos na estimação de variância devida a não-resposta e imputação. Identificação de outliers em pesquisas amostrais. Amostragem adaptada.  Laboratório e utilização de aplicativos específicos.",
+        "codigo": "EST0006"
+    },
+    {
+        "nome": "TEORIA DA RESPOSTA AO ÍTEM",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Teoria Clássica. Modelos de Teoria da Resposta ao Item (TRI) para itens dicotômicos. Modelos para itens politômicos. Métodos de estimação dos parâmetros dos modelos via Máxima verossimilhança, Métodos de quadratura, Método Bayesiano. Funcionamento diferencial do item (DIF). Testes adaptativos computadorizados (CAT). Aplicações e métodos computacionais para TRI. Tópicos Adicionais.",
+        "codigo": "EST0014"
+    },
+    {
+        "nome": "TÓPICOS EM CONSULTORIA",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0038 E EST0042 E EST0036 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Leituras complementares sobre estatística aplicada a consultoria, discussão de projetos e estudos de caso propostos pelo professor, redação técnica e produção de relatórios. Discussão sobre artigos gerais, consultoria estatística, tópicos em história da estatística e ciência de dados.",
+        "codigo": "EST0082"
+    },
+    {
+        "nome": "TÓPICOS EM ESTATÍSTICA 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos em Estatística. Ementa divulgada na ocasião da oferta da disciplina. Uma palavra-chave é inserida na Lista de Oferta para caracterizar o assunto principal da disciplina.",
+        "codigo": "EST0015"
+    },
+    {
+        "nome": "TÓPICOS EM ESTATÍSTICA 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0075 ) OU ( EST0076 )",
+        "equivalencias_especificas": [],
+        "ementa": "ópicos em Estatística. Ementa divulgada na ocasião da oferta da disciplina. Uma palavra-chave é inserida na Lista de Oferta para caracterizar o assunto principal da disciplina.",
+        "codigo": "EST0077"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0079 ) OU ( EST0080 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0079 OU EST0080 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0079 OU EST0080 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0079 OU EST0080 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0079 OU EST0080 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O Estágio Supervisionado 1 consiste em definir um problema relevante em Estatística, na elaboração de uma proposta de projeto para resolvê-lo, e iniciar o desenvolvimento do mesmo, incluindo, quando for o caso, a coleta de dados.",
+        "codigo": "EST0081"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 E EST0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0065 ) OU ( EST0066 ) OU ( EST0067 )",
+        "equivalencias_especificas": [],
+        "ementa": "O TCC 2 consiste no desenvolvimento e conclusão do projeto já proposto e aprovado em TCC 1, sob orientação de professores do Departamento (de Estatística).",
+        "codigo": "EST0123"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO ESTATÍSTICA ",
+        "pre_requisitos": "( ( EST0036 E EST0038 E EST0042 E EST0081 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EST0065 ) OU ( EST0066 ) OU ( EST0123 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0065 OU EST0066 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0065 OU EST0066 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0065 OU EST0066 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0058 ) ) OU ( EST0065 OU EST0066 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "1974.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O TCC 2 consiste no desenvolvimento e conclusão do projeto já proposto e aprovado em Estágio Supervisionado 1, sob orientação de professores do Departamento (de Estatística).",
+        "codigo": "EST0067"
+    }
+]

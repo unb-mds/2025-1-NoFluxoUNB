@@ -1,0 +1,688 @@
+[
+    {
+        "nome": "CIÊNCIAS SOCIAIS LATINO-AMERICANAS 1",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "ELA0117",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como objetivo apresentar as ciências sociais latino-americanas e caribenhas desde uma perspectiva histórica. A disciplina busca sistematizar e avaliar as principais contribuições e debates das ciências sociais latino-americanas e caribenhas desde fins do século XIX até meados do século XX. Em seu processo de formação e desenvolvimento as ciências sociais da região têm três principais fontes de inspiração: o esforço de compreensão da situação social, política e econômica das sociedades latino-americanas no contexto das independências; a busca de novas orientações para atuação social e política; e as ideias positivistas, liberais e nacionalistas. Este período é marcado pelos esforços interpretativos “ensaístas”, mas que ensejam análises profundas sobre a complexa realidade latino-americana e caribenha. São paradigmáticas as produções sobre: progresso, positivismo, civilização, arielismo, nacionalismo, identidade, raça, anarquismo, socialismo e liberalismo.",
+        "codigo": "ELA0014"
+    },
+    {
+        "nome": "CULTURA E IDENTIDADE NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ELA0002 )",
+        "equivalencias_especificas": [],
+        "ementa": "A presente disciplina está voltada para o estudo da cultura, identidade e etnicidade na qualidade de conceitos centrais para a compreensão das múltiplas situações, processos e dinâmicas socioculturais nas Américas. A pluralidade étnica e as estruturas colonialistas de subordinação serão tratadas a partir da consideração de estudos empíricos em contextos específicos: regiões de fronteira, movimentos sociais, movimentos nacionalistas, áreas culturais ou etnográficas, instituições, ou processos políticos nas Américas.",
+        "codigo": "ELA0003"
+    },
+    {
+        "nome": "ESTUDOS COMPARADOS SOBRE AS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ( SOL0042 ) OU ( DAN0022 E ELA0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O objetivo da disciplina é introduzir os alunos à metodologia comparada nas ciências sociais e apresentá-los a exemplos recentes de estudos comparados enfocando assuntos contemporâneas relacionados a cultura, identidade, sociedade e política nas Américas. Em sua primeira parte, o curso discute diferentes abordagens sobre os estudos comparados, diferenciando, inicialmente, o método comparado do experimental, estatístico, e estudo de caso. Em seguida, discutem-se variações nos estilos de se fazer comparação nas ciências sociais, resultando em desenhos de pesquisa variados. Por último, serão lidos exemplos de pesquisas comparadas nas Américas enfocando temas contemporâneos.",
+        "codigo": "ELA0010"
+    },
+    {
+        "nome": "INTRODUÇÃO À METODOLOGIA DAS CIÊNCIAS SOCIAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ( SOL0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( SOL0036 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-2 - 2019.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-3 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-2 - 2019.1",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-4 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-5 - 2016.1",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-5 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/-3 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/1 - 2020.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/-2 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-6 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-2 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-2 - 2018.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-5 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-7 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/-2 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/1 - 2018.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-5 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-7 - 2005.1",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-4 - 2016.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-2 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-7 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/1 - 2019.2",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-4 - 2016.2",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-4 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-5 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-7 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-4 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-3 - 2017.2",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-4 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-3 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/-3 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-3 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0196 OU ADM0197 OU ADM0198 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-4 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-5 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-6 - 2012.2",
+                "data_vigencia": "2010.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-6 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/-4 - 1997.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-3 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-6 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-5 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0156 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-6 - 2012.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) ) OU ( SOL0036 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina Introdução à Metodologia das Ciências Sociais (IMCS) oferece um quadro geral das idéias relativas à natureza das ciências sociais e, nesse sentido, gira em torno da questão da identidade epistemológica desse campo de investigação. Numa primeira etapa, serão examinadas algumas abordagens em filosofia da ciência, assim como elementos de lógica simbólica. Interessa aqui introduzir conceitos e distinções que são básicos numa reflexão acerca da natureza do conhecimento científico concebido em termos gerais. Numa segunda etapa, fazendo uso dos esclarecimentos lógicos e metodológicos já realizados, será examinada a idéia de uma ciência empírica dos fenômenos sociais tal como ela aparece nos pais fundadores da moderna sociologia, assim como em autores mais recentes. Utilizaremos então, como fio condutor da análise, o debate já clássico mas ainda de enorme atualidade em torno da questão da possibilidade, ou não, de pensarmos a investigação social à luz de uma idéia unificada de ciência, elaborada com base na experiência das ciências naturais.",
+        "codigo": "ELA0013"
+    },
+    {
+        "nome": "INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS LATINO-AMERICANAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina introduz a discussão sobre a natureza e a especificidade da construção do conhecimento científico nas Ciências Sociais na perspectiva das Ciências Sociais latino-americanas. Os usos da ciência, a formação do campo científico, as principais matrizes teórico-metodológicas e os procedimentos básicos de pesquisa nas Ciências Sociais são enfocados especialmente a partir de contribuições desde a América Latina. O objetivo é despertar o interesse pela pesquisa social e subsidiar uma atitude crítica e reflexiva quanto aos alcances, limites e desafios do conhecimento científico, tendo-se como referência abordagens que elegem como objeto realidades sociais, políticas, econômicas e culturais na América Latina e que consideram o papel do Brasil na região. À luz dos processos mais amplos do desenvolvimento e da consolidação da Ciência moderna, apresenta-se uma contextualização histórico-sociológica das Ciências Sociais Latino-Americanas, do séc. XIX à atualidade, no início da terceira década do século XXI, com uma síntese das principais problemáticas, agendas temáticas, questões epistemológicas, paradigmas estruturantes e redes intelectuais que as distinguem. Enfatizam-se os debates relativos às Ciências Sociais na América Latina, na periferia do sistema mundial, e acerca da importância da América Latina e dos países latino-americanos e caribenhos nas Ciências Sociais fora da região. São analisadas as implicações do avanço dos “Estudos de Área” para a produção do conhecimento sobre a região, desde meados do século XX, pari passu à internacionalização nortecêntrica da Ciência e ao acirramento do imperialismo e da ocidentalização do mundo.",
+        "codigo": "ELA0117"
+    },
+    {
+        "nome": "MONITORIA EM CIÊNCIAS SOCIAIS LATINO-AMERICANAS 1",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0124"
+    },
+    {
+        "nome": "MONITORIA EM CULTURA E IDENTIDADE NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0121"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS COMPARADOS SOBRE AS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0120"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À METODOLOGIA DAS CIÊNCIAS SOCIAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0123"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS LATINO-AMERICANAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0117 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0125"
+    },
+    {
+        "nome": "MONITORIA EM PENSAMENTO SOCIAL E POLÍTICO NA AMÉRICA LATINA",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0118"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E ESTADO NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0122"
+    },
+    {
+        "nome": "MONITORIA EM PROCESSOS DE DESENVOLVIMENTO NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0131"
+    },
+    {
+        "nome": "MONITORIA EM SOCIEDADE, CULTURA E POLÍTICA NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0133"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS DE METODOLOGIA QUALITATIVA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0119"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS DE METODOLOGIA QUANTITATIVA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ELA0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ELA0128"
+    },
+    {
+        "nome": "PENSAMENTO SOCIAL E POLÍTICO NA AMÉRICA LATINA",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ( SOL0042 ) OU ( DAN0022 E ELA0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A presente disciplina busca oferecer ao estudante de Graduação em Ciências Sociais uma observação acerca do Pensamento Social e Político Latino-americano. A disciplina tem como objetivo apresentar a historicidade e a diversidade de pensamentos e teorias produzidas sobre a realidade latino-americana. Um olhar de longa duração que evidencia uma solida e ampla trajetória de produção intelectual na região, evidencias de uma identidade. Estudos, observações, ensaios, pesquisas, centradas na analises da realidade local, regional e global, em tempos e espaços específicos, com temas e centralidades próprias.",
+        "codigo": "ELA0008"
+    },
+    {
+        "nome": "POLÍTICA E ESTADO NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ELA0006 )",
+        "equivalencias_especificas": [],
+        "ementa": "A presente disciplina busca oferecer a estudantes de graduação em ciências sociais um curso de formação em que temas e teorias serão abordados levando a um entendimento amplo da política e dos estados americanos, com ênfase na comparação. Temas como democracia e comportamento político, ideologias e cultura política, instituições e políticas públicas, sociedade civil, movimentos sociais e cidadania serão estudados com vistas a entender os diferentes autores e teorias em seus contextos e limites.",
+        "codigo": "ELA0007"
+    },
+    {
+        "nome": "PROCESSOS DE DESENVOLVIMENTO NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ( SOL0042 ) OU ( DAN0022 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A presente disciplina está voltada para o estudo do “desenvolvimento” nas Américas, a partir de uma analise sócio-histórica do tema desenvolvimento. O curso abordará fenômenos associados ao processo de diferenciação e de mudanças sociais através da tradição conhecida como “sociologia do desenvolvimento”. O programa será realizado por meio de estudos teóricos e de caso, envolvendo interfaces com os temas mais relevantes do cenário contemporâneo: crescimento econômico pobreza/exclusão social trabalho/emprego gênero desenvolvimento sustentável etnodesenvolvimento globalização. No contexto desses estudos e em consonância com as especificidades do programa acadêmico-institucional do CEPPAC, pretende-se avançar nas discussões “inter”, “trans” e “intra” disciplinares. Na mesma direção, pretende-se envolver perspectivas comparadas, com maior enfoque nas Américas, e de modo a apreender as interconexões entre macro e micro, estrutura e ação, sociedade e sujeito nos processos analisados. “Desenvolvimento” e “processos de desenvolvimento” serão debatidos em múltiplas dimensões, com ênfase na diversidade de visões, nas continuidades, tensões e contradições e rupturas decorrentes.",
+        "codigo": "ELA0009"
+    },
+    {
+        "nome": "SOCIEDADE, CULTURA E POLÍTICA NAS AMÉRICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "( ( SOL0042 ) OU ( DAN0022 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ELA0011 )",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina busca discutir algumas das problemáticas que distinguem o continente americano, seja por serem relevantes em nações ou regiões específicas, seja porque promovem elos de solidariedade ou de conflito no âmbito continental. A disciplina busca também uma prática de ensino interdisciplinar, que discuta conceitos e dados utilizados pelas Ciências Sociais e outras áreas de conhecimento. Sob esse aspecto, os conceitos de sociedade, cultura e política se constituem em meios de aproximação às problemáticas continentais. Espera-se que essa estratégia permita ao estudante não apenas se familiarizar com as temáticas predefinidas como culturais, sociais e políticas, mas que também propicie a visualização da complexidade das Américas.",
+        "codigo": "ELA0012"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS DE METODOLOGIA QUALITATIVA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Seminário sobre metodologias qualitativas de pesquisa com o objetivo de apresentar e debater a relação entre teorias e métodos nas Ciências Sociais.  Busca-se uma discussão crítica sobre a metodologia nas Ciências Sociais a partir de autores clássicos enfatizando os limites disciplinares e o potencial interdisciplinar das Ciências Sociais.",
+        "codigo": "ELA0001"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS DE METODOLOGIA QUANTITATIVA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Seminário sobre metodologias quantitativas de pesquisa com o objetivo de apresentar a relação entre técnicas e métodos de pesquisa nas Ciências Sociais.  Busca-se uma discussão crítica sobre a metodologia quantitativa das Ciências Sociais enfatizando os limites disciplinares e o potencial interdisciplinar das Ciências Sociais.",
+        "codigo": "ELA0004"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS DE TEORIA SOCIOLÓGICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE ESTUDOS LATINO AMERICANO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Seminário avançado sobre um autor ou autores contemporâneos na construção da teoria sociológica. As contribuições teóricas e metodológicas da Sociologia no quadro mais geral das Ciências Sociais. Aprofundamento de aspectos metodológicos, teóricos e críticos sobre obras clássicas na Sociologia e nas Ciências Sociais que contribuam para a compreensão das problemáticas sociais, políticas e culturais nas Américas.",
+        "codigo": "DPG0706"
+    }
+]

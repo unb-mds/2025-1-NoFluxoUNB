@@ -1,0 +1,2549 @@
+[
+    {
+        "nome": "ANÁLISE DO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0096 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0097"
+    },
+    {
+        "nome": "ANÁLISE DO JORNALISMO AUDIOVISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( DAP0096 ) OU ( COM0129 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DAP0135 )",
+        "equivalencias_especificas": [],
+        "ementa": "Uma análise mais aprofundada da produção jornalística no rádio e na televisão, mostrando os seus vários aspectos. A produção, os critérios de seleção das notícias, os aspectos éticos, os interesses políticos e econômicos que podem interferir no noticiário.",
+        "codigo": "JOR0105"
+    },
+    {
+        "nome": "ANALISE E OPINIAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0044 ) OU ( JOR0032 )",
+        "equivalencias_especificas": [],
+        "ementa": "ANALISE DE EDITORIAIS, COLUNAS E  ARTIGOS ASSINADOS.  CARACTERISTICASDO TEXTO ANALITICO E OPINATIVO, A QUESTAO DA OBJETIVIDADE VERSUS IDEOLO-GIA. PRATICA DE TEXTOS OPINATIVOS E ANALITICOS.  ABSTRACAO E  TEORIZACAONA IMPRESA.",
+        "codigo": "JOR0033"
+    },
+    {
+        "nome": "APURAÇÃO E TEXTO JORNALISTICO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0080 OU JOR0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0137 OU JOR0142 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( JOR0068 OU JOR0069 OU JOR0070 ) )",
+                "matriz_curricular": "COMUNICACAO SOCIAL - JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "8311/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( JOR0068 OU JOR0069 OU JOR0070 ) )",
+                "matriz_curricular": "COMUNICACAO SOCIAL - JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "8311/-3 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( JOR0068 OU JOR0069 OU JOR0070 ) )",
+                "matriz_curricular": "COMUNICACAO SOCIAL - JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "8311/1 - 2016.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( JOR0068 OU JOR0069 OU JOR0070 ) )",
+                "matriz_curricular": "JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "850/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( JOR0068 OU JOR0069 OU JOR0070 ) )",
+                "matriz_curricular": "JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "850/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( JOR0068 OU JOR0069 OU JOR0070 ) )",
+                "matriz_curricular": "JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "850/-3 - 2016.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "JOR0005"
+    },
+    {
+        "nome": "APURAÇÃO E TEXTO JORNALISTICO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0005 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0008"
+    },
+    {
+        "nome": "APURAÇÃO JORNALÍSTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0141 OU JOR0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamentos e técnicas da apuração jornalística. Seleção de fatos, localização de informações e elaboração de entrevistas com fontes jornalísticas. Uso de documentos, bancos de dados, internet e outras ferramentas de apuração jornalística. \n\n O objetivo é capacitar o/a estudante para realizar apurações jornalísticas de forma precisa e ética, com a utilização de diferentes ferramentas de captação de informação e a transformação dessa informação em texto jornalístico.",
+        "codigo": "JOR0142"
+    },
+    {
+        "nome": "ASSESSORIA DE COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 ) OU ( JOR0046 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0066 )",
+        "equivalencias_especificas": [],
+        "ementa": "O que é e como funciona uma assessoria de comunicação. Quais o seu papel,  objetivos, formas de atuação. As assessorias de entidades públicas e privadas, a questão  ética, a relação com os meios de Comunicação.",
+        "codigo": "JOR0067"
+    },
+    {
+        "nome": "ASSESSORIA DE COMUNICAÇÃO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0024"
+    },
+    {
+        "nome": "ASSESSORIA DE COMUNICAÇÃO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0025"
+    },
+    {
+        "nome": "CAMPUS 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 E JOR0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0081 )",
+        "equivalencias_especificas": [],
+        "ementa": "A prática do jornalismo em laboratório. Exercícios práticos referentes a pauta, apuração, pesquisa, redação, edição e revisão de textos e o processo de produção fotográfica, destinados a veículos impressos e on line. Avaliação da produção.",
+        "codigo": "JOR0082"
+    },
+    {
+        "nome": "CAMPUS 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0049 E JOR0082 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Segunda fase da prática de jornalismo em laboratório, voltado para veículos impressos e on line. Todas as etapas da produção jornalística, com produção de pauta, apuração, pesquisa, redação, edição e revisão de textos e o processo de produção fotográfica.",
+        "codigo": "JOR0071"
+    },
+    {
+        "nome": "CAMPUS MULTIMÍDIA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0009 E JOR0006 E JOR0015 E JOR0007 OU JOR0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0010"
+    },
+    {
+        "nome": "CAMPUS ON LINE",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0031 E JOR0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0077"
+    },
+    {
+        "nome": "COMUNICAÇÃO COMUNITÁRIA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) OU ( COM0130 ) OU ( SER0024 ) OU ( MUS0089 ) OU ( POL0011 ) OU ( SOL0042 ) OU ( DAN0022 ) OU ( JOR0078 ) OU ( MAT0025 ) OU ( FUP0286 ) OU ( DSC0037 ) OU ( FIL0069 ) OU ( CET0038 ) OU ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Comunicação e Comunidade Comunicação e Cultura popular Comunicação e participação social Comunicação e Mobilização Social Comunicação e Desenvolvimento Humano Educação para e pela Comunicação Comunicação, inclusão e emancipação social Comunicação e Novos Movimentos  Sociais  Comunicação de Massa versus Comunicação Comunitária Métodos e Técnicas de Comunicação Comunitária: jornal, revista, rádio, tevê e internet.",
+        "codigo": "JOR0083"
+    },
+    {
+        "nome": "COMUNICAÇÃO COMUNITÁRIA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0083 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0128"
+    },
+    {
+        "nome": "COMUNICAÇÃO E POLÍTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) OU ( COM0130 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo da relação entre os meios de comunicação e os processos políticos e eleitorais contemporâneos. As transformações do poder político na era da comunicação eletrônica. As pesquisas sobre conteúdo político da mídia e de sua recepção pela audiência .As funções do agendamento e enquadramento da mídia. Meios de comunicação e democracia.",
+        "codigo": "JOR0095"
+    },
+    {
+        "nome": "COMUNICAÇÃO E POLÍTICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0095 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0127"
+    },
+    {
+        "nome": "COMUNICAÇÃO E PROCESSOS DE INTERPRETAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0058 ) OU ( JOR0141 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => OFICINA   DE   EXERCÍCIO  DE INTERPRETAÇÃO DOS PROCESSOS E DOSPRODUTOS  CULTURAIS,   ESPECIALMENTE   DA    MENSAGENS   DOS    MEIOSDE COMUNICAÇÃO CONTEMPORÂNEOS. ## => PRÁTICA  DE  IDENTIFICAÇÃO DE SIGNIFICADOS  E DE SENTIDOS LATEN-TES NAS IMAGENS SIMBÓLICAS, NAS FORMAS E NAS PRÁTICAS  IDEOLÓGICASNA ATUALIDADE.",
+        "codigo": "JOR0073"
+    },
+    {
+        "nome": "COMUNICAÇÃO E UNIVERSIDADE",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( COM0127 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Noções básicas e conceitos: Comunicação e Universidade origens e evolução as primeiras academias as primeiras repúblicas as universidades europeias a universidade na América Latina a universidade no Brasil a Reforma Universitária ensinos público e privado formas de democratização do acesso ao ensino superior a Universidade de Brasília: modelo, história, crises e expansão A indissociabilidade entre ensino, pesquisa e extensão. O papel dos movimentos estudantis. A relação entre Ciência, Pesquisa e Comunicação.",
+        "codigo": "JOR0079"
+    },
+    {
+        "nome": "COMUNICAÇÃO, INFORMAÇÃO E COMPUTAÇÃO : FUNDAMENTOS E APLICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0001"
+    },
+    {
+        "nome": "COMUNICAÇÃO INSTITUCIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A Comunicação Institucional - de empresas, públicas e privadas, organizações e governos.  O seu papel, objetivos. Destaque para a comunicação no poder público, na Capital Federal .",
+        "codigo": "JOR0093"
+    },
+    {
+        "nome": "CRÍTICA DA MÍDIA EM COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0082 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0131"
+    },
+    {
+        "nome": "DIREITO DO PÚBLICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0094"
+    },
+    {
+        "nome": "EDIÇÃO DE IMAGEM EM REVISTAS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0049 ) OU ( DAP0125 ) OU ( COM0138 ) OU ( DAP0107 E DAP0108 E DAP0111 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0133"
+    },
+    {
+        "nome": "EDIÇÃO DE TEXTO EM REVISTAS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0080 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0126"
+    },
+    {
+        "nome": "EDICAO JORNALISTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0080 )",
+        "equivalencias_especificas": [],
+        "ementa": "AS VARIAS ETAPAS DE PRODUCAO DE UMA  PUBLICACAO. A DEFINICAO DO  CON-TEUDO EDITORIAL, DISCUSSAO E ELABORACAO DA PAUTA PARA EDITORIAIS PREVIA-MENTE DEFINIDAS FONTES DE INFORMACAO,  APURACAO DAS  REPORTAGENS, ENTRE-VISTAS E REDACAO  DOS  TEXTOS,  EDICAO DO MATERIAL DEFINICAO DE  PRIORI-DADES, DESTAQUES, ESPACOS, PROGRAMACAO VISUAL  DAS PAGINAS) E FECHAMENTO(COPIDESQUE, ELABORACAO DE TITULOS, CHAMADAS LEGENDAS).",
+        "codigo": "JOR0047"
+    },
+    {
+        "nome": "ELABORACAO DE PROJETOS EM COMUNICACAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "ELABORACAO DE PROJETO PARA DESENVOLVIMENTO  POSTERIOR  (NA DISCIPLINA\"PROJETOS EXPERIMENTAIS\"). DEFINICAO DE TEMAS, DE PROCEDIMENTO, DE OBJE-TIVOS E DE CRONOGRAMA. ESCOLHA DE PROFESSOR ORIENTADOR.",
+        "codigo": "JOR0076"
+    },
+    {
+        "nome": "EMPREENDEDORISMO E GESTÃO EM COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0078 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( COM0131 ) OU ( JOR0011 ) OU ( FAC0032 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAC0032 ) OU ( COM0131 ) OU ( JOR0011 ) )",
+                "matriz_curricular": "JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "850/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "JOR0012"
+    },
+    {
+        "nome": "ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0009 ) E ( JOR0006 ) E ( JOR0015 ) E ( JOR0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0026 )",
+        "equivalencias_especificas": [],
+        "ementa": "A prática do estágio obrigatório e supervisionado em organizações públicas, privadas e do terceiro setor, atividade prevista no Projeto Pedagógico do curso de Jornalismo, como forma de complementar a formação acadêmica discente.",
+        "codigo": "JOR0189"
+    },
+    {
+        "nome": "ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0009 E JOR0006 E JOR0015 E JOR0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0189 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0026"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0109 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0055"
+    },
+    {
+        "nome": "ESTÉTICA DA COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O  conceito de estética e de arte. Estética e reprodutibilidade técnica. Comunicação e Arte. Crítica da cultura e da arte.",
+        "codigo": "JOR0064"
+    },
+    {
+        "nome": "ÉTICA E JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0080 OU JOR0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0004"
+    },
+    {
+        "nome": "ETICA E LEGISLACAO EM COMUNICACAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0115 )",
+        "equivalencias_especificas": [],
+        "ementa": "CFE: (ETICA E LEGISLACAO PUBLICITARIA): APRECIACAO DAS  MENSAGENS  DEPUBLICIDADE E PROPAGANA, ANTE  SEUS  REFLEXOS  POSITIVOS OU NEGATIVOS EMRE.ACAO A PESSOAS, GRUPOS SOCIAIS E AO PUBLICO EM  GERAL. ESTUDO DA  LE-GISLACAO VIGENTE E APLICAVEL EM MATERIA DE PUBLICIDADE E PROPAGANDA.",
+        "codigo": "JOR0056"
+    },
+    {
+        "nome": "ÉTICA NA COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( COM0127 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Noções básicas e conceitos: moral, decoro, ética e deontologia. Éticas da convicção e da responsabilidade. Ética na Comunicação (setores corporativos, patronais e trabalhistas). Ética e utilitarismo. Justificativas éticas. Os códigos de ética no campo da Comunicação. Responsabilidade social e cidadania. Ética e cidadania planetária: antropoética e holoética.",
+        "codigo": "JOR0062"
+    },
+    {
+        "nome": "FOTOGRAFIA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( DAP0079 E JOR0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0044"
+    },
+    {
+        "nome": "FOTOJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( DAP0079 ) OU ( JOR0078 ) OU ( JOR0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0058 ) OU ( JOR0038 )",
+        "equivalencias_especificas": [],
+        "ementa": "TECNICAS DE REGISTRO FOTOGRAFICOS. OPERACAO DE  CAMARA  FOTOGRAFICA EDE SEUS ACESSORIOS. FILTROS E  LENTES ESPECIAIS. RECURSOS  TECNICOS  DASCAMERAS PROFISSIONAIS. OPERACOES DE  LABORATORIO. FOTOGRAFIA DE  EVENTOSJORNALISTICOS COM ILUMINACAO  NATURAL. FLASH E  LAMPADAS, FILME  PRETO EBRANCO E  COLORIDO.  RELACIONAMENTO DO  REPORTER COM O FATO E O VEICULO.UTILIZACAO DE TELEOBJETIVAS, GRANDES ANGULARES, MOTORES, FLASHES, LAMPA-DAS E ILUMINACOES E AVAL DE REPRODUCAO. AUDIOVISUAL JORNALISTICO.",
+        "codigo": "JOR0039"
+    },
+    {
+        "nome": "HISTÓRIA DA COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0129 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0130"
+    },
+    {
+        "nome": "HISTORIA DA IMPRENSA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0087 )",
+        "equivalencias_especificas": [],
+        "ementa": "HISTORICO DE IMPRENSA NO BRASIL DOS PANFLETOS A IMPRENSA EMPRESARIAL.O ADVENTO  DO RADIO E DA  TELEVISAO. O PARELELO  ENTRO A  HISTORIA  E  ODESENVOLVIMENTO DOS MEIOS DE COMUNICACAO E OS ACONTECIMENTOS  POLITICOS.TRABALHO DOS ALUNOS. PESQUISA A RESPEITO DA HISTORIA DOS PRINCIPAIS VEI-CULOS E SUA SITUACAO ATUAL.",
+        "codigo": "JOR0050"
+    },
+    {
+        "nome": "HISTÓRIA DO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0002"
+    },
+    {
+        "nome": "IMPRENSA E SOCIEDADE",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0059 ) OU ( JOR0040 )",
+        "equivalencias_especificas": [],
+        "ementa": "O PAPEL DA IMPRENSA DIANTE DA SOCIEDADE. A RESPONSABILIDADE NA  DIFU-SAO DA  OPINIAO  PUBLICA E NA  FORMACAO  DESSA OPINIA. A DIVULGACAO  DOSFATOS E INFORMACOES  QUE INTERESSAM  A SOCIEDADE, CONSIDERANDO  OS  SEUSDIVERSOS ASPECTOS ETICOS.",
+        "codigo": "JOR0041"
+    },
+    {
+        "nome": "IMPRENSA SINDICAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0060"
+    },
+    {
+        "nome": "INTRODUÇÃO A COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "O que é comunicação. O processo da comunicação. Formação e Exercício Profissional nas áreas de Comunicação Social.",
+        "codigo": "JOR0078"
+    },
+    {
+        "nome": "INTRODUÇÃO AO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( COM0131 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "O que é jornalismo. Função social do jornalismo, o conceito de notícia, o processo de produção da notícia. Fundamentos epistemológicos para uma teoria do jornalismo.",
+        "codigo": "JOR0080"
+    },
+    {
+        "nome": "JORNAL CAMPUS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0005 OU JOR0142 ) E ( JOR0003 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0027"
+    },
+    {
+        "nome": "JORNALISMO AMBIENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0142 OU JOR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Definição, história e importância do jornalismo ambiental. As novas características e a ampliação do jornalismo ambiental frente à crise climática que atinge o planeta nas últimas décadas. A prática do jornalismo ambiental: produção de notícias e reportagens para os distitintos meios de comunicação.",
+        "codigo": "JOR0144"
+    },
+    {
+        "nome": "JORNALISMO CIENTÍFICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0142 OU JOR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Definição, história e importância do jornalismo científico no conjunto dos meios de comunicação. A identificação de fontes diversas para o exercício do jornalismo científico. A prática do jornalismo científico: produção de notícias, reportagens e edição de textos  para distintos veículos",
+        "codigo": "JOR0143"
+    },
+    {
+        "nome": "JORNALISMO CORPORATIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As atividades profissionais na área jornalística de empresas privadas, entidades públicas  e instituições representativas de classe. As principais características.  As ações, produtos e veículos destinados aos públicos interno e externo.",
+        "codigo": "JOR0101"
+    },
+    {
+        "nome": "JORNALISMO CULTURAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0013"
+    },
+    {
+        "nome": "JORNALISMO DE REVISTA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0046 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0057 )",
+        "equivalencias_especificas": [],
+        "ementa": "\" A ESPECIFICIDADE DO  PRATICO  NAS  REVISTAS:  O CONTEUDO, O TEXTO OFORMATO, A DIAGRAMACAO. A FOTOGRAFIA O USO DE CORES. ANALISE COMPARATIVAENTRE A REVISTA E O JORNAL. O PANORAMA DO MERCADO BRASILEIRO DE  REVISTAE AS REVISTAS ESPECIALISADAS. ANALISE E PRATICA DE TEXTOS DE REVISTAS\".",
+        "codigo": "JOR0037"
+    },
+    {
+        "nome": "JORNALISMO ECONÔMICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As estruturas básicas do Executivo e Legislativo que envolvem o noticiário econômico. A especificidade do jornalismo econômico e de negócios, voltado para a cobertura das políticas governamentais e do setor privado. A cobertura diária na Capital da República, os espaços ocupados, os critérios de seleção as notícias, as colunas especializadas",
+        "codigo": "JOR0098"
+    },
+    {
+        "nome": "JORNALISMO EM RÁDIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0137 E JOR0070 ) OU ( JOR0082 ) OU ( JOR0030 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0139"
+    },
+    {
+        "nome": "JORNALISMO EM RÁDIO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0006"
+    },
+    {
+        "nome": "JORNALISMO EM RÁDIO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0014"
+    },
+    {
+        "nome": "JORNALISMO EM TELEVISÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0137 E JOR0070 ) OU ( JOR0054 ) OU ( JOR0030 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0138"
+    },
+    {
+        "nome": "JORNALISMO EM TV 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0015"
+    },
+    {
+        "nome": "JORNALISMO EM TV 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0016"
+    },
+    {
+        "nome": "JORNALISMO EM VEÍCULOS PÚBLICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0142 OU JOR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Definição, história e importância do jornalismo em veículos públicos. As limitações para desenvolvimento do jornalismo em veículos públicos no Brasil. Os principais veículos públicos jornalísticos do país. A prática do jornalismo em veículos públicos: produção de notícias e reportagens para oso diversos meios.",
+        "codigo": "JOR0145"
+    },
+    {
+        "nome": "JORNALISMO E PODER",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0099 )",
+        "equivalencias_especificas": [],
+        "ementa": "O jornalismo que se pratica em larga escala em Brasília junto aos três poderes federais - Executivo, Legislativo e Judiciário. A importância dessa cobertura jornalística para os diversos veículos, as relações entre os jornalistas e as fontes, as questões éticas.",
+        "codigo": "JOR0100"
+    },
+    {
+        "nome": "JORNALISMO ESPECIALIZADO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0037 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0045 )",
+        "equivalencias_especificas": [],
+        "ementa": "Considerando a justificativa apresentada no verso, solicitamos o registro de equivalência de conteúdo de disciplina, informando, a seguir os dados necessários.",
+        "codigo": "JOR0034"
+    },
+    {
+        "nome": "JORNALISMO ESPORTIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0017"
+    },
+    {
+        "nome": "JORNALISMO INTERNACIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0018"
+    },
+    {
+        "nome": "JORNALISMO INVESTIGATIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0019"
+    },
+    {
+        "nome": "JORNALISMO LITERÁRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( TEL0014 OU JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0135"
+    },
+    {
+        "nome": "JORNALISMO LOCAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0020"
+    },
+    {
+        "nome": "JORNALISMO OPINATIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0021"
+    },
+    {
+        "nome": "JORNALISMO POLÍTICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 OU JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A especificidade do jornalismo político, especialmente, na Capital da República. A cobertura diária nos poderes Executivo, Legislativo e Judiciário. Os espaços ocupados por esse noticiário nos jornais, os critérios de seleção as notícias, as colunas políticas.",
+        "codigo": "JOR0110"
+    },
+    {
+        "nome": "LABORATÓRIO CAMPUS REPORTER 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0136"
+    },
+    {
+        "nome": "LEGISLAÇÃO E DIREITO A COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( DAP0170 ) OU ( DAP0171 ) OU ( JOR0090 ) OU ( JOR0091 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "A universalidade dos direitos humanos. Estado, sociedade, e direitos humanos. As gerações dos direitos humanos. Liberdade de expressão, de opinião e de imprensa. O Direito à Comunicação. A Comunicação Social na Constituição Federal. Legislações de imprensa, radiodifusão, televisão por assinatura, publicidade e propaganda, audiovisual e cinema, televisão digital e internet.",
+        "codigo": "JOR0092"
+    },
+    {
+        "nome": "MÉTODOS E TÉCNICAS EM PESQUISA EM COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0133 E FAC0034 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAC0034 ) OU ( ELA0013 E DAN0040 ) OU ( COM0130 E COM0133 E COM0135 E COM0138 E COM0140 E COM0144 ) OU ( COM0133 ) )",
+                "matriz_curricular": "JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "850/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Noções básicas de epistemologia: o conhecimento, a lógicaO conhecimento cientifico: objetividade, método, observação, experimentação, leis e teorias As ciências sociais: a objetividade, o marco teórico, métodos e técnicas de pesquisa Os campos da comunicação: os marcos teóricos, as técnicas de pesquisa mais utilizadas segundo o campo comunicacional Aspectos formais do trabalho acadêmico",
+        "codigo": "JOR0063"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0097 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0270"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DO JORNALISMO AUDIOVISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0105 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0277"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE E OPINIAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0218"
+    },
+    {
+        "nome": "MONITORIA EM APURAÇÃO E TEXTO JORNALISTICO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0169"
+    },
+    {
+        "nome": "MONITORIA EM APURAÇÃO E TEXTO JORNALISTICO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0196"
+    },
+    {
+        "nome": "MONITORIA EM APURAÇÃO JORNALÍSTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0308"
+    },
+    {
+        "nome": "MONITORIA EM ASSESSORIA DE COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0247"
+    },
+    {
+        "nome": "MONITORIA EM ASSESSORIA DE COMUNICAÇÃO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0154"
+    },
+    {
+        "nome": "MONITORIA EM ASSESSORIA DE COMUNICAÇÃO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0155"
+    },
+    {
+        "nome": "MONITORIA EM CAMPUS 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0259"
+    },
+    {
+        "nome": "MONITORIA EM CAMPUS 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0071 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0249"
+    },
+    {
+        "nome": "MONITORIA EM CAMPUS MULTIMÍDIA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0149"
+    },
+    {
+        "nome": "MONITORIA EM CAMPUS ON LINE",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0255"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO COMUNITÁRIA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0164"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO COMUNITÁRIA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0128 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0295"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO E POLÍTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0095 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0269"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO E POLÍTICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0127 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0294"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO E PROCESSOS DE INTERPRETAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0251"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO E UNIVERSIDADE",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0163"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO, INFORMAÇÃO E COMPUTAÇÃO : FUNDAMENTOS E APLICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0146"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO INSTITUCIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0093 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0267"
+    },
+    {
+        "nome": "MONITORIA EM CRÍTICA DA MÍDIA EM COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0131 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0297"
+    },
+    {
+        "nome": "MONITORIA EM DIREITO DO PÚBLICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0094 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0268"
+    },
+    {
+        "nome": "MONITORIA EM EDIÇÃO DE IMAGEM EM REVISTAS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0133 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0299"
+    },
+    {
+        "nome": "MONITORIA EM EDIÇÃO DE TEXTO EM REVISTAS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0293"
+    },
+    {
+        "nome": "MONITORIA EM EDICAO JORNALISTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0229"
+    },
+    {
+        "nome": "MONITORIA EM ELABORACAO DE PROJETOS EM COMUNICACAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0076 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0254"
+    },
+    {
+        "nome": "MONITORIA EM EMPREENDEDORISMO E GESTÃO EM COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0173"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0176"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0055 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0236"
+    },
+    {
+        "nome": "MONITORIA EM ESTÉTICA DA COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0160"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA E JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0148"
+    },
+    {
+        "nome": "MONITORIA EM ETICA E LEGISLACAO EM COMUNICACAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0237"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA NA COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0062 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0159"
+    },
+    {
+        "nome": "MONITORIA EM FOTOGRAFIA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0226"
+    },
+    {
+        "nome": "MONITORIA EM FOTOJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0157"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0130 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0296"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA IMPRENSA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0232"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0147"
+    },
+    {
+        "nome": "MONITORIA EM IMPRENSA E SOCIEDADE",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0223"
+    },
+    {
+        "nome": "MONITORIA EM IMPRENSA SINDICAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0241"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0162"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO AO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0080 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0179"
+    },
+    {
+        "nome": "MONITORIA EM JORNAL CAMPUS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0156"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO AMBIENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0144 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0310"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO CIENTÍFICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0143 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0309"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO CORPORATIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0101 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0273"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO CULTURAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0150"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO DE REVISTA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0221"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO ECONÔMICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0098 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0271"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM RÁDIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0139 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0305"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM RÁDIO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0170"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM RÁDIO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0174"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM TELEVISÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0138 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0304"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM TV 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0151"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM TV 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0152"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO EM VEÍCULOS PÚBLICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0145 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0311"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO E PODER",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0100 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0272"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO ESPECIALIZADO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0219"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO ESPORTIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0204"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO INTERNACIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0166"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO INVESTIGATIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0153"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO LITERÁRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0135 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0187"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO LOCAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0207"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO OPINATIVO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0208"
+    },
+    {
+        "nome": "MONITORIA EM JORNALISMO POLÍTICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0110 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0280"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO CAMPUS REPORTER 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0136 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0188"
+    },
+    {
+        "nome": "MONITORIA EM LEGISLAÇÃO E DIREITO A COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0092 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0181"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS E TÉCNICAS EM PESQUISA EM COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0178"
+    },
+    {
+        "nome": "MONITORIA EM NOTICIA E MERCADOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0230"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA AVANÇADA DE NARRATIVAS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0242"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE DIAGRAMAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0132 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0186"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0261"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0103 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0275"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0104 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0276"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0121 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0289"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 5",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0122 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0290"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 6",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0124 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0291"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO 7",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0125 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0292"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO DIGITAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0117 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0285"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO DIGITAL 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0118 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0286"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO DIGITAL 3",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0119 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0287"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE JORNALISMO DIGITAL 4",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0120 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0288"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE TELEJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0134 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0300"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE TEXTO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0158"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE TEXTO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0250"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE TEXTO-JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0225"
+    },
+    {
+        "nome": "MONITORIA EM OPINIAO PUBLICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0233"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO GRAFICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0231"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO GRÁFICO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0102 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0274"
+    },
+    {
+        "nome": "MONITORIA EM POLITICAS DE COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0161"
+    },
+    {
+        "nome": "MONITORIA EM PRÉ-PROJETO EXPERIMENTAL EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0180"
+    },
+    {
+        "nome": "MONITORIA EM PROCESSOS GRÁFICOS EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0168"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO FINAL EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0112 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0282"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO FINAL EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0140 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0306"
+    },
+    {
+        "nome": "MONITORIA EM PROJETOS EXPERIMENTAIS - JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0220"
+    },
+    {
+        "nome": "MONITORIA EM RADIOJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0235"
+    },
+    {
+        "nome": "MONITORIA EM RADIOJORNALISMO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0087 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0263"
+    },
+    {
+        "nome": "MONITORIA EM REALIDADE BRASILEIRA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0238"
+    },
+    {
+        "nome": "MONITORIA EM REALIDADE REGIONAL EM COMUNICACAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0240"
+    },
+    {
+        "nome": "MONITORIA EM REDACAO DE JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0228"
+    },
+    {
+        "nome": "MONITORIA EM REDACAO PARA PUBLICIDADE IMPRESSA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0234"
+    },
+    {
+        "nome": "MONITORIA EM REPORTAGEM E ENTREVISTA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0217"
+    },
+    {
+        "nome": "MONITORIA EM REPORTAGEM FOTOGRAFICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0253"
+    },
+    {
+        "nome": "MONITORIA EM SOCIOLOGIA DO JORNALISMO: ENSAIO DE COMPARAÇÃO INTERNACIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0111 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0281"
+    },
+    {
+        "nome": "MONITORIA EM TECNICAS DE COMUNICACAO DIRIGIDA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0224"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICAS DE JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0248"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICAS DE RÁDIO E TV",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0303"
+    },
+    {
+        "nome": "MONITORIA EM TECNOLOGIA DE COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0089 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0165"
+    },
+    {
+        "nome": "MONITORIA EM TELEJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0216"
+    },
+    {
+        "nome": "MONITORIA EM TELEJORNALISMO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0086 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0262"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA E PESQUISA DE OPINIÃO PÚBLICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0209"
+    },
+    {
+        "nome": "MONITORIA EM TEORIAS DA COMUNICAÇÃO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0177"
+    },
+    {
+        "nome": "MONITORIA EM TEORIAS DO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0175"
+    },
+    {
+        "nome": "MONITORIA EM TEXTO JORNALÍSTICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0167"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM COMUNICAÇÃO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0107 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0182"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM COMUNICAÇÃO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0109 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0183"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM COMUNICAÇÃO 5",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0114 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0184"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM COMUNICAÇÃO 6",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0116 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0185"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ESTÉTICA E CULTURA DE MASSA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0252"
+    },
+    {
+        "nome": "MONITORIA EM WEBDESING EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0171"
+    },
+    {
+        "nome": "MONITORIA EM WEBDESING EM JORNALISMO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0215"
+    },
+    {
+        "nome": "MONITORIA EM WEBJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "JOR0172"
+    },
+    {
+        "nome": "NOTICIA E MERCADOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0082 )",
+        "equivalencias_especificas": [],
+        "ementa": "CONSEPCAO DO VEICULO, OS ASPECTOS DO MERCADO,  DISTRIBUICAO E  COMER-CIALIZACAO DAS PUBLICACOES. AS  PUBLICACOES DE  INTERESSE E  INFORMACOESGERAL -  JORNAIS E  REVISTAS  DESTINADAS A  SOCIEDADE  COMO  UM TODO. ASPUBLICACOES ESPECIALIZADAS, DIRIGIDAS A PUBLICOS  ESPECIFICOS.  PUBLICA-COES COMUNITARIAS E DE EMPRESAS (HOUSE ORGANS).",
+        "codigo": "JOR0048"
+    },
+    {
+        "nome": "OFICINA AVANÇADA DE NARRATIVAS",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0058 ) OU ( JOR0141 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0061"
+    },
+    {
+        "nome": "OFICINA DE DIAGRAMAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0003 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0132"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0080 ) OU ( JOR0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0084 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina para a prática de atividades relacionadas  às atividades da habilitação Jornalismo, destinadas aos alunos que estejam cursando até o quinto semestre. Trabalhos relacionados os conteúdos de disciplinas iniciais do curso de comunicação, como pesquisas documentais, de textos, avaliação e montagem de textos.",
+        "codigo": "JOR0085"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0082 ) OU ( JOR0085 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina para o exercício prático do jornalismo nos diversos meios de comunicação, como impressos, emissoras de rádio e televisão, Internet, em empresas jornalísticas, organizações e assessorias. O trabalho pode ser desenvolvido em empresas e/ou instituições externas à UnB, ou ainda na própria Universidade de Brasília, em setores como o jornal-laboratório Campus, Assessoria de Comunicação ou CPCE.",
+        "codigo": "JOR0103"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0071 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina é um desdobramento da Oficina de Jornalismo II, observando-se todos os seus requisitos.",
+        "codigo": "JOR0104"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0121"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 5",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0122"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 6",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0123 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0124"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO 7",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0125"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO DIGITAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0117"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO DIGITAL 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0118"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO DIGITAL 3",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0119"
+    },
+    {
+        "nome": "OFICINA DE JORNALISMO DIGITAL 4",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0120"
+    },
+    {
+        "nome": "OFICINA DE TELEJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0030 E JOR0082 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0134"
+    },
+    {
+        "nome": "OFICINA DE TEXTO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0120 )",
+        "equivalencias_especificas": [],
+        "ementa": "Língua, linguagem e discurso. Funções da linguagem. Os vários planos do sentido. Signo e símbolo. As várias categorias do texto. Usos, técnicas e aplicações do texto: artísticas e profissionais. O texto e a leitura como fatores de motivação, imaginação, interação, integração, criação e produção.",
+        "codigo": "JOR0058"
+    },
+    {
+        "nome": "OFICINA DE TEXTO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0058 ) OU ( JOR0141 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0126 )",
+        "equivalencias_especificas": [],
+        "ementa": "Considerando a justificativa apresentada no verso, solicitamos o registro de equivalência de conteúdo de disciplina, informando, a seguir os dados necessários.",
+        "codigo": "JOR0072"
+    },
+    {
+        "nome": "OFICINA DE TEXTO-JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0071 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0043"
+    },
+    {
+        "nome": "OPINIAO PUBLICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0091 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0051"
+    },
+    {
+        "nome": "PLANEJAMENTO GRAFICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0080 ) OU ( COM0129 E COM0132 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0083 )",
+        "equivalencias_especificas": [],
+        "ementa": "TIPOGRAFIA. SISTEMAS DE COMPOSICAO. ORIGINAIS. O PROJETO GRAFICO. USODE  IMAGENS.  ARTE  FINAL. ESCOLHA  DO  PAPEL.  PROCESSOS DE  IMPRESSAO.IMPRESSAO EM CORES.",
+        "codigo": "JOR0049"
+    },
+    {
+        "nome": "PLANEJAMENTO GRÁFICO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0102"
+    },
+    {
+        "nome": "POLITICAS DE COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0045 OU COM0130 )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "Ensino, estudo, pesquisa e reflexão sobre políticas de comunicações.\n\nEstado, sociedade e cidadania no Brasil. Políticas Públicas e Políticas de Comunicação; teorias, conceitos e práticas. Os movimentos nacionais e internacionais por Políticas de Comunicação: história, impasses, desafios passados, presentes e futuros. Regulação, autorregulação, corregulação e sistemas de prestação de contas da comunicação. Direito à Comunicação e Direito à Informação. Produção, distribuição e acesso a conteúdos de comunicação.",
+        "codigo": "JOR0065"
+    },
+    {
+        "nome": "PRÉ-PROJETO EXPERIMENTAL EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 E JOR0082 ) OU ( JOR0045 E JOR0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Primeira etapa do trabalho final de curso As técnicas de elaboração do projeto e pesquisa, a redação da proposta de projeto a ser elaborado na etapa posterior.",
+        "codigo": "JOR0088"
+    },
+    {
+        "nome": "PROCESSOS GRÁFICOS EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0080 ) OU ( JOR0078 ) OU ( JOR0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( COM0138 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0003"
+    },
+    {
+        "nome": "PROJETO FINAL EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0088 E JOR0071 ) OU ( JOR0088 E JOR0027 ) OU ( JOR0088 E JOR0014 ) OU ( JOR0088 E JOR0016 ) OU ( JOR0088 E JOR0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0140 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0112"
+    },
+    {
+        "nome": "PROJETO FINAL EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0088 E JOR0071 ) OU ( JOR0088 E JOR0027 ) OU ( JOR0088 E JOR0014 ) OU ( JOR0088 E JOR0016 ) OU ( JOR0088 E JOR0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( JOR0112 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Realização de trabalho individual de conclusão de curso. Projeto de reflexão teórica sobre temas relacionados à atividade profissional ou projeto prático de cunho jornalístico, acompanhado de relatório, memorial ou monografia.",
+        "codigo": "JOR0140"
+    },
+    {
+        "nome": "PROJETOS EXPERIMENTAIS - JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0034 E JOR0041 E JOR0047 E JOR0048 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0050 ) OU ( JOR0035 )",
+        "equivalencias_especificas": [],
+        "ementa": "O PROJETO EXPERIMENTAL CORRESPONDE A UM TRABALHO DO  FINAL  DO  CURSORELACIONADO COM A HABILITACAO ESPECIFICA, EM  FORMA  DE MONOGRAFIA, FITAGRAVADA DE SOM E  IMAGEM,  FILME  CINEMATOGRAFICO,  COLECAO FOTOGRAFICA,PUBLICACAO IMPRESSA, CAMPANHA PUBLICITARIA, REPORTAGEM OU QUALQUER OUTRAFORMA DO GENERO, QUE SERA REALIZADO DURANTE UM SEMESTRE LETIVO COM DEDI-CACAO SEMANAL EFETIVA  DE  PELO  MENOS 18  (DEZOITO HORAS. OS  TRABALHOSPODERAO SER INDIVIDUAIS OU EM GRUPO, SOB A ORIENTACAO DE UM OU MAIS PRO-FESSORES ESCOLHIDOS PELOS ALUNOS, EM ACORDO COM O COORDENADOR DO CURSO.",
+        "codigo": "JOR0036"
+    },
+    {
+        "nome": "RADIOJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0098 ) OU ( JOR0053 )",
+        "equivalencias_especificas": [],
+        "ementa": "AS CARACTERISTICAS  DO  JORNALISMO  PRATICADO  NO  RADIO:  O TEXTO, OSCRIPT, AS TECNICAS DE REPORTAGEM E ENTREVISTA, A EDICAO.  A HISTORIA DORADIOJORNALISMO NO BRASIL. A ANALISE DE NOTICIARIOS RADIOFONICOS. RADIO-JORNALISMO ESPECIALIZADO. PRODUCAO DE PROGRAMS RADIOJORNALISTICOS.      (RADIOJORNAL, RADIO-REVISTA, REPORTAGEM ESPECIAL. DEBATE, TRANSMISSAO AOVIVO).",
+        "codigo": "JOR0054"
+    },
+    {
+        "nome": "RADIOJORNALISMO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A mídia sonora na contemporaneidade: aspectos conceituais, técnicos, história, evolução e desenvolvimento. Estudo sobre linguagem e estética da mídia sonora. O conceito de notícia na mídia sonora. Técnicas de redação, produção, gravação e edição de notícias, reportagens e programas jornalísticos para a mídia sonora rádio. Os diferentes formatos jornalísticos no rádio e sua interface.",
+        "codigo": "JOR0087"
+    },
+    {
+        "nome": "REALIDADE BRASILEIRA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0117 )",
+        "equivalencias_especificas": [],
+        "ementa": "CFE: (REALIDADE SOCIO-ECONOMICO E POLITICA  BRASILEIRA):  FORMACAO DASOCIEDADE BRASILEIRA, EM SEUS ASPECTOS  ECONOMICOS,  POLITICOS E  CULTU-RAIS, COM ENFASE NO PERIODO POSTERIOR A 1930, SITUACAO ATUAL  E PERSPEC-TIVAS.",
+        "codigo": "JOR0057"
+    },
+    {
+        "nome": "REALIDADE REGIONAL EM COMUNICACAO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0121 )",
+        "equivalencias_especificas": [],
+        "ementa": "CFE: (REALIDADE  REGIONAL EM  COMUNICACAO): OS  PADROES DE  PRODUCAO,DISTRIBUICAO E CONSUMO DE MENSAGENS EM  NIVEL LOCAL E  REGIONAL. FATORESSOCIAIS, ECONOMICOS E POLITICOS QUE OS INFLUENCIAM. ESTRUTURA DA COMUNI-CACAO A NIVEL REGIONAL.",
+        "codigo": "JOR0059"
+    },
+    {
+        "nome": "REDACAO DE JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0079 )",
+        "equivalencias_especificas": [],
+        "ementa": "PRATICA DE REPORTAGEM. ELABORACAO DE PAUTA, REALIZACAO DE ENTREVISTASE PESQUISAS E REDACAO DE MATEIRA. AVALIACAO DO PRODUTO.  DESENVOLVIMENTODE PERCEPCOES ALTERNATIVAS SOBRE A REALIDADE. DESENVOLVIMENTO DE TECNICADE ENTREVISTA E DE PESQUISA EM RELACAO AS FONTES E DE MANUSEIO DE INFOR-MACOES DOCUMENTAIS.",
+        "codigo": "JOR0046"
+    },
+    {
+        "nome": "REDACAO PARA PUBLICIDADE IMPRESSA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( DAP0124 ) OU ( COM0092 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "LINGUA PORTUGUESA E REDACAO PUBLICITARIA. TEXTO,  APROVACAO E  DESEN-VOLVIMENTO, ESTILOS. TITULOS E SUBCULOS. OFICINA DE TEXTOS PUBLICITARIOSPARA JORNAIS, REVISTAS, MALA DIRERA MATEIRAL PROPORCIONAL E OUTDOOR.",
+        "codigo": "JOR0052"
+    },
+    {
+        "nome": "REPORTAGEM E ENTREVISTA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0043 )",
+        "equivalencias_especificas": [],
+        "ementa": "\"PRATICA DE REPORTAGEM. ELABORACAO DE3 PAUTA, REALIZACAO DE ENTREVIS-TAS E PESQUISAS E REDACAO DE MATERIAS. AVALIACAO DO PRODUTO. DESENVOLVI-MENTO DE PERCEPCOES ALTERNATIVAS  SOBRE A REALIDADE. DESENVOLVIEMNTO  DETECNICAS DE ENTREVISTA E DE PESQUISA EM RELACAO AS FONTES E DE  MANUSEIODE INFORMACOES DOCUMENTAIS.\"",
+        "codigo": "JOR0031"
+    },
+    {
+        "nome": "REPORTAGEM FOTOGRAFICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "APERFEICOAR AS TECNICAS E CONHECIMENTOS DE FOTOJORNALISMO E  DAS VARIAS ETAPAS DA PRODUCAO FOTOGRAFICA, A SABER REVELACAO, AMPLIACAO   E EDICAO DE FOTOS.",
+        "codigo": "JOR0075"
+    },
+    {
+        "nome": "REVISTA CAMPUS REPÓRTER",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0142 ) OU ( JOR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Tipo de Material",
+        "codigo": "JOR0206"
+    },
+    {
+        "nome": "SOCIOLOGIA DO JORNALISMO: ENSAIO DE COMPARAÇÃO INTERNACIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Pesquisa comparada de grupos profissionais de jornalistas no Brasil, na França e no Canadá. As características dos grupos nacionais, com enfoque nas convergências e diferenças significativas entre os jornalistas desses países, sobretudo quanto ás questões de legislação e práticas profissionais, processos de profissionalização, de construção de territórios e da composição dos grupos diante dos novos desafios, tais como o desenvolvimento dos medias na Internet.",
+        "codigo": "JOR0111"
+    },
+    {
+        "nome": "TECNICAS DE COMUNICACAO DIRIGIDA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0062 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0042"
+    },
+    {
+        "nome": "TÉCNICAS DE JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0080 ) OU ( COM0137 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0068 ) OU ( JOR0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "A estrutura de funcionamento dos diversos veículos - jornal, revista, rádio, televisão, serviços on line  e publicação especializadas. A prática da reportagem, entrevista, redação e edição. As diferenças e análise comparativa entre os diversos meios",
+        "codigo": "JOR0070"
+    },
+    {
+        "nome": "TÉCNICAS DE RÁDIO E TV",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 E JOR0080 ) OU ( COM0137 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As características do jornalismo praticado no rádio e na TV: semelhanças e diferenças. Introdução à linguagem do som e da linguagem multi-modal, que envolve sons, imagens e falas. Introdução aos princípios de construção do texto jornalístico para rádio e TV. A análise de noticiários radiofônicos e televisivos.",
+        "codigo": "JOR0137"
+    },
+    {
+        "nome": "TECNOLOGIA DE COMUNICAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0045 ) OU ( COM0130 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( COM0132 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Abordagem contemporânea das novas tecnologias de comunicação. A digitalização como a base técnica das novas mídias derivadas da convergência da telefonia, da transmissão de dados, do rádio, da televisão e das redes de computador. A comunicação mediada por computador (CMC) como premissa teórica básica para a conceituação das novas mídias digitais. A economia política como referencial teórico básico para a apreensão crítica das novas mídias digitais e seus mais recentes desenvolvimentos sócio-políticos, socio-econômicos e socioculturais. Internet, World Wide Web, Televisão Digital - vetores empíricos da disciplina.",
+        "codigo": "JOR0089"
+    },
+    {
+        "nome": "TELEJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0137 E JOR0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0042 ) OU ( JOR0029 )",
+        "equivalencias_especificas": [],
+        "ementa": "CFE: (TELEJORNALISMO): REDACAO E EDICAO DE TEXTO EM TELEJORNAIS. EDI-CAO DE SOM E IMAGEM. TRANSMISSOES DIRETAS E REPORTAGENS  EXTERNAS GRAVA-DAS. ROTEIRO DE TELEJORNAIS. NOCOES  TECNICAS:  EQUIPAMENTO DE  EXTERNA,CAMARAS DE ESTUDIO, GRAVACAO DE SOM. UHF E VHF. MICRONDAS E SATELITE.",
+        "codigo": "JOR0030"
+    },
+    {
+        "nome": "TELEJORNALISMO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0030 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As técnicas jornalísticas e os processos de produção e edição da notícia em  Telejornalismo. As entrevistas, captação de imagens, edição e transmissão. A estrutura física e o funcionamento de uma redação de televisão, nas diversas etapas",
+        "codigo": "JOR0086"
+    },
+    {
+        "nome": "TEORIA E PESQUISA DE OPINIÃO PÚBLICA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0005 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0022"
+    },
+    {
+        "nome": "TEORIAS DA COMUNICAÇÃO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( JOR0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "( COM0130 OU FAC0031 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAC0031 ) OU ( COM0130 ) OU ( COM0130 E COM0133 E COM0135 E COM0138 E COM0140 E COM0144 ) OU ( COM0076 ) )",
+                "matriz_curricular": "JORNALISMO - Bacharelado - Presencial - D",
+                "curriculo": "850/2 - 2021.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Quais são as teorias da comunicação? A resposta a esta pergunta se encontra diretamente correlacionada ao conceito de comunicação que empregamos. As teorias da comunicação dependem da ideia de comunicação que adotamos.  Por conseguinte, o programa se divide basicamente em duas partes. A primeira trata da definição da comunicação como um campo de conhecimento, enquanto a segunda procura apresentar e discutir algumas de suas teorias.",
+        "codigo": "JOR0045"
+    },
+    {
+        "nome": "TEORIAS DO JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0080 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0023"
+    },
+    {
+        "nome": "TEXTO JORNALÍSTICO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( JOR0058 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Tratamento da informação e a estrutura básica do texto jornalístico. A construção do lide. Estrutura e uso da “pirâmide invertida”. Gêneros jornalísticos: informativo, opinativo, interpretativo, de serviço e entretenimento. Produção de textos jornalísticos.\n\nO objetivo é capacitar o/a estudante para a produção de textos jornalísticos, com precisão e qualidade, e para a identificação dos diferentes gêneros jornalísticos.",
+        "codigo": "JOR0141"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0106 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0107"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0108 )",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "JOR0109"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 5",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0113 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina aplicada de temas da área de comunicação. Inclui temas de sub-áreas como jornalismo e política, cultura, meio ambiente e ciência. A disciplina de tópicos também pode ser atualizada, semestralmente, para temas relacionados a realização de eventos na área de comunicação (eventos acadêmicos).BibliografiaFREIRE, Paulo. Extensão ou Comunicação.Paz e Terra, 1983.MOUSINHO, P. Glossário. In: A., TRIGUEIRO (org.). Meio Ambiente no Século 21: 21 especialistas falam da questão nas suas áreas de conhecimento. Sextante, Rio de Janeiro, 2003.RAMOS, Rui. O discurso de opinião como discurso polémico : aspectos da sua configuração e da interacção social . Cadernos do Noroeste. Série Comunicação\". 14:1-2 (2000) 235-247THOMPSON,Jonh B. A nova visibilidade. Revista Matrizes, n.2, abril de 2008,PP. 16-38..",
+        "codigo": "JOR0114"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 6",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( JOR0115 )",
+        "equivalencias_especificas": [],
+        "ementa": "a definir",
+        "codigo": "JOR0116"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ESTÉTICA E CULTURA DE MASSA",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( FAC0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0074"
+    },
+    {
+        "nome": "WEBDESIGN EM JORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0005 ) OU ( JOR0080 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução aos princípios do planejamento editorial e visual no webjornalismo. Noções de interface gráfica e identidade visual na web para jornalistas. Conceitos básicos sobre arquitetura da informação, design de conteúdo, componentes gráficos e infográficos. Redes sociais. Acessibilidade.",
+        "codigo": "JOR0007"
+    },
+    {
+        "nome": "WEBDESING EM JORNALISMO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0028 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0028"
+    },
+    {
+        "nome": "WEBJORNALISMO",
+        "unidade_responsavel": "DEPARTAMENTO DE JORNALISMO/JOR ",
+        "pre_requisitos": "( ( JOR0005 ) OU ( JOR0080 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "JOR0009"
+    }
+]

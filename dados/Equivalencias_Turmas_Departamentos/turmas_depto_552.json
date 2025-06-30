@@ -1,0 +1,3432 @@
+[
+    {
+        "nome": "ANTROPOLOGIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/-3 - 2008.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/-2 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "01. A ANTROPOLOGIA FILOSOFICA E AS SUAS POSSIBILIDADES.                 02. O HOMEM ANTIGO E MEDIEVAL                                           03. O HOMEM MODERNO.                                                    04. O HOMEM ANTI-MODERNO.                                               05. ANTROPOLOGIAS LIBERTADORAS.",
+        "codigo": "FIL0063"
+    },
+    {
+        "nome": "DIALETICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0128 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. SENTIDO ETIMOLOGICO E HISTORICO DA DIALETICA E DE DIALOGICA         2. DIALETICA COMO PARTE DA LOGICA CLASSICA                             3. DIALETICA TRANSCENDENTAL DIALETICA HEGELIANA MATERIALISMO DIALETI-    CO                                                                  4. DIALETICA COMO LOGICA, ONTOLOGIA, METODO.",
+        "codigo": "FIL0129"
+    },
+    {
+        "nome": "DISSERTACAO FILOSOFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0070 ) OU ( FIL0071 ) OU ( FIL0072 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0073"
+    },
+    {
+        "nome": "DISSERTACAO FILOSOFICA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0153 ) OU ( FIL0154 )",
+        "equivalencias_especificas": [],
+        "ementa": "01. TECNICAS FUNDAMENTAIS PARA A ELABORACAO DA MONOGRAFIA CIENTIFICA   02. OS TEXTOS CLASSICOS DE FILOSOFIA: COMO TRABALHA-LOS                03. ELABORACAO DE UMA MONOGRAFIA SOBRE TEMA CLASSICO.",
+        "codigo": "FIL0155"
+    },
+    {
+        "nome": "DISSERTACAO FILOSOFICA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0155 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0110 ) OU ( FIL0111 )",
+        "equivalencias_especificas": [],
+        "ementa": "AS DISSERTACOES FILOSOFICAS VISAM INTRODUZIR O ALUNO AO TRABALHO DE  PESQUISA, INCENTIVANDO-O A  PRODUZIR  MONOGRAFIAAS  DE  MAIOR  FOLEGO,  DISTRIBUIDAS AO LONGO DO CRUSO DE  GRADUACAO,  SOB  ORIENTACAO  DE  UM  PROFESSOR. A DISSERTACAO FILOSOFICA II DEVERA  VERSAR  SOBRE  UM  TEMA  ABORDADO NAS DISCIPLINAS QUE INTEGRAMM O  2o.  BLOCO DO  CRUSO,  QUAIS  SEJAM: SIMBOLICA, TEORIA DA CIENCIA, FILOSOFIA DA LINGUAGEM,  HISTORIA  DA FILOSOFIOA MODERNA II, HISTORIA DA FILOSOFIA CONTEMPORANEA (I  II).  1. DIFICULDADE TECNICAS NO TRABALHO DE DISSERTACAO I.                   2. A LINGUAGEM DA LOGICA E DA FILOSOFIA CONTEMPORANEA.                  3. ELABORACAO E DESENVOLVIMENTO DE MONOGRAFIA, SOBRE TEMA  CONTEMPORA-     NEO.",
+        "codigo": "FIL0112"
+    },
+    {
+        "nome": "DISSERTACAO FILOSOFICA 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0112 E FIL0064 E FIL0063 E FIL0082 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "AS DISSERTACOES FILOSOFICAS VISAM INTRODUZIR O ALUNO AO TRABALHO DE  PESQUISA,  INCENTIVANDO-O A  PRODUZIR  MONOGRAFIAS  DE  MAIRO  FOLEGO,  DISTRIBUIDAS AO LONGO DO CURSO DE GRADUACAO, SOB ORIENTACAO DE UM PRO-  FESSOR. A DISSERTACAO  FILOSOFICA III  DEVERA  VERSAR  SOBRE  UM  TEMA  ABORDADO NAS DISCIPLINAS QUE  INTEGRAM O 3o.  BLOCO  DO  CURSO,  QUAIS  SEJAM: ETICA, FILOSOFIA SOCIAL, ESTETICA E ANTROPOLOGIA FILOSOFICA.     1. REVISAO TECNICA DAS DISSERTACOES JA APRESENTADAS                    2. A LINGUAGEM RELATIVA AO HOMEM, AO VALOR E AS NORMAS                 3. ELABORACAO E DESNVOLVIMENTO DO MONOGRAFIA, SOBRE TEMA  RELATIVO  AO     HOMEM, AO VALOR E AS NORMAS.",
+        "codigo": "FIL0113"
+    },
+    {
+        "nome": "EPISTEMOLOGIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0053 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentar as questões e os problemas epistemológicos impostos pela modernidade. A introdução do curso expõe, de um ponto de vista contemporâneo, as querelas entre o positivismo e a teoria crítica, ou seja, entre um conhecimento imediato e um conhecimento mediado. A primeira parte versa sobre o problema, central para a filosofia moderna, da cisão entre sujeito e objeto a segunda, procura apresentar as questões derivadas desta cisão próprias às tentativas de superação da metafísica, em suas várias vertentes. No último módulo, o curso volta às questões iniciais, revendo os primeiros tópicos apresentados.",
+        "codigo": "FIL0175"
+    },
+    {
+        "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. O ADUALISMO  \"CIENCIAS NATURAIS VERSUS CIENCIAS HUMANAS\"  E  SEUS       PRESSUPOSTOS                                                       02. A QUESTAO DO METODO E AS PRETENSOES DE AUTONOMIA NAS CIENCIAS HU-       MANAS                                                              03. EXPLICACAO E PREVISAO, NAS CI34ENCIAS HUMANAS                      04. CIENCIAS HUMANAS, FILOSOFIA E IDEOLOGIA.",
+        "codigo": "FIL0087"
+    },
+    {
+        "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0177 E FIL0181 E FIL0175 ) OU ( FIL0179 E FIL0182 ) OU ( FIL0176 ) OU ( FIL0167 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Acompanhamento, participação e avaliação de atividades pedagógicas diversas na escola (reuniões de coordenação pedagógica, conselho de classe, etc.). Apreciação crítica sobre a estrutura física (salas, laboratórios, recursos didáticos e equipamentos, acervo e funcionamento de biblioteca, e outros espaços) Apreciação crítica sobre projeto político-pedagógico. Sistematização e avaliação das experiências de prática pedagógica desenvolvidas no curso de Filosofia.",
+        "codigo": "FIL0004"
+    },
+    {
+        "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0004 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Acompanhamento, participação e avaliação de atividades pedagógicas diversas na escola. Apreciação crítica sobre a proposta curricular para a área de ciências humanas e, portando, de Filosofia. Produção e avaliação de materiais didáticos (textos e outros materiais). Apreciação filosófica e metodológica de livros didáticos. Observação das diretrizes gerais da escola, de suas políticas de fomento das ações previstas no Projeto Pedagógico e atividades de ensino análise das condições de trabalho do corpo docente e de sua relação com o contexto escolar em geral.",
+        "codigo": "FIL0168"
+    },
+    {
+        "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0168 ) OU ( PAD0028 ) OU ( PED0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0169 ) OU ( FIL0170 )",
+        "equivalencias_especificas": [],
+        "ementa": "Planejamento, realização e avaliação de atividades em projetos interdisciplinares e de regência de aulas de filosofia na educação básica em escola-campo. Produção e avaliação de materiais didáticos (textos, e outros materiais). Produção acadêmica sobre ensino de filosofia vinculada às práticas vivenciadas no estágio. Participação da rotina escolar do ensino médio (rede pública ou privada): observação e relatório de aulas, análise de material didático em seu uso nas salas de aula, análise de avaliações escolares observação e participação do cotidiano da sala de aula, em seus múltiplos aspectos pedagógicos, políticos, sociais e mesmo físicos relatório crítico de atividades levantamento de situações-problema e sugestões de intervenção.",
+        "codigo": "FIL0171"
+    },
+    {
+        "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 4",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0171 ) OU ( FIL0163 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0172 ) OU ( FIL0173 )",
+        "equivalencias_especificas": [],
+        "ementa": "Planejamento, realização e avaliação de atividades de regência de aulas de filosofia na educação básica em escola campo. Produção acadêmica sobre ensino de filosofia vinculada às práticas vivenciadas no estágio. Análise crítica de situações problema, envolvendo tanto aspectos sociais e históricos sobre o ensino no país como as observações realizadas em escola-campo.",
+        "codigo": "FIL0174"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM FILOSOFIA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0049 E PED0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0004 E FIL0168 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-4 - 2012.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-5 - 2005.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - N",
+                "curriculo": "3352/-2 - 2010.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/1 - 2017.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-2 - 2014.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-3 - 2013.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0169 OU FIL0170 OU FIL0171 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - N",
+                "curriculo": "3352/1 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1. O ENSINO DA FILOSOFIA COMO PROBLEMA FILOSOFICO                       2. FILOSOFIA E EDUCACAO: EDUCACAO DA RAZAO, RAZAO DA EDUCACAO.          3. O ENSINO DA FILOSOFIA NO PRIMEIRO E NO SEGUNDO GRAU NO BRASIL.       4. PROPOSTAS CONTEMPORANEAS DE ENSINO DA FILOSOFICA.                    5. OBSERVACOES DE AULAS NA REDE PUBLICA DE ENSINO (10H)",
+        "codigo": "FIL0163"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM FILOSOFIA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0163 E MTC0012 E TEF0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-4 - 2012.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-5 - 2005.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - N",
+                "curriculo": "3352/-2 - 2010.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/1 - 2017.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-2 - 2014.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-3 - 2013.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0172 OU FIL0173 OU FIL0174 ) )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - N",
+                "curriculo": "3352/1 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1. ANALISE DE PROGRAMAS E LIVROS DIDATICOS  PARA O ENSINO DA  FISIOLOGIA   NO II GRAU.                                                          2. PROJETO DE ESTAGIO DO ALUNO.                                         3. PRATICA DE AULAS NO II GRAU.                                         4. RELATORIO DE ESTAGIO.",
+        "codigo": "FIL0164"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM FILOSOFIA - DP",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0049 E FIL0086 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0074 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0163 ) E ( FIL0164 ) ) OU ( FIL0074 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0163 ) E ( FIL0164 ) ) OU ( FIL0074 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-5 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0163 ) E ( FIL0164 ) ) OU ( FIL0074 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/1 - 2017.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0163 ) E ( FIL0164 ) ) OU ( FIL0074 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-2 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0163 ) E ( FIL0164 ) ) OU ( FIL0074 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-3 - 2013.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "01. O PAPEL DA FILOSOFIA NO ENSINO SECUNDARIO                           02. O PROGRAMA DA DISCIPLINA: ALTERNATIVAS                              03. ANALISE CRITICA DOS MANUAIS MAIS COMUNS                             04. AULAS SOB SUPERVISAO, EM ESCOLAS DO D.F.",
+        "codigo": "FIL0075"
+    },
+    {
+        "nome": "ESTÉTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0182 ) OU ( FIL0066 ) OU ( FIL0067 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "1. A EPISTEME ESTETICA                                                  2. PRESSUPOSTOS BASICOS                                                 3. PRINCIPAIS TEORIAS",
+        "codigo": "FIL0068"
+    },
+    {
+        "nome": "ESTÉTICA E FILOSOFIA DA ARTE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 E FIL0165 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0068 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0182"
+    },
+    {
+        "nome": "ÉTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FDD0272 ) OU ( FIL0167 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "01. CONHECIMENTO E DISCURSO ETICOS                                     02. VALORES MORAIS                                                     03. NORMAS MORAIS                                                      04. RESPONSABILIDADE MORAL E LIBERDADE                                 05. QUESTOES ETICAS CONTEMPORANEAS.",
+        "codigo": "FIL0064"
+    },
+    {
+        "nome": "ÉTICA E EDUCAÇÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A discussão contemporânea da ética. O ser humano enquanto ser-no-mundo, ser-na-praxis, ser-na-escola. Existência e liberdade. Ética e política. Ética e educação. O ethos escola. Bases filosóficas para a educação ética. Ética e moral. Autonomia moral e o exercício da cidadania. Tradição e transgressão. Educação, sociedade, cultura. Participação social. Violência e agressão. Solidariedade, tolerância, respeito.",
+        "codigo": "FIL0184"
+    },
+    {
+        "nome": "ÉTICA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0064 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem por objetivo levar o estudante à compreensão da dimensão ética da filosofia, em seus vários desdobramentos históricos e em suas relações tensas com a política. Tal enfoque se justifica, pois permite a compreensão da Ética como filosofia prática, situada, portanto, entre questionamentos filosóficos e históricos. Dentro dessa diretriz geral, os tópicos foram elaborados a fim de permitir que o curso siga várias perspectivas.",
+        "codigo": "FIL0167"
+    },
+    {
+        "nome": "EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0069 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-6 - 2012.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-7 - 2011.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-4 - 2015.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-5 - 2012.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-3 - 2015.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/1 - 2018.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0106 OU FIL0107 ) E ( FIL0156 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-2 - 2016.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "01 - MITO E FILOSOFIA                                                   02 - CIENCIA E FILOSOFIA NA ANTIGUIDADE CLASSICA                        03 - RAZAO E FE NA EUROPA MEDIEVAL                                      04 - A REVOLUCAO CIENTIFICA DOS SECS. XVI E XVII                        05 - CIENCIA E FILOSOFIA NO SEC. XVIII",
+        "codigo": "FIL0029"
+    },
+    {
+        "nome": "EXISTENCIALISMO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0131 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. RAIZES HISTORICO-FILOSOFICAS DO \"EXISTENCIALISMO\"                   2. EXISTEMCIALISMO E FILOSOFIA DA EXISTENCIA                           3. EXISTENCIALISMO CRISTAO E EXISTENCIALISMO ATEU                      4. OS GRANDES REPRESENTANTES DO \"EXISTENCIALISMO\".",
+        "codigo": "FIL0132"
+    },
+    {
+        "nome": "FENOMENOLOGIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. O IDELA DA FUNDAMENTACAO RIGOROSA                                   02. A ATITUDE TRANSCENDENTAL NA FENOMENOLOGIA                           03. O DESDOBRAMENTO HEIDEGGERIANO DA FENOMENOLOGIA",
+        "codigo": "FIL0125"
+    },
+    {
+        "nome": "FILOSOFIA AFRICANA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0165 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0014"
+    },
+    {
+        "nome": "FILOSOFIA ANALITICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0179 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1. A FILOSOFIA E O METODOS DE ANALISE DA LINGUAGEM                     2. ONTOLOGIA E FILOSOFIA ANALITICA: MUNDOS POSSIVEIS E REFERENCIAS     3. TEORIA ANALITICA DO CONHECIMENTO: REALISMO, ANTI-REALISMO E VERDADE 4. ETICA ANALITICA: LINGUAGEM, NORMAS E VALORES.",
+        "codigo": "FIL0130"
+    },
+    {
+        "nome": "FILOSOFIA ANTIGA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0034 ) OU ( FIL0034 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Visão panorâmica e crítica das origens do pensamento ocidental, através do estudo de seus protagonistas e dos temas mais relevantes, de maneira especial dedicando-se ao estudo dos filósofos pré-socráticos e ao surgimento do movimento socrático e sofístico, Aristóteles, a filosofia helenística e aquela do platonismo tardio.",
+        "codigo": "FIL0180"
+    },
+    {
+        "nome": "FILOSOFIA CONTEMPORÂNEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 E FIL0181 ) OU ( FIL0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0049 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0003"
+    },
+    {
+        "nome": "FILOSOFIA DA ARTE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0123 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. A PROBLEMATICA DA FISOLOFIA DA ARTE                                 2. ELEMENTOS BASICOS                                                   3. PRINCIPAIS PROBLEMAS",
+        "codigo": "FIL0124"
+    },
+    {
+        "nome": "FILOSOFIA DA CIÊNCIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 E FIL0175 ) OU ( FIL0179 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0059 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0183"
+    },
+    {
+        "nome": "FILOSOFIA DA HISTÓRIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. FILOSOFIA DA HISTORIA: CONCEITO E FUNCAO                           02. FILOSOFIA DA HISTORIA E TEORIA DA CIENCIA HISTORICA                03. A CONSTITUICAO PRATICA DO PENSAMENTO HISTORICO                     04. A CONSTITUICAO METODICA DA HISTORIA.",
+        "codigo": "FIL0065"
+    },
+    {
+        "nome": "FILOSOFIA DA LINGUAGEM",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0002 ) OU ( FIL0083 ) OU ( FIL0084 ) OU ( FIL0085 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "01. VINCULACOES ENTRE LINGUAGEM E FILOSOFIA                            02. A CONSTITUICAO DA LINGUSTICA COMO CIENCIA E A SUA SIGNIFICACAO PARA     A FILOSOFIA                                                        03. ABORDAGENS ATUAIS DE FILOSOFIA DA LINGUAGEM.",
+        "codigo": "FIL0086"
+    },
+    {
+        "nome": "FILOSOFIA DA LOGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0056 ) OU ( FIL0179 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => ESTA DISCIPLINA  TEM  POR  OBJETIVO  OFERECER  UMA REFLEXÃO SO-BRE  OS  FUNDAMENTOS   DA   LÓGICA.  SUA  EMENTA E SEU PROGRAMA NÃO PRE-ESBELECIDOS. A CADA VEZ QUE A DISCIPLINA FOR OFERECIDA SERÁ ELAUM CONTEÚDO ESPECÍFICO.",
+        "codigo": "FIL0118"
+    },
+    {
+        "nome": "FILOSOFIA DA MATEMÁTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0179 ) OU ( FIL0118 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0020"
+    },
+    {
+        "nome": "FILOSOFIA DA MENTE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0044 ) OU ( CIC0182 ) OU ( PPB0046 ) OU ( FIL0181 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. - A RELACAO CORPO-ALMA, NA FILOSOFIA TRADICIONAL: MONISMO E DUALISMO02. - A QUESTAO DA LINGUAGEM E A DISCUSSAO CONTEMPORANEA SOBRE AS  RELA-      COES ENTRE O FISICO E O PSIQUICO.                                 03. - INTELIGENCIA NATURAL E INTELIGENCIA ARTIFICIAL.",
+        "codigo": "FIL0152"
+    },
+    {
+        "nome": "FILOSOFIA DA MÚSICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Tendo em vista a importância da música no processo de constituição do\ndiscurso filosófico sobre as artes, o propósito geral da disciplina consiste em\napresentar definições explicativas a partir de problemas e conceitos nascidos\nexclusivamente da estética musical, fiando-se, para tanto, em textos-chave e\nquerelas paradigmaticamente atuantes ao longo dos séculos, desde a Antiguidade\naté aos nossos dias.",
+        "codigo": "FIL0185"
+    },
+    {
+        "nome": "FILOSOFIA DA NATUREZA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0140 )",
+        "equivalencias_especificas": [],
+        "ementa": "NATUREZA COMO  MUNDO  PENSADO.  CONDICOES DE  POSSIBILIDADE DE SER NOMUNDO E DE PENSAR O MUNDO. NATUREZA DO MUNDO E MUNDO DE NATUREZA. COSMO-LOGIA E COSMOGONIA. INTERPRETACAO DO MUNDO PELA  EXPERIENCIA  IMEDIATA EPELA MEDIATA, CIENTIFICAMENTE.                                          01. A EXPERIENCIA DE \"SER - NO - MUNDO\"                                02. O \"EU\" E AS COISAS                                                 03. COSMOVISOES E CONCEPCOES DA NATUREZA                               04. NATUREZA, VIDA E HISTORIA                                          05. QUESTOES CLASSICAS DA FILOSOFIA DA NATUREZA",
+        "codigo": "FIL0141"
+    },
+    {
+        "nome": "FILOSOFIA DA PSICANÁLISE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0053 ) OU ( FIL0175 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0009"
+    },
+    {
+        "nome": "FILOSOFIA DA RELIGIÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0135 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. CIENCIA, FILOSOFIA E RELIGIAO                                       2. A RELIGIOSIDADE HUMANA                                              3. A NATUREZA DA RELIGIAO                                              4. A EXISTENCIA DE DEUS                                                5. O DISCURSO SOBRE DEUS",
+        "codigo": "FIL0136"
+    },
+    {
+        "nome": "FILOSOFIA DO ENSINO DE FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0015"
+    },
+    {
+        "nome": "FILOSOFIA E CRIANÇAS - UMA EDUCAÇÃO FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0016"
+    },
+    {
+        "nome": "FILOSOFIA E FEMINISMO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0017"
+    },
+    {
+        "nome": "FILOSOFIA FRANCESA CONTEMPORÂNEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0165 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0013"
+    },
+    {
+        "nome": "FILOSOFIA GERAL E METAFÍSICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 E FIL0003 ) OU ( FIL0175 ) OU ( FIL0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0062 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0007"
+    },
+    {
+        "nome": "FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0007 ) OU ( FIL0060 ) OU ( FIL0061 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-4 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-5 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - N",
+                "curriculo": "3352/-2 - 2010.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Bacharelado - Presencial - D",
+                "curriculo": "3336/-2 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Bacharelado - Presencial - D",
+                "curriculo": "3336/-3 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Bacharelado - Presencial - D",
+                "curriculo": "3336/-4 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/1 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-2 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - D",
+                "curriculo": "3344/-3 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Licenciatura - Presencial - N",
+                "curriculo": "3352/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Bacharelado - Presencial - D",
+                "curriculo": "3336/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Bacharelado - Presencial - D",
+                "curriculo": "3336/-5 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0007 ) ) OU ( FIL0060 OU FIL0061 )",
+                "matriz_curricular": "FILOSOFIA - Bacharelado - Presencial - D",
+                "curriculo": "3336/-6 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "01. ONTOLOGIA E METAFISICA.                                             02. O SER E OS SERES.                                                   03. AS CATEGORIAS.                                                      04. A ANALOGIA.                                                         05. CAUSALIDADE.",
+        "codigo": "FIL0062"
+    },
+    {
+        "nome": "FILOSOFIA MARXISTA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0126 )",
+        "equivalencias_especificas": [],
+        "ementa": "01. FUNDAMENTOS DO MARXISMO: MARX, ENGELS E LENIN                      02. CORRENTES DIVERSAS, NO PENSAMENTO MARXISTA                         03. MARXISMO E FILOSOFIA, CIENCIA, POLITICA                            04 PERSPECTIVAS ATUAIS DO MARXISMO.",
+        "codigo": "FIL0127"
+    },
+    {
+        "nome": "FILOSOFIA MEDIEVAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 E FIL0034 ) OU ( FIL0180 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0039 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Uma introdução ao universo vasto e complexo do pensamento medieval, seu contexto religioso e cultural, sua relação quer com o patrimônio especulativo da Antiguidade quer com a problemática filosófica moderna. A multiplicidade dos discursos humanos, elaborada primeiro na Patrística, depois no pensamento muçulmano e judeu, e finalmente na Escolástica Latina. Uma avaliação da importância da contínua troca entre a herança especulativa de Platão e a de Aristóteles. Um tratamento mais  ormenorizado do pensamento de Agostinho e de Tomás de Aquino.",
+        "codigo": "FIL0177"
+    },
+    {
+        "nome": "FILOSOFIA MODERNA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0044 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Este curso trata da passagem do pensamento do medievo para a investigação moderna, pondo em foco aspectos como a relação entre verdade, liberdade e conhecimento em um panorama filosófico de rupturas, precursor da modernidade.",
+        "codigo": "FIL0181"
+    },
+    {
+        "nome": "FILOSOFIA NA AMÉRICA LATINA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0005"
+    },
+    {
+        "nome": "FILOSOFIA ORIENTAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Uma primeira introdução ao mundo do pensamento filosófico da Índia e China, e uma tentativa de perfilar mais claramente, por contraste e comparação, a especificidade das formas mais características do pensamento ocidental e oriental. Quais são as complementaridades, os paralelismos, ou até os antagonismos e oposições—de índole filosófica—que podemos entrever entre Europa, Índia e China?",
+        "codigo": "FIL0026"
+    },
+    {
+        "nome": "FILOSOFIA POLÍTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) OU ( FIL0166 E FIL0165 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0082 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "EMENTAOs conceitos de liberdade e igualdade como noções essenciais da filosofia política clássica. Pretende-se realizar um exame das relações entre as noções de liberdade, igualdade, poder político e direito, com ênfase nas suas articulações internas e nas implicações de tais conceitos para o Estado moderno. Como parte da complementação prático-pedagógica, relacionar o uso da literatura, das artes e do cinema como ferramenta pedagógica para compreensão da problemática proposta pela disciplina.OBJETIVOSIntroduzir os estudantes em temas clássicos da Filosofia Política, como liberdade e igualdade, direito e poder, a partir da análise e discussão de alguns textos fundamentais para o tratamento dessas questões. A leitura, análise, problematização, interpretação e redação de textos, a reflexão sobre doutrinas, o questionamento de teses e a compreensão e formulação de conceitos constituem atividades essenciais à filosofia e ao exercício da crítica. Assim, os objetivos principais são o aprimoramento da técnica da leitura rigorosa, isto é, a capacidade do exame interno e estrutural de conceitos e noções em um texto, além das habilidades de argumentação oral e escrita. Para isso, examinar-se-á, em uma seleção de pensadores as noções de liberdade e igualdade como categorias centrais do pensamento político moderno.Em suma, o curso oferecerá aos discentes a oportunidade de acompanhar a dinâmica interna do discurso filosófico-político moderno, apontando algumas conexões com a realidadepolítica da contemporaneidade.",
+        "codigo": "FIL0176"
+    },
+    {
+        "nome": "FILOSOFIA SOCIAL E POLITICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0176 ) OU ( FIL0080 ) OU ( FIL0081 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "01 - OS PRECURSORES DO ESTADO                                           02 - ESTADO DE NATUREZA E ESTADO CIVIL                                  03 - SOCIEDADE E ESTADO                                                 04 - AS FORMAS DO ESTADO                                                05 - OS FINS DO ESTADO",
+        "codigo": "FIL0082"
+    },
+    {
+        "nome": "HERMENEUTICA FILOSOFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. ORIGENS DA HERMENEUTICA.                                            02. HERMENEUTICA COMO METODO, COMO FILOSOFIA E COMO CRITICA.            03. CONCEITOS FUNDAMENTAIS DA HERMENEUTICA.                             04. A HERMENEUTICA E AS CIENCIAS.                                       05. HERMENEUTICA, ONTOLOGIA E METAFISICA.",
+        "codigo": "FIL0088"
+    },
+    {
+        "nome": "HISTORIA DA CIENCIA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0106 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-6 - 2012.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-7 - 2011.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-4 - 2015.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-5 - 2012.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-3 - 2015.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/1 - 2018.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) ) OU ( FIL0106 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-2 - 2016.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O CURSO ESTRUTURA-SE EM TORNO DA REVOLUCAO CIENTIFICA DOS SECULOS XVIE XVII. QUE SERA DESCRITA EM SEUS PRINCIPAIS ASPECTOS. DIVERSAS  PROPOS-TAS DE EXPLICACAO DESSES  EVENTOS  SERAO  CONFRONTADAS,  COM  BASE  NUMAANALISE DAS ORIGENS E DAS CAUSAS DOS MESMOS. O QUE REMETE  A  UM  ESTUDOPRELIMINAR PORMENORIZADO DO DESENVOLVIMENTO DA CIENCIA EM RELACAO COM  AFILOSOFIA, NA ANTIGUIDADE E NO PERIODO MEDIEVAL.                        1. A EMERGENCIA DA RECIONALIDADE FILOSOFICA E CIENTIFICA                2. COSMOLOGIA, ASTRONOMIA E FISICA NOS SISTEMA DO PERIODO CLASSICO.     3. FILOSOFIA E CIENCIA NA IDADE MEDIA.                                  4. A REVOLUCAO COPERNICANA E SEU  IMPACTO  NO  PENSAMENTO  FILOSOFICO  E   CIENTIFICO.",
+        "codigo": "FIL0107"
+    },
+    {
+        "nome": "HISTORIA DA CIENCIA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0107 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-6 - 2012.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-7 - 2011.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-4 - 2015.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-5 - 2012.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-3 - 2015.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/1 - 2018.2",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0029 ) )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-2 - 2016.1",
+                "data_vigencia": "1985.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O CURSO ESTUDARA O DESENVOLVIMENTO DAS CIENCIAS NO SECS. XVIII, XIX EXX, A PARTIR DOS MODELOS CIENTIFICOS E METODOLOGICOS  QUE  EMERGIRAM  DAREVOLUCAO CIENTIFICA DOS SECS. XVI E XVII. PRETENDE-SE ENFATIZAR  PARTI-CULARMENTE A INSERCAO SOCIAL E CULTURAL DAS CIENCIAS NA MODERNIDADE.        1. CIENCIA E FILOSOFIA NO SEC. XVII                                     2. CIENCIA, TECNOLOGIA E SOCIEDADE NOSCS. XVIII E XIX                   3. CIENCIA E FILOSOFIA NO SEC. XIX                                      4. A \"CRISE\" DA FISICA MODERNA                                          5. A CONSTITUICAO DAS CIENCIAS DO HOMEM E DA SOCIEDADE",
+        "codigo": "FIL0156"
+    },
+    {
+        "nome": "HISTÓRIA DA FILOSOFIA ANTIGA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0180 ) OU ( FIL0030 ) OU ( FIL0031 ) OU ( FIL0032 ) OU ( FIL0033 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "1. A PASSAGEM DO MITO A FILOSOFIA.                                      2. AS ESCOLAS PRE-SOCRATICAS.                                           3. SOCRATES E AS ESCOLAS SOCRATICAS MENORES.                            4. PLATAO E A TEORIA DAS FORMAS                                         5. A ACADEMIA.                                                          6. ARISTOTELES E O ARISTOTELISMO.                                       7. A FILOSOFIA HELENISTICA.                                             8. O NEOPLATONISMO.",
+        "codigo": "FIL0034"
+    },
+    {
+        "nome": "HISTORIA DA FILOSOFIA ANTIGA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. ARISTOTELES E O ARISTOTELISMO                                       02. A FILOSOFIA HELENISTICA                                             03. O NEOPLATONISMO",
+        "codigo": "FIL0114"
+    },
+    {
+        "nome": "HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0003 ) OU ( FIL0045 ) OU ( FIL0046 ) OU ( FIL0047 ) OU ( FIL0048 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "### ELEMENTOS INTRODUTÓRIOS A :PRAGMATISMO,UTILITARISMO, MARXIS-MO, VOLUNTARISMO E NIHILISMO NO SÉCULO XIX: NEOKANTISMO    FENOME-NOLOGIA, EXISTENCIALISMO, HERMENÊUTICA,       PRIMÓRDIOS DA FILOSOFIAANALÍTICA, NEOPOSITIVISMO, NEOMARXISMO   CRÍTICA DA RAZÃO MODERNA E A  QUESTÃO DO PÓS-MODERNISMO.###",
+        "codigo": "FIL0049"
+    },
+    {
+        "nome": "HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1. A FENOMENOLOGIA DE HUSSERL                                          2. O EXISTENCIALISMO                                                   3. A HERMENEUTICA                                                      4. O MARXISMO CONTEMPORANEO.",
+        "codigo": "FIL0117"
+    },
+    {
+        "nome": "HISTÓRIA DA FILOSOFIA MEDIEVAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0177 ) OU ( FIL0035 ) OU ( FIL0036 ) OU ( FIL0037 ) OU ( FIL0038 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "1. A FORMACAO DE UMA FILOSOFIA CRISTA.                                  2. O ESPLENDOR DA FILOSOFIA CRISTA NO SECULO XIII.                      3. A \"VIA MODERNA\".",
+        "codigo": "FIL0039"
+    },
+    {
+        "nome": "HISTORIA DA FILOSOFIA MEDIEVAL 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. O ESPLENDOR DO SECULO XIII: CAUSAS DO FLORESCIMENTO                02. A INSPIRACAO CIENTIFICA                                            03. AS GRANDES SINTESES E AS GRANDES FIGURAS                           04. A ULTIMA ESCOLASTICA MEDIEVAL",
+        "codigo": "FIL0115"
+    },
+    {
+        "nome": "HISTÓRIA DA FILOSOFIA MODERNA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0181 ) OU ( FIL0040 ) OU ( FIL0041 ) OU ( FIL0042 ) OU ( FIL0043 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "01. O RENASCIMENTO E A CIENCIA MODERNA                                 02. O RACIONALISMO                                                     03. O EMPIRISMO                                                        04. O CRITICISMO KANTIANO.",
+        "codigo": "FIL0044"
+    },
+    {
+        "nome": "HISTORIA DA FILOSOFIA MODERNA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem por objetivo desenvolver a análise e interpretação de textos clássicos da tradição moderna, em especial os desdobramentos tardios do séc. XVII e XVIII. Pontos sugeridos para tratamento:  1) Espinosa e a questão do panteísmo; 2) Malebranche e o ocasionalismo; 3) Locke e a crítica ao inatismo e à ideia de substância; 4) Leibniz, harmonia pré-estabelecida e monadologia; 5) Hume e a radicalização do empirismo (ceticismo e ciência); 6) O criticismo kantiano: juízos analíticos e sintéticos; as formas da sensibilidade; as categorias do entendimento; as ideias da razão; a fundamentação da matemática e da física; a eliminação da metafisica dogmática; a ética do imperativo categórico.",
+        "codigo": "FIL0116"
+    },
+    {
+        "nome": "HISTÓRIA DA FILOSOFIA NO BRASIL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 ) OU ( FIL0105 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01 - A QUESTAO DA ORIGINALIDADE DA FILOSOFIA NO BRASIL E AS INFLUENCIAS      PRIMITIVAS                                                        02 - AS IDEIAS, NO BRASIL, NO PERIODO DA ESCOLASTICA E DA CONTRA-REFOR-      MAS                                                               03 - O ECLETISMO E O EVOLUCIONISMO                                     04 - ASCENSAO E DECADENCIA DO POSITIVISMO                              05 - A FILOSOFIA NO BRASIL NO SECULO XX.",
+        "codigo": "FIL0050"
+    },
+    {
+        "nome": "HISTÓRIA DA LÓGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0093"
+    },
+    {
+        "nome": "IDEIAS FILOSOFICAS EM FORMA LITERARIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0157 )",
+        "equivalencias_especificas": [],
+        "ementa": "PROPOE-SE UMA REFLEXAO ACERCA DA NOCAO DE  FILOSOFIA,  ESTUDANDO  AS VINCULACOES DA MESMA COM O CONCEITO E COM O UNIVERSAL, TENTANDO ESTUDAR AS POSSIBILIDADES DE UM DISCURSO FILOSOFICO NAO-CONCEPTUAL, E SUAS  RE- LACOES COM O CONCEPTUAL.                                                   1. A REFLEXAO FILOSOFICA VEICULADA COM FORMA LITERARIA                 2. RECURSOS LITERARIOS VERSUS FORMA CONCEPTUAL                         3. IDEIAS FILOSOFICA E UNIVERSAL, ARTE E VERDADE.",
+        "codigo": "FIL0158"
+    },
+    {
+        "nome": "INICIAÇÃO À METODOLOGIA CIENTÍFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0220 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/-2 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/-3 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - ANTROPOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3131/-4 - 1997.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-7 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-5 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-4 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-6 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "GEOGRAFIA - Bacharelado - Presencial - D",
+                "curriculo": "3841/-2 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-3 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-3 - 2017.1",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-4 - 2016.1",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-4 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-5 - 2011.1",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-5 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "ODONTOLOGIA - Cirurgiao Dentista - Presencial - D",
+                "curriculo": "7218/1 - 2010.1",
+                "data_vigencia": "1981.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/-2 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/-3 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - SOCIOLOGIA - Bacharelado - Presencial - D",
+                "curriculo": "3123/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-4 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-5 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-6 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "GEOGRAFIA - Bacharelado - Presencial - D",
+                "curriculo": "3841/1 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-2 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1972.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0069 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/1 - 2019.2",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-2 - 2017.2",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ODT0143 OU ODT0144 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "1994.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0152 OU FDD0153 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-2 - 2019.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0036 OU ELA0013 ) )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1. O PROBLEMA DO CONHECIMENTO, EM SUAS LINHAS GERAIS.                   2. LOGICA E METODO NA CIENCIA.                                          3. CLASSIFICACAO DAS CIENCIAS: DISCUSSAO CRITICA.                       4. RACIONALIDADE E OBJETIVIDADE CIENTIFICAS.                            5. DIMENSOES SOCIAIS DA PESQUISA CIENTIFICA.",
+        "codigo": "FIL0077"
+    },
+    {
+        "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0166 ) OU ( FIL0103 ) OU ( FIL0104 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0105"
+    },
+    {
+        "nome": "INTRODUÇÃO À FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0029 ) OU ( FDD0216 ) OU ( FIL0166 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "GEOGRAFIA - Bacharelado - Presencial - D",
+                "curriculo": "3841/-2 - 2005.1",
+                "data_vigencia": "1993.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) )",
+                "matriz_curricular": "GEOGRAFIA - Bacharelado - Presencial - D",
+                "curriculo": "3841/-2 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/-2 - 2016.1",
+                "data_vigencia": "1993.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/-3 - 2005.1",
+                "data_vigencia": "1993.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0063 ) )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/-3 - 2008.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "GEOGRAFIA - Bacharelado - Presencial - D",
+                "curriculo": "3841/1 - 2014.1",
+                "data_vigencia": "1993.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) )",
+                "matriz_curricular": "GEOGRAFIA - Bacharelado - Presencial - D",
+                "curriculo": "3841/1 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0063 ) )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0063 ) )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/-2 - 2014.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FIL0077 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "GEOGRAFIA - Licenciatura - Presencial - D",
+                "curriculo": "3859/1 - 2017.2",
+                "data_vigencia": "1993.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0008 ) )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ORIGEM E NATUREZA DA FILOSOFIA.Mito e filosofia. A origem da filosofia: os pré-socráticos. Algumas caracterizações gerais da filosofia.Apresentação geral dos temas tradicionais da filosofia. A questão do ser: metafísica, ontologia. Aquestão do conhecimento: epistemologia. A questão do agir: a ética.AS QUESTÕES FILOSÓFICAS NA HISTÓRIA DA FILOSOFIA.A filosofia antiga: a acento na questão do ser. A filosofia medieval: a questão da razão e da fé. Afilosofia moderna: a acento na questão do conhecimento. A revolução científica. Filosofia e ciência. Afilosofia contemporânea.",
+        "codigo": "FIL0069"
+    },
+    {
+        "nome": "INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0022"
+    },
+    {
+        "nome": "INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0023"
+    },
+    {
+        "nome": "INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0024"
+    },
+    {
+        "nome": "INTRODUÇÃO À HISTÓRIA DA FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O homem é um ser histórico. Eis por que as atividades tipicamente humanas, que perfazem aquilo a que se chama abstratamente de cultura, são sempre marcadas por uma historicidade incontornável. Ora, sendo assim, as produções culturais não se relacionam com a história simplesmente de forma extrínseca, mas tem antes a historicidade como algo que lhes é intrínseco. Também a filosofia ocidental possui elementos históricos que lhes são intrínsecos e constitutivos. Há duas formas fundamentais pelas quais se pode promover uma introdução à relação entre filosofia e história. Por um lado, filosofias são, em geral, filhas de seu próprio tempo histórico. São marcadas, por conseguinte, por uma determinação proveniente das linhas mestras, materiais e espirituais, do momento histórico que assiste ao seu surgimento, retroagindo, muitas vezes, sobre a compreensão que as comunidades históricas têm de si mesmas e do mundo circundante. Por outro lado, por ser uma atividade humana já milenar, a filosofia não somente está na história como ainda tem uma história. Se lançarmos os olhos sobre o que há de verdadeiramente específico na filosofia ocidental talvez nada sobressaia como um único traço característico, presente implícita ou explicitamente a todo tempo, a não ser seu caráter permanentemente dialógico, referencial, intertextual. O que parece ser específico da filosofia ocidental tem sido até aqui o caráter constitutivo da intertextualidade para a práxis filosófica, de tal forma que uma filosofia que não se utilize constitutivamente do elemento histórico, de uma assimilação dos problemas tradicionais como motivação para a apresentação de soluções inovadoras, parece se descaracterizar como filosofia. Desta maneira, uma introdução à história da filosofia deve ser uma introdução à práxis filosófica por excelência, ao encadeamento histórico do grande diálogo que tem sido até aqui a filosofia ocidental. A disciplina pretende ser uma introdução à história da filosofia capaz de tornar os ingressantes no curso de filosofia familiarizados com a dupla maneira, descrita acima, pela qual filosofia e história podem se relacionar.1.\tO surgimento da filosofia 2.\tFilosofia, História e Intertextualidade3.\tFilosofia e Crítica 4.\tFilosofia e os processos de racionalização/secularização5.\tFilosofia, Teoria e Prática6.\tFilosofia e História da Filosofia7.\tFilosofia, Política e Sociedade",
+        "codigo": "FIL0165"
+    },
+    {
+        "nome": "INTRODUCAO A LOGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0108 )",
+        "equivalencias_especificas": [],
+        "ementa": "01. A LOGICA DO SILOGISMO                                              02. A INDUCAO                                                          03. SOFISMAS: CLASSIFICACAO E CRITICA                                  04. O CONCEITO DE DEFINICAO                                            05. FUNDAMENTOS DA TEORIA DOS CONJUNTOS.",
+        "codigo": "FIL0109"
+    },
+    {
+        "nome": "INTRODUÇÃO A PRÁTICA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0105 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Este curso tem por objetivo investigar várias abordagens da filosófica. As leituras selecionadas procuram pensar a filosofia em relação à sua história e à sua institucionalização como saber acadêmico, levantando diversas perspectivas, métodos ou instrumentos de aproximação aos textos e às questões filosóficas.1.\tSobre o papel da Filosofia 2.\tA Filosofia e sua história3.\tPossibilidades de leituras filosóficas4.\tFilosofia e filosofias5.\tA Filosofia e as outras áreas do saber, tais como a Política, a Ciência e as Artes",
+        "codigo": "FIL0166"
+    },
+    {
+        "nome": "LÓGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0056 ) OU ( FIL0056 ) OU ( FIL0178 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Lógica tradicional e lógica moderna. Introdução à lógica simbólica moderna. A linguagem dos conectivos e a linguagem dos quantificadores. O teorema de Gödel. Atividades práticas conforme documento orientador sobre a integração das práticas pedagógicas aos conteúdos curriculares obrigatórios de Filosofia.",
+        "codigo": "FIL0179"
+    },
+    {
+        "nome": "LÓGICA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0178 ) OU ( FIL0179 ) OU ( FIL0054 ) OU ( FIL0055 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CID0097 ) ) OU ( FIL0054 OU FIL0055 )",
+                "matriz_curricular": "BIBLIOTECONOMIA - Bacharelado - Presencial - D",
+                "curriculo": "8222/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CID0097 ) ) OU ( FIL0054 OU FIL0055 )",
+                "matriz_curricular": "BIBLIOTECONOMIA - Bacharelado - Presencial - D",
+                "curriculo": "8222/1 - 2019.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CID0097 ) ) OU ( FIL0054 OU FIL0055 )",
+                "matriz_curricular": "BIBLIOTECONOMIA - Bacharelado - Presencial - D",
+                "curriculo": "8222/-2 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CID0097 ) ) OU ( FIL0054 OU FIL0055 )",
+                "matriz_curricular": "BIBLIOTECONOMIA - Bacharelado - Presencial - D",
+                "curriculo": "8222/-3 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CID0097 ) ) OU ( FIL0054 OU FIL0055 )",
+                "matriz_curricular": "BIBLIOTECONOMIA - Bacharelado - Presencial - D",
+                "curriculo": "8222/-4 - 2011.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "## => A LÓGICA DO SILOGISMO## => A LÓGICA DE PREDICADOS DE PRIMEIRA ORDEM## => A LÓGIACA SENTENCIAL.",
+        "codigo": "FIL0056"
+    },
+    {
+        "nome": "LOGICA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0056 ) OU ( FIL0179 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => ESTA  DISCIPLINA  É  DE  LÓGICA  MATEMÁTICA, ENVOLVENDO TÓPICOS NÃO-INTRODUTÓRIOS. SUA EMENTA E SEU PROGRAMA NÃO SÃO  PRÉ - ESTA-BELECIDOS. A CADA VEZ QUE A DISCIPLINA FOR OFERECIDA, SERÁ   DEFINIDO PARA ELA UM CONTEÚDO ESPECÍFICO.",
+        "codigo": "FIL0079"
+    },
+    {
+        "nome": "LÓGICA MODAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0179 ) OU ( FIL0118 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0018"
+    },
+    {
+        "nome": "LÓGICAS NÃO-CLÁSSICAS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0179 ) OU ( FIL0118 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0019"
+    },
+    {
+        "nome": "METAFILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0148 )",
+        "equivalencias_especificas": [],
+        "ementa": "REFLEXAO ACERCA DA PROBLEMATICA ATUAL DO FIM DA FILOSOFIA, E A POSSI-BILIDADE DE UMA CULTURA POS-FILOSOFICA.                                    I. FILOSOFIA E METAFILOSOFIA.                                          II. TOPICOS ESPECIAIS DE METAFILOSOFIA.",
+        "codigo": "FIL0149"
+    },
+    {
+        "nome": "METODOLOGIA DE ENSINO DE FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0010"
+    },
+    {
+        "nome": "MITO E FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0133 )",
+        "equivalencias_especificas": [],
+        "ementa": "01. A RELACAO MITO E LOGOS                                              02. ALEGORIA MITICA                                                     03. TAUTEGORIA MITICA",
+        "codigo": "FIL0134"
+    },
+    {
+        "nome": "MONITORIA EM ANTROPOLOGIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0260"
+    },
+    {
+        "nome": "MONITORIA EM DIALETICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0129 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0298"
+    },
+    {
+        "nome": "MONITORIA EM DISSERTACAO FILOSOFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0265"
+    },
+    {
+        "nome": "MONITORIA EM DISSERTACAO FILOSOFICA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0155 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0317"
+    },
+    {
+        "nome": "MONITORIA EM DISSERTACAO FILOSOFICA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0112 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0286"
+    },
+    {
+        "nome": "MONITORIA EM DISSERTACAO FILOSOFICA 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0113 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0287"
+    },
+    {
+        "nome": "MONITORIA EM EPISTEMOLOGIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0175 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0195"
+    },
+    {
+        "nome": "MONITORIA EM EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0087 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0214"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO PEDAGÓGICO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0208"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO PEDAGÓGICO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0168 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0219"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO PEDAGÓGICO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0171 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0220"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO PEDAGÓGICO SUPERVISIONADO 4",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0174 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0221"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM FILOSOFIA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0163 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0324"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM FILOSOFIA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0164 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0325"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM FILOSOFIA - DP",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0266"
+    },
+    {
+        "nome": "MONITORIA EM ESTÉTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0263"
+    },
+    {
+        "nome": "MONITORIA EM ESTÉTICA E FILOSOFIA DA ARTE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0182 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0200"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0261"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA E EDUCAÇÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0184 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0340"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0167 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0194"
+    },
+    {
+        "nome": "MONITORIA EM EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0250"
+    },
+    {
+        "nome": "MONITORIA EM EXISTENCIALISMO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0132 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0215"
+    },
+    {
+        "nome": "MONITORIA EM FENOMENOLOGIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0125 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0296"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA AFRICANA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0202"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA ANALITICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0130 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0299"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA ANTIGA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0180 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0198"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA CONTEMPORÂNEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0187"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA ARTE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0124 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0295"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA CIÊNCIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0183 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0201"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA HISTÓRIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0262"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA LINGUAGEM",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0086 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0270"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA LOGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0118 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0206"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA MATEMÁTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0241"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA MENTE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0152 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0191"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA MÚSICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0185 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0207"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA NATUREZA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0306"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA PSICANÁLISE",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0231"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DA RELIGIÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0136 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0302"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA DO ENSINO DE FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0236"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA E CRIANÇAS - UMA EDUCAÇÃO FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0189"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA E FEMINISMO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0210"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA FRANCESA CONTEMPORÂNEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0234"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA GERAL E METAFÍSICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0188"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0062 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0259"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA MARXISTA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0127 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0297"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA MEDIEVAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0177 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0222"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA MODERNA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0181 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0199"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA NA AMÉRICA LATINA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0209"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA ORIENTAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0212"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA POLÍTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0176 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0196"
+    },
+    {
+        "nome": "MONITORIA EM FILOSOFIA SOCIAL E POLITICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0269"
+    },
+    {
+        "nome": "MONITORIA EM HERMENEUTICA FILOSOFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0272"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA CIENCIA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0107 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0205"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA CIENCIA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0156 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0318"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA FILOSOFIA ANTIGA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0251"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA FILOSOFIA ANTIGA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0114 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0288"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0254"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0117 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0291"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA FILOSOFIA MEDIEVAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0252"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA FILOSOFIA MEDIEVAL 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0115 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0289"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA FILOSOFIA MODERNA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0253"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA FILOSOFIA MODERNA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0116 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0290"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA FILOSOFIA NO BRASIL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0203"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA DA LÓGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0093 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0277"
+    },
+    {
+        "nome": "MONITORIA EM IDEIAS FILOSOFICAS EM FORMA LITERARIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0158 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0319"
+    },
+    {
+        "nome": "MONITORIA EM INICIAÇÃO À METODOLOGIA CIENTÍFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0267"
+    },
+    {
+        "nome": "MONITORIA EM INICIAÇÃO À PRÁTICA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0105 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0283"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0069 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0190"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0243"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0244"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0245"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À HISTÓRIA DA FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0165 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0192"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A LOGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0109 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0285"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A PRÁTICA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0166 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0193"
+    },
+    {
+        "nome": "MONITORIA EM LÓGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0179 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0197"
+    },
+    {
+        "nome": "MONITORIA EM LÓGICA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0257"
+    },
+    {
+        "nome": "MONITORIA EM LOGICA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0268"
+    },
+    {
+        "nome": "MONITORIA EM LÓGICA MODAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0239"
+    },
+    {
+        "nome": "MONITORIA EM LÓGICAS NÃO-CLÁSSICAS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0240"
+    },
+    {
+        "nome": "MONITORIA EM METAFILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0149 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0313"
+    },
+    {
+        "nome": "MONITORIA EM METODOLOGIA DE ENSINO DE FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0232"
+    },
+    {
+        "nome": "MONITORIA EM MITO E FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0134 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0216"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0213"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS PEDAGÓGICAS EM FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0233"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE MONOGRAFIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0211"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO ESPECIAL DE FILOSOFIA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0150 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0314"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO ESPECIAL DE FILOSOFIA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0151 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0315"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA CRÍTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0242"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DA CIÊNCIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0258"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DO CONHECIMENTO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0053 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0256"
+    },
+    {
+        "nome": "MONITORIA EM TEORIAS DA INTERPRETAÇÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0228"
+    },
+    {
+        "nome": "MONITORIA EM TEORIAS FILOSÓFICAS DA LINGUAGEM",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0186"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSÓFICOS GREGOS 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0307"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSÓFICOS GREGOS 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0143 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0308"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSÓFICOS GREGOS 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0144 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0309"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSÓFICOS GREGOS 4",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0303"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSÓFICOS GREGOS 5",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0138 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0304"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSÓFICOS GREGOS 6",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0139 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0305"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSOFICOS LATINOS 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0145 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0217"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSOFICOS LATINOS 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0146 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0311"
+    },
+    {
+        "nome": "MONITORIA EM TEXTOS FILOSOFICOS LATINOS 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0147 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0312"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE ANTROPOLOGIA FILOSOFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0101 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0282"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS DE EPISTEMOLOGIA DAS CIÊNCIAS HUMANAS E SOCIAIS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0230"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE ESTETICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0162 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0323"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE ETICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0120 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0293"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE FILOSOFIA DA HISTORIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0160 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0321"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE FILOSOFIA DA LINGUAGEM",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0161 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0218"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS DE FILOSOFIA DA RELIGIÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0248"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0281"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE FILOSOFIA SOCIAL E POLITICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0122 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0294"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA ANTIGA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0089 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0273"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA CONTEMPORANEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0092 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0204"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA MEDIEVAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0090 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0274"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA MODERNA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0091 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0275"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA NO BRASIL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0159 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0320"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS DE LÓGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0094 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0278"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE TEORIA DA CIENCIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0097 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0280"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS DE TEORIA DO CONHECIMENTO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0096 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0279"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM FILOSOFIA ORIENTAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FIL0223"
+    },
+    {
+        "nome": "MONOGRAFIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0225 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0028"
+    },
+    {
+        "nome": "MONOGRAFIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( FIL0224 OU FIL0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A atividade de monografia consiste em observar, investigar e construir reflexo&#771;es cri&#769;ticas sobre um tema, problema ou assunto.",
+        "codigo": "FIL0225"
+    },
+    {
+        "nome": "PRÁTICAS PEDAGÓGICAS EM FILOSOFIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0002 ) OU ( FIL0003 ) OU ( FIL0007 ) OU ( FIL0167 ) OU ( FIL0175 ) OU ( FIL0176 ) OU ( FIL0177 ) OU ( FIL0179 ) OU ( FIL0180 ) OU ( FIL0181 ) OU ( FIL0182 ) OU ( FIL0183 ) OU ( FIL0011 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0012"
+    },
+    {
+        "nome": "PROJETO DE MONOGRAFIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0166 E FIL0034 ) OU ( FIL0180 E FIL0039 ) OU ( FIL0177 E FIL0044 ) OU ( FIL0181 E FIL0049 ) OU ( FIL0003 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0224 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0025"
+    },
+    {
+        "nome": "PROJETO DE MONOGRAFIA FILOSÓFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0166 E FIL0034 ) OU ( FIL0180 E FIL0039 ) OU ( FIL0177 E FIL0044 ) OU ( FIL0181 E FIL0049 ) OU ( FIL0003 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O componente curricular prepara o discente para o estudo dos métodos e técnicas utilizados para a realização de pesquisa e estudo científico.",
+        "codigo": "FIL0224"
+    },
+    {
+        "nome": "SEMINARIO ESPECIAL DE FILOSOFIA 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "ESTE CURSO: VERSARA SOBRE UM TEMA ESPECIAL DE FILOSOFIA, COMO EMENTA,PROGRAMA E BIBLIOGRAFIA VARIANDO, A CADA VEZ QUE FOR OFERECIDO.",
+        "codigo": "FIL0150"
+    },
+    {
+        "nome": "SEMINARIO ESPECIAL DE FILOSOFIA 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "ESTE CURSO VERSARA SOBRE UM TEMA FILOSOFICO ESPECIAL. EMENTA, PROGRA-MA E BIBLIOGRAFIA VARIARAO A CADA VEZ QUE O CURSO FOR OFERECIDO.",
+        "codigo": "FIL0151"
+    },
+    {
+        "nome": "TEORIA CRÍTICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0175 ) OU ( FIL0181 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0021"
+    },
+    {
+        "nome": "TEORIA DA CIÊNCIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0183 ) OU ( FIL0057 ) OU ( FIL0058 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-3 - 2017.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-4 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-5 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0253 OU FDD0254 ) ) OU ( FIL0057 OU FIL0058 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "01. TEORIA DA CIENCIA: CONCEITUACAO                                     02. O EMPIRISMO LOGICO E A FILOSOFIA DE K. POPPER                       03. O DEBATE OPPER-KUN                                                  04. CORRENTES ATUAIS EM TEORIA DA CIENCIA",
+        "codigo": "FIL0059"
+    },
+    {
+        "nome": "TEORIA DO CONHECIMENTO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0175 ) OU ( FIL0052 ) OU ( FIL0053 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "I. A QUESTAO GNOSEOLOGICA E REFLEXAO FILOSOFICA II. CEPTICISMO III. VERDADE CONHECIMENTO E A REVOLUCAO CIENTIFICA VI. CONHECIMENTO E A REVOLUCAO CIENTIFICA V. LOGICA, LINGUAGEM E CONHECIMENTO.",
+        "codigo": "FIL0051"
+    },
+    {
+        "nome": "TEORIA DO CONHECIMENTO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0105 ) OU ( FIL0069 ) OU ( FIL0166 ) OU ( FIL0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0175 ) OU ( FIL0051 ) OU ( FIL0052 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "I.   A QUESTAO GNOSEOLOGICA E REFLEXAO FILOSOFICA                       II.  CEPTICISMO                                                        III. VERDADE CONHECIMENTO E A REVOLUCAO CIENTIFICA                      VI. CONHECIMENTO E A REVOLUCAO CIENTIFICA                               V. LOGICA, LINGUAGEM E CONHECIMENTO.",
+        "codigo": "FIL0053"
+    },
+    {
+        "nome": "TEORIAS DA INTERPRETAÇÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0006"
+    },
+    {
+        "nome": "TEORIAS FILOSÓFICAS DA LINGUAGEM",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0069 E FIL0175 ) OU ( FIL0105 E FIL0181 ) OU ( FIL0166 E FIL0044 ) OU ( FIL0069 E FIL0181 ) OU ( FIL0069 E FIL0044 ) OU ( FIL0105 E FIL0175 ) OU ( FIL0105 E FIL0044 ) OU ( FIL0166 E FIL0175 ) OU ( FIL0166 E FIL0181 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0012 E FIL0086 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0002"
+    },
+    {
+        "nome": "TEXTOS FILOSÓFICOS GREGOS 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O GREGO, LINGUA DA FILOSOFIA, NO SISTEMA INDO-EUROPEU. INICIACAO A   GRAMATICA, ESTUDADA FUNCIONALMENTE ATRAVES DE EXERCICIOS GRADUADOS DE   VERSAO E RETROVERSAO DE TEXTOS FACEIS E SUGESTIVOS, DO PONTO DE VISTA   FILOSOFICO. TRADUCAO DE ALGUMAS FABULAS DE ESOPO. TRECHOS SELECTOS DE   PLATAO.",
+        "codigo": "FIL0142"
+    },
+    {
+        "nome": "TEXTOS FILOSÓFICOS GREGOS 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0142 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "DESENVOLVIMENTO E APROFUNDAMENTO DO ESTUDO DAS ESTRUTURAS DA LINGUA  EM TEXTOS FILOSOFICOS GREGOS I. CONCENTRACAO EM TEXTOS DE MAIOR  RELE-  VANCIA FILOSOFICA DE AUTORES COMO PLATAO, ARISTOTELES, PLOTINO, PORFI-  RIO E PROCLO.                                                           01. REVISAO DA GRAMATICA GREGA ELEMENTAR                               02. QUESTOES COMPLEMENNTARES DE GRAMATICA                              03. TEXTOS ORIGINAIS SIMPLES DE PLATAO, ARISTOTELES, PLOTINO, PORFIRIO      E PROCLO: TRADUCAO E DISCUSSAO",
+        "codigo": "FIL0143"
+    },
+    {
+        "nome": "TEXTOS FILOSÓFICOS GREGOS 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0143 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "01. TOPICOS ABANCADOS DE GRAMATICA                                     02. TEXTOS ANTOLOGICOS DE PLATAO E DE ARISTOTELES                      03. TRADUCAO E DISCUSSAO FILOSOFICA DE FRAGMENTOS PRE-SOCRATICOS       04. NOCOES DE GREGO COMUM (KOINE)                                       PROSSEGUIMENTO E AMPLIACAO DA EMENTA DE TEXTOS FILOSOFICOS GREGOS II,   OS PRE-SOCRATICOS - TRADUACAO DOS PRINCIAPAIS FRAGMENTOS.",
+        "codigo": "FIL0144"
+    },
+    {
+        "nome": "TEXTOS FILOSÓFICOS GREGOS 4",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0144 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0137"
+    },
+    {
+        "nome": "TEXTOS FILOSÓFICOS GREGOS 5",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0137 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0138"
+    },
+    {
+        "nome": "TEXTOS FILOSÓFICOS GREGOS 6",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0138 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0139"
+    },
+    {
+        "nome": "TEXTOS FILOSOFICOS LATINOS 1",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O LATIM NO CONTEXTO DAS LINGUAS INDO-EUROPEIAS. DO  LATIM AO  PORTU- GUES. AA LINGUAGEM FILOSOFICA CRIADA POR CICERO. INICIACAO  A  MORFOLO- GIA E A SINTAXE. ALGUMAS FABULAS DE FEDRO, PARA EXERCICIO DE  TRADUCAO. O DE NATURA RERUM DE LUCRECIO, REPOSITORIO  DA  FILOSOFIA  DE  EPICURO. TRADUCAO DE SENTENCAS DE CATAO E DE EXCERTOS DE CICERO, FLAVIO ARRIENO, EPICTETO E SENECA.                                                      1. GRAMATICA LATINA ELEMENTAR                                          2. TRADUCAO E DISCUSSAO FILOSIFCA DE TABULAS DE FEDRO E  DE  TEXTOS  DE    LUCRECIO                                                            3. TRADUCAO E DISCUSSAO DE CICERO, CATAO E FLAVIO ARRIENO.",
+        "codigo": "FIL0145"
+    },
+    {
+        "nome": "TEXTOS FILOSOFICOS LATINOS 2",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O LATIM, LINGUA DA FILOSOFIA MEDIEVAL. A PATRISTICA E SEUS PRINCIPAISREPRESENTANTES - JERONIMO E AGOSTINHO. BOECIO, \"ULTIMO  DOS  ROMANOS\"  E\"PRIMEIRO  DOS  ESCOLASTICOS\".  ANSELMO  DE  CANTUARIA.  ARISTOTELISMO EPLATONISMO NO RENASCIMENTO DO SEC. XII: ALBELARDO. VERSOES ARABO-LATINASDOSSECULOS XII E XIII. GULHERME DE MOERBEKE. TOMAS DE AQUINO, DUNS SCOTOE RAIMUNDO LULIO. CARACTERISTICAS DO LATIM MEDIEVAL.                    1. O LATIM MEDIEVAL                                                    2. TRADUCAO E DISCUSSAO FILOSOFICA DE TEXTOS DA PATRISTICA             3. TRADUCAO E DISCUSSAO DE TEXTOS ESCOLASTICOS.",
+        "codigo": "FIL0146"
+    },
+    {
+        "nome": "TEXTOS FILOSOFICOS LATINOS 3",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A LINGUA LATINA NA FILOSOFIA MODERNA E CONTEMPORANEA.  PEDRO  RAMO E ANTONIO DE GOUVEIA. PIERRE GASSENDI. DESCARTES, ESPINOSA, HOBBES,  LEI- BNIZ, BERKELEY, LOCKE, WOLFF, E KANT. HEIDEGGER.                        1. O LATIM NA MODERNIDADE                                              2. TRADUCAO E DISCUSSAO FILOSOFICA DE TEXTOS LATINOS DOS  SECULOS  XVII    E XVIII                                                             3. TRADUCAO E DISCUSSAO DE TEXTOS LATINOS MAIS RECENTES.",
+        "codigo": "FIL0147"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE ANTROPOLOGIA FILOSOFICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0063 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0100 )",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0101"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS DE EPISTEMOLOGIA DAS CIÊNCIAS HUMANAS E SOCIAIS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0087 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0008"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE ESTETICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0068 ) OU ( FIL0182 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA.  OPROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA CURSO ORIENTAR-SE-AO DEACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0162"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE ETICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0167 ) OU ( FIL0064 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0119 )",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0120"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE FILOSOFIA DA HISTORIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0065 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO  DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. OPROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA CURSO ORIENTAR-SE-AO DEACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0160"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE FILOSOFIA DA LINGUAGEM",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0086 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA.  OPROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA CURSO ORIENTAR-SE-AO DEACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0161"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS DE FILOSOFIA DA RELIGIÃO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0136 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0027"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0062 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0098 )",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0099"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE FILOSOFIA SOCIAL E POLITICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0082 ) OU ( FIL0179 ) OU ( FIL0176 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0121 )",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0122"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA ANTIGA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0034 ) OU ( FIL0180 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA A BIBLIOGRAFIA E A METODOLOGIA DE CADA CURSO ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0089"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA CONTEMPORANEA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0049 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0092"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA MEDIEVAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0039 ) OU ( FIL0177 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0090"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA MODERNA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0044 ) OU ( FIL0181 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DDO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0091"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA NO BRASIL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0050 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0159"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS DE LÓGICA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0056 ) OU ( FIL0179 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0094"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE TEORIA DA CIENCIA",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0059 ) OU ( FIL0183 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0097"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS DE TEORIA DO CONHECIMENTO",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0053 ) OU ( FIL0175 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FIL0095 )",
+        "equivalencias_especificas": [],
+        "ementa": "O CONTEUDO DESTA DISCIPLINA VARIARA, A CADA VEZ QUE FOR OFERECIDA. O PROGRAMA, A BIBLIOGRAFIA E A METODOLOGIA DE CADA  CURSO  ORIENTAR-SE-AO DE ACORDO COM A PESQUISA DO PROFESSOR E O INTERESSE DOS ALUNOS.",
+        "codigo": "FIL0096"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM FILOSOFIA ORIENTAL",
+        "unidade_responsavel": "DEPTO FILOSOFIA ",
+        "pre_requisitos": "( ( FIL0026 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FIL0001"
+    }
+]
