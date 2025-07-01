@@ -1,0 +1,1939 @@
+{
+  "curso": "FISIOTERAPIA",
+  "periodo_letivo_vigor": "2024.2",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0188",
+          "nome": "SAÚDE E SOCIEDADE 1: INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS EM SÁUDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINÁRIO INTEGRATIVO 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ÁTOMO À CÉLULA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0193",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZAÇÃO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTOS ACADÊMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0845",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0886",
+          "nome": "EXTENSÃO UNIVERSITÁRIA NA FCE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0145",
+          "nome": "SUPORTE E MOVIMENTO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE À VIDA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0218",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FÍSICOS",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRAÇÃO DOS PROCESSOS VITAIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITÁRIO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0770",
+          "nome": "EXTENSÃO NAS BASES BIOLÓGICAS E DA SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0862",
+          "nome": "SAÚDE E SOCIEDADE 2: O PROCESSO SAÚDE-DOENÇA COMO CONSTRUÇÃO SOCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0205",
+          "nome": "SEMINÁRIO INTEGRATIVO 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRAÇÃO METABÓLICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0226",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENÇÃO DA VIDA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0772",
+          "nome": "ATIVIDADE AUTÔNOMA DE EXTENSÃO NAS BASES BIOLÓGICAS E DA SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0849",
+          "nome": "SISTEMAS E POLÍTICAS DE SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0147",
+          "nome": "PROCESSOS PATOLÓGICOS",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUÇÃO A PESQUISA CIENTÍFICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0207",
+          "nome": "FUNCIONALIDADE E SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0279",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERAÇÃO PARASITO-HOSPEDEIRO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0989",
+          "nome": "ATIVIDADE DE EXTENSÃO AUTÔNOMA NA UNIVERSIDADE DE BRASÍLIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0241",
+          "nome": "SEMINÁRIO INTEGRATIVO 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0283",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDÊNCIAS 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0284",
+          "nome": "FISIOTERAPIA NA ATENÇÃO BÁSICA AVALIAÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0285",
+          "nome": "FISIOTERAPIA NA ATENÇÃO DE MÉDIA COMPLEXIDADE: AVALIAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0286",
+          "nome": "FISIOTERAPIA NA ATENÇÃO DE ALTA COMPLEXIDADE: AVALIAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0298",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITAÇÃO: AVALIAÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0990",
+          "nome": "GESTÃO DE SERVIÇOS E RECURSOS HUMANOS EM FISIOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0993",
+          "nome": "ATIVIDADE DE EXTENSÃO COLETIVA NO EIXO CENÁRIOS DE PRÁTICA EM FISIOTERAPIA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0272",
+          "nome": "SEMINÁRIO INTEGRATIVO 4",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0288",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDÊNCIAS 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0289",
+          "nome": "FISIOTERAPIA NA ATENÇÃO BÁSICA RECURSOS TERAPÊUTICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0290",
+          "nome": "FISIOTERAPIA NA ATENÇÃO DE MÉDIA COMPLEXIDADE: RECURSOS TERAPÊUTICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0291",
+          "nome": "FISIOTERAPIA NA ATENÇÃO DE ALTA COMPLEXIDADE: RECURSOS TERAPÊUTICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0299",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITAÇÃO: RECURSOS TERAPÊUTICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0996",
+          "nome": "ATIVIDADES DE EXTENSÃO COLETIVA NO EIXO CENÁRIOS DE PRÁTICA EM FISIOTERAPIA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0280",
+          "nome": "SEMINÁRIO INTEGRATIVO 5",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0292",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDÊNCIAS 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0293",
+          "nome": "FISIOTERAPIA NA ATENÇÃO BÁSICA INTERVENÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0294",
+          "nome": "FISIOTERAPIA NA ATENÇÃO DE MÉDIA COMPLEXIDADE: INTERVENÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0295",
+          "nome": "FISIOTERAPIA NA ATENÇÃO DE ALTA COMPLEXIDADE: INTERVENÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0296",
+          "nome": "EXERCÍCIO PROFISSIONAL E DEONTOLOGIA EM FISIOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0300",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITAÇÃO: INTERVENÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0997",
+          "nome": "ATIVIDADE DE EXTENSÃO COLETIVA NO EIXO CENÁRIOS DE PRÁTICA EM FISIOTERAPIA 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0034",
+          "nome": "ESTÁGIO OBRIGATÓRIO  EM FISIOTERAPIA 1",
+          "carga_horaria": "300h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0301",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM FISIOTERAPIA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0991",
+          "nome": "ATIVIDADE DE EXTENSÃO AUTÔNOMA NA UNIVERSIDADE DE BRASÍLIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0035",
+          "nome": "ESTÁGIO OBRIGATÓRIO  EM FISIOTERAPIA 2",
+          "carga_horaria": "300h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0992",
+          "nome": "ATIVIDADE DE EXTENSÃO AUTÔNOMA NA UNIVERSIDADE DE BRASÍLIA 3",
+          "carga_horaria": "75h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0036",
+          "nome": "ESTÁGIO OBRIGATÓRIO  EM FISIOTERAPIA 3",
+          "carga_horaria": "300h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0998",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "CEL0009",
+          "nome": "REDAÇÃO CIENTÍFICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0026",
+          "nome": "BIOLOGIA MOLECULAR 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0027",
+          "nome": "BIOLOGIA MOLECULAR 2",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0102",
+          "nome": "BIOLOGIA DO DESENVOLVIMENTO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0122",
+          "nome": "METABOLISMO E REGULAÇÃO METABÓLICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0007",
+          "nome": "SAÚDE DIREITOS HUMANOS E ANTROPOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0008",
+          "nome": "DIREITOS HUMANOS LGBT",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0021",
+          "nome": "DIVERSIDADE SEXUAL E DE GÊNERO E POLÍTICAS PÚBLICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0042",
+          "nome": "POLÍTICA SOCIAL FAMILIA E ENVELHECIMENTO POPULACIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0043",
+          "nome": "CULTURA PODER E RELAÇÕES RACIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0063",
+          "nome": "VIOLÊNCIA, SEGURANÇA E CIDADANIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0069",
+          "nome": "EDUCACAO E CULTURA AFRO-BRASILEIRA OS QUILOMBOS CONTEMPORANEO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0085",
+          "nome": "CULTURA LATINO-AMERICANA SECULO XX",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0102",
+          "nome": "IDENTIDADE DE GÊNERO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0117",
+          "nome": "PENSAMENTO LGBT BRASILEIRO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0120",
+          "nome": "A CIDADE E A TERCEIRA IDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0122",
+          "nome": "GÊNERO E SEXUALIDADE NO MUNDO CLÁSSICO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0125",
+          "nome": "HISTÓRIA E CINEMA: PERSPECTIVAS DOS FEMINISMOS NEGROS, DECOLONIAIS E INTERSECCIONAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0126",
+          "nome": "DIREITOS HUMANOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0131",
+          "nome": "RAÇA, CIÊNCIA E SAÚDE DA POPULAÇÃO NEGRA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0133",
+          "nome": "MULHERES INSPIRADORAS: PERSPECTIVAS CRÍTICAS PARA A EDUCAÇÃO EM DIREITOS HUMANOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0134",
+          "nome": "EDUCAÇÃO E DESIGUALDADES SOCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEN0012",
+          "nome": "PEDAGOGIA DO TEATRO E DIVERSIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEN0018",
+          "nome": "PRÁTICA DOCENTE EM RELAÇÕES ÉTNICAS E DE GÊNERO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CFS0041",
+          "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "COM0198",
+          "nome": "EPISTEMOLOGIAS NEGRAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DAP0100",
+          "nome": "COMUNICAÇÃO E GÊNERO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0002",
+          "nome": "COMUNICAÇÃO, SAÚDE E SOCIEDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0010",
+          "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0016",
+          "nome": "EDUCAÇÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLÍTICAS PÚBLICAS EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0051",
+          "nome": "DEMOGRAFIA E BIOESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0056",
+          "nome": "COMUNICAÇÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0064",
+          "nome": "BIOÉTICA E SAÚDE PÚBLICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0072",
+          "nome": "GESTÃO DO TRABALHO E EDUCAÇÃO PERMANENTE NA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0094",
+          "nome": "TERAPIAS COMUNITÁRIAS E PRÁTICAS INTEGRATIVAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECL0017",
+          "nome": "METODOS EM BIOLOGIA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUÇÃO À ECONOMIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0057",
+          "nome": "GESTÃO EM POLITICAS DE SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0080",
+          "nome": "PRÁTICAS SAUDÁVEIS E TERAPIAS INTEGRATIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATÍSTICA APLICADA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0137",
+          "nome": "IMUNOFARMACOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0001",
+          "nome": "FUNDAMENTOS DE CITOGENÉTICA HUMANA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0002",
+          "nome": "INTRODUÇÃO AOS CUIDADOS PALIATIVOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0008",
+          "nome": "PROCESSOS COGNITIVOS: APLICAÇÕES EM FISIOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0009",
+          "nome": "PRÁTICA DA FISIOTERAPIA BASEADA EM PROBLEMAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0010",
+          "nome": "TÓPICOS AVANÇADOS EM PATOLOGIA HUMANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0017",
+          "nome": "PRINCIPAIS VETORES DE IMPORTÂNCIA EM SAÚDE COLETIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0018",
+          "nome": "METODOLOGIAS QUALITATIVAS EM SAÚDE COLETIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0019",
+          "nome": "SAÚDE, CUIDADO E RECONHECIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0021",
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRÁTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0022",
+          "nome": "JOGOS VIRTUAIS NA PRÁTICA TERAPÊUTICA: BASES E EVIDÊNCIAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0023",
+          "nome": "VARIABILIDADE DA FREQUÊNCIA CARDÍACA: APLICAÇÕES CLÍNICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0024",
+          "nome": "RECURSOS TECNOLÓGICOS AVANÇADOS EM FISIOTERAPIA DERMATO-FUNCIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0025",
+          "nome": "TÓPICOS ESPECIAIS EM FISIOTERAPIA AQUÁTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0026",
+          "nome": "TEORIAS DO DESENVOLVIMENTO MOTOR: REPERCUSSÕES NA INTERVENÇÃO PRECOCE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0027",
+          "nome": "PROCESSOS COGNITIVOS: PRÁTICA FISIOTERAPÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0028",
+          "nome": "FUNDAMENTOS DE CANCEROLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0032",
+          "nome": "NEUROPSICOLOGIA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0033",
+          "nome": "FUNDAMENTOS DA PSICOLOGIA APLICADOS AOS CICLOS DA VIDA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0043",
+          "nome": "FÍSICA ACÚSTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0044",
+          "nome": "ANTROPOLOGIA DA SAÚDE E ADOECIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0045",
+          "nome": "MÉTODO DA ERGONOMIA DA ATIVIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0046",
+          "nome": "INTRODUÇÃO A SAÚDE DO TRABALHADOR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0050",
+          "nome": "ATENÇÃO AO PREMATURO E A FAMÍLIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0051",
+          "nome": "PRONTUÁRIO ELETRÔNICO DO PACIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0053",
+          "nome": "PROCESSOS COGNITIVOS: CINÉSIO-FISIOPATOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0060",
+          "nome": "FISIOTERAPIA NO TRATAMENTO DA DOR CRÔNICA VERTEBRAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0061",
+          "nome": "BASES CELULARES E MORFOLÓGICAS DO DESENVOLVIMENTO REGENERAÇÃO MUSCULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0072",
+          "nome": "TÓPICOS AVANÇADOS EM TERAPIA MANUAL 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0074",
+          "nome": "TÓPICOS AVANÇADOS EM TERAPIA MANUAL 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0077",
+          "nome": "NEUROANATOMIA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0079",
+          "nome": "BASES DE FISIOLOGIA ENDÓCRINA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0096",
+          "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA HIPERTROFIA MUSCULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0097",
+          "nome": "PESQUISA APLICADA EM FISIOTERAPIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0098",
+          "nome": "PESQUISA APLICADA EM FISIOTERAPIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0099",
+          "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA ATROFIA MUSCULOESQUELÉTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0100",
+          "nome": "PESQUISA EM PROCESSOS BIOLÓG APLIC A ESTRUTURA FUNÇÃO E REABILITAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0108",
+          "nome": "PRODUÇÃO AUDIOVISUAL EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0109",
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECÂNICA OCUPACIONAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0110",
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0116",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0135",
+          "nome": "BASES CIENTÍFICAS DE NUTRIÇÃO E ATIVIDADE FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0138",
+          "nome": "PROCESSO DE INOVAÇÃO EM TECNOLOGIA ASSISTIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0139",
+          "nome": "INFECÇÃO RELACIONADA A ASSISTÊNCIA A SAÚDE: VIGILÂNCIA E CONTROLE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0140",
+          "nome": "SEGURANÇA DO PACIENTE NA ATENÇÃO A SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0141",
+          "nome": "PESQUISA EM EXERCÍCIO FÍSICO, REABILITAÇÃO E DESEMPENHO HUMANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0146",
+          "nome": "DA CÉLULA AOS SISTEMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0150",
+          "nome": "PARASITOSES HUMANAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0155",
+          "nome": "TÓPICOS ESPECIAIS EM INTERAÇÕES PATÓGENO - HOSPEDEIRO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0167",
+          "nome": "GÊNERO, RAÇA, SEXUALIDADE: SAÚDE E DIREITOS HUMANOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0197",
+          "nome": "FISIOLOGIA CLÍNICA DO EXERCÍCIO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0214",
+          "nome": "BIOSSEGURANÇA E BIOPROTEÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0219",
+          "nome": "INTRODUÇÃO À PSICOLOGIA DA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0233",
+          "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0236",
+          "nome": "PROMOÇÃO À SAÚDE 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0237",
+          "nome": "RACIONALIDADES MÉDICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0240",
+          "nome": "SAÚDE, AMBIENTE E TRABALHO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0243",
+          "nome": "PRÁTICAS DE SAÚDE BASEADAS EM EVIDÊNCIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0245",
+          "nome": "TÓPICOS ESPECIAIS DAS CÉLULAS AOS SISTEMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0251",
+          "nome": "DINÂMICAS GRUPAIS E ATIVIDADES CORPORAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0273",
+          "nome": "SAÚDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0275",
+          "nome": "SOCIOLOGIA DO CORPO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0277",
+          "nome": "MODELOS E PRÁTICAS DE ATENÇÃO À SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0278",
+          "nome": "TEORIAS E MODELOS DE ADMINISTRAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0305",
+          "nome": "TÓPICOS ESPECIAIS EM MICROBIOLOGIA APLICADOS A SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0306",
+          "nome": "VIGILÂNCIA SANITÁRIA APLICADA A PROFISSIONAIS DE SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0311",
+          "nome": "DEPENDÊNCIA QUÍMICA E SUA TERAPÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0312",
+          "nome": "NEUROBIOLOGIA DOS TRANSTORNOS MENTAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0313",
+          "nome": "IMUNOBIOLOGIA DA RELAÇÃO PATÓGENO - HOSPEDEIRO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0315",
+          "nome": "TÓPICOS EM METABOLISMO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0316",
+          "nome": "PALPAÇÃO OSTEOMIOARTICULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0317",
+          "nome": "LEITURA E ANÁLISE CRÍTICA DE ARTIGOS CIENTÍFICOS EM FISIOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0327",
+          "nome": "PENSAMENTO SOCIAL E SAÚDE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0329",
+          "nome": "MECANISMOS DE AGRESSÃO E DEFESA 3 - PRÁTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0330",
+          "nome": "PENSAMENTO SOCIAL EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0331",
+          "nome": "SEMINÁRIO INTEGRATIVO 6",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0335",
+          "nome": "PROMOÇÃO DA SAÚDE CONCEITOS E CONTEXTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0343",
+          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0344",
+          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0349",
+          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 3",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0350",
+          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0374",
+          "nome": "MORTE NO CONTEXTO HUMANO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0382",
+          "nome": "PESQUISA EM GERONTOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0383",
+          "nome": "TÓPICOS AVANÇADOS EM FISIOTERAPIA NA SAÚDE DA MULHER: BASES CIENTÍFICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0384",
+          "nome": "MÉTODOS E TÉCNICAS EM METABOLISMO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0385",
+          "nome": "FISIOPATOLOGIA E FARMACOLOGIA DO DIABETES",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0391",
+          "nome": "TECNOLOGIA ASSISTIVA E ACESSIBILIDADE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0392",
+          "nome": "LESÃO RENAL AGUDA NA PRÁTICA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0395",
+          "nome": "TÓPICOS EM FISIOTERAPIA NAS FRAGILIDADES DO IDOSO: BASES CIENTÍFICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0441",
+          "nome": "INTRODUÇÃO À NEUROPSICOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0457",
+          "nome": "ANÁLISE BIOMECÂNICA DA MARCHA HUMANA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0605",
+          "nome": "FISIOTERAPIA EM TERAPIA INTENSIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0722",
+          "nome": "FISIOTERAPIA RESPIRATÓRIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0844",
+          "nome": "PESQUISA EM BASES BIOLÓGICAS E DA SAÚDE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0864",
+          "nome": "SAÚDE E SOCIEDADE 3: SAÚDE E DIVERSIDADE NO CONTEXTO SOCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCI0001",
+          "nome": "TÓPICOS ESPECIAIS EM BIBLIOTECONOMIA E CIÊNCIA DA INFORMAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOÇÕES DE DIREITO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FED0084",
+          "nome": "MULTICULTURISMO E EDUCAÇÃO",
+          "carga_horaria": "105h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0008",
+          "nome": "CRESCIMENTO MATURAÇÃO E DESEMPENHO MOTOR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0013",
+          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0015",
+          "nome": "ANATOMIA DOS SISTEMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0016",
+          "nome": "CORPO E EDUCAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0068",
+          "nome": "PRÁTICAS CORPORAIS ALTERNATIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0069",
+          "nome": "PROMOÇÃO DA ATIVIDADE FÍSICA PARA A SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0151",
+          "nome": "CINESIOLOGIA APLICADA À EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0160",
+          "nome": "CRESCIMENTO E DESENVOLVIMENTO MOTOR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0172",
+          "nome": "PREVENÇÃO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0226",
+          "nome": "INFORMACAO DESPORTIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0271",
+          "nome": "PROGRAMAS PREVENTIVOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0275",
+          "nome": "BIOMECANICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0279",
+          "nome": "APRENDIZAGEM E DESENVOLVIMENTO MOTOR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0288",
+          "nome": "POLÍTICAS PÚBLICAS EM EDUCAÇÃO FÍSICA, ESPORTE, SAUDE E LAZER",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0306",
+          "nome": "TEORIA DO DESPORTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0327",
+          "nome": "TEORIA E PRATICA DA RECREACAO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0331",
+          "nome": "EDUCAÇÃO FÍSICA ADAPTADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0334",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO NO DESPORTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0377",
+          "nome": "INTRODUÇÃO À EQUOTERAPIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0408",
+          "nome": "CIÊNCIA E PESQUISA EM EDUCAÇÃO FÍSICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0410",
+          "nome": "EDUCAÇÃO FÍSICA E PRÁTICAS CORPORAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0413",
+          "nome": "PRINCÍPIOS NUTRICIONAIS APLICADOS À ATIVIDADE FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0505",
+          "nome": "PRÁTICA DESPORTIVA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FGA0202",
+          "nome": "INFORMÁTICA EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FGA0221",
+          "nome": "INTELIGÊNCIA ARTIFICIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FIL0184",
+          "nome": "ÉTICA E EDUCAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0014",
+          "nome": "SAÚDE, AMBIENTE E SOCIEDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0091",
+          "nome": "ANATOMIA HUMANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0012",
+          "nome": "ÉTICA E FORMAÇÃO DOCENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0049",
+          "nome": "CEBEP 2 - FORMAÇÃO NACIONAL E IDENTID CAMPONESA INDÍGENA E QUILOMBOLA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0077",
+          "nome": "CEBEP 3: RAÇA, GÊNERO E GERAÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0106",
+          "nome": "CEBEP 5: DIVERSIDADE GERACIONAL NO CAMPO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0150",
+          "nome": "EDUCAÇÃO POPULAR E EDUCAÇÃO DE JOVENS E ADULTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0152",
+          "nome": "EDUCAÇÃO DO CAMPO SAÚDE E MEIO AMBIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0263",
+          "nome": "INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0361",
+          "nome": "MEIO AMBIENTE E CIDADANIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0401",
+          "nome": "SAÚDE, SEXUALIDADE E REPRODUÇÃO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0189",
+          "nome": "FISICA PARA CIENCIAS BIOLOGICAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IPD0002",
+          "nome": "TÓPICOS EM ERGONOMIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUÍMICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0032",
+          "nome": "GÊNERO, LÍNGUA E PODER",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0137",
+          "nome": "CÁLCULO 1 - SEMIPRESENCIAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MTC0004",
+          "nome": "EDUCAÇÃO DE JOVENS, ADULTOS E IDOSOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MTC0077",
+          "nome": "EDUCACAO COMUNITARIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MTC0136",
+          "nome": "PESQUISA EM EDUCAÇÃO À DISTÂNCIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MTC0138",
+          "nome": "EDUCAÇÃO E MOVIMENTOS SOCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MTC0157",
+          "nome": "EDUCAÇÃO ESTÉTICA E CULTURA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "NUT0001",
+          "nome": "FUNDAMENTOS EM ALIMENTAÇÃO E NUTRIÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "NUT0053",
+          "nome": "INTRODUCAO A NUTRICAO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "NUT0054",
+          "nome": "NUTRICAO HUMANA 1",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "NUT0055",
+          "nome": "NUTRICAO HUMANA 2",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PCL0060",
+          "nome": "PSICOLOGIA E RELIGIÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PED0059",
+          "nome": "PSICOLOGIA DA SAUDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PED0073",
+          "nome": "PSICOLOGIA DO GÊNERO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PED0095",
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCÍCIO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUÇÃO À PSICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PPB0021",
+          "nome": "HISTORIA  DA PSICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PST0056",
+          "nome": "ERGONOMIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SER0003",
+          "nome": "ENVELHECIMENTO E POLÍTICA SOCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SER0007",
+          "nome": "GÊNERO, RAÇA/ETNIA E POLÍTICA SOCIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0013",
+          "nome": "SOCIOLOGIA DO TRABALHO E RELAÇÕES SOCIAIS DE GENERO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0015",
+          "nome": "SOCIOLOGIA DAS DIFERENÇAS SEXUAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0022",
+          "nome": "SOCIOLOGIA DA VIOLÊNCIA NA PERSPECTIVA DAS RELAÇÕES DE GÊNERO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0035",
+          "nome": "PARADIGMAS DA CATEGORIA GÊNERO E RAÇA NO CONTEXTO LATINOAMERICANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0117",
+          "nome": "SOCIOLOGIA DA RELIGIÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0121",
+          "nome": "SOCIOLOGIA DAS RELAÇÕES RACIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0135",
+          "nome": "IDENTIDADES SOCIAIS NA INTERSECCIONALIDADE DE GÊNERO E RAÇA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0171",
+          "nome": "CULTURA, PODER E RELAÇÕES RACIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0050",
+          "nome": "PROGRAMACAO DE ENSINO PARA O DEFICIENTE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0051",
+          "nome": "OFICINA BASICA DE RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0052",
+          "nome": "METODOS, TECNICAS E RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0053",
+          "nome": "LABORATORIO EM AVALIACAO EDUCACIONAL DO DEFICIENTE MENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0054",
+          "nome": "AVALIACAO EDUCACIONAL DO DEFICIENTE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0055",
+          "nome": "FUNDAMENTOS DA EDUCACAO PARA O DEFICIENTE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0056",
+          "nome": "DESENVOLVIMENTO BIOPSICOSSOCIAL DO DEFICIENTE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0081",
+          "nome": "TOP ESP EDUCACAO 2-EDUCACAO DO ALUNO PORTADOR NECESSIDADES ESPECIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0083",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0099",
+          "nome": "FUNDAMENTOS MULTICULTURAIS DA HISTORIA DA EDUCACAO NO BRASIL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0123",
+          "nome": "TECNOLOGIAS NA EDUCAÇÃO ESPECIAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0124",
+          "nome": "SEMINÁRIOS EM TECNOLOGIAS NA EDUCAÇÃO : EDUCAÇÃO ESPECIAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0134",
+          "nome": "EDUCAÇÃO E MULTICULTURALISMO NA CONTEMPORANEIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0140",
+          "nome": "FUNDAMENTOS DA ORIENT PROFISS P/ PORTADOR DE NECESSIDADES EDUCACIONAIS",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0143",
+          "nome": "AVALIAÇÃO EDUCACIONAL DO PORTADOR DE NECESSIDADES EDUC ESPECIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0144",
+          "nome": "SEMINÁRIO EM EDUCAÇÃO INCLUSIVA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0145",
+          "nome": "GÊNERO E EDUCAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0148",
+          "nome": "EDUCAÇÃO, AMBIENTE E SOCIEDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0149",
+          "nome": "AMBIENTE, CULTURA E NATUREZA NO CINEMA E NA LITERATURA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0156",
+          "nome": "TÓPICOS ESPECIAIS EM EDUCAÇÃO ESPECIAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0038",
+          "nome": "IMAGEM, CULTURA E SOCIEDADE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

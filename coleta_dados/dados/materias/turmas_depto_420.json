@@ -1,0 +1,2174 @@
+[
+    {
+        "nome": "ADMINISTRACAO DE SERVICOS DE SAUDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0020 ) OU ( ODT0083 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( DSC0050 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "A construção do Sistema Único de Saúde  SUS no Brasil. Os princípios doutrinários e organizacionais do SUS. Componentes do Sistema de Saúde: arcabouço normativo  infraestrutura financiamento modelo de atenção em saúde gestão e organização do sistema. Redes de Atenção. Atenção Primária à Saúde. Planejamento em Saúde. Desafios para a gestão e gerência do SUS.",
+        "codigo": "DSC0026"
+    },
+    {
+        "nome": "AMBIENTE SAÚDE E TRABALHO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0020 ) OU ( FCE0187 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0021 ) OU ( DSC0022 ) OU ( DSC0023 ) OU ( DSC0024 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FISIOTERAPIA - Bacharelado - Presencial - D",
+                "curriculo": "7137/-3 - 2008.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-3 - 2012.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-4 - 2008.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FISIOTERAPIA - Bacharelado - Presencial - D",
+                "curriculo": "7137/1 - 2017.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FISIOTERAPIA - Bacharelado - Presencial - D",
+                "curriculo": "7137/-2 - 2015.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-2 - 2016.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0240 ) ) OU ( DSC0021 OU DSC0022 OU DSC0023 OU DSC0024 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/1 - 2019.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estudo da determinação social do processo saúde-doença com foco nos campos saúde e ambiente e saúde do trabalhador, com vistas à compreensão do modelo de desenvolvimento e seus processos de produção e consumo e suas implicações para a saúde (trabalhadores e comunidades) e o ambiente, considerando as situações de conflito e injustiça ambiental. Nessa perspectiva, são abordados os instrumentos de investigação das relações saúde e trabalho objetivando a discussão acerca das medidas de prevenção coletiva e individual possíveis de serem adotadas nos ambientes de trabalho, e das ações de atenção, prevenção, vigilância, promoção da saúde e participação social no âmbito das políticas públicas.",
+        "codigo": "DSC0025"
+    },
+    {
+        "nome": "ANÁLISE DE POLÍTICAS DE SAÚDE I",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Discutir os temas contemporâneos das Políticas Públicas de saúde, sejam as brasileiras ou as em perspectiva internacional, bem como realizar análises dos processos de criação de Políticas Públicas atuais (Formulação, Implementação, Avaliação). Serão abordados os seguintes tópicos: A Agenda Internacional para as Políticas Públicas de Saúde. O processo de decisão política e o ciclo de formulação, implementação e avaliação; Atores e arenas do processo decisório; Formação de agenda; Formulação de política pública e estudo de caso; Tomada de decisão de políticas públicas e estudo de caso; Implementação de política pública: teorias, relações interorganizacionais, burocratas de nível de rua e dinâmicas locais; Dinâmicas de políticas públicas.\n\nAnálise do processo de Formulação, Implementação e Avaliação de Políticas Públicas com ênfase nos momentos da Formulação e Implementação. Pretende-se problematizar a concepção do ciclo de políticas públicas, apontando para as abordagens alternativas fundadas no estudo da complexa interação de atores estatais e não-estatais, por meio da constituição de subsistemas políticos, que perpassa todas as etapas de construção de uma política pública.",
+        "codigo": "DSC0151"
+    },
+    {
+        "nome": "ATIVIDADE DE EXTENSÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade desenvolvida em projetos de extensão de ação continuada desenvolvida no âmbito da Universidade.",
+        "codigo": "DSC0174"
+    },
+    {
+        "nome": "BIOÉTICA E ODONTOLOGIA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( PPB0014 E ODT0083 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ODT0147 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ODT0021 OU DSC0007 ) ) OU ( ODT0147 )",
+                "matriz_curricular": "ODONTOLOGIA - Cirurgiao Dentista - Presencial - D",
+                "curriculo": "7218/1 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O PACIENTE  INDIVIDUAL E  COLETIVAMENTE  CONSIDERADO:  A  QUESTAO  DACIDADANIA E DOS DIREITOS HUMANOS. CONHECIMENTO  CIENTIFICO E RESPONSABI-LIDADE  SOCIAL. A DINAMICA  DO  PROCESSO  SAUDE-DOENCIA  A CAUSUALIDADEBIOLOGICA E  NAO  BIOLOGICA DAS DOENCAS. A DOENCA  COMO SOFRIMENTO, COMODIVERSIDADE, COMO PERIGO, COMO  SINAL, COMO  ESTIMULO.  RELACOES  INTER-PESSOAIS: A ENTREVISTA INICIAL. OS PRINCIPIOS BASICOS DA  ETICA  PROFIS-SIONAL:  AUTONOMIA, BENEFICIENCIA E  JUSTICA A QUESTAO DO \"CONHECIMENTOINTORMADO\". OS SENTIDOS E SEU PAPEL NA RELACAO: OLHAR, AUDICAO, OLFATO ETATO.  CONDUTA  PROFISSIONAL  PADRAO.  LIMITES  E  REFERENCIA.  ASPECTOSSOCIO-CULTURAL E  PSICODINAMICOS NA  RELACAO  PROFISSIONAL-PACIENTE:  ASQUESTOES DA DOR SUBMISSAO E PODER ANSIEDADE E MEDO TOLERANCIA E  RES-PONSABILIDADE  COMPREENSAO E  SOLIDARIEDADE  SEGURANCA  E  ARROGANCIANECESSIDADE, CARENCIA  E  EXPECTATIVAS. A LEGISLACAO  ODONTOLOGICA CON-SELHOS DE CLASSE E CODIGO DE ETICA.",
+        "codigo": "DSC0053"
+    },
+    {
+        "nome": "BIOÉTICA E SAÚDE PÚBLICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A diferença entre Direito, Justiça e Moral. O Estado e a Sociedade: Desde o Estado Absolutista até o atual Estado Pós-Social.  Papéis institucionais do Estado. O Estado e o Governo. Políticas Públicas de Estado e de Governo. A Lei e a Hierarquia das Leis. O papel das constituições nos Estados contemporâneos. A constitucionalização da saúde como um direito. Direitos humanos, direito à diversidade e saúde: questões de gênero, étnico-raciais e sexualidade.    A ordem social de 1988 e a Seguridade social. Princípios constitucionais aplicados à Saúde e ao SUS. Competência Comum e Competência Concorrente em matéria de saúde. Legislação infraconstitucional em saúde: Lei 8080/90, Lei 8141/90, NOB, NOAS e Pacto pela vida. Judicialização da saúde: impactos na gestão e garantia de cidadania sanitária. Direito Administrativo e Administração Pública. Administração Direita e Indireta. Poder de Política e Desvio de Poder. Responsabilidade civil, penal e administrativa do gestor da saúde.",
+        "codigo": "DSC0064"
+    },
+    {
+        "nome": "CIÊNCIAS SOCIAIS EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0188 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-3 - 2012.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-4 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-2 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/1 - 2019.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Reflexão sobre a interface de conhecimentos das ciências biológicas, ciências sociais e humanas, visando à compreensão do processo saúde e doença como também fenômeno social. Discussão da saúde como direito social e análise das práticas dos profissionais de saúde dentro de uma perspectiva do papel das ciências sociais noentendimento da prática de saúde focalizando nos Determinantes Sociais da Saúde, particularmente as categorias de classe, gênero, raça/etnia.",
+        "codigo": "DSC0057"
+    },
+    {
+        "nome": "COMUNICAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Reflexão sobre os processos de comunicação em diversos contextos no âmbito científico. Compreensão das especificidades da comunicação científica, comunitária e para a tomada de decisão. Avaliação dos modelos teórico-conceituais da comunicação considerados básicos para a fundamentação das questões abordadas para gestão de sistemas e serviços de saúde.",
+        "codigo": "DSC0056"
+    },
+    {
+        "nome": "COMUNICAÇÃO, SAÚDE E SOCIEDADE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0001 )",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina examinará o impacto das ações de comunicação para a promoção da saúde, como os mais diversos ambientes de prática são compreendidos e experimentados, e as estratégias mais empregadas para comunicar e contestar informações em saúde. Investigará ainda o papel das representações midiáticas e da cultura popular na compreensão dos processos de comunicação e fluxos de informação nos serviços e sistemas de saúde.",
+        "codigo": "DSC0002"
+    },
+    {
+        "nome": "DEMOGRAFIA E BIOESTATÍSTICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina \"Demografia e Bioestatística em Saúde Pública\" busca fornecer os conhecimentos demográficos básicos e a compreensão das bases conceituais da estatística para sua aplicação em Saúde Pública como ferramenta de gestão.",
+        "codigo": "DSC0051"
+    },
+    {
+        "nome": "DIREITO SANITÁRIO E LEGISLAÇÃO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0324 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-3 - 2012.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0324 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-4 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0324 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0324 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0324 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-2 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0324 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/1 - 2019.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A diferença entre Direito, Justiça e Moral. O Estado e a Sociedade: Desde o Estado Absolutista até o atual Estado Pós-Social.  Papéis institucionais do Estado. O Estado e o Governo. Políticas Públicas de Estado e de Governo. A Lei e a Hierarquia das Leis. O papel das constituições nos Estados contemporâneos. A constitucionalização da saúde como um direito. Direitos humanos, direito à diversidade e saúde: questões de gênero, étnico-raciais e sexualidade.    A ordem social de 1988 e a Seguridade social. Princípios constitucionais aplicados à Saúde e ao SUS. Competência Comum e Competência Concorrente em matéria de saúde. Legislação infraconstitucional em saúde: Lei 8080/90, Lei 8141/90, NOB, NOAS e Pacto pela vida. Judicialização da saúde: impactos na gestão e garantia de cidadania sanitária. Direito Administrativo e Administração Pública. Administração Direita e Indireta. Poder de Política e Desvio de Poder. Responsabilidade civil, penal e administrativa do gestor da saúde.",
+        "codigo": "DSC0063"
+    },
+    {
+        "nome": "ECONOMIA DA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( FCE0206 OU DSC0095 )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCE0323 )",
+        "equivalencias_especificas": [],
+        "ementa": "Trata da importância da economia da saúde para gestão de serviços e ações, com destaque para aqueles oferecidos ou regulados pelo Sistema Único de Saúde. Apresenta o Estado da Arte da economia da saúde no Brasil, com ênfase nas questões de orçamento e financiamento da saúde. Analisa a gestão financeira e a gestão dos fundos de saúde e os investimentos do SUS. Apresenta as ferramentas para a realização de avaliações econômicas.",
+        "codigo": "DSC0096"
+    },
+    {
+        "nome": "EDUCAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( DSC0012 ) OU ( DSC0013 ) OU ( DSC0014 ) OU ( DSC0015 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( MTC0098 OU MTC0099 ) ) OU ( DSC0012 OU DSC0013 OU DSC0014 OU DSC0015 )",
+                "matriz_curricular": "FISIOTERAPIA - Bacharelado - Presencial - D",
+                "curriculo": "7137/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MTC0098 OU MTC0099 ) ) OU ( DSC0012 OU DSC0013 OU DSC0014 OU DSC0015 )",
+                "matriz_curricular": "FISIOTERAPIA - Bacharelado - Presencial - D",
+                "curriculo": "7137/1 - 2017.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MTC0098 OU MTC0099 ) ) OU ( DSC0012 OU DSC0013 OU DSC0014 OU DSC0015 )",
+                "matriz_curricular": "FISIOTERAPIA - Bacharelado - Presencial - D",
+                "curriculo": "7137/-2 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Oportuniza a reflexão e a compreensão das características da produção , disseminação e popularização de conteúdos e conhecimentos acumulados sobre as práticas e modos de viver saudáveis, como ações estratégicas e importantes para a ampliação do acesso dos sujeitos e das populações às ações educativas em saúde com destaque para a participação comunitária e para o controle social das políticas públicas em saúde.",
+        "codigo": "DSC0016"
+    },
+    {
+        "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FEF0300 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "A natureza do empreendimento científico. Finalidades da ciência. O método científico.  A redação científica. Projeto de pesquisa (objetivos, funções, modalidades e formatos gerais) e definição do tema da pesquisa. Revisão bibliográfica: Fontes de informação, etapas da pesquisa bibliográfica, estratégias de busca, sistematização da informação, citações e referências. Formulação do problema, dos objetivos e da justificativa da investigação. A pesquisa quantitativa e qualitativa. Boas práticas em pesquisa cientifica. Ética em pesquisa envolvendo seres humanos.",
+        "codigo": "DSC0044"
+    },
+    {
+        "nome": "ELABORAÇÃO DO TRABALHO CIENTÍFICO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0087 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Elaboração de Trabalho Científico II (ETC II) tem o propósito de aprofundar conhecimentos do exercício da elaboração e produção de trabalhos científicos.  A disciplina é direcionada para a elaboração de projeto de pesquisa, preparação de resumos, pôsteres e artigos científicos. Orienta os estudantes na preparação e apresentação de seminários de pesquisa, estruturação de trabalho de conclusão de curso e monografias, principais sistemas de referenciamento (ABNT e Vancouver). O conteúdo engloba a teoria e a prática envolvidas na elaboração de trabalhos científicos. A disciplina pretende focalizar a pratica do trabalho cientifico por meio de uma inserção sistemática nas metodologias quantitativas e qualitativas, incluindo as várias técnicas de investigação científica, permitindo uma aproximação concreta do \"fazer pesquisa\", considerando-se as escolhas, as limitações e as ferramentas necessárias para o desenvolvimento de um projeto de pesquisa, considerando-se na sua execução os aspectos éticos e humanitários que devem caracterizar o empreendimento de transformar fenômenos sociais, epidemiológicos, biológicos e psicológicos em conhecimento cientifico.",
+        "codigo": "DSC0088"
+    },
+    {
+        "nome": "EPIDEMIOLOGIA ANALÍTICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0093 ) OU ( FCE0187 )",
+        "co_requisitos": "-",
+        "equivalencias": "FCE0206",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina \"Epidemiologia para Gestão em Saúde II\" está orientada à compreensão e aquisição de habilidades nas áreas de aplicação da epidemiologia no âmbito da gestão dos serviços de saúde, a saber: (1) análise de situação de saúde; (2) identificação de perfis e fatores de risco e (3) avaliação epidemiológica de intervenções. Os conteúdos da disciplina fornecem conhecimentos fundamentais para a gestão dos serviços, tendo como base a aplicação da epidemiologia visando fornecer subsídios para a: identificação de problemas em saúde em nível coletivo; definição de prioridades em saúde, planejamento, implementação de ações de promoção à saúde, prevenção e controle de agravos, bem como na avaliação de intervenções.",
+        "codigo": "DSC0095"
+    },
+    {
+        "nome": "EPIDEMIOLOGIA DESCRITIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "FCE0187",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento do raciocínio epidemiológico e aquisição de ferramentas conceituais e metodológicas de auxílio à gestão de sistemas locais de saúde. Compreensão dos indicadores epidemiológicos em saúde pública familiarização com os sistemas de informação em saúde relevantes para a geração de indicadores em saúde pública, seus usos e potencialidades aquisição de habilidades analíticas para o cálculo de indicadores e a compreensão das bases do diagnóstico de saúde da comunidade. Bases da análise de variáveis numéricas e sua aplicação na medida da endemicidade, no planejamento, execução e análise de estudos epidemiológicos descritivos que apoiem a análise de situação de saúde de coletivos populacionais.",
+        "codigo": "DSC0093"
+    },
+    {
+        "nome": "EPIDEMIOLOGIA GERAL",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0011 ) OU ( NUT0017 ) OU ( NUT0054 ) OU ( FMD0095 ) OU ( ENF0057 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0187 E FCE0206 ) OU ( FMD0398 ) OU ( DSC0019 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "2015.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "2015.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "2015.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0186 OU FCE0187 ) E ( FCE0206 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "ODONTOLOGIA - Cirurgiao Dentista - Presencial - D",
+                "curriculo": "7218/1 - 2010.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FMD0010 OU FMD0011 OU FMD0012 ) ) OU ( FMD0398 OU DSC0019 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "2015.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Ementa: \t- ESTUDA CONCEITOS, METODOS E USOS DE EPIDEMIOLOGIA - ESTUDA A QUANTIFICACAO DE PROBLEMAS DE SAUDE . - ANALISA OS ELEMENTOS DA EPIDEMIOLOGIA DESCRITIVA E OS METODOS DE      ESTUDOS DE AGRAVOS A SAUDE NA POPULACAO. - DISCUTE O ENFOQUE DE RISCO: GRUPOS E FATORES. - PROMOVE A REALIZACAO DE ESTUDO EPIDEMIOLOGICO DE CAMPO. - ANALISA A EPIDEMIOLOGIA DAS DOENCAS INFECCIOSAS E DAS NAO INFECCIOSASEM GERAL. - ESTUDA PARTICULARMENTE A EPIDEMIOLOGIA E O CONTROLE DAS GRANDES ENDEMIAS DE TRANSMISSAO VETORIAL.",
+        "codigo": "DSC0020"
+    },
+    {
+        "nome": "EPIDEMIOLOGIA PARA A GESTÃO 3 VIGILÂNCIA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0061 ) E ( DSC0095 OU FCE0206 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0325 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "EMENTAA disciplina \"Vigilância em Saúde\" está orientada à compreensão da noção de Vigilância em Saúde Pública como área de aplicação da epidemiologia no âmbito dos serviços de saúde e como prática estratégica de Estado, em âmbito local, regional, estadual e federal e ferramenta fundamental para a gestão de sistemas de saúde. Importância da análise sistemática da situação de saúde principais áreas /componentes da vigilância (vigilância epidemiológica, vigilância sanitária, vigilância ambiental, vigilância à saúde do trabalhador, vigilância nutricional, dentre outras) enfoques da vigilância seja: na doença ou danos a saúde (tradicional) a direcionada aos determinantes e fatores de risco (vigilância de segunda geração) vigilância a saúde em territórios específicos diversas estratégias: passiva, ativa (incluindo as estratégias \"sentinela\"), inquéritos importância da vigilância no planejamento e programação de intervenções monitoramento e avaliação de intervenções e discussão a respeito da interface vigilância-pesquisa (operacional e acadêmica).",
+        "codigo": "DSC0069"
+    },
+    {
+        "nome": "ESCRITA DO TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "O estudante deverá escrever/elaborar o TCC em conformidade com o modelo escolhido (artigo, intervenção técnica, monografia, relatório técnico), conforme o regulamento.",
+        "codigo": "DSC0111"
+    },
+    {
+        "nome": "ESTAGIO EM MEDICINA RURAL",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( FMD0185 E FMD0240 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0027 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0028"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0069 E DSC0067 E DSC0079 ) )",
+        "co_requisitos": "( DSC0078 )",
+        "equivalencias": "( DSC0146 )",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática. O estágio supervisionado terá como local de práticas os serviços de saúde do SUS, especialmente a atenção básica em âmbito local, no qual o aluno desenvolverá atividades práticas com enfoque nas ações de atenção e gestão e identificação de prioridades em saúde direcionadas a compor projeto de intervenção ou qualquer outro produto no sentido de melhorar e/ou reorganizar os cenários de prática, beneficiando profissionais e usuários destes serviços.",
+        "codigo": "DSC0084"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0069 E DSC0067 E DSC0079 ) )",
+        "co_requisitos": "( DSC0078 )",
+        "equivalencias": "( DSC0084 )",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática. O estágio supervisionado terá como local de práticas os serviços de saúde do SUS, especialmente a atenção básica em âmbito local, no qual o aluno desenvolverá atividades práticas com enfoque nas ações de atenção e gestão e identificação de prioridades em saúde direcionadas a compor projeto de intervenção ou qualquer outro produto no sentido de melhorar e/ou reorganizar os cenários de prática, beneficiando profissionais e usuários destes serviços.",
+        "codigo": "DSC0146"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0080"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0078 ) E ( DSC0084 OU DSC0146 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0147 )",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática. O estágio supervisionado terá como local de práticas os serviços de saúde do SUS, especialmente a atenção básica em âmbito local, no qual o aluno desenvolverá atividades práticas com enfoque nas ações de atenção e gestão e identificação de prioridades em saúde direcionadas a compor projeto de intervenção ou qualquer outro produto no sentido de melhorar e/ou reorganizar os cenários de prática, beneficiando profissionais e usuários destes serviços.",
+        "codigo": "DSC0085"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0078 E DSC0084 ) OU ( DSC0078 E DSC0146 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0085 )",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática. O estágio supervisionado terá como local de práticas os serviços de saúde do SUS, especialmente a atenção básica em âmbito local, no qual o aluno desenvolverá atividades práticas com enfoque nas ações de atenção e gestão e identificação de prioridades em saúde direcionadas a compor projeto de intervenção ou qualquer outro produto no sentido de melhorar e/ou reorganizar os cenários de prática, beneficiando profissionais e usuários destes serviços.",
+        "codigo": "DSC0147"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0081"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0085 ) OU ( DSC0147 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0004 )",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos nas práticas dos estágios 1 e 2. Corresponde a estágio supervisionado no âmbito dos serviços de saúde do SUS, no qual o aluno poderá ampliar o escopo de ação e de vivencias práticas, preferencialmente no âmbito federal ou no nível central da SES-DF ou em serviços de média e alta complexidade.",
+        "codigo": "DSC0148"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0085 OU DSC0147 )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0148 )",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos nas práticas dos estágios 1 e 2. Corresponde a estágio supervisionado no âmbito dos serviços de saúde do SUS, no qual o aluno poderá ampliar o escopo de ação e de vivencias práticas, preferencialmente no âmbito federal ou no nível central da SES-DF ou em serviços de média e alta complexidade.",
+        "codigo": "DSC0004"
+    },
+    {
+        "nome": "ESTUDOS EPIDEMIOLOGICOS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0020 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0029 ) OU ( DSC0030 ) OU ( DSC0031 ) OU ( DSC0032 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTAGIO EM ESTABELECIMENTOS DE SAUDE OU EM  TRABALHOS  COMUNITARIOS, ENVOLVENDO SERVICOS CLINICOS OU DE SAUDE PUBLICA,  VISANDO A  AQUISICAO DE CONHECIMENTOS PRATICOS DE EPIDEMIOLOGIA E MEDICINA PREVENTIVA.",
+        "codigo": "DSC0033"
+    },
+    {
+        "nome": "ÉTICA, CIÊNCIA E TECNOLOGIA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo das relações entre ciência, tecnologia e sociedade ao longo da história, com ênfase na atualidade Filosofia das ciências da saúde Análise de valores e ideologias envolvendo a produção e divulgação do conhecimento científico e tecnológico em saúde Influências das diferenças culturais nas concepções de ciência e tecnologia e de suas relações com as sociedades Participação da sociedade na definição de políticas relativas às questões científicas, tecnológicas, econômicas e ecológicas Pós-modernidade e Paradigma biotecnocientífico Biossegurança e sociedade Conceitos em Avaliação de Tecnologias em Saúde Métodos de avaliação de tecnologias em saúde Saúde baseada em evidências Complexo econômico-industrial da saúde  Incorporação de tecnologias em saúde Relação entre academia e associações de pacientes.",
+        "codigo": "DSC0066"
+    },
+    {
+        "nome": "EXTENSÃO EM HUMANIDADES E SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de conteúdos e práticas para a comunidade na área de arquitetura e urbanismo, comunicação, educação, direito, política social e ciências humanas e sociais em saúde. Práticas integrativas em ensino-serviço-comunidade. Realização de atividades no âmbito dos determinantes sociais da saúde. Capacitação de agentes de saúde.  Divulgação científica. Comunicação pública de ciência e tecnologia. Ligas em saúde.",
+        "codigo": "DSC0154"
+    },
+    {
+        "nome": "EXTENSÃO EM PLANEJAMENTO E GESTÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de conteúdos e práticas para a comunidade na área de planejamento e gestão em saúde. Práticas integrativas em ensino-serviço-comunidade. Realização de atividades no âmbito dos determinantes sociais da saúde. Capacitação de agentes de saúde. Divulgação científica. Comunicação pública de ciência e tecnologia. Ligas em saúde.",
+        "codigo": "DSC0156"
+    },
+    {
+        "nome": "EXTENSÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceito de extensão universitária Diretrizes para as ações de extensão Tipologia das ações de extensãoDesenvolvimento de conteúdos e práticas para a comunidade Práticas integrativas em ensino-serviçocomunidade Realização de atividades no âmbito dos serviços de saúde para divulgação institucional eintegração Preparação de apresentações para Semana Universitária Divulgação científica Comunicaçãopública de ciência e tecnologia Ligas em saúde.",
+        "codigo": "DSC0090"
+    },
+    {
+        "nome": "EXTENSÃO EM VIGILÂNCIA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de conteúdos e práticas para a comunidade na área de epidemiologia, demografia e vigilância em saúde. Práticas integrativas em ensino-serviço-comunidade. Realização de atividades no âmbito dos determinantes sociais da saúde. Capacitação de agentes de saúde. Divulgação científica. Comunicação pública de ciência e tecnologia. Ligas em saúde.",
+        "codigo": "DSC0158"
+    },
+    {
+        "nome": "FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina apresenta as bases formais de ecologia e saúde ambiental, assim como o debate atual do impacto dos avanços científicos e tecnológicos sobre o meio ambiente e sua relação com as questões de saúde, com enfoque para as manifestações fisiológicas destacando os sistemas: respiratório, digestório, osteomuscular, renal e reprodutor, de acordo com o ciclo de vida.  Visa contribuir para a formação básica dos alunos de graduação, fornecendo ferramentas para um diagnóstico do impacto das situações ambientais sobre as sociedades contemporâneas, assim como deverá fornecer subsídios teóricos para a compreensão dos determinantes ambientais da saúde. Identificação das principais políticas de saúde relacionadas à vigilância em saúde ambiental e saúde do trabalhador.",
+        "codigo": "DSC0052"
+    },
+    {
+        "nome": "FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0052 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0200 OU FCE0201 ) E ( FCE0230 OU FCE0231 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0200 OU FCE0201 ) E ( FCE0230 OU FCE0231 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Apresenta as bases estruturais e fisiológicas do organismo humano, numa perspectiva interdisciplinar. Fornece subsídios teóricos para a compreensão dos determinantes morfofisiológicos da saúde, através do estudo das funções nos níveis: sistemas, órgãos, tecidos, células e processos físicos e químicos. Apresenta o organismo humano através de uma perspectiva de complexidade, aliando conceitos e princípios da biologia, da genética, da química e da física, com enfoque em algumas doenças crônicas de importância em saúde pública.",
+        "codigo": "DSC0058"
+    },
+    {
+        "nome": "FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0052 E DSC0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Na disciplina Fundamentos Biológicos III apresentam-se as bases teóricas para compreensão dos determinantes biológicos, manifestações fisiopatológicas e clínicas, bem como, da história natural das principais doenças transmissíveis de importância em Saúde Pública.  Correlações entre o diagnóstico, as estratégias de prevenção e controle, de vigilância e organização de políticas de saúde, entre outras atribuições.",
+        "codigo": "DSC0061"
+    },
+    {
+        "nome": "GESTÃO DE INSUMOS MATERIAL E PATRIMONIO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( ADM0023 E DSC0079 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0082"
+    },
+    {
+        "nome": "GESTÃO DE SISTEMAS E SERVIÇOS DE SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( ADM0023 E DSC0050 E DSC0063 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Princípios e diretrizes organizacionais do SUS. Campo teórico, marcos históricos, éticos e políticos que conformam a Gestão de Sistemas e Serviços de Saúde. Modelos tecnoassitenciais e organização dos sistemas de saúde. Tendências para a organização da atenção à saúde no Brasil e no mundo. Instâncias colegiadas e de controle social no SUS. Processos de negociação e pactuação. Pactos interfederativos. Regionalização e Redes de Atenção à Saúde. Configuração dos níveis de atenção à saúde nas Redes de Atenção à Saúde.  A gestão negociada da mudança: a clínica ampliada. O ato de governar. Competências esperadas de um gestor de redes. Dilemas e desafios da gestão dos sistemas e serviços de saúde no Brasil. Processo decisório em saúde. Modelos de gestão em saúde. Tecnologia e organização social das práticas de saúde. Características tecnológicas do processo de trabalho em saúde. Democratização da gestão no SUS. Democratização institucional na Saúde. Subjetividade como elemento constitutivo da gestão e do trabalho em saúde. Acesso, acolhimento e equidade nos Sistemas e Serviços de Saúde. Análise e intervenção nos processos produtivos de serviços de saúde em Rede. Organização produtiva de serviços de saúde, características históricas, modelos de análise de processos produtivos e dispositivos para gestão:  Atenção Básica Atenção Especializada Atenção às Urgências e Emergências Atenção Hospitalar",
+        "codigo": "DSC0079"
+    },
+    {
+        "nome": "GESTÃO DO TRABALHO E EDUCAÇÃO PERMANENTE NA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Organização social e histórica dos saberes e das práticas em saúde. Componentes do processo de trabalho: a força de trabalho, a finalidade, o objeto, os instrumentos e o produto do trabalho. O cenário atual do trabalho em saúde. Trabalho e profissão: subjetividade e condições objetivas. Atividade de trabalho. Trabalho e educação como faces de uma mesma moeda. Educação Permanente em Saúde: dimensões política, normativa e prática. Educação e formação profissional em saúde. O trabalho como espaço de ensino-aprendizagem. Gerenciamento do trabalho",
+        "codigo": "DSC0072"
+    },
+    {
+        "nome": "GESTÃO E PROMOÇÃO DA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0050 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0236 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0236 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-3 - 2012.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0236 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-4 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0236 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0236 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0236 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-2 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0236 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/1 - 2019.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Distinção entre promoção, prevenção e educação em saúde. Identificação dos principais settings (cenários). Estudo da trajetória histórica, da legislação que regulamenta a área, das conferências internacionais e princípios da promoção da saúde. Reflexão sobre a implementação da intersetorialidade mediante estudo e vivência de serviços que implementam gestão integrada e participativa das políticas públicas. Identificação de mecanismos de sistematização e avaliação das práticas de promoção da saúde. Investigação sobre intersetorialidade e sustentabilidade das ações de promoção na agenda dos serviços que constituem cenários de práticas do curso.",
+        "codigo": "DSC0075"
+    },
+    {
+        "nome": "GESTÃO ESTRATÉGICA PARTICIPAÇÃO E CONTROLE SOCIAL EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0050 E DSC0063 E DSC0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina visa discutir acerca da gestão participativa e o controle social no SUS e refletir sobre as potencialidades da participação social para qualificação das políticas públicas de Saúde",
+        "codigo": "DSC0065"
+    },
+    {
+        "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Descrição e utilização dos principais Sistemas de Informação em Saúde de base nacional e desenvolvimento de habilidades computacionais para o uso do TABNET e outros recursos de informática para análise de dados e construção de indicadores visando a geração de informação para a saúde, incluindo a vigilância em saúde, gestão e planejamento.",
+        "codigo": "DSC0010"
+    },
+    {
+        "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0089"
+    },
+    {
+        "nome": "INTRODUCAO A BIOETICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ODT0021 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ODT0147 OU DSC0053 ) ) OU ( ODT0021 )",
+                "matriz_curricular": "ODONTOLOGIA - Cirurgiao Dentista - Presencial - D",
+                "curriculo": "7218/1 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Origem e evolução da bioética filosofia deotologia medica e ética aplicada. As diferentes concepções de bioética. O principio da sacralidade da vida (PSV) e o principio da qualidade da vida (PQV).  Autonomia e consentimento.  Bioética das situações cotidianas: exclusão, cidadania, solidariedade e compromisso social bioética das situações limites ou de fronteira: questões do nascimento, da vida, da morte e do morrer (fecundação assistida, clonagem, aborto, pesquisas com seres vivos, projeto genoma, transplantes de órgãos e tecidos, eutanásia). Bioética e pluralismo moral: analise ética das possibilidades de suspender, alterar, e/ou prolongar o curso da vida. Do mercado primitivo tecnológico: a compra, a venda e o aluguel de partes do corpo humano. Liberdade cientifica e responsabilidade cientifica e responsabilidade cientifica. Declaração Universal sobre Bioética e Direitos Humanos. Documentos norteadores em ética biomédica.",
+        "codigo": "DSC0007"
+    },
+    {
+        "nome": "INTRODUÇÃO À GESTÃO HOSPITALAR",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0006"
+    },
+    {
+        "nome": "INTRODUCAO AO METODOS QUANTITATIVOS EM SAUDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0040"
+    },
+    {
+        "nome": "LABORATÓRIO DA ANTROPOLOGIA DA SAÚDE E DA DOENÇA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0011 ) OU ( DAN0022 ) OU ( DSC0057 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0047 ) OU ( DSC0048 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tradicionalmente marcado pelos paradigmas biológicos o campo da saúde faz parte da totalidade da vida social e de sua dinâmica. Por outro lado, o papel da cultura na compreensão dos processos biológicos, vem sendo um campo em expansão, identificado segundo vertentes teóricas como Antropologia da Saúde, Antropologia Médica ou ainda, como Antropologia da Doença. A disciplina propõe uma abordagem comparativa desses fenômenos buscando o reconhecimento da alteridade e da pluralidade da vida social e cultural.",
+        "codigo": "DSC0049"
+    },
+    {
+        "nome": "MIGRAÇÃO, SAÚDE E DIREITOS HUMANOS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A situação da migração e suas repercussões sobre a saúde. Geopolítica da migração, Fluxos Migratórios, direitos humanos e políticas de migração. Saúde Global: Análise da situação de saúde, perfil epidemiológico, acesso/atenção à Saúde, da população de migrantes e refugiados. Modos de vida/trabalho/moradia e processos de saúde/doença/cuidado em grupos migrantes, saúde ocupacional, itinerários terapêuticos. Organização, associativismo, resistência, demandas, lutas e estratégias de cuidado em grupos de migrantes e refugiados.",
+        "codigo": "DSC0159"
+    },
+    {
+        "nome": "MONITORAMENTO E AVALIAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0332 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0332 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Monitoramento e avaliação em saúde: concepções e tendências atuais. Controle e avaliação como funções básicas da Administração e Gestão dos sistemas e serviços de saúde e sua relação com a aprendizagem organizacional. Monitoramento e avaliação no ciclo das políticas públicas. Avaliação operacional versus pesquisa avaliativa. Pesquisa avaliativa: quantitativa versus qualitativa. Qualidade em Saúde. O aporte teórico-metodológico das ciências sociais e da epidemiologia. Tipologias de avaliação. Avaliação de cobertura. Medidas de eficiência, produtividade e rendimento do trabalho em saúde. Avaliação tecnológica em saúde. Avaliação de programas. Modelo Lógico do Programa. Modelos de avaliação de processo. Modelos de avaliação de resultado: eficácia e efetividade. Desafios do monitoramento e avaliação.",
+        "codigo": "DSC0070"
+    },
+    {
+        "nome": "MONITORIA EM ADMINISTRACAO DE SERVICOS DE SAUDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0160"
+    },
+    {
+        "nome": "MONITORIA EM AMBIENTE SAÚDE E TRABALHO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0102"
+    },
+    {
+        "nome": "MONITORIA EM BIOÉTICA E ODONTOLOGIA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0053 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0175"
+    },
+    {
+        "nome": "MONITORIA EM BIOÉTICA E SAÚDE PÚBLICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0115"
+    },
+    {
+        "nome": "MONITORIA EM CIÊNCIAS SOCIAIS EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0110"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0133"
+    },
+    {
+        "nome": "MONITORIA EM COMUNICAÇÃO, SAÚDE E SOCIEDADE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0097"
+    },
+    {
+        "nome": "MONITORIA EM DEMOGRAFIA E BIOESTATÍSTICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0108"
+    },
+    {
+        "nome": "MONITORIA EM DIREITO SANITÁRIO E LEGISLAÇÃO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0114"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0096 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0215"
+    },
+    {
+        "nome": "MONITORIA EM EDUCAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0100"
+    },
+    {
+        "nome": "MONITORIA EM ELABORACAO DE TRABALHO CIENTIFICO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0106"
+    },
+    {
+        "nome": "MONITORIA EM ELABORAÇÃO DO TRABALHO CIENTÍFICO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0207"
+    },
+    {
+        "nome": "MONITORIA EM EPIDEMIOLOGIA ANALÍTICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0095 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0127"
+    },
+    {
+        "nome": "MONITORIA EM EPIDEMIOLOGIA DESCRITIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0093 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0145"
+    },
+    {
+        "nome": "MONITORIA EM EPIDEMIOLOGIA GERAL",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0101"
+    },
+    {
+        "nome": "MONITORIA EM EPIDEMIOLOGIA PARA A GESTÃO 3 VIGILÂNCIA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0069 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0118"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO EM MEDICINA RURAL",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0161"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0084 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0141"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0080 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0200"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0142"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0201"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0129"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS EPIDEMIOLOGICOS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0162"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA, CIÊNCIA E TECNOLOGIA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0066 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0187"
+    },
+    {
+        "nome": "MONITORIA EM EXTENSÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0090 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0143"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0109"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0134"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0112"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE INSUMOS MATERIAL E PATRIMONIO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0202"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE SISTEMAS E SERVIÇOS DE SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0122"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DO TRABALHO E EDUCAÇÃO PERMANENTE NA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0119"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO E PROMOÇÃO DA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0121"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO ESTRATÉGICA PARTICIPAÇÃO E CONTROLE SOCIAL EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0116"
+    },
+    {
+        "nome": "MONITORIA EM INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0098"
+    },
+    {
+        "nome": "MONITORIA EM INFORMAÇÃO E INFORMÁTICA EM SAÚDE 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0089 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0124"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A BIOETICA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0130"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À GESTÃO HOSPITALAR",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0150"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO AO METODOS QUANTITATIVOS EM SAUDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0166"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO DA ANTROPOLOGIA DA SAÚDE E DA DOENÇA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0132"
+    },
+    {
+        "nome": "MONITORIA EM MIGRAÇÃO, SAÚDE E DIREITOS HUMANOS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0159 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0173"
+    },
+    {
+        "nome": "MONITORIA EM MONITORAMENTO E AVALIAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0137"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0091 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0144"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA SOCIAL EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0135"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO E PROGRAMAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0092 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0125"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICAS DE SEGURANÇA ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0149"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICAS PÚBLICAS EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0107"
+    },
+    {
+        "nome": "MONITORIA EM PRATICAS DE SAUDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0104"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS INTEGRADAS EM SAÚDE 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0117"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS INTEGRADAS EM SAÚDE 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0071 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0192"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS INTEGRADAS EM SAÚDE COLETIVA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0062 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0113"
+    },
+    {
+        "nome": "MONITORIA EM SAÚDE DO TRABALHADOR",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0189"
+    },
+    {
+        "nome": "MONITORIA EM SAUDE E SOCIEDADE 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0155"
+    },
+    {
+        "nome": "MONITORIA EM SAUDE E SOCIEDADE 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0157"
+    },
+    {
+        "nome": "MONITORIA EM SAUDE FAMILIAR",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0038 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0131"
+    },
+    {
+        "nome": "MONITORIA EM SAÚDE INDÍGENA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0128"
+    },
+    {
+        "nome": "MONITORIA EM SAÚDE INTERNACIONAL - TÓPICOS ESPECIAIS EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0086 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0123"
+    },
+    {
+        "nome": "MONITORIA EM SAÚDE MENTAL E BEM-ESTAR NO TRABALHO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0055 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0176"
+    },
+    {
+        "nome": "MONITORIA EM SAUDE MENTAL EM SAUDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0105"
+    },
+    {
+        "nome": "MONITORIA EM SAUDE NO BRASIL - SITUACAO ATUAL E PERSPECTIVAS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0165"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0195"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0076 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0138"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0139"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIOS INTEGRADOS EM SAÚDE COLETIVA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0136"
+    },
+    {
+        "nome": "MONITORIA EM TECNOLOGIAS PARA INFORMAÇÃO COMUNICAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0120"
+    },
+    {
+        "nome": "MONITORIA EM TERAPIAS COMUNITÁRIAS E PRÁTICAS INTEGRATIVAS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0094 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0126"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ANTROPOLOGIA DA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0170"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM BIOÉTICA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0152"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM BIOÉTICA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0153"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0140"
+    },
+    {
+        "nome": "MONITORIA EM VIGILANCIA SANITARIA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DSC0169"
+    },
+    {
+        "nome": "PESQUISA EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Iniciação à pesquisa: Ciência e seus métodos conhecimento confiável e pesquisa uso de evidências. Leitura de artigos científicos Sínteses de Evidências. Metodologia científica: estratégias de investigação designs de pesquisa instrumentos e técnicas de pesquisa Preparação de documentos técnicos científicos: artigo científico Poster Seminários, etc. Normas de edição: ABNT Vancouver Group Divulgação científica.",
+        "codigo": "DSC0091"
+    },
+    {
+        "nome": "PESQUISA SOCIAL EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0057 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0199 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-3 - 2012.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0199 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-4 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0199 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0199 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0199 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-2 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0199 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/1 - 2019.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Reflexão sobre a história e os paradigmas do conhecimento, enfatizando a vertente de pensamento social naárea da saúde. Identificação das metodologias e técnicas utilizadas nas pesquisas sociais em saúde, com ênfase,nas qualitativas. Divulgação, publicação e utilização dos resultados de pesquisa. Aspectos éticos empesquisas com seres humanos. Para tanto, estará organizada em 4 unidades:Unidade 1 – Ciência e SaberesUnidade 2 – O modo de pesquisar das Ciências Humanas e SociaisUnidade 3 – Práticas de pesquisa social em saúdeUnidade 4 – Desafios do trabalho de campo e os dilemas éticos",
+        "codigo": "DSC0059"
+    },
+    {
+        "nome": "PLANEJAMENTO E PROGRAMAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "FCE0278 OU DSC0050",
+        "co_requisitos": "-",
+        "equivalencias": "FCE0326",
+        "equivalencias_especificas": [],
+        "ementa": "O planejamento como função básica da Administração. Histórico do Planejamento Governamental na América Latina e no Brasil. Planejamento Normativo e Estratégico. Planejamento e Programação. Fundamentos teóricos e metodológicos de Planejamento Estratégico Situacional (PES) e outras correntes. Tecnologias leves de Planejamento Estratégico e Participativo para operacionalização no SUS. A proposta do PLANEJASUS. Análise de Situação: problemas em Saúde Pública. Elaboração do Plano: a definição das operações.  Técnicas de construção do consenso.",
+        "codigo": "DSC0092"
+    },
+    {
+        "nome": "POLÍTICAS DE SEGURANÇA ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Contribuir para a formação interdisciplinar e fomentar o interesse dos estudantes para a Segurança Alimentar e Nutricional, capacitando-os para uma prática profissional que resulte na transformação e melhoria dos condicionantes da saúde da população, principalmente daqueles ligados à alimentação como direito. São abordados aspectos econômicos, sociais, culturais e biológicos da alimentação e nutrição. Determinantes sociais da saúde. Organismos Internacionais ligados a alimentação e nutrição. Aspectos biológicos da alimentação e nutrição. Hábitos alimentares e consumo. Produção e disponibilidade de alimentos. Estado nutricional. Condições de Saúde. Segurança Alimentar e Nutricional e Direito Humano à Alimentação. Segurança Alimentar e Nutricional no Brasil. Políticas de Alimentação e Nutrição. Políticas de Segurança Alimentar e Nutricional.",
+        "codigo": "DSC0005"
+    },
+    {
+        "nome": "POLÍTICAS PÚBLICAS EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0234 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-3 - 2012.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0234 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-4 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0234 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0234 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0234 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/-2 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0234 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - D",
+                "curriculo": "7153/1 - 2019.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Apresenta a constituição da ciência política e os fundamentos teóricos das políticas públicas e sociais. Discute o papel do Estado e leva à discussão sobre cidadania e participação social no campo da saúde. Faz um resgate histórico da formação dos movimentos sociais e dos sujeitos políticos na luta pelo direito a saúde no Brasil, por meio da reflexão sobre o campo de conhecimento da Saúde Coletiva e suas inter-relações com as políticas públicas de saúde. A trajetória das políticas de saúde no Brasil. Análise dos desafios do SUS para a saúde coletiva e as políticas públicas.",
+        "codigo": "DSC0050"
+    },
+    {
+        "nome": "PRATICAS DE SAUDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0034 ) OU ( DSC0035 ) OU ( DSC0036 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCS0016 OU FCS0017 ) ) OU ( DSC0034 OU DSC0035 OU DSC0036 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0016 OU FCS0017 ) ) OU ( DSC0034 OU DSC0035 OU DSC0036 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Esta disciplina tem como principal característica o fato de introduzir os alunos nas profissões de saúde, no campo da saúde coletiva e na relação entre a teoria e a prática. Para tanto, a concepção da disciplina se sustenta na parceria entre a Faculdade de Ciências da Saúde e a Secretaria de Saúde do DF. Sabe-se que a saúde coletiva constitui um esforço epistemológico de criar interface entre os aspectos biológicos e sociais do processo saúde-doença envolvendo, portanto, desde suas manifestações individuais, até processos sociais mais amplos que implicam a definição de políticas públicas, a organização de serviços de saúde nos seus diversos níveis de complexidade e a formação de profissionais de saúde para dar respostas às crescentes demandas sanitárias do país. \tUm importante eixo das formas de organização da atenção à saúde é o modelo de atenção básica, que traz uma nova proposta assistencial focalizando as práticas de saúde no universo da promoção, em contextos sociais específicos nos quais vem sendo implementado. A proposta pedagógica desta disciplina busca evidenciar um modelo de saúde, ainda em construção, a partir da vivência articulada dos alunos na realidade local, de forma que permita traduzir essa experiência em processos de aprendizagem e lugar de prática do campo da saúde pública.",
+        "codigo": "DSC0037"
+    },
+    {
+        "nome": "PRÁTICAS INTEGRADAS EM SAÚDE 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0076 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados e da aplicação dos conhecimentos na prática. Corresponde a atividade prática no âmbito dos serviços e redes de saúde com enfoque nas ações de avaliação na atenção e gestão.",
+        "codigo": "DSC0067"
+    },
+    {
+        "nome": "PRÁTICAS INTEGRADAS EM SAÚDE 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0071"
+    },
+    {
+        "nome": "PRÁTICAS INTEGRADAS EM SAÚDE COLETIVA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0060 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência , integração e articulação dos conteúdos curriculares cursados nos Módulos 1 e 2 e da aplicação dos conhecimentos na prática. Corresponde a prática no âmbito dos serviços de saúde do SUS e o desenvolvimento da análise participativa da situação de saúde local.",
+        "codigo": "DSC0062"
+    },
+    {
+        "nome": "PRÁTICAS SUPERVISIONADAS EM SAÚDE COLETIVA I",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0067 E DSC0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática, sob supervisão docente e concomitante ao Estágio Supervisionado I. Ao longo da disciplina são debatidas as diretrizes e a construção de ações integrativas em ensino-serviço, tendo o cenário prático do estágio como campo de atuação e realiza-se atividade no âmbito do serviço de saúde para divulgação institucional e integração, em nível de gestão REGIONAL do sistema de saúde ou de assistência social.",
+        "codigo": "DSC0163"
+    },
+    {
+        "nome": "PRÁTICAS SUPERVISIONADAS EM SAÚDE COLETIVA II",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0146 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática, sob supervisão docente e concomitante ao Estágio Supervisionado I. Ao longo da disciplina são debatidas as diretrizes e a construção de ações integrativas em ensino-serviço, tendo o cenário prático do estágio como campo de atuação e realiza-se atividade no âmbito do serviço de saúde para divulgação institucional e integração, em nível de gestão LOCAL do sistema de saúde ou de assistência social.",
+        "codigo": "DSC0164"
+    },
+    {
+        "nome": "PRÁTICAS SUPERVISIONADAS EM SAÚDE COLETIVA III",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados ao longo do curso e da aplicação dos conhecimentos na prática, sob supervisão docente e concomitante ao Estágio Supervisionado I. Ao longo da disciplina são debatidas as diretrizes e a construção de ações integrativas em ensino-serviço, tendo o cenário prático do estágio como campo de atuação e realiza-se atividade no âmbito do serviço de saúde para divulgação institucional e integração, em nível de gestão CENTRAL do sistema de saúde ou de assistência social.",
+        "codigo": "DSC0167"
+    },
+    {
+        "nome": "PROJETO DE TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "Escrita tutorial de Projeto de Pesquisa com o orientador, cuja pesquisa será desenvolvida no semestre consecutivo.",
+        "codigo": "DSC0168"
+    },
+    {
+        "nome": "SAÚDE DO TRABALHADOR",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( FCE0187 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0068"
+    },
+    {
+        "nome": "SAUDE E SOCIEDADE 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0037 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0188 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCS0047 OU FCS0048 OU FAR0119 ) E ( FAR0133 ) E ( FCS0062 OU FCS0063 OU FAR0134 ) E ( FCS0068 OU FAR0148 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0023 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0047 OU FCS0048 OU FAR0119 ) E ( FAR0133 ) E ( FCS0062 OU FCS0063 OU FAR0134 ) E ( FCS0068 OU FAR0148 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0047 OU FCS0048 OU FAR0119 ) E ( FAR0133 ) E ( FCS0062 OU FCS0063 OU FAR0134 ) E ( FCS0068 OU FAR0148 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0023 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2009.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0188 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2009.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0047 OU FCS0048 OU FAR0119 ) E ( FAR0133 ) E ( FCS0062 OU FCS0063 OU FAR0134 ) E ( FCS0068 OU FAR0148 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0023 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Apresenta e discute os processos históricos e sociais que conformaram o pensamento científico atual e adistinção entre ciências sociais e ciências biológicas. Dentro dessa matriz, a disciplina apresenta e discute osconceitos básicos das Ciências Sociais, em especial, aqueles aplicados à saúde. Aborda o processo saúde-doençaenquanto um processo social e, por conseqüência, a compreensão do trabalho do profissional da saúde comouma prática que (re) produz a sociedade em todos os seus planos.Para tanto, estará organizada em 3 Unidades:Unidade 1 – A saúde moderna, pública e científicaUnidade 2 – Sistemas e leituras sociais de saúdeUnidade 3 – Diversidade social e marcadores sociais da diferença em saúde",
+        "codigo": "DSC0011"
+    },
+    {
+        "nome": "SAUDE E SOCIEDADE 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0017 )",
+        "equivalencias_especificas": [],
+        "ementa": "01. DESENVOLVER A COMPREENSAO DOS ASPECTOS CONCEITUAIS DA MEDICINA COMO     PRATICA TECNICA E PRATICA SOCIAL.                                   02. IDENTIFICAR AS POLITICAS SOCIAIS E SUA RELACAO COM A SOCIEADE.      03. DESENVOLVER A COMPREENSAO DA SAUDE COMO UM DIREITO INERENTE AO EXE-     CICIO DA CIDADANIA.                                                 04. DESENVOLVER A ANALISE CRITICA DOS ALUNOS EM RELACAO AOS CONCEITOS       DO \"NORMAL AO PATOLOGICO: E DO SOCIAL AO VITAL FRENTE AO FENOMENO       SAUDE-DOENCA.                                                       05. DESENVOLVER A COMPREENSAO CRITICA DOS ALUNOS FRENTE A  MEDICINA E A     RELACAO PROFISSIONAL DE SAUDE-PACIENTE EM RELACAO AS DIVERSAS CLAS-     SES SOCIAIS.                                                        06. DESENVOLVER A ANALISE CRITICA DA MEDICINA E A  DIMENSAO  SOCIAL  DO     \"USO DO CORPO\".",
+        "codigo": "DSC0018"
+    },
+    {
+        "nome": "SAUDE FAMILIAR",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0277 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0277 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0277 ) )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTAApresenta os modelos de atenção a saúde no Brasil, com destaque para o Sanitarismo Campanhista, o modelo Liberal Privatista ou Médico Assistencial Privatista, e o modelo da Medicina Comunitária, bem como o modelo de Vigilância à Saúde. A partir deles, propõe uma discussão sobre a constituição e formas de organização de redes integradas de atenção a saúde. Enfatiza as abordagens da família e grupos sociais, tendo a Estratégia de Saúde da Família seu foco principal, e introduz as ações estratégicas do Pacto pela Vida.",
+        "codigo": "DSC0038"
+    },
+    {
+        "nome": "SAÚDE INDÍGENA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Reflexão sobre as distintas realidades e contextos culturais que influenciam diretamente no modo de viver e adoecer da população e sobre as intervenções na saúde dos povos indígenas. A política de atenção à saúde dos povos indígenas. Os conteúdos serão desenvolvidos considerando-se as diferentes perspectivas sobre as questões abordadas, a fim de proporcionar o diálogo entre saberes e práticas.",
+        "codigo": "DSC0003"
+    },
+    {
+        "nome": "SAÚDE INTERNACIONAL - TÓPICOS ESPECIAIS EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A matriz teórica das relações internacionais nos oferece um vasto campo de reflexão na sua interface com a saúde.  Almeja-se refletir sobre as matrizes teóricas que embasam as relações internacionais de modo a contextualizar a posição do Brasil no meio a tratados e consensos internacionais, organismos internacionais, problemas internacionais de saúde emergentes e re-emergentes.  Vários problemas de saúde extrapolam a visão doméstica regional ou nacional. Dentre eles, o fenômeno do uso e uso problemático de Substâncias psicoativas (SPA) constitui mais do que um problema de saúde pública, uma realidade a ser enfrentada compreendida nos seus contextos histórico, social, cultural e econômico.",
+        "codigo": "DSC0086"
+    },
+    {
+        "nome": "SAÚDE MENTAL E BEM-ESTAR NO TRABALHO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0054 )",
+        "equivalencias_especificas": [],
+        "ementa": "Relação dos fatores psicossociais com a saúde mental no trabalho. Definição da saúde mental no trabalho. Variáveis psicossociais no trabalho. Trabalho e saúde mental no trabalho. Distúrbios psíquicos no trabalho. Prevenção e promoção da saúde mental do trabalhador.ObjetivosGeral: Discutir o vínculo de fatores psicossociais com a saúde mental e o bem-estar do trabalhador.Específicos:- analisar o trabalho como fonte de saúde e bem-estar do indivíduo- abordar diferentes transtornos no trabalho.- estudar variáveis psicossociais moderadoras e mediadoras da saúde mental no trabalho.- discutir estratégias para a prevenção e promoção da saúde mental do trabalhador.",
+        "codigo": "DSC0055"
+    },
+    {
+        "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresenta os modelos de atenção a saúde no Brasil, com destaque para o Sanitarismo Campanhista, o modelo Liberal Privatista ou Médico Assistencial Privatista, e o modelo da Medicina Comunitária, bem como o modelo de Vigilância à Saúde. A partir deles, propõe uma discussão sobre a constituição e formas de organização de redes integradas de atenção a saúde. Enfatiza as abordagens da família e grupos sociais, tendo a Estratégia de Saúde da Família seu foco principal, e introduz as ações estratégicas do Pacto pela Vida.",
+        "codigo": "DSC0043"
+    },
+    {
+        "nome": "SAUDE NO BRASIL - SITUACAO ATUAL E PERSPECTIVAS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA VISA OFERECER AOS ALUNOS EM NÍVEL AVANÇADO DE DISCUS-SÃO,EM PANORAMA DO MOMENTO ATUAL DAS POLÍTICAS E DA SITUAÇAO  DESAÚDE NO BRASI, COM ESPECIAL ÊNFASE NA IMPLANTAÇÃO DO SISTEMA ÚNI-CO DE SAÚDE(SUS) E SUAS CONSEQUÊNCIAS NA ORGANIZAÇÃO    DOS SERVI-ÇOS E NA ALTERAÇÕES DOS INDICADORES DE SAÚDE-DOENÇA.",
+        "codigo": "DSC0039"
+    },
+    {
+        "nome": "SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0074"
+    },
+    {
+        "nome": "SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0062 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( FCE0205 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/1 - 2020.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( FCE0205 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "2021.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados, focalizando nos instrumentos jurídico-ético-legais, nas estratégias e métodos de avaliação de serviços e sistemas de saúde.",
+        "codigo": "DSC0076"
+    },
+    {
+        "nome": "SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 3",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0067 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0077 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0078"
+    },
+    {
+        "nome": "SEMINÁRIOS INTEGRADOS EM SAÚDE COLETIVA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Espaço de convergência, integração e articulação dos conteúdos curriculares cursados que fornecem os conhecimentos básicos da saúde coletiva necessários para a compreensão do processo saúde-doença, a caracterização das condições de saúde de coletivos populacionais e seus possíveis determinantes. Preparação de plano para a análise participativa da situação de saúde em nível local.",
+        "codigo": "DSC0060"
+    },
+    {
+        "nome": "TECNOLOGIAS PARA INFORMAÇÃO COMUNICAÇÃO EM SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Tecnologias inclusivas para a Informação e Comunicação em Saúde, limites e potencialidades. Iniciativas de governo eletrônico aplicadas a gestão de sistemas e serviços de Saúde. Conceitos e modelos aplicados ao ensino a distância. Comunicação mediada por tecnologias inclusivas. Qualidade da informação na web",
+        "codigo": "DSC0073"
+    },
+    {
+        "nome": "TERAPIAS COMUNITÁRIAS E PRÁTICAS INTEGRATIVAS",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0094"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA DA SAÚDE",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DAN0022 E SOL0042 E DSC0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0046"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM BIOÉTICA 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0008"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM BIOÉTICA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( ( DSC0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DSC0009"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0084 )",
+        "co_requisitos": "-",
+        "equivalencias": "( DSC0099 E DSC0111 E DSC0168 E DSC0171 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( DSC0099 E DSC0103 E DSC0111 )",
+                "matriz_curricular": "SAUDE COLETIVA - Bacharelado - Presencial - N",
+                "curriculo": "7161/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "DSC0083"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "Elaboração de projeto de pesquisa/artigo/intervenção/relatório técnico no modelo introdução, justificativa, metodologia, cronograma e referências bibliográficas. Aplicação das normas de produção e apresentação de trabalhos científicos. Submissão ao Comitê de Ética em pesquisa, quando necessário. Estabelecer formalmente a relação de orientação, conforme regulamento e termos de TCC do DSC-UnB.\n\nLeitura e discussão de textos científicos, objetivando a construção de um plano de trabalho de conclusão de curso do tema escolhido.\n\nA disciplina tem como finalidade o desenvolvimento de habilidades na busca de informações técnico-científicas sobre o tema de estudo e a capacitação na análise crítica das informações, bem como a construção de um plano de trabalho de conclusão de curso do tema escolhido para a Saúde Coletiva.",
+        "codigo": "DSC0099"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM SAÚDE COLETIVA 2",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "( DSC0099 E DSC0168 )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "O estudante deverá desenvolver o projeto de pesquisa proposto em DSC0099 - Trabalho de Conclusão de Curso 1 e redigir o seu produto final, conforme modalidade escolhida (monografia, artigo, intervenção ou relatório técnico). Defesa pública dos resultados obtidos durante as Semanas de Defesa de TCC do DSC-UnB.",
+        "codigo": "DSC0171"
+    },
+    {
+        "nome": "VIGILÂNCIA EPIDEMIOLÓGICA PARTICIPATIVA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Participação de estratégia de vigilância epidemiológica participativa e aprendizado de conceitos básicos de saúde pública e vigilância em saúde.",
+        "codigo": "DSC0172"
+    },
+    {
+        "nome": "VIGILANCIA SANITARIA",
+        "unidade_responsavel": "DEPTO SAUDE COLETIVA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0306 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0306 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Origens da vigilância sanitária. Danos à saúde decorrentes do meio ambiente, produção e circulação de bens e da prestação de serviços de interesse da saúde. Inovação, tecnologia e riscos à saúde. Avaliação, gerenciamento e comunicação de risco à saúde. O Sistema Nacional de Vigilância Sanitária – teoria, estrutura e organização. Instrumentos de intervenção em vigilância sanitária. Regulação sanitária e contexto social e econômico. Risco e território – Vigilância sanitária no âmbito das ações e serviços do SUS. Poder administrativo de polícia.",
+        "codigo": "DSC0045"
+    }
+]

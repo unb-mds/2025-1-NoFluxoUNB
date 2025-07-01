@@ -1,0 +1,900 @@
+{
+  "curso": "GEOLOGIA",
+  "periodo_letivo_vigor": "2025.1",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0318",
+          "nome": "INTRODUÇÃO À EXTENSÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUÍMICA GERAL E INORGÂNICA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CÁLCULO 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODÉSIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0332",
+          "nome": "CRISTALOGRAFIA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CÁLCULO 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0142",
+          "nome": "GEOQUÍMICA ANALÍTICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0049",
+          "nome": "PALEONTOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0182",
+          "nome": "INTRODUÇÃO AO ELETROMAGNETISMO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0195",
+          "nome": "MINERALOGIA DE NÃO SILICATOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0319",
+          "nome": "COMUNICAÇÃO COM A COMUNIDADE 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FÍSICO-QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0047",
+          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0200",
+          "nome": "PETROLOGIA SEDIMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0201",
+          "nome": "MÉTODOS POTENCIAIS, RADIOMÉTRICOS E ELETROMAGNÉTICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0320",
+          "nome": "COMUNICAÇÃO COM A COMUNIDADE 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0036",
+          "nome": "PETROLOGIA ÍGNEA",
+          "carga_horaria": "135h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0202",
+          "nome": "MÉTODOS SÍSMICOS E ELÉTRICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0205",
+          "nome": "ESTÁGIO EM GEOLOGIA",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0312",
+          "nome": "MAPEAMENTO GEOLÓGICO 1",
+          "carga_horaria": "75h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0033",
+          "nome": "PETROLOGIA METAMÓRFICA",
+          "carga_horaria": "135h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0150",
+          "nome": "GEOLOGIA ESTRUTURAL 2",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0162",
+          "nome": "GEOQUÍMICA GERAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0321",
+          "nome": "COMUNICAÇÃO COM A COMUNIDADE 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0041",
+          "nome": "GEOLOGIA ECONÔMICA",
+          "carga_horaria": "135h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0054",
+          "nome": "HIDROGEOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0085",
+          "nome": "GEOLOGIA HISTÓRICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0313",
+          "nome": "MAPEAMENTO GEOLÓGICO 2",
+          "carga_horaria": "75h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0088",
+          "nome": "GEOLOGIA DO BRASIL",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0096",
+          "nome": "PROSPECÇÃO GERAL",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0114",
+          "nome": "PREPARACAO DO MAPEAMENTO GEOLOGICO FINAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0199",
+          "nome": "GEOQUÍMICA DO AMBIENTE SUPERFICIAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "IGD0314",
+          "nome": "TRABALHO DE MAPEAMENTO GEOLÓGICO FINAL",
+          "carga_horaria": "240h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "11º Semestre",
+      "materias": [
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATÍSTICA APLICADA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0138",
+          "nome": "METODOS QUANTITATIVOS EM GEOCIÊNCIAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATÍSTICA APLICADA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOÇÕES DE DIREITO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0129",
+          "nome": "LÍNGUA BRASILEIRA DE SINAIS 1",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0144",
+          "nome": "LÍNGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0003",
+          "nome": "INTRODUÇÃO À VULCANOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0004",
+          "nome": "INTRODUÇÃO À METEOROLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0005",
+          "nome": "SISMOLOGIA AVANÇADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0007",
+          "nome": "PROCESSAMENTOS DE DADOS SISMOLÓGICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0009",
+          "nome": "PROCESSOS METAMÓRFICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0010",
+          "nome": "RECURSOS HÍDRICOS PARA CIÊNCIAS AMBIENTAIS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0028",
+          "nome": "PEDOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0030",
+          "nome": "SEDIMENTOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0057",
+          "nome": "GEOLOGIA DO PETRÓLEO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0059",
+          "nome": "GEOLOGIA APLICADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0077",
+          "nome": "ECONOMIA MINERAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0081",
+          "nome": "DESENHO GEOLÓGICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0083",
+          "nome": "TECTÔNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0093",
+          "nome": "GEOFÍSICA GERAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0098",
+          "nome": "MICROPALEONTOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0110",
+          "nome": "GEOFÍSICA BÁSICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0118",
+          "nome": "GEOLOGIA AMBIENTAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0126",
+          "nome": "ESTÁGIO SUPERVISIONADO EM GEOCIÊNCIAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0128",
+          "nome": "GEMOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0130",
+          "nome": "LEGISLAÇÃO MINERAL PROFISSIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0132",
+          "nome": "BIOESTRATIGRAFIA E PALEOECOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0138",
+          "nome": "METODOS QUANTITATIVOS EM GEOCIÊNCIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0144",
+          "nome": "MINERALOGIA 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0145",
+          "nome": "MINERALOGIA 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0151",
+          "nome": "MINERAIS E ROCHAS INDUSTRIAIS E RECURSOS MINERAIS ENERGÉTICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0152",
+          "nome": "INTRODUÇÃO AO PROCESSAMENTO DE SINAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0153",
+          "nome": "MICROTECTÔNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0154",
+          "nome": "GEOMETRIA E CONTROLE ESTRUTURAL DE CORPOS DE MINÉRIO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0155",
+          "nome": "MICROSCOPIA DE MINÉRIOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0156",
+          "nome": "TÉCNICAS DE PESQUISA EM GEOQUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0157",
+          "nome": "TÉCNICAS DE PREPARAÇÃO E ANÁLISE DE MINERAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0158",
+          "nome": "MINERALOGIA DE ARGILAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0159",
+          "nome": "INTRODUÇÃO AO PROCESSAMENTO DE IMAGENS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUÇÃO AO SISTEMA DE INFORMAÇÕES GEOGRÁFICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0161",
+          "nome": "INTRODUÇÃO AO SISTEMA DE POSICIONAMENTO GLOBAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0163",
+          "nome": "MÉTODOS COMPUTACIONAIS EM GEOFÍSICA APLICADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0164",
+          "nome": "INTROD AO PROCESSAMENTO E INTERPRETAÇÃO DADOS EM GEOFÍSICA AÉREA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0166",
+          "nome": "ESTÁGIO SUPERVISIONADO AVANÇADO EM GEOCIÊNCIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0167",
+          "nome": "FUNDAMENTOS DA HISTÓRIA DA TERRA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0168",
+          "nome": "INTRODUÇÃO ÀS CIÊNCIAS DA TERRA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0169",
+          "nome": "INTRODUÇÃO À GEOLOGIA DO PETRÓLEO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0170",
+          "nome": "INTRODUÇÃO À GEOLOGIA DE RESERVATÓRIOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0171",
+          "nome": "INTRODUÇÃO À ANÁLISE DE BACIAS: TECTÔNICA E SEDIMENTAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0172",
+          "nome": "INTRODUÇÃO A PROSPECÇÃO GEOFÍSICA DO PETRÓLEO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0174",
+          "nome": "PALEOBIOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0175",
+          "nome": "INTRODUÇÃO A CARTOGRAFIA TEMÁTICA E DIGITAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0176",
+          "nome": "GEOLOGIA DE ISÓTOPOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0180",
+          "nome": "CARACTERIZAÇÃO DE DEPÓSITOS HIDROTERMAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0184",
+          "nome": "SISMOLOGIA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUÇÃO A MINERALOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0187",
+          "nome": "PROGRAMAÇÃO EM GEOFÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0192",
+          "nome": "INTRODUÇÃO À FÍSICA DA TERRA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0193",
+          "nome": "PRINCÍPIOS DE GEOFÍSICA DE EXPLORAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0196",
+          "nome": "MINERAIS E ROCHAS INDUSTRIAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0197",
+          "nome": "RECURSOS MINERAIS ENERGÉTICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0206",
+          "nome": "CARTOGRAFIA GEOLÓGICA DIGITAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0207",
+          "nome": "FUNDAMENTOS DE SENSORIAMENTO REMOTO E INTERPRETAÇÃO DE IMAGENS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0208",
+          "nome": "PALEOCEANOGRAFIA E PALEOCLIMA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0209",
+          "nome": "RADAR DE PENETRAÇÃO NO SOLO (GPR)",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0211",
+          "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0212",
+          "nome": "SEDIMENTOLOGIA 2 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0214",
+          "nome": "PROPRIEDADES FÍSICAS DAS ROCHAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUÇÃO A GEOLOGIA ESTRUTURAL",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0236",
+          "nome": "OCEANOGRAFIA FÍSICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA ÍGNEA E METAMÓRFICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0246",
+          "nome": "CURADORIA MICROPALEONTOLÓGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0247",
+          "nome": "INTRODUÇÃO AOS MUSEUS DE CIÊNCIAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCÍPIOS DE GEOFÍSICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCÍPIOS DE GEOFÍSICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0257",
+          "nome": "RECUPERAÇÃO DE ÁREAS DEGRADADAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0258",
+          "nome": "INTRODUÇÃO A PEDOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0260",
+          "nome": "INTRODUÇÃO A GEOMORFOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0300",
+          "nome": "PERFILAGEM GEOFÍSICA DE POÇOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0311",
+          "nome": "ANÁLISE DE FÁCIES E MODELOS DEPOSICIONAIS",
+          "carga_horaria": "75h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0322",
+          "nome": "ATIVIDADE COMPLEMENTAR 30H",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0323",
+          "nome": "ATIVIDADE COMPLEMENTAR 60H",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0324",
+          "nome": "ATIVIDADE COMPLEMENTAR 90H",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0325",
+          "nome": "FUNDAMENTOS DE MICROSCOPIA ELETRÔNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0328",
+          "nome": "INTRODUÇÃO À ANÁLISE DE BACIAS: TECTÔNICA E SEDIMENTAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0329",
+          "nome": "ATIVIDADE COMPLEMENTAR 120H",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0330",
+          "nome": "ATIVIDADE COMPLEMENTAR 150H",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0331",
+          "nome": "ATIVIDADE COMPLEMENTAR 180H",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IGD0585",
+          "nome": "GEOLOGIA DE ENGENHARIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLÊS INSTRUMENTAL 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLÊS INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

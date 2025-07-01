@@ -1,0 +1,969 @@
+{
+  "curso": "QUÍMICA",
+  "periodo_letivo_vigor": "2025.2",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUÍMICA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0467",
+          "nome": "INTRODUÇÃO AO CURSO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CÁLCULO 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IGD0024",
+          "nome": "CRISTALOGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0024",
+          "nome": "LABORATÓRIO DE QUÍMICA ANALÍTICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0056",
+          "nome": "QUIMICA INORGANICA 1 EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0063",
+          "nome": "QUIMICA ANALITICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUÍMICA INORGÂNICA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CÁLCULO 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0065",
+          "nome": "QUÍMICA ANALITICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0191",
+          "nome": "INTRODUÇÃO A QUIMICA MODERNA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0228",
+          "nome": "LABORATÓRIO DE QUÍMICA ANALÍTICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CÁLCULO 3",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0101",
+          "nome": "TERMODINÂMICA QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0137",
+          "nome": "REAÇÕES ORGÂNICAS E SEUS MECANISMOS 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0139",
+          "nome": "QUÍMICA DOS ELEMENTOS DE TRANSIÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0168",
+          "nome": "LABORATÓRIO DE QUÍMICA ORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "IQD0028",
+          "nome": "REAÇÕES ORGÂNICAS E SEUS MECANISMOS 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0029",
+          "nome": "ESPECTROSCOPIA ATÔMICA E MOLECULAR",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0167",
+          "nome": "INTRODUÇÃO À ESPECTROSCOPIA ORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0187",
+          "nome": "FUNDAMENTOS DE ANÁLISE INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0444",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0470",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "IQD0026",
+          "nome": "FUNDAMENTOS DE ANÁLISE INSTRUMENTAL 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0027",
+          "nome": "LABORATÓRIO DE SÍNTESE INORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0103",
+          "nome": "EQUILÍBRIO E CINÉTICA QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0212",
+          "nome": "LABORATÓRIO DE SÍNTESE ORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0226",
+          "nome": "LABORATÓRIO DE ANÁLISE INSTRUMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0471",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0472",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 4",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "IQD0105",
+          "nome": "QUÍMICA QUÂNTICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0173",
+          "nome": "TÓPICOS EM QUÍMICA INORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0192",
+          "nome": "LABORATORIO DE FISICO-QUIMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0213",
+          "nome": "QUÍMICA BIOLÓGICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0308",
+          "nome": "TRABALHO DE CONCLUSÃO DO CURSO DE BACHARELADO EM QUÍMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0475",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 5",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0476",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 6",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "IQD0406",
+          "nome": "TRABALHO DE CONCLUSÃO DO CURSO DE BACHARELADO EM QUÍMICA 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0454",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 7",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0456",
+          "nome": "ATIVIDADE INDIVIDUAL DE EXTENSÃO DO INSTITUTO DE QUÍMICA 8",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "IQD0001",
+          "nome": "FÍSICO QUÍMICA DE POLÍMEROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0002",
+          "nome": "SÍNTESE DE POLÍMEROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0003",
+          "nome": "INTRODUÇÃO À COMPUTAÇÃO APLICADA AOS PROCESSOS QUÍMICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0004",
+          "nome": "FUNDAMENTOS DE PRODUÇÃO DE CERVEJA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0005",
+          "nome": "TRANSFERÊNCIA DE QUANTIDADE DE MOVIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0009",
+          "nome": "OPERAÇÕES UNITÁRIAS DA ENGENHARIA QUÍMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0010",
+          "nome": "TRANSFERÊNCIA DE MASSA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0014",
+          "nome": "LABORATÓRIO DE ENGENHARIA QUÍMICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0018",
+          "nome": "ESTÁGIO SUPERVISIONADO",
+          "carga_horaria": "165h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0020",
+          "nome": "TECNOLOGIA DE CONVERSÃO DE BIOMASSA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0021",
+          "nome": "QUÍMICA ANALÍTICA EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0022",
+          "nome": "PRINCÍPIOS DE QUÍMICA ANALÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0023",
+          "nome": "TECNOLOGIA DO MEIO AMBIENTE 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0025",
+          "nome": "RADIOQUÍMICA: CONCEITOS E APLICAÇÕES",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0032",
+          "nome": "CINÉTICA QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0034",
+          "nome": "INTRODUÇÃO A TEORIA DO ORBITAL MOLECULAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0039",
+          "nome": "AVALIAÇÃO NO ENSINO DE QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0040",
+          "nome": "AULAS DE QUÍMICA EM SALA AMBIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0041",
+          "nome": "PRÁTICA INTERDISCIPLINAR EM ENSINO DE QUÍMICA 2",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0042",
+          "nome": "CONTEXTO ESCOLAR E ENSINO DE QUÍMICA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0044",
+          "nome": "INTRODUÇÃO A ENGENHARIA DE MATERIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0045",
+          "nome": "MATERIAIS E MICROESTRUTURA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0046",
+          "nome": "TERMODINÂMICA APLICADA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0047",
+          "nome": "TÓPICOS ESPECIAIS EM TECNOLOGIA E ENGENHARIA QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0048",
+          "nome": "ENGENHARIA DE REATORES QUÍMICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0049",
+          "nome": "TÓPICOS AVANÇADOS EM REATORES QUÍMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0070",
+          "nome": "INTRODUCAO A TECNOLOGIA DOS FERTILIZANTES",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0071",
+          "nome": "TECNOLOGIA DO VÁCUO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0084",
+          "nome": "INTRODUÇÃO À QUÍMICA QUÂNTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0094",
+          "nome": "QUIMICA INDUSTRIAL BASICA",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0098",
+          "nome": "QUÍMICA ORGÂNICA AVANÇADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0156",
+          "nome": "SEGURANÇA EM LABORATÓRIOS QUÍMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0158",
+          "nome": "ESPECTROCOPIA ORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0159",
+          "nome": "INTRODUÇÃO A QUÍMICA DE ESTADO SÓLIDO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0164",
+          "nome": "SÍNTESE ORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0178",
+          "nome": "INTRODUÇÃO AO CURSO DE BACHARELADO EM QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0184",
+          "nome": "ELEMENTOS DE ESPECTROSCOPIA MOLECULAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0189",
+          "nome": "TÓPICOS DE ENSINO DE QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0193",
+          "nome": "SEMINARIOS DE QUIMICA ORGANICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0199",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2-MONOGRAFIA DE LICENCIATURA EM QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0203",
+          "nome": "TÓPICOS DE QUÍMICA AMBIENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0206",
+          "nome": "PRÁTICA DE ENSINO DE QUÍMICA 1",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUÍMICA GERAL E ORGÂNICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0210",
+          "nome": "TÓPICOS EM CROMATOGRAFIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0211",
+          "nome": "QUÍMICA MEDICINAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0214",
+          "nome": "MÉTODOS MATEMÁTICOS PARA QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0215",
+          "nome": "QUÍMICA COMPUTACIONAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0216",
+          "nome": "ESPECTROSCOPIA MOLECULAR E TERMODINÂMICA ESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0218",
+          "nome": "MÉTODOS FÍSICOS APLICADOS À QUÍMICA INORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0220",
+          "nome": "QUÍMICA INORGÂNICA ESTRUTURAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0222",
+          "nome": "CATALISADORES E CATÁLISE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0223",
+          "nome": "LABORATÓRIO DE QUÍMICA INORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0224",
+          "nome": "MÉTODOS ELETROQUÍMICOS DE ANÁLISE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0225",
+          "nome": "MÉTODOS ESPECTROSCÓPICOS DE ANÁLISE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0229",
+          "nome": "ESTÁGIO EM QUÍMICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0230",
+          "nome": "ESTÁGIO EM QUÍMICA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0231",
+          "nome": "TECNOLOGIA DA ÁGUA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0232",
+          "nome": "TECNOLOGIA DAS EMULSÕES E DISPERSÕES",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0233",
+          "nome": "TECNOLOGIA DO PETRÓLEO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0234",
+          "nome": "TECNOLOGIA DOS COSMÉTICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0235",
+          "nome": "TECNOLOGIA DOS ÓLEOS E GORDURAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0236",
+          "nome": "TECNOLOGIA DOS POLÍMEROS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0237",
+          "nome": "INTRODUÇÃO AO CURSO DE LICENCIATURA EM QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0239",
+          "nome": "ESTÁGIO EM ENSINO DE QUÍMICA 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0242",
+          "nome": "ESTÁGIO EM REGÊNCIA NO ENSINO DE QUÍMICA 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0243",
+          "nome": "QUÍMICA ANALÍTICA QUANTITATIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0246",
+          "nome": "SEMINÁRIO DE GRADUAÇÃO EM QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0247",
+          "nome": "MÉTODOS DE SEPARAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0248",
+          "nome": "TEMPERATURA E CALOR: EVOLUÇÃO DOS CONCEITOS TERMODINÂMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0249",
+          "nome": "PROCESSAMENTO DE DADOS EM QUÍMICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0250",
+          "nome": "ANÁLISE DE RECURSOS DIDÁTICOS PARA O ENSINO DE QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0254",
+          "nome": "BIOINORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0255",
+          "nome": "MODALIDADES DIDÁTICAS PARA O ENSINO DE QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0256",
+          "nome": "QUIMIOMETRIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0258",
+          "nome": "FILOSOFIA DA CIÊNCIA E ENSINO CIÊNCIA-TECNOLOGIA-SOCIEDADE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0261",
+          "nome": "PRINCÍPIOS DE ELETROQUÍMICA E CORROSÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0264",
+          "nome": "PRÁTICA DE ENSINO DE QUÍMICA 2",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0266",
+          "nome": "FENÔMENOS DE TRANSPORTE DE MASSA, ENERGIA E MOMENTUM",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0267",
+          "nome": "PROCESSOS DA INDÚSTRIA DE ALIMENTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0268",
+          "nome": "ELEMENTOS DE OPERAÇÕES UNITÁRIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0269",
+          "nome": "LABORATÓRIO DE ELEMENTOS DE OPERAÇÕES UNITÁRIAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0270",
+          "nome": "PRINCÍPIO INTERDISCIPLINAR 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0271",
+          "nome": "PRINCÍPIO INTERDISCIPLINAR 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0272",
+          "nome": "TECNOLOGIA DO MEIO AMBIENTE 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0273",
+          "nome": "TECNOLOGIA DO MEIO AMBIENTE 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0274",
+          "nome": "TECNOLOGIA DE PROCESSOS ELETROLÍTICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0275",
+          "nome": "ESTÁGIO EM QUÍMICA TECNOLÓGICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0277",
+          "nome": "TECNOLOGIA DOS PRODUTOS AGROINDUSTRIAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0278",
+          "nome": "TECNOLOGIA DE INDÚSTRIA DE BASE INORGÂNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0279",
+          "nome": "PRÁTICA INTERDISCIPLINAR EM ENSINO DE QUÍMICA 1",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0282",
+          "nome": "REAÇÕES QUÍMICAS E O AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0286",
+          "nome": "LABORATÓRIO DE TÉCNICAS QUÍMICAS BÁSICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0288",
+          "nome": "TÓPICOS EM QUÍMICA AMBIENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0290",
+          "nome": "QUÍMICA DA ÁGUA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0292",
+          "nome": "GERENCIAMENTO DE RESÍDUOS E SOLOS CONTAMINADOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0294",
+          "nome": "QUÍMICA ATMOSFÉRICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0295",
+          "nome": "FUNDAMENTOS DE MATEMÁTICA PARA QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0297",
+          "nome": "INTRODUÇÃO À ENGENHARIA QUÍMICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0298",
+          "nome": "CINÉTICA DOS REATORES QUÍMICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0299",
+          "nome": "TECNOLOGIA DE RECICLAGEM DE MATERIAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0300",
+          "nome": "QUÍMICA VERDE E SUSTENTABILIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0303",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0407",
+          "nome": "TÉCNICA DE PESQUISA EM QUÍMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0408",
+          "nome": "TÉCNICA DE PESQUISA EM QUÍMICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

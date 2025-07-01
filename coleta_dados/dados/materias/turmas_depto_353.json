@@ -1,0 +1,904 @@
+[
+    {
+        "nome": "CONFORTO AMBIENTAL",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( MAT0025 E FAU0109 ) OU ( MAT0022 E FAU0109 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0119 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0176 OU TEC0017 ) ) OU ( FAU0119 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0176 OU TEC0017 ) ) OU ( FAU0119 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0176 OU TEC0017 ) ) OU ( FAU0119 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "CONCEITO  DE  ERGONOMIA. EQUILIBRIO TERMICO  ENTRE O HOMEM  E O MEIO.CARTA SOLAR ESTEREOGRAFICA.                                                ORGANIZACAO DOS ELEMENTOS CLIMATICOS E SUA APLICACAO A ARQUITETURA  EURBANISMO - CARTAS BIOCLIMATICAS E  PSICOMETRICAS. ESTUDO DOS EFEITOS DOSOLEVENTOS NAS EDIFICACOES, PROTECOES SOLARES. EFEITO TERMICO NAS EDIFI-CACOES - ISOLAMENTO E TRANSMISSAO TERMICA.  CONFORTO ACUSTICO - ASPECTOSPSICO-FISIOLOGICOS DO SOM, PROPAGACAO E COMPORTAMENTO DO SOM NOS AMBIEN-TES EDIFICADOS: PROJETOS DE AUDITORIOS. HIGIENE DAS EDIFICACOES.        - CARTAS BIOCLIMATICAS                                                 - CARTAS PSICROMETRICAS                                                - ANALISE DOS CLIMAS DE VARIAS CIDADES BRASILEIRAS                     - EFEITOS DOS VENTOS                                                   - EFEITOS DO SOL                                                       - PROJETO DE BRISES.                                                    UNIDADE V: EFEITO TERMICO.                                              FLUXO DE CALOR ISOLAMENTO E COEFICIENTES DE TRANSMISSAO TERMICA.       UNIDADE IV: APLICACAO PRATICA:",
+        "codigo": "FAU0120"
+    },
+    {
+        "nome": "CONFORTO AMBIENTAL LUMINOSO E ACUSTICO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( TEC0017 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0250 OU TEC0028 ) E ( FAU0251 OU TEC0029 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0250 OU TEC0028 ) E ( FAU0251 OU TEC0029 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0250 OU TEC0028 ) E ( FAU0251 OU TEC0029 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "FISICA APLICADA A ARQUITETURA A URBANISMO: ILUMINACAO NATURAL,  ACUS-TICA E CONTROLE DO SOM, EXIGENCIAS HUMANAS QUANTO A ILUMINACAO E ACUSTI-CA.",
+        "codigo": "FAU0177"
+    },
+    {
+        "nome": "ESTAGIOS SUPERVISIONADOS DE PROJETOS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( PRO0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0228 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0229"
+    },
+    {
+        "nome": "ESTRUTURAS ARQUITETONICAS 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( MAT0025 E FAU0109 ) OU ( MAT0022 E FAU0109 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTRUTURAS I                                                               CONHECIMENTO DO  FENOMENO  ESTRUTURAL ATRAVES DE  ANALISE QUALITATIVADAS ESTRUTURAS MEDIANTE TRABALHO PRATICO EM MODELOS TRIDIMENSIONAIS ELE-MENTOS.                                                                    PROPOSICAO DE EST RUTURAS ELEMENTARES,  ESTUDO DAS FORCAS  INTERNAS EEXTERNAS, EFEITO DAS FORCAS SOBRE A ESTRUTURAS, PROPRIEDADES DO MATERIALESTRUTURAL E CARGAS ATUANTES NO SISTEMA ESTRUTURAL.                     MORFOLOGIAS ESTRUTURAIS.",
+        "codigo": "FAU0146"
+    },
+    {
+        "nome": "ESTRUTURAS ARQUITETONICAS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0146 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0179 OU TEC0019 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0179 OU TEC0019 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0179 OU TEC0019 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "LEI KOOKE, ESTUDO DE VIGAS BIAPOIADAS, MOMENTO FLETOR, FORCA  CORTAN-TE, LINHAS DE ESTADO, FLECHAS EM VIGAS, VIGAS  CONTINUAS, PORTICOS  SIM-PLES, METODO DE CROSS, GEOMETRIA DAS MASSAS, ESTUDO DA FLAMBAGEM.",
+        "codigo": "FAU0147"
+    },
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0001"
+    },
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0002"
+    },
+    {
+        "nome": "ESTUDOS ESPECIAIS DE URBANISMO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0237 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0238"
+    },
+    {
+        "nome": "ESTUDOS ESPECIAIS EM TECNOLOGIA DO URBANISMO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0235 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0236"
+    },
+    {
+        "nome": "EXPRESSAO E REPRESENTACAO DE PROJETO 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0168 OU PRO0023 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0168 OU PRO0023 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0168 OU PRO0023 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "CONHECIMENTO BASICO DOS MEISO DE EXPRESSAO E REPRESENTACAO DE  PROJE-TOS DE ARQUITETURA E URBANISMO. FAMILIARIZACAO COM OS INTRUMENTOS, MEIOSE MATERIAIS UTILIZADOS PARA EXPRESSAO E REPRESENTACAO. NORMAS E  CONVEN-COES ( ABNT E DIN).  LINHAS,  TEXTURAS, DESENHO DE  PECAS,  APLICACAO DEESCALAS CONFORME NATUREZA DO PROJETO.                                      NORMALIZACAO DE PRANCHAS, ESCALAS GRAFICAS, SELO, INDICACAO DE  APOIOA LEITURA DE PROJETO.",
+        "codigo": "FAU0133"
+    },
+    {
+        "nome": "EXPRESSAO E REPRESENTACAO DE PROJETO 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0133 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "FAU0134"
+    },
+    {
+        "nome": "INSTALACOES E EQUIPAMENTOS 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0117 OU FAU0118 OU TEC0006 OU TEC0007 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0117 OU FAU0118 OU TEC0006 OU TEC0007 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0117 OU FAU0118 OU TEC0006 OU TEC0007 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "FAU0173"
+    },
+    {
+        "nome": "INSTALACOES E EQUIPAMENTOS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0174"
+    },
+    {
+        "nome": "LEGISLACAO URBANISTICA",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0241 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0242"
+    },
+    {
+        "nome": "METODOS E TECNICAS EM PLANEJAMENTO URBANO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0239 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0240"
+    },
+    {
+        "nome": "METODOS MATEMATICOS E ESTATISTICOS APLICADOS A ARRQUITERUA E URBANISMO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( MAT0022 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0183"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO AMBIENTAL",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0120 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0343"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO AMBIENTAL LUMINOSO E ACUSTICO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0177 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0352"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIOS SUPERVISIONADOS DE PROJETOS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0229 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0360"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURAS ARQUITETONICAS 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0146 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0348"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURAS ARQUITETONICAS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0147 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0349"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0336"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0337"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS ESPECIAIS DE URBANISMO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0238 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0362"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS ESPECIAIS EM TECNOLOGIA DO URBANISMO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0236 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0361"
+    },
+    {
+        "nome": "MONITORIA EM EXPRESSAO E REPRESENTACAO DE PROJETO 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0133 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0344"
+    },
+    {
+        "nome": "MONITORIA EM EXPRESSAO E REPRESENTACAO DE PROJETO 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0134 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0345"
+    },
+    {
+        "nome": "MONITORIA EM INSTALACOES E EQUIPAMENTOS 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0173 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0350"
+    },
+    {
+        "nome": "MONITORIA EM INSTALACOES E EQUIPAMENTOS 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0174 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0351"
+    },
+    {
+        "nome": "MONITORIA EM LEGISLACAO URBANISTICA",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0242 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0364"
+    },
+    {
+        "nome": "MONITORIA EM METODOS E TECNICAS EM PLANEJAMENTO URBANO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0240 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0363"
+    },
+    {
+        "nome": "MONITORIA EM METODOS MATEMATICOS E ESTATISTICOS APLICADOS A ARRQUITERUA E URBANISMO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0183 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0353"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO URBANO E REGIONAL 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0221 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0357"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO URBANO E REGIONAL 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0223 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0358"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA-FORMA E SIGNIFICADO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0201 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0354"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE EDIFICACAO E URBANISMO 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0109 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0338"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE EDIFICACAO E URBANISMO 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0110 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0339"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE EDIFICACAO E URBANISMO 3",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0111 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0340"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE EDIFICACAO E URBANISMO 4",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0216 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0355"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE EDIFICACAO E URBANISMO 5",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0218 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0356"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS CONSTRUTIVOS",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0140 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0346"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0113 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0341"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0225 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0359"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 3",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0114 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0342"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 4",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( FAU0144 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAU0347"
+    },
+    {
+        "nome": "PLANEJAMENTO URBANO E REGIONAL 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0221"
+    },
+    {
+        "nome": "PLANEJAMENTO URBANO E REGIONAL 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0221 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0222 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0223"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA-FORMA E SIGNIFICADO",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( PRO0017 ) OU ( FAU0111 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0200 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0201"
+    },
+    {
+        "nome": "PROJETO DE EDIFICACAO E URBANISMO 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( TAU0002 E VIS0063 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0011 ) OU ( FAU0108 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "ELABORACAO DE ANTEPROJETO PARA EDIFICIOS DE PEQUENO PORTE, DESTINADOSAO ENSINO,  COMERCIO,  SAUDE  OU HABILATACAO,  A PARTIR DE  PROGRAMA  DEDE PROGRAMA DE NECESSIDADES PRE-FIXADAS.                                   ESTUDO E RESOLUCAO DOS ASPECTOS  RELATIVOS AO ENTORNO, TRATAMENTO EX-TERNO, ORGANIZACAO DE ESPACOS, ELEMENTOS CONSTRUTIVOS, CONFORTE  AMBIEN-TAL, REPRESENTACAO GRAFICA E REPERTORIO TECNOLOGICO PRETICO.",
+        "codigo": "FAU0109"
+    },
+    {
+        "nome": "PROJETO DE EDIFICACAO E URBANISMO 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0109 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "- PRATICA DE PROJETOS DE EDIFICACAO DE PEQUENO PRTE.                    - O TERRENO E O ENTORNO URBANO ELEMENTOS BASICOS DE ANALISE DO SITIO.  - RELACAO DOS ELEMENTOS DO ESPACO ARQUITETONICO COM O PROGRAMA DE NECES-  SIDADES AMBIENTAIS. ESTUDO DE TIPOS.                                  - TRANSPOSICAO DO  PROGRAMA EM  ESPACO  ARQUITETONICO.  SISTEMATIZACAO E  ESTRATEGIAS.                                                          - O SISTEMA CONSTRUTIVO E SUA ADEQUACAO AO ESPACO PROPOSTO.",
+        "codigo": "FAU0110"
+    },
+    {
+        "nome": "PROJETO DE EDIFICACAO E URBANISMO 3",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0110 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0156 OU FAU0157 OU PRO0014 OU PRO0015 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0156 OU FAU0157 OU PRO0014 OU PRO0015 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0156 OU FAU0157 OU PRO0014 OU PRO0015 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA PEU III, INSERE-SE NA SEQUENCIA DE  PROJETOS, NELA SENDOENFOCADOS TODOS OS COMPONENTES DO  OBJETO ARQUITETONICO, ATRAVES  DE SUAANALISE CRITICA E RESOLUCAO, ENFATIZANDO-SE OS  ASPECTOS CONSTRUTIVOS  ESUA VINCULACAO COM OS FATORES CONCEITUAIS DO PROJETO.                      METODOLOGICAMENTE DESENVOLVE-SE PROJETOS A NIVEL DE EXECUCAO.",
+        "codigo": "FAU0111"
+    },
+    {
+        "nome": "PROJETO DE EDIFICACAO E URBANISMO 4",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0111 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0215 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0162 OU PRO0020 ) ) OU ( FAU0215 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0162 OU PRO0020 ) ) OU ( FAU0215 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0162 OU PRO0020 ) ) OU ( FAU0215 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PROJETO DE UMA FRACAO URBANA DE  CARATER  PREDOMINANTEMENTE  RESIDEN-CIAL. VARIAVEIS E ATRIBUTOS DO ESPACO URBANO: SUA  DESCRICAO, SIGNIFICA-CAO,  DIAGNOSTICO,  ALTERNATIVAS  PARA  SUA  REFORMULACAO  A PARTIR   DEOBJETIVOS EXPLICITOS, ESCOLHA E DESENVOLVIMENTO DE UMA ALTERNATIVA.",
+        "codigo": "FAU0216"
+    },
+    {
+        "nome": "PROJETO DE EDIFICACAO E URBANISMO 5",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0216 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0217 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0163 OU PRO0021 ) ) OU ( FAU0217 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0163 OU PRO0021 ) ) OU ( FAU0217 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0163 OU PRO0021 ) ) OU ( FAU0217 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRATICA EM PROJETO DE  EDIFICACOES AO  NIVEL DE  EQUIPAMENTO URBANOS,COMPLEXOS, OU CIDADES, COM ENFASE  NA INVESTIGACAO DE METODOLOGIAS  ADE-QUADOS A PROGRAMACAO E AO DESENHO URBANO.",
+        "codigo": "FAU0218"
+    },
+    {
+        "nome": "SISTEMAS CONSTRUTIVOS",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0109 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0140"
+    },
+    {
+        "nome": "TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0187 OU TAU0007 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0187 OU TAU0007 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0187 OU TAU0007 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A HISTORIA DOS FATOS  ARQUITETANIOS A URBANOS AS TEORIAS CRITICAS E A\"PROJETACAO\". AS TEORIAS E AS CORRENTES DE ARQUITETURA CONTEMPORANEA.",
+        "codigo": "FAU0113"
+    },
+    {
+        "nome": "TEORIA E HISTÓRIA DA ARQUITETURA E URBANISMO 2",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0189 OU TAU0009 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0189 OU TAU0009 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0189 OU TAU0009 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVER UMA CONSCIENCIA HISTORICO-CRITICA DO FATO ARQUITETONICO EURBANISTICO, SUAS VARIAS MANIFESTACOE, OS FATOS E SITUACOES QUE  AS CON-DICIONARAM, ENFOCANDO COMO OBJETO DE ESTUDO A ARQUITETURA MODERNA INTER-NACIONAL.",
+        "codigo": "FAU0225"
+    },
+    {
+        "nome": "TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 3",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0188 OU TAU0008 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0188 OU TAU0008 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0188 OU TAU0008 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0188 OU TAU0008 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0188 OU TAU0008 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVER UMA CONSCIENCIA HISTORICO-CRITICA DO FATO ARQUITETONICO EURBANISTICO, SUAS  VARIAS  MANIFESTACOES BEM COMO  OS FATOS E SITUACAOESQUE AS CONDICIONARAM, ENFOCANDO COMO OBJETO DE ESTUDO, A ARQUITETURA E OURBANISMO NO BRASIL, EM SEUS VARIOS PERIODOS.",
+        "codigo": "FAU0114"
+    },
+    {
+        "nome": "TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 4",
+        "unidade_responsavel": "FACULDADE DE ARQUITETURA E URBANISMO ",
+        "pre_requisitos": "( ( FAU0114 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAU0144"
+    }
+]

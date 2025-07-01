@@ -1,0 +1,22 @@
+[
+    {
+        "nome": "COTISTAS NAS ESCOLAS",
+        "unidade_responsavel": "REITORIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "GRE1101"
+    },
+    {
+        "nome": "MONITORIA EM COTISTAS NAS ESCOLAS",
+        "unidade_responsavel": "REITORIA ",
+        "pre_requisitos": "( GRE1101 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "GRE1104"
+    }
+]

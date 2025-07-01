@@ -1,0 +1,2076 @@
+[
+    {
+        "nome": "CONFIABILIDADE, MANUTENIBILIDADE E DISPONIBILIDADE",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( MAT0027 E EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Curvas de Confiabilidade Taxas de falha tempo médio entre falhas tempo médio até a falha testes de confiabilidade estimativa e avaliação da confiabilidade de processos e equipamentos análise e tratamento da confiabilidade de sistemas. Disponibilidade de equipamentos. Análise e tratamento da confiabilidade de sistemas. Gestão da manutenção Elaboração de planos de manutenção custos de manutenção funções da manutenção industrial organizações típicas de manutenção industrial.",
+        "codigo": "EPR0075"
+    },
+    {
+        "nome": "CONTROLE ESTATÍSTICO DE PROCESSOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Melhoria da qualidade no contexto da empresa moderna. Fundamentos do Controle Estatístico de Processos Distribuições de probabilidade discretas e contínuas. Estimação de parâmetros e testes de hipóteses. Gráficos de controle para variáveis e para atributos. Avaliação de Sistemas de Medição.  Análise da Capacidade dos Processos. Análises Multivariadas aplicadas em Qualidade.",
+        "codigo": "EPR0014"
+    },
+    {
+        "nome": "CUSTOS EM SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0064 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0015 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0016"
+    },
+    {
+        "nome": "DESENVOLVIMENTO DE SERVIÇOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0013 ) OU ( ENM0187 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0044"
+    },
+    {
+        "nome": "DINÂMICA DE SISTEMAS EM ORGANIZAÇÕES",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0004 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0017"
+    },
+    {
+        "nome": "ENGENHARIA DE PRODUTOS FINANCEIROS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0064 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0043"
+    },
+    {
+        "nome": "ENGENHARIA DO PRODUTO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0002 ) OU ( ENM0134 ) OU ( ENM0124 ) )",
+        "co_requisitos": "( EPR0008 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0013"
+    },
+    {
+        "nome": "ENGENHARIA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0063 )",
+        "equivalencias_especificas": [],
+        "ementa": "Percepção e processamento de informações. Ergonomia Cognitiva. Carga Mental. Estresse. Agentes estressores. Estresse psíquico e cognitivo. Fases do estresse. Ferramentas para avaliação do estresse. Formas de prevenção do estresse. Tarefas e cargos. Sistemas de Produção e modelos de Organização do Trabalho. O modelo clássico Taylorista-Fordista. Proposta Enriquecimento de Cargos e a visão sociotécnica. Novos paradigmas de Organização do Trabalho (JIT, Consórcio Modular). Modelos de Organização do Trabalho na era da automação industrial. A organização do Trabalho na Era do Conhecimento.",
+        "codigo": "EPR0076"
+    },
+    {
+        "nome": "ENGENHARIA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0133 ) )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-2 - 2014.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0133 ) )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-3 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0133 ) )",
+                "matriz_curricular": "ENGENHARIA QUIMICA - Bacharelado - Presencial - D",
+                "curriculo": "60844/1 - 2015.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0133 ) )",
+                "matriz_curricular": "ENGENHARIA QUIMICA - Bacharelado - Presencial - D",
+                "curriculo": "60844/-2 - 2012.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0133 ) )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/1 - 2016.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( FGA0133 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/2 - 2021.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Valor do dinheiro no tempo.  Introdução à micro-economia e à macro-economia.  Sistemas de amortização de empréstimos  Métodos de Análise de Investimento (Valor Presente, Taxa Interna de Retorno, payback)  Fluxo de Caixa, taxa de desconto (WACC),  depreciação e imposto de renda Custo capitalizado Custo do capital investido Equivalência entre capitais. Valor da empresa Gradiente aritmético e geométrico Aplicações e operações financeiras. Matemática financeira. Tributos. Amortização de Empréstimos (Sistema Francês, Sistema de Amortização Constante). Tecnologia de Produção e Estrutura de Mercado. Monopólio e Oligopólio. Fusões e Aquisições. Regulação.",
+        "codigo": "EPR0064"
+    },
+    {
+        "nome": "ERGONOMIA DE SISTEMAS PRODUTIVOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "EPR0077"
+    },
+    {
+        "nome": "ERGONOMIA EM SISTEMAS PRODUTIVOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0063 OU EPR0076 ) E ( EPR0071 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0040"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0004 E EPR0002 E EPR0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0010 )",
+        "equivalencias_especificas": [],
+        "ementa": "A definir.",
+        "codigo": "EPR0120"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0004 E EPR0002 E EPR0006 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0120 )",
+        "equivalencias_especificas": [],
+        "ementa": "sem ementa.",
+        "codigo": "EPR0010"
+    },
+    {
+        "nome": "FINANÇAS  COMPORTAMENTAIS E PESSOAIS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0036"
+    },
+    {
+        "nome": "FORMAÇÃO DE VALOR EM SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Modelos de criação de valor e apropriação dos valores criados entre os agentes envolvidos,  retornos financeiros, retornos consolidados (BSC) e visão baseada em recursos (RBV). Abordagens RBV e economia de custos transacionais (TCE).",
+        "codigo": "EPR0061"
+    },
+    {
+        "nome": "GERENCIAMENTO DA CADEIA DE SUPRIMENTO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0047"
+    },
+    {
+        "nome": "GERENCIAMENTO DE PROJETOS COMPLEXOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0038"
+    },
+    {
+        "nome": "GESTÃO DA CADEIA DE SUPRIMENTOS EM ENGENHARIA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0031"
+    },
+    {
+        "nome": "GESTÃO DA QUALIDADE NA PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 ) )",
+        "co_requisitos": "( EPR0007 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0030"
+    },
+    {
+        "nome": "GESTÃO DE CUSTOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0064 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0041 )",
+        "equivalencias_especificas": [],
+        "ementa": "História e conceitos básicos de custos. O processo e os custos de produção. Conceitos relevantes. Classificações de Custos (Custos Fixos x Variáveis, Custos Diretos x Indiretos). Níveis de agregação dos custos. Métodos e técnicas de custeio (Método dos centros de custos, Custeio baseado em atividades, Custeio por Absorção x Custeio Variável).  Custo de produtos conjuntos. Análise custo-volume-lucro. Custo e preço. Depreciação. Demonstrações financeiras. Contabilidade básica. Análise das demonstrações contábeis. Demonstração do Resultado do Exercício - DRE.",
+        "codigo": "EPR0042"
+    },
+    {
+        "nome": "GESTÃO DE PROJETOS AVANÇADOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0069 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0051"
+    },
+    {
+        "nome": "GESTÃO DE RISCOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 E EPR0064 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Política Econômica: Impacto das políticas fiscais, monetárias e cambiais na Economia e nas empresas. A LRF e LDO. Certeza, Risco e Incerteza. O Risco das decisões governamentais e seu impacto nas instituições públicas e privadas.   Revisão de Estatística como ferramenta na Gestão de Riscos. Definição de Risco:   História do Risco e suas consequências Risco e Gestão de Riscos. Risco Financeiro: Risco e Regulação Bancária, Acordo da Basiléia Risco de Crédito, Mercado e Liquidez e Risco Operacional VaR - Value at Risk Utilização do CAPM e APT, Modelos de Regressão Linear e   Análise de Eventos. Avaliação de Risco de Projetos: Análise de Sensibilidade e Opções Reais.  Análises de cenários, árvores de decisão e Simulação.  Gestão de Risco, Tomada de decisão sob risco. Mitigação Ferramentas:  Conceitos de Análise Multivariada (Regressão, ANOVA, Componentes Principais, Fatorial e Cluster) Análise Multicritério Conceitos de Análise Envoltória de Dados - DEA.",
+        "codigo": "EPR0005"
+    },
+    {
+        "nome": "GESTÃO DE RISCOS EM ORGANIZAÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0018"
+    },
+    {
+        "nome": "GESTÃO ESTRATÉGICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "( EPR0009 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Crepúsculo  de  uma  nova  era, mundo  VUCA,  origem  e  evolução  do problema estratégico,  percepção  do problema estratégico por parte das empresas, conceituação de estratégia, pensamento estratégico, objetivos e papel  da  estratégia,  empresa  orientada  para  a  estratégia, evolução  do  pensamento  estratégico, dinâmica  estratégica,  escolas  do  pensamento  estratégico, Métodos de formulação de estratégias forças  competitivas  que  moldam  a  estratégia,  vantagem competitiva, Estruturas organizacionais e nível de planejamento, Fundamentos de planejamento: planos, programas e projetos,  o  processo  da  gestão estratégica, gestão  e planejamento  estratégico,  conceituação,  processo  e  desenvolvimento, transformando  estratégia  em  resultados gerenciamento  do desempenho, Objetivo e avaliação de desempenho indicadores de desempenho e estabelecimento de metas. Desdobramentos de diretrizes, Gestão da rotina.",
+        "codigo": "EPR0065"
+    },
+    {
+        "nome": "HIGIENE E SEGURANÇA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0068 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FGA0148 ) OU ( ENM0135 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-2 - 2009.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-2 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-2 - 2009.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-3 - 2005.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-3 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-3 - 2005.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-4 - 2015.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-5 - 2013.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-6 - 2009.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-4 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-5 - 2005.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EPR0006 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-2 - 2013.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EPR0006 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-2 - 2013.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EPR0006 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-3 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EPR0006 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-3 - 2005.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-3 - 2005.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-2 - 2014.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/-3 - 2009.2",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/-3 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/1 - 2018.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/-2 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE PRODUCAO - Bacharelado - Presencial - N",
+                "curriculo": "6017/1 - 2016.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/1 - 2016.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/1 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/1 - 2016.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/1 - 2018.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/-2 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-3 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EPR0006 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/1 - 2016.1",
+                "data_vigencia": "2009.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EPR0006 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/1 - 2016.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/1 - 2018.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-2 - 2017.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-3 - 2016.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/1 - 2018.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-2 - 2016.2",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-2 - 2018.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0148 ) ) OU ( ENM0135 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/1 - 2019.1",
+                "data_vigencia": "2005.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "- Introdução- Interligação entre as várias engenharias e a engenharia de segurança do trabalho- Legislação- Organização da Area SSST- Acidente de Trabalho e Acidente de Trajeto- Doenças Profissionais e Doenças do Trabalho- Comunicaçaão e Treinamento - Normalização - NR's- Riscos Profissionais: Avaliação e Controle - Ergonomia- Outros Assuntos em Segurança e Higiene do Trabalho.",
+        "codigo": "EPR0059"
+    },
+    {
+        "nome": "INOVAÇÃO EM SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0069 ) OU ( ENM0134 ) OU ( ADM0092 ) OU ( FGA0195 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0035"
+    },
+    {
+        "nome": "INSTALACOES INDUSTRIAIS 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0068 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ENM0101 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. VISAO GERAL DOS SISTEMAS COMPONENTES DE  UMA  INSTALACAO  INDUSTRIAL.2. PROCESSO DINAMICO ASSOCIADO AOS SISTEMAS DE UMA INSTALACAO INDUSTIAL.3. PROCESSO INTEGRADO DE PLANEJAMENTO E CONTROLE DA PRODUCAO.           4. PLANEJAMENTO E CONTROLE DE ESTOQUES.                                 5. PLANEJAMENTO E CONTROLE DA PRODUCAO.                                 6. INTRODUCAO AO CONTROLE DE QUALIDADE.",
+        "codigo": "EPR0058"
+    },
+    {
+        "nome": "INSTALACOES INDUSTRIAIS 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0058 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ENM0138 )",
+        "equivalencias_especificas": [],
+        "ementa": "01-MODELO SISTEMICO DE UMA INSTALACAO INDUSTRIAL, SISTEMA  DE  DIRECAO     OBTENCAO DE INSUMO, TRANSFORMACAO DE INSUMOS E MARKETING.            02-PROCESSO DE PLANEJAMENTO DE UMA INSTALACAO INDUSTRIAL.               03-LOCALIZACAO INDUSTRIAL                                               04-PROCESSOS DE PRODUCAO                                                05-ARRANJO FISICO                                                       06-AVALIACAO DE INVESTIMENTOS                                           07-RECURSOS HUMANOS                                                     08-INTRODUCAO A SEGURANCA DO TRABALHO                                   09-MANUTENCAO                                                           10-PROJETO DE UMA INSTALACAO INDUSTRIAL",
+        "codigo": "EPR0060"
+    },
+    {
+        "nome": "INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação da Engenharia de Produção, seu desenvolvimento histórico, sua importância no presente e seus desafios para o futuro. A Engenharia de Produção e as demais engenharias. Principais definições e conceitos relacionados. Atuação profissional do engenheiro de produção. Ética profissional. Ferramentas e informações gerais úteis para o estudante nas atividades que terá pela frente durante o curso de graduação.",
+        "codigo": "EPR0056"
+    },
+    {
+        "nome": "INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO E À QUALIDADE",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 E ENM0134 ) OU ( EST0023 E EPR0068 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EPR0068 ) OU ( ENM0067 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ENM0067 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ENM0067 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/1 - 2018.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ENM0067 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/-2 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ENM0067 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/1 - 2018.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ENM0067 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-2 - 2016.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A função da produção. Ciclo de Vida. Dinâmica de funcionamento empresarial. Logística empresarial. Métodos de prevensão. Estoques e produção. MRP e CAM.Conceito de Qualidade Total. Normas ISO. Controle de Qualidade.",
+        "codigo": "EPR0057"
+    },
+    {
+        "nome": "INTRODUÇÃO A METODOLOGIA DE PESQUISA PARA ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0048"
+    },
+    {
+        "nome": "LOGÍSTICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0066 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0011 )",
+        "equivalencias_especificas": [],
+        "ementa": "Logística empresarial. Logística de suprimentos. Logística de distribuição. Logística reversa. Estratégias de localização. Gestão da cadeia de suprimentos. Gestão de estoques. Movimentação e armazenagem. Projeto e análise de sistemas logísticos. Transporte. Métodos multicritérios de apoio à decisão em problemas logísticos. Estudo de casos.",
+        "codigo": "EPR0012"
+    },
+    {
+        "nome": "MERCADOLOGIA ESTRATÉGICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0069 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0019"
+    },
+    {
+        "nome": "METODOLOGIA DE PROJETO DE SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceito de ciclo de vida de sistemas. O papel de projetos nas diferentes fases do ciclo de vida de sistemas. O projeto de engenharia. O escritório de projetos. Dimensões na gestão de projetos: escopo, tempo, custo, qualidade, recursos humanos, comunicação, riscos, aquisições e integração. Ferramentas computacionais na gestão de projetos.",
+        "codigo": "EPR0069"
+    },
+    {
+        "nome": "MONITORIA EM CONFIABILIDADE, MANUTENIBILIDADE E DISPONIBILIDADE",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0188"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLE ESTATÍSTICO DE PROCESSOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0083"
+    },
+    {
+        "nome": "MONITORIA EM CUSTOS EM SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0134"
+    },
+    {
+        "nome": "MONITORIA EM DESENVOLVIMENTO DE SERVIÇOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0160"
+    },
+    {
+        "nome": "MONITORIA EM DINÂMICA DE SISTEMAS EM ORGANIZAÇÕES",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0135"
+    },
+    {
+        "nome": "MONITORIA EM ENGENHARIA DE PRODUTOS FINANCEIROS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0159"
+    },
+    {
+        "nome": "MONITORIA EM ENGENHARIA DO PRODUTO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0100"
+    },
+    {
+        "nome": "MONITORIA EM ENGENHARIA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0076 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0117"
+    },
+    {
+        "nome": "MONITORIA EM ENGENHARIA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0114"
+    },
+    {
+        "nome": "MONITORIA EM ERGONOMIA DE SISTEMAS PRODUTIVOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0118"
+    },
+    {
+        "nome": "MONITORIA EM ERGONOMIA EM SISTEMAS PRODUTIVOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0157"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0120 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0193"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0098"
+    },
+    {
+        "nome": "MONITORIA EM FINANÇAS  COMPORTAMENTAIS E PESSOAIS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0106"
+    },
+    {
+        "nome": "MONITORIA EM FORMAÇÃO DE VALOR EM SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0113"
+    },
+    {
+        "nome": "MONITORIA EM GERENCIAMENTO DA CADEIA DE SUPRIMENTO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0163"
+    },
+    {
+        "nome": "MONITORIA EM GERENCIAMENTO DE PROJETOS COMPLEXOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0038 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0155"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DA CADEIA DE SUPRIMENTOS EM ENGENHARIA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0149"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DA QUALIDADE NA PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0084"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE CUSTOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0158"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PROJETOS AVANÇADOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0167"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE RISCOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0095"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE RISCOS EM ORGANIZAÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0136"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO ESTRATÉGICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0089"
+    },
+    {
+        "nome": "MONITORIA EM HIGIENE E SEGURANÇA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0112"
+    },
+    {
+        "nome": "MONITORIA EM INOVAÇÃO EM SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0105"
+    },
+    {
+        "nome": "MONITORIA EM INSTALACOES INDUSTRIAIS 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0173"
+    },
+    {
+        "nome": "MONITORIA EM INSTALACOES INDUSTRIAIS 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0175"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0087"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À ENGENHARIA DE PRODUÇÃO E À QUALIDADE",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0172"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A METODOLOGIA DE PESQUISA PARA ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0164"
+    },
+    {
+        "nome": "MONITORIA EM LOGÍSTICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0099"
+    },
+    {
+        "nome": "MONITORIA EM MERCADOLOGIA ESTRATÉGICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0101"
+    },
+    {
+        "nome": "MONITORIA EM METODOLOGIA DE PROJETO DE SISTEMAS DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0069 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0115"
+    },
+    {
+        "nome": "MONITORIA EM ORGANIZAÇÃO INDUSTRIAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0091"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA OPERACIONAL EM ENGENHARIA 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0066 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0090"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA OPERACIONAL EM ENGENHARIA 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0138"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO E CONTROLE DA PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0079"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO E CONTROLE DE SERVIÇOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0107"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE FABRICA E LAYOUT",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0110"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0108"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0191"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0119 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0192"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0109"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0071 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0092"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0093"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 3",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0094"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 4",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0078"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 5",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0081"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 6",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0097"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 7",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0082"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE SISTEMAS DE PRODUÇÃO 8",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0166"
+    },
+    {
+        "nome": "MONITORIA EM SEGURANÇA E SAÚDE NO TRABALHO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0096"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO EM ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0102"
+    },
+    {
+        "nome": "MONITORIA EM SIMULAÇÃO DE SISTEMAS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0080"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMA DE PRODUÇÃO AGROALIMENTAR",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0168"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMA DE PRODUÇÃO ENXUTA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0085"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS COLABORATIVOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0151"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS DE INFORMAÇÃO EM ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0116"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS DE SUPORTE À DECISÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0103"
+    },
+    {
+        "nome": "MONITORIA EM TOMADA DE DECISÃO COM ENFOQUE EM ANÁLISE MULTICRITÉRIO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0123"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ENGENHARIA DE OPERAÇÕES",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0055 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0111"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ENGENHARIA DO PRODUTO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0144"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ENGENHARIA DO TRABALHO E ERGONOMIA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0143"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS  EM ENGENHARIA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0180"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM GESTÃO DA INOVAÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0142"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM GESTÃO DA PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0104"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM GESTÃO DA QUALIDADE",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0183"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM GESTÃO SUSTENTÁVEL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0150"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM LOGÍSTICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0147"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM PESQUISA OPERACIONAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0145"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM PESQUISA ORGANIZACIONAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0146"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM SIMULAÇÃO EMPRESARIAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "EPR0086"
+    },
+    {
+        "nome": "ORGANIZAÇÃO INDUSTRIAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 OU EST0022 ) OU ( ENC0274 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EPR0057 ) OU ( ADM0093 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-2 - 2009.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-2 - 2009.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-3 - 2005.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/-3 - 2005.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-4 - 2015.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-5 - 2013.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-6 - 2009.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-4 - 2015.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-5 - 2005.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-2 - 2013.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/-3 - 2005.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-3 - 2013.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-4 - 2012.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-5 - 2005.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-3 - 2005.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1741/-2 - 2009.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/-3 - 2010.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA QUIMICA - Bacharelado - Presencial - D",
+                "curriculo": "60844/1 - 2015.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA QUIMICA - Bacharelado - Presencial - D",
+                "curriculo": "60844/-2 - 2012.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/1 - 2018.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/-2 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1741/1 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/1 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA CIVIL - Engenheiro Civil - Presencial - D",
+                "curriculo": "6220/1 - 2016.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/1 - 2018.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA AMBIENTAL - Engenheiro - Presencial - D",
+                "curriculo": "6254/-2 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-3 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA MECANICA - Engenheiro Mecanico - Presencial - D",
+                "curriculo": "6424/1 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/1 - 2018.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-2 - 2017.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA DE REDES DE COMUNICACAO - Bacharelado - Presencial - D",
+                "curriculo": "6351/-3 - 2016.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/1 - 2018.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA MECATRONICA - CONTROLE E AUTOMACAO - Engenheiro de Controle e Automacao - Presencial - D",
+                "curriculo": "6912/-2 - 2016.2",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-2 - 2017.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/-2 - 2018.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA ELETRICA - Engenheiro Eletricista - Presencial - D",
+                "curriculo": "6335/1 - 2019.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0184 ) ) OU ( ADM0093 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/1 - 2020.1",
+                "data_vigencia": "2016.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Maturidade e valor em sistemas de produção. Estratégia de produção. Modelos de produção. Gestão da cadeia de suprimento. Custos e formação de preços. Engenharia econômica. Gestão da qualidade. Gestão de projetos. Planejamento e controle da produção.",
+        "codigo": "EPR0068"
+    },
+    {
+        "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EST0023 ) OU ( EST0023 E MAT0031 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceituação de pesquisa operacional. Programação linear. Programação inteira e modelos combinatórios. Programação não linear. Teoria dos grafos com ênfase em redes. Modelos estocásticos. Teoria da decisão. Teoria de filas.",
+        "codigo": "EPR0066"
+    },
+    {
+        "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0020"
+    },
+    {
+        "nome": "PLANEJAMENTO E CONTROLE DA PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0072 ) )",
+        "co_requisitos": "( EPR0001 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Sistemas de Produção Planejamento Estratégico da Produção Previsão de demanda Controle de materiais e de estoques Planejamento da capacidade Planejamento Agregado da Produção Sales and Operations Planning - S&OP Plano Mestre de Produção (Master Program Schedule - MPS) Planejamento das necessidades de materiais (Material Requirements Planning - MRP I) Manufacturing Resource Planning - MRP II Sistemas de controle da produção: Programação e sequenciamento da produção Just in Time (JIT) como método de Planejamento e Controle da Produção Teoria das Restrições  (Theory of Constraints - TOC).",
+        "codigo": "EPR0002"
+    },
+    {
+        "nome": "PLANEJAMENTO E CONTROLE DE SERVIÇOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0039"
+    },
+    {
+        "nome": "PROJETO DE FABRICA E LAYOUT",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0049"
+    },
+    {
+        "nome": "PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0004 E EPR0002 E EPR0030 E EPR0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0045 )",
+        "equivalencias_especificas": [],
+        "ementa": "A definir.",
+        "codigo": "EPR0088"
+    },
+    {
+        "nome": "PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0004 E EPR0002 E EPR0030 E EPR0006 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0088 )",
+        "equivalencias_especificas": [],
+        "ementa": "O Projeto de Graduação 1 é uma atividade integradora de conhecimentos obrigatória do curso de graduação em Engenharia de Produção, que visa propiciar ao aluno a consolidação da capacidade de investigação e resolução de problemas em engenharia de maneira global e objetiva, o aprimoramento da habilidade para elaboração de documentos técnicos e o desenvolvimento da capacidade de expressão oral em público. A carga horária do Projeto de Graduação 1 será integralizada pelo estudante por meio de dois componentes curriculares do tipo atividade. O Regulamento de Projeto Final do Projeto Pedagógico do Curso de Engenharia de Produção descreve as regras para matrícula, desenvolvimento e avaliação nestes componentes curriculares.",
+        "codigo": "EPR0045"
+    },
+    {
+        "nome": "PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0045 ) OU ( EPR0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0119 )",
+        "equivalencias_especificas": [],
+        "ementa": "O Projeto de Graduação 2 é uma atividade integradora de conhecimentos obrigatória do curso de graduação em Engenharia de Produção, que visa propiciar ao aluno a consolidação da capacidade de investigação e resolução de problemas em engenharia de maneira global e objetiva, o aprimoramento da habilidade para elaboração de documentos técnicos e o desenvolvimento da capacidade de expressão oral em público. No componente curricular Projeto de Graduação 2, a divulgação do trabalho desenvolvido para a comunidade externa à Universidade permite a integralização de 30 horas de extensão além das 60 horas de atividades relacionadas com o desenvolvimento do trabalho. O Regulamento de Projeto Final do Projeto Pedagógico do Curso de Engenharia de Produção descreve as regras para matrícula, desenvolvimento e avaliação neste componente curricular.",
+        "codigo": "EPR0046"
+    },
+    {
+        "nome": "PROJETO DE GRADUAÇÃO DE ENGENHARIA DE PRODUÇÃO 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( EPR0045 ) OU ( EPR0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0046 )",
+        "equivalencias_especificas": [],
+        "ementa": "O Projeto de Graduação 2 é uma atividade integradora de conhecimentos obrigatória do curso de graduação em Engenharia de Produção, que visa propiciar ao aluno a consolidação da capacidade de investigação e resolução de problemas em engenharia de maneira global e objetiva, o aprimoramento da habilidade para elaboração de documentos técnicos e o desenvolvimento da capacidade de expressão oral em público. No componente curricular Projeto de Graduação 2, a divulgação do trabalho desenvolvido para a comunidade externa à Universidade permite a integralização de 30 horas de extensão além das 60 horas de atividades relacionadas com o desenvolvimento do trabalho. O Regulamento de Projeto Final do Projeto Pedagógico do Curso de Engenharia de Produção descreve as regras para matrícula, desenvolvimento e avaliação neste componente curricular.",
+        "codigo": "EPR0119"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 1",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0061 E EPR0069 ) E ( EPR0063 OU EPR0076 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação da visão geral dos PSPs e especificamente a do PSP1. Aulas teóricas sobre os seguintes tópicos: gestão do conhecimento, normas ABNT e modelos de relatórios aspectos comportamentais (trabalho em equipe, comunicação, desenvolvimento pessoal) gestão de projetos e acesso a base de dados. Apresentação de uma situação-problema. Desenvolvimento do projeto de solução da situação-problema. Apresentações das soluções para a situação-problema.",
+        "codigo": "EPR0071"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 2",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0071 ) )",
+        "co_requisitos": "( EPR0072 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de projeto em grupo com aplicação dos conceitos de sistemas de informação para engenharia de produção e engenharia econômica, apresentados em disciplinas âncora de conteúdo técnico de PSP2.",
+        "codigo": "EPR0073"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 3",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0073 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho em equipe com o objetivo de desenvolver soluções integradas via projetos vinculados a disciplinas obrigatórias ou optativas do Curso de Graduação de Engenharia de Produção.",
+        "codigo": "EPR0074"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 4",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0073 ) )",
+        "co_requisitos": "( EPR0002 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0001"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 5",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0073 E EPR0066 E EPR0064 ) )",
+        "co_requisitos": "( EPR0030 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0007"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 6",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0073 E EPR0066 E EPR0064 ) OU ( ENM0134 ) OU ( ENM0124 ) )",
+        "co_requisitos": "( EPR0013 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0008"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 7",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0073 E EPR0066 E EPR0064 ) )",
+        "co_requisitos": "( EPR0065 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0009"
+    },
+    {
+        "nome": "PROJETO DE SISTEMAS DE PRODUÇÃO 8",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0073 E EPR0066 E EPR0064 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho em equipe com o objetivo de desenvolver soluções integradas via projetos vinculados a disciplinas obrigatórias ou optativas avançadas do Curso de Graduação de Engenharia de Produção.",
+        "codigo": "EPR0050"
+    },
+    {
+        "nome": "SEGURANÇA E SAÚDE NO TRABALHO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0068 ) OU ( EPR0057 ) OU ( EPR0073 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0006"
+    },
+    {
+        "nome": "SEMINÁRIO EM ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0021"
+    },
+    {
+        "nome": "SIMULAÇÃO DE SISTEMAS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0066 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0004"
+    },
+    {
+        "nome": "SISTEMA DE PRODUÇÃO AGROALIMENTAR",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0052"
+    },
+    {
+        "nome": "SISTEMA DE PRODUÇÃO ENXUTA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0037"
+    },
+    {
+        "nome": "SISTEMAS COLABORATIVOS",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0002 ) OU ( ENM0134 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0033 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0034"
+    },
+    {
+        "nome": "SISTEMAS DE INFORMAÇÃO EM ENGENHARIA DE PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( CIC0007 ) OU ( ENE0334 ) )",
+        "co_requisitos": "( EPR0073 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamentos de Sistemas de Informação.  Tecnologias de Sistemas de informação: Hardware e softwares de aplicações para fins gerais, fins específicos, gerenciamento de sistemas e de desenvolvimento de sistemas. Gerenciamento dos recursos de dados: fundamentos e tecnologias. Gerenciamento de processos de Negócio: conceitos, notação e metodologia.Tecnologias de empresas em rede. Aplicações gerenciais de Sistemas de Informação (CRM, SRM, ERP, CIM, SCM, PLM). Comércio Eletrônico. Sistemas de informação a tomada de decisão: DSS, MIS, EIS e Princípios de Inteligência Artificial e Empresarial.",
+        "codigo": "EPR0072"
+    },
+    {
+        "nome": "SISTEMAS DE SUPORTE À DECISÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0072 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0022"
+    },
+    {
+        "nome": "TOMADA DE DECISÃO COM ENFOQUE EM ANÁLISE MULTICRITÉRIO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0003"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ENGENHARIA DE OPERAÇÕES",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0055"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ENGENHARIA DO PRODUTO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0026"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ENGENHARIA DO TRABALHO E ERGONOMIA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0025"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS  EM ENGENHARIA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FGA0265 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FGA0265 ) )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/1 - 2018.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FGA0265 ) )",
+                "matriz_curricular": "ENGENHARIA AEROESPACIAL - Bacharelado - Presencial - D",
+                "curriculo": "60836/-2 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Disciplina com ementa variável com conteúdos definidos em resposta a necessidades gerais ou pontuais de aprofundamento em temas específicos de engenharia econômica.",
+        "codigo": "EPR0067"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM GESTÃO DA INOVAÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0024"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM GESTÃO DA PRODUÇÃO",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Evolução de modelos e sistemas  de  produção.  Estratégia de  produção.  Gestão  de  processos.  Produção enxuta.  Ferramentas da produção  enxuta.  Coleta  Programada  de  Peças. Mapa de Fluxo  de  Valor. Troca Rápida de Ferramentas. Integração Vertical e Keiretsu. Seis Sigma e implantação da manufatura enxuta",
+        "codigo": "EPR0023"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM GESTÃO DA QUALIDADE",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina com ementa variável com conteúdos definidos em resposta a necessidades gerais ou pontuais de aprofundamento em temas específicos de engenharia da qualidade.",
+        "codigo": "EPR0070"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM GESTÃO SUSTENTÁVEL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0032"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM LOGÍSTICA",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0029"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM PESQUISA OPERACIONAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0027"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM PESQUISA ORGANIZACIONAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0028"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM SIMULAÇÃO EMPRESARIAL",
+        "unidade_responsavel": "DEPTO ENGENHARIA DE PRODUCAO ",
+        "pre_requisitos": "( ( EPR0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( EPR0053 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "EPR0054"
+    }
+]

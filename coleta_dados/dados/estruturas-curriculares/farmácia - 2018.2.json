@@ -1,0 +1,1474 @@
+{
+  "curso": "FARMÁCIA",
+  "periodo_letivo_vigor": "2018.2",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUÍMICA GERAL E INORGÂNICA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0119",
+          "nome": "ASSISTÊNCIA FARMACÊUTICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0168",
+          "nome": "ANÁLISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FÍSICO-QUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "CFS0039",
+          "nome": "ELEMENTOS DE FISIOLOGIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0124",
+          "nome": "GENÉTICA BÁSICA E MOLECULAR",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0167",
+          "nome": "ANÁLISE ORGÂNICA DOS FÁRMACOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "CEL0110",
+          "nome": "IMUNOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0126",
+          "nome": "QUIMICA FARMACEUTICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0172",
+          "nome": "FARMACOLOGIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0174",
+          "nome": "PATOLOGIA CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0127",
+          "nome": "FARMACOGNOSIA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0176",
+          "nome": "FARMACOTÉCNICA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0177",
+          "nome": "FARMACOLOGIA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0182",
+          "nome": "FUNDAMENTOS DE PARASITOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0004",
+          "nome": "FARMACOLOGIA 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0007",
+          "nome": "FÍSICA INDUSTRIAL FARMACÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0009",
+          "nome": "FARMACOTÉCNICA COM ASPECTOS TECNOLÓGICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0134",
+          "nome": "ECONOMIA E GESTÃO DE EMPRESAS FARMACÊUTICAS",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0173",
+          "nome": "ASSISTÊNCIA FARMACÊUTICA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0367",
+          "nome": "BIOQUÍMICA CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0002",
+          "nome": "CONTROLE DE QUALIDADE FÍSICO-QUÍMICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0050",
+          "nome": "BROMATOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0135",
+          "nome": "EPIDEMIOLOGIA DO MEDICAMENTO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0143",
+          "nome": "TOXICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0003",
+          "nome": "CONTROLE DE QUALIDADE MICROBIOLÓGICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0141",
+          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0169",
+          "nome": "VIGILÂNCIA SANITÁRIA APLICADA À FARMÁCIA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0006",
+          "nome": "HEMATOLOGIA CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0255",
+          "nome": "DEONTOLOGIA E LEGISLAÇÃO FARMACÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0006",
+          "nome": "ESTÁGIO SUPERVISIONADO 1",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0021",
+          "nome": "DIAGNÓSTICO LABORATORIAL EM IMUNOLOGIA CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0023",
+          "nome": "INTRODUÇÃO A FARMÁCIA HOSPITALAR",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0171",
+          "nome": "TECNOLOGIA DE ALIMENTOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "11º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0017",
+          "nome": "ESTÁGIO SUPERVISIONADO 2",
+          "carga_horaria": "180h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0018",
+          "nome": "ESTÁGIO SUPERVISIONADO 3",
+          "carga_horaria": "180h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0187",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "12º Semestre",
+      "materias": [
+        {
+          "codigo": "FAR0019",
+          "nome": "ESTÁGIO SUPERVISIONADO 4",
+          "carga_horaria": "420h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "13º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0260",
+          "nome": "ANÁLISE INSTRUMENTAL FARMACÊUTICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0024",
+          "nome": "ANÁLISE INSTRUMENTAL TEÓRICA E EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FAR0010",
+          "nome": "TÉCNICA INSTRUMENTAL FARMACÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "CEL0026",
+          "nome": "BIOLOGIA MOLECULAR 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0040",
+          "nome": "INTRODUÇÃO A BIOQUÍMICA EXPERIMENTAL",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0042",
+          "nome": "TOPICOS EM BIOQUIMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0062",
+          "nome": "METABOLISMO CELULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0074",
+          "nome": "PESQUISA EM BIOFISICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0093",
+          "nome": "ESTÁGIO SUPERVISIONADO EM BIOQUÍMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0098",
+          "nome": "PESQUISA EM IMUNOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEM0068",
+          "nome": "INTRODUÇÃO À GERONTOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CFS0013",
+          "nome": "VENENOS ANIMAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CFS0030",
+          "nome": "PESQUISA EM NEUROBIOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CFS0047",
+          "nome": "PESQUISA EM TOXINOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CFS0086",
+          "nome": "TÓPICOS EM NEUROCIÊNCIAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "210h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "240h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "300h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "330h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "360h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "390h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "480h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "510h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0010",
+          "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0011",
+          "nome": "SAUDE E SOCIEDADE 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0020",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0025",
+          "nome": "AMBIENTE SAÚDE E TRABALHO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0040",
+          "nome": "INTRODUCAO AO METODOS QUANTITATIVOS EM SAUDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0044",
+          "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0049",
+          "nome": "LABORATÓRIO DA ANTROPOLOGIA DA SAÚDE E DA DOENÇA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0054",
+          "nome": "METODOLOGIA DA PESQUISA EM SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0055",
+          "nome": "TÓPICOS AVANÇADOS EM PROMOÇÃO DA SAÚDE 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0080",
+          "nome": "PRÁTICAS SAUDÁVEIS E TERAPIAS INTEGRATIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0005",
+          "nome": "VIGILÂNCIA SANITÁRIA DE MEDICAMENTOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0008",
+          "nome": "DIAGNÓSTICO LABORATORIAL EM PARASITOLOGIA CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0010",
+          "nome": "TÉCNICA INSTRUMENTAL FARMACÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0011",
+          "nome": "ESTÁGIO SUPERVISIONADO: AMBULATÓRIO",
+          "carga_horaria": "0h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0012",
+          "nome": "ESTÁGIO SUPERVISIONADO: DROGARIA",
+          "carga_horaria": "0h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0013",
+          "nome": "ESTÁGIO SUPERVISIONADO: HOSPITALAR",
+          "carga_horaria": "0h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0014",
+          "nome": "ESTÁGIO SUPERVISIONADO: LIVRE 1",
+          "carga_horaria": "0h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0015",
+          "nome": "ESTÁGIO SUPERVISIONADO: LIVRE 2",
+          "carga_horaria": "0h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0016",
+          "nome": "INTRODUÇÃO A CIÊNCIAS FARMACÊUTICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0022",
+          "nome": "REAÇÃO ADVERSA A MEDICAMENTO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0024",
+          "nome": "ANÁLISE INSTRUMENTAL TEÓRICA E EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0025",
+          "nome": "PRÁTICAS AVANÇADAS EM NEUROFARMACOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0026",
+          "nome": "QUÍMICA FARMACÊUTICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0027",
+          "nome": "CITOLOGIA CLÍNICA CÉRVICO-VAGINAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0028",
+          "nome": "DIAGNÓSTICO LABORATORIAL EM MICROBIOLOGIA  CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0029",
+          "nome": "FISIOPATOLOGIA E FARMACOLOGIA DAS DOENÇAS ENDÓCRINAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0036",
+          "nome": "INTERAÇÃO FÁRMACO-NUTRIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0037",
+          "nome": "RECONHECIMENTO MOLECULAR DE FÁRMACOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0039",
+          "nome": "GESTÃO DA QUALIDADE E SAÚDE BASEADA EM VALOR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0040",
+          "nome": "AVALIAÇÃO DE TECNOLOGIAS EM SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0041",
+          "nome": "TÓPICOS EM TOXICOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0042",
+          "nome": "TÓPICOS EM FARMACOLOGIA MOLECULAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0043",
+          "nome": "TÓPICOS EM COSMETOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0044",
+          "nome": "INTRODUÇÃO AO CONTROLE DE QUALIDADE DE MEDICAMENTOS E CORRELATOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0046",
+          "nome": "ESTÁGIO EM GERÊNCIA DE ASSISTÊNCIA FARMACÊUTICA",
+          "carga_horaria": "225h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0047",
+          "nome": "PLANTAS MEDICINAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0048",
+          "nome": "BIOPROSPECÇÃO FARMACÊUTICA",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0049",
+          "nome": "PRÁTICAS EM FARMÁCIA CLÍNICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0120",
+          "nome": "ESTÁGIO EM TOXICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0121",
+          "nome": "ESTÁGIO EM PESQUISA E POLÍTICA DE MEDICAMENTOS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0122",
+          "nome": "ESTAGIO EM FISIOLOGIA MOLECULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0125",
+          "nome": "FARMACODINÂMICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0128",
+          "nome": "FARMACOLOGIA CLINICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0129",
+          "nome": "ESTÁGIO EM METABOLISMO MOLECULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0131",
+          "nome": "FARMACOLOGIA CLINICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0132",
+          "nome": "FARMACODINAMICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0133",
+          "nome": "VIGILANCIA SANITARIA, DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0138",
+          "nome": "ESTÁGIO EM FARMACOGNOSIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0139",
+          "nome": "TECNOLOGIA FARMACÊUTICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0142",
+          "nome": "FUNDAMENTOS DE BIOTECNOLOGIA DE MEDICAMENTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0144",
+          "nome": "FARMACOCINÉTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0146",
+          "nome": "FARMACOLOGIA MOLECULAR EXPERIMENTAL",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0148",
+          "nome": "ESTÁGIO EM ASSISTÊNCIA FARMACÊUTICA 2 - FARMÁCIA COMUNITÁRIA",
+          "carga_horaria": "225h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0149",
+          "nome": "ESTÁGIO EM FARMACOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0150",
+          "nome": "PRÁTICAS EM QUÍMICA FARMACÊUTICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0151",
+          "nome": "ESTÁGIO EM CONTROLE DE QUALIDADE DE MEDICAMENTOS",
+          "carga_horaria": "225h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0152",
+          "nome": "ESTÁGIO LIVRE",
+          "carga_horaria": "225h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0153",
+          "nome": "ESTÁGIO EM ANÁLISE DE MEDICAMENTOS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0154",
+          "nome": "ESTÁGIO EM FARMACOTÉCNICA E COSMETOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0155",
+          "nome": "ESTÁGIO EM TECNOLOGIA FARMACÊUTICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0156",
+          "nome": "LABORATÓRIO EM FARMACOEPIDEMIOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0157",
+          "nome": "PRÁTICAS EM QUÍMICA ORGÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0158",
+          "nome": "MEDICAMENTOS FITOTERÁPICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0159",
+          "nome": "TÓPICOS EM FARMACOLOGIA APLICADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0160",
+          "nome": "PRÁTICAS EM NEUROFARMACOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0161",
+          "nome": "TÓPICOS EM NEUROFARMACOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0162",
+          "nome": "ATENÇÃO FARMACÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0163",
+          "nome": "TOXICOLOGIA ANALÍTICA E DE ALIMENTOS",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0164",
+          "nome": "TOXICOLOGIA EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0165",
+          "nome": "INTRODUÇÃO À GESTÃO DA QUALIDADE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0166",
+          "nome": "MÉTODOS DE PESQUISA EM CIÊNCIAS FARMACÊUTICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0170",
+          "nome": "BIOTECNOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0175",
+          "nome": "FISIOPATOLOGIA DAS DOENÇAS HEMATOLÓGICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0178",
+          "nome": "SEMINÁRIOS EM QUÍMICA FARMACÊUTICA E MEDICINAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0179",
+          "nome": "INTRODUÇÃO À VIROLOGIA HUMANA E ANIMAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0183",
+          "nome": "URINÁLISE E FLUIDOS CORPORAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0184",
+          "nome": "FISIOPATOLOGIA DO COMPORTAMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0253",
+          "nome": "NEUROBIOLOGIA MOLECULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0092",
+          "nome": "TECNOLOGIA DOS PRODUTOS AGROPECUARIOS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0271",
+          "nome": "FARMACOVIGILANCIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAV0298",
+          "nome": "ANÁLISE E TECNOLOGIA DE ALIMENTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0016",
+          "nome": "HOMEOPATIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0210",
+          "nome": "PESQUISA EM NOVOS COMPOSTOS APLICADOS A SAÚDE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0214",
+          "nome": "BIOSSEGURANÇA E BIOPROTEÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0260",
+          "nome": "ANÁLISE INSTRUMENTAL FARMACÊUTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0373",
+          "nome": "CONTROLE DA QUALIDADE MICROBIOLÓGICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0001",
+          "nome": "PRÁTICAS EM VIROLOGIA MOLECULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0004",
+          "nome": "TÉCNICAS INTRUMENTAIS DE ANÁLISE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0012",
+          "nome": "CIÊNCIA ALÉM DA CIÊNCIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0016",
+          "nome": "SAÚDE PÚBLICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0019",
+          "nome": "ESTÁGIO EM PRODUÇÃO DE IMUNOBIOLÓGICOS",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0020",
+          "nome": "INTRODUÇÃO A ANÁLISES ESPECTROMÉTRICAS DE COMPOSTOS ORGÂNICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0021",
+          "nome": "ESTÁGIO EM FARMÁCIA CLÍNICA",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0022",
+          "nome": "ESTÁGIO EM CONTROLE DE QUALIDADE DE IMUNOBIOLÓGICOS",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0053",
+          "nome": "ESTAGIO EM IMUNOLOGIA MOLECULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0055",
+          "nome": "ESTAGIO EM GENETICA MOLECULAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0061",
+          "nome": "ESTAGIO EM BIOTECNOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0067",
+          "nome": "ESTÁGIO EM ASSISTÊNCIA FARMACÊUTICA 1 - FARMÁCIA HOSPITALAR",
+          "carga_horaria": "225h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCS0075",
+          "nome": "ESTÁGIO EM FARMACODEPENDÊNCIA EXPERIMENTAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRÁTICA DESPORTIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0172",
+          "nome": "PREVENÇÃO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FIT0006",
+          "nome": "MICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0001",
+          "nome": "ESTÁGIO EM PARASITOLOGIA MÉDICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0002",
+          "nome": "ONCOLOGIA MOLECULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0075",
+          "nome": "PESQUISA EM PSICOFARMACOLOGIA",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0095",
+          "nome": "PATOLOGIA GERAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FMD0557",
+          "nome": "PARASITOLOGIA BASICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0010",
+          "nome": "FUNDAMENTOS DE TECNICAS HISTOLOGICAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0029",
+          "nome": "ESTAGIO EM GENETICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0033",
+          "nome": "ESTAGIO EM MORFOLOGIA E MORFOGENESE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0047",
+          "nome": "PESQUISA EM GENETICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0053",
+          "nome": "PRATICAS DE EMBRIOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0059",
+          "nome": "BIOLOGIA ESTRUTURAL DOS SISTEMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0060",
+          "nome": "PRÁTICAS DE GENÉTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0063",
+          "nome": "EMBRIOLOGIA HUMANA FUNDAMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ICB0245",
+          "nome": "SEMINÁRIOS EM BIOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IFD0189",
+          "nome": "FISICA PARA CIENCIAS BIOLOGICAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0033",
+          "nome": "ANÁLISE INSTRUMENTAL TEÓRICA E EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0056",
+          "nome": "QUIMICA INORGANICA 1 EXPERIMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUÍMICA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0065",
+          "nome": "QUÍMICA ANALITICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUÍMICA INORGÂNICA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0127",
+          "nome": "FUNDAMENTOS DE QUIMICA ANALITICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0130",
+          "nome": "ANALISE QUIMICA QUANTITATIVA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0132",
+          "nome": "INTRODUCAO AO ESTUDO DA QUIMICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0139",
+          "nome": "QUÍMICA DOS ELEMENTOS DE TRANSIÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0184",
+          "nome": "ELEMENTOS DE ESPECTROSCOPIA MOLECULAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0228",
+          "nome": "LABORATÓRIO DE QUÍMICA ANALÍTICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IQD0243",
+          "nome": "QUÍMICA ANALÍTICA QUANTITATIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLÊS INSTRUMENTAL 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLÊS INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUÊS INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "NUT0050",
+          "nome": "FUNDAMENTOS DE CIENCIA DE ALIMENTOS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ODT0150",
+          "nome": "RESPONSABILIDADE CIVIL DO PROFISSIONAL DE SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PCL0072",
+          "nome": "PSICOLOGIA APLICADA A SAUDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUÇÃO À PSICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PPB0034",
+          "nome": "FUNDAMENTOS DE NEUROCIÊNCIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PPB0048",
+          "nome": "PSICOFARMACOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

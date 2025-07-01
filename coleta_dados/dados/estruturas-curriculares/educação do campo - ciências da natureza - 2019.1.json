@@ -1,0 +1,675 @@
+{
+  "curso": "EDUCAÇÃO DO CAMPO - CIÊNCIAS DA NATUREZA",
+  "periodo_letivo_vigor": "2019.1",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0041",
+          "nome": "CEBEP 1 - CONFLITOS ESTRUTURAIS BRASILEIROS E EDUCAÇÃO POPULAR",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0043",
+          "nome": "HISTÓRIA DA EDUCAÇÃO",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0374",
+          "nome": "ECONOMIA POLÍTICA 1",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0375",
+          "nome": "FILOSOFIA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0377",
+          "nome": "TEORIA PEDAGÓGICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0381",
+          "nome": "ESCOLA E EDUCAÇÃO DO CAMPO 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0384",
+          "nome": "PESQUISA E MEMÓRIA 1",
+          "carga_horaria": "15h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0386",
+          "nome": "PRÁTICAS PEDAGÓGICAS 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0390",
+          "nome": "ORGANIZAÇÃO ESCOLAR E MÉTODO DO TRABALHO PEDAGÓGICO 1",
+          "carga_horaria": "15h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0049",
+          "nome": "CEBEP 2 - FORMAÇÃO NACIONAL E IDENTID CAMPONESA INDÍGENA E QUILOMBOLA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0054",
+          "nome": "MATEMÁTICA BÁSICA E APLICAÇÕES NA VIDA DO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0062",
+          "nome": "PESQUISA E MEMÓRIA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0392",
+          "nome": "TEORIA PEDAGÓGICA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0397",
+          "nome": "ECONOMIA POLITICA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0400",
+          "nome": "FILOSOFIA 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0403",
+          "nome": "PRÁTICAS PEDAGÓGICAS 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0516",
+          "nome": "COMPOSIÇÃO DO UNIVERSO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0066",
+          "nome": "BIOLOGIA GERAL: CITOLOGIA E HISTOLOGIA",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0069",
+          "nome": "HISTÓRIA E FILOSOFIA DAS CIÊNCIAS DA NATUREZA E DA MATEMÁTICA 2",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0075",
+          "nome": "PESQUISA E MEMÓRIA 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0077",
+          "nome": "CEBEP 3: RAÇA, GÊNERO E GERAÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0367",
+          "nome": "COMPOSIÇÃO QUÍMICA DOS SERES VIVOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0379",
+          "nome": "POLITICA EDUCACIONAL 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0417",
+          "nome": "PRÁTICAS PEDAGÓGICAS 3",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0427",
+          "nome": "ORGANIZAÇÃO ESCOLAR E MÉTODO DO TRABALHO PEDAGÓGICO 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0429",
+          "nome": "FILOSOFIA 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0431",
+          "nome": "TEORIA PEDAGÓGICA 3",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0079",
+          "nome": "CEBEP 4 - QUESTÃO SOCIAL E QUESTÃO AGRÁRIA NO BRASIL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0086",
+          "nome": "BIOLOGIA VEGETAL E ANIMAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0088",
+          "nome": "GEOCIÊNCIAS PARA EDUCAÇÃO DO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0165",
+          "nome": "TEORIA PEDAGÓGICA 4",
+          "carga_horaria": "15h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0458",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0499",
+          "nome": "PRÁTICAS PEDAGÓGICAS 4",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0513",
+          "nome": "MECÂNICA E VIDA NO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0100",
+          "nome": "QUÍMICA DA TERRA E DO AMBIENTE",
+          "carga_horaria": "75h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0103",
+          "nome": "LUZ, ONDAS E A VIDA NO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0222",
+          "nome": "PRÁTICA PEDAGÓGICA 5",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0225",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO 1 - COMUNIDADE",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0460",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM 2",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0111",
+          "nome": "CEBEP 6: SOBERANIA, SEGURANÇA ALIMENTAR E NUTRICIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0113",
+          "nome": "TEORIA PEDAGÓGICA 5",
+          "carga_horaria": "15h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0115",
+          "nome": "GENÉTICA E MELHORAMENTO",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0166",
+          "nome": "TRABALHO DE CONCLUSÃO 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0167",
+          "nome": "PRÁTICAS PEDAGÓGICAS 6",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0169",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO 2: EJA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0233",
+          "nome": "HIDRODINÂMICA E TERMODINÂMICA E A VIDA NO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0129",
+          "nome": "LÍNGUA BRASILEIRA DE SINAIS 1",
+          "carga_horaria": "15h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0131",
+          "nome": "TEORIA PEDAGÓGICA 6",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0183",
+          "nome": "FLUXO DE ENERGIA E CICLOS BIOGEOQUÍMICOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0185",
+          "nome": "TRABALHO DE CONCLUSÃO 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0187",
+          "nome": "PRÁTICAS PEDAGÓGICAS 7",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0189",
+          "nome": "ESTÁGIO C. S. 3 - GESTÃO DE DOCÊNCIA",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0236",
+          "nome": "ELETROMAGNETISMO E A VIDA NO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "FUP0143",
+          "nome": "ECOLOGIA POLÍTICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0144",
+          "nome": "LÍNGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0209",
+          "nome": "ESCOLA E EDUCAÇÃO DO CAMPO 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0210",
+          "nome": "TRABALHO DE CONCLUSÃO 3",
+          "carga_horaria": "15h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0212",
+          "nome": "PRÁTICAS PEDAGÓGICAS 8",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FUP0214",
+          "nome": "ESTÁGIO C. S. 4 - GESTÃO E DOCÊNCIA",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "FUP0005",
+          "nome": "CURRÍCULO E AVALIAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0044",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0045",
+          "nome": "MATEMÁTICA E SOCIEDADE",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0047",
+          "nome": "PROMOÇÃO DA SAÚDE",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0050",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO 2",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0056",
+          "nome": "ARITMÉTICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0058",
+          "nome": "HISTÓRIA E FILOSOFIA DAS CIÊNCIAS DA NATUREZA E DA MATEMÁTICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0063",
+          "nome": "LETRAMENTO CIENTÍFICO E DIGITAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0073",
+          "nome": "ARITMÉTICA 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0074",
+          "nome": "COMUNICAÇÃO E TECNOLOGIAS DA INFORMAÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0076",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO 3",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0080",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO 4",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0096",
+          "nome": "PESQUISA E MEMÓRIA 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0101",
+          "nome": "ANATOMIA E FISIOLOGIA HUMANA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0106",
+          "nome": "CEBEP 5: DIVERSIDADE GERACIONAL NO CAMPO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0107",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO 5",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0108",
+          "nome": "PESQUISA E MEMÓRIA 5",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0112",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM NA ESCOLA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0116",
+          "nome": "TÓPICOS EM QUÍMICA APLICADA E DO COTIDIANO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0117",
+          "nome": "GEOCIÊNCIAS E MEIO AMBIENTE",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0126",
+          "nome": "HISTÓRIA DOS MOVIMENTOS SOCIAIS NO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0130",
+          "nome": "CEBEP: TÓPICOS ESPECIAIS",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0134",
+          "nome": "TÓPICOS EM FÍSICA MODERNA E CONTEMPORÂNEA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0135",
+          "nome": "TÓPICOS EM QUÍMICA APLICADA E DO COTIDIANO 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0147",
+          "nome": "TÓPICOS AMBIENTAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0149",
+          "nome": "TEXTOS ACADÊMICOS: ATIVIDADES DE LEITURA, ESCRITA E REESCRITA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0150",
+          "nome": "EDUCAÇÃO POPULAR E EDUCAÇÃO DE JOVENS E ADULTOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0151",
+          "nome": "EDUCAÇÃO DO CAMPO E DIREITOS HUMANOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0152",
+          "nome": "EDUCAÇÃO DO CAMPO SAÚDE E MEIO AMBIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0153",
+          "nome": "AGROBIODIVERSIDADE E SEGURANÇA ALIMENTAR E NUTRICIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0154",
+          "nome": "AGROECOLOGIA E ESCOLA DO CAMPO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0155",
+          "nome": "TÓPICOS ESPECIAIS EM EDUCAÇÃO DO CAMPO",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0156",
+          "nome": "LABORATÓRIO DE DIREÇÃO E INTERPRETAÇÃO TEATRAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0157",
+          "nome": "EXPRESSÕES ESTÉTICA E CULTURA POLÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0158",
+          "nome": "LABORATÓRIO DE DRAMATURGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0159",
+          "nome": "DOCUMENTÁRIO, TERRITÓRIO E EDUCAÇÃO DO CAMPO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0163",
+          "nome": "POLÍTICA EDUCACIONAL 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0171",
+          "nome": "OUTRAS FORMAS DE ATIVIDADES ESPANHOL INSTRUMENTAL 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0205",
+          "nome": "OUTRAS FORMAS DE ATIVIDADE: ESPANHOL INSTRUMENTAL 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0393",
+          "nome": "MEDIAÇÕES ENTRE FORMA SOCIAL E ESTÉTICA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0405",
+          "nome": "OUTRAS FORMAS DE ATIVIDADES: OFICINA INFORMÁTICA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0420",
+          "nome": "HISTÓRIA E FILOSOFIA DA FÍSICA E DA MATEMÁTICA",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0466",
+          "nome": "FILOSOFIA 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0468",
+          "nome": "FILOSOFIA 5",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FUP0493",
+          "nome": "ORGANIZAÇÃO ESCOLAR E MÉTODO DE TRABALHO PEDAGÓGICO 3",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

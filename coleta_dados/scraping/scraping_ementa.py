@@ -184,13 +184,22 @@ def scrape_estruturas():
         resp = session.get(estrutura_url)
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        # 6. Encontrar estrutura ativa e link do relatório (ícone do livro)
+        # 6. Encontrar as duas primeiras estruturas curriculares (independente do status)
         linhas = soup.find_all('tr', class_=['linha_impar', 'linha_par'])
-        relatorio_params = None
+        relatorios = []
         for tr in linhas:
+            if len(relatorios) == 2:
+                break
             tds = tr.find_all('td')
-            if len(tds) >= 2 and 'Ativa' in tds[1].text:
-                # Procura o <a> com o título correto
+            if len(tds) >= 2:
+                texto_identificador = ''
+                periodo_letivo = ''
+                for txt in tds:
+                    if 'Detalhes da Estrutura Curricular' in txt.text:
+                        texto_identificador = txt.text.strip()
+                    match_periodo = re.search(r'Período letivo em vigor:?\s*([0-9]{4}\.[12])', txt.text)
+                    if match_periodo:
+                        periodo_letivo = match_periodo.group(1)
                 for a in tr.find_all('a', title="Relatório da Estrutura Curricular", onclick=True):
                     onclick = a['onclick']
                     btn_match = re.search(r"\{'([^']+)':'([^']+)'", onclick)
@@ -199,30 +208,37 @@ def scrape_estruturas():
                         btn_name = btn_match.group(1)
                         btn_value = btn_match.group(2)
                         estrutura_id = id_match.group(1)
-                        relatorio_params = (btn_name, btn_value, estrutura_id)
+                        id_arquivo = periodo_letivo if periodo_letivo else re.sub(r'[^\w]', '_', texto_identificador)
+                        relatorios.append((btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo))
                         break
-                if relatorio_params:
-                    break
 
-        # Simular o clique (POST)
-        if relatorio_params:
-            btn_name, btn_value, estrutura_id = relatorio_params
+        # Para cada uma das duas primeiras matrizes, simular o clique, extrair e salvar
+        for idx, (btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo) in enumerate(relatorios):
             relatorio_html = acessar_relatorio(session, soup, btn_name, btn_value, estrutura_id, estrutura_url)
-            print(f"Relatório encontrado e baixado para: {nome_curso}")
-
-            # 7. Extrair dados por nível
+            print(f"Relatório encontrado e baixado para: {nome_curso} - {id_arquivo if id_arquivo else f'estructura{idx+1}'}")
+            # Extrair dados por nível
             dados_por_nivel = extract_dados_por_nivel(relatorio_html)
 
-            # 8. Salvar dados organizados em JSON
-            output_path = os.path.join(output_dir, f"{normalize(nome_curso)}.json")
+            # NOVO: Extrair período letivo de entrada em vigor do relatório
+            periodo_letivo_vigor = ''
+            relatorio_soup = BeautifulSoup(relatorio_html, 'html.parser')
+            th = relatorio_soup.find('th', string=lambda s: s and 'Período Letivo de Entrada em Vigor' in s)
+            if th:
+                td = th.find_next_sibling('td')
+                if td:
+                    periodo_letivo_vigor = td.get_text(strip=True)
+
+            # Salvar dados organizados em JSON
+            nome_arquivo = periodo_letivo_vigor if periodo_letivo_vigor else (id_arquivo if id_arquivo else f'estructura{idx+1}')
+            output_path = os.path.join(output_dir, f"{normalize(nome_curso)} - {nome_arquivo}.json")
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     'curso': nome_curso,
+                    'periodo_letivo_vigor': periodo_letivo_vigor,
                     'niveis': dados_por_nivel
                 }, f, ensure_ascii=False, indent=2)
             print(f"Dados organizados por nível salvos em: {output_path}")
 
-        time.sleep(2)  # Pausa de 2 segundos antes de processar o próximo curso
 
     print("Scraping concluído!")
 

@@ -1,0 +1,2212 @@
+[
+    {
+        "nome": "ANÁLISE POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0032 E POL0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0041 )",
+        "equivalencias_especificas": [],
+        "ementa": "EXAME DAS TEORIAS, METODOS E TECNICAS DE ANALISE DE  CONJUNTURA E PROSPECCAO POLITICA A LUZ DA HISTORIA POLITICA BRASILEIRA.",
+        "codigo": "POL0030"
+    },
+    {
+        "nome": "ATIVIDADE DE EXTENSÃO 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como foco principal a atuação do aluno em projetos extensionistas de ação continua desenvolvidos pela Universidade de Brasília.",
+        "codigo": "POL0082"
+    },
+    {
+        "nome": "ATIVIDADE DE EXTENSÃO 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0082 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como foco principal a atuação mais aprofundada do aluno em projetos extensionistas de ação contínua desenvolvidos pela Universidade de Brasília.",
+        "codigo": "POL0083"
+    },
+    {
+        "nome": "AVALIAÇÃO DE POLÍTICAS GOVERNAMENTAIS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E POL0055 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0071 ) OU ( POL0039 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( GPP0015 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "2024.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( GPP0015 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "2024.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( GPP0015 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "2024.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( GPP0015 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "2024.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( GPP0015 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "2024.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( GPP0015 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "2024.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTA DISCIPLINA TEM POR  FINALIDADE  INTRODUZIR OS  ESTUDANTES DE CIENCIA POLITICA E DE OUTRAS AREAS DE ESTUDO AOS  CONCEITOS  BASICOS DE AVALIACAO DE POLITICAS, PROGRAMAS E PROJETOS GOVERNAMENTAIS NOS  PLANOS FEDERAL, ESTADUAL OU MUNICIPAL. OS ALUNOS SERAO CAPACITADOS NA BUSCA DE INFORMACOES, NOS METODOS DE PESQUISA  DOCUMENTAL E  LEGAL E NA  ANALISE DOS CENSOS. DESTACAM-SE NESSA DISCIPLINA O DESENHO DE  PROJETOS DE PES- QUISA E ESTUDOS EM POLITICAS  PUBLICAS, E A SUA  REALIZACAO  LEVANDO EM CONTA ASPECTOS CRUCIAIS NA COLETA DE DADOS E NA APRESENTACAO DE  RESUL- TADOS. A DISCIPLINA AINDA EXAMINA COM DESTAQUE A QUESTAO DA  APRESENTA- CAO FINAL DE RELATORIOS DE PESQUISA.",
+        "codigo": "POL0040"
+    },
+    {
+        "nome": "COMPORTAMENTO POLÍTICO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0035 ) OU ( IRI0036 )",
+        "equivalencias_especificas": [],
+        "ementa": "NESTE CURSO PRETENDE-SE TRABALHAR COM O ALUNO SOBRE UMA VISAO CRITICADO SISTEMA POLITICO DENTRO DO UNIVERSO SOCIAL, BEM COMO, ATRAVES DO  ES-TUDO DE CASO DA  REALIDADE POLITICA  BRASILEIRA NAS  DIERSAS  ESFERAS DEPODER (LOCAL, MUNICIPAL, ESTADUAL, REGIONAL, FEDERAL) E  SUAS PRINCIPAISREFLEXOS INTERNACIONAIS, ANALISAR OS PROGRAMA DOS PARTIDOS POLITICOS NA-CIONAIS, COMPARA-LOS ENTRE SI E COM A PRAXIS POLITICA NO BRASIL.",
+        "codigo": "POL0022"
+    },
+    {
+        "nome": "ELITES POLÍTICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0025 ) OU ( IRI0026 ) OU ( POL0014 )",
+        "equivalencias_especificas": [],
+        "ementa": "ABORDAGENS CLASSICAS E CONTEMPORANEAS SOBRE ELITES. RECRUTAMENTO, CIRCULACAO, CODIGOS  OPERACIONAIS, RELACOES  ELITE-MASSA, PODER  LOCAL, COMPARACAO  INTERSISTEMICA. MILLS,  HUNTERM,  DAHL,  LASSWELL, MATHEWS, SELIGMAN, ENTRE OUTROS. ELITES NA AMERICA LATINA E NO BRASIL.",
+        "codigo": "POL0015"
+    },
+    {
+        "nome": "ESTADO E DESENVOLVIMENTO NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0083 ) OU ( IRI0084 )",
+        "equivalencias_especificas": [],
+        "ementa": "Analisar as diversas fases e procedimentos intervencionais do Estado Brasileiro, notadamente os orientados para expandir e diversificar as atividades produtivas, assim como aqueles preocupados com a ampliação do mercado interno nacional. O comportamento dos interesses políticos, seus graus variados de organização, os acordos e alianças, as fases de hegemonia, cesarismo, democracia e ditadura comporão os cenários políticos e ideológicos balizadores daqueles projetos.",
+        "codigo": "POL0051"
+    },
+    {
+        "nome": "ESTADO E TEORIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina busca identificar as principais tendências teóricas na caracterização do Estado moderno e contemporâneo.",
+        "codigo": "POL0075"
+    },
+    {
+        "nome": "ESTADO, GOVERNO E POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0055 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Pressupostos básicos da organização da administração pública no Brasil. Dimensões estruturantes da ação estatal nas perspectivas histórica e contemporânea. Aspectos organizacionais associados à administração direta indireta. Agências reguladoras. Aspectos teóricos do federalismo e os desafios da organização da administração pública nas perspectivas das três esferas de poder.",
+        "codigo": "POL0119"
+    },
+    {
+        "nome": "ESTÁGIO EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0073 ) OU ( IRI0074 ) OU ( POL0043 ) OU ( POL0044 ) OU ( POL0045 )",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA TEM COMO OBJETIVO PROPORCIONAR AO ALUNO NAO APENAS A OPORTUNIDADE DE SE FAMILIARIZAR COM AS ATIVIDADES PROFISSIONAIS TÍPICAS DA ÁREA, MAS TAMBEM SE CONSTITUI EM UM PERÍODO NO QUAL PODERÁ DESENVOLVER OUTRAS ATIVIDADES COMPLEMENTARES, IMPORTANTES PARA A SUA FORMAÇÃO E PROFISSIONALIZAÇÃO.",
+        "codigo": "POL0137"
+    },
+    {
+        "nome": "ESTÁGIO EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0073 ) OU ( IRI0074 ) OU ( POL0043 ) OU ( POL0044 ) OU ( POL0137 )",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA TEM COMO OBJETIVO PROPORCIONAR AO ALUNO NAO APENAS A OPORTUNIDADE DE SE FAMILIARIZAR COM AS ATIVIDADES PROFISSIONAIS TIPICAS DA AREA, MAS TAMBEM SE CONSTITUI EM UM PERIODO NO QUAL PODERA DESENVOL- VER OUTRAS ATIVIDADES COMPLEMENTARES, IMPORTANTES PARA A SUA FORMACAO E PROFISSIONALIZACAO.",
+        "codigo": "POL0045"
+    },
+    {
+        "nome": "ESTRUTURA DO PODER NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E POL0017 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0077 ) OU ( IRI0078 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( HIS0101 OU HIS0102 ) ) OU ( IRI0077 OU IRI0078 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0101 OU HIS0102 ) ) OU ( IRI0077 OU IRI0078 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0101 OU HIS0102 ) ) OU ( IRI0077 OU IRI0078 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0101 OU HIS0102 ) ) OU ( IRI0077 OU IRI0078 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0101 OU HIS0102 ) ) OU ( IRI0077 OU IRI0078 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0101 OU HIS0102 ) ) OU ( IRI0077 OU IRI0078 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A FORMACAO DO ESTADO NACIONAL BRASILEIRO. A ESTRUTURA AGRARIA, AS OLIGARQUIAS E CORONELISMO. O PODER LOCAL. SUAS RELACOES COM O PODER ES- TADUAL E O PODER CENTRAL. FATORES QUE CONTRIBUIRAM PARA A  CRISE DO PO- DER LOCAL. A INDUSTRIALIZACAO E A PARTICIPACAO POLITICA DE NOVOS GRUPOS SOCIAIS. O POPULISMO E SUA CRISE.",
+        "codigo": "POL0047"
+    },
+    {
+        "nome": "ESTUDOS LEGISLATIVOS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Estudos Legislativos tem o objetivo de apresentar às/aos estudantes um amplo debate sobre as pesquisas realizadas nos últimos anos sobre oLegislativo brasileiro. A abordagem da disciplina foca o debate brasileiro considerando a especificidade deste debate no país, que se tornou uma das principais áreas depesquisa e produção da Ciência Política brasileira dos últimos vinte anos. Apesar de se relacionar com questões gerais sobre o exercício do poder político, o caráterespecífico do Legislativo e sua relação com, por exemplo, as formas de governo, o debate brasileiro é fecundo, autônomo e tende a se dedicar principalmente às relaçõesentre o Poder Legislativo e o Poder Executivo. A organização da disciplina passará por esses temas centrais e também se dedicará a outras temáticas, como a relação com oJudiciário, as carreiras parlamentares, as minorias no Parlamento e as bancadas parlamentares.",
+        "codigo": "POL0003"
+    },
+    {
+        "nome": "ÉTICA E POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EMENTA:A disciplina aborda as relações entre Ética e Política, sob uma perspectiva filosófica, tendo como foco principal estimular a reflexão ética no campo da formulação das políticas públicas. O objetivo é capacitar os estudantes a compreenderem o debate ético atual e participarem dele de modo reflexivo e crítico.",
+        "codigo": "POL0118"
+    },
+    {
+        "nome": "FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0112 ) OU ( IRI0113 ) OU ( POL0054 )",
+        "equivalencias_especificas": [],
+        "ementa": "APRESENTAR CONCEITOS E METODOS DE ESTUDO E AVALIACAO DE POLITICAS PUBLICAS. ESTUDO DO PROCESSO DE FORMULACAO E DECISAO ATRAVES  DE  DIFE- RENTES ILUSTRACOES EM POLITICA ECONOMICA E SOCIAL INSTITUICOES PUBLICAS E A IMPLEMENTACAO DE POLITICAS PUBLICAS. AVALIACAO DE IMPACTOS DAS  PO- LITICAS PUBLICAS NA ECONOMIA E NA POLITICA E NA SOCIEDADE.",
+        "codigo": "POL0055"
+    },
+    {
+        "nome": "GÊNERO E POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O debate sobre gênero e política tem como base análises críticas das relações de gênero e da posiçãodas mulheres nas sociedades contemporâneas, mas também uma crítica aguda dos limites dasdemocracias existentes. A disciplina percorre o amplo debate sobre as desigualdades de gênero,abordando questões relacionadas à participação política, representação, eleições, políticas públicase o papel do Estado nas sociedades contemporâneas, desde uma perspectiva crítica, priorizando odebate sobre a realidade brasileira.",
+        "codigo": "POL0007"
+    },
+    {
+        "nome": "GOVERNO ELETRÔNICO E POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0055 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina ‘Governo Eletrônico e Políticas Públicas’ pretende apresentar as principais ideias sobre governo e governança no ambiente digital, contendo os aspectos críticos dos sistemas de informação públicos, o exame dos principais portais de governo, seus objetivos, funções e como se efetuam as novas relações governo-cidadão na sociedade de informação. Tópicos: inclusão e exclusão digital governo e sistemas de informação oferta de serviços públicos on line balcão digital gastos de governo, (compras públicas, leilões, pessoal), arrecadação (SI para arrecadação) planejamento e orçamento funções de governo nos níveis federal, estadual, municipal operacionalização do e-gov, software livre, proprietário, tecnicalidades. Política comparada de e-gov. Levantamentos UN-Surveys.",
+        "codigo": "POL0121"
+    },
+    {
+        "nome": "HISTÓRIA SOCIAL E POLÍTICA LATINO-AMERICANA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0016 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0020 OU ECO0021 ) E ( HIS0096 OU HIS0097 ) E ( HIS0098 OU HIS0099 ) E ( HIS0126 ) ) OU ( IRI0016 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0020 OU ECO0021 ) E ( HIS0096 OU HIS0097 ) E ( HIS0098 OU HIS0099 ) E ( HIS0126 ) ) OU ( IRI0016 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0020 OU ECO0021 ) E ( HIS0096 OU HIS0097 ) E ( HIS0098 OU HIS0099 ) E ( HIS0126 ) ) OU ( IRI0016 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0020 OU ECO0021 ) E ( HIS0096 OU HIS0097 ) E ( HIS0098 OU HIS0099 ) E ( HIS0126 ) ) OU ( IRI0016 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0020 OU ECO0021 ) E ( HIS0096 OU HIS0097 ) E ( HIS0098 OU HIS0099 ) E ( HIS0126 ) ) OU ( IRI0016 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0020 OU ECO0021 ) E ( HIS0096 OU HIS0097 ) E ( HIS0098 OU HIS0099 ) E ( HIS0126 ) ) OU ( IRI0016 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA SE PROPOE A INTRODUZIR A  DISCUSSAO  DAS  PRINCIPAIS QUESTOES SOCIAIS E POLITICAS DA AMARICA LATINA SOB PERSPECTIVA HISTORI- CA. ESTA ABORDAGEM PROPORCIONARA AOS ALUNOS  SUBSIDIOS PARA  UMA MELHOR COMPREENSAO DO BRASIL COMO PARTE DO CONJUNTO  LATINO-AMERICANO, DE SUAS RAIZES HISTORICAS, SEU CONTEXTO, SEU PROCESSO DE  DESENVOLVIMENTO, SEUS PROBLEMAS E SEUS PROBLEMAS E SUAS POSSIBILIDADE DE  SUPERACAO  DOS MES- MOS. DEVIDO A ABRANGENCIA DA TEMATICA, A MESMA SERA ABORDADA NUM  NIVEL MAIS GERAL, PARA POSTERIORMENTE SER DESDOBRADA EM CURSOS MAIS ESPECIFI- COS DE APROFUNDAMENTO DA PROBLEMATICA REGIONAL.",
+        "codigo": "POL0010"
+    },
+    {
+        "nome": "IDENTIDADE NACIONAL E NACIONALISMO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E POL0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina busca compreender os fenômenos correlatos do nacionalismo e daidentidade nacional através da abordagem das teorias gerais do nacionalismo e doestudo da realidade brasileira. Neste sentido, a parte inicial do curso será dedicada àobra de alguns autores que escreveram sobre nacionalismo, modernidade e estado-naçãotendo em vista a experiência dos países europeus. A segunda parte focará na formaçãoe desenvolvimento da identidade nacional do Brasil, tal como ela foi interpretada pordiversos intelectuais brasileiros, entre eles Gilberto Freyre e Sérgio Buarque deHolanda. A questão racial no Brasil também será abordada a partir da ótica daidentidade nacional. O curso pretende ainda explorar o possível potencial das teoriasgerais do nacionalismo para iluminar o caso brasileiro. As aulas serão em forma deseminário, e a avaliação consistirá da produção de um paper sobre um dos temas docurso.",
+        "codigo": "POL0002"
+    },
+    {
+        "nome": "INFORMÁTICA EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0038 ) OU ( POL0027 )",
+        "equivalencias_especificas": [],
+        "ementa": "VISA HABILITAR O ALUNO NA PREPARACAO E CODIFICACAO DE  DADOS, MA- NUSEIO DE DADOS QUANTITATIVOS ATRAVES DE PROGRAMAS PACOTE NO MICRO-COM- PUTADOR E NO COMPUTADOR \"MAIN FRAME\" DA UNB, E NO PROCESSAMENTO DE TEX- TOS NO MICRO COMPUTADOR. ANALISE POLITICA ATRAVES DA INFORMATICA.",
+        "codigo": "POL0028"
+    },
+    {
+        "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FEA0003 ) OU ( FDD0210 ) OU ( IRI0017 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-3 - 2017.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-4 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-5 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0202 OU FDD0203 ) ) OU ( IRI0017 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O objetivo do curso é oferecer ao aluno uma visão panorâmica dos principais conceitos e diferentes temas da reflexão política contemporânea.",
+        "codigo": "POL0011"
+    },
+    {
+        "nome": "LEGISLAÇÃO E PROCESSO POLÍTICO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0070 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FDD0018 OU FDD0019 ) ) OU ( IRI0070 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0018 OU FDD0019 ) ) OU ( IRI0070 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0018 OU FDD0019 ) ) OU ( IRI0070 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0018 OU FDD0019 ) ) OU ( IRI0070 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0018 OU FDD0019 ) ) OU ( IRI0070 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FDD0018 OU FDD0019 ) ) OU ( IRI0070 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A restauração democrática, consumada com a promulgação da Constituição de 1988, repercutiu na organização, na estrutura, nas atribuições e no funcionamento do Congresso Nacional e provocou significativas mudanças não só em seu papel como Poder do Estado, mas especialmente em seu desempenho político, na relação com os demais Poderes e nos procedimentos internos necessários ao desempenho de sua missão constitucional. Conhecer o funcionamento das estruturas do Estado, seus princípios, suas instituições e seus mecanismos constitui pré-requisito essencial para a devida compreensão do Legislativo e de seu papel, incluindo a relação com os demais poderes da República.",
+        "codigo": "POL0038"
+    },
+    {
+        "nome": "MÉTODOS QUANTITATIVOS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Através da familiarização de técnicas de analise estatísticas , fornecer aos estudantes um conjunto de metodologias e ferramentas básicas para a elaboração e realização de projetos de pesquisa cientifica.",
+        "codigo": "POL0080"
+    },
+    {
+        "nome": "MÉTODOS QUANTITATIVOS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Aprofundamento do conhecimento de técnicas de analise estatística , bem como do conjunto de metodologias e ferramentas utilizadas na elaboração e realização de projetos de pesquisa cientifica.",
+        "codigo": "POL0081"
+    },
+    {
+        "nome": "MÉTODOS QUANTITATIVOS APLICADOS ÀS POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0127 OU ECO0128 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DO AGRONEGOCIO - Bacharelado - Presencial - D",
+                "curriculo": "6190/1 - 2006.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0127 OU ECO0128 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0127 OU ECO0128 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0127 OU ECO0128 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0127 OU ECO0128 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0127 OU ECO0128 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-3 - 2012.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-4 - 2010.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-2 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0310 ) )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/1 - 2019.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O objetivo desta disciplina é de introduzir os alunos aos fundamentos da econometria como ferramentapara a análise de políticas públicas. Num primeiro tempo, faremos uma revisão dos conceitos básicos deestatística e probabilidade. Depois, introduziremos a econometria e a análise de regressão. O curso estáfocado no estimador de mínimos quadrados ordinários (MQO) e suas propriedades.",
+        "codigo": "POL0117"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0129"
+    },
+    {
+        "nome": "MONITORIA EM ATIVIDADE DE EXTENSÃO 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0151"
+    },
+    {
+        "nome": "MONITORIA EM ATIVIDADE DE EXTENSÃO 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0219"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO DE POLÍTICAS GOVERNAMENTAIS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0189"
+    },
+    {
+        "nome": "MONITORIA EM COMPORTAMENTO POLÍTICO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0178"
+    },
+    {
+        "nome": "MONITORIA EM ELITES POLÍTICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0139"
+    },
+    {
+        "nome": "MONITORIA EM ESTADO E DESENVOLVIMENTO NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0142"
+    },
+    {
+        "nome": "MONITORIA EM ESTADO E TEORIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0211"
+    },
+    {
+        "nome": "MONITORIA EM ESTADO, GOVERNO E POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0119 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0158"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0231"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0146"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURA DO PODER NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0193"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS LEGISLATIVOS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0164"
+    },
+    {
+        "nome": "MONITORIA EM ÉTICA E POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0118 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0157"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0055 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0135"
+    },
+    {
+        "nome": "MONITORIA EM GÊNERO E POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0122"
+    },
+    {
+        "nome": "MONITORIA EM GOVERNO ELETRÔNICO E POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0121 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0230"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA SOCIAL E POLÍTICA LATINO-AMERICANA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0170"
+    },
+    {
+        "nome": "MONITORIA EM IDENTIDADE NACIONAL E NACIONALISMO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0163"
+    },
+    {
+        "nome": "MONITORIA EM INFORMÁTICA EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0180"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0123"
+    },
+    {
+        "nome": "MONITORIA EM LEGISLAÇÃO E PROCESSO POLÍTICO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0038 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0188"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS QUANTITATIVOS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0080 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0150"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS QUANTITATIVOS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0217"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS QUANTITATIVOS APLICADOS ÀS POLÍTICAS PÚBLICAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0117 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0156"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0144"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0159 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0232"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0160 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0233"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0086 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0154"
+    },
+    {
+        "nome": "MONITORIA EM MUDANÇA POLÍTICA NA AMÉRICA DO SUL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0134"
+    },
+    {
+        "nome": "MONITORIA EM MUDANÇA POLÍTICA NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0196"
+    },
+    {
+        "nome": "MONITORIA EM PARTICIPAÇÃO POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0087 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0223"
+    },
+    {
+        "nome": "MONITORIA EM PARTIDOS POLÍTICOS E SISTEMAS ELEITORAIS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0132"
+    },
+    {
+        "nome": "MONITORIA EM PENSAMENTO POLÍTICO LATINO-AMERICANO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0145"
+    },
+    {
+        "nome": "MONITORIA EM PENSAMENTO POLÍTICO NEGRO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0169"
+    },
+    {
+        "nome": "MONITORIA EM PENSAMENTO POLÍTICO NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0133"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0084 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0152"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0161 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0234"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0162 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0235"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0153"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM COMPORTAMENTO POLÍTICO 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0205"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM COMPORTAMENTO POLÍTICO 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0110 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0225"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM COMPORTAMENTO POLÍTICO 3",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0111 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0226"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA EM POLÍTICA PÚBLICA E GOVERNABILIDADE",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0206"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA BRASILEIRA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0126"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA BRASILEIRA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0130"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E ANTIRRACISMO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0166"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E ECONOMIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0147"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E ECONOMIA MUNDIAL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0053 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0148"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E FILOSOFIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0076 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0212"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E IDEOLOGIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0209"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E MÍDIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0213"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E MOVIMENTOS SOCIAIS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0141"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E SOCIOLOGIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0140"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA E TEORIA SOCIAL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0208"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICA REGIONAL AFRICANA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0185"
+    },
+    {
+        "nome": "MONITORIA EM POLÍTICAS PÚBLICAS E TEORIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0202"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA DE ENSINO EM INTRODUÇÃO À CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0143"
+    },
+    {
+        "nome": "MONITORIA EM REPRESENTAÇÃO POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0210"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO DE CONJUNTURA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0215"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO SOBRE O BRASIL CONTEMPORÂNEO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0198"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICAS DE PESQUISA EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0128"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DA DEMOCRACIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0071 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0207"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DA ESCOLHA PÚBLICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0214"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA E MÉTODOS MARXISTAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0201"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA POLÍTICA CLÁSSICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0131"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA POLÍTICA CONTEMPORÂNEA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0125"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA POLÍTICA FEMINISTA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0138"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA POLÍTICA MODERNA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0124"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0127"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0062 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0136"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 3",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0149"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 4",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "POL0155"
+    },
+    {
+        "nome": "MONOGRAFIA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "( POL0023 ) OU ( IRI0037 ) OU ( POL0024 ) OU ( POL0025 ) OU ( POL0159 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina será destinada a orientar o(a) aluno(a) a elaborar um projeto de pesquisa com base em uma estrutura científica que contemple a identificação de um fenômeno, fundamentação teórica, conceitual e metodológica.",
+        "codigo": "POL0026"
+    },
+    {
+        "nome": "MONOGRAFIA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "( POL0023 ) OU ( IRI0037 ) OU ( POL0024 ) OU ( POL0025 ) OU ( POL0026 )",
+        "equivalencias_especificas": [],
+        "ementa": "Orientar o(a) aluno(a) a elaborar um projeto de pesquisa com base em uma\nestrutura científica que contemple a identificação de um fenômeno, fundamentação\nteórica, conceitual e metodológica.",
+        "codigo": "POL0159"
+    },
+    {
+        "nome": "MONOGRAFIA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( POL0086 )",
+        "equivalencias_especificas": [],
+        "ementa": "Orientar o(a) aluno(a) a desenvolver o seu projeto de pesquisa com base em\numa estrutura científica que contemple a identificação de um fenômeno, fundamentação\nteórica, conceitual e metodológica. Esta disciplina, portanto, cumpre os objetivos\npreviamente definidos na disciplina Monografia em Ciência Política 1.",
+        "codigo": "POL0160"
+    },
+    {
+        "nome": "MONOGRAFIA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( POL0160 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina será destinada a desenvolver o projeto de pesquisa com base em uma estrutura científica que contemple a identificação de um fenômeno, fundamentação teórica, conceitual e metodológica. Esta disciplina irá seguir os critérios definidos na disciplina Monografia em Ciência Política 1",
+        "codigo": "POL0086"
+    },
+    {
+        "nome": "MUDANÇA POLÍTICA NA AMÉRICA DO SUL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0080 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( IRI0027 ) ) OU ( IRI0080 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0027 ) ) OU ( IRI0080 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0027 ) ) OU ( IRI0080 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0027 ) ) OU ( IRI0080 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0027 ) ) OU ( IRI0080 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0027 ) ) OU ( IRI0080 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "OBJETIVO DA DISCIPLINA E ESTIMULAR A DISCUSSAO DOS PROCESSOS E  PRO- BLEMAS RELATIVOS A MUDANCA POLITICA NA AMERICA DO SUL. SERAO  ABORDADAS AS PRINCIPAIS CORRENTES VOLTADAS PARA A INTERPRETACAO DOS PROCESSOS  DE TRANSFORMACAO SOCIO-POLITICA NO CONTINENTE. SERAO CONSIDERADOS,  FINAL- MENTE, AS PERSPECTIVAS FUTURAS QUE SE COLOCAM AS NACOES SUL-AMERICANAS. O CURSO REPRESENTA UMA OPORTUNIDADE PARA O APROVEITAMENTO  DOS  ESTUDOS INTRODUTORIOS OFERECIDOS EM OUTRAS DISCIPLINAS  VOLTADAS PARA A ANALISE DAS PROBLEMATICAS LATINO-AMERICANAS.",
+        "codigo": "POL0049"
+    },
+    {
+        "nome": "MUDANÇA POLÍTICA NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0081 ) OU ( IRI0082 )",
+        "equivalencias_especificas": [],
+        "ementa": "ANALISE DAS MUDANCAS  POLITICAS  OCORRIDAS NO  BRASIL, PROCURANDO DETERMINAR OS FATORES POLITICOS, ECONOMICOS E SOCIAIS QUE AS PROVOCARAM E OS FATORES SOCIO-POLITICOS QUE O REALIZARAM, ASSIM COMO AS CONSEQUEN- CIAS QUE ELAS TIVERAM NO PLANO ECONOMICO, SOCIAL E POLITICO.",
+        "codigo": "POL0050"
+    },
+    {
+        "nome": "PARTICIPAÇÃO POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O conceito de participação política será tomado de forma ampla, envolvendo aspectos diferentes de como indivíduos e grupos agem , com o fim de obtenção de poder , em uma dada coletividade.",
+        "codigo": "POL0087"
+    },
+    {
+        "nome": "PARTIDOS POLÍTICOS E SISTEMAS ELEITORAIS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "ANALISE COMPARATIVA DE SISTEMAS PARTIDARIOS, E DA EVOLUCAO HISTO- RICA DOS PARTIDOS POLITICOS NO BRASIL. INTERACAO DOS SISTEMAS  PARTIDA- RIO E ELEITORAL. COMPARACAO DOS SISTEMAS ELEITORAIS  MAJORITARIOS, PRO- PORCIONAIS E \"MIXTOS\". MANIPULACAO DO SISTEMA ELEITORAL  BRASILEIRO PA- RA FINS POLITICOS. EVOLUCAO DO SISTEMA ELEITORAL NO  BRASIL COM  ENFASE NO PERIODO 1945-1990.",
+        "codigo": "POL0037"
+    },
+    {
+        "nome": "PENSAMENTO POLÍTICO LATINO-AMERICANO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0063 )",
+        "equivalencias_especificas": [],
+        "ementa": "O OBJETIVO DA DISCIPLINA E  ESTUDAR AS  SOCIEDADES, A CULTURA E A POLITICA NA AMERICA LATINA, A PARTIR DAS SUAS CORRENTES INTELECTUAIS DE PESQUISA SOCIAL. ATRAVES DA ANALISE DE TEXTOS RELEVANTES DOS PENSADORES LATINO-AMERICANOS. SERAO TRATADAS AS TENDENCIAS DA PRODUCAO SOCIOLOGICA NOS SECULOS XIX E XX, DENTRE AS QUAIS SERAO CONTEMPLADAS AS ETAPAS OTI- MISTAS (1800-1850 E 1890-1920) E AS ETAPAS DE CRISE E DEPRESSAO (1858-  1920 E 1930-1950).",
+        "codigo": "POL0036"
+    },
+    {
+        "nome": "PENSAMENTO POLÍTICO NEGRO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina busca apresentar reflexões de pensadoras/es que buscaram debater o efeito do racismo na estrutura social em suas épocas e contextos específicos, enfatizando a contribuição das/os mesmas/os para o desenvolvimento de um pensamento político antirracista. A multidisciplinaridade é uma marca da seleção de autores, porém todos estão interligados a partir das discussões sobre relações de poder e luta antirracista. As/os autoras/es selecionadas/os estão inseridas/os na triangulação entre África, Europa e América, tendo em vista o diálogo frequente entre autores preocupados com a compreensão sobre o que seria a cultura negra formada nas práticas daquilo que Paul Gilroy caracterizou como Atlântico Negro.",
+        "codigo": "POL0009"
+    },
+    {
+        "nome": "PENSAMENTO POLÍTICO NO BRASIL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( SOL0027 ) OU ( IRI0075 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( HIS0100 ) ) OU ( IRI0075 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0100 ) ) OU ( IRI0075 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0100 ) ) OU ( IRI0075 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0100 ) ) OU ( IRI0075 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0100 ) ) OU ( IRI0075 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0100 ) ) OU ( IRI0075 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O CURSO PENSAMENTO POLITICO BRASILEIRO SE DESENVOLVEWRA ATRAVES DAANALISE DE TEXTO DOS PRINCIPAIS AUTORES QUE  INFLUENCIARAM O  PENSAMENTOPOLITICO BRASILEIRO NOS SECULOS  XIX E XX, ESPECIALMENTE A PARTIR DA IN-DEPENDENCIA. SEU PRINCIPAL OBJETIVO E O DE  INTER-RELACIONAR AS  PRINCI-PAIS CORRENTES DOUTRINARIAS NO CAMPO POLITICO, COM O PROCESSO  HISTORICODELAS RESULTANTE, EVIDENCIANDO-SE COMO O PENSAMENTO INFLUENCIOU A ACAO ECOMO A ACAO SE MANIFESTOU ENTRE NOS, GERANDO CONFLITOS OU  SOLUCIONANDO-OS. AS UNIDADES E OS TEMAS QUE CONSTITUEM O PROGRAMA SERAO  ABORDADOS A-TRAVES DE AULAS  EXPOSITIVAS, ANALISE DOS  TEXTOS, SEMINARIOS E  DEBATESQUE PROPORCIONARAO MEIOS DE AVALIACAO A SEREM DESENVOLVIDOS.",
+        "codigo": "POL0046"
+    },
+    {
+        "nome": "PESQUISA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como objetivo principal a integração dos alunos nos projetos de pesquisa desenvolvidos pelo Instituto de Ciência Política .",
+        "codigo": "POL0084"
+    },
+    {
+        "nome": "PESQUISA EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como objetivo principal a integração dos(as) alunos(as) em\nprojetos de pesquisa desenvolvidos pelos grupos de pesquisa do Instituto de Ciência\nPolítica (IPOL) como LAPCIPP, Demodê, Resocie, Flora Tristan e Justiça e\nDemocracia.",
+        "codigo": "POL0161"
+    },
+    {
+        "nome": "PESQUISA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como objetivo principal consolidar a integração dos(as)\nalunos(as) em projetos de pesquisa desenvolvidos pelos grupos de pesquisa do Instituto de Ciência Política (IPOL) como LAPCIPP, Demodê, Resocie, Flora Tristan e Justiça e Democracia. Cumpre, portanto, a finalidade de complementar a formação do(a) estudante em pesquisa teórica e/ou aplicada iniciada em Pesquisa em Ciência Política 1.",
+        "codigo": "POL0162"
+    },
+    {
+        "nome": "PESQUISA EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( POL0084 OU POL0161 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem como objetivo principal o aprofundamento na pratica de pesquisa dos projetos desenvolvidos pelo Instituto de Ciência Política.",
+        "codigo": "POL0085"
+    },
+    {
+        "nome": "PESQUISA EM COMPORTAMENTO POLÍTICO 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0140 ) OU ( POL0067 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( IRI0039 ) ) OU ( IRI0140 OU POL0067 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0039 ) ) OU ( IRI0140 OU POL0067 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0039 ) ) OU ( IRI0140 OU POL0067 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0039 ) ) OU ( IRI0140 OU POL0067 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0039 ) ) OU ( IRI0140 OU POL0067 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0039 ) ) OU ( IRI0140 OU POL0067 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA TEM POR OBJETIVO DISCUTIR OS TEXTOS  CLASSICOS E ABORDAROS AVANCOS RECENTES DAS TEMATICAS RELACIONADAS AO COMPORTAMENTO E A CUL-TURA POLITICA. DESTINA-SE, AINDA, A PROMOVER O TESTE  EMPIRICO DAS PRIN-CIPAIS HIPOTESES LEVANTADAS NESTA AREA, MEDIANTE A ANALISE  DE DADOS E AELABORACAO DE TRABALHO ESCRITOS SOBRE AS TEMATICAS PARTINENTES.",
+        "codigo": "POL0068"
+    },
+    {
+        "nome": "PESQUISA EM COMPORTAMENTO POLÍTICO 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( IRI0140 OU POL0067 OU POL0068 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0140 OU POL0067 OU POL0068 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0140 OU POL0067 OU POL0068 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0140 OU POL0067 OU POL0068 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0140 OU POL0067 OU POL0068 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0140 OU POL0067 OU POL0068 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina irá aprofundar os textos clássicos e abordar os avanços recentes das temáticas relacionadas ao comportamento e à cultura política.",
+        "codigo": "POL0110"
+    },
+    {
+        "nome": "PESQUISA EM COMPORTAMENTO POLÍTICO 3",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina dará ênfase as temáticas de comportamento e da cultura política. Propõe uma sequência e aprofundamento do estudo iniciados nas disciplinas Pesquisa em Comportamento Político 1 e 2.",
+        "codigo": "POL0111"
+    },
+    {
+        "nome": "PESQUISA EM POLÍTICA PÚBLICA E GOVERNABILIDADE",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0055 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( POL0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "O CURSO VISA FORMAR E CONSOLIDAR, DENTRO DOS OBJETICOS DO  PROIN, UM  GRUPO DE ALUNOS DE  GRADUACAO E  POS-GRADUACAO EM TORNO DA LINHA DE PESQUISA  \"POLITICAS PUBLICAS E GOVERNABILIDADE\" DO  POL/IPR. VISANDO A INTEGRACAO  ENSINO-PESQUISA, O CURSO  PREVE UMA  PARTE  TEORICA E OUTRA PRATICA. A REFERENCIA  BASICA E A QUESTAO DA  GOVERNABILIDADE NO  ATUAL CONTEXTO DE REDEMOCRATIZACAO DO PAIS, ENFATIZANDO-SE AS RELACOES EXECU- TIVO-LEGISLATIVO, E TENDE POR OBJETIVO FINAL IDENTIFICAR A CONFIGURACAO POLITICO-INSTITUCIONAL DO PROCESSO ATUASL DE TOMADA DE DECISAO DO PAIS. ESTUDA-SE, DENTRO DESTE  ENFOQUE, POLITICAS  FUNDAMENTAIS DA  AGENDA DO GOVERNO.                                                                AGENDA DO GOVERNO:                                                      A 1a. PARTE CONSTARA DE UMA REVISAO DA LITERATURA DE UMA REVISAO DE LI- TERATURA REFERENTE AOS TEMAS DE  GOVERNABILIDADE E RELACOES  EXECUTIVO- LEGISLATIVO. A  2a. PARTE  DO CURSO VISARA O TREINAMENTO DOS  ALUNOS EM PESQUISA, ESTANDO PREVISTOS COLETA E ANALISE DE DADOS E UM TRABALHO FI- NAL SOB A FORMA DE RELATORIO DE PESQUISA.",
+        "codigo": "POL0070"
+    },
+    {
+        "nome": "POLÍTICA BRASILEIRA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0028 ) OU ( IRI0029 ) OU ( POL0016 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTE CURSO ANALISA E DISCUTE CRITICAMENTE OS EVENTOS E AS  INSTITUIÇÕES QUE SE  DESENVOLVERAM NO  PAIS ATE A  ECLOSÃO DA  REVOLUÇÃO DE 30. ENFASE ESPECIAL DEVERA SER DADA A ARTICULAÇÃO ENTRE A FORMAÇÃO SOCIAL E A ORGANIZAÇÃO POLITICA, AO PROCESSO DE CONSTRUÇÃO DO ESTADO, AO SISTEMA PARTIDÁRIO, AO DOMÍNIO OLIGARQUICO E AOS FATORES QUE LEVARAM A SUA RUPTURA.",
+        "codigo": "POL0017"
+    },
+    {
+        "nome": "POLÍTICA BRASILEIRA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0017 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0042 ) OU ( POL0031 )",
+        "equivalencias_especificas": [],
+        "ementa": "ANALISE E DISCUSSAO CRITICA DOS EVENTOS E DAS INSTITUICOES QUE SE DESENVOLVERAM A PARTIR DA ECLOSAO DA REVOLUCAO DE 30. O REGIME DE  34 E O ESTADO NOVO, CORPORATIVISMO, POPULISMO E O  PROJETO  NACIONAL, DESEN- VOLVIMENTISTA, OS DIFERENTES SISTEMAS PARTIDARIOS, O ESTADO  BUROCRATI- CO-AUTORITARIO, E A RELACAO ENTRE O MOVIMENTO  RADICAL E O  ESTADO SAO  TEMAS A SEREM ENFOCADOS.",
+        "codigo": "POL0032"
+    },
+    {
+        "nome": "POLÍTICA E ANTIRRACISMO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Introduzir o debate sobre antirracismo indagando como diferenças de raça ou cor de pele podem se tornar referências sociais para a promoção de desigualdades entre indivíduos e grupos. A partir da interlocução entre temáticas relativas à Ciência Política o tema das desigualdades raciais é tratado a partir de um olhar crítico quanto aos mecanismos que mobilizam o racismo nas sociedades contemporâneas.",
+        "codigo": "POL0006"
+    },
+    {
+        "nome": "POLÍTICA E ECONOMIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0079 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. QUESTOES FUNDAMENTAIS NO MODE DE PRODUCAO CAPITALISTA.               2. RELACOES ENTRE ECONOMIA E POLITICA, ENQUANTO CIENCIAS SOCIAIS.       3. VALORES E LIMITACOES DAS \"TEORIAS DE ECONOMIA POLITICA\", CRITICA AOS    ENFOQUES METODOLOGICOS DISPERSOS. BUSCA TEORIA GLOBAL.               4. ESTADO, ECONOMIA CAPITALISTA (PODER, PRODUCAO E DISTRIB.)            5. QUESTOES ECONOMICAS E POLITICAS DOS CUSTOS/BENEFICIOS SOCIAIS (POLI-    TICAS GOVERNAMENTAIS ESPECIFICAS E PROCESSO DECISORIO)               6. DEMOCRACIA E CAPITALISMO: EXPERIENCIAS EUROPEIAS/EUA/BRASIL.         7. ESTUDOS DE CASOS DE ECONOMIA POLITICA (NACIONAIS E INTERNACIONAIS).",
+        "codigo": "POL0048"
+    },
+    {
+        "nome": "POLÍTICA E ECONOMIA MUNDIAL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O Curso aborda aspectos reais e monetários na economia mundial, considerando-se as restrições e condicionamentos da esfera política. Assim, após uma retrospectiva histórica sobre a evolução capitalista e institucional, com revisão de alguns conceitos econômicos básicos, trataremos de aspectos teóricos relevantes para o exame e a compreensão dos fenômenos econômicos mundiais contemporâneos.   O curso visa fornecer instrumentos para análise de problemas econômicos de um país, tendo em conta as restrições impostas pelo setor externo e seus impactos domesticamente. A partir dessa referência, o curso visa também oferecer elementos para a análise crítica dos principais problemas econômico-financeiros mundiais, considerando-se as estruturas dos grandes mercados e arranjos institucionais existentes, com sua diversidade de atores, órgãos e agentes econômicos, de reguladores multilaterais, de padrões de pagamento e liquidez, etc. Para tanto, ênfase será dada ao caso brasileiro, num contexto de país em desenvolvimento e forte global partner, vis-à-vis a evolução dos mercados internacionais e globais de bens e serviços, de um lado, e de moeda, crédito e capitais, de outro.2. Além das Referências Bibliográficas mencionadas em seguida, outras específicas e artigos especiais serão indicados ao longo do curso.",
+        "codigo": "POL0053"
+    },
+    {
+        "nome": "POLÍTICA E FILOSOFIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E POL0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0176 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Discussão de temas e autores clássicos que compõem o campo da filosofia política da antiguidade aos nossos dias. Abordagem de conceitos centrais como cultura, conhecimento, ciência, política, ética, estética, justiça, utopia, natureza humana.",
+        "codigo": "POL0076"
+    },
+    {
+        "nome": "POLÍTICA E IDEOLOGIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E SOL0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo dos grandes tema das ideologias políticas que surgem com o advento da sociedade industrial: liberalismo, socialismo, anarquismo, comunismo, fascismo, nacionalismo.",
+        "codigo": "POL0073"
+    },
+    {
+        "nome": "POLÍTICA E MÍDIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A centralidade dos meios de comunicação de massa nos processos políticos contemporâneos. Os diversos modelos explicativos da influência política da mídia e seus problemas. A relação entre meios de comunicação e elites políticas. As transformações do discurso político. A mídia e o conceito de esfera pública. Os usos do marketing e a produção da opinião pública. A \"dependência cognitiva\" do cidadão comum. Mídia e construção da hegemonia política. A presença dos meios de comunicação no processo político brasileiro.",
+        "codigo": "POL0077"
+    },
+    {
+        "nome": "POLÍTICA E MOVIMENTOS SOCIAIS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0072 ) OU ( POL0041 )",
+        "equivalencias_especificas": [],
+        "ementa": "OS MOVIMENTOS SOCIAIS SEMPRE TIVERAM UMA IMPORTANCIA DESTACADA NA SOCIEDADE BRASILEIRA ESPECIALMENTE A PARTIR DA SEGUNDA METADE DO SECULO XIX.                                                                          TAL RELEVANCIA E CRESCENTE NAS DUAS PRIMEIRAS  DECADAS DO  SECULO XX E TENDE A AVOLUMAR-SE NOS ANOS 50, 60 E A PARTIR DOS SETENTA, QUANDO SUPERADO O AUGE DO POPULISMO ADQUIREM NOVAS FORMAS E SE  ESTENDEM A SE- TORES CUJAS MOBILIZACAO, ATE ENTA, HAVIA SIDO POUCO SIGNIFICATIVA, TAIS COMO OS MOVIMENTOS FEMINISNOS E DE MUTUARIOS.",
+        "codigo": "POL0042"
+    },
+    {
+        "nome": "POLÍTICA E SOCIOLOGIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0030 ) OU ( IRI0031 ) OU ( POL0018 )",
+        "equivalencias_especificas": [],
+        "ementa": "DISCUSSÃO DE TEMAS CLASSICOS E CONTEPORANEOS DA SOCIOLOGIA  POLITICA. MARX, WEBER, NOSCA, PARETO, MICHELS, MILLS E OUTROS. ALEM DA DIS- CUSSAO SOBRE SISTEMA INTERNACIONAL CONTENPORANEO, DO PONTO DE  VISTA DA SOCIOLOGIA POLITICA.",
+        "codigo": "POL0019"
+    },
+    {
+        "nome": "POLÍTICA E TEORIA SOCIAL",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E SOL0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O curso aborda as grandes questões que permeam o universo das ciências sociais privilegiando temas clássicos da política e sociologia : ação, indivíduo, cultura e sociedade, controle social, grupos e sociabilidade, mudança social, mobilidade, poder, conflitos.",
+        "codigo": "POL0072"
+    },
+    {
+        "nome": "POLÍTICA REGIONAL AFRICANA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0061 )",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina insere-se no contexto da política comparada com uma preocupação em oferecer aos estudantes noções relevantes para a compreensão dos caminhos trilhados pelos povos e Estados do continente africano na construção, desenvolvimento, aprofundamento e consolidação de suas experiências. É uma disciplina com foco pontual sobre os desafios na construção dos Estados africanos considerando as várias épocas desta epopeia, dos primórdios das civilizações à contemporaneidade pós-colonial. Especial atenção é dada à busca de compreensão sobre os desafios de inserção dos países e povos africanos na Ordem Mundial, o papel à estes reservado, conquistado ou a construir vis a vis os desafios dos diversos povos do mundo contemporâneo. Entender os desafios e as alternativas conseguidas no continente baseados no próprio imaginário coletivo e diversificado das realidades africanas é o propósito maior da disciplina.",
+        "codigo": "POL0035"
+    },
+    {
+        "nome": "POLÍTICAS PÚBLICAS E TEORIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0055 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0118 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTA DISCIPLINA TEM COMO OBJETIVO PROCURAR ENTRE AS CORRENTES ATU-AIS E ALTERNATIVAS FUTURAS DE POLITICAS PUBLICAS NO  BRASIL, A PARTIR DEUM PONTO DE VISTA  TOTALIZANTE, E EM  TERMOS DE  SUAS IMPLICACOES PARA ACONSTATADA DEMOCRACIA CONSTITUCIONAL BRASILEIRA. SERAO DADOS COMO OS IM-PERATIVOS ECONOMICOS E POLITICOS DO ESTADO, DA SOCIEDADE E DO EMPRESARI-ADO NACIONAL E ESTRANGEIRO CONDUZEM A MANUTENCAO DO PROCESSO DE POLITICANO STATUS QUO ANTE (AUTOCRITICA) \"DEMOCRACIA RELATICA\", LIBERDADE VIGIA-DA, ETC). SENDO O PROCESSO DE TRANSICAO COMO PARTE INTEGRANTE DO PROCES-SO. AS DISCUSSOES ABORDARAO POLITICAS  PUBLICAS  ESPECIFICAS, TANTO ECO-NOMICA COMO SOCIAIS.",
+        "codigo": "POL0060"
+    },
+    {
+        "nome": "PRÁTICA DE ENSINO EM INTRODUÇÃO À CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( POL0004 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina será destinada a aprofundar as leituras e reflexões sobre a literatura da disciplina de Introdução à Ciência Política (ICP), permitindo uma base teórica aos discentes para que assim possam desempenhar as atividades de monitoria e tutoria de forma adequada e satisfatória em ICP.",
+        "codigo": "POL0005"
+    },
+    {
+        "nome": "REPRESENTAÇÃO POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A história da representação política e a relação entre \"democracia direta\" e \"democracia representativa\". O conceito de representação política e seus problemas. O vínculo eleitoral e a accountability. Sistemas eleitorais. Representação popular, parlamentos e partidos políticos. A \"crise de representação\" das democracias contemporâneas. Representação de grupos. Modelos alternativos de representação política.",
+        "codigo": "POL0074"
+    },
+    {
+        "nome": "SEMINÁRIO DE CONJUNTURA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0030 E POL0032 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina propõe construir uma moldura interpretativa de processos políticos previamente delimitados e explicitados, buscando fundamentar primeiramente o estatuto teórico da  noção de conjuntura para, em seguida, complementá-lo com bibliografia básica visando ressaltar o vinculo do tema selecionado com os encadeamentos histórico-estruturais indispensáveis ao exercício de interpretação cientifica.",
+        "codigo": "POL0079"
+    },
+    {
+        "nome": "SEMINÁRIO SOBRE O BRASIL CONTEMPORÂNEO",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0085 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( HIS0127 OU HIS0128 OU HIS0129 ) ) OU ( IRI0085 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0127 OU HIS0128 OU HIS0129 ) ) OU ( IRI0085 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0127 OU HIS0128 OU HIS0129 ) ) OU ( IRI0085 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0127 OU HIS0128 OU HIS0129 ) ) OU ( IRI0085 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0127 OU HIS0128 OU HIS0129 ) ) OU ( IRI0085 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( HIS0127 OU HIS0128 OU HIS0129 ) ) OU ( IRI0085 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTUDO MONOGRAFICO E APROFUNDADO DAS PRINCIPAL FASES DA EVOLUCAO  POLITICA BRASILEIRA CONTEMPORANEA. LEVANTAMENTO BIBLIOGRAFICO EM DETA-  LHE DO TEMA ESCOLHIDO, COMO: A REVOLUCAO DE 30, O ESTADO  NOVO PARTI-  DOS POLITICOS, A CONSTITUICAO DE  1946, A  CONSTITUINTE DE  1987/88, A  DEMOCRATIZACAO DO ESTADO, OS MILITARES E A TRANSICAO POLITICA, ETC.",
+        "codigo": "POL0052"
+    },
+    {
+        "nome": "TÉCNICAS DE PESQUISA EM CIÊNCIA POLÍTICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0013 E EST0019 ) OU ( POL0117 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FUP0311 ) OU ( IRI0040 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-5 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-4 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-6 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-2 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SOL0052 ) ) OU ( IRI0040 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Licenciatura - Presencial - D",
+                "curriculo": "3166/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "FUNDAMENTOS BASICOS NA  PESQUISA  CIENTIFICA:  CONCEITOS, HIPOTE- SES, MENSURACAO. MONTAGEM DE PLANOS DE PESQUISA. UTILIZACAO DE SURVEY E QUESTIONARIOS. MODELOS DE  MOSTRAGEM. INTERPRETACAO DE  DADOS. EXEMPLOS CONCRETOS DE PESQUISAS DE CIENCIAS POLITICAS CONDUZIDAS NO BRASIL.",
+        "codigo": "POL0029"
+    },
+    {
+        "nome": "TEORIA DA DEMOCRACIA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação e análise das principais correntes contemporâneas da teoria da democracia (e de algumas de suas fontes no pensamento político anterior). Discussão sobre os limites da democracia liberal como \"governo do povo\" e sobre as possibilidades de uma participação política popular ampliada. As características da representação política democrática. Propostas de reorganização institucional com o objetivo de \"aprofundamento\" da democracia.",
+        "codigo": "POL0071"
+    },
+    {
+        "nome": "TEORIA DA ESCOLHA PÚBLICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina intenta examinar o processo decisório nas arenas publicas envolvendo coletividades que deliberam e decidem mediante a utilização de mecanismos extra-mercado. O estudo segue os fundamentos da filosofia Política Moderna examinando questões sobre a teoria do estado bom como processos de decisão coletiva , regras de votação , sistemas eleitorais , política partidária , comportamento político , comportamento legislativo , comportamento burocrático e a dinâmica dos diferentes regimes de governo na democracias contemporâneas .",
+        "codigo": "POL0078"
+    },
+    {
+        "nome": "TEORIA E MÉTODOS MARXISTAS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0117 ) OU ( POL0058 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( IRI0114 OU POL0056 OU POL0057 ) ) OU ( IRI0117 OU POL0058 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0114 OU POL0056 OU POL0057 ) ) OU ( IRI0117 OU POL0058 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0114 OU POL0056 OU POL0057 ) ) OU ( IRI0117 OU POL0058 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0114 OU POL0056 OU POL0057 ) ) OU ( IRI0117 OU POL0058 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0114 OU POL0056 OU POL0057 ) ) OU ( IRI0117 OU POL0058 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IRI0114 OU POL0056 OU POL0057 ) ) OU ( IRI0117 OU POL0058 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Apresentação dos fundamentos da teoria de Marx nos diversos campos que ela abrange - filosofia, economia, sociologia, história e política (o que corresponde à unidade I). Discussão das principais correntes de teoria política derivadas do pensamento de Marx, observando a reflexão sobre as classes sociais (unidade II), sobre a natureza do Estado capitalista (unidade III) e sobre as formas de transformação social (unidade IV). O curso seguirá o método de aulas expositivas e discussão dos textos em sala.",
+        "codigo": "POL0059"
+    },
+    {
+        "nome": "TEORIA POLÍTICA CLÁSSICA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0044 )",
+        "equivalencias_especificas": [],
+        "ementa": "O curso oferece uma visão panorâmica da gênese e evolução da cidade - Estado, suas instituições jurídicas, familiares, econômicas, culturais, políticas e religiosas. Destaca ainda a formação e desenvolvimento da tradição filosófica ocidental, no exame do pensamento Pré - Socrático e na análise de obras importantes de Platão e Aristóteles. Por último o curso aborda a associação entre filosofia e teologia, um dos principais temas da filosofia medieval.",
+        "codigo": "POL0033"
+    },
+    {
+        "nome": "TEORIA POLÍTICA CONTEMPORÂNEA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 E POL0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0021 ) OU ( IRI0022 )",
+        "equivalencias_especificas": [],
+        "ementa": "LEITURA E DISCUSSAO DE TEXTOS RELEVANTES DO PENSAMENTO POLITICO  CON-TEMPORANEO, COM ESPECIAL ENFASE NAS SEGUINTES VERTENTES: TEORIA DAS ELI-TES, TEORIA MARXISTA CONTEMPORANEA, TEORIA PLURALISTA E  CORPORATIVISTA,TEORIA  SISTEMICO-FUNCIONALISTA,  TEORIA  CRITICA  DO  LIBERALISMO E  DOSOCIALISMO, E ANALISE DE PROBLEMATICA DO AUTORITARISMO/TOTALITARISMO.",
+        "codigo": "POL0013"
+    },
+    {
+        "nome": "TEORIA POLÍTICA FEMINISTA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O debate sobre gênero e política tem como base análises críticas das relações de gênero e da posiçãodas mulheres nas sociedades contemporâneas, mas também uma crítica aguda dos limites dasdemocracias existentes. A crítica da democracia ganha perspectivas e problemas novos e complexosquando toma como ponto de partida as relações de gênero. A disciplina explora esse debate,considerando abordagens teóricas fundamentais que emergiram no âmbito das teorias feministas dapolítica.",
+        "codigo": "POL0008"
+    },
+    {
+        "nome": "TEORIA POLÍTICA MODERNA",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "( ( POL0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0019 ) OU ( IRI0020 )",
+        "equivalencias_especificas": [],
+        "ementa": "LEITURA E DISCUSSAO DE TEXTOS RELEVANTES DO PENSAMENTO POLITICO  OCI-DENTAL  MODERNO.  SERAO  CONTEMPLADAS  TRADICOES  TEORICAS  TAIS COMO: OCONTRATUALISMO, O UTILITARISMO, O IDEALIMOS, O LIBERALISMO NOVECENTISTA,O MARXISMO, E AS CONTRIBUICOES WEBERIANOS.",
+        "codigo": "POL0012"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( IRI0032 ) OU ( IRI0033 ) OU ( POL0020 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTUDO DE AUTORES E IDEIAS QUE DESDE A ANTIGUIDADE GREGA  ATE  NOSSOSDIAS CONTRIBUIRAM DE FORMA MAIS SIGNIFICATIVA PARA O CONHECIMENTO E  AN-LISE DOS PROBLEMAS POLITICOS.",
+        "codigo": "POL0021"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0119 ) OU ( POL0061 )",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA TEM COMO OBJETIVO OPORTUNIZAR O APROFUNDAMENTO DOS   ESTUDOS REALIZADOS EM  TEORIA  POLITICA CLASSICA, TEORIA POLITICA MO-   DERNA E/OU TEORIA POLITICA CONTEMPORANEA, TANTO EM TERMOS DE  VERTEN-   TES ANALITICAS, COMO DE TEMATICAS E/OU AUTORES, A SEREM DEFINIDOS PE-   LO PROFESSOR PREFERENCIALMENTE EM CONJUNTO COM OS ALUNOS INTERESSADOS.  SENDO ASSIM, O CONTEUDO ESPECIFICO DA DISCIPLINA PERMANECE PROPOSITAL-  MENTE ABERTO E CONSEQUENTEMENTE A BIBLIOGRAFIA.",
+        "codigo": "POL0062"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 3",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( IRI0120 ) OU ( POL0063 ) OU ( POL0064 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( IRI0120 OU POL0063 OU POL0064 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "2023.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( IRI0120 OU POL0063 OU POL0064 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "2023.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( IRI0120 OU POL0063 OU POL0064 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "2023.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( IRI0120 OU POL0063 OU POL0064 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "2023.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( IRI0120 OU POL0063 OU POL0064 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "2023.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( IRI0120 OU POL0063 OU POL0064 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "2023.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA TEM COMO OBJETIVO OPORTUNIZAR O APROFUNDAMENTO DOS   ESTUDOS REALIZADOS EM TEORIA  POLITICA  CLASSICA, TEORIA POLITICA MO-   DERNA E/OU TEORIA POLITICA CONTEMPORANEA, TANTO EM TERMOS DE  VERTEN-   TES POLITICAS, COMO DE TEMATICAS  E/OU  DE AUTORES, A SEREM DEFINIDOS   PELO PROFESSOR PREFERENCIALMENTE EM CONJUNTO COM OS ALUNOS INTERESSA-   DOS. SENDO ASSIM, O CONTEUDO ESPECIFICO DA DISCIPLINA PROPOSITALMENTE   ABERTO E CONSEQUENTEMENTE A BIBLIOGRAFIA NAO PODE SER PRE-ESTABELECI-   DA.",
+        "codigo": "POL0065"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 4",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIA POLÍTICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( POL0091 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( POL0091 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( POL0091 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( POL0091 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( POL0091 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( POL0091 ) )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "2000.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina tem por objetivo aprofundar o conhecimento metodológico para estudos do sistema político e/ou de recorte interdisciplinar entre a\nciência política e a sociologia, antropologia, economia, estatística, administração pública e direito.",
+        "codigo": "POL0088"
+    }
+]

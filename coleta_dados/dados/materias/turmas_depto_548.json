@@ -1,0 +1,3553 @@
+[
+    {
+        "nome": "ANÁLISE CUSTO BENEFÍCIO AMBIENTAL DE PROJETOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0268 )",
+        "equivalencias_especificas": [],
+        "ementa": "a definir",
+        "codigo": "ECO0267"
+    },
+    {
+        "nome": "ANÁLISE CUSTO BENEFÍCIO AMBIENTAL DE PROJETOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0272 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0267 )",
+        "equivalencias_especificas": [],
+        "ementa": "Pela disciplina, pretende-se desenvolver aplicações práticas de instrumentos analisados conceitualmente em outras disciplinas do curso de graduação do estudante. Mas especificamente, apresenta-se a aplicação prática de conceitos essenciais para avaliação da viabilidade econômica de políticas, programas e projetos de meio ambiente. Em particular, será dada ênfase à análise de custo benefício a alguns métodos de valoração ambiental e a técnicas alternativas de avaliação de projetos e programas ambientais.\r\n\r\nNa parte inicial do curso, abordam-se os principais aspectos que diferenciam a avaliação econômico-social da avaliação privado-financeira, salientando a importância de aspectos como externalidades, excedentes do produtor e consumidor na análise de projetos públicos. Em um segundo momento, discutem-se os aspectos operacionais de estimar benefícios ambientais, mais ou menos intangíveis, por meio de valoração econômica do meio ambiente.",
+        "codigo": "ECO0268"
+    },
+    {
+        "nome": "ANÁLISE DE INSUMO-PRODUTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0050 ) OU ( ECO0003 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0009 )",
+        "equivalencias_especificas": [],
+        "ementa": "Este curso é dedicado ao estudo da teoria do insumo-produto com base na teoria do equilíbrio geral. Será discutida a teoria dos modelos de insumo-produto, assim como as diferentes aplicações práticas que podem ser obtidas da utilização destes tipos de modelos. As aplicações serão ilustradas com exemplos à economia brasileira e a outras regiões / países.\r\n\r\nEm seguida serão estudadas as Matrizes de Contabilidade Social (MCS), que possuem uma estrutura própria, contêm as matrizes de insumo-produto e em grande parte servem de banco de dados para os modelos Aplicados de Equilíbrio Geral (AEG) que serão vistos de forma introdutória na última parte do curso.\r\n\r\nComo este curso é voltado para a aplicação prática da teoria, se fará uso intensivo de microcomputadores e em especial do programa Excel e Python. Haverá aulas práticas para programação em Python.\r\n\r\nAo final do curso o aluno deverá estar apto para entender a estrutura, e operar com modelos de insumo-produto. Tendo, também, conhecimento das vantagens e das limitações destes tipos de modelos.",
+        "codigo": "ECO0010"
+    },
+    {
+        "nome": "ANALISE DE PROJETOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0078 )",
+        "equivalencias_especificas": [],
+        "ementa": "O curso divide-se em duas grandes partes. Na primeira, o objetivo é eminentemente prático e pretende-se que o aluno possua um bom domínio dos instrumentos clássicos de análise de projetos (valor presente e taxa interna de retorno) e da influência e tratamento que deve ser dado a inflação nos fluxos de caixa. Em uma segunda parte, pretende-se atingir objetivos de uma profundidade teórica mais sofisticada. Estudam-se o desconto contínuo, as causas da diferença entre avaliação privada e social (externalidade, excedente do consumidor e do produtor) e sua potencial utilização na elaboração de políticas governamentais. Por último, aborda-se o conceito de preço sombra e diferentes modelos para sua determinação.",
+        "codigo": "ECO0079"
+    },
+    {
+        "nome": "ANÁLISE ECONÔMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DPG1137"
+    },
+    {
+        "nome": "ANÁLISE ECONÔMICA DE PROCESSOS POLÍTICOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O curso é baseado em modelos formais e aplicações a problemas das democracias modernas e, em especial, a brasileira. São discutidos os problemas de agregação de preferência e o Teorema de Impossibilidade de Arrow, bem como os teoremas de possibilidade, com atenção especial para o Teorema do Eleitor Mediano. Em seguida é construído o modelo básico da análise econômica de processos políticos, que é usado para discutir a competição eleitoral, a convergência de plataformas políticas, o voto probabilístico, o financiamento de campanhas eleitorais, a participação eleitoral heterogênea, o debate voto obrigatório & facultativo, o papel da urna eletrônica, o efeito da desigualdade no custo das campanhas eleitorais. É analisada a questão de controle dos representantes após estes terem sido eleitos por meio de reeleição e voto dividido. São discutidos os equilíbrios eleitorais no que diz respeito a políticas redistributivas e o que define a preferência por redistribuição de renda em uma sociedade. Finalmente, são estudados os ciclos político-eleitorais e seu papel no federalismo fiscal e nas transferências voluntárias.",
+        "codigo": "ECO0280"
+    },
+    {
+        "nome": "ANALISE ECONOMICA DE SERIES DE TEMPO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0229 )",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação de modelos econômicos, Equações em diferenças, O problema de identificação em modelos econométricos, A estrutura dos dados de séries temporais, Modelos ARIMA, Modelos multiequacionais: Função de transferência e ADL, Raízes Unitárias, VAR, Cointegração e VEC, Modelos Markov Switching e threshold, GMM.",
+        "codigo": "ECO0230"
+    },
+    {
+        "nome": "ANALISE MACROECONOMICA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0243 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre Macroeconomia, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0244"
+    },
+    {
+        "nome": "ANALISE MICROECONOMICA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0241 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTE CURSO COBRIRA O MATERIAL BASICO DA TEORIA DE  CONCORRENCIA  PER-FEITA NUM CURSO DE  TEORIA  MICROECONOMICA A NIVEL DE MESTRADO. A TEORIADA CONCORRENCIA PERFEITA E APROXIMADAMENTE METADE DO PROGRAMA DE MICROE-CONOMIA. NO  SEGUNDO CURSO DA SEQUENCIA, MICROECONOMIA II, COBRIR-SE-A ATEORIA DA CONCORRENCIA IMPERFEITA,  ONDE IMPORTANTES AVANCOS FORAM DADOSNOS ANOS MAIS RECENTES. LA TAMBEM FICARA TODA A MODERNA TEORIA DE INFOR-MACAO.                                                                     ESTA DIVISAO FOI FEITA DE MODO A PERMITIR  AOS ALUNOS SAINDO DO CURSODE MICROECONOMIA  SEGUIREM A SEQUENCIA DE  FINANCAS. TODAVIA  O CURSO DEMICROECONOMIA II E FORTEMENTE RECOMENDADO SER TOMADO POIS, ELE, A FORMA-CAO DO ALUNO FICA CAPENGA.                                                 O NIVEL  DO  CURSO SERA O DE PRIMEIRO  ANO DO CURSO  MICROECONOMIA NOPROGRAMA DE DOUTORADO EM QUALQUER BOA UNIVERSIDADE NOS ESTADOS UNIDOS. ABIBLIOGRAFIA ESTA SENDO MODIFICADA PARA TORNAR A SEQUENCIA DE  MICROECO-NOMIA DA UNB BASTANTE MODERNA.",
+        "codigo": "ECO0242"
+    },
+    {
+        "nome": "AVALIAÇÃO AMBIENTAL ESTRATÉGICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( CDS0010 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O licenciamento ambiental de atividades humanas potencialmente poluidoras ou degradadoras é regulamentado no Brasil há mais de 20 anos. A avaliação de impactos ambientais (AIA) é inclusive referenciada em nosso texto constitucional. No entanto, o licenciamento e a AIA limitam-se a subsidiar as decisões de aprovação de projetos de empreendimentos individuais. Elas contribuem marginalmente para a avaliação dos processos de planejamento de decisões políticas e estratégicas que os originam. Para superar as dificuldades da não consideração dos impactos cumulativos, regionais e globais, muitos especialistas e organizações internacionais têm fortemente apoiado o uso da avaliação ambiental estratégica - AAE (Strategic Environmental Assessment - SEA).A AAE permite fazer um diagnóstico e um prognóstico de uma dada área ou região que será objeto de políticas, planos e programas (PPP). Assim, pode se converter em um instrumento de política ambiental capaz de promover a articulação das várias dimensões de PPP de desenvolvimento, explicitando com clareza seus objetivos e as questões ambientais relacionadas à sua implementação. Além disto, tem a possibilidade de fornecer as orientações necessárias para a viabilização econômica, social e ambiental de determinadas atividades na área objeto da ação pública ou privada, favorecendo, deste modo, a percepção de impactos cumulativos decorrentes das diversas ações a serem desenvolvidas.Nesse contexto, a AAE pode ser definida como um processo de avaliação ambiental de PPP que é identificada com a aplicação dos procedimentos de Avaliação de Impacto Ambiental (AIA) na fase inicial e mais estratégica da hierarquia de tomada de decisão de políticas, planos, programas e projetos individuais. Uma definição mais simples poderia ser que a AAE representa o processo de avaliação ambiental de políticas, planos e programas. Uma terceira definição é a proposta por Sadler e Verheem (1996): \"AAE é um processo sistemático para avaliar as conseqüências ambientais de uma política, plano ou programa, de forma a assegurar que elas sejam integralmente incluídas e apropriadamente consideradas no estágio inicial e apropriado do processo de tomada de decisão, juntamente com as considerações de ordem econômica e social.\"",
+        "codigo": "ECO0276"
+    },
+    {
+        "nome": "CONJUNTURA ECONOMICA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 E ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0146 )",
+        "equivalencias_especificas": [],
+        "ementa": "O PRINCIPAL OBJETIVO DO CURSO E O DE ANALISAR  OS PRINCIPAIS  FATOS EPROBLEMAS ATUAIS DA ECONOMIA  BRASILEIRA O  CURSO NAO PRETENDE  SER SIM-PLESMENTE UMA LISTAGEM  DE  ACONTECIMENTOS E DE  DADOS DE  CONJUNTURA. OOBJETIVO E TRATAR DE  ENTENDER  A INTERPRETAR  O PROCESSO ECONOMICO  QUEESTA OCORRENDO AO NOSSO REDOR. ESTE  ESFORCO  ESTA BASEADO NA  CRENCA DEQUE HA LUGAR E NECESSIDADE DE COMBINAR A TEORIA ECONOMICA COM A REALIDA-DE ATUAL DA ECONOMIA BRASILEIRA. O CURSO SE  DESENVOLVERA PRINCIPALMENTEEM TORNO DE SEMINARIOS DE DISCUSSAO  COM ECONOMISTAS  RESPONSAVEIS  PELADIRECAO DA POLITICA ECONOMICA E SEMINARIOS BASEADOS EM TEXTOS PREPARADOSPOR EQUIPES DE ALUNOS.",
+        "codigo": "ECO0147"
+    },
+    {
+        "nome": "CONTABILIDADE NACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0049 )",
+        "equivalencias_especificas": [],
+        "ementa": "A Contabilidade Nacional é entendida como uma técnica por meio da qual são sistematizadas as informações relevantes sobre os vários tipos de transação realizadas, em um dado período de tempo, entre os diversos agentes de um sistema econômico. Apesar de ser um curso voltado para a mensuração de variáveis econômicas, evitar-se-á a transformá-lo em um exercício empiricista. É essencial enfatizar a dependência da escolha das convenções da Contabilidade Nacional em relação às questões especificas que economistas investigam e as hipóteses de trabalho especiais que eles usam durante o processo de chegar as respostas. Consequentemente, mostra-se a cada etapa do curso a relação entre a imagem da economia que emerge dos quadros das contas nacionais e os principais conceitos da teoria macroeconômica.",
+        "codigo": "ECO0050"
+    },
+    {
+        "nome": "DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0032 ) OU ( ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0065 ) OU ( ECO0066 )",
+        "equivalencias_especificas": [],
+        "ementa": "CONCEITOS BASIOCS SOBRE DESENVOLVIMENTO  ECONOMICO. CAUSAS DO  ATRASOECONOMICO RELATIVO. A INGLUENCIA DOS FATORES DE PRODUCAO  NO DESENVOLVI-MENTO. A EVOLUCAO DO DESENVIMENTO EUROPEU, NORTE-AMERICANO E BRASILEIRO,DO PONTO DE VISTA HISTORICO. PRINCIPAIS  MODELOS DE  CRESCIMENTO  LEWIS,HARRODO-DOMAR,  MAHALANOBIS. IMPERIALISMO E  DESENVOLVIMENTO  ECONOMICO:VISAO SCHUMPETERIANA, MARXISTA E DE HOBSON. A IMPORTANCIA DO IMPERIALIS-MO COMO INIBIDOR AO DESENVOLVIMENTO.",
+        "codigo": "ECO0067"
+    },
+    {
+        "nome": "DESENVOLVIMENTO ECONÔMICO E SOCIAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0199 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo do desenvolvimento econômico como parte integrante do desenvolvimento social. Apresentação de teorias e modelos de desenvolvimento econômico. Apresentação do pensamento cepalino e seus interlocutores. Abordagem de tópicos contemporâneos da teoria do desenvolvimento.",
+        "codigo": "ECO0012"
+    },
+    {
+        "nome": "ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0053 )",
+        "equivalencias_especificas": [],
+        "ementa": "Objetiva-se introduzir o aluno na área de Econometria, enfatizando os aspectos conceituais, procurando preparar o aluno para níveis mais elevados. Apesar da ênfase dada aos aspectos conceituais, o curso tem um lado prático que são os exercícios referentes à cada unidade, com o objetivo de fixação do entendimento. A base do curso é o modelo de Regressão Linear que é analisado nos seus vários aspectos, tanto teóricos como práticos. Não há problema de bibliografia, já que este modelo está presente em todos compêndios de econometria e estatística.",
+        "codigo": "ECO0054"
+    },
+    {
+        "nome": "ECONOMETRIA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0239 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTE CURSO  VISA DAR AO ALUNO UMA  INTRODUCAO  A TEORIA E PRATICA  DAECONOMIA. SENDO \"A ARTE E CIENCIA  DO USO  DE METODOS ESTATISTICOS  PARAA MEDICACAO  DE RELACOES ECONOMICAS\". (CHOW,  1983 A ECONOMETRIA  E UMASDAS PRINCIPAIS FORMAS ATRAVEZ DA QUAL AS IMPLICACOES REEFUTAVEIS QUE SAOGERADAS PELA TEORIA  ECONOMICA PODEM  SER TESTADAS. AO FINAL  DO CURSO OALUNO DEVERA ESTAR APTO, TEXTO A ACOMPANHAR TRABALHOS NA LITERATURA ECO-NOMICA QUE UTILIZEM ESTA TECNICA, COMO APLICA-LA EM PESQUISA PROPRIA.      PARA TANTO O CURSO SE CONCENTRA NOS FUNDAMENTOS TEORICOS DA  ECONOME-TRIA,  QUE  SAO INDISPENSAVEIS  A ADEQUADA  APLICACAO  PRATICA. AO MESMOTEMPO,  EXERCICIOS  PRATICOS  USANDO  PROGRAMAS  EM  COMPUTADORES  SERAOINCLUIDOS  AO  LONGO DO  CURSO PARA  RESSALTAR  O ELO  ENTRE A TEORIA  EA APLICACAO E REDUZIR O NIVEL DE ABSTRACAO DO CURSO.",
+        "codigo": "ECO0240"
+    },
+    {
+        "nome": "ECONOMETRIA DE SÉRIES DE TEMPO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 ) OU ( EST0038 ) OU ( EST0023 E ENE0085 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0263 )",
+        "equivalencias_especificas": [],
+        "ementa": "Revisão de Regressão Linear Múltipla. Fundamentos Probabilísticos. Processos Estacionários. Questionamento da Metodologia Tradicional. Testes de Normalidade. Processos de Raiz Unitários. Correlograma. Testes de Dickey e Fuller e Extensões. Teste de Phillips-Perron. Cointegração e Modelos com Correção de Erros. Método de EngleGranger. Modelos Autoregressivos (AR). Causalidade de Granger. Modelos ARMA, ARIMA. Fenômenos Típicos de Séries Temporais. Modelagem por Vetores Autoregressivos (VAR). Funções Impulso-Resposta. Equações simultâneas. Outros métodos de Estimação: Mínimos Quadrados Indiretos (MQI), Mínimos Quadrados de Dois Estágios (2SLS), Mínimos Quadrados de Três Estágios (3SLS). Máxima Verossimilhança. Modelos ARCH e GARCH.",
+        "codigo": "ECO0264"
+    },
+    {
+        "nome": "ECONOMIA AGRICOLA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0051 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "ECO0052"
+    },
+    {
+        "nome": "ECONOMIA AMBIENTAL E ECOLÓGICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0272 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Economia Ambiental e Ecológica examina as formas pelas quais a análise econômica focaliza o meio ambiente - o recurso natural básico para o bem-estar e para a sobrevivência da humanidade, mas que vem sendo ameaçado pela escala crescente da atividade econômica e pelas características dos estilos de desenvolvimento, tanto dos países industrializados como dos em desenvolvimento. Inicialmente serão examinados os elementos da questão ambiental e a natureza dos problemas que a humanidade vem experimentando, para a solução dos quais se procura ajuda no campo da ciência econômica. Em seguida, serão discutidas e avaliadas as principais abordagens econômicas desenvolvidas para tratar da questão e orientar no equacionamento desses problemas. Não nos restringiremos às formulações do mainstream da análise econômica, que oferece principalmente soluções de curto e médio prazos. Analisaremos também abordagens de longo prazo que, nessa perspectiva temporal, focalizam a questão da sustentabilidade do sistema econômico global, em um mundo de ainda considerável dinamismo demográfico e de forte opção pelo crescimento.",
+        "codigo": "ECO0262"
+    },
+    {
+        "nome": "ECONOMIA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0071 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-3 - 2015.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-4 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-5 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-4 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-5 - 2015.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-6 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-7 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-3 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/1 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "CIENCIAS CONTABEIS - Bacharelado - Presencial - D",
+                "curriculo": "8516/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-2 - 2018.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0022 OU ECO0023 ) E ( ECO0157 OU ECO0158 OU ECO0159 ) ) OU ( ECO0071 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/1 - 2018.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Objetiva-se no curso estudar a Economia Brasileira de 1930 ao tempo presente. Estudam-se Agricultura, Indústria, Comércio Exterior, Políticas Monetária e Fiscal, Inflação, Relações intersetoriais e regionais para cada subperíodo.",
+        "codigo": "ECO0072"
+    },
+    {
+        "nome": "ECONOMIA BRASILEIRA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0159 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0237 )",
+        "equivalencias_especificas": [],
+        "ementa": "O OBJETIVO DA DISCIPLINA E DISCUTIR TOPICOS SELECIONADOS REFERENTE  AEVOLUCAO RECENTE DA ECONOMIA BRASILEIRA (DUAS ULTIMAS DECADAS). PARTE-SEDO PRESSUPOSTO DE QUE OS  ALUNOS  TEM  UM CONHECIMENTO  FACTUAL  SOBRE OPERIODO CORRESPONDENTE AO EXIGIDO NO CONCURSO DA ANPEC.                    A DISCUSSAO  SERA  BASEADA  NOS  TEXTOS  LISTADOS  NA  BIBLIOGRAFIA ASEGUIR, QUE SAO DE LEITURA OBRIGATORIA. LEITURAS DE APOIO SERAO  INDICA-DAS NAS AULAS. OU  PODERAO  SER SOLICITADAS AO PROFESSOR,  ESPECIALMENTEPOR AQUELES QUE SENTIREM DIFICULDADE EM ACOMPANHAR AS DISCUSSOES.",
+        "codigo": "ECO0238"
+    },
+    {
+        "nome": "ECONOMIA DA COMPLEXIDADE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Este curso analisa a economia como um sistema complexo adaptável, uma perspectiva alternativa às abordagens neoclássicas ou heterodoxas convencionais. A abordagem da complexidade vê a economia como um sistema aberto, dinâmico e não-linear, composto por agentes heterogêneos com informações incompletas, seguindo regras simples e locais. A economia é compreendida aqui como capaz de gerar características emergentes imprevisíveis e complexas que não podem ser facilmente deduzidas das regras seguidas pelos agentes individuais. O curso reconhece a economia como composta por vários agentes heterogêneos cuja interação produz resultados agregados imprevisíveis e surpreendentes. O objetivo do curso é introduzir a teoria dos Sistemas Complexos Adaptáveis com foco em suas aplicações à Economia, além de ensinar diversas ferramentas e técnicas utilizadas nesse campo, como teoria de redes, modelos baseados em agentes, teoria evolucionária, leis de potência, entropia, teoria da informação, entre outros.",
+        "codigo": "ECO0349"
+    },
+    {
+        "nome": "ECONOMIA DA DEFESA DA CONCORRÊNCIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Nesta disciplina, apresenta-se os princípios da análise econômica para ser aplicado no antitruste ou defesa da concorrência. Espera-se que o aluno seja capaz de lidar com conceitos e ferramentas de análise econômica relativos à eficiência e ao progresso tecnológico, cartéis, oligopólios, análise de fusões horizontais e verticais. Neste tópicos o professor poderá estimular o estudo de casos conhecidos do Brasil bem como de outras jurisdições.",
+        "codigo": "ECO0017"
+    },
+    {
+        "nome": "ECONOMIA DA INFRAESTRUTURA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Busca-se analisar o histórico, a evolução e características atuais da infraestrutura no Brasil, com ênfase para a infraestrutura de transportes e energética. Sempre que possível, serão feitas comparações com outros países. No curso, serão abordados desdobramentos teóricos e empíricos ligados à temática da infraestrutura, bem como políticas públicas relativas ao setor e também contato com eventos atuais da economia brasileira. Haverá, adicionalmente, palestras com especialistas na área.",
+        "codigo": "ECO0007"
+    },
+    {
+        "nome": "ECONOMIA DA POLÍTICA AMBIENTAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( CDS0010 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Economia da Política Ambiental  analisará, à luz da teoria econômica, os instrumentos de política freqüentemente usados na gestão do meio ambiente. Há vinte e um anos, a problemática ambiental tem sido analisada sob o domínio de um conceito - desenvolvimento sustentável. Não obstante, uma acalorada controvérsia ainda permanece em torno de aspectos éticos, políticos, teóricos e práticos do desenvolvimento sustentável. Formular, escolher e implementar políticas de gestão ambiental adequadas são decisões essenciais em qualquer estratégia de desenvolvimento sustentável, mesmo que não haja um consenso sobre sua definição.",
+        "codigo": "ECO0266"
+    },
+    {
+        "nome": "ECONOMIA DA REGULAÇÃO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Motivos para a regulação. Regulação e política antitruste: conceitos e histórico. Teorias da regulação: análise normativa, teoria da captura e teoria econômica da regulação. Monopólio natural, leilão de franquia e regulação. Regulação de mercados potencialmente competitivos. Defesa da concorrência e legislação antitruste.",
+        "codigo": "ECO0011"
+    },
+    {
+        "nome": "ECONOMIA DA TECNOLOGIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0099 E ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0084 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo das perspectivas teóricas do papel da inovação e difusão tecnológica em Economia. Abordagem dos determinantes do progresso técnico e difusão tecnológica. Estudo do conceito de Sistema Nacional de Inovação e do papel das políticas públicas para promoção de um ambiente inovador.",
+        "codigo": "ECO0085"
+    },
+    {
+        "nome": "ECONOMIA DE COMERCIO INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 E ECO0189 ) OU ( EST0063 E ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0040 ) OU ( ECO0190 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo das principais correntes do pensamento econômico sobre o comércio internacional.",
+        "codigo": "ECO0191"
+    },
+    {
+        "nome": "ECONOMIA DE EMPRESAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 E ECO0185 E ECO0099 E ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0233 )",
+        "equivalencias_especificas": [],
+        "ementa": "O OBJETIVO DO CURSO A FAMILIARIZAR OS ALUNOS COM AS MANEIRAS DE TOMARDECISOES NAS EMPRESAS EM UM AMBIENTE DE INCERTEZA. O CURSO DEVERA COBRIROS PRINCIPAIS TOPICOS DE TEORIA DA DECISAO COM RISCO E DEVERA FAZER PAR-TE DE UM TREINAMENTO DE ALTO NIVEL NO QUE SE REFERE A TOMADA DE  DECISAONAS EMPRESAS MODERNAS.",
+        "codigo": "ECO0234"
+    },
+    {
+        "nome": "ECONOMIA DO BRASIL CONTEMPORANEO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0023 E ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0157 ) OU ( ECO0158 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "No curso, realiza-se um exame circunstanciado da evolução da economia brasileira, desde 1989, o ano da Proclamação da República, enfatizando a análise dos eventos que se desenrolaram entre a revolução de 1930 ao presente. Após, revisa-se brevemente a evolução da economia e da sociedade até 1930, focalizam-se os três governos de Getúlio Vargas, a fase de Substituição de Importação do pós-guerra até 1960, os anos conturbados do início da década de 1960, as reformas do Governo Militar, o período do \"Milagre\", os anos de crescimento com endividamento, a Crise da Dívida Externa e a retomada da inflação na primeira metade da década de 1980, os planos heterodoxos da segunda metade da década, o ocaso da nova república,os programas e problemas do governo Collor, passa pelos Governos: Itamar (Plano Real), Fernando Henrique Cardoso, Luis Inácio Lula da Silva e Dilma Rousseff.",
+        "codigo": "ECO0159"
+    },
+    {
+        "nome": "ECONOMIA DO CRIME",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "ECO0019",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A violência é um dos mais graves problemas que afligem as sociedades modernas. Cientistas sociais de diferentes áreas procuram entender as causas, e as motivações, desse fenômeno, bem como possíveis alternativas de políticas públicas que possam minimizar seus efeitos. Entendendo violência no sentido amplo, podemos interpretar acidentes de trânsito, homicídios, suicídios, terrorismo, brutalidade policial, violência doméstica e no trabalho, como subdivisões do tema geral violência. O objetivo deste projeto é tentar compreender melhor os determinantes dos diferentes tipos de violência. Cabe ressaltar que uma melhor compreensão da violência é uma questão vital para a formulação de políticas públicas que tentem amenizar esse problema. É evidente que um objetivo de tal magnitude impõe diversas dificuldades a essa empreitada. Assim, esse projeto se propõe a ser um guia para estudos relacionados a violência. \n\n \n\nO principal objetivo do curso é tentar compreender melhor os determinantes dos diferentes tipos de crime e da violência. \n\n \n\nA influência da criminalidade  estende-se fortemente à Teoria Econômica, Psicologia, Medicina, Biologia, etc. Portanto, a investigação do crime pertence por completo às ciências teóricas e empíricas.",
+        "codigo": "ECO0277"
+    },
+    {
+        "nome": "ECONOMIA DO MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 ) OU ( MAT0027 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0251 )",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução a Economia do Meio Ambiente. Escolha Social e Eficiência. Falhas de Mercado, Bens Públicos e Externalidades. Regulação da Poluição e dos Poluidores. Informação Assimétrica. Disposição a Pagar e a Receber. Métodos de Valoração Ambiental: preferências reveladas e mercados construídos. Comportamento Ambiental Pró-Ativo e Acordos. Sustentabilidade.",
+        "codigo": "ECO0252"
+    },
+    {
+        "nome": "ECONOMIA DO SETOR EXTERNO E MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Analisar as interfaces entre o setor externo de uma economia nacional e o uso e a conservação de sua base natural. Modelos econômicos de comércio eInvestimentos internacionais são apresentados com a incorporação das das dimensões ambientais relevantes. Desequilíbrios ambientais planetários são discutidos em termos de suas conseqüências para o crescimento das atividades comerciais e econômicas entre países.",
+        "codigo": "ECO0273"
+    },
+    {
+        "nome": "ECONOMIA DO SETOR PUBLICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0140 )",
+        "equivalencias_especificas": [],
+        "ementa": "Neste curso, analisa-se o papel desempenhado pelo Setor Público nas modernas economias de mercado. Na primeira parte do curso, estudar-se e a rationale econômica para a existência de governo, a teoria do bem-estar com ênfase especial no trade-off entre eficiência e equidade e as questões de escolha pública. Em seguida, analisar-se-á a teoria da tributação. Na parte final do curso, os conceitos estudados serão aplicados a economia brasileira.",
+        "codigo": "ECO0141"
+    },
+    {
+        "nome": "ECONOMIA DOS RECURSOS HUMANOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0160 )",
+        "equivalencias_especificas": [],
+        "ementa": "Relação entre educação, capital humano e produtividade. Crescimento Econômico e Capital Humano. Capital Humano e o desenvolvimento econômico.",
+        "codigo": "ECO0161"
+    },
+    {
+        "nome": "ECONOMIA DOS RECURSOS NATURAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 E ECO0099 ) OU ( MAT0026 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0102 ) OU ( ECO0103 )",
+        "equivalencias_especificas": [],
+        "ementa": "Condições atuais de quantidade, qualidade, uso e manejo dos recursos naturais, alocação, distribuição e o bem-estar econômico: Teoria Econômica para a Política de Recursos; e Conceitos.",
+        "codigo": "ECO0104"
+    },
+    {
+        "nome": "ECONOMIA DOS TRANSPORTES",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0100 )",
+        "equivalencias_especificas": [],
+        "ementa": "Os cenários macro e microeconômicos dos transportes. Funções Socioeconômicas dos transportes. As modalidades de transportes. A gestão dos transportes. Custos de transporte. Benefícios diretos e indiretos da implantação, da expansão e da operação dos transportes. A logística e os transportes. Avaliação econômica dos transportes.",
+        "codigo": "ECO0101"
+    },
+    {
+        "nome": "ECONOMIA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0099 E ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0082 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre tópicos selecionados de Economia do Trabalho, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0083"
+    },
+    {
+        "nome": "ECONOMIA E DEMOCRACIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Economia e Democracia tem por objetivo analisar o histórico, a evolução e característica atuais do processo democrático no país, com ênfase para acontecimentos mais recentes e seus impactos nos aspectos econômicos e sociais brasileiros, bem como comparações internacionais.",
+        "codigo": "ECO0279"
+    },
+    {
+        "nome": "ECONOMIA ESTATISTICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 E EST0061 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0062 ) OU ( ECO0196 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/-2 - 2005.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0030 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( EST0022 OU EST0023 ) ) OU ( ECO0196 )",
+                "matriz_curricular": "RELACOES INTERNACIONAIS - Bacharelado - Presencial - D",
+                "curriculo": "3727/1 - 2017.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA \"ECONOMIA ESTATISTICA\" TEM POR OBJETIVO FAMILIARIZAR OS ESTUDANTES COM O FERRAMENTAL ESTATISITICO NECESSARIO PARA SER UTILI- ZADO NO CURSO DE ECONOMETRIA E NA SUA VIDA PROFISSIONAL. ESPERA-SE  QUE AO FINAL DO CURSO, O ESTUDANTE ESTEJA APTO A INFERIR A PARTIR DE  AMOS- TRAS, MONTAR TESTES DE HIPOTESE, OBTER REGRESSOES SIMPLES, FAZER PROJE- COES E INTERPRETAR ECONOMICAMENTE AS ESTATISTICAS OBTIDAS.",
+        "codigo": "ECO0197"
+    },
+    {
+        "nome": "ECONOMIA INDUSTRIAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0133 )",
+        "equivalencias_especificas": [],
+        "ementa": "No curso, apresentam-se os principais modelos sobre o comportamento das firmas em estruturas de mercado não ideais, utilizando como base a teoria microeconômica, especialmente a teoria dos jogos.",
+        "codigo": "ECO0134"
+    },
+    {
+        "nome": "ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0191 ) OU ( ECO0037 ) OU ( ECO0038 ) OU ( ECO0039 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Neste curso, apresenta-se a Teoria da Economia Internacional e suas aplicações para a análise e formulação da política de Comercio Exterior. O curso trata dos fatores determinantes do Padrão de Vantagem Comparativa e da estrutura do Comercio Exterior. Além de examinar os movimentos internacionais de mercadorias, examinam-se os movimentos internacionais de fatores de produção, dando consideração especial ao investimento estrangeiro. Estuda-se a definição e comportamento das contas do Balanço de Pagamentos, estudam-se as diversas teorias de determinação da taxa de câmbio. Conclui-se pela análise de vantagens e desvantagens de sistemas cambiais alternativos.",
+        "codigo": "ECO0040"
+    },
+    {
+        "nome": "ECONOMIA LATINO-AMERICANA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0245 )",
+        "equivalencias_especificas": [],
+        "ementa": "Buscamos fornecer aos estudantes a oportunidade de analisar complexidades institucionais do processo histórico do sub-desenvolvimento econômico e social da América Latina. Apresentamos uma visão retrospectiva da relação entre povos conquistados e colonizadores. Bandeirantes e pioneiros. A pobreza do colonizado como resultado da riqueza da terra e da dependência política em relação a metrópoles imperialistas. Exploração, fontes subterrâneas do poder, marginalização da população, impacto econômico e cultural. Acumulação de capital e aspectos da visão marxista. Rosa Luxembourg e exploração primitiva. Sumarizamos modelos teóricos simples de crescimento e distribuição. Revemos paradigmas teóricos competitivos e seus fundamentos. Atenção especial é dada ao surgimento da Escola Estruturalista, contribuições da CEPAL. Disputa entre economistas ortodoxos e heterodoxos na condução da política econômica e social. Revisitamos os fundamentos e crítica do modelo de Harrod-Domar, Neoclássico (Neoliberal), Modelo de Lewis (economias duais) e Rostow (estágios de desenvolvimento). Contribuições de Prebisch, suas raízes históricas e implicações na elaboração da política econômica. Contribuições de Furtado sobre o contraste entre a dinâmica do crescimento dos países industrializados e subdesenvolvidos, assim como industrialização na periferia, desequilíbrios regionais, causas da inflação e busca do planejamento. Kaldor e pós-Keynesianismo.  Contribuições de Kalecki. São apresentadas certas controvérsias e estratégias de desenvolvimento em países latino-americanos selecionados a partir da segunda guerra. Finalmente consideramos a hipótese de que o mundo desenvolvido (economias capitalistas líderes) exerce forte pressão sobre os países em desenvolvimento para que adotem certas \"políticas boas\" e \" instituições boas\", consideradas necessárias mas que não foram por eles utilizadas no devido momento histórico do \"arrancar\" e consolidação do processo de industrialização.",
+        "codigo": "ECO0246"
+    },
+    {
+        "nome": "ECONOMIA MONETARIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0192 ) OU ( ECO0193 )",
+        "equivalencias_especificas": [],
+        "ementa": "Pelo curso de Economia Monetária, objetiva-se o aprofundamento de discussões que tiveram seu início no curso de Macroeconomia II. Observam-se as particularidades da moeda e suas inter-relações com a esfera real da economia. Para tanto, procura-se analisar o comportamento dos diversos agentes econômicos em relação à moeda, tanto no que se refere à demanda quanto à oferta. Feito isso, estudam-se as diversas vertentes do pensamento econômico observando o papel que cada uma atribui à moeda em termos de sua interferência na dinâmica econômica real e na determinação de preços. Expõe-se o processo inflacionário brasileiro e estuda-se a moeda em uma economia aberta. Esta última parte será aprofundada posteriormente no curso de Economia Internacional.",
+        "codigo": "ECO0194"
+    },
+    {
+        "nome": "ECONOMIA POLITICA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0123 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0071 OU ECO0072 ) ) OU ( ECO0123 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-6 - 1998.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0071 OU ECO0072 ) ) OU ( ECO0123 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/1 - 2019.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0071 OU ECO0072 ) ) OU ( ECO0123 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-2 - 2016.1",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0071 OU ECO0072 ) ) OU ( ECO0123 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-3 - 2011.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0071 OU ECO0072 ) ) OU ( ECO0123 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-4 - 2008.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0071 OU ECO0072 ) ) OU ( ECO0123 )",
+                "matriz_curricular": "CIENCIA POLITICA - Bacharelado - Presencial - D",
+                "curriculo": "8591/-5 - 2006.2",
+                "data_vigencia": "1989.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "No curso de Economia Política I, procura-se introduzir o estudante na obra de Marx, focalizando sobretudo os seguintes aspectos: o processo de produção capitalista enquanto processo de trabalho e valorização e o processo de circulação e reprodução do capital. Ao longo do curso são examinados os temas: conceitos de valor, valor de troca, dinheiro e capital o processo de reprodução a transformação de valor em preço as leis de movimento de capitalismo.",
+        "codigo": "ECO0124"
+    },
+    {
+        "nome": "ECONOMIA POLITICA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0124 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0221 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTE CURSO VIZA INTRODUZIR OS ALUNOS NA LEITURA DE TRABALHOS TEORICOSE EMPIRICOS LIGADOS A ECONOMIA POS-KEYNESIANA, ENTENDIDA COMO UMA  ABOR-DAGEM NA TRADICAO DE MARX, KEYNES, KALECKI E SRAFFA.  O CURSO  CENTRA-SEEM QUESTOES QUE BUSCAM EXPLICAR OS PROBLEMAS ECONOMICOS E  SOCIAIS  COR-RENTES: ACUMULACAO, CRISE DESEMPREGO, INFLACAO,  ORGANIZACAO  DE  PRODU-CAO, DISTRIBUICAO DO  PRODUTO, CONFLITO DE CLASSES, CRESCIMENTO DESEQUI-LIBRADO E INSTABILIDADE NA ECONOMIA CAPITALISTA  MODERNA.  TAMBEM ABORDAPROBLEMAS DAS ECONOMIAS SUBDESENVOLVIDAS.",
+        "codigo": "ECO0222"
+    },
+    {
+        "nome": "ECONOMIA QUANTITATIVA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( MAT0025 E ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( MAT0027 E MAT0031 ) OU ( ECO0186 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-6 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-7 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-4 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-5 - 2012.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-3 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/1 - 2018.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0186 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "No curso, comporta-se basicamente a matemática necessária ao estudo de modelos estatísticos em Economia. Começando pela Álgebra Linear, passado pela análise convexa e terminando pela teoria de otimização com restrições em dimensão finita.",
+        "codigo": "ECO0187"
+    },
+    {
+        "nome": "ECONOMIA QUANTITATIVA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0187 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0055 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-6 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-7 - 2011.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-4 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-5 - 2012.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-3 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/1 - 2018.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIA DA COMPUTACAO - Bacharelado - Presencial - D",
+                "curriculo": "1856/-2 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( MAT0024 OU MAT0025 ) E ( MAT0026 ) E ( MAT0027 ) E ( MAT0030 OU MAT0031 ) E ( MAT0048 ) ) OU ( ECO0055 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Álgebra Vetorial. Matrizes, Determinantes e Aplicações à Economia. Otimização. Vetores e Raízes Características. Equações Diferenciais Ordinárias. Equações de Diferenças. Aplicações. A Utilização da Matemática na Economia. A Forma Matemática dos Modelos Econômicos. Inequações. Enfoque para Utilização em Econometria. Combinação Linear de Vetores. Estudos dos Determinantes. Estudo das Matrizes. Rank das Matrizes. Complementos de Matemática para o Estudo da Teoria Econômica em nível intermediário. Aplicação dos Conceitos da Teoria Matemática da Maximização em Modelos de Otimização Estática (Técnica dos Multiplicadores de Lagrange e Programação Linear).  Ênfase Em Álgebra Linear.",
+        "codigo": "ECO0056"
+    },
+    {
+        "nome": "ECONOMIA REGIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0060 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTUDO DE ECONOMIA REGIONAL TEM COMO OBJETIVO  INTRODUZIR O  CONHE-CIMENTO DE PROBLEMAS ECONOMICOS  RELACIONADOS  COM A DINAMICA  ESPACIAL,DA-SE ENFASE, ESPECIALMENTE AOS DESEQUILIRIOS REGIONAIS QUE SURGEM COM OPROCESSO DO CRESCIMENTO ECONOMICO E EM QUE MEDIDA  ESSE ESTUDO SE TORNAUTIL PARA SOLUCINAR OS PROBLEMAS SURGIDOS  COM  AS DESIGUALDADES  REGIO-NAIS. UMA PARTE DO CURSO E DEDICADA A PROBLEMAS BRASILEIROS.",
+        "codigo": "ECO0061"
+    },
+    {
+        "nome": "ECONOMIA RURAL 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0107 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAV0149 OU FAV0150 ) ) OU ( ECO0107 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-3 - 2013.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAV0149 OU FAV0150 ) ) OU ( ECO0107 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-4 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAV0149 OU FAV0150 ) ) OU ( ECO0107 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-5 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAV0149 OU FAV0150 ) ) OU ( ECO0107 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/-2 - 2017.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAV0149 OU FAV0150 ) ) OU ( ECO0107 )",
+                "matriz_curricular": "ENGENHARIA FLORESTAL - Engenheiro Florestal - Presencial - D",
+                "curriculo": "6521/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA ECONOMIA RURAL OBJETIVA DESENVOLVER NOS ALUNOS DOS  CUR-SOS DE ENGENHARIA  AGRONOMICA E  ENGENHARIA  FLORESTAL, A CAPACIDADE  DEENTENDER E  ANALISAR  OS  PROBLEMAS ECONOMICOS QUE SE  RELACIONAM  COM AAGROPECUARIA NO CONTEXTO DO PROCESSO DE DESENVOLVIMENTO DE PAIS, COM EN-FASE NO CAS BRASILEIRO.                                                    TENDO EM VISTA  O PERFIL DE  ESPECIALIZACAO  PROFISSIONAL DA TURMA, ADISCIPLINA APRESENTARA DOIS NIVEIS DE ABORDAGEM:                           a) TEORICO                                                              b) INSTRUMENTAL",
+        "codigo": "ECO0108"
+    },
+    {
+        "nome": "ECONOMIA URBANA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0138 )",
+        "equivalencias_especificas": [],
+        "ementa": "O curso busca incorporar a variável espaço aos modelos e análises econômicas para compreender os fenômenos urbanos, tanto aqueles relacionados ao funcionamento das cidades como os que têm a ver com a rede urbana de um país. O objetivo do curso é introduzir o aluno à elaboração de: i) políticas urbanas, ii)  estratégias de desenvolvimento de cidades e iii) propostas de políticas públicas para o enfrentamento  dos desafios urbanos dos países em desenvolvimento.",
+        "codigo": "ECO0139"
+    },
+    {
+        "nome": "ELEMENTOS DE ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( IRI0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0249 )",
+        "equivalencias_especificas": [],
+        "ementa": "Elementos de Economia Internacional a serem definidos no programa do curso, do  semestre corrente.",
+        "codigo": "ECO0250"
+    },
+    {
+        "nome": "EMPRESAS MULTINACIONAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( IRI0139 ) OU ( ECO0144 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo do papel desempenhado pelas empresas multinacionais em um mundo globalizado.",
+        "codigo": "ECO0145"
+    },
+    {
+        "nome": "ESPAÇO REGIONAL URBANO E MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0272 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O curso visa dar ao aluno uma perspectiva ampla das questões regional e urbana e suas interfaces com a problemática ambiental. Com este propósito o curso será dividido em seis  partes. A primeira parte analisará o contexto global em que se inserem as economias nacional e regional, procurando mostrar os diferentes enfoques teóricos que analisam este novo contexto e as conclusões que são retiradas desses diversos modelos de análise quanto à ampliação ou redução das desigualdades. Em um segundo bloco serão analisadas as diferentes teorias que tratam a questão regional. Novamente, o fio condutor será a análise da convergência ou divergência das trajetórias de crescimento das economias regionais como sendo resultado ou não dos mecanismos de mercado. Em uma terceira seção será analisada a formação de blocos econômicos supra nacionais e sua conseqüência para a dinâmica regional interna aos países. Após estas considerações de caráter mais teórico será desenvolvida uma analise da origem histórica da questão regional do Brasil, da política regional de seus impactos e perspectivas. A questão urbana será estudada nas quinta e sexta seções. Inicialmente, serão discutidas as teorias explicando a formação do espaço urbano. A última seção do curso trata da questão urbano nacional.",
+        "codigo": "ECO0274"
+    },
+    {
+        "nome": "ESTAGIO CURRICULAR SUPERVISIONADO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0223 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de orientação individual de estágio supervisionado, com conteúdo variável, conforme plano de trabalho definido entre supervisor e discente.",
+        "codigo": "ECO0224"
+    },
+    {
+        "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0217 )",
+        "equivalencias_especificas": [],
+        "ementa": "Inicialmente, apresenta-se uma introdução metodológica, discutindo o conceito de Ciência Econômica e o Contexto Histórico de seu Desenvolvimento. Em seguida, abordam-se as contribuições dos principais autores: Mercantilistas, Fisiocratas, Adam Smith, David Ricardo, Karl Marx, Marginalistas e Keynes.",
+        "codigo": "ECO0218"
+    },
+    {
+        "nome": "EXPERIENCIAS COMPARADAS DE DESENVOLVIMENTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0099 E ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0075 ) OU ( ECO0076 )",
+        "equivalencias_especificas": [],
+        "ementa": "PRINCIPAIS VARIAVEIS INDICADORES DAS DESIGUALDADES ECONOMICAS. O QUA-DRO SOCIO-POLITICO COMPARATIVO DOS PAISES DESENVOLVIDOS E SUBDESENVOLVI-DOS.  O SUBDESENVOLVIMENTO  COMO O RESULTADO  DE  FRACASSO DE  POLITICASDESENVOLVIMENTISTAS. ESTRUTURAS TRADICIONAIS E SUAS MODERNIZACOES.  PRO-BLEMAS DE DESENVOLVIMENTO RECENTES EM UM MUNDO DE CONSUMO DE MASSA.",
+        "codigo": "ECO0077"
+    },
+    {
+        "nome": "FINANCAS INTERNACIONAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0151 ) OU ( ECO0152 )",
+        "equivalencias_especificas": [],
+        "ementa": "O objetivo desse curso é de expor ao aluno as relações e interações dos mercados financeiros internacionais. Apresenta-se o balanço de pagamentos e as fontes das crises de balanço de pagamentos e ataques especulativos. Estudam-se a determinação da taxa de câmbio, a coordenação das políticas macroeconômicas internacionais, o mercado global de capitais e os efeitos de políticas, crises e choques externos em uma economia aberta utilizando casos reais da economia internacional e brasileira.",
+        "codigo": "ECO0153"
+    },
+    {
+        "nome": "FORMACAO ECONOMICA DA AMERICA LATINA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0142 )",
+        "equivalencias_especificas": [],
+        "ementa": "Raízes da formação econômica e social da América Latina. Colonização, ocupação do território e Independência. Modelo primário-exportador. Crise de 1929. Pensamento econômico latino-americano e a CEPAL.",
+        "codigo": "ECO0143"
+    },
+    {
+        "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0022 )",
+        "equivalencias_especificas": [],
+        "ementa": "No curso de Formação Econômica do Brasil, objetiva-se fornecer uma perspectiva histórica da economia brasileira. Procura-se abordar a história econômica do país enfatizando as diferentes interpretações que foram desenvolvidas sobre a mesma, de forma que o aluno possa ter uma visão crítica sobre o processo de desenvolvimento econômico brasileiro. Nossa análise inicia-se com o período colonial e estende-se até o processo de industrialização por substituição de importações.",
+        "codigo": "ECO0023"
+    },
+    {
+        "nome": "FUNDAMENTOS DE ECONOMIA DO MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Origens conceituais da economia do meio ambiente (ambiental). Contribuições iniciais de Pigou, Ciriacy-Wantrup e Hotelling. Razões para o predomínio da visão microeconômica neoclássica na economia do meio ambiente. Visões econômicas ambientais: marxismo verde, nova economia institucional, estilo de desenvolvimento cepalino. A visão da economia ambiental de bandeiras do movimento ambientalista mundial: crescimento zero, ecodesenvolvimento, economia verde, decrescimento, economia circular. Conceitos básicos da macroeconomia ambiental e do Keynesianismo Verde.",
+        "codigo": "ECO0265"
+    },
+    {
+        "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 E ECO0218 E ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0024 )",
+        "equivalencias_especificas": [],
+        "ementa": "Examinam-se, inicialmente, as ideias dos seguintes autores: Ricardo, Marx, Marshall e Keynes. Em Seguida, examinam-se as principais controvérsias em Teoria Econômica, entre Pós-Keynesianos e Marxistas; entre Pós-Keynesianos e Keynesianos da Síntese Neoclássica; entre Novos Clássicos e Novos Keynesianos.",
+        "codigo": "ECO0025"
+    },
+    {
+        "nome": "HISTÓRIA ECONÔMICA GERAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0020 )",
+        "equivalencias_especificas": [],
+        "ementa": "O tema central do curso é o capitalismo: suas especificidades suas origens históricas e  desenvolvimento até o período que antecede a segunda guerra mundial. Ênfase especial é dada à análise da primazia inglesa no processo de industrialização e da posterior perda de hegemonia da indústria britânica. O curso se encerra com o exame da reordenação da economia mundial a partir do colapso do padrão-ouro.",
+        "codigo": "ECO0021"
+    },
+    {
+        "nome": "HISTÓRIA ECONÔMICA GERAL 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre História Econômica, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0015"
+    },
+    {
+        "nome": "INSTRUMENTO DE POLÍTICA AMBIENTAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0262 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "As atividades de formular e de implementar políticas públicas enfrentam desafios crescentes em um período de abertura econômica de nações. Maior liberdade no fluxo de bens, serviços e de capitais reduzem a eficácia de instrumentos relativamente bem sucedidos no antigo período de protecionismo econômico. No novo cenário econômico internacional, as interações entre política econômica, políticas setoriais e política ambiental recebem atenção crescente de pesquisadores, instituições públicas e da comunidade internacional. A tese de que o desenvolvimento econômico deve levar em conta custos ambientais, é amplamente aceita em uma era de internacionalização de atividades e de comportamentos. Desta forma, a análise das implicações ambientais do consumo e da produção tornou-se condição necessária na elaboração, implementação e avaliação de projetos, programas e políticas públicas. Conceitos como desenvolvimento sustentável, nas suas diversas formas de interpretação, atraem atenção sobre os efeitos das diferentes políticas econômicas sobre o meio ambiente. Outro aspecto fundamental a ser considerado é relativo às conseqüências das diversas políticas setoriais sobre o patrimônio ambiental da sociedade. Conceitos econômicos já são amplamente utilizados na gestão ambiental de alguns setores, como por exemplo, o controle de poluição atmosférica por meio de impostos sobre emissão de poluentes há mais de uma década. Conceitos arrojados, como as permissões negociáveis, também já foram testados com sucesso em alguns países. O tratamento dessas questões exige um adequado conhecimento das interações entre as leis econômicas e os princípios básicos de funcionamento dos sistemas físico e biótico. Nesse contexto, o objetivo geral da disciplina é apresentar uma visão abrangente das principais implicações ambientais das diversas políticas setoriais e das principais implicações nas políticas setoriais de diferentes metas ambientais. Ênfase especial é dada ao uso de instrumentos econômicos na formulação de políticas públicas, setoriais e ambiental, no Brasil e no exterior. Como objetivo específico, os(as) mestrandos(as) deverão analisar as diversas políticas apresentadas no curso à luz da teoria econômica.",
+        "codigo": "ECO0275"
+    },
+    {
+        "nome": "INTRODUCAO A ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0197 ) OU ( EST0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( EST0063 ) OU ( ECO0127 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Durante a disciplina, desenvolve-se o instrumental padrão para a estimação de modelos econométricos, enfocando a derivação de modelos de regressão linear múltipla e o relaxamento de seus pressupostos básicos. Nesse contexto,  deriva-se o estimador  por Mínimos Quadrados Ordinários e apresentam-se suas propriedades em pequenas amostras (viés e eficiência) e em grandes amostras (consistência e eficiência assintótica). Em um segundo momento, entra-se no campo da inferência estatística e teste de hipóteses, para então seguir com a descrição de modelos com variáveis qualitativas. Por fim, são apresentados e discutidos os métodos de estimação de tais modelos na presença de Multicolinearidade e Heterecedasticidade. Recomenda-se como pré-requisito um bom domínio de estatística e de álgebra linear.",
+        "codigo": "ECO0128"
+    },
+    {
+        "nome": "INTRODUÇÃO À ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0018 ) OU ( FDD0193 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-4 - 1997.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "AGRONOMIA - Engenheiro Agronomo - Presencial - D",
+                "curriculo": "6165/-5 - 2000.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "AGRONOMIA - Engenheiro Agronomo - Presencial - D",
+                "curriculo": "6165/-3 - 2010.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "AGRONOMIA - Engenheiro Agronomo - Presencial - D",
+                "curriculo": "6165/-4 - 2004.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-7 - 2005.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-9 - 2012.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DO AGRONEGOCIO - Bacharelado - Presencial - D",
+                "curriculo": "6190/1 - 2006.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-3 - 2015.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-4 - 2014.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-5 - 2011.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-3 - 2017.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-4 - 2016.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-5 - 2011.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0018 ) E ( FEA0029 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-3 - 2016.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0018 ) E ( FEA0029 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-4 - 2011.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0018 ) E ( FEA0029 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-5 - 2006.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/-3 - 2008.2",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO AMBIENTAL - Bacharelado - Presencial - N",
+                "curriculo": "6157/-2 - 2008.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-3 - 2016.1",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-3 - 2016.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-4 - 2009.2",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-4 - 2009.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-3 - 2012.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-4 - 2010.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - N",
+                "curriculo": "3522/-2 - 2016.1",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - N",
+                "curriculo": "3522/-3 - 2014.2",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - N",
+                "curriculo": "3522/-4 - 2010.1",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "MEDICINA VETERINARIA - Medico Veterinario - Presencial - D",
+                "curriculo": "6181/-3 - 2012.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "MEDICINA VETERINARIA - Medico Veterinario - Presencial - D",
+                "curriculo": "6181/-4 - 2010.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DE AGRONEGOCIOS - Bacharelado - Presencial - N",
+                "curriculo": "6262/-2 - 2010.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-4 - 2016.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-5 - 2015.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-6 - 2014.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-7 - 2011.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "AGRONOMIA - Engenheiro Agronomo - Presencial - D",
+                "curriculo": "6165/-2 - 2011.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-4 - 2016.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-5 - 2016.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-6 - 2012.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "MEDICINA VETERINARIA - Medico Veterinario - Presencial - D",
+                "curriculo": "6181/1 - 2016.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "MEDICINA VETERINARIA - Medico Veterinario - Presencial - D",
+                "curriculo": "6181/-2 - 2012.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-6 - 2016.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-5 - 2016.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-7 - 2015.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-8 - 2013.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-2 - 2016.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/-3 - 2014.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/1 - 2016.1",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - D",
+                "curriculo": "3514/-2 - 2014.1",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DE AGRONEGOCIOS - Bacharelado - Presencial - N",
+                "curriculo": "6262/1 - 2014.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-2 - 2015.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-2 - 2017.1",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/-2 - 2017.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-3 - 2017.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-2 - 2019.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-3 - 2018.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/-4 - 2017.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( SER0127 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "SERVICO SOCIAL - Bacharelado - Presencial - N",
+                "curriculo": "3522/1 - 2017.2",
+                "data_vigencia": "1996.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-3 - 2017.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-2 - 2017.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/1 - 2019.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - D",
+                "curriculo": "8486/-2 - 2017.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0018 ) E ( FEA0029 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/1 - 2019.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0018 ) E ( FEA0029 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "DIREITO - Bacharelado - Presencial - N",
+                "curriculo": "8885/-2 - 2017.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO AMBIENTAL - Bacharelado - Presencial - N",
+                "curriculo": "6157/1 - 2017.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "AGRONOMIA - Engenheiro Agronomo - Presencial - D",
+                "curriculo": "6165/1 - 2018.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/1 - 2020.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-2 - 2018.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/1 - 2018.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "ESTATISTICA - Bacharelado - Presencial - D",
+                "curriculo": "1716/1 - 2019.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/1 - 2019.2",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "CIENCIAS SOCIAIS - Bacharelado - Presencial - D",
+                "curriculo": "3115/-2 - 2019.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FUP0280 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/1 - 2019.2",
+                "data_vigencia": "2006.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FEA0042 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - D",
+                "curriculo": "3425/1 - 2020.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/1 - 2020.1",
+                "data_vigencia": "2011.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CCA0019 OU CCA0020 OU CCA0021 ) ) OU ( ECO0018 )",
+                "matriz_curricular": "HISTORIA - Licenciatura - Presencial - N",
+                "curriculo": "3476/1 - 2020.1",
+                "data_vigencia": "2012.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Discute-se, em caráter introdutório, questões metodológicas da ciência econômica, abordando, em seguintes temas: noções de microeconomia, estruturas de mercado, a demanda e a oferta; noções de macroeconomia, os agregados macroeconômicos, os modelos macroeconômicos simplificados; noções de economia monetária, as diferentes interpretações da inflação e políticas de estabilização; as relações econômicas internacionais, taxa de câmbio, balanço de pagamento, relações econômicas do Brasil com o resto do mundo e principais problemas atuais.",
+        "codigo": "ECO0019"
+    },
+    {
+        "nome": "INTRODUÇÃO À ECONOMIA POLÍTICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação da literatura econômica que deu início a Economia Política Clássica, permitindo que as Ciências Econômicas se originassem como disciplina autônoma do pensamento: Mercantilistas, Fisiocratas, Adam Smith, David Ricardo e Marx.",
+        "codigo": "ECO0008"
+    },
+    {
+        "nome": "INTRODUÇÃO A ECONOMIA QUANTITATIVA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Curso organizado para complementar o curso de cálculo e revisar a matemática necessária para o Curso de Economia Quantitativa. Ele apresenta noções de aritmética básica, expressões algébricas, equações e inequações, funções, otimização, vetores, matrizes e sistemas lineares com exemplos em economia.",
+        "codigo": "ECO0004"
+    },
+    {
+        "nome": "INTRODUÇÃO À UNB-ECO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina visa a introdução adequada dos novos alunos à dinâmica universitária com ênfase nos alunos de Ciências Econômicas. O objetivo é apresentar as várias possibilidades da vida universitária e mostrar como os ingressantes na universidade podem fazer uso dessas oportunidades. Teremos, assim, vários objetivos sendo cumpridos concomitantemente: os alunos vão conhecer a universidade, seu departamento, terão uma visão panorâmica, com alguma imersão, nos vários programas para a graduação que o Departamento e a Unb possuem, e vão estabelecer vínculos com os estudantes mais antigos do curso. Ao mesmo tempo que estabeleceremos um esquema de tutoria para cada aluno da disciplina a ser conduzido por um estudante do grupo PET.",
+        "codigo": "ECO0350"
+    },
+    {
+        "nome": "LABORATÓRIO DE ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Ensinar ao aluno de graduação em Ciências Econômicas, os conteúdos das bases de dados, extração, manipulação, realização de estatísticas descritivas e técnicas econométricas aplicadas a esses dados com o Software Estatístico R.",
+        "codigo": "ECO0006"
+    },
+    {
+        "nome": "MACROECONOMIA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0050 E ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0098 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0260 OU GPP0039 ) ) OU ( ECO0098 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-3 - 2012.1",
+                "data_vigencia": "2003.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0260 OU GPP0039 ) ) OU ( ECO0098 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-4 - 2010.2",
+                "data_vigencia": "2003.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0260 OU GPP0039 ) ) OU ( ECO0098 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/-2 - 2015.1",
+                "data_vigencia": "2003.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0260 OU GPP0039 ) ) OU ( ECO0098 )",
+                "matriz_curricular": "GESTAO DE POLITICAS PUBLICAS - Bacharelado - Presencial - N",
+                "curriculo": "8184/1 - 2019.2",
+                "data_vigencia": "2003.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O curso de Macroeconomia é o primeiro da sequência de macro. Nele, apresenta-se o modelo de determinação da renda no curto prazo. Discute-se o equilíbrio nos mercados de bens e monetário e desenvolve-se o instrumental da Demanda Agregada nos cenários alternativos de economia fechada e de economia aberta. Apresenta-se o conceito e desenvolvem-se noções da Oferta Agregada, que integrados com o instrumental da Demanda, permite a discussão do exercício de políticas econômicas alternativas.",
+        "codigo": "ECO0099"
+    },
+    {
+        "nome": "MACROECONOMIA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0099 E ECO0187 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0188 )",
+        "equivalencias_especificas": [],
+        "ementa": "Macroeconomia 2 faz parte da sequência de Macroeconomia. Nesta disciplina, apresentam-se os principais componentes analíticos da Demanda Agregada. Discutem-se os fundamentos da Função Consumo, Investimento e Demanda por moeda. Estende-se o modelo IS-LM para uma Economia Aberta conforme Mundell-Fleming, analisam-se os principais problemas macroeconômicos como desemprego, inflação crescimento.",
+        "codigo": "ECO0189"
+    },
+    {
+        "nome": "MACROECONOMIA 3",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0227 )",
+        "equivalencias_especificas": [],
+        "ementa": "a disciplina de macroeconomia III tem por objetivo apresentar ao aluno os modelos e os métodos matemáticos utilizados na moderna teoria macroeconômica. Serão abordados ao longo da disciplina os seguintes tópicos: crescimento econômico, inflação e nível de atividade econômica, expectativas racionais, otimização dinâmica, moeda e flutuações cíclicas.",
+        "codigo": "ECO0228"
+    },
+    {
+        "nome": "MACROECONOMIA ESTRUTURALISTA DO DESENVOLVIMENTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "ECO0218 E ECO0099",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A Teoria Clássica do Desenvolvimento Econômico e o Estruturalismo Latino-Americano; Demanda Agregada e Crescimento Econômico; A Macroeconomia Estruturalista do Desenvolvimento e o Novo-Desenvolvimentismo.",
+        "codigo": "ECO0278"
+    },
+    {
+        "nome": "MATEMÁTICA FINANCEIRA PARA ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0253 )",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos financeiros básicos: Objetivos da taxa de juros simples e composta. Avaliação de títulos de renda fixa e variável. Técnicas de investimento de capital. CAPM - Capital Asset Pricing Model. Custo de Capital.",
+        "codigo": "ECO0254"
+    },
+    {
+        "nome": "METODOLOGIA NA CIÊNCIA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FIL0077 ) OU ( ECO0219 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "ESSE CURSO BUSCA ESTIMULAR NO ESTUDANTE UMA  REFLEXAO  METOLOGICA SOBRE AS  LIMITACOES E  POSSIBILIDADES DO  CONHECIMENTO CIENTIFICO - EM ESPEICAL O ECONOMICO. O CURSO PARTE DE PROBLEMAS GERAIS DO METODO CIEN- TIFICO PARA UMA ANALISE DA METODOLOGIA UTILIZADA POR DIFERENTES  ECONO- MISTAS E ESCOLAS DO PENSAMENTO ECONOMICO.",
+        "codigo": "ECO0220"
+    },
+    {
+        "nome": "METODOS MATEMATICOS EM CIENCIAS SOCIAIS AVANCADOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0187 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0235 )",
+        "equivalencias_especificas": [],
+        "ementa": "OBJETIVO. DOTAR O ALUNO DOS INSTRUMENTOS ANALITICOS BASICOS USADOS NAFRONTEIRA DA ECONOMIA. O NIVEL MATEMATICO  DO CURSO SE ENCONTRA EM ALGUMLUGAR ENTRE OS  LIVROS DE SYDSAETER OU DE BEAVIS & DOBBS  E AQUELES MAISESPECIALIZADA OS (COMO O DE RUDIN E O DE LIPSCHUTZ). PROCURAREMOS SEMPREAS LIGACOES COM O RACIOCINIO ECONOMICO.",
+        "codigo": "ECO0236"
+    },
+    {
+        "nome": "MÉTODOS NUMÉRICOS E MODELOS COMPUTACIONAIS EM ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DPG0057"
+    },
+    {
+        "nome": "MÉTODOS QUANTITATIVOS EM ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DPG0998"
+    },
+    {
+        "nome": "MICROECONOMIA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0187 E ECO0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0027 ) OU ( ECO0125 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-3 - 2015.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-4 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-5 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-4 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-5 - 2015.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-6 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-7 - 2011.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/-2 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - D",
+                "curriculo": "8117/-2 - 2018.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ADM0185 OU ADM0186 OU ADM0187 ) ) OU ( ECO0125 )",
+                "matriz_curricular": "ADMINISTRACAO - Bacharelado - Presencial - N",
+                "curriculo": "8150/1 - 2018.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Introduz-se a teoria da escolha, primeiro por parte do consumidor e posteriormente por parte da firma. Por fim, abordam-se temas importantes relativos a escolha sob situação de incerteza.",
+        "codigo": "ECO0126"
+    },
+    {
+        "nome": "MICROECONOMIA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0184 )",
+        "equivalencias_especificas": [],
+        "ementa": "Abordam-se, inicialmente, os modelos comportamentais dos diversos tipos de mercado, e conclui com o estudo equilíbrio geral de mercado e suas características de otimilidade e alguns tópicos de economia pública.",
+        "codigo": "ECO0185"
+    },
+    {
+        "nome": "MICROECONOMIA 3",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0225 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos especiais em Microeconomia, a ser definido no semestre vigente.",
+        "codigo": "ECO0226"
+    },
+    {
+        "nome": "MICROECONOMIA AMBIENTAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( MAT0022 ) OU ( MAT0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0271 )",
+        "equivalencias_especificas": [],
+        "ementa": "Analisar as variáveis econômica que explicam o processo de escolha e de tomada de decisões de agentes individuais, em particular o consumidor e o produtor. As razões que levam um agente a poluir, a acelerar a taxa de exploração de um recurso natural renovável e a a taxa de exploração de um recurso natural não renovável são aqui  Estudados.",
+        "codigo": "ECO0272"
+    },
+    {
+        "nome": "MONITORIA 1 PROFISSIONAL EM ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0207 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina que visa a realizar monitorias em diversas áreas do curso de Ciências Econômicas, a serem definidas no semestre vigente.",
+        "codigo": "ECO0208"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE CUSTO BENEFÍCIO AMBIENTAL DE PROJETOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0267 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0436"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE CUSTO BENEFÍCIO AMBIENTAL DE PROJETOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0268 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0331"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE DE INSUMO-PRODUTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0307"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE DE PROJETOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0314"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE ECONÔMICA DE PROCESSOS POLÍTICOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0280 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0447"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE ECONOMICA DE SERIES DE TEMPO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0230 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0323"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE MACROECONOMICA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0244 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0423"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE MICROECONOMICA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0242 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0422"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO AMBIENTAL ESTRATÉGICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0276 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0443"
+    },
+    {
+        "nome": "MONITORIA EM CONJUNTURA ECONOMICA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0147 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0390"
+    },
+    {
+        "nome": "MONITORIA EM CONTABILIDADE NACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0291"
+    },
+    {
+        "nome": "MONITORIA EM DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0365"
+    },
+    {
+        "nome": "MONITORIA EM DESENVOLVIMENTO ECONÔMICO E SOCIAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0344"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0292"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMETRIA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0240 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0421"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMETRIA DE SÉRIES DE TEMPO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0264 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0433"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA AGRICOLA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0359"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA AMBIENTAL E ECOLÓGICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0262 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0329"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0313"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA BRASILEIRA AVANCADA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0238 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0420"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DA DEFESA DA CONCORRÊNCIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0309"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DA INFRAESTRUTURA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0286"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DA POLÍTICA AMBIENTAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0266 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0330"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DA REGULAÇÃO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0343"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DA TECNOLOGIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0371"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DE COMERCIO INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0191 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0403"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DE EMPRESAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0234 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0418"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DO BRASIL CONTEMPORANEO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0159 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0318"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DO CRIME",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0277 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0335"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DO MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0252 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0427"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DO SETOR EXTERNO E MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0273 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0332"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DO SETOR PUBLICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0317"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DOS RECURSOS HUMANOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0161 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0395"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DOS RECURSOS NATURAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0104 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0376"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DOS TRANSPORTES",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0101 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0375"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0293"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA E DEMOCRACIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0279 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0446"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA ESTATISTICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0197 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0405"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA INDUSTRIAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0134 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0316"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0311"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA LATINO-AMERICANA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0246 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0424"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA MONETARIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0194 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0319"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA POLITICA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0124 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0295"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA POLITICA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0222 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0412"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA QUANTITATIVA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0187 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0299"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA QUANTITATIVA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0312"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA REGIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0363"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA RURAL 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0108 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0377"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA URBANA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0139 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0386"
+    },
+    {
+        "nome": "MONITORIA EM ELEMENTOS DE ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0250 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0426"
+    },
+    {
+        "nome": "MONITORIA EM EMPRESAS MULTINACIONAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0145 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0389"
+    },
+    {
+        "nome": "MONITORIA EM ESPAÇO REGIONAL URBANO E MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0274 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0333"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO CURRICULAR SUPERVISIONADO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0224 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0303"
+    },
+    {
+        "nome": "MONITORIA EM EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0218 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0301"
+    },
+    {
+        "nome": "MONITORIA EM EXPERIENCIAS COMPARADAS DE DESENVOLVIMENTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0368"
+    },
+    {
+        "nome": "MONITORIA EM FINANCAS INTERNACIONAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0153 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0392"
+    },
+    {
+        "nome": "MONITORIA EM FORMACAO ECONOMICA DA AMERICA LATINA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0143 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0388"
+    },
+    {
+        "nome": "MONITORIA EM FORMAÇÃO ECONÔMICA DO BRASIL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0290"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DE ECONOMIA DO MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0265 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0434"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DO PENSAMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0310"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA ECONÔMICA GERAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0289"
+    },
+    {
+        "nome": "MONITORIA EM HISTÓRIA ECONÔMICA GERAL 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0287"
+    },
+    {
+        "nome": "MONITORIA EM INSTRUMENTO DE POLÍTICA AMBIENTAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0275 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0334"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0128 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0297"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0288"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À ECONOMIA POLÍTICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0341"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A ECONOMIA QUANTITATIVA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0338"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO DE ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0306"
+    },
+    {
+        "nome": "MONITORIA EM MACROECONOMIA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0294"
+    },
+    {
+        "nome": "MONITORIA EM MACROECONOMIA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0189 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0300"
+    },
+    {
+        "nome": "MONITORIA EM MACROECONOMIA 3",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0228 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0322"
+    },
+    {
+        "nome": "MONITORIA EM MACROECONOMIA ESTRUTURALISTA DO DESENVOLVIMENTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0278 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0445"
+    },
+    {
+        "nome": "MONITORIA EM MATEMÁTICA FINANCEIRA PARA ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0254 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0326"
+    },
+    {
+        "nome": "MONITORIA EM METODOLOGIA NA CIÊNCIA ECONÔMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0220 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0321"
+    },
+    {
+        "nome": "MONITORIA EM METODOS MATEMATICOS EM CIENCIAS SOCIAIS AVANCADOS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0236 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0419"
+    },
+    {
+        "nome": "MONITORIA EM MICROECONOMIA 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0296"
+    },
+    {
+        "nome": "MONITORIA EM MICROECONOMIA 2",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0185 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0298"
+    },
+    {
+        "nome": "MONITORIA EM MICROECONOMIA 3",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0226 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0414"
+    },
+    {
+        "nome": "MONITORIA EM MICROECONOMIA AMBIENTAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0272 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0302"
+    },
+    {
+        "nome": "MONITORIA EM MONITORIA 1 PROFISSIONAL EM ECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0208 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0407"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0285 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0452"
+    },
+    {
+        "nome": "MONITORIA EM MONOGRAFIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0248 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0325"
+    },
+    {
+        "nome": "MONITORIA EM O MERCADO DE IDEIAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0336 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0453"
+    },
+    {
+        "nome": "MONITORIA EM PENSAMENTO ECONÔMICO BRASILEIRO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0345"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO DE INVESTIMENTOS AMBIENTAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0270 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0438"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO PÚBLICO E MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0261 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0328"
+    },
+    {
+        "nome": "MONITORIA EM POLITICA ECONOMICA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0122 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0380"
+    },
+    {
+        "nome": "MONITORIA EM POLITICA E PROGRAMACAO ECONOMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0090 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0372"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0366"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0362"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE ECONOMIA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0117 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0379"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE ECONOMIA INDUSTRIAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0385"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0356"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE ECONOMIA MONETARIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0357"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE ECONOMIA REGIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0364"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO DE POLITICA FISCAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0093 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0373"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIOS - VISÕES EM CIÊNCIAS AMBIENTAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0258 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0327"
+    },
+    {
+        "nome": "MONITORIA EM TECNICAS DE PESQUISA ECONOMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0114 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0315"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DAS FINANÇAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0256 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0429"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DO CRESCIMENTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0354"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DO CRESCIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0232 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0324"
+    },
+    {
+        "nome": "MONITORIA EM TEORIA DO DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0199 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0320"
+    },
+    {
+        "nome": "MONITORIA EM TOPICO AVANCADO EM ECONOMIA MATEMATICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0211 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0408"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS EM ANALISE ECONOMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0216 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0409"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS EM DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0172 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0396"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ECONOMIA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0283 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0450"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0176 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0397"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS EM ECONOMIA MONETARIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0183 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0399"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM ECONOMIA REGIONAL E URBANA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0305"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS EM EVOLUCAO DO PENSAMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0156 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0393"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS EM FINANCAS PUBLICAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0179 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0398"
+    },
+    {
+        "nome": "MONITORIA EM TOPICOS ESPECIAIS EM HISTORIA ECONOMICA DO BRASIL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0150 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0391"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM MACROECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0284 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0451"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM MICROECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0282 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0304"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM POLÍTICA MACROECONÔMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0308"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS SOBRE CRESCIMENTO ECONÔMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0281 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0448"
+    },
+    {
+        "nome": "MONITORIA EM TUTORIAL EM CIÊNCIAS ECONÔMICAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ECO0346"
+    },
+    {
+        "nome": "MONOGRAFIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0114 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0247 ) OU ( ECO0285 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ECO0201 OU ECO0202 OU ECO0203 ) E ( ECO0204 OU ECO0205 OU ECO0206 ) ) OU ( ECO0247 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-4 - 2011.1",
+                "data_vigencia": "1985.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0201 OU ECO0202 OU ECO0203 ) E ( ECO0204 OU ECO0205 OU ECO0206 ) ) OU ( ECO0247 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-5 - 2007.1",
+                "data_vigencia": "1985.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0201 OU ECO0202 OU ECO0203 ) E ( ECO0204 OU ECO0205 OU ECO0206 ) ) OU ( ECO0247 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-2 - 2016.1",
+                "data_vigencia": "1985.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0201 OU ECO0202 OU ECO0203 ) E ( ECO0204 OU ECO0205 OU ECO0206 ) ) OU ( ECO0247 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/-3 - 2011.2",
+                "data_vigencia": "1985.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ECO0201 OU ECO0202 OU ECO0203 ) E ( ECO0204 OU ECO0205 OU ECO0206 ) ) OU ( ECO0247 )",
+                "matriz_curricular": "CIENCIAS ECONOMICAS - Bacharelado - Presencial - D",
+                "curriculo": "3221/1 - 2017.2",
+                "data_vigencia": "1985.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Objetiva-se no curso de monografia, proporcionar ao aluno, ainda da Universidade, a possibilidade de desenvolver um trabalho de pesquisa completo e sob a supervisão de um professor. No caso específico de pesquisa, o aluno será responsável por todas as suas etapas: escolha do tema, pesquisa bibliográfica, projeto de pesquisa, cronograma, revisão de literatura, etc. Será um trabalho que deverá demonstrar a capacidade de escolher um determinado tema, sua maturidade teórica para tratar um determinado tema e sua habilidade em fazer pontes bem definidas entre uma determinada teoria escolhida e a realidade. O aluno deverá chegar ao fim do período com um trabalho escrito e terá de apresentá-lo oralmente perante uma banca formada pelo professor orientador e por algum outro acadêmico.",
+        "codigo": "ECO0248"
+    },
+    {
+        "nome": "MONOGRAFIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0114 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0248 )",
+        "equivalencias_especificas": [],
+        "ementa": "Objetiva-se no curso de monografia, proporcionar ao aluno, ainda da Universidade, a possibilidade de desenvolver um trabalho de pesquisa completo e sob a supervisão de um professor. No caso específico de pesquisa, o aluno será responsável por todas as suas etapas: escolha do tema, pesquisa bibliográfica, projeto de pesquisa, cronograma, revisão de literatura, etc. Será um trabalho que deverá demonstrar a capacidade de escolher um determinado tema, sua maturidade teórica para tratar um determinado tema e sua habilidade em fazer pontes bem definidas entre uma determinada teoria escolhida e a realidade. O aluno deverá chegar ao fim do período com um trabalho escrito e terá de apresentá-lo oralmente perante uma banca formada pelo professor orientador e por algum outro acadêmico.",
+        "codigo": "ECO0285"
+    },
+    {
+        "nome": "O MERCADO DE IDEIAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Extensão de conteúdo variável a ser definida no semestre vigente.",
+        "codigo": "ECO0336"
+    },
+    {
+        "nome": "PENSAMENTO ECONÔMICO BRASILEIRO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Nesta disciplinas, estuda-se a história e a evolução das principais correntes do pensamento econômico brasileiro.",
+        "codigo": "ECO0013"
+    },
+    {
+        "nome": "PLANEJAMENTO DE INVESTIMENTOS AMBIENTAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( CDS0010 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0269 )",
+        "equivalencias_especificas": [],
+        "ementa": "Investimentos em infra-estrutura básica ambiental, composta de gastos estruturais em    água, esgoto, gestão de resíduos sólidos, unidades para a conservação de biodiversidade (in situ e ex situ), entre outros, devem ser avaliados em termosnão somente de seus efeitos explicitamente ambientais, como também em suas repercussões sócio-econômicas. Esta disciplina analisa a importância da variável investimento economia do meio ambiente, com ênfase em procedimentos de mensuração de seus efeitos multiplicadores.",
+        "codigo": "ECO0270"
+    },
+    {
+        "nome": "PLANEJAMENTO PÚBLICO E MEIO AMBIENTE",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0272 ) OU ( ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina objetiva estudar o planejamento público como a via mais favorável para a incorporação da dimensão ambiental no processo de desenvolvimento sócio-econômico. Para a consecução desse objetivo, ela analisa as principais formas de intervenção pública nas esferas do desenvolvimento sócio-econômico e das questões ambientais. Ênfase especial é dada às novas formas de governança, quer em termos de participação popular quer em termos do comportamento estratégico da autoridade pública. Assim, iniciamos pelas definições e conceitos básicos de planejamento público, de planejamento participativo, de estratégia e de estratégia ambiental, continuando com a evolução do pensamento estratégico.",
+        "codigo": "ECO0261"
+    },
+    {
+        "nome": "POLITICA ECONOMICA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0090 ) OU ( ECO0120 ) OU ( ECO0121 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina visa expor o aluno às particularidades de utilização de políticas econômicas no Brasil, especialmente questionando os respectivos instrumentos adotados, suas motivações e justificativas e possíveis enquadramentos teóricos e conceituais.Ao final do curso, espera-se que o aluno conheça as principais estratégias adotadas e possa fazer análise crítica da eficácia e limitações dos instrumentos utilizados nas quatro últimas décadas e na condução atual da economia brasileira.",
+        "codigo": "ECO0122"
+    },
+    {
+        "nome": "POLITICA E PROGRAMACAO ECONOMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 E ECO0032 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0122 ) OU ( ECO0088 ) OU ( ECO0089 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo de políticas econômicas, a serem definidas no semestre vigente, e da factibilidade de implementação dessas dessas políticas via programação econômica.",
+        "codigo": "ECO0090"
+    },
+    {
+        "nome": "SEMINARIO DE DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0068 ) OU ( ECO0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "1a. UNIDADE: RELACOES ECONOMIA/ENERGIA                                  2a. A CRISE MUNDIAL DO PETROLE                                          3a. A OFERTA E A DEMANDA DE ENERGIA NO BRASIL                           4a. SOLUCOES PARA A CRISE BRASILEIRA                                    5a. VIABILIZACAO DAS SOLUCOES                                               TOPICOS, PRE-REQUISITOS E CREDITOS ANUNCIADOS QUANDO OFERECIDOS OS      CURSOS.",
+        "codigo": "ECO0070"
+    },
+    {
+        "nome": "SEMINARIO DE ECONOMETRIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0057 ) OU ( ECO0058 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de seminários em Econometria, cujos temas serão definidos no semestre corrente.",
+        "codigo": "ECO0059"
+    },
+    {
+        "nome": "SEMINARIO DE ECONOMIA BRASILEIRA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0115 ) OU ( ECO0116 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de seminários em Economia Brasileira, cujos temas serão definidos no semestre corrente.",
+        "codigo": "ECO0117"
+    },
+    {
+        "nome": "SEMINARIO DE ECONOMIA INDUSTRIAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 E ECO0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0135 ) OU ( ECO0136 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de seminários em Economia Industrial, cujos temas serão definidos no semestre corrente.",
+        "codigo": "ECO0137"
+    },
+    {
+        "nome": "SEMINARIO DE ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 E ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0043 ) OU ( ECO0044 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTUDOS DE SAS, CUJOS PROGRAMAS COMPRESNDEM TEMAS  RELEVANTES A SEREMSELECIONADOS QUANDO A DISCIPLINA E OFERECIDA.",
+        "codigo": "ECO0045"
+    },
+    {
+        "nome": "SEMINARIO DE ECONOMIA MONETARIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0046 ) OU ( ECO0047 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTUDOS DE  CASOS,  CUJOS  PROGRAMAS  COMPREENDEM TEMAS  RELEVANTES ASEREM SELECIONADOS QUANDO A DISCIPLINA E OFERECIDA.",
+        "codigo": "ECO0048"
+    },
+    {
+        "nome": "SEMINARIO DE ECONOMIA REGIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0062 ) OU ( ECO0063 )",
+        "equivalencias_especificas": [],
+        "ementa": "ESTUDOS E CASOS, CUJOS PROGRAMAS COMPREENDEM TEMAS RELEVANTES A SEREMSELECIONADOS QUANDO A DISCIPLINA E OFERECIDA.",
+        "codigo": "ECO0064"
+    },
+    {
+        "nome": "SEMINARIO DE POLITICA FISCAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 E ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0091 ) OU ( ECO0092 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de seminários em Política Fiscal, cujos temas serão definidos no semestre corrente.",
+        "codigo": "ECO0093"
+    },
+    {
+        "nome": "SEMINÁRIOS - VISÕES EM CIÊNCIAS AMBIENTAIS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0257 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina será desenvolvida na forma de seminários coordenados semestralmente por um professor do Bacharelado em Ciências Ambientais. Cada professor disporá de 4 (quatro) horas para a sua apresentação e debates. Cada professor discorrerá \"Limites e Potencialidades da (sua área de especialização) para a Análise Interdisciplinar da Problemática Ambiental”.",
+        "codigo": "ECO0258"
+    },
+    {
+        "nome": "TECNICAS DE PESQUISA ECONOMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 E ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( ECO0130 ) OU ( ECO0113 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Na disciplina Técnicas de Pesquisa em Economia, procura-se desenvolver nos alunos a capacidade de escolher, elaborar e concluir um trabalho e uma pesquisa econômica de natureza científica. Nesta perspectiva, todas as reflexões necessárias para a consecução de cada etapa do processo de pesquisa serão analisadas e discutidas ao longo do semestre. Esta disciplina tem sido oferecida aos alunos de Ciências Econômicas desde 1974. Busca-se fornecer um instrumental \"prático\" para que o aluno possa desenvolver o projeto da pesquisa, a ser desenvolvida na disciplina monografia. Cada aluno deve procurar um Professor Orientador daquilo que provavelmente será a monografia de graduação do estudante. O trabalho final da disciplina TPE deverá ser constituído de A) um projeto de monografia e B) um capítulo da monografia proposta. O trabalho final será avaliado pelo professor da disciplina Técnicas de Pesquisa em Economia e/ou pelo professor orientador.",
+        "codigo": "ECO0114"
+    },
+    {
+        "nome": "TEORIA DAS FINANÇAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0128 E ECO0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0255 )",
+        "equivalencias_especificas": [],
+        "ementa": "1. ObjetivosO objetivo desta disciplina é apresentar aos alunos os conceitos fundamentais de finanças. A ênfase do cursoserá no entendimento dos modelos usados em valoração de ativos financeiros. Espera-se que, ao final do curso, o alunotenha um conhecimento de diversos modelos usados em finanças. O curso serve de base para outras matériasavançadas, como finanças corporativas, finanças em tempo contínuo, finanças empíricas, etc. O livro-texto será“Moderna Teoria de Carteiras e Análise de Investimentos”, de Elton, Gruber, Brown e Goetzmann, da Editora Atlas enotas de aula devem ser disponibilizadas ao longo do curso.Os pré-requisitos para o curso são microeconomia 1 e econometria. Um conhecimento de leitura em inglês édesejável, mas não requerido. Este programa pode ser modificado no decorrer do curso e podem ser exigidas leiturasextras. Outros livros de finanças são recomendados na seção 4.1 da bibliografia. Livros mais avançados de finançasconstam na seção 4.2 da bibliografia. Finalmente, artigos de finanças encontram-se na seção 4.3 da bibliografia. Aleitura destes artigos não é obrigatória, mas será sugerida ao longo do curso, dependendo de sua adequação ao tópicoque estará sendo visto. Leituras que não constam na bibliografia podem ser sugeridas no decorrer do curso.2. Procedimentos de Ensino e AvaliaçãoA disciplina consiste de aulas expositivas. Para cada tópico do conteúdo serão indicadas leituras do livro textoe leituras auxiliares. Os capítulos do livro-texto requeridos para cada tópico serão indicados ao longo do curso. Asleituras auxiliares também serão indicadas e apesar de não serem obrigatórias, constituem parte importante do curso,facilitando a compreensão da matéria.A nota final será a média ponderada dos resultados de duas provas, cada uma valendo 50% da nota final. Cadaprova terá duração de duas horas, das 10:00 às 12:00, sem consulta. A primeira prova será no dia 13/10. A segunda, nodia 6/12. O conteúdo e o peso das provas são:Conteúdo Peso na Nota FinalPrimeira Prova Parte 1 50%Segunda Prova Parte 2 50%Duas listas de exercícios serão entregues, cada uma cobrindo o assunto de uma prova. Cada prova terá cincoquestões, onde três delas serão retiradas da lista de exercícios referente à prova. Essas três questões podem apresentarpequenas modificações com relação à lista. Portanto, as listas de exercícios servem não somente para aprimorar oaprendizado, mas também facilitam o estudo para a prova.O aluno que não comparecer à prova terá direito à reposição, se o seu caso for previsto em lei (ausência pormotivo de doença, com apresentação de atestado médico, etc.). A reposição cobrirá a matéria da prova perdida. O alunoque desejar repor prova perdida deve entrar em contato com o professor o mais rápido possível. A prova de reposiçãonão obrigatoriamente conterá questões tiradas da lista de exercícios a que se refere.3. ConteúdoParte 1. Ativos Financeirosa) Introdução, Tipos de Ativos Financeiros. Juros Compostos e Juros Simples.b) Teoria de Portfolio. Modelo de Markowitz.c) O CAPM. Aplicações, Testes e Extensões do CAPM.d) Modelos de Vários Fatores.e) Eficiência de Mercado. Administração Ativa de Portfolios. Finanças Comportamental.Parte 2. Ativos de Renda Fixa, Contratos Futuros, Derivativos.a) Valoração de Ativos de Renda Fixa. Valor Presente.b) Estrutura a Termo da Taxa de Juros. Duração.c) Contratos Futuros.d) Opções. Outros Derivativos. 4. Bibliografia Básica1. Elton, Gruber, Brown e Goet",
+        "codigo": "ECO0256"
+    },
+    {
+        "nome": "TEORIA DO CRESCIMENTO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0126 ) OU ( ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0035 )",
+        "equivalencias_especificas": [],
+        "ementa": "NATUREZA DO CRESCIMENTO ECONOMICO.  SIGNIFICADO A MEDICACAO DO  CRES-MENTO ECONOMICO. FONTES DO CRESCIMENTO ECONOMICO . CRESCIMENTO DO ECONO-MIAS DESENVOLVIDAS E SUBDESENVOLVIDAS ESTUDO QUANTITATIVO.  FUNDAMENTOSDA TEORIA DO CRESCIMENTO. MODELOS  DE CRESCIMENTO.  POLITICAS MONETARIASE FISCAIS PARA CRESCIMENTO ESTAVEL.",
+        "codigo": "ECO0036"
+    },
+    {
+        "nome": "TEORIA DO CRESCIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0231 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre tópicos selecionados da Teoria do Crescimento Econômico, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0232"
+    },
+    {
+        "nome": "TEORIA DO DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0099 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0198 )",
+        "equivalencias_especificas": [],
+        "ementa": "Pela disciplina, os alunos são familizariados com as principais teorias do crescimento econômico, bem como com a noção de subdesenvolvimento e suas causas. Os fatos e o conceito de crescimento econômico; Modelos Tradicionais de Crescimento (Harrod-Domar e Solow-Swan; Teorias do Crescimento Endógeno (Romer); Desenvolvimento e Subdesenvolvimento.",
+        "codigo": "ECO0199"
+    },
+    {
+        "nome": "TOPICO AVANCADO EM ECONOMIA MATEMATICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0056 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0209 ) OU ( ECO0210 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos especiais avançados em Economia Matemática a serem definidos no semestre corrente.",
+        "codigo": "ECO0211"
+    },
+    {
+        "nome": "TÓPICOS DE EXTENSÃO 1",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Extensão de conteúdo variável a ser definida no semestre vigente em plano de curso.",
+        "codigo": "ECO0367"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS EM ANALISE ECONOMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0212 ) OU ( ECO0213 ) OU ( ECO0214 ) OU ( ECO0215 )",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre Análise Econômica, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0216"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS EM DESENVOLVIMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0199 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0170 ) OU ( ECO0171 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos especiais em Desenvolvimento Econômico a serem definidos no semestre corrente.",
+        "codigo": "ECO0172"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ECONOMIA DO TRABALHO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0019 E EST0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre Economia do Trabalho cujo conteúdo deve ser definido em programa vigente no semestre ofertado.",
+        "codigo": "ECO0283"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ECONOMIA INTERNACIONAL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0173 ) OU ( ECO0174 ) OU ( ECO0175 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos especiais em Economia Internacional a serem definidos no semestre corrente.",
+        "codigo": "ECO0176"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS EM ECONOMIA MONETARIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0194 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0180 ) OU ( ECO0181 ) OU ( ECO0182 )",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA TOPICOS ESPECIAIS EM ECONOMIA MONETARIA OBJETIVA E  ANA-LISE MAIS DETALHADA DE ALGUNS TEMAS IMPORTANTES  DA  AREA MONETARI, CUJOESTUDO MAIS APROFUNDADO NAO FOI POSSIVEL REALIZAR NA CADEIRA  DE MOEDAASE BANCOS NESTE SENTIDO, O PROGRAMA FOI ESTRUTURADO DE  MODO A POSSIBILI-TAR ACELUNO UMA MELHOR VISAO DO SISTEMA MONETARIO  DO BRASIL - FUNCIONA-MENTO, PECULIARIDADES E CONTROVERSIAIS. PROGRAMACAO E CONTROLE DE OFERTAMONETARIO NO MODELO INSTUTUCIONAL  VIGENTE.  ANALISE DE ALTERNATIVAS  DEPOLITICA MONETARIA PARA O CASO BRASILEIRO.",
+        "codigo": "ECO0183"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM ECONOMIA REGIONAL E URBANA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre tópicos selecionados de Economia Regional e Urbana, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0002"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS EM EVOLUCAO DO PENSAMENTO ECONOMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0154 ) OU ( ECO0155 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos especiais em Evolução do Pensamento Econômico a serem definidos no semestre corrente.",
+        "codigo": "ECO0156"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS EM FINANCAS PUBLICAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0141 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0177 ) OU ( ECO0178 )",
+        "equivalencias_especificas": [],
+        "ementa": "CONCEITOS E PRINCIPIOS DE TRIBUTACAO. EFEITOS  MACROECONOMICOS DE PO-LITICA FISCAL. EFICIENCIA INCIDENCIA E INCENTIVOS DE TRIBUTACAO. O PAPELDO ESTADO NA ECONOMIA: CONFLITO DE  INTERESSES. METAS E INSTRUMENTOS  DAACAO GOVERRNAMENTAL. ESTUDO DE CASOS.",
+        "codigo": "ECO0179"
+    },
+    {
+        "nome": "TOPICOS ESPECIAIS EM HISTORIA ECONOMICA DO BRASIL",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ECO0148 ) OU ( ECO0149 )",
+        "equivalencias_especificas": [],
+        "ementa": "Tópicos especiais em História Econômica do Brasil a serem definidos no semestre corrente.",
+        "codigo": "ECO0150"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM MACROECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre Macroeconomia cujo conteúdo deve ser definido em programa vigente no semestre ofertado.",
+        "codigo": "ECO0284"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM MICROECONOMIA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre Microeconomia cujo conteúdo deve ser definido em programa vigente no semestre ofertado.",
+        "codigo": "ECO0282"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM POLÍTICA MACROECONÔMICA",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ( ECO0189 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre Macroenomia, especificado em plano de ensino, no semestre ofertado.",
+        "codigo": "ECO0016"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS SOBRE CRESCIMENTO ECONÔMICO",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "( ECO0099 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina de conteúdo variável sobre modelos de Crescimento Econômico cujo conteúdo deve ser definido em programa vigente no semestre ofertado.",
+        "codigo": "ECO0281"
+    },
+    {
+        "nome": "TUTORIAL EM CIÊNCIAS ECONÔMICAS",
+        "unidade_responsavel": "DEPTO ECONOMIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Disciplina que visa a realizar tutorias em diversas áreas do curso de Ciências Econômicas, a serem definidas no semestre vigente.",
+        "codigo": "ECO0014"
+    }
+]

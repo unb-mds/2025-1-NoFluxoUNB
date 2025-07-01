@@ -1,0 +1,2146 @@
+[
+    {
+        "nome": "ADMINISTRAÇÃO DE SERVIÇOS DE ALIMENTAÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0035 ) OU ( NUT0036 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0073 OU NUT0074 OU NUT0075 ) E ( NUT0076 OU NUT0077 OU NUT0078 ) ) OU ( NUT0035 OU NUT0036 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0073 OU NUT0074 OU NUT0075 ) E ( NUT0076 OU NUT0077 OU NUT0078 ) ) OU ( NUT0035 OU NUT0036 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0073 OU NUT0074 OU NUT0075 ) E ( NUT0076 OU NUT0077 OU NUT0078 ) ) OU ( NUT0035 OU NUT0036 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PROPORCIONA CONHECIMENTOS BASICOS DE ADMINISTRACAO GERAL E SUA  APLI-CACAO GERAL E SUA APLICACAO NA ADMINISTRACAO DE SERVICOS DE ALIMENTACAO.   LEVA O ALUNO AO CONHECIMENTO DAS DIVERSAS MODALIDADES DE SERVICOS  DEALIMENTACAO, SUAS CARACTERISTICAS E NECESSIDADES TECNICO-ADMINISTRATIVASESPECIFICAS.                                                               FORNECE SUBSIDIOS AO ALUNO CAPACITANDO-O,  ENQUANTO  PROFISSIONAL  DESAUDE, A  PROMOVER  A  INTERACAO  ENTRE A  PRATICA  ADMINISTRATIVA E  OSPRECEITOS DA NUTRICAO.",
+        "codigo": "NUT0037"
+    },
+    {
+        "nome": "AMBULATÓRIO DE ESPECIALIDADES EM NUTRIÇÃO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0034 E NUT0069 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaA abordagem da disciplina de Ambulatório de Especialidades envolve atividade prática, conduzida sob a forma de estágio, desenvolvida em ambulatório, onde os alunos aplicam os conhecimentos teóricos de nutrição infantil, avaliação nutricional e técnica dietética no atendimento ao grupo de pré-escolares, escolares e adolescentes.",
+        "codigo": "NUT0064"
+    },
+    {
+        "nome": "ANÁLISE SENSORIAL DE ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( FAR0050 OU FAV0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0091"
+    },
+    {
+        "nome": "AVALIACAO ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0136 E NUT0137 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo e interpretação dos métodos de avaliação do estado nutricional sob o ponto de vista dietético, antropométrico, bioquímico e clínico. Ênfase será dada à avaliação de grupos de risco.",
+        "codigo": "NUT0034"
+    },
+    {
+        "nome": "AVALIAÇÃO ALIMENTAR E NUTRICIONAL PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "( NUT0137 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Aplicação prática de métodos avaliação alimentar e nutricional. Estimativa de validade e reprodutibilidade de diferentes métodos de avaliação alimentar e nutricional. Aplicação e análise de inquéritos dietéticos: técnicas e interpretação dos resultados. Realização de avaliação antropométrica e do consumo alimentar de adultos e crianças. Estimativa da composição corporal por bioimpedância elétrica",
+        "codigo": "NUT0136"
+    },
+    {
+        "nome": "AVALIAÇÃO ALIMENTAR E NUTRICIONAL TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "( NUT0136 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução ao estudo da avaliação alimentar e nutricional. Validade e reprodutibilidade dos diferentes métodos de avaliação alimentar e nutricional. Inquéritos dietéticos: métodos e interpretação dos resultados. Avaliação da composição corporal e do consumo alimentar nas fases do curso da vida.",
+        "codigo": "NUT0137"
+    },
+    {
+        "nome": "AVALIAÇÃO NUTRICIONAL NA PRÁTICA CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaEstuda os procedimentos de atenção dietética, com ênfase aos aspectos clínicos, bioquímicos e dietéticos da avaliação do estado nutricional direcionada ao indivíduo doente, internado ou em acompanhamento ambulatorialB",
+        "codigo": "NUT0080"
+    },
+    {
+        "nome": "BROMATOLOGIA E TECNOLOGIA DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( CEL0019 ) OU ( CEL0063 E CEL0021 ) OU ( CEL0082 E CEL0083 ) OU ( FAR0050 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0050 OU NUT0092 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0050 OU NUT0092 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0050 OU NUT0092 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ALIMENTOS E NUTRIENTES.  QUIMICA DOS  NUTRIENTES.  PROCESSAMENTO  DOSALIMENTOS. ESTABILIDADE DOS ALIMENTOS E DOS NUTRIENTES. ESTUDO DOS  GRU-POS DOS ALIMENTOS.",
+        "codigo": "NUT0018"
+    },
+    {
+        "nome": "COMPOSICAO DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0050 OU NUT0092 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0050 OU NUT0092 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0050 OU NUT0092 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "AVALIACAO CRITICA DE ALIMENTOS. VISITAS A UNIDADES DE PROCESSAMENTO, DISTRIBUIDORAS, MANIPULADORAS E  USUARIOS DE  ALIMENTOS.  EXERCICIOS DE IDENTIFICACAO, SELECAO, AQUISICAO E ARMAZANAMENTO DE ALIMENTOS. USO  DE TABELAS DE COMPOSICAO DE ALIEMENTOS.",
+        "codigo": "NUT0022"
+    },
+    {
+        "nome": "CORRENTES ALTERNATIVAS DE ALIMENTACAO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "IDENTIFICA AS CORRENTES NAO CONVENCIONAIS DA ALIMENTACAO, SUA ORIGEM,CONCEITUACAO, TIPOS DE ALIMENTOS, COMBINACOES E  PREPARACOES  UTILIZADASNA DIETA NORMAL E TERAPEUTICA. ELABORA E  ANALISA AS DIETAS NAO  CONVEN-CIONAIS (CONHECIMENTO TAMBEM  COMO  \"ALTERNATIVAS\" OU \"NATURAL\")  SOB  OPONTO DE VISTA NUTRICIONAL E ECONOMICO. DISCUTE SUA UTILIZACAO NA  SAUDEPUBLICA E NA DIETOTERAPIA.",
+        "codigo": "NUT0052"
+    },
+    {
+        "nome": "EDUCAÇÃO ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0007 ) E ( NUT0034 OU NUT0137 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0026 ) OU ( NUT0027 )",
+        "equivalencias_especificas": [],
+        "ementa": "Alimentação e cultura. Educação e processo educativo. O processo de comunicação. O comportamento alimentar: componentes cognitivos, afetivos e situacionais. Abordagens para mudança de comportamento. Planejamento de programas educacionais. Os diferentes instrumentos da ação informativa e educativa. A educação nutricional como instrumento de ação da nutrição aplicada individual e coletiva.",
+        "codigo": "NUT0028"
+    },
+    {
+        "nome": "EPIDEMIOLOGIA NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( DSC0020 E NUT0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0009"
+    },
+    {
+        "nome": "ESTÁGIO COMPLEMENTAR EM NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0146 )",
+        "equivalencias_especificas": [],
+        "ementa": "Ementa:Fornece ao aluno a experiência prática em uma área de atuação do nutricionista, conforme sua afinidade e disponibilidade. Poderá executar as atividades de atenção dietética em ambiente hospitalar, atuar junto às unidades de produção de refeições ou locais de desenvolvimento de atividades da nutrição e Saúde Pública. Além dessas possibilidades, o estudante ainda poderá desenvolver projetos e atividades em laboratórios de Bioquímica da Nutrição, laboratório de alimentos e de microbiologia dos alimentos, sempre com a supervisão de um professor orientador.",
+        "codigo": "NUT0066"
+    },
+    {
+        "nome": "ESTÁGIO COMPLEMENTAR EM NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0051 E NUT0093 E NUT0079 ) OU ( NUT0059 E NUT0057 E NUT0060 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0066 )",
+        "equivalencias_especificas": [],
+        "ementa": "Fornece ao aluno a experiência prática em uma área de atuação do nutricionista, conforme sua afinidade e disponibilidade. Poderá executar as atividades de atenção dietética em ambiente hospitalar, atuar junto às unidades de produção de refeições ou locais de desenvolvimento de atividades da nutrição e Saúde Pública. Além dessas possibilidades, o estudante ainda poderá desenvolver projetos e atividades em laboratórios de Bioquímica da Nutrição, laboratório de alimentos e de microbiologia dos alimentos, sempre com a supervisão de um professor orientador.",
+        "codigo": "NUT0146"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0078 E NUT0051 E NUT0093 E NUT0079 ) OU ( NUT0078 E NUT0153 E NUT0154 E NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0094 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES PERMITE O TREINAMENTO EM SERVIÇO NAS ATIVIDADES ADMINISTRATIVAS E TÉCNICAS DO NUTRICIONISTA, EM EMPRESAS PRIVADAS OU PÚBLICAS QUE POSSUAM COZINHA INDUSTRIAL. OPORTUNIZA AO ESTAGIÁRIO UMA PARTICIPAÇÃO INTEGRADA À REALIDADE DO CAMPO PROFISSIONAL EXISTENTE, TORNANDO-O APTO A PLANEJAR, ORGANIZAR, CONTROLAR, AVALIAR/ADMINISTRAR UMA UNIDADE DE ALIMENTAÇÃO E NUTRIÇÃO.",
+        "codigo": "NUT0155"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0043 E NUT0077 E NUT0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0058 OU NUT0152 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) ) OU ( NUT0058 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) ) OU ( NUT0058 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) ) OU ( NUT0058 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O ESTÁGIO EM ADMINISTRAÇÃO DE SERVIÇOS DE ALIMENTAÇÃO PERMITE    OTREINAMENTO, EM SERVIÇO, NAS ATIVIDADES ADMINISTRATIVAS   E    TÉCNI-CAS DO NUTRICIONISTA, EM EMPRESAS PRIVADAS OU PÚBLICAS      QUE POS-SUAM COZINHA INDUSSTRIAL. OPORTUNIZA AO ESTAGIÁRIO UMA  PARTICIPA- ÇÃO INTEGRADA À REALIDADE DO CAMPO PROFISSIONAL EXISTENTE,     TOR-NANDO APTO A PLANEJAR,ORGANIZAR,CONTROLAR,  AVALIAR/ADMINISTRARUMA UNIDADE DE ALIMENTAÇÃO E NUTRIÇÃO.",
+        "codigo": "NUT0059"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0078 E NUT0051 E NUT0093 E NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0155 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO EM ADMINISTRAÇÃO DE SERVIÇOS DE ALIMENTAÇÃO PERMITE OTREINAMENTO, EM SERVIÇO, NAS ATIVIDADES ADMINISTRATIVAS E TÉCNI-CAS DO NUTRICIONISTA, EM EMPRESAS PRIVADAS OU PÚBLICAS QUE POS-SUAM COZINHA INDUSSTRIAL. OPORTUNIZA AO ESTAGIÁRIO UMA PARTICIPA- ÇÃO INTEGRADA À REALIDADE DO CAMPO PROFISSIONAL EXISTENTE, TOR-NANDO APTO A PLANEJAR,ORGANIZAR,CONTROLAR, AVALIAR/ADMINISTRARUMA UNIDADE DE ALIMENTAÇÃO E NUTRIÇÃO.",
+        "codigo": "NUT0094"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0043 E NUT0077 E NUT0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0059 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO EM ADMINISTRAÇÃO DE SERVIÇOS DE ALIMENTAÇÃO PERMITE OTREINAMENTO, EM SERVIÇO, NAS ATIVIDADES ADMINISTRATIVAS E TÉCNI-CAS DO NUTRICIONISTA, EM EMPRESAS PRIVADAS OU PÚBLICAS QUE POS-SUAM COZINHA INDUSSTRIAL. OPORTUNIZA AO ESTAGIÁRIO UMA PARTICIPA- ÇÃO INTEGRADA À REALIDADE DO CAMPO PROFISSIONAL EXISTENTE, TOR-NANDO APTO A PLANEJAR,ORGANIZAR,CONTROLAR, AVALIAR/ADMINISTRARUMA UNIDADE DE ALIMENTAÇÃO E NUTRIÇÃO.",
+        "codigo": "NUT0152"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM NUTRICAO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0033 E NUT0037 E NUT0032 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0038 ) OU ( NUT0039 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0056 OU NUT0057 ) E ( NUT0058 OU NUT0059 ) E ( NUT0060 ) ) OU ( NUT0038 OU NUT0039 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0056 OU NUT0057 ) E ( NUT0058 OU NUT0059 ) E ( NUT0060 ) ) OU ( NUT0038 OU NUT0039 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0056 OU NUT0057 ) E ( NUT0058 OU NUT0059 ) E ( NUT0060 ) ) OU ( NUT0038 OU NUT0039 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PROPORCIONA AO  ALUNO A  OPORTUNIDADE DO  CONTATO  ORIENTADO  COM AS DIVERSAS AREAS DE ATUACAO DO NUTRICIONISTA, CONDUZINDO-O A UMA  POSTURA PROFISSIONAL CORRETA DO PONTO DE VISTA ETICO. PROPICIA A APLICACAO PRA- TICA DOS CONHECIMENTOS TEORICOS ADQUIRIDOS DURANTE O CURSO.",
+        "codigo": "NUT0040"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0043 E NUT0032 E NUT0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0057 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO EM ADMINISTRAÇÃO DE SERVIÇOS DE ALIMENTAÇÃO PERMITE OTREINAMENTO, EM SERVIÇO, NAS ATIVIDADES ADMINISTRATIVAS E TÉCNI-CAS DO NUTRICIONISTA, EM EMPRESAS PRIVADAS OU PÚBLICAS QUE POS-SUAM COZINHA INDUSSTRIAL. OPORTUNIZA AO ESTAGIÁRIO UMA PARTICIPA- ÇÃO INTEGRADA À REALIDADE DO CAMPO PROFISSIONAL EXISTENTE, TOR-NANDO APTO A PLANEJAR,ORGANIZAR,CONTROLAR, AVALIAR/ADMINISTRARUMA UNIDADE DE ALIMENTAÇÃO E NUTRIÇÃO.",
+        "codigo": "NUT0147"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0005 E NUT0097 E NUT0081 E NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0153 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO EM NUTRIÇÃO CLÍNICA PERMITE O TREINAMENTO, EM SERVIÇODAS ATIVIDADES DE ATENÇÃO DIETÉTICA INDIVIDUALIZADA EM ÂMBITO HOS-PITALAR E AMBULATORIAL, NAS DIVERSAS ESPECIALIDADES CLÍNICAS (PEDIA-TRIA, CIRURGIA E CLÍNICA MÉDICAS, PRINCIPALMENTE). OPORTUNIZA O DE-SENVOLVIMENTO DE TAREFAS DE ROTINA DO NUTRICIONISTA CLÍNICO, COMÊNFASE NA DIETOTERAPIA, DE FORMA INDEPENDENTE E À LUZ DO CONHECI- MENTOS CIENTÍFICOS PERTINENTES A CADA CASO.ENFATIZA O ESTUDO TEÓRICO DOS DISTURBIOS METABÓLICOS E PATALÓGICOS DE REPERCUSSÃO NUTRICIONAL, COM A APLICAÇÃO PRÁTICA NA DIETOTERAPIA. FAVORECE A INTEGRAÇÃO DO ESTUDANTE COM OS PACIENTES,COM OS NUTRICIONISTAS CLÍNICOS E COM A EQUIPE INTERDISCIPLINAR EMUTIPROFISSIONAL, A PARTIR DO NÍVEL SECUNDÁRIO DE ASSISTÊNCIA À SAÚDE.",
+        "codigo": "NUT0051"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0005 E NUT0097 E NUT0081 E NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "NUT0051",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA PERMITE O TREINAMENTO EM SERVIÇO DAS ATIVIDADES DE ATENÇÃO DIETÉTICA INDIVIDUALIZADA EM ÂMBITO HOSPITALAR E AMBULATORIAL, NAS DIVERSAS ESPECIALIDADES CLÍNICAS (PEDIATRIA, CIRURGIA E CLÍNICA MÉDICAS, PRINCIPALMENTE). OPORTUNIZA O DESENVOLVIMENTO DE TAREFAS DE ROTINA DO NUTRICIONISTA CLÍNICO, COM ÊNFASE NA DIETOTERAPIA, DE FORMA INDEPENDENTE E À LUZ DO CONHECIMENTOS CIENTÍFICOS PERTINENTES A CADA CASO. ENFATIZA O ESTUDO TEÓRICO DOS DISTÚRBIOS METABÓLICOS E PATOLÓGICOS DE REPERCUSSÃO NUTRICIONAL, COM A APLICAÇÃO PRÁTICA NA DIETOTERAPIA. FAVORECE A INTEGRAÇÃO DO ESTUDANTE COM OS PACIENTES, COM OS NUTRICIONISTAS CLÍNICOS E COM A EQUIPE INTERDISCIPLINAR E MUTIPROFISSIONAL, A PARTIR DO NÍVEL SECUNDÁRIO DE ASSISTÊNCIA À SAÚDE.",
+        "codigo": "NUT0153"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0043 E NUT0077 E NUT0032 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0056 OU NUT0147 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) ) OU ( NUT0056 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) ) OU ( NUT0056 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) ) OU ( NUT0056 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O ESTÁGIO EM NUTRIÇÃO CLÍNICA PERMITE O TREINAMENTO,      EM SERVIÇODAS ATIVIDADES DE ATENÇÃO DIETÉTICA INDIVIDUALIZADA EM ÂMBITO  HOS-PITALAR E AMBULATORIAL, NAS DIVERSAS ESPECIALIDADES CLÍNICAS (PEDIA-TRIA, CIRURGIA E CLÍNICA MÉDICAS, PRINCIPALMENTE). OPORTUNIZA O     DE-SENVOLVIMENTO DE TAREFAS DE ROTINA DO NUTRICIONISTA CLÍNICO,   COMÊNFASE NA DIETOTERAPIA, DE FORMA INDEPENDENTE E À LUZ DO  CONHECI- MENTOS CIENTÍFICOS PERTINENTES A CADA CASO.ENFATIZA O ESTUDO TEÓRICO DOS DISTURBIOS METABÓLICOS E   PATALÓGI-COS DE REPERCUSSÃO NUTRICIONAL, COM A APLICAÇÃO PRÁTICA NA  DIETO- TERAPIA.       FAVORECE A INTEGRAÇÃO DO ESTUDANTE  COM OS PACIENTES,COM OS NUTRICIONISTAS CLÍNICOS E COM A        EQUIPE INTERDISCIPLINAR EMUTIPROFISSIONAL, A PARTIR DO NÍVEL SECUNDÁRIO DE ASSISTÊNCIA À  SA- ÚDE.",
+        "codigo": "NUT0057"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0005 E NUT0032 E NUT0088 E NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0154 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO EM NUTRIÇÃO SOCIAL PERMITE O TREINAMENTO, EM SERVIÇO DOESTAGIÁRIO EM NUTRIÇÃO, NAS ATIVIDADES DE SAÚDE EM N'VEL PRIMÁRIO,QUE SE RELACIONEM AS CONDIÇÕES ALIMENTARES E NUTRICIONAIS DA PO-PULAÇÃO. FAVORECE A IDENTIFICAÇÃO DE AÇÕES PRÓPRIAS DA NUTRIÇÃONO ATENDIMENTO PRIMÁRIO Á SAÚDE E/OU SUA IMPLEMENTAÇÃO.OPORTUNIZA A PRÁTICA:DO DIAGNÓSTICO NUTRICIONAL INDIVIDUAL E COLE-TIVA DO PLANEJAAMENTO DE AÇÕES QUE LEVAM À SOLUÇÃO DOS PROBLE-MAS IDENTIFICADOSDE AÇÕES PRÓPRIAS DA ATENÇÃO DIETÉTICA DA MPLE-MENTAÇÃO E/OU AVALIAÇÃO DE PROGRAMAS E ATIVIDADES PECULIARES ÃÁREA DE NUTRIÇÃO SOCIAL.",
+        "codigo": "NUT0093"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0043 E NUT0077 E NUT0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0060 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO EM NUTRIÇÃO SOCIAL PERMITE O TREINAMENTO, EM SERVIÇO DOESTAGIÁRIO EM NUTRIÇÃO, NAS ATIVIDADES DE SAÚDE EM N'VEL PRIMÁRIO,QUE SE RELACIONEM AS CONDIÇÕES ALIMENTARES E NUTRICIONAIS DA PO-PULAÇÃO. FAVORECE A IDENTIFICAÇÃO DE AÇÕES PRÓPRIAS DA NUTRIÇÃONO ATENDIMENTO PRIMÁRIO Á SAÚDE E/OU SUA IMPLEMENTAÇÃO.OPORTUNIZA A PRÁTICA:DO DIAGNÓSTICO NUTRICIONAL INDIVIDUAL E COLE-TIVA DO PLANEJAAMENTO DE AÇÕES QUE LEVAM À SOLUÇÃO DOS PROBLE-MAS IDENTIFICADOSDE AÇÕES PRÓPRIAS DA ATENÇÃO DIETÉTICA DA MPLE-MENTAÇÃO E/OU AVALIAÇÃO DE PROGRAMAS E ATIVIDADES PECULIARES ÃÁREA DE NUTRIÇÃO SOCIAL.",
+        "codigo": "NUT0148"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0005 E NUT0032 E NUT0088 E NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0093 )",
+        "equivalencias_especificas": [],
+        "ementa": "O ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO EM SAÚDE COLETIVA PERMITE O TREINAMENTO EM SERVIÇO DO ESTAGIÁRIO EM NUTRIÇÃO, NAS ATIVIDADES DE SAÚDE EM NÍVEL PRIMÁRIO, QUE SE RELACIONEM ÀS CONDIÇÕES ALIMENTARES E NUTRICIONAIS DA POPULAÇÃO. FAVORECE A IDENTIFICAÇÃO DE AÇÕES PRÓPRIAS DA NUTRIÇÃO NO ATENDIMENTO PRIMÁRIO À SAÚDE E/OU SUA IMPLEMENTAÇÃO. OPORTUNIZA A PRÁTICA DO DIAGNÓSTICO NUTRICIONAL INDIVIDUAL E COLETIVO DO PLANEJAMENTO DE AÇÕES QUE LEVAM À SOLUÇÃO DOS PROBLEMAS IDENTIFICADOS DE AÇÕES PRÓPRIAS DA ATENÇÃO DIETÉTICA DA IMPLEMENTAÇÃO E/OU AVALIAÇÃO DE PROGRAMAS E ATIVIDADES PECULIARES À ÁREA DE NUTRIÇÃO EM SAÚDE COLETIVA.",
+        "codigo": "NUT0154"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM NUTRICAO SOCIAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0043 E NUT0077 E NUT0032 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0148 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0038 OU NUT0039 OU NUT0040 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O ESTÁGIO EM NUTRIÇÃO SOCIAL PERMITE O TREINAMENTO, EM SERVIÇO DOESTAGIÁRIO EM NUTRIÇÃO, NAS ATIVIDADES DE SAÚDE EM N'VEL  PRIMÁRIO,QUE SE RELACIONEM AS CONDIÇÕES ALIMENTARES E NUTRICIONAIS DA   PO-PULAÇÃO. FAVORECE A IDENTIFICAÇÃO DE AÇÕES PRÓPRIAS     DA NUTRIÇÃONO ATENDIMENTO PRIMÁRIO Á SAÚDE E/OU SUA IMPLEMENTAÇÃO.OPORTUNIZA A PRÁTICA:DO DIAGNÓSTICO NUTRICIONAL INDIVIDUAL E COLE-TIVA DO PLANEJAAMENTO DE AÇÕES QUE LEVAM À SOLUÇÃO    DOS PROBLE-MAS IDENTIFICADOSDE AÇÕES PRÓPRIAS DA ATENÇÃO DIETÉTICA DA MPLE-MENTAÇÃO E/OU AVALIAÇÃO DE PROGRAMAS E ATIVIDADES PECULIARES     ÃÁREA DE NUTRIÇÃO SOCIAL.",
+        "codigo": "NUT0060"
+    },
+    {
+        "nome": "ETICA E FORMAÇÃO PROFISSIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Ementa: Aborda os dilemas morais na atuação do nutricionista no mercado de trabalho. Diferencia ética e bioética. Estuda o código de ética e sua aplicação prática em exemplos de casos.",
+        "codigo": "NUT0079"
+    },
+    {
+        "nome": "FUNDAMENTOS DE ANALISE DE ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( FAR0050 OU FAV0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaA disciplina aborda aspectos práticos e teóricos sobre a análise dos principais componentes dos alimentos tais como: proteínas, carboidratos, lipídeos, vitaminas e minerais. Ao final do curso o aluno deverá ser capaz de identificar a população da qual se deseja realizar a dosagem de nutrientes, realizar corretamente o procedimento de amostragem e identificar as principais metodologias de dosagem destas, assim como determinar aquela que melhor se adéqua a matriz do alimento. O aluno deverá ainda expressar corretamente os resultados obtidos e estabelecer comparação com os valores citados na literatura.",
+        "codigo": "NUT0049"
+    },
+    {
+        "nome": "FUNDAMENTOS DE CIÊNCIAS DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( CEL0082 E CEL0083 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0050 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( NUT0018 E NUT0022 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( NUT0018 E NUT0022 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( NUT0018 E NUT0022 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina apresenta conhecimentos básicos sobre alguns constituintes dos alimentos e sua funcionalidade durante o processamento ou produção, além das principais alterações provenientes da manipulação. Discute os conceitos sobre alimentos especiais e alimentos com substâncias bioativas. Conteúdo a ministrar por meio de aulas teóricas. Concluído o curso, o aluno deve ser capaz de avaliar as modificações na composição e nas características dos alimentos, decorrentes de sua manipulação. Deverá estar apto a propor soluções para manter e para melhorar propriedades nutricionais e propriedades funcionais dos alimentos.",
+        "codigo": "NUT0092"
+    },
+    {
+        "nome": "FUNDAMENTOS EM ALIMENTAÇÃO E NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0001"
+    },
+    {
+        "nome": "GASTRONOMIA E NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0041 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaProporciona contato com os procedimentos técnicos relacionados ao preparo de alimentos e as conseqüentes alterações físico-químicas ocorridas nos processos culinários. Complementa, aprofunda e atualiza conhecimentos da disciplina técnica dietética. Leva o aluno ao interesse de analisar, operacionalizar, experimentar e aplicar conhecimentos no preparo de alimentação para coletividade sadias e enfermas.",
+        "codigo": "NUT0067"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0070 E NUT0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0073 ) OU ( NUT0074 ) OU ( NUT0138 E NUT0139 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0035 OU NUT0036 OU NUT0037 ) ) OU ( NUT0073 OU NUT0074 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0035 OU NUT0036 OU NUT0037 ) ) OU ( NUT0073 OU NUT0074 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0035 OU NUT0036 OU NUT0037 ) ) OU ( NUT0073 OU NUT0074 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina tem por objetivo proporcionar conhecimentos básicos da Administração Geral e sua aplicação na Administração de Unidades de Alimentação. Leva o aluno ao conhecimento das diversas modalidades de Unidades de Alimentação, características e necessidades Técnico-Administrativas específicas. Deverá também capacitar o aluno, enquanto profissional de saúde, a promover a interação entre a prática administrativa em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0075"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0074 ) OU ( NUT0075 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( NUT0037 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "2008.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A definir",
+        "codigo": "NUT0073"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0073 ) OU ( NUT0075 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( NUT0037 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "2008.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( NUT0037 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "2012.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaProporcionar conhecimentos básicos da Administração Geral e sua aplicação na Administração de Serviços de Alimentação. Levar o aluno ao conhecimento das diversas modalidades de serviços de alimentação, características e necessidades Técnico-Administrativas específicas.",
+        "codigo": "NUT0074"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1 - PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0070 E NUT0041 )",
+        "co_requisitos": "( NUT0138 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar conhecimentos básicos da Administração Geral e sua aplicação na Administração de Unidades de Alimentação Práticos. Levar o aluno ao conhecimento das diversas modalidades de Unidades de Alimentação, características e necessidades Técnico-Administrativas específicas na prática. Capacitar o aluno, enquanto profissional de saúde, a promover a interação entre a prática administrativa em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0139"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1 - TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0070 E NUT0041 )",
+        "co_requisitos": "( NUT0139 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar conhecimentos básicos da Administração Geral e sua aplicação na Administração de Unidades de Alimentação. Levar o aluno ao conhecimento das diversas modalidades de Unidades de Alimentação, características e necessidades Técnico-Administrativas específicas. Capacitar o aluno, enquanto profissional de saúde, a promover a interação entre a prática administrativa em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0138"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0077 ) OU ( NUT0078 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( NUT0037 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "2008.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A definir",
+        "codigo": "NUT0076"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0041 E NUT0074 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0076 ) OU ( NUT0078 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( NUT0037 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "2008.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( NUT0037 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "2012.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaProporcionar ao aluno o conhecimento das diversas modalidades de serviços de alimentação, características e necessidades Técnico-Administrativas específicas. Fornecer subsídios visando capacitá-lo enquanto profissional de saúde, a promover a interação entre a prática administrativa em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0077"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0075 ) OU ( NUT0138 E NUT0139 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0076 ) OU ( NUT0077 ) OU ( NUT0140 E NUT0141 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0035 OU NUT0036 OU NUT0037 ) ) OU ( NUT0076 OU NUT0077 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0035 OU NUT0036 OU NUT0037 ) ) OU ( NUT0076 OU NUT0077 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0035 OU NUT0036 OU NUT0037 ) ) OU ( NUT0076 OU NUT0077 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina tem por objetivo capacitar o aluno a planejar, organizar, administrar, controlar e avaliar uma Unidade de Alimentação e Nutrição quanto a seus aspectos físicos e funcionais.",
+        "codigo": "NUT0078"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2 - PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0075 ) OU ( NUT0138 E NUT0139 ) )",
+        "co_requisitos": "( NUT0140 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar práticas integrativas em Gestão de Unidades de Alimentação, sua interface com o meio ambiente, sustentabilidade e responsabilidade técnica. Promover a capacitação dos alunos acerca dos impactos das Unidades de Alimentação e Nutrição e responsabilidade Social. Instrumentalizar o aluno para a aplicação, monitoramento e avaliação de programas de controle de qualidade em Unidades de Alimentação e Nutrição; Integrar os alunos em práticas e treinamentos acerca de custeio e da produção de Refeições, capacitando-o enquanto profissional de saúde, a promover a interação entre a práticas de gestão de UAN em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0141"
+    },
+    {
+        "nome": "GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2 - TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0075 ) OU ( NUT0138 E NUT0139 ) )",
+        "co_requisitos": "( NUT0141 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar conhecimentos básicos da Administração Geral e sua aplicação na Administração de Unidades de Alimentação. Levar o aluno ao conhecimento das diversas modalidades de unidades de alimentação, características e necessidades Técnico-Administrativas específicas. Fornecer subsídios ao aluno, capacitando-o enquanto profissional de saúde, a promover a interação entre a prática administrativa em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0140"
+    },
+    {
+        "nome": "HIGIENE E VIGILÂNCIA SANITÁRIA DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0061 ) OU ( NUT0062 )",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA ESTUDA ATRAVÉS DE AULAS TEÓRICAS A LEGISLAÇÃO QUE REGULA A PRODUÇÃO DE ALIMENTOS, VISANDO A SUA SEGURANÇA. E DESENVOLVE TRABALHOS DE CAMPO ONDE SÃO AVALIADOS AS CONDIÇÕES HIGIENICO-SANITÁRIAS DE UNIDADES DE ALIMENTAÇÃO TRADICIONAIS A ESPECIAIS,AGROINDÚSTRIAS E PEQUENAS FÁBRICAS DE ALIMENTOS PROCESSA DOS E SEMI-PROCESSADOS.",
+        "codigo": "NUT0063"
+    },
+    {
+        "nome": "INTEGRADORA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0002"
+    },
+    {
+        "nome": "INTEGRADORA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0002 E NUT0055 E NUT0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Possibilitar a articulação entre as disciplinas do segundo eixo (Alimentos e Alimentação), visando o fortalecimento da interação homem x alimento x saúde. Acompanhamento e observação crítica dos processos pelos quais passam os alimentos\ndesde o cultivo ou produção, até o consumo. Discutir sobre o Direito Humana à\nalimentação adequada e o papel do setor produtivo neste contexto, bem como o impacto\nambiental da produção de alimentos e da utilização pelos consumidores. Demonstrar as\ndiferenças e similaridades étnico-raciais na escolha alimentar nos diferentes setores\nprodutivos.",
+        "codigo": "NUT0003"
+    },
+    {
+        "nome": "INTEGRADORA 3",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0003 E NUT0092 E NUT0021 E NUT0089 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0004"
+    },
+    {
+        "nome": "INTEGRADORA 4",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0004 E NUT0097 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0005"
+    },
+    {
+        "nome": "INTRODUCAO A NUTRICAO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar ao aluno do curso de Nutrição, recém ingressado na UNB conhecimentos sobre diferentes áreas de atuação do nutricionista no mercado de trabalho.",
+        "codigo": "NUT0053"
+    },
+    {
+        "nome": "MARCADORES CLÍNICOS E BIOQUÍMICOS DO ESTADO NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0002 E NUT0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "*",
+        "codigo": "NUT0008"
+    },
+    {
+        "nome": "MICROBIOLOGIA E HIGIENE DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( CEL0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0019 ) OU ( NUT0020 ) OU ( NUT0142 E NUT0143 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Histórico da microbiologia dos alimentos. Contaminação dos alimentos. Micro-organismos de importância e suas interações com os alimentos. Crescimento microbiano nos alimentos. Epidemiologia das doenças transmitidas por água e alimentos. Conceito e objetivos da higiene dos alimentos. Prevenção e controle das principais doenças transmitidas por alimentos. Procedimentos de higienização em serviços institucionais de produção de alimentos. Avaliação da qualidade na produção de alimentos de acordo com parâmetros sanitários.",
+        "codigo": "NUT0021"
+    },
+    {
+        "nome": "MICROBIOLOGIA E HIGIENE DOS ALIMENTOS PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( CEL0050 )",
+        "co_requisitos": "( NUT0142 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Análises microbiológicas relacionadas à práticas de higiene de alimentos. Observação e avaliação das Boas Práticas em Serviços de Alimentação (BPSA). Fundamentos para aplicação de sistemas de qualidade para prevenção de DTA.",
+        "codigo": "NUT0143"
+    },
+    {
+        "nome": "MICROBIOLOGIA E HIGIENE DOS ALIMENTOS TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( CEL0050 )",
+        "co_requisitos": "( NUT0143 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Histórico da microbiologia dos alimentos. Contaminação dos alimentos. Micro-organismos de importância e suas interações com os alimentos. Crescimento microbiano nos alimentos. Epidemiologia das doenças transmitidas por água e alimentos. Conceito e objetivos da higiene dos alimentos. Prevenção e controle das principais doenças transmitidas por alimentos. Procedimentos de higienização em serviços institucionais de produção de alimentos. Avaliação da qualidade na produção de alimentos de acordo com parâmetros sanitários.",
+        "codigo": "NUT0142"
+    },
+    {
+        "nome": "MONITORIA EM ADMINISTRAÇÃO DE SERVIÇOS DE ALIMENTAÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0170"
+    },
+    {
+        "nome": "MONITORIA EM AMBULATÓRIO DE ESPECIALIDADES EM NUTRIÇÃO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0187"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE SENSORIAL DE ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0091 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0133"
+    },
+    {
+        "nome": "MONITORIA EM AVALIACAO ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0104"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO ALIMENTAR E NUTRICIONAL PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0136 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0221"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO ALIMENTAR E NUTRICIONAL PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0136 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação",
+        "codigo": "NUT0145"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO ALIMENTAR E NUTRICIONAL TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0222"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO NUTRICIONAL NA PRÁTICA CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0080 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0201"
+    },
+    {
+        "nome": "MONITORIA EM BROMATOLOGIA E TECNOLOGIA DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0161"
+    },
+    {
+        "nome": "MONITORIA EM COMPOSICAO DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0163"
+    },
+    {
+        "nome": "MONITORIA EM CORRENTES ALTERNATIVAS DE ALIMENTACAO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0179"
+    },
+    {
+        "nome": "MONITORIA EM EDUCAÇÃO ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0122"
+    },
+    {
+        "nome": "MONITORIA EM EPIDEMIOLOGIA NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0121"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO COMPLEMENTAR EM NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0066 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0128"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0126"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0094 OU NUT0155 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0214"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM NUTRICAO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0171"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0051 OU NUT0153 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0178"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0125"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0093 OU NUT0154 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0213"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM NUTRICAO SOCIAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0127"
+    },
+    {
+        "nome": "MONITORIA EM ETICA E FORMAÇÃO PROFISSIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0079 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0111"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DE ANALISE DE ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0177"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DE CIÊNCIAS DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0092 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0116"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS EM ALIMENTAÇÃO E NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0099"
+    },
+    {
+        "nome": "MONITORIA EM GASTRONOMIA E NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0129"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0074 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0109"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0194"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0196"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1 - PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0139 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0224"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 1 - TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0138 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0223"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0078 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0199"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0076 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0197"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0077 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0110"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2 - PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0226"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES 2 - TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0140 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0225"
+    },
+    {
+        "nome": "MONITORIA EM HIGIENE E VIGILÂNCIA SANITÁRIA DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0186"
+    },
+    {
+        "nome": "MONITORIA EM INTEGRADORA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0118"
+    },
+    {
+        "nome": "MONITORIA EM INTEGRADORA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0119"
+    },
+    {
+        "nome": "MONITORIA EM INTEGRADORA 3",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0149"
+    },
+    {
+        "nome": "MONITORIA EM INTEGRADORA 4",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0150"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A NUTRICAO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0053 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0180"
+    },
+    {
+        "nome": "MONITORIA EM MARCADORES CLÍNICOS E BIOQUÍMICOS DO ESTADO NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0100"
+    },
+    {
+        "nome": "MONITORIA EM MICROBIOLOGIA E HIGIENE DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0102"
+    },
+    {
+        "nome": "MONITORIA EM MICROBIOLOGIA E HIGIENE DOS ALIMENTOS PRÁTICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0143 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0228"
+    },
+    {
+        "nome": "MONITORIA EM MICROBIOLOGIA E HIGIENE DOS ALIMENTOS TEÓRICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0227"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO APLICADA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0159"
+    },
+    {
+        "nome": "MONITORIA EM NUTRICAO CLINICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0157"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO CLÍNICA E DIETOTERAPIA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0097 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de GraduaÃ§Ã£o.",
+        "codigo": "NUT0144"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO CLÍNICA E DIETOTERAPIA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0090 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0115"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO CLÍNICA E DIETOTERAPIA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0106"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO CLÍNICA EM PEDIATRIA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0081 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0202"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO E ALIMENTAÇÃO NO ESPORTE",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0095 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0134"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO E CICLOS DA VIDA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0085 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0206"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO E CICLOS DA VIDA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0086 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0112"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO E DIETÉTICA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0107"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO E DIETÉTICA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0130"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0103"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO EXPERIMENTAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0175"
+    },
+    {
+        "nome": "MONITORIA EM NUTRICAO HUMANA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0123"
+    },
+    {
+        "nome": "MONITORIA EM NUTRICAO HUMANA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0055 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0124"
+    },
+    {
+        "nome": "MONITORIA EM NUTRICAO MATERNO-INFANTIL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0164"
+    },
+    {
+        "nome": "MONITORIA EM NUTRIÇÃO NAS FASES DA VIDA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0120"
+    },
+    {
+        "nome": "MONITORIA EM NUTRICAO NORMAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0160"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE EDUCAÇÃO ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0156"
+    },
+    {
+        "nome": "MONITORIA EM PATOLOGIA NUTRICIONAL E DIETOTERAPIA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0168"
+    },
+    {
+        "nome": "MONITORIA EM PESQUISA QUALITATIVA EM ALIMENTAÇÃO E NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0151"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0174"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0088 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0113"
+    },
+    {
+        "nome": "MONITORIA EM SEMINARIO AVANCADO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0101"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO AVANÇADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0188"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO AVANÇADO EM NUTRIÇÃO BÁSICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0098 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0218"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIO AVANÇADO EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0193"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIOS AVANÇADOS EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0203"
+    },
+    {
+        "nome": "MONITORIA EM TECNICA DIETETICA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0165"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICA DIETÉTICA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0089 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0114"
+    },
+    {
+        "nome": "MONITORIA EM TECNICA DIETETICA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0105"
+    },
+    {
+        "nome": "MONITORIA EM TERAPIA NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0117"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0096 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0216"
+    },
+    {
+        "nome": "MONITORIA EM TOXICOLOGIA DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0176"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0108 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0219"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0083 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0131"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0135 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0220"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0084 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "NUT0132"
+    },
+    {
+        "nome": "NUTRIÇÃO APLICADA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0015 )",
+        "equivalencias_especificas": [],
+        "ementa": "A DISCIPLINA INTRODUZ O ALUNO AOS PRINCIPIOS DE NUTRICAO. ESTUDA  OS PRINCIPAIS PROBLEMAS NUTRICIONAIS NOS SEUS ASPECTOS CLINICOS E EPI-  DEMIOLOGICOS, E OS  PROGRAMAS DE  NUTRICAO EM  SAUDE  PUBLICA. ESTUDA,  TAMBEM, AS PATOLOGIAS E SUAS INTERFERENCIAS COM A ALIMENTACAO E NUTRI-  CAO,MOSTRA A IMPORTANCIA DA ALIMENTACAO NA RECUPERACAO E MANUTENCAO DA  SAUDE.",
+        "codigo": "NUT0016"
+    },
+    {
+        "nome": "NUTRICAO CLINICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( FMD0237 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "DESTACA A IMPORTANCIA DOS CONHECIMENTOS DE NUTRICAO NA PRATICA MEDICAE NA INTERACAO DA EQUIPE DE SAUDE.",
+        "codigo": "NUT0012"
+    },
+    {
+        "nome": "NUTRIÇÃO CLÍNICA E DIETOTERAPIA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "NUT0010",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Nutrição Clínica e Dietoterapia irá abranger a fisiopatologia e a dietoterapia das doenças crônicas e críticas, além das que afetam o trato gastrointestinal.",
+        "codigo": "NUT0097"
+    },
+    {
+        "nome": "NUTRIÇÃO CLÍNICA E DIETOTERAPIA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( FMD0095 E NUT0068 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0033 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Identifica as implicações nutricionais da fisiopatologia e do tratamento aplicado às diversas doenças sobre o indivíduo adulto enfermo. Destaca a importância da dieta como componente terapêutico em diferentes estados mórbidos. Estuda a atenção dietética na clínica aplicando, na prática, as etapas de: anamnese dietética, avaliação nutricional, evolução dietoterápica, cálculo de dietas, prescrição dietética, orientação alimentar e registro de informações. Enfatiza a individualidade como critério básico da dietoterapia.",
+        "codigo": "NUT0090"
+    },
+    {
+        "nome": "NUTRIÇÃO CLÍNICA E DIETOTERAPIA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0033 ) OU ( NUT0090 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0033 ) OU ( NUT0042 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar ao aluno o conhecimento das diversas modalidades de serviços de alimentação, características e necessidades Técnico-Administrativas específicas. Fornecer subsídios visando capacitá-lo enquanto profissional de saúde, a promover a interação entre a prática administrativa em conformidade com os preceitos da Nutrição.",
+        "codigo": "NUT0043"
+    },
+    {
+        "nome": "NUTRIÇÃO CLÍNICA EM PEDIATRIA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaEstuda as repercussões clínico nutricionais das doenças  sobre a criança. Destaca a  importância da terapia nutricional como componente profilático e terapêutico em diferentes estados mórbidos. Enfatiza a implementação de todas as etapas de atenção dietética no atendimento a criança doente. Oportuniza a aplicação prática das etapas de: anamnese dietética, avaliação nutricional, evolução dietoterápica, cálculo de dietas, prescrição dietética, orientação alimentar e registro de informações.",
+        "codigo": "NUT0081"
+    },
+    {
+        "nome": "NUTRIÇÃO E ALIMENTAÇÃO NO ESPORTE",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "NUT0070",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina propõe estudar os conceitos básicos da fisiologia e bioquímica aplicada\naos exercícios físicos, visando o entendimento dos mecanismos fisiológicos e vias metabólicas que atuam no metabolismo energético e da utilização de nutrientes durante o exercício. Discutir e aprimorar o entendimento das necessidades nutricionais de atletas e desportistas para compreender e exercitar a prescrição nutricional.",
+        "codigo": "NUT0095"
+    },
+    {
+        "nome": "NUTRIÇÃO E CICLOS DA VIDA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0055 E NUT0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0023 OU NUT0024 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0023 OU NUT0024 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0023 OU NUT0024 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaA abordagem temática da disciplina de Nutrição e Ciclos da Vida 1 envolve a caracterização das condições fisiológicas durante a gestação e lactação, inserindo-as nos contextos psicológicos, sociais e econômicos. Estuda os fundamentos teóricos para o diagnóstico nutricional da gestante e nutriz, necessidades nutricionais, análise e cálculo de dietas, prescrição de esquemas alimentares e registro de informações. Objetiva, a compreensão integralizada dos indivíduos nesses estados fisiológicos especiais sem ignorar a realidade em que vivem durante a prática assistencial.",
+        "codigo": "NUT0085"
+    },
+    {
+        "nome": "NUTRIÇÃO E CICLOS DA VIDA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0085 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A abordagem temática da disciplina de Nutrição e Ciclos da Vida 2 envolve a caracterização das condições fisiológicas do lactente, pré escolar, escolar e adolescente, inserindo-as nos contextos psicológicos, sociais e econômicos. Estudo dos fundamentos teóricos para o diagnóstico nutricional nestas fases, necessidades nutricionais, análise e cálculo de dietas, prescrição de esquemas alimentares e registro de informações. Objetiva, a compreensão integralizada dos indivíduos nesses estados fisiológicos especiais sem ignorar a realidade em que vivem durante a prática assistencial.",
+        "codigo": "NUT0086"
+    },
+    {
+        "nome": "NUTRIÇÃO E DIETÉTICA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0055 E NUT0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaConsiderando a necessidade da introdução de conceitos relativos ao cálculo e dietas específicas para os diferentes estágios da vida, bem como a formulação de cardápios, a disciplina tem como princípios a abordagem da alimentação e seus condicionantes nos diferentes estados fisiológicos e de atividade física de indivíduos e coletividades.",
+        "codigo": "NUT0068"
+    },
+    {
+        "nome": "NUTRIÇÃO E DIETÉTICA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0068 E NUT0089 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "Considerando a necessidade da introdução de conceitos relativos ao cálculo e dietas específicas para os diferentes estágios da vida, bem como a formulação de cardápios, a disciplina tem como princípios a abordagem da alimentação e seus condicionantes nos diferentes estados fisiológicos e de atividade física de indivíduos e coletividades. A proposta da disciplina parte do pressuposto da necessidade de aprofundamento, pelo discente, dos conceitos relativos à elaboração de dietas, esquemas dietéticos e planejamento de cardápios.",
+        "codigo": "NUT0070"
+    },
+    {
+        "nome": "NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( DSC0037 E NUT0086 ) OU ( DSC0020 E NUT0086 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0029 ) OU ( NUT0030 ) OU ( NUT0031 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estuda nutrição em saúde pública, epidemiologia nutricional, sistema único de saúde, segurança alimentar e nutricional, políticas públicas e programas sociais de alimentação e nutrição.",
+        "codigo": "NUT0032"
+    },
+    {
+        "nome": "NUTRIÇÃO EXPERIMENTAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0045 ) OU ( NUT0046 )",
+        "equivalencias_especificas": [],
+        "ementa": "INTRODUZIR O ALUNO NOS PROCESSOS UTILIZADOS EM  PEQUISA  LABORATORIALNO CAMPO DA NUTRICAO, ABRANGENDO OS ASPECTOS  BIOQUIMICO,  BROMATOLOGICOE DE TECNOLOGIA DE ALIMENTOS, HIGIENE DOS ALIMENTOS E MANUSEIO DO ANIMALEXPERIMENTAL.",
+        "codigo": "NUT0047"
+    },
+    {
+        "nome": "NUTRICAO HUMANA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "ENFERMAGEM - Enfermeiro - Presencial - D",
+                "curriculo": "7412/-2 - 2010.2",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "ENFERMAGEM - Enfermeiro - Presencial - D",
+                "curriculo": "7412/1 - 2015.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaEstuda os fundamentos da Nutrição e Alimentação Humana nos seus aspectos bioquímicos, fisiológicos e das necessidades nutricionais. São abordados os conceitos básicos da dieta normal nos diferentes períodos fisiológicos e no treinamento físico.",
+        "codigo": "NUT0054"
+    },
+    {
+        "nome": "NUTRICAO HUMANA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0054 E CEL0082 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0017 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaEstuda os fundamentos da Nutrição e Alimentação Humana nos seus aspectos bioquímicos e fisiológicos. Estuda as bases científicas para o estabelecimento das necessidades nutricionais e dos valores de referência dos nutrientes.",
+        "codigo": "NUT0055"
+    },
+    {
+        "nome": "NUTRICAO MATERNO-INFANTIL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 ) OU ( NUT0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0023 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0085 ) ) OU ( NUT0023 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0085 ) ) OU ( NUT0023 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0085 ) ) OU ( NUT0023 )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A DISCIPLINA VISA O ESTUDO NUTRICIONAL DO GRUPO  MATERNO-INFANTIL,TANTO NOS SEUS ASPECTOS FISIOLOGICOS COMO NAS PATOLOGIAS MAIS COMUNS LI-GADOS A NUTRICAO NESSES GRUPOS. AS AULAS PRATICAS SAO  DESENVOLVIDAS NOSAMBULATORIOS DE CRESCIMENTO E DESENVOLVIMENTO  (CD) E GINECO-OBSTETRICIADO HUB.",
+        "codigo": "NUT0024"
+    },
+    {
+        "nome": "NUTRIÇÃO NAS FASES DA VIDA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0034 E NUT0068 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0007"
+    },
+    {
+        "nome": "NUTRICAO NORMAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( CEL0019 E FMD0165 E FMD0167 ) OU ( CEL0021 E FMD0165 E FMD0167 ) OU ( CEL0067 E FMD0165 E FMD0167 ) OU ( CEL0067 E FMD0510 E CFS0037 ) OU ( CEL0082 E CEL0083 E FMD0510 E CFS0037 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( NUT0054 ) E ( NUT0055 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-3 - 2008.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0054 ) )",
+                "matriz_curricular": "ENFERMAGEM - Enfermeiro - Presencial - D",
+                "curriculo": "7412/-2 - 2010.2",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0054 ) E ( NUT0055 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/-2 - 2012.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0054 ) )",
+                "matriz_curricular": "ENFERMAGEM - Enfermeiro - Presencial - D",
+                "curriculo": "7412/1 - 2015.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( NUT0054 ) E ( NUT0055 ) )",
+                "matriz_curricular": "NUTRICAO - Nutricionista - Presencial - D",
+                "curriculo": "7510/1 - 2019.1",
+                "data_vigencia": "1976.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTUDA OS FUNDAMENTOS DE  NUTRICAO E  ALIMENTACAO NOS  SEUS  ASPECTOSBIOQUIMICOS, FISIOLOGICOS E DOS REQUERIMENTOS NUTRICIONAIS. SAO  ABORDA-DOS TAMBEM OS CONCEITOS BASICOS DE DIETA NORMAL NOS DIFERENTES  PERIODOSFISIOLOGICOS.",
+        "codigo": "NUT0017"
+    },
+    {
+        "nome": "OFICINA DE EDUCAÇÃO ALIMENTAR E NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0028 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Recursos pedagógicos para promoção da alimentação adequada e saudável. Aprendizagem ativa. Problematização. Recursos educacionais.",
+        "codigo": "NUT0011"
+    },
+    {
+        "nome": "PATOLOGIA NUTRICIONAL E DIETOTERAPIA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0025 E FMD0095 ) OU ( FMD0151 E FMD0152 E NUT0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0043 E NUT0090 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaIdentifica as implicações nutricionais da fisiopatologia e do tratamento aplicado às diversas doenças sobre o indivíduo adulto enfermo. Destaca a  importância da dieta como componente terapêutico em diferentes estados mórbidos. Estuda a atenção dietética na clínica aplicando, na prática, as etapas de: anamnese dietética, avaliação nutricional, evolução dietoterápica, cálculo de dietas, prescrição dietética, orientação alimentar e registro de informações. Enfatiza a individualidade como critério básico da dietoterapia.",
+        "codigo": "NUT0033"
+    },
+    {
+        "nome": "PESQUISA QUALITATIVA EM ALIMENTAÇÃO E NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0001 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "NUT0006"
+    },
+    {
+        "nome": "PLANEJAMENTO NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0034 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaA disciplina integra conhecimentos teóricos e práticos no campo da saúde e nutrição, enfocando o estudo de patologias como câncer e pacientes críticos para auxiliar na interpretação do processo saúde-doença. Além disso, oferece ao aluno o estudo de casos clínicos em nutrição para o desenvolvimento da educação nutricional no atendimento clínico.",
+        "codigo": "NUT0044"
+    },
+    {
+        "nome": "PRÁTICAS EM NUTRIÇÃO",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0087 )",
+        "equivalencias_especificas": [],
+        "ementa": "Prática da Atenção Nutricional, abrangendo: vigilância, promoção, prevenção e cuidado integral de agravos. Atenção Nutricional com abordagem em nível individual e/ou coletivo, para todas as fases do curso da vida, com assistência especializada ou atenção básica. Ações de promoção da alimentação saudável, com vistas à garantia do direito humano à alimentação adequada e segurança alimentar e nutricional, nos diferentes cenários e públicos para atuação do nutricionista.",
+        "codigo": "NUT0088"
+    },
+    {
+        "nome": "SEMINARIO AVANCADO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0054 ) OU ( FAR0124 ) OU ( CEL0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "Bibliografia9.1. Decreto - lei 986/699.2. Portaria 27/98, 28/98 e 29/989.3. Portarias 33/98, 40/98 e 32/989.4. Portarias 31/98, 41/98 e 42/989.5. RDC 39/2001 e RDC 40/20019.6. Portaria 30/989.7. Portaria 222/98 e 223/989.8. Resolução 31/92 - Norma9.9 Portarias 34/98, 36/98 e 977/989.10. Resolução 449/99 e Portaria 868/989.11. Resoluções 18/99 e 19/999.12. Lei 8543/92 e portarias 218/99 e 304/99",
+        "codigo": "NUT0014"
+    },
+    {
+        "nome": "SEMINÁRIO AVANÇADO EM GESTÃO DE PRODUÇÃO DE REFEIÇÕES",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0068 E NUT0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaLeitura e discussão de textos científicos de temas atuais ou emergentes na área de produção de refeições e alimentos, objetivando conhecimento  do  seu estado da arte. Objetiva, ainda, apresentar conceitos básicos de metodologia científica no desenvolvimento de pesquisas cientificas.  A disciplina tem como finalidade o  desenvolvimento de habilidade na busca de informações técnico-científicas sobre temas emergentes na área e na análise critica das informações  apresentadas. A disciplina será conduzida na forma de módulos temáticos.",
+        "codigo": "NUT0065"
+    },
+    {
+        "nome": "SEMINÁRIO AVANÇADO EM NUTRIÇÃO BÁSICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "NUT0055",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina propõe estudar os conteúdos de bioquímica nutricional e fisiologia aplicada à nutrição, aprofundar a capacidade de leitura e interpretação de textos científicos, discutir e aprimorar o entendimento sobre temas relativos à nutrição básica e nutrição experimental.",
+        "codigo": "NUT0098"
+    },
+    {
+        "nome": "SEMINÁRIO AVANÇADO EM NUTRIÇÃO EM SAÚDE COLETIVA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0071 )",
+        "equivalencias_especificas": [],
+        "ementa": "Leitura e discussão de textos científicos de temas atuais ou emergentes em nutrição clinica, objetivando conhecimento  do  seu estado da arte. Objetiva, ainda, apresentar conceitos básicos de metodologia científica no desenvolvimento de pesquisas cientificas.  A disciplina tem como finalidade o  desenvolvimento de habilidade na busca de informações técnico-científicas sobre temas emergentes em nutrição clínica e a capacitação na análise critica das informações  apresentadas. A disciplina será conduzida na forma de módulos temáticos de 1 a 2 temas por semestre",
+        "codigo": "NUT0072"
+    },
+    {
+        "nome": "SEMINÁRIOS AVANÇADOS EM NUTRIÇÃO CLÍNICA",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0008 OU NUT0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaLeitura e discussão de textos científicos de temas atuais ou emergentes em nutrição clínica, objetivando conhecimento do seu estado da arte. Objetiva, ainda, apresentar conceitos básicos de metodologia científica no desenvolvimento de pesquisas científicas. A disciplina tem como finalidade o desenvolvimento de habilidade na busca de informações técnico - cientificas sobre temas emergentes em nutrição clínica e a capacitação na análise crítica das informações apresentadas. A disciplina será conduzida na forma de módulos temáticos de 1 a 2 temas por semestre.",
+        "codigo": "NUT0082"
+    },
+    {
+        "nome": "TECNICA DIETETICA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0017 E NUT0018 ) OU ( NUT0017 E NUT0092 ) OU ( NUT0054 E NUT0092 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0041 E NUT0089 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaProporcionar contato com os procedimentos técnicos relacionados ao preparo de alimentos e as conseqüentes alterações físico-químicas ocorridas nos processos culinários. Fornecer meios para a compreensão e utilização dos índices referentes a essas alterações e sua importância na elaboração dos cardápios. Capacitar o aluno ao conhecimento de ordem nutricional e uso culinário. Todos os assuntos serão desenvolvidos dentro de um enfoque teórico-prático.",
+        "codigo": "NUT0025"
+    },
+    {
+        "nome": "TÉCNICA DIETÉTICA 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0054 ) E ( NUT0050 OU NUT0092 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( NUT0025 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Proporcionar contato com os procedimentos técnicos relacionados ao preparo de alimentos e as consequentes alterações físico-químicas ocorridas nos processos culinários. Fornecer meios para a compreensão e utilização dos índices referentes a essas alterações e sua importância na elaboração dos cardápios. Capacitar o aluno ao conhecimento de ordem nutricional e uso culinário. Todos os assuntos serão desenvolvidos dentro de um enfoque teórico-prático.",
+        "codigo": "NUT0089"
+    },
+    {
+        "nome": "TECNICA DIETETICA 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0089 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0025 )",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaProporcionar contato com os procedimentos técnicos relacionados ao preparo de alimentos e as conseqüentes alterações físico-químicas ocorridas nos processos culinários. Fornecer meios para compreensão e utilização dos índices referentes a essas alterações e sua importância na elaboração dos cardápios. Capacitar o aluno ao conhecimento de ordem nutricional e uso culinário.",
+        "codigo": "NUT0041"
+    },
+    {
+        "nome": "TERAPIA NUTRICIONAL",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0008 ) E ( NUT0069 OU NUT0070 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "*",
+        "codigo": "NUT0010"
+    },
+    {
+        "nome": "TÓPICOS EM ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( CEL0050 E NUT0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Habitat, ocorrência, metabolismo e características de bactérias lácticas; Importância e aplicações no processamento de vegetais, carnes, leite e derivados; Conceito de alimentos funcionais, prebióticos, probióticos e simbióticos; Estudos in vitro de probióticos e prebióticos; Efeitos alegados sobre a saúde dos consumidores.",
+        "codigo": "NUT0096"
+    },
+    {
+        "nome": "TOXICOLOGIA DOS ALIMENTOS",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0054 E NUT0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Toxicologia dos alimentos - 176184 - Carga horária: 60 horasEmentaA disciplina tem por objetivo fornecer aos alunos conhecimentos relacionados às toxinas que podem ser encontradas nos alimentos e originadas do meio ambiente, de plantas, de bactérias e de animais, bem como o metabolismo e a ação destas toxinas nos organismos superiores. Deverá também oferecer aos alunos informações sobre segurança alimentar e toxicologia regulatória. Ao final do curso o aluno deverá identificar as principais toxinas e suas origens. Deverá também reconhecer os mecanismos de ação destas toxinas nos organismos vivos e os meios e normas para evitar contaminações ambientais e incidentes de intoxicações em seres vivos.",
+        "codigo": "NUT0048"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( DSC0044 E DSC0020 ) OU ( NUT0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0108 )",
+        "equivalencias_especificas": [],
+        "ementa": "Leitura e discussão de textos científicos, objetivando a construção de um trabalho de conclusão de curso do tema escolhido. A disciplina tem como finalidade o desenvolvimento de habilidades na busca de informações técnico-científicas sobre o tema de estudo e a capacitação na análise critica das informações, bem como a construção de textos claros, objetivas e de interesse para nutrição.",
+        "codigo": "NUT0083"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( DSC0044 E DSC0020 ) OU ( NUT0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0083 )",
+        "equivalencias_especificas": [],
+        "ementa": "Leitura e discussão de textos científicos, objetivando a construção de um trabalho de conclusão de curso do tema escolhido. A disciplina tem como finalidade o desenvolvimento de habilidades na busca de informações técnico-científicas sobre o tema de estudo e a capacitação na análise critica das informações, bem como a construção de textos claros, objetivas e de interesse para nutrição.",
+        "codigo": "NUT0108"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( NUT0083 ) OU ( NUT0108 )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0084 )",
+        "equivalencias_especificas": [],
+        "ementa": "Leitura e discussão de textos científicos, objetivando a construção de um trabalho de conclusão de curso do tema escolhido. A disciplina tem como finalidade o desenvolvimento de habilidades na busca de informações técnico-científicas sobre o tema de estudo e a capacitação na análise critica das informações, bem como a construção de textos claros, objetivos e de interesse para nutrição.",
+        "codigo": "NUT0135"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPTO NUTRICAO ",
+        "pre_requisitos": "( ( NUT0083 ) OU ( NUT0108 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( NUT0135 )",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaLeitura e discussão de textos científicos, objetivando a construção de um trabalho de conclusão de curso do tema escolhido. A disciplina tem como finalidade o desenvolvimento de habilidades na busca de informações técnico-científicas sobre o tema de estudo e a capacitação na análise critica das informações, bem como a construção de textos claros, objetivos e de interesse para nutrição.",
+        "codigo": "NUT0084"
+    }
+]

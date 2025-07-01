@@ -1,0 +1,423 @@
+{
+  "curso": "EDUCAÇÃO FÍSICA",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0025",
+          "nome": "ANATOMIA APLICADA A EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0033",
+          "nome": "METODOLOGIA DOS JOGOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0046",
+          "nome": "EDUCAÇÃO FÍSICA E PRÁTICAS CORPORAIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0389",
+          "nome": "INFORMÁTICA INSTRUMENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0396",
+          "nome": "COMUNICAÇÃO, EXPRESSÃO E ESTUDO ACADÊMICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0504",
+          "nome": "EDUCAÇÃO TUTORIAL: O CURRÍCULO DE FORMAÇÃO EM EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0017",
+          "nome": "POLÍTICAS PÚBLICAS EM EDUCAÇÃO FÍSICA, ESPORTE, SAÚDE E LAZER",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0018",
+          "nome": "FUNDAMENTOS HISTÓRICOS-FILOSÓFICO DA EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0019",
+          "nome": "FUNDAMENTOS SÓCIO-ANTROPOLÓGICO DA EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0024",
+          "nome": "FISIOLOGIA DO EXERCÍCIO 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0027",
+          "nome": "PREVENÇÃO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0041",
+          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0026",
+          "nome": "FISIOLOGIA DO EXERCÍCIO 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0029",
+          "nome": "METODOLOGIA DAS ATIVIDADES GÍMNICAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0035",
+          "nome": "FUNDAMENTOS TEÓRICOS-METODOLÓGICOS DA EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0385",
+          "nome": "PEDAGOGIA DOS ESPORTES INDIVIDUAIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0425",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS À EDUCAÇÃO FÍSICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0443",
+          "nome": "CIÊNCIA E PESQUISA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0022",
+          "nome": "ADMINISTRAÇÃO EM EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0023",
+          "nome": "MÉTODOS E TÉCNICAS DE PESQUISA EM EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0028",
+          "nome": "CINESIOLOGIA APLICADA A EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0394",
+          "nome": "DIDÁTICA DA EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0426",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS À EDUCAÇÃO FÍSICA 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0030",
+          "nome": "METODOLOGIA DA DANÇA E EXPRESSÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0052",
+          "nome": "SEMINÁRIO DE PESQUISA EM EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0075",
+          "nome": "ESTÁGIO SUPERVISIONADO NA EDUCAÇÃO INFANTIL",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0382",
+          "nome": "MEDIDAS E AVALIAÇÃO NA EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0418",
+          "nome": "EDUCAÇÃO FÍSICA E INCLUSÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0446",
+          "nome": "ASPECTOS PSICOLÓGICOS DA APRENDIZAGEM APLICADOS À EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0040",
+          "nome": "ESTUDOS E PESQUISA EM EDUCAÇÃO FÍSICA ESCOLAR",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0087",
+          "nome": "TRABALHO DE CONCLUSÃO DO CURSO I",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0420",
+          "nome": "ESTÁGIO SUPERVISIONADO NA EDUCAÇÃO FÍSICA NO ENSINO FUNDAMENTAL",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0424",
+          "nome": "ESTATÍSTICA APLICADA À EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0047",
+          "nome": "EDUCAÇÃO FÍSICA: LEIS, NORMAS E POLÍTICAS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0423",
+          "nome": "EST SUP NA EDUCAÇÃO FÍSICA NO EM E NA EDUCAÇÃO DE JOVENS E ADULTOS",
+          "carga_horaria": "105h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "FEF0094",
+          "nome": "TRABALHO DE CONCLUSÃO DO CURSO II",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FEF0421",
+          "nome": "ESTÁGIO SUPERVISIONADO AVANÇADO EM EDUCAÇÃO FÍSICA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "FEF0031",
+          "nome": "METODOLOGIA DO ATLETISMO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0034",
+          "nome": "PRINCIPIO DO TREINAMENTO RESISTIDO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0042",
+          "nome": "METODOLOGIA DAS LUTAS E ARTES MARCIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0067",
+          "nome": "EDUCAÇÃO FÍSICA ADAPTADA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0085",
+          "nome": "EDUCAÇÃO FÍSICA E SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0093",
+          "nome": "MANIFESTAÇÕES ALTERNATIVAS DA CULTURA ESPORTIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0384",
+          "nome": "NUTRIÇÃO APLICADA À EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0427",
+          "nome": "PROGRAMAS PREVENTIVOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0428",
+          "nome": "METODOLOGIA DAS ATIVIDADES FÍSICAS ALTERNATIVAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0430",
+          "nome": "APRENDIZAGEM E DESENVOLVIMENTO MOTOR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0431",
+          "nome": "ATIVIDADE FÍSICA PARA GRUPOS ESPECIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0432",
+          "nome": "BASES CIENTÍFICAS DO TREINAMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0433",
+          "nome": "BIOMECÂNICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0434",
+          "nome": "EPIDEMIOLOGIA APLICADA À EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0435",
+          "nome": "FISIOLOGIA DO EXERCÍCIO 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0436",
+          "nome": "GESTÃO DE EVENTOS EM ESPORTE, SAÚDE E LAZER",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0437",
+          "nome": "INTRODUÇÃO À PSICOLOGIA DO ESPORTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0438",
+          "nome": "PROJETO DE EXTENSÃO 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0439",
+          "nome": "PROJETO DE EXTENSÃO 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0440",
+          "nome": "RECREAÇÃO E LAZER",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0441",
+          "nome": "SAÚDE COLETIVA E EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0442",
+          "nome": "TEORIAS DO LAZER",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0444",
+          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0445",
+          "nome": "MARKETING NA EDUCAÇÃO FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

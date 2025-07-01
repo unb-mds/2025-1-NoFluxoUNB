@@ -1,0 +1,1668 @@
+{
+  "curso": "ENFERMAGEM",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0145",
+          "nome": "SUPORTE E MOVIMENTO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAÚDE E SOCIEDADE 1: INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS EM SÁUDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ÁTOMO À CÉLULA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0198",
+          "nome": "BIOFÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZAÇÃO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0178",
+          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE À VIDA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALÍTICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0208",
+          "nome": "SAÚDE E SOCIEDADE 2: A CONSTRUÇÃO SOCIAL DO PROCESSO SAÚDE E DOENÇA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRAÇÃO DOS PROCESSOS VITAIS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRAÇÃO METABÓLICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITÁRIO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0235",
+          "nome": "PROCESSO DE TRABALHO E RELACIONAMENTO INTERPESSOAL",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0147",
+          "nome": "PROCESSOS PATOLÓGICOS",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0169",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0247",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENÇÃO DA VIDA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0397",
+          "nome": "PROCESSO DE CUIDAR EM ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BÁSICA",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERAÇÃO PARASITO-HOSPEDEIRO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0170",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0171",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0176",
+          "nome": "CUIDADO INTEGRAL À SAÚDE DO ADULTO E IDOSO NO CONTEXTO CIRÚRGICO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUÇÃO A PESQUISA CIENTÍFICA",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0314",
+          "nome": "NUTRIÇÃO HUMANA EM SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0362",
+          "nome": "CUIDADO INTEGRAL A SAÚDE DO ADULTO E IDOSO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0365",
+          "nome": "ÉTICA, BIOÉTICA E LEGISLAÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0172",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0179",
+          "nome": "PROCESSO DE CUIDAR DE ENFERMAGEM NA COMUNIDADE",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0234",
+          "nome": "POLÍTICAS, SISTEMAS E SERVIÇOS DE SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0276",
+          "nome": "FUNDAMENTOS DA EDUCAÇÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0363",
+          "nome": "CUIDADO DE ENFERMAGEM PSICOSSOCIAL EM SAÚDE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0173",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0278",
+          "nome": "TEORIAS E MODELOS DE ADMINISTRAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0376",
+          "nome": "CUIDADO INTEGRAL A SAÚDE DA MULHER E CRIANÇA",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0174",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 5",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINÁRIO INTEGRATIVO 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0388",
+          "nome": "GERENCIAMENTO DO CUIDADO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0396",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM ENFERMAGEM 1",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0175",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 6",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0180",
+          "nome": "CUIDADO DE ENFERMAGEM EM SITUAÇÕES CRÍTICAS E DE RISCO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0183",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 1",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0015",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM ENFERMAGEM 2",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0184",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 2",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "11º Semestre",
+      "materias": [
+        {
+          "codigo": "FCE0014",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 3",
+          "carga_horaria": "300h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0184",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 2",
+          "carga_horaria": "420h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0178",
+          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0216",
+          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0250",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 3",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0171",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 2",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0364",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 4",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0172",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 3",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0173",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 4",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0377",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 5",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0174",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 5",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0175",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 6",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0170",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0248",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0378",
+          "nome": "CUIDADO DE ENFERMAGEM EM SITUAÇÕES CRÍTICAS E DE RISCO",
+          "carga_horaria": "60h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0180",
+          "nome": "CUIDADO DE ENFERMAGEM EM SITUAÇÕES CRÍTICAS E DE RISCO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0389",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 1",
+          "carga_horaria": "120h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0183",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 1",
+          "carga_horaria": "450h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FCE0003",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CDS0016",
+          "nome": "EDUCAÇÃO E MEIO AMBIENTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0072",
+          "nome": "PESQUISA EM BIOLOGIA MOLECULAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0076",
+          "nome": "PESQUISA EM MICROBIOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CEL0107",
+          "nome": "ESTAGIO SUPERVISIONADO EM IMUNOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLÓGICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DAN0055",
+          "nome": "ANTROPOLOGIA DA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "210h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "240h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "300h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "330h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "360h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "390h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "480h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "510h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEX1108",
+          "nome": "CONSTRUÇÃO DE PROJETOS SOCIAIS MULTIDISCIPLINARES",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0025",
+          "nome": "AMBIENTE SAÚDE E TRABALHO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0038",
+          "nome": "SAUDE FAMILIAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0056",
+          "nome": "COMUNICAÇÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DSC0072",
+          "nome": "GESTÃO DO TRABALHO E EDUCAÇÃO PERMANENTE NA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0051",
+          "nome": "SISTEMATIZACAO DA ASSISTENCIA EM ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0055",
+          "nome": "TÓPICOS AVANÇADOS EM PROMOÇÃO DA SAÚDE 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0057",
+          "nome": "GESTÃO EM POLITICAS DE SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0077",
+          "nome": "VIOLÊNCIAS EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0078",
+          "nome": "ÉTICA EM PESQUISA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0091",
+          "nome": "RELAÇÃO DE AJUDA A PACIENTES CRÔNICOS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0092",
+          "nome": "TANATOLOGIA: EDUCAÇÃO PARA LIDAR E CUIDAR NA MORTE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ENF0095",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA APLICADAS À ENFERMAGEM - TEÓRICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATÍSTICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FAR0031",
+          "nome": "FARMACOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0001",
+          "nome": "FUNDAMENTOS DE CITOGENÉTICA HUMANA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0002",
+          "nome": "INTRODUÇÃO AOS CUIDADOS PALIATIVOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0003",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0007",
+          "nome": "A ENFERMAGEM NA ESTRATÉGIA  SAÚDE DA FAMÍLIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0010",
+          "nome": "TÓPICOS AVANÇADOS EM PATOLOGIA HUMANA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0013",
+          "nome": "DEMOGRAFIA E BIOESTATÍSTICA EM SAÚDE COLETIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0014",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 3",
+          "carga_horaria": "300h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0017",
+          "nome": "PRINCIPAIS VETORES DE IMPORTÂNCIA EM SAÚDE COLETIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0018",
+          "nome": "METODOLOGIAS QUALITATIVAS EM SAÚDE COLETIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0019",
+          "nome": "SAÚDE, CUIDADO E RECONHECIMENTO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0020",
+          "nome": "MANOBRAS FARMACOLÓGICAS EM EMERGÊNCIAS CLÍNICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0021",
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRÁTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0022",
+          "nome": "JOGOS VIRTUAIS NA PRÁTICA TERAPÊUTICA: BASES E EVIDÊNCIAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0023",
+          "nome": "VARIABILIDADE DA FREQUÊNCIA CARDÍACA: APLICAÇÕES CLÍNICAS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0026",
+          "nome": "TEORIAS DO DESENVOLVIMENTO MOTOR: REPERCUSSÕES NA INTERVENÇÃO PRECOCE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0028",
+          "nome": "FUNDAMENTOS DE CANCEROLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0032",
+          "nome": "NEUROPSICOLOGIA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0045",
+          "nome": "MÉTODO DA ERGONOMIA DA ATIVIDADE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0046",
+          "nome": "INTRODUÇÃO A SAÚDE DO TRABALHADOR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0050",
+          "nome": "ATENÇÃO AO PREMATURO E A FAMÍLIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0051",
+          "nome": "PRONTUÁRIO ELETRÔNICO DO PACIENTE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0052",
+          "nome": "ENFERMAGEM EM ONCOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0061",
+          "nome": "BASES CELULARES E MORFOLÓGICAS DO DESENVOLVIMENTO REGENERAÇÃO MUSCULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0063",
+          "nome": "SERVIÇOS CLÍNICOS FARMACÊUTICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0073",
+          "nome": "PESQUISA EM ONCOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0075",
+          "nome": "CUIDADOS EM QUEIMADURAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0077",
+          "nome": "NEUROANATOMIA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0078",
+          "nome": "INTERPRETAÇÃO DE EXAMES NO PROCESSO DE CUIDAR EM ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0079",
+          "nome": "BASES DE FISIOLOGIA ENDÓCRINA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0094",
+          "nome": "LABORATÓRIO DE ESCRITA ETNOGRÁFICA EM SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0095",
+          "nome": "PESQUISA EM SAÚDE E MARCADORES SOCIAIS DA DIFERENÇA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0096",
+          "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA HIPERTROFIA MUSCULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0101",
+          "nome": "TÓPICOS AVAN DA ASSIST DE ENFERM AO PACIEN COM DISTURBIOS CARDIACOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0108",
+          "nome": "PRODUÇÃO AUDIOVISUAL EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0109",
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECÂNICA OCUPACIONAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0110",
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0135",
+          "nome": "BASES CIENTÍFICAS DE NUTRIÇÃO E ATIVIDADE FÍSICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0138",
+          "nome": "PROCESSO DE INOVAÇÃO EM TECNOLOGIA ASSISTIVA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0139",
+          "nome": "INFECÇÃO RELACIONADA A ASSISTÊNCIA A SAÚDE: VIGILÂNCIA E CONTROLE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0140",
+          "nome": "SEGURANÇA DO PACIENTE NA ATENÇÃO A SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0141",
+          "nome": "PESQUISA EM EXERCÍCIO FÍSICO, REABILITAÇÃO E DESEMPENHO HUMANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0144",
+          "nome": "TÓPICOS AVANÇADOS PARA O GERENCIAMENTO APLICADO À ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0146",
+          "nome": "DA CÉLULA AOS SISTEMAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0149",
+          "nome": "PRÁTICA EM BIOQUÍMICA E BIOLOGIA CELULAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0150",
+          "nome": "PARASITOSES HUMANAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0151",
+          "nome": "ENFERMAGEM NO CONTEXTO DO ENVELHECIMENTO HUMANO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0152",
+          "nome": "PESQUISA EM TERAPIA OCUPACIONAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0155",
+          "nome": "TÓPICOS ESPECIAIS EM INTERAÇÕES PATÓGENO - HOSPEDEIRO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0156",
+          "nome": "ASSOCIAÇÕES DOS PROFISSIONAIS DE ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0158",
+          "nome": "RECONSTRUÇÃO OCUPACIONAL E TRANSFORMAÇÃO SOCIAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0159",
+          "nome": "PESQUISA EM TERAPIA OCUPACIONAL 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0168",
+          "nome": "PESQUISA EM ENFERMAGEM GERONTOLÓGICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0193",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0197",
+          "nome": "FISIOLOGIA CLÍNICA DO EXERCÍCIO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0199",
+          "nome": "PESQUISA SOCIAL EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0205",
+          "nome": "SEMINÁRIO INTEGRATIVO 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0209",
+          "nome": "QUÍMICA ORGÂNICA APLICADA A FARMÁCIA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0210",
+          "nome": "PESQUISA EM NOVOS COMPOSTOS APLICADOS A SAÚDE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0212",
+          "nome": "QUÍMICA INORGÂNICA APLICADA A FARMÁCIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0213",
+          "nome": "ASSISTÊNCIA FARMACÊUTICA E SISTEMAS DE SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0214",
+          "nome": "BIOSSEGURANÇA E BIOPROTEÇÃO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0216",
+          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0218",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FÍSICOS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0219",
+          "nome": "INTRODUÇÃO À PSICOLOGIA DA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTÂNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0226",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0228",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTOS ACADÊMICOS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0233",
+          "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0236",
+          "nome": "PROMOÇÃO À SAÚDE 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0237",
+          "nome": "RACIONALIDADES MÉDICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0240",
+          "nome": "SAÚDE, AMBIENTE E TRABALHO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0241",
+          "nome": "SEMINÁRIO INTEGRATIVO 3",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0242",
+          "nome": "ENFERMAGEM NAS PRÁTICAS COMPLEMENTARES DE SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0243",
+          "nome": "PRÁTICAS DE SAÚDE BASEADAS EM EVIDÊNCIAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0248",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0249",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 2",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0250",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 3",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0251",
+          "nome": "DINÂMICAS GRUPAIS E ATIVIDADES CORPORAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0256",
+          "nome": "FARMACOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0266",
+          "nome": "DA CÉLULA AOS SISTEMAS 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0272",
+          "nome": "SEMINÁRIO INTEGRATIVO 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0273",
+          "nome": "SAÚDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0274",
+          "nome": "ANÁLISE DO DISCURSO DA SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0277",
+          "nome": "MODELOS E PRÁTICAS DE ATENÇÃO À SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0279",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0280",
+          "nome": "SEMINÁRIO INTEGRATIVO 5",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0305",
+          "nome": "TÓPICOS ESPECIAIS EM MICROBIOLOGIA APLICADOS A SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0306",
+          "nome": "VIGILÂNCIA SANITÁRIA APLICADA A PROFISSIONAIS DE SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0310",
+          "nome": "FARMACOLOGIA EXPERIMENTAL",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0311",
+          "nome": "DEPENDÊNCIA QUÍMICA E SUA TERAPÊUTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0312",
+          "nome": "NEUROBIOLOGIA DOS TRANSTORNOS MENTAIS",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0313",
+          "nome": "IMUNOBIOLOGIA DA RELAÇÃO PATÓGENO - HOSPEDEIRO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0315",
+          "nome": "TÓPICOS EM METABOLISMO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0324",
+          "nome": "DIREITO SANITÁRIO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0325",
+          "nome": "EPIDEMIOLOGIA PARA A GESTÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0326",
+          "nome": "PLANEJAMENTO E PROGRAMAÇÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0327",
+          "nome": "PENSAMENTO SOCIAL E SAÚDE MENTAL",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0328",
+          "nome": "CONTEXTO SOCIAL E PRÁTICAS EM SAÚDE COLETIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0329",
+          "nome": "MECANISMOS DE AGRESSÃO E DEFESA 3 - PRÁTICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0331",
+          "nome": "SEMINÁRIO INTEGRATIVO 6",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0336",
+          "nome": "ECONOMIA E FINANCIAMENTO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0337",
+          "nome": "INFORMAÇÃO, EDUCAÇÃO E COMUNICAÇÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0338",
+          "nome": "TECNOLOGIAS DE GERENCIAMENTO E GESTÃO EM SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0339",
+          "nome": "SEMINÁRIO INTEGRATIVO 7",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0343",
+          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0345",
+          "nome": "PRÁTICAS INTEGRADAS DE SAÚDE",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0364",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 4",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0366",
+          "nome": "INTERPRETAÇÃO DOS SINAS E SINTOMAS NA PRÁTICA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0370",
+          "nome": "FARMACOLOGIA CLÍNICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0372",
+          "nome": "TOXICOLOGIA APLICADA A FARMÁCIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0374",
+          "nome": "MORTE NO CONTEXTO HUMANO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0375",
+          "nome": "FITOTERAPIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0377",
+          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 5",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0378",
+          "nome": "CUIDADO DE ENFERMAGEM EM SITUAÇÕES CRÍTICAS E DE RISCO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0382",
+          "nome": "PESQUISA EM GERONTOLOGIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0384",
+          "nome": "MÉTODOS E TÉCNICAS EM METABOLISMO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0385",
+          "nome": "FISIOPATOLOGIA E FARMACOLOGIA DO DIABETES",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0389",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 1",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0390",
+          "nome": "FARMACOEPIDEMIOLOGIA E FARMACOVIGILANCIA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0392",
+          "nome": "LESÃO RENAL AGUDA NA PRÁTICA CLÍNICA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0393",
+          "nome": "SAÚDE DO HOMEM COM ÊNFASE NAS DST",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0394",
+          "nome": "TAXONOMIAS PARA O EXERCÍCIO DA ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0528",
+          "nome": "LETRAMENTO EM SAÚDE: O QUE É E QUAL SUA IMPORTÂNCIA PARA AS PRÁTICAS DE CUIDAR?",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0737",
+          "nome": "DOR E SEU CONTROLE: BASES PARA A ATUAÇÃO DA EQUIPE DE SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0844",
+          "nome": "PESQUISA EM BASES BIOLÓGICAS E DA SAÚDE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCI0001",
+          "nome": "TÓPICOS ESPECIAIS EM BIBLIOTECONOMIA E CIÊNCIA DA INFORMAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRÁTICA DESPORTIVA",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FEF0505",
+          "nome": "PRÁTICA DESPORTIVA 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "GEM0029",
+          "nome": "ESTAGIO EM GENETICA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUÊS INSTRUMENTAL 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "LIP0177",
+          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - AVANÇADO 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CÁLCULO 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ODT0150",
+          "nome": "RESPONSABILIDADE CIVIL DO PROFISSIONAL DE SAÚDE",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUÇÃO À PSICOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUÇÃO À SOCIOLOGIA",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCAÇÃO",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "TEF0120",
+          "nome": "INTRODUÇÃO À CLASSE HOSPITALAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0178",
+          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0170",
+          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0171",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 2",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0172",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 3",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0173",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 4",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0174",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 5",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0175",
+          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 6",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0180",
+          "nome": "CUIDADO DE ENFERMAGEM EM SITUAÇÕES CRÍTICAS E DE RISCO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0183",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 1",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FCE0184",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ENFERMAGEM 2",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}

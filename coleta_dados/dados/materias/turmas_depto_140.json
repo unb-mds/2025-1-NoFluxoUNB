@@ -1,0 +1,72 @@
+[
+    {
+        "nome": "CURSO DE ENFERMAGEM PARTE 1",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "SAA0001"
+    },
+    {
+        "nome": "CURSO DE ENFERMAGEM PARTE 2",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "SAA0002"
+    },
+    {
+        "nome": "CURSO DE ENFERMAGEM PARTE 3",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "SAA0003"
+    },
+    {
+        "nome": "MONITORIA EM CURSO DE ENFERMAGEM PARTE 1",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "( SAA0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "SAA0005"
+    },
+    {
+        "nome": "MONITORIA EM CURSO DE ENFERMAGEM PARTE 2",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "( SAA0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "SAA0006"
+    },
+    {
+        "nome": "MONITORIA EM CURSO DE ENFERMAGEM PARTE 3",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "( SAA0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "SAA0007"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS BRASILEIROS - PROJETO RONDON",
+        "unidade_responsavel": "SECRETARIA DE ADMINISTRACAO ACADEMICA ",
+        "pre_requisitos": "( SAA0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "SAA0008"
+    }
+]

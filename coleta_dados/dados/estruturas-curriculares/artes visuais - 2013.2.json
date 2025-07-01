@@ -1,0 +1,799 @@
+{
+  "curso": "ARTES VISUAIS",
+  "periodo_letivo_vigor": "2013.2",
+  "niveis": [
+    {
+      "nivel": "1º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0353",
+          "nome": "ESTRATÉGIAS DE APRENDIZAGEM À DISTÂNCIA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0354",
+          "nome": "FUNDAMENTOS DO CURSO",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0356",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0360",
+          "nome": "A PSICOLOGIA E A CONSTRUÇÃO DO CONHECIMENTO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0361",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "2º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0359",
+          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0363",
+          "nome": "ATELIER DE ARTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0364",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0362",
+          "nome": "HISTÓRIA DO TEATRO 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0365",
+          "nome": "TEORIA DA ARTE 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0372",
+          "nome": "CANTO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "3º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0374",
+          "nome": "ATELIER DE ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0375",
+          "nome": "HISTÓRIA DA ARTE-EDUCAÇÃO 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0379",
+          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0377",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0378",
+          "nome": "HISTÓRIA DO TEATRO 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "4º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0346",
+          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 3",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0347",
+          "nome": "HISTÓRIA DA ARTE-EDUCAÇÃO 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0345",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ATRTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "5º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0343",
+          "nome": "LABORATÓTIO DE POÉTICAS CONTEMPORÂNEAS",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0341",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ATRTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0342",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS NO BRASIL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "6º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0305",
+          "nome": "ARTE E CULTURA POPULAR",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0324",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0325",
+          "nome": "ESTÁGIO SUPERVISIONADO 3",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0331",
+          "nome": "LABORATÓRIO DE ARTE E TECNOLOGIA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0388",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "7º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0339",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUÇÃO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "8º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0330",
+          "nome": "SEMINÁRIO PRESENCIAL DE CONCLUSÃO DO CURSO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0332",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        }
+      ]
+    },
+    {
+      "nivel": "9º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0349",
+          "nome": "PSICOLOGIA E CONSTRUÇÃO DO CONHECIMENTO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0351",
+          "nome": "LEITURA E PRODUÇÃO DE TEXTO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0357",
+          "nome": "FUNDAMENTOS DA LICENCIATURA EM ARTES VISUAIS",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0358",
+          "nome": "ESTRATÉGIAS DE ENSINO E APRENDIZAGEM A DISTÂNCIA",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "10º Semestre",
+      "materias": [
+        {
+          "codigo": "IDA0342",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS NO BRASIL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0281",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS NO BRASIL",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0339",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0290",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0332",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "270h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0291",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "270h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0396",
+          "nome": "SEMINÁRIO PRESENCIAL DE CONCLUSÃO DO CURSO EM ARTES VISUAIS",
+          "carga_horaria": "45h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0330",
+          "nome": "SEMINÁRIO PRESENCIAL DE CONCLUSÃO DO CURSO",
+          "carga_horaria": "30h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0365",
+          "nome": "TEORIA DA ARTE 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0367",
+          "nome": "TEORIA DA ARTE",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0282",
+          "nome": "TEORIA DA ARTE",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0352",
+          "nome": "TEORIAS DA EDUCAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0285",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0286",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUÇÃO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0283",
+          "nome": "ATELIER DE PRODUÇÃO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0345",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ATRTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0288",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0341",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ATRTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0289",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "IDA0377",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        },
+        {
+          "codigo": "VIS0284",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Obrigatória"
+        }
+      ]
+    },
+    {
+      "nivel": "Optativas",
+      "materias": [
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "15h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "150h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "180h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "210h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "240h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "300h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "330h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "360h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "390h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "420h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "450h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "480h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "carga_horaria": "510h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0016",
+          "nome": "OBJETOS DE APRENDIZAGEM PARA O ENSINO DAS ARTES VISUAIS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0316",
+          "nome": "SUPORTE CÊNICO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0319",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0322",
+          "nome": "LABORATÓRIO DE POÉTICAS CONTEMPORÂNEAS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0327",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 4",
+          "carga_horaria": "120h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0336",
+          "nome": "PROCESSOS DE ENCENAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0350",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0352",
+          "nome": "TEORIAS DA EDUCAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0367",
+          "nome": "TEORIA DA ARTE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0376",
+          "nome": "HISTÓRIA DA ARTE-EDUCAÇÃO 1",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0389",
+          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 3",
+          "carga_horaria": "105h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0396",
+          "nome": "SEMINÁRIO PRESENCIAL DE CONCLUSÃO DO CURSO EM ARTES VISUAIS",
+          "carga_horaria": "45h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ILD0002",
+          "nome": "OFICINA DE TEXTOS",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "ILD0042",
+          "nome": "OFICINA DE PRODUÇÃO, COMPETÊNCIAS LINGUÍSITCAS E MIDIÁTICAS",
+          "carga_horaria": "60h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0281",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS NO BRASIL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0282",
+          "nome": "TEORIA DA ARTE",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0283",
+          "nome": "ATELIER DE PRODUÇÃO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0284",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0285",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0286",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0287",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0288",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0289",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0290",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "VIS0291",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCAÇÃO",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0362",
+          "nome": "HISTÓRIA DO TEATRO 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0365",
+          "nome": "TEORIA DA ARTE 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0372",
+          "nome": "CANTO 1",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0377",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0378",
+          "nome": "HISTÓRIA DO TEATRO 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0345",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ATRTES VISUAIS 1",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0341",
+          "nome": "ESTÁGIO SUPERVISIONADO EM ATRTES VISUAIS 2",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0342",
+          "nome": "HISTÓRIA DAS ARTES VISUAIS NO BRASIL",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0388",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0339",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUÇÃO INTERDISCIPLINAR",
+          "carga_horaria": "90h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0330",
+          "nome": "SEMINÁRIO PRESENCIAL DE CONCLUSÃO DO CURSO",
+          "carga_horaria": "30h",
+          "natureza": "Optativa"
+        },
+        {
+          "codigo": "IDA0332",
+          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+          "carga_horaria": "270h",
+          "natureza": "Optativa"
+        }
+      ]
+    }
+  ]
+}
