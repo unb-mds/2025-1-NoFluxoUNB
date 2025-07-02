@@ -57,6 +57,7 @@ class _AppNavbarState extends State<AppNavbar> {
               MouseRegion(
                 onEnter: (_) => setState(() => _isHoveringHome = true),
                 onExit: (_) => setState(() => _isHoveringHome = false),
+                cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () => context.go('/'),
                   child: AnimatedScale(
@@ -98,10 +99,11 @@ class _AppNavbarState extends State<AppNavbar> {
                   ),
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 28),
               MouseRegion(
                 onEnter: (_) => setState(() => _isHoveringAbout = true),
                 onExit: (_) => setState(() => _isHoveringAbout = false),
+                cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () => context.go('/#sobre'),
                   child: AnimatedScale(
@@ -143,7 +145,7 @@ class _AppNavbarState extends State<AppNavbar> {
                   ),
                 ),
               ),
-              const SizedBox(width: 24),
+              const SizedBox(width: 36),
               MouseRegion(
                 onEnter: (_) => setState(() => _isHoveringAcesso = true),
                 onExit: (_) => setState(() => _isHoveringAcesso = false),
