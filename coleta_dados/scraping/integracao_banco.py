@@ -228,29 +228,33 @@ def processar_matrizes():
                     equiv_esp = mat_det.get('equivalencias_especificas', None)
                     if equiv_esp and isinstance(equiv_esp, list):
                         for eqesp in equiv_esp:
-                            # Verifica se já existe equivalência igual no banco
-                            result = executar_operacao(
-                                supabase.table('equivalencias')
-                                .select('id_equivalencia')
-                                .eq('id_materia', id_materia)
-                                .eq('expressao', eqesp.get('expressao', ''))
-                                .eq('matriz_curricular', eqesp.get('matriz_curricular', ''))
-                                .eq('curriculo', eqesp.get('curriculo', ''))
-                                .eq('data_vigencia', eqesp.get('data_vigencia', ''))
-                                .execute
-                            )
-                            if not result.data:
-                                executar_operacao(
-                                    supabase.table('equivalencias').insert({
-                                        'id_materia': id_materia,
-                                        'id_curso': id_curso,  # ou None se não for possível associar
-                                        'expressao': eqesp.get('expressao', ''),
-                                        'matriz_curricular': eqesp.get('matriz_curricular', ''),
-                                        'curriculo': eqesp.get('curriculo', ''),
-                                        'data_vigencia': eqesp.get('data_vigencia', None),
-                                        'fim_vigencia': eqesp.get('fim_vigencia', None)
-                                    }).execute
+                            matriz_eq = eqesp.get('matriz_curricular', '')
+                            curriculo_eq = eqesp.get('curriculo', '')
+                            data_vigencia_eq = eqesp.get('data_vigencia', '')
+                            if id_curso is not None and matriz_eq and curriculo_eq and data_vigencia_eq:
+                                # Verifica se já existe equivalência igual no banco
+                                result = executar_operacao(
+                                    supabase.table('equivalencias')
+                                    .select('id_equivalencia')
+                                    .eq('id_materia', id_materia)
+                                    .eq('expressao', eqesp.get('expressao', ''))
+                                    .eq('matriz_curricular', matriz_eq)
+                                    .eq('curriculo', curriculo_eq)
+                                    .eq('data_vigencia', data_vigencia_eq)
+                                    .execute
                                 )
+                                if not result.data:
+                                    executar_operacao(
+                                        supabase.table('equivalencias').insert({
+                                            'id_materia': id_materia,
+                                            'id_curso': id_curso,
+                                            'expressao': eqesp.get('expressao', ''),
+                                            'matriz_curricular': matriz_eq,
+                                            'curriculo': curriculo_eq,
+                                            'data_vigencia': data_vigencia_eq,
+                                            'fim_vigencia': eqesp.get('fim_vigencia', None)
+                                        }).execute
+                                    )
     print("Matrizes curriculares processadas!")
 
 def processar_materias():
@@ -299,7 +303,9 @@ def processar_materias():
                         if res.data:
                             id_eq = res.data[0]['id_materia']
                             # Aqui, para evitar duplicidade, verifique se já existe
-                            result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('id_curso', None).eq('matriz_curricular', None).eq('curriculo', None).execute)
+                            query = supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia)
+                            query = query.is_('id_curso', None).is_('matriz_curricular', None).is_('curriculo', None)
+                            result = executar_operacao(query.execute)
                             if not result.data:
                                 get_or_create_equivalencia(id_materia, id_eq, None, None)
     print("Matérias processadas!")
