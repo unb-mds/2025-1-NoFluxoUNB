@@ -238,6 +238,7 @@
         <div class="content">
             <div class="quick-actions">
                 <button class="quick-button" onclick="buscarCursos()">🔄 Atualizar Lista de Cursos</button>
+                <button class="quick-button" onclick="verPreRequisitosDetalhados()">📋 Ver Pré-requisitos Detalhados</button>
             </div>
             <div class="test-section">
                 <div class="test-header">
@@ -256,6 +257,28 @@
                         <span>Matérias do curso</span>
                     </div>
                     <div class="result-content" id="materias-curso-content"></div>
+                </div>
+            </div>
+            <div class="test-section" id="pre-req-detalhado-section" style="display:none;">
+                <div class="test-header">
+                    <div class="test-title">Pré-requisitos Detalhados</div>
+                </div>
+                <div class="test-form">
+                    <div class="form-group">
+                        <label class="form-label">Código da Matéria:</label>
+                        <input type="text" class="form-input" id="filtro-codigo-materia" placeholder="Ex: MAT001">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nome do Curso:</label>
+                        <input type="text" class="form-input" id="filtro-nome-curso" placeholder="Ex: Engenharia de Software">
+                    </div>
+                    <button class="test-button" onclick="buscarPreRequisitosAvancado()">Buscar Pré-requisitos</button>
+                </div>
+                <div class="test-result" style="display:block;">
+                    <div class="result-header">
+                        <span>Resultado</span>
+                    </div>
+                    <div class="result-content" id="pre-req-detalhado-content"></div>
                 </div>
             </div>
         </div>
@@ -544,6 +567,67 @@
                 if (item.materias) {
                     html += `<tr><td style='padding:4px;'>${item.nivel}</td><td style='padding:4px;'>${item.materias.codigo_materia}</td><td style='padding:4px;'>${item.materias.nome_materia}</td><td style='padding:4px;'>${item.materias.carga_horaria}</td></tr>`;
                 }
+            });
+            html += `</table>`;
+            contentDiv.innerHTML = html;
+        }
+
+        async function verPreRequisitosDetalhados() {
+            const section = document.getElementById('pre-req-detalhado-section');
+            const contentDiv = document.getElementById('pre-req-detalhado-content');
+            section.style.display = 'block';
+            contentDiv.innerHTML = 'Carregando...';
+            const response = await fetch('/api/vw-pre-requisitos-detalhado');
+            const data = await response.json();
+            if (!data.length) {
+                contentDiv.innerHTML = '<em>Nenhum pré-requisito detalhado encontrado.</em>';
+                return;
+            }
+            let html = `<table style="width:100%;border-collapse:collapse;">`;
+            html += `<tr><th style='text-align:left;padding:4px;'>Curso</th><th style='text-align:left;padding:4px;'>Matriz</th><th style='text-align:left;padding:4px;'>Código Matéria</th><th style='text-align:left;padding:4px;'>Matéria</th><th style='text-align:left;padding:4px;'>Código Pré-req.</th><th style='text-align:left;padding:4px;'>Pré-requisito</th></tr>`;
+            data.forEach(item => {
+                html += `<tr>` +
+                    `<td style='padding:4px;'>${item.nome_curso || ''}</td>` +
+                    `<td style='padding:4px;'>${item.matriz_curricular || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_requisito || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_requisito || ''}</td>` +
+                `</tr>`;
+            });
+            html += `</table>`;
+            contentDiv.innerHTML = html;
+        }
+
+        async function buscarPreRequisitosAvancado() {
+            const section = document.getElementById('pre-req-detalhado-section');
+            const contentDiv = document.getElementById('pre-req-detalhado-content');
+            section.style.display = 'block';
+            contentDiv.innerHTML = 'Carregando...';
+            const codigo = document.getElementById('filtro-codigo-materia').value.trim();
+            const curso = document.getElementById('filtro-nome-curso').value.trim();
+            let url = '/api/vw-pre-requisitos-detalhado?';
+            const params = [];
+            if (codigo) params.push(`codigo_materia=${encodeURIComponent(codigo)}`);
+            if (curso) params.push(`nome_curso=${encodeURIComponent(curso)}`);
+            url += params.join('&');
+            const response = await fetch(url);
+            const data = await response.json();
+            if (!data.length) {
+                contentDiv.innerHTML = '<em>Nenhum pré-requisito detalhado encontrado.</em>';
+                return;
+            }
+            let html = `<table style="width:100%;border-collapse:collapse;">`;
+            html += `<tr><th style='text-align:left;padding:4px;'>Curso</th><th style='text-align:left;padding:4px;'>Matriz</th><th style='text-align:left;padding:4px;'>Código Matéria</th><th style='text-align:left;padding:4px;'>Matéria</th><th style='text-align:left;padding:4px;'>Código Pré-req.</th><th style='text-align:left;padding:4px;'>Pré-requisito</th></tr>`;
+            data.forEach(item => {
+                html += `<tr>` +
+                    `<td style='padding:4px;'>${item.nome_curso || ''}</td>` +
+                    `<td style='padding:4px;'>${item.matriz_curricular || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_requisito || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_requisito || ''}</td>` +
+                `</tr>`;
             });
             html += `</table>`;
             contentDiv.innerHTML = html;
