@@ -4,6 +4,7 @@ import '../../constants/app_colors.dart';
 import 'password_recovery_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'anonymous_login_screen.dart';
 
 class LoginForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -251,7 +252,12 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const AnonymousLoginScreen()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black87,
                       foregroundColor: Colors.white,
