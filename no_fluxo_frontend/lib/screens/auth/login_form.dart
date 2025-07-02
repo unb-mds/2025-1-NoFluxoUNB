@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../constants/app_colors.dart';
 import 'password_recovery_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -221,12 +222,10 @@ class _LoginFormState extends State<LoginForm> {
                   height: 52,
                   child: OutlinedButton.icon(
                     onPressed: () {},
-                    icon: Image.asset(
-                      'assets/icons/Google__G__logo.png',
+                    icon: SvgPicture.asset(
+                      'assets/icons/Google__G__logo.svg',
                       height: 24,
                       width: 24,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const Icon(Icons.login, color: Colors.red),
                     ),
                     label: Text(
                       'Entrar com o Google',
