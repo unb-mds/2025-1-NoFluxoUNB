@@ -41,12 +41,11 @@ class _AuthPageState extends State<AuthPage> {
                     child: SingleChildScrollView(
                       child: Center(
                         child: Container(
-                          constraints: const BoxConstraints(maxWidth: 400),
-                          padding: const EdgeInsets.all(24.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              const SizedBox(height: 40),
+                              const SizedBox(height: 30),
                               if (isLogin)
                                 LoginForm(onToggleView: toggleView)
                               else
