@@ -5,6 +5,7 @@ import time
 from tenacity import retry, stop_after_attempt, wait_exponential
 import re
 from datetime import datetime
+import unicodedata
 
 print("Iniciando script...")
 
@@ -119,20 +120,23 @@ def get_or_create_co_requisito(id_materia, id_co):
         result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('id_materia_corequisito', id_co).execute)
         return result.data[0]['id_co_requisito']
 
-def get_or_create_equivalencia(id_materia, id_eq, id_curso, matriz_curricular):
+def get_or_create_equivalencia(id_materia, id_eq, id_curso, matriz_curricular, expressao):
     try:
         res = executar_operacao(supabase.table('equivalencias').insert({
             'id_materia': id_materia,
             'id_curso': id_curso,
-            'expressao': '',
+            'expressao': expressao,
             'matriz_curricular': matriz_curricular,
             'curriculo': matriz_curricular,
             'data_vigencia': None
         }).execute)
         return res.data[0]['id_equivalencia']
     except Exception as e:
-        result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('id_curso', id_curso).eq('matriz_curricular', matriz_curricular).eq('curriculo', matriz_curricular).execute)
+        result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('id_curso', id_curso).eq('matriz_curricular', matriz_curricular).eq('curriculo', matriz_curricular).eq('expressao', expressao).execute)
         return result.data[0]['id_equivalencia']
+
+def remover_acentos(txt):
+    return ''.join(c for c in unicodedata.normalize('NFD', txt) if unicodedata.category(c) != 'Mn')
 
 # Carregar todos os dados de matérias detalhadas em cache para busca rápida
 materias_detalhadas = {}
@@ -221,50 +225,75 @@ def processar_matrizes():
                             res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', cod).execute)
                             if res.data:
                                 id_eq = res.data[0]['id_materia']
-                                result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('id_curso', id_curso).eq('matriz_curricular', matriz_curricular).eq('curriculo', matriz_curricular).execute)
+                                result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao', cod).eq('id_curso', id_curso).eq('matriz_curricular', matriz_curricular).eq('curriculo', matriz_curricular).execute)
                                 if not result.data:
-                                    get_or_create_equivalencia(id_materia, id_eq, id_curso, matriz_curricular)
+                                    get_or_create_equivalencia(id_materia, id_eq, id_curso, matriz_curricular, cod)
                     # Equivalências específicas
                     equiv_esp = mat_det.get('equivalencias_especificas', None)
                     if equiv_esp and isinstance(equiv_esp, list):
                         for eqesp in equiv_esp:
-                            matriz_eq = eqesp.get('matriz_curricular', '')
-                            curriculo_eq = eqesp.get('curriculo', '')
-                            data_vigencia_eq = eqesp.get('data_vigencia', '')
-                            if id_curso is not None and matriz_eq and curriculo_eq and data_vigencia_eq:
+                            nome_curso_esp = remover_acentos(eqesp.get('matriz_curricular', '').strip().split(' - ')[0].upper())
+                            curriculo_raw = eqesp.get('curriculo', '').strip()
+                            # Extrai o período letivo do curriculo (ex: "8150/-3 - 2015.1" -> "2015.1")
+                            match = re.search(r'(\d{4}\.\d)', curriculo_raw)
+                            periodo_letivo_esp = match.group(1) if match else ''
+                            print(f"[DEBUG EQ ESP] Matéria: {materia['codigo']} | Nome curso: '{nome_curso_esp}' | Curriculo raw: '{curriculo_raw}' | Período letivo extraído: '{periodo_letivo_esp}'")
+                            # Busca o id_curso correspondente
+                            id_curso_esp = None
+                            if nome_curso_esp and periodo_letivo_esp:
+                                res_cursos = executar_operacao(
+                                    supabase.table('cursos')
+                                    .select('id_curso', 'nome_curso', 'matriz_curricular')
+                                    .eq('matriz_curricular', periodo_letivo_esp)
+                                    .execute
+                                )
+                                print(f"[DEBUG EQ ESP] Cursos encontrados: {res_cursos.data}")
+                                for curso in res_cursos.data:
+                                    nome_curso_banco = remover_acentos(curso['nome_curso'].strip().upper())
+                                    if nome_curso_banco == nome_curso_esp:
+                                        id_curso_esp = curso['id_curso']
+                                        break
+                            data_vigencia_eq = eqesp.get('data_vigencia', '').strip()
+                            fim_vigencia_eq = eqesp.get('fim_vigencia', None)
+                            print(f"[DEBUG EQ ESP] id_curso_esp: {id_curso_esp} | data_vigencia: '{data_vigencia_eq}' | fim_vigencia: '{fim_vigencia_eq}' | expressao: '{eqesp.get('expressao', '')}'")
+                            if id_curso_esp and nome_curso_esp and curriculo_raw and data_vigencia_eq:
                                 # Verifica se já existe equivalência igual no banco
                                 result = executar_operacao(
                                     supabase.table('equivalencias')
                                     .select('id_equivalencia')
                                     .eq('id_materia', id_materia)
                                     .eq('expressao', eqesp.get('expressao', ''))
-                                    .eq('matriz_curricular', matriz_eq)
-                                    .eq('curriculo', curriculo_eq)
+                                    .eq('matriz_curricular', periodo_letivo_esp)
+                                    .eq('curriculo', curriculo_raw)
                                     .eq('data_vigencia', data_vigencia_eq)
                                     .execute
                                 )
+                                print(f"[DEBUG EQ ESP] Já existe? {result.data}")
                                 if not result.data:
+                                    print(f"[DEBUG EQ ESP] Inserindo equivalência específica!")
                                     executar_operacao(
                                         supabase.table('equivalencias').insert({
                                             'id_materia': id_materia,
-                                            'id_curso': id_curso,
+                                            'id_curso': id_curso_esp,
                                             'expressao': eqesp.get('expressao', ''),
-                                            'matriz_curricular': matriz_eq,
-                                            'curriculo': curriculo_eq,
+                                            'matriz_curricular': periodo_letivo_esp,
+                                            'curriculo': curriculo_raw,
                                             'data_vigencia': data_vigencia_eq,
-                                            'fim_vigencia': eqesp.get('fim_vigencia', None)
+                                            'fim_vigencia': fim_vigencia_eq if fim_vigencia_eq else None
                                         }).execute
                                     )
     print("Matrizes curriculares processadas!")
 
 def processar_materias():
     print("Processando matérias...")
-    for arquivo in os.listdir(PASTA_MATERIAS):
+    for arquivo in sorted(os.listdir(PASTA_MATERIAS)):
         if not arquivo.endswith('.json'):
             continue
+        print(f"Processando arquivo: {arquivo}")
         with open(os.path.join(PASTA_MATERIAS, arquivo), 'r', encoding='utf-8') as f:
             materias = json.load(f)
             for materia in materias:
+                print(f"[DEBUG MAT] Processando matéria: {materia.get('codigo')} - {materia.get('nome')}")
                 id_materia = get_or_create_materia({
                     'nome': materia['nome'],
                     'codigo': materia['codigo'],
@@ -303,12 +332,74 @@ def processar_materias():
                         if res.data:
                             id_eq = res.data[0]['id_materia']
                             # Aqui, para evitar duplicidade, verifique se já existe
-                            query = supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia)
+                            query = supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao', cod)
                             query = query.is_('id_curso', None).is_('matriz_curricular', None).is_('curriculo', None)
                             result = executar_operacao(query.execute)
                             if not result.data:
-                                get_or_create_equivalencia(id_materia, id_eq, None, None)
+                                get_or_create_equivalencia(id_materia, id_eq, None, None, cod)
+                # Equivalências específicas
+                equiv_esp = materia.get('equivalencias_especificas', None)
+                if equiv_esp and isinstance(equiv_esp, list):
+                    for eqesp in equiv_esp:
+                        nome_curso_esp = remover_acentos(eqesp.get('matriz_curricular', '').strip().split(' - ')[0].upper())
+                        curriculo_raw = eqesp.get('curriculo', '').strip()
+                        match = re.search(r'(\d{4}\.\d)', curriculo_raw)
+                        periodo_letivo_esp = match.group(1) if match else ''
+                        print(f"[DEBUG EQ ESP] Matéria: {materia['codigo']} | Nome curso: '{nome_curso_esp}' | Curriculo raw: '{curriculo_raw}' | Período letivo extraído: '{periodo_letivo_esp}'")
+                        # Busca o id_curso correspondente
+                        id_curso_esp = None
+                        if nome_curso_esp and periodo_letivo_esp:
+                            res_cursos = executar_operacao(
+                                supabase.table('cursos')
+                                .select('id_curso', 'nome_curso', 'matriz_curricular')
+                                .eq('matriz_curricular', periodo_letivo_esp)
+                                .execute
+                            )
+                            print(f"[DEBUG EQ ESP] Cursos encontrados: {res_cursos.data}")
+                            for curso in res_cursos.data:
+                                nome_curso_banco = remover_acentos(curso['nome_curso'].strip().upper())
+                                if nome_curso_banco == nome_curso_esp:
+                                    id_curso_esp = curso['id_curso']
+                                    break
+                        data_vigencia_raw = eqesp.get('data_vigencia', '').strip()
+                        fim_vigencia_raw = eqesp.get('fim_vigencia', '').strip()
+                        data_vigencia_eq = periodo_letivo_to_date(data_vigencia_raw)
+                        fim_vigencia_eq = periodo_letivo_to_date(fim_vigencia_raw) if fim_vigencia_raw else None
+                        print(f"[DEBUG EQ ESP] id_curso_esp: {id_curso_esp} | data_vigencia: '{data_vigencia_eq}' | fim_vigencia: '{fim_vigencia_eq}' | expressao: '{eqesp.get('expressao', '')}'")
+                        if id_curso_esp and nome_curso_esp and curriculo_raw and data_vigencia_eq:
+                            # Verifica se já existe equivalência igual no banco
+                            result = executar_operacao(
+                                supabase.table('equivalencias')
+                                .select('id_equivalencia')
+                                .eq('id_materia', id_materia)
+                                .eq('expressao', eqesp.get('expressao', ''))
+                                .eq('matriz_curricular', periodo_letivo_esp)
+                                .eq('curriculo', curriculo_raw)
+                                .eq('data_vigencia', data_vigencia_eq)
+                                .execute
+                            )
+                            print(f"[DEBUG EQ ESP] Já existe? {result.data}")
+                            if not result.data:
+                                print(f"[DEBUG EQ ESP] Inserindo equivalência específica!")
+                                executar_operacao(
+                                    supabase.table('equivalencias').insert({
+                                        'id_materia': id_materia,
+                                        'id_curso': id_curso_esp,
+                                        'expressao': eqesp.get('expressao', ''),
+                                        'matriz_curricular': periodo_letivo_esp,
+                                        'curriculo': curriculo_raw,
+                                        'data_vigencia': data_vigencia_eq,
+                                        'fim_vigencia': fim_vigencia_eq if fim_vigencia_eq else None
+                                    }).execute
+                                )
     print("Matérias processadas!")
+
+def periodo_letivo_to_date(periodo):
+    if not periodo or not re.match(r'\d{4}\.\d', periodo):
+        return None
+    ano, semestre = periodo.split('.')
+    mes = '01' if semestre == '1' else '07'
+    return f"{ano}-{mes}-01"
 
 if __name__ == "__main__":
     processar_matrizes()
