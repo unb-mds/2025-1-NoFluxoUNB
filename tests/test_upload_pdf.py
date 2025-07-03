@@ -10,9 +10,9 @@ class PdfUploadTestCase(unittest.TestCase):
 
     def test_upload_pdf_success(self):
         # Abra o arquivo PDF para o teste (coloque seu arquivo PDF na pasta tests/)
-        with open('tests/historico_corrigido.pdf', 'rb') as pdf_file:
+        with open('tests/historico_unb_teste.pdf', 'rb') as pdf_file:
             data = {
-                'pdf': (pdf_file, 'historico_corrigido.pdf')
+                'pdf': (pdf_file, 'historico_unb_teste.pdf')
             }
             response = self.app.post('/upload-pdf', data=data, content_type='multipart/form-data')
             self.assertEqual(response.status_code, 200)
