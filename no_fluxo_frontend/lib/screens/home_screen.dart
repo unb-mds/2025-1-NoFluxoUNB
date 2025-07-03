@@ -14,131 +14,121 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // const double navbarHeight = 72; // Altura aproximada da navbar
     return Scaffold(
       body: Stack(
         children: [
           const GraffitiBackground(), // Fundo artístico
-          SafeArea(
+          // Conteúdo principal, agora começa do topo
+          SingleChildScrollView(
             child: Column(
               children: [
-                const AppNavbar(), // Navbar no topo
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(vertical: 48),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.3),
-                            borderRadius: BorderRadius.zero,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 64),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                // Conteúdo alinhado à esquerda
-                                Expanded(
-                                  flex: 2,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      // Título principal com destaque em rosa
-                                      Text.rich(
-                                        TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text:
-                                                  'TENHA SEU\nFLUXOGRAMA\nMUITO ',
-                                              style: GoogleFonts.permanentMarker(
-                                                fontSize: 64,
-                                                color: AppColors.white,
-                                                fontWeight: FontWeight.bold,
-                                                shadows: [
-                                                  Shadow(
-                                                    color: AppColors.black
-                                                        .withValues(
-                                                            alpha: 0.3 * 255),
-                                                    offset: const Offset(3, 3),
-                                                    blurRadius: 6,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'RÁPIDO',
-                                              style: GoogleFonts.permanentMarker(
-                                                fontSize: 64,
-                                                color: const Color(
-                                                    0xFFF472B6), // Rosa
-                                                fontWeight: FontWeight.bold,
-                                                shadows: [
-                                                  Shadow(
-                                                    color: AppColors.black
-                                                        .withValues(
-                                                            alpha: 0.3 * 255),
-                                                    offset: const Offset(3, 3),
-                                                    blurRadius: 6,
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
+                // Adiciona sombra/fundo escuro translúcido atrás da primeira seção
+                Container(
+                  padding: const EdgeInsets.only(top: 88, left: 64, right: 64, bottom: 48),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // Conteúdo alinhado à esquerda
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // Título principal com destaque em rosa
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'TENHA SEU\nFLUXOGRAMA\nMUITO ',
+                                    style: GoogleFonts.permanentMarker(
+                                      fontSize: 64,
+                                      color: AppColors.white,
+                                      fontWeight: FontWeight.bold,
+                                      shadows: [
+                                        Shadow(
+                                          color: AppColors.black.withOpacity(0.3),
+                                          offset: const Offset(3, 3),
+                                          blurRadius: 6,
                                         ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                      const SizedBox(height: 32),
-                                      // Texto descritivo alinhado à esquerda e com largura máxima
-                                      ConstrainedBox(
-                                        constraints:
-                                            const BoxConstraints(maxWidth: 700),
-                                        child: Text(
-                                          'O NO FLUXO UNB TE AJUDA A VER O FLUXOGRAMA DO SEU CURSO E AINDA TE PERMITE ADICIONAR MATÉRIAS OPTATIVAS DE ACORDO COM SUAS ÁREAS DE INTERESSE!',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 20,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 0.5,
-                                          ),
-                                          textAlign: TextAlign.left,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 40),
-                                      // Botão com gradiente azul, sombra, alinhado à esquerda e mais compacto
-                                      SizedBox(
-                                        width: 260,
-                                        height: 48,
-                                        child: _AnimatedAcesseButton(),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                // SVG à direita
-                                Expanded(
-                                  flex: 2,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 24.0),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/computer_phone.svg',
-                                      width: 600,
+                                      ],
                                     ),
                                   ),
-                                ),
-                              ],
+                                  TextSpan(
+                                    text: 'RÁPIDO',
+                                    style: GoogleFonts.permanentMarker(
+                                      fontSize: 64,
+                                      color: const Color(0xFFF472B6), // Rosa
+                                      fontWeight: FontWeight.bold,
+                                      shadows: [
+                                        Shadow(
+                                          color: AppColors.black.withOpacity(0.3),
+                                          offset: const Offset(3, 3),
+                                          blurRadius: 6,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              textAlign: TextAlign.left,
                             ),
+                            const SizedBox(height: 32),
+                            // Texto descritivo alinhado à esquerda e com largura máxima
+                            ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 700),
+                              child: Text(
+                                'O NO FLUXO UNB TE AJUDA A VER O FLUXOGRAMA DO SEU CURSO E AINDA TE PERMITE ADICIONAR MATÉRIAS OPTATIVAS DE ACORDO COM SUAS ÁREAS DE INTERESSE!',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 20,
+                                  color: AppColors.white.withOpacity(0.95),
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 0.5,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            const SizedBox(height: 40),
+                            // Botão com gradiente azul, sombra, alinhado à esquerda e mais compacto
+                            SizedBox(
+                              width: 260,
+                              height: 48,
+                              child: _AnimatedAcesseButton(),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // SVG à direita
+                      Expanded(
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 24.0),
+                          child: SvgPicture.asset(
+                            'assets/icons/computer_phone.svg',
+                            width: 600,
                           ),
                         ),
-                        const ComoFuncionaSection(),
-                        const ProntoParaOrganizarSection(),
-                        const SobreNosSection(),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
+                const ComoFuncionaSection(),
+                const ProntoParaOrganizarSection(),
+                const SobreNosSection(),
               ],
             ),
+          ),
+          // Navbar fixa e translúcida sobre o conteúdo
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SafeArea(child: AppNavbar()),
           ),
         ],
       ),
