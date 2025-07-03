@@ -14,11 +14,19 @@ class FluxogramasIndexScreen extends StatefulWidget {
 
 class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
   int currentPage = 1;
+  final TextEditingController _searchController = TextEditingController();
+  String searchText = '';
 
   void setPage(int page) {
     setState(() {
       currentPage = page;
     });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 
   @override
@@ -33,109 +41,109 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
       const Color(0xFF38BDF8), // Direito
     ];
 
-    // Página 1: cards completos
-    final page1Cards = [
-      CourseCard(
-        title: 'Ciência da Computação',
-        subtitle: 'Bacharelado • 8 semestres',
-        credits: '240 créditos',
-        isTranslucent: true,
-        fluxograma: SizedBox(
-          width: 300,
-          height: 120,
-          child: CustomPaint(
-            painter: GenericFluxogramaPainter(fluxogramas[0]),
+    // Cursos de cada página (exemplo: só página 1 tem nomes, as outras são placeholders)
+    final List<List<CourseCard>> pages = [
+      [
+        CourseCard(
+          title: 'Ciência da Computação',
+          subtitle: 'Bacharelado • 8 semestres',
+          credits: '240 créditos',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[0]),
+            ),
           ),
         ),
-      ),
-      CourseCard(
-        title: 'Engenharia de Software',
-        subtitle: 'Bacharelado • 10 semestres',
-        credits: '252 créditos',
-        isTranslucent: true,
-        fluxograma: SizedBox(
-          width: 300,
-          height: 120,
-          child: CustomPaint(
-            painter: GenericFluxogramaPainter(fluxogramas[1]),
+        CourseCard(
+          title: 'Engenharia de Software',
+          subtitle: 'Bacharelado • 10 semestres',
+          credits: '252 créditos',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[1]),
+            ),
           ),
         ),
-      ),
-      CourseCard(
-        title: 'Engenharia Elétrica',
-        subtitle: 'Bacharelado • 10 semestres',
-        credits: '262 créditos',
-        isTranslucent: true,
-        fluxograma: SizedBox(
-          width: 300,
-          height: 120,
-          child: CustomPaint(
-            painter: GenericFluxogramaPainter(fluxogramas[2]),
+        CourseCard(
+          title: 'Engenharia Elétrica',
+          subtitle: 'Bacharelado • 10 semestres',
+          credits: '262 créditos',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[2]),
+            ),
           ),
         ),
-      ),
-      CourseCard(
-        title: 'Administração',
-        subtitle: 'Bacharelado • 8 semestres',
-        credits: '200 créditos',
-        isTranslucent: true,
-        fluxograma: SizedBox(
-          width: 300,
-          height: 120,
-          child: CustomPaint(
-            painter: GenericFluxogramaPainter(fluxogramas[3]),
+        CourseCard(
+          title: 'Administração',
+          subtitle: 'Bacharelado • 8 semestres',
+          credits: '200 créditos',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[3]),
+            ),
           ),
         ),
-      ),
-      CourseCard(
-        title: 'Medicina',
-        subtitle: 'Bacharelado • 12 semestres',
-        credits: '360 créditos',
-        isTranslucent: true,
-        fluxograma: SizedBox(
-          width: 300,
-          height: 120,
-          child: CustomPaint(
-            painter: GenericFluxogramaPainter(fluxogramas[4]),
+        CourseCard(
+          title: 'Medicina',
+          subtitle: 'Bacharelado • 12 semestres',
+          credits: '360 créditos',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[4]),
+            ),
           ),
         ),
-      ),
-      CourseCard(
-        title: 'Direito',
-        subtitle: 'Bacharelado • 10 semestres',
-        credits: '280 créditos',
-        isTranslucent: true,
-        fluxograma: SizedBox(
-          width: 300,
-          height: 120,
-          child: CustomPaint(
-            painter: GenericFluxogramaPainter(fluxogramas[5]),
+        CourseCard(
+          title: 'Direito',
+          subtitle: 'Bacharelado • 10 semestres',
+          credits: '280 créditos',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[5]),
+            ),
           ),
         ),
-      ),
+      ],
+      // Páginas 2 a 8: cards vazios (prontos para receber nomes no futuro)
+      for (int p = 2; p <= 8; p++)
+        List.generate(6, (i) => CourseCard(
+          title: '',
+          subtitle: '',
+          credits: '',
+          isTranslucent: true,
+          fluxograma: SizedBox(
+            width: 300,
+            height: 120,
+            child: CustomPaint(
+              painter: GenericFluxogramaPainter(fluxogramas[i]),
+            ),
+          ),
+        )),
     ];
 
-    // Outras páginas: cards vazios com SVG colorido
-    final emptyCards = List.generate(6, (i) => CourseCard(
-      title: '',
-      subtitle: '',
-      credits: '',
-      isTranslucent: true,
-      fluxograma: SizedBox(
-        width: 300,
-        height: 120,
-        child: CustomPaint(
-          painter: GenericFluxogramaPainter(fluxogramas[i]),
-        ),
-      ),
-    ));
-
-    List<Widget> gridCards;
-    if (currentPage == 1) {
-      gridCards = page1Cards;
-    } else {
-      gridCards = emptyCards;
-    }
+    // Filtrar os cards da página atual
+    final gridCards = pages[currentPage - 1].where((card) =>
+      card.title.toLowerCase().contains(searchText.toLowerCase())
+    ).toList();
 
     return Scaffold(
       body: Stack(
@@ -261,6 +269,12 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                             children: [
                                               Expanded(
                                                 child: TextField(
+                                                  controller: _searchController,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      searchText = value;
+                                                    });
+                                                  },
                                                   decoration: InputDecoration(
                                                     hintText: 'Buscar curso...',
                                                     hintStyle: GoogleFonts.poppins(
