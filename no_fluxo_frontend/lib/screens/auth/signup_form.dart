@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/service/auth_service.dart';
 import '../../constants/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,11 +24,13 @@ class _SignupFormState extends State<SignupForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _authService = AuthService();
   bool _acceptTerms = false;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
   String? _emailError;
   String? _termsError;
+  bool _isLoading = false; // Novo estado para controlar loading
 
   @override
   void dispose() {
@@ -36,6 +39,139 @@ class _SignupFormState extends State<SignupForm> {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  // Função para criar conta com email/senha
+  Future<void> _signUpWithEmail() async {
+    // Validações básicas
+    final valid = _formKey.currentState!.validate();
+    if (!valid) {
+      _handleEmailValidationError();
+      return;
+    }
+
+    if (!_acceptTerms) {
+      setState(() {
+        _termsError = 'Você deve concordar com os Termos de Serviço e Política de Privacidade para continuar.';
+      });
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+      _emailError = null;
+      _termsError = null;
+    });
+
+    try {
+      // Chama o AuthService para criar conta
+      final user = await _authService.signUpWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text,
+        displayName: _nameController.text.trim(),
+      );
+
+      if (user != null) {
+        // Sucesso - navega para próxima tela
+        if (mounted) {
+          context.go('/auth/upload');
+        }
+      } else {
+        // Falha na criação da conta
+        setState(() {
+          _emailError = 'Erro ao criar conta. Tente novamente.';
+        });
+      }
+    } catch (e) {
+      // Trata erros específicos
+      setState(() {
+        _emailError = _getErrorMessage(e.toString());
+      });
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  // Função para login com Google
+  Future<void> _signInWithGoogle() async {
+    setState(() {
+      _isLoading = true;
+      _emailError = null;
+      _termsError = null;
+    });
+
+    try {
+      final user = await _authService.signInWithGoogle();
+      
+      if (user != null) {
+        // Sucesso - navega para próxima tela
+        if (mounted) {
+          context.go('/auth/upload');
+        }
+      } else {
+        // Falha no login
+        setState(() {
+          _emailError = 'Erro ao fazer login com Google. Tente novamente.';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _emailError = _getErrorMessage(e.toString());
+      });
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  // Função auxiliar para tratar erros de validação de email
+  void _handleEmailValidationError() {
+    final email = _emailController.text;
+    if (email.isEmpty) {
+      setState(() {
+        _emailError = 'Por favor, insira seu e-mail';
+      });
+    } else if (!email.contains('@')) {
+      setState(() {
+        _emailError = 'Inclua um "@" no endereço de e-mail.';
+      });
+    } else {
+      final parts = email.split('@');
+      if (parts.length != 2 || parts[1].isEmpty) {
+        setState(() {
+          _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
+        });
+      } else if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
+        setState(() {
+          _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
+        });
+      } else {
+        setState(() {
+          _emailError = 'E-mail inválido.';
+        });
+      }
+    }
+  }
+
+  // Função para converter erros em mensagens amigáveis
+  String _getErrorMessage(String error) {
+    if (error.contains('email-already-in-use')) {
+      return 'Este e-mail já está em uso. Tente fazer login ou use outro e-mail.';
+    } else if (error.contains('weak-password')) {
+      return 'A senha é muito fraca. Use pelo menos 8 caracteres.';
+    } else if (error.contains('invalid-email')) {
+      return 'E-mail inválido. Verifique se está correto.';
+    } else if (error.contains('network-request-failed')) {
+      return 'Erro de conexão. Verifique sua internet e tente novamente.';
+    }
+    return 'Erro inesperado. Tente novamente em alguns instantes.';
   }
 
   @override
@@ -130,6 +266,7 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 28),
                 TextFormField(
                   controller: _nameController,
+                  enabled: !_isLoading, // Desabilita durante loading
                   decoration: InputDecoration(
                     hintText: 'Nome completo',
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
@@ -160,6 +297,7 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _emailController,
+                  enabled: !_isLoading,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'E-mail',
@@ -211,6 +349,7 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _passwordController,
+                  enabled: !_isLoading,
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     hintText: 'Senha',
@@ -247,6 +386,9 @@ class _SignupFormState extends State<SignupForm> {
                     if (value == null || value.isEmpty) {
                       return 'Por favor, insira sua senha';
                     }
+                    if (value.length < 8) {
+                      return 'A senha deve ter pelo menos 8 caracteres';
+                    }
                     return null;
                   },
                 ),
@@ -260,6 +402,7 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _confirmPasswordController,
+                  enabled: !_isLoading,
                   obscureText: _obscureConfirmPassword,
                   decoration: InputDecoration(
                     hintText: 'Confirmar senha',
@@ -308,7 +451,7 @@ class _SignupFormState extends State<SignupForm> {
                   children: [
                     Checkbox(
                       value: _acceptTerms,
-                      onChanged: (value) {
+                      onChanged: _isLoading ? null : (value) {
                         setState(() {
                           _acceptTerms = value ?? false;
                           if (_termsError != null) {
@@ -328,7 +471,6 @@ class _SignupFormState extends State<SignupForm> {
                             TextSpan(
                               text: 'Termos de Serviço',
                               style: const TextStyle(color: Color(0xFF6366F1), decoration: TextDecoration.underline),
-                              // onEnter/onTap pode ser adicionado para navegação
                             ),
                             const TextSpan(text: ' e '),
                             TextSpan(
@@ -345,51 +487,11 @@ class _SignupFormState extends State<SignupForm> {
                 SizedBox(
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: () {
-                      final valid = _formKey.currentState!.validate();
-                      if (!valid) {
-                        final email = _emailController.text;
-                        if (email.isEmpty) {
-                          setState(() {
-                            _emailError = 'Por favor, insira seu e-mail';
-                          });
-                        } else if (!email.contains('@')) {
-                          setState(() {
-                            _emailError = 'Inclua um "@" no endereço de e-mail.';
-                          });
-                        } else {
-                          final parts = email.split('@');
-                          if (parts.length != 2 || parts[1].isEmpty) {
-                            setState(() {
-                              _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
-                            });
-                          } else if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
-                            setState(() {
-                              _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
-                            });
-                          } else {
-                            setState(() {
-                              _emailError = 'E-mail inválido.';
-                            });
-                          }
-                        }
-                        return;
-                      }
-                      if (!_acceptTerms) {
-                        setState(() {
-                          _termsError = 'Você deve concordar com os Termos de Serviço e Política de Privacidade para continuar.';
-                        });
-                        return;
-                      }
-                      setState(() {
-                        _emailError = null;
-                        _termsError = null;
-                      });
-                      context.go('/auth/upload');
-                    },
+                    onPressed: _isLoading ? null : _signUpWithEmail,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2563EB),
                       foregroundColor: Colors.white,
+                      disabledBackgroundColor: Colors.grey[400],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
@@ -399,11 +501,19 @@ class _SignupFormState extends State<SignupForm> {
                       ),
                       elevation: 2,
                     ),
-                    child: const Text('Criar conta'),
+                    child: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : const Text('Criar conta'),
                   ),
                 ),
                 const SizedBox(height: 18),
-                // Separador "ou"
                 Row(
                   children: [
                     const Expanded(child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
@@ -418,16 +528,24 @@ class _SignupFormState extends State<SignupForm> {
                   ],
                 ),
                 const SizedBox(height: 18),
-                // Botão Google
                 SizedBox(
                   height: 52,
                   child: OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      'assets/icons/Google__G__logo.svg',
-                      height: 24,
-                      width: 24,
-                    ),
+                    onPressed: _isLoading ? null : _signInWithGoogle,
+                    icon: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.grey,
+                            ),
+                          )
+                        : SvgPicture.asset(
+                            'assets/icons/Google__G__logo.svg',
+                            height: 24,
+                            width: 24,
+                          ),
                     label: Text(
                       'Cadastrar com o Google',
                       style: GoogleFonts.poppins(
@@ -438,6 +556,7 @@ class _SignupFormState extends State<SignupForm> {
                     ),
                     style: OutlinedButton.styleFrom(
                       backgroundColor: Colors.white,
+                      disabledBackgroundColor: Colors.grey[50],
                       side: const BorderSide(color: Color(0xFFD1D5DB)),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
@@ -450,7 +569,7 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 18),
                 Center(
                   child: TextButton(
-                    onPressed: widget.onToggleView,
+                    onPressed: _isLoading ? null : widget.onToggleView,
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.black87,
                       textStyle: GoogleFonts.poppins(
