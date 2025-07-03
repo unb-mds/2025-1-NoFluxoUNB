@@ -39,7 +39,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
           const GraffitiBackground(),
           Column(
             children: [
-              const AppNavbar(),
+              AppNavbar(isFluxogramasPage: true),
               Expanded(
                 child: SafeArea(
                   child: Row(

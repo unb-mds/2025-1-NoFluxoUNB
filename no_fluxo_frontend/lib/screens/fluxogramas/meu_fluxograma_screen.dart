@@ -1,0 +1,1062 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../widgets/app_navbar.dart';
+import '../../widgets/graffiti_background.dart';
+import 'dart:ui';
+import 'package:go_router/go_router.dart';
+
+// Modelo de dados para matéria (pronto para integração com banco)
+class CourseSubject {
+  final String code;
+  final String name;
+  final int credits;
+  final String status; // 'completed', 'current', 'selected', 'future', 'optative'
+  final List<String> prerequisites;
+  final String semester;
+
+  CourseSubject({
+    required this.code,
+    required this.name,
+    required this.credits,
+    required this.status,
+    this.prerequisites = const [],
+    required this.semester,
+  });
+}
+
+// Modelo de dados para curso (pronto para integração com banco)
+class CourseData {
+  final String name;
+  final String degree; // 'Bacharelado', 'Licenciatura', etc.
+  final int totalSemesters;
+  final int totalCredits;
+  final Map<String, List<CourseSubject>> subjectsBySemester;
+  final Map<String, int> creditRequirements; // 'obrigatorias', 'optativas', 'livre'
+
+  CourseData({
+    required this.name,
+    required this.degree,
+    required this.totalSemesters,
+    required this.totalCredits,
+    required this.subjectsBySemester,
+    required this.creditRequirements,
+  });
+}
+
+class MeuFluxogramaScreen extends StatefulWidget {
+  final String courseName;
+  const MeuFluxogramaScreen({super.key, required this.courseName});
+
+  @override
+  State<MeuFluxogramaScreen> createState() => _MeuFluxogramaScreenState();
+}
+
+class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
+  double zoomLevel = 1.0;
+  bool showPrereqChains = false;
+  late CourseData courseData;
+
+  @override
+  void initState() {
+    super.initState();
+    // TODO: Aqui será feita a integração com o banco de dados
+    // Por enquanto, criamos dados vazios baseados no nome do curso
+    courseData = _loadCourseData(widget.courseName);
+  }
+
+  // Função que será substituída pela integração com banco de dados
+  CourseData _loadCourseData(String courseName) {
+    // TODO: Substituir por chamada ao banco de dados
+    // Exemplo de estrutura que será retornada pelo banco:
+    
+    Map<String, List<CourseSubject>> subjectsBySemester = {};
+    
+    // Criar estrutura vazia para todos os semestres
+    for (int i = 1; i <= 10; i++) {
+      subjectsBySemester[i.toString()] = [];
+    }
+    
+    // TODO: Aqui será carregado do banco de dados
+    // subjectsBySemester = await databaseService.getSubjectsByCourse(courseName);
+    
+    // EXEMPLO DE COMO OS DADOS SERIAM ESTRUTURADOS:
+    // subjectsBySemester['1'] = [
+    //   CourseSubject(
+    //     code: 'MAT0025',
+    //     name: 'Cálculo 1',
+    //     credits: 6,
+    //     status: 'completed', // ou 'current', 'selected', 'future', 'optative'
+    //     prerequisites: [],
+    //     semester: '1',
+    //   ),
+    //   CourseSubject(
+    //     code: 'CIC0004',
+    //     name: 'Algoritmos',
+    //     credits: 4,
+    //     status: 'completed',
+    //     prerequisites: [],
+    //     semester: '1',
+    //   ),
+    // ];
+    
+    return CourseData(
+      name: courseName,
+      degree: 'Bacharelado', // Será carregado do banco
+      totalSemesters: 10, // Será carregado do banco
+      totalCredits: 240, // Será carregado do banco
+      subjectsBySemester: subjectsBySemester,
+      creditRequirements: {
+        'obrigatorias': 160, // Será carregado do banco
+        'optativas': 24, // Será carregado do banco
+        'livre': 24, // Será carregado do banco
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          const GraffitiBackground(),
+          Container(
+            color: Colors.black.withOpacity(0.3),
+          ),
+          SafeArea(
+            child: Column(
+              children: [
+                AppNavbar(isFluxogramasPage: true),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 1280),
+                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            _buildPageHeader(),
+                            _buildLegendAndControls(),
+                            _buildFluxogramContainer(),
+                            _buildProgressSummary(),
+                            _buildProgressTools(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPageHeader() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 24),
+      child: Column(
+        children: [
+          // Título e descrição
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                        style: GoogleFonts.permanentMarker(
+                          fontSize: 32,
+                          color: Colors.white,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black.withOpacity(0.7),
+                              blurRadius: 8,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        children: [
+                          const TextSpan(text: 'FLUXOGRAMA: '),
+                          TextSpan(
+                            text: courseData.name.toUpperCase(),
+                            style: GoogleFonts.permanentMarker(
+                              fontSize: 32,
+                              color: const Color(0xFFFF3CA5),
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black.withOpacity(0.7),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      '${courseData.degree} • ${courseData.totalSemesters} semestres • ${courseData.totalCredits} créditos',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: Colors.white.withOpacity(0.7),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              
+              // Botões de ação
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      _buildActionButton(
+                        'SALVAR FLUXOGRAMA',
+                        Icons.save,
+                        const Color(0xFF22C55E),
+                        const Color(0xFF16A34A),
+                        () {},
+                      ),
+                      const SizedBox(width: 12),
+                      _buildActionButton(
+                        'ADICIONAR MATÉRIA',
+                        Icons.add,
+                        const Color(0xFF8B5CF6),
+                        const Color(0xFF7C3AED),
+                        () {},
+                      ),
+                      const SizedBox(width: 12),
+                      _buildActionButton(
+                        'ADICIONAR OPTATIVA',
+                        Icons.add_circle_outline,
+                        const Color(0xFF3B82F6),
+                        const Color(0xFF1D4ED8),
+                        () {},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildActionButton(String text, IconData icon, Color startColor, Color endColor, VoidCallback onPressed) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [startColor, endColor],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(icon, color: Colors.white, size: 20),
+                const SizedBox(width: 8),
+                Text(
+                  text,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLegendAndControls() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        children: [
+          // Legend
+          Expanded(
+            child: Wrap(
+              spacing: 16,
+              runSpacing: 8,
+              children: [
+                _buildLegendItem(
+                  const Color(0xFF4ADE80),
+                  const Color(0xFF22C55E),
+                  'Concluídas',
+                ),
+                _buildLegendItem(
+                  const Color(0xFFA78BFA),
+                  const Color(0xFF8B5CF6),
+                  'Em Curso',
+                ),
+                _buildLegendItem(
+                  const Color(0xFFFB7185),
+                  const Color(0xFFE11D48),
+                  'Selecionadas',
+                ),
+                _buildLegendItem(
+                  Colors.white.withOpacity(0.1),
+                  Colors.white.withOpacity(0.1),
+                  'Futuras',
+                  isDashed: true,
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Checkbox(
+                      value: showPrereqChains,
+                      onChanged: (value) {
+                        setState(() {
+                          showPrereqChains = value ?? false;
+                        });
+                      },
+                      fillColor: MaterialStateProperty.all(Colors.white.withOpacity(0.2)),
+                      checkColor: Colors.white,
+                    ),
+                    Text(
+                      'Cadeias de Pré-requisito',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          
+          // Zoom Controls
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      zoomLevel = (zoomLevel - 0.1).clamp(0.5, 2.0);
+                    });
+                  },
+                  icon: const Icon(Icons.remove, color: Colors.white),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    '${(zoomLevel * 100).toInt()}%',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      zoomLevel = (zoomLevel + 0.1).clamp(0.5, 2.0);
+                    });
+                  },
+                  icon: const Icon(Icons.add, color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLegendItem(Color startColor, Color endColor, String label, {bool isDashed = false}) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 20,
+          height: 20,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [startColor, endColor],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(4),
+            border: isDashed
+                ? Border.all(
+                    color: Colors.white.withOpacity(0.3),
+                    width: 1,
+                    style: BorderStyle.solid,
+                  )
+                : null,
+          ),
+        ),
+        const SizedBox(width: 8),
+        Text(
+          label,
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontSize: 14,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFluxogramContainer() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 32),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Transform.scale(
+          scale: zoomLevel,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              for (int semester = 1; semester <= courseData.totalSemesters; semester++)
+                _buildSemesterColumn(semester),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSemesterColumn(int semester) {
+    return Container(
+      margin: const EdgeInsets.only(right: 32),
+      child: Column(
+        children: [
+          // Semester Header
+          Container(
+            margin: const EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              '${semester}º Semestre',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          
+          // Course Cards
+          ..._getCoursesForSemester(semester),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _getCoursesForSemester(int semester) {
+    // TODO: Carregar dados do banco de dados
+    // Por enquanto, retorna lista vazia - será preenchida pela integração com banco
+    final semesterKey = semester.toString();
+    final subjects = courseData.subjectsBySemester[semesterKey] ?? [];
+    
+    // Converter CourseSubject para widgets
+    return subjects.map((subject) => _buildCourseCard(subject)).toList();
+  }
+
+  Widget _buildCourseCard(CourseSubject subject) {
+    Color startColor;
+    Color endColor;
+    
+    switch (subject.status) {
+      case 'completed':
+        startColor = const Color(0xFF4ADE80);
+        endColor = const Color(0xFF22C55E);
+        break;
+      case 'current':
+        startColor = const Color(0xFFA78BFA);
+        endColor = const Color(0xFF8B5CF6);
+        break;
+      case 'selected':
+        startColor = const Color(0xFFFB7185);
+        endColor = const Color(0xFFE11D48);
+        break;
+      case 'optative':
+        startColor = const Color(0xFF3B82F6);
+        endColor = const Color(0xFF1D4ED8);
+        break;
+      default: // future
+        startColor = Colors.white.withOpacity(0.1);
+        endColor = Colors.white.withOpacity(0.1);
+    }
+    
+    return Container(
+      width: 192,
+      margin: const EdgeInsets.only(bottom: 16),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [startColor, endColor],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            blurRadius: 8,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () {
+            // TODO: Abrir modal com detalhes da matéria
+            // _showSubjectDetailsModal(subject);
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  subject.code,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  subject.name,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    '${subject.credits} créditos',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildProgressSummary() {
+    // TODO: Calcular progresso real baseado nos dados do banco
+    // Por enquanto, usa valores padrão
+    final obrigatorias = courseData.creditRequirements['obrigatorias'] ?? 160;
+    final optativas = courseData.creditRequirements['optativas'] ?? 24;
+    final livre = courseData.creditRequirements['livre'] ?? 24;
+    
+    // TODO: Calcular progresso real
+    final currentObrigatorias = 0; // Será calculado do banco
+    final currentOptativas = 0; // Será calculado do banco
+    final currentLivre = 0; // Será calculado do banco
+    final totalCurrent = currentObrigatorias + currentOptativas + currentLivre;
+    final totalRequired = obrigatorias + optativas + livre;
+    
+    return Container(
+      margin: const EdgeInsets.only(bottom: 32),
+      child: Row(
+        children: [
+          // Credits Progress
+          Expanded(
+            child: _buildProgressCard(
+              'Progresso de Créditos',
+              Icons.school,
+              const Color(0xFF8B5CF6),
+              [
+                {'label': 'Obrigatórias', 'progress': totalRequired > 0 ? currentObrigatorias / obrigatorias : 0.0, 'current': currentObrigatorias, 'total': obrigatorias},
+                {'label': 'Optativas', 'progress': optativas > 0 ? currentOptativas / optativas : 0.0, 'current': currentOptativas, 'total': optativas},
+                {'label': 'Módulo Livre', 'progress': livre > 0 ? currentLivre / livre : 0.0, 'current': currentLivre, 'total': livre},
+                {'label': 'Total', 'progress': totalRequired > 0 ? totalCurrent / totalRequired : 0.0, 'current': totalCurrent, 'total': totalRequired, 'isTotal': true},
+              ],
+            ),
+          ),
+          const SizedBox(width: 24),
+          
+          // Current Semester
+          Expanded(
+            child: _buildCurrentSemesterCard(),
+          ),
+          const SizedBox(width: 24),
+          
+          // Recommendations
+          Expanded(
+            child: _buildRecommendationsCard(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProgressCard(String title, IconData icon, Color color, List<Map<String, dynamic>> progressItems) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: color, size: 24),
+              const SizedBox(width: 8),
+              Text(
+                title,
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          ...progressItems.map((item) => _buildProgressItem(item)),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProgressItem(Map<String, dynamic> item) {
+    final isTotal = item['isTotal'] ?? false;
+    final height = isTotal ? 12.0 : 10.0;
+    
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                item['label'],
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: isTotal ? 14 : 12,
+                  fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
+                ),
+              ),
+              Text(
+                '${item['current']}/${item['total']} créditos',
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: isTotal ? 14 : 12,
+                  fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Container(
+            width: double.infinity,
+            height: height,
+            decoration: BoxDecoration(
+              color: Colors.grey[700],
+              borderRadius: BorderRadius.circular(height / 2),
+            ),
+            child: FractionallySizedBox(
+              alignment: Alignment.centerLeft,
+              widthFactor: item['progress'],
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: isTotal 
+                        ? [const Color(0xFFEC4899), const Color(0xFFDB2777)]
+                        : [const Color(0xFF4ADE80), const Color(0xFF22C55E)],
+                  ),
+                  borderRadius: BorderRadius.circular(height / 2),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCurrentSemesterCard() {
+    // TODO: Calcular semestre atual e dados baseado no progresso do usuário
+    // Por enquanto, usa valores padrão
+    final currentSemester = 1; // Será calculado do banco
+    final currentSubjects = courseData.subjectsBySemester[currentSemester.toString()] ?? [];
+    final currentCredits = currentSubjects.fold<int>(0, (sum, subject) => sum + subject.credits);
+    
+    // TODO: Calcular dados do próximo semestre
+    final nextSemester = currentSemester + 1;
+    final nextSubjects = courseData.subjectsBySemester[nextSemester.toString()] ?? [];
+    final selectedSubjects = nextSubjects.where((s) => s.status == 'selected').length;
+    final plannedCredits = nextSubjects.where((s) => s.status == 'selected').fold<int>(0, (sum, subject) => sum + subject.credits);
+    
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Semestre Atual: ${currentSemester}º',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          _buildInfoRow('Total de Matérias', '${currentSubjects.length}'),
+          _buildInfoRow('Créditos', '$currentCredits'),
+          _buildInfoRow('Carga Horária Semanal', '${(currentCredits * 2.5).round()} horas'),
+          const SizedBox(height: 16),
+          Text(
+            'Próximo Semestre',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 8),
+          _buildInfoRow('Matérias Selecionadas', '$selectedSubjects'),
+          _buildInfoRow('Créditos Planejados', '$plannedCredits'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+          ),
+          Text(
+            value,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildRecommendationsCard() {
+    // TODO: Gerar recomendações baseadas nos dados do usuário e curso
+    // Por enquanto, usa recomendações genéricas
+    final recommendations = <Map<String, String>>[];
+    
+    // TODO: Analisar pré-requisitos pendentes
+    final pendingPrereqs = _getPendingPrerequisites();
+    if (pendingPrereqs.isNotEmpty) {
+      recommendations.add({
+        'title': 'Pré-requisitos Pendentes',
+        'description': 'Você precisa cursar ${pendingPrereqs.take(3).join(", ")} para desbloquear matérias futuras.',
+      });
+    }
+    
+    // TODO: Analisar balanceamento de carga
+    recommendations.add({
+      'title': 'Balanceamento de Carga',
+      'description': 'Considere adicionar mais 2-3 matérias para o próximo semestre para manter um ritmo adequado.',
+    });
+    
+    // TODO: Sugerir matérias baseadas no perfil
+    recommendations.add({
+      'title': 'Matérias Sugeridas',
+      'description': 'Com base no seu perfil, recomendamos consultar o assistente de IA para sugestões personalizadas.',
+    });
+    
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Recomendações',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+          ...recommendations.map((rec) => _buildRecommendationItem(rec['title']!, rec['description']!)),
+          const SizedBox(height: 16),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: () => context.go('/assistente'),
+              icon: const Icon(Icons.lightbulb_outline, color: Colors.white),
+              label: Text(
+                'VER ASSISTENTE DE IA',
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ).copyWith(
+                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // TODO: Implementar análise de pré-requisitos pendentes
+  List<String> _getPendingPrerequisites() {
+    // TODO: Analisar todas as matérias e verificar pré-requisitos não atendidos
+    return [];
+  }
+
+  Widget _buildRecommendationItem(String title, String description) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            description,
+            style: GoogleFonts.poppins(
+              color: Colors.white.withOpacity(0.8),
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProgressTools() {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Ferramentas de Progresso',
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 24),
+          Row(
+            children: [
+              Expanded(
+                child: _buildToolCard(
+                  'Calculadora de IRA',
+                  Icons.calculate,
+                  'Simule seu IRA com base em notas futuras',
+                  'Calcular IRA',
+                  const Color(0xFF8B5CF6),
+                  const Color(0xFF7C3AED),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildToolCard(
+                  'Progresso do Curso',
+                  Icons.bar_chart,
+                  'Visualize seu progresso detalhado',
+                  'Ver Progresso',
+                  const Color(0xFF3B82F6),
+                  const Color(0xFF1D4ED8),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildToolCard(
+                  'Integralização',
+                  Icons.info_outline,
+                  'Verifique requisitos para formatura',
+                  'Verificar',
+                  const Color(0xFF22C55E),
+                  const Color(0xFF16A34A),
+                ),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _buildToolCard(
+                  'Mudança de Curso',
+                  Icons.swap_horiz,
+                  'Simule aproveitamento em outro curso',
+                  'Simular',
+                  const Color(0xFFF59E0B),
+                  const Color(0xFFD97706),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildToolCard(String title, IconData icon, String description, String buttonText, Color startColor, Color endColor) {
+    return Container(
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [startColor.withOpacity(0.2), endColor.withOpacity(0.2)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: startColor.withOpacity(0.3),
+          width: 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, color: startColor, size: 24),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            description,
+            style: GoogleFonts.poppins(
+              color: Colors.white.withOpacity(0.8),
+              fontSize: 12,
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                // Abrir modal da ferramenta
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: startColor,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Text(
+                buttonText,
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

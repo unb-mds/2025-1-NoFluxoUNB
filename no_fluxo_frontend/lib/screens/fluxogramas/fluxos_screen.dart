@@ -5,6 +5,7 @@ import '../../widgets/graffiti_background.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:ui';
 import 'package:go_router/go_router.dart';
+import 'meu_fluxograma_screen.dart';
 
 class FluxogramasIndexScreen extends StatefulWidget {
   const FluxogramasIndexScreen({super.key});
@@ -159,7 +160,23 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           SafeArea(
             child: Column(
               children: [
-                const AppNavbar(),
+                // Botão de teste para navegar para MeuFluxogramaScreen
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MeuFluxogramaScreen(courseName: 'Engenharia de Software'),
+                        ),
+                      );
+                    },
+                    child: const Text('Ver Fluxograma Individual (teste)'),
+                  ),
+                ),
+                AppNavbar(isFluxogramasPage: true),
+                const SizedBox(height: 80),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Center(

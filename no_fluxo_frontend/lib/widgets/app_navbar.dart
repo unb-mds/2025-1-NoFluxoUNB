@@ -10,7 +10,8 @@ import 'dart:ui';
 
 class AppNavbar extends StatefulWidget {
   final bool hideAcesseButton;
-  const AppNavbar({super.key, this.hideAcesseButton = false});
+  final bool isFluxogramasPage;
+  const AppNavbar({super.key, this.hideAcesseButton = false, this.isFluxogramasPage = false});
 
   @override
   State<AppNavbar> createState() => _AppNavbarState();
@@ -21,6 +22,8 @@ class _AppNavbarState extends State<AppNavbar> {
   bool _isHoveringAbout = false;
   bool _isHoveringAcesso = false;
   bool _isHoveringLogout = false;
+  bool _isHoveringFluxogramas = false;
+  bool _isHoveringAssistente = false;
 
   @override
   Widget build(BuildContext context) {
@@ -106,17 +109,42 @@ class _AppNavbarState extends State<AppNavbar> {
                       ),
                     ),
                   ),
+                  if (widget.isFluxogramasPage) ...[
+                    const SizedBox(width: 16),
+                    MouseRegion(
+                      onEnter: (_) => setState(() => _isHoveringFluxogramas = true),
+                      onExit: (_) => setState(() => _isHoveringFluxogramas = false),
+                      child: AnimatedScale(
+                        scale: _isHoveringFluxogramas ? 1.05 : 1.0,
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        child: TextButton(
+                          onPressed: () {
+                            context.go('/fluxogramas');
+                          }, child: Text(
+                            'FLUXOGRAMAS',
+                            style: GoogleFonts.permanentMarker(
+                              fontSize: 19,
+                              color: _isHoveringFluxogramas ? AppColors.primary : AppColors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+
                   if (GoRouterState.of(context).uri.path == "/" ||
                       GoRouterState.of(context).uri.path == "/home") ...[
                     const SizedBox(width: 24),
                     MouseRegion(
-                      onEnter: (_) => setState(() => _isHoveringAcesso = true),
-                      onExit: (_) => setState(() => _isHoveringAcesso = false),
+                      onEnter: (_) => setState(() => _isHoveringFluxogramas = true),
+                      onExit: (_) => setState(() => _isHoveringFluxogramas = false),
                       child: AnimatedScale(
-                        scale: _isHoveringAcesso ? 1.05 : 1.0,
+                        scale: _isHoveringFluxogramas ? 1.05 : 1.0,
                         duration: const Duration(milliseconds: 200),
                         curve: Curves.easeInOut,
-                        child: ElevatedButton(
+                        child: TextButton(
                           onPressed: () {
                             if (SharedPreferencesHelper.currentUser != null) {
                               context.go('/upload-historico');
@@ -153,12 +181,10 @@ class _AppNavbarState extends State<AppNavbar> {
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.white,
                               ),
-                            ),
-                          ),
-                        ),
+                            
                       ),
-                    ),
-                  ],
+                    ),)))
+              ],
                   if (SharedPreferencesHelper.currentUser != null &&
                       GoRouterState.of(context).uri.path != "/home" &&
                       GoRouterState.of(context).uri.path != "/") ...[
