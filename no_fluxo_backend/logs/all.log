@@ -487,3 +487,18 @@
 2025-07-03 19:13:31:1331 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
 2025-07-03 19:13:31:1331 [34minfo[39m: [34mBuscando usuário por email: [39m
 2025-07-03 19:13:31:1331 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 19:22:10:2210 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 19:22:46:2246 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:22:46:2246 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:22:46:2246 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:22:47:2247 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
