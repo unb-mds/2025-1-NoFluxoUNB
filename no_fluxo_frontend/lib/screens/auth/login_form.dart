@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'anonymous_login_screen.dart';
 import 'package:email_validator/email_validator.dart';
+import 'dart:async';
 
 class LoginForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -266,7 +267,7 @@ class _LoginFormState extends State<LoginForm> {
                       setState(() {
                         _emailError = null;
                       });
-                      context.go('/auth/upload');
+                      _showLoginSuccessModal(context, 'email');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2563EB),
@@ -304,8 +305,7 @@ class _LoginFormState extends State<LoginForm> {
                   height: 52,
                   child: OutlinedButton.icon(
                     onPressed: () {
-                      // Aqui você pode colocar a lógica real de login com Google
-                      context.go('/auth/upload');
+                      _showLoginSuccessModal(context, 'google');
                     },
                     icon: SvgPicture.asset(
                       'assets/icons/Google__G__logo.svg',
@@ -378,5 +378,102 @@ class _LoginFormState extends State<LoginForm> {
         ),
       ),
     );
+  }
+
+  void _showLoginSuccessModal(BuildContext context, String loginType) {
+    bool closed = false;
+    late Timer timer;
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 360),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.08),
+                    blurRadius: 16,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE6FAF0),
+                      shape: BoxShape.circle,
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    child: Icon(Icons.check, color: Colors.green[600], size: 32),
+                  ),
+                  const SizedBox(height: 18),
+                  Text(
+                    'Login realizado',
+                    style: GoogleFonts.poppins(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    loginType == 'google'
+                        ? 'Você entrou com o Google.'
+                        : 'Você entrou com e-mail.',
+                    style: GoogleFonts.poppins(
+                      color: Colors.grey[600],
+                      fontSize: 14,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 22),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 44,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        closed = true;
+                        Navigator.of(context).pop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF183C8B),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        textStyle: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    timer = Timer(const Duration(seconds: 2), () {
+      if (context.mounted) {
+        if (!closed) {
+          closed = true;
+          Navigator.of(context).pop();
+        }
+        context.go('/auth/upload');
+      }
+    });
   }
 }
