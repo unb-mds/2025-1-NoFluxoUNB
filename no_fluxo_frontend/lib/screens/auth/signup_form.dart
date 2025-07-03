@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../constants/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:email_validator/email_validator.dart';
 
 class SignupForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -25,6 +26,8 @@ class _SignupFormState extends State<SignupForm> {
   bool _acceptTerms = false;
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
+  String? _emailError;
+  String? _termsError;
 
   @override
   void dispose() {
@@ -59,6 +62,62 @@ class _SignupFormState extends State<SignupForm> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: [
+                if (_emailError != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFFF4E5),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0xFFFFB020)),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(Icons.warning_amber_rounded, color: Color(0xFFFFB020), size: 28),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              _emailError!,
+                              style: GoogleFonts.poppins(
+                                color: Colors.black87,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                if (_termsError != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFFF4E5),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0xFFFFB020)),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(Icons.warning_amber_rounded, color: Color(0xFFFFB020), size: 28),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              _termsError!,
+                              style: GoogleFonts.poppins(
+                                color: Colors.black87,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 Text(
                   'Criar Conta',
                   style: GoogleFonts.poppins(
@@ -101,6 +160,7 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 16),
                 TextFormField(
                   controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'E-mail',
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
@@ -123,9 +183,29 @@ class _SignupFormState extends State<SignupForm> {
                   style: GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Por favor, insira seu email';
+                      return 'Por favor, insira seu e-mail';
+                    }
+                    if (!value.contains('@')) {
+                      return 'Inclua um "@" no endereço de e-mail.';
+                    }
+                    final parts = value.split('@');
+                    if (parts.length != 2 || parts[1].isEmpty) {
+                      return 'Inclua um domínio após o "@" (ex: gmail.com).';
+                    }
+                    if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
+                      return 'Inclua um domínio válido após o "@" (ex: gmail.com).';
+                    }
+                    if (!EmailValidator.validate(value)) {
+                      return 'E-mail inválido.';
                     }
                     return null;
+                  },
+                  onChanged: (value) {
+                    if (_emailError != null) {
+                      setState(() {
+                        _emailError = null;
+                      });
+                    }
                   },
                 ),
                 const SizedBox(height: 16),
@@ -231,6 +311,9 @@ class _SignupFormState extends State<SignupForm> {
                       onChanged: (value) {
                         setState(() {
                           _acceptTerms = value ?? false;
+                          if (_termsError != null) {
+                            _termsError = null;
+                          }
                         });
                       },
                       activeColor: const Color(0xFF2563EB),
@@ -263,9 +346,46 @@ class _SignupFormState extends State<SignupForm> {
                   height: 52,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate() && _acceptTerms) {
-                        context.go('/auth/upload');
+                      final valid = _formKey.currentState!.validate();
+                      if (!valid) {
+                        final email = _emailController.text;
+                        if (email.isEmpty) {
+                          setState(() {
+                            _emailError = 'Por favor, insira seu e-mail';
+                          });
+                        } else if (!email.contains('@')) {
+                          setState(() {
+                            _emailError = 'Inclua um "@" no endereço de e-mail.';
+                          });
+                        } else {
+                          final parts = email.split('@');
+                          if (parts.length != 2 || parts[1].isEmpty) {
+                            setState(() {
+                              _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
+                            });
+                          } else if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
+                            setState(() {
+                              _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
+                            });
+                          } else {
+                            setState(() {
+                              _emailError = 'E-mail inválido.';
+                            });
+                          }
+                        }
+                        return;
                       }
+                      if (!_acceptTerms) {
+                        setState(() {
+                          _termsError = 'Você deve concordar com os Termos de Serviço e Política de Privacidade para continuar.';
+                        });
+                        return;
+                      }
+                      setState(() {
+                        _emailError = null;
+                        _termsError = null;
+                      });
+                      context.go('/auth/upload');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2563EB),

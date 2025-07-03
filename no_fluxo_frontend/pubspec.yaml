@@ -44,6 +44,7 @@ dependencies:
   url_strategy: ^0.3.0
   http: ^1.2.1
   dotted_border: ^3.0.1
+  email_validator: ^3.0.0
 
 dev_dependencies:
   flutter_test:
