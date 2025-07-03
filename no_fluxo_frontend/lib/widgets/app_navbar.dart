@@ -8,7 +8,8 @@ import 'dart:ui';
 
 class AppNavbar extends StatefulWidget {
   final bool hideAcesseButton;
-  const AppNavbar({super.key, this.hideAcesseButton = false});
+  final bool isFluxogramasPage;
+  const AppNavbar({super.key, this.hideAcesseButton = false, this.isFluxogramasPage = false});
 
   @override
   State<AppNavbar> createState() => _AppNavbarState();
@@ -18,6 +19,8 @@ class _AppNavbarState extends State<AppNavbar> {
   bool _isHoveringHome = false;
   bool _isHoveringAbout = false;
   bool _isHoveringAcesso = false;
+  bool _isHoveringFluxogramas = false;
+  bool _isHoveringAssistente = false;
 
   @override
   Widget build(BuildContext context) {
@@ -98,50 +101,99 @@ class _AppNavbarState extends State<AppNavbar> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 24),
-                  if (!widget.hideAcesseButton)
+                  if (widget.isFluxogramasPage) ...[
+                    const SizedBox(width: 16),
                     MouseRegion(
-                      onEnter: (_) => setState(() => _isHoveringAcesso = true),
-                      onExit: (_) => setState(() => _isHoveringAcesso = false),
+                      onEnter: (_) => setState(() => _isHoveringFluxogramas = true),
+                      onExit: (_) => setState(() => _isHoveringFluxogramas = false),
                       child: AnimatedScale(
-                        scale: _isHoveringAcesso ? 1.05 : 1.0,
+                        scale: _isHoveringFluxogramas ? 1.05 : 1.0,
                         duration: const Duration(milliseconds: 200),
                         curve: Curves.easeInOut,
-                        child: ElevatedButton(
+                        child: TextButton(
                           onPressed: () {
-                            context.go('/auth');
+                            context.go('/fluxogramas');
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.transparent,
-                            elevation: 0,
-                            shadowColor: Colors.transparent,
-                            padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 12),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                          ),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [AppColors.purple, AppColors.pink],
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                              ),
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                            constraints: const BoxConstraints(minWidth: 260.0, minHeight: 40.0),
-                            alignment: Alignment.center,
-                            child: Text(
-                              'ACESSE NOSSO SISTEMA',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.permanentMarker(
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.white,
-                              ),
+                          child: Text(
+                            'FLUXOGRAMAS',
+                            style: GoogleFonts.permanentMarker(
+                              fontSize: 19,
+                              color: _isHoveringFluxogramas ? AppColors.primary : AppColors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
                     ),
+                    const SizedBox(width: 16),
+                    MouseRegion(
+                      onEnter: (_) => setState(() => _isHoveringAssistente = true),
+                      onExit: (_) => setState(() => _isHoveringAssistente = false),
+                      child: AnimatedScale(
+                        scale: _isHoveringAssistente ? 1.05 : 1.0,
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.easeInOut,
+                        child: TextButton(
+                          onPressed: () {
+                            context.go('/assistente');
+                          },
+                          child: Text(
+                            'ASSISTENTE',
+                            style: GoogleFonts.permanentMarker(
+                              fontSize: 19,
+                              color: _isHoveringAssistente ? AppColors.primary : AppColors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ] else ...[
+                    const SizedBox(width: 24),
+                    if (!widget.hideAcesseButton)
+                      MouseRegion(
+                        onEnter: (_) => setState(() => _isHoveringAcesso = true),
+                        onExit: (_) => setState(() => _isHoveringAcesso = false),
+                        child: AnimatedScale(
+                          scale: _isHoveringAcesso ? 1.05 : 1.0,
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              context.go('/auth');
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.transparent,
+                              elevation: 0,
+                              shadowColor: Colors.transparent,
+                              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 12),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [AppColors.purple, AppColors.pink],
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                ),
+                                borderRadius: BorderRadius.circular(30.0),
+                              ),
+                              constraints: const BoxConstraints(minWidth: 260.0, minHeight: 40.0),
+                              alignment: Alignment.center,
+                              child: Text(
+                                'ACESSE NOSSO SISTEMA',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.permanentMarker(
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ],
               ),
             ],
