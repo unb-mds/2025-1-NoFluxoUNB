@@ -4,6 +4,7 @@ import '../../widgets/app_navbar.dart';
 import '../../widgets/graffiti_background.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:ui';
+import 'package:go_router/go_router.dart';
 
 class FluxogramasIndexScreen extends StatefulWidget {
   const FluxogramasIndexScreen({super.key});
@@ -125,25 +126,28 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
       ],
       // Páginas 2 a 8: cards vazios (prontos para receber nomes no futuro)
       for (int p = 2; p <= 8; p++)
-        List.generate(6, (i) => CourseCard(
-          title: '',
-          subtitle: '',
-          credits: '',
-          isTranslucent: true,
-          fluxograma: SizedBox(
-            width: 300,
-            height: 120,
-            child: CustomPaint(
-              painter: GenericFluxogramaPainter(fluxogramas[i]),
-            ),
-          ),
-        )),
+        List.generate(
+            6,
+            (i) => CourseCard(
+                  title: '',
+                  subtitle: '',
+                  credits: '',
+                  isTranslucent: true,
+                  fluxograma: SizedBox(
+                    width: 300,
+                    height: 120,
+                    child: CustomPaint(
+                      painter: GenericFluxogramaPainter(fluxogramas[i]),
+                    ),
+                  ),
+                )),
     ];
 
     // Filtrar os cards da página atual
-    final gridCards = pages[currentPage - 1].where((card) =>
-      card.title.toLowerCase().contains(searchText.toLowerCase())
-    ).toList();
+    final gridCards = pages[currentPage - 1]
+        .where((card) =>
+            card.title.toLowerCase().contains(searchText.toLowerCase()))
+        .toList();
 
     return Scaffold(
       body: Stack(
@@ -152,212 +156,276 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           Container(
             color: Colors.black.withOpacity(0.3),
           ),
-          SingleChildScrollView(
-            child: Center(
-              child: Container(
-                constraints: const BoxConstraints(maxWidth: 1280),
-                padding: const EdgeInsets.only(top: 88, left: 24, right: 24, bottom: 48),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // Título e subtítulo
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 48),
-                      child: Column(
-                        children: [
-                          RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              style: GoogleFonts.permanentMarker(
-                                fontSize: 48,
-                                color: Colors.white,
-                                shadows: [
-                                  Shadow(
-                                    color: Colors.black.withOpacity(0.7),
-                                    blurRadius: 8,
-                                    offset: const Offset(0, 4),
+          SafeArea(
+            child: Column(
+              children: [
+                const AppNavbar(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Center(
+                      child: Container(
+                        constraints: const BoxConstraints(maxWidth: 1280),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 48),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            // Título e subtítulo
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 48),
+                              child: Column(
+                                children: [
+                                  RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(
+                                      style: GoogleFonts.permanentMarker(
+                                        fontSize: 48,
+                                        color: Colors.white,
+                                        shadows: [
+                                          Shadow(
+                                            color:
+                                                Colors.black.withOpacity(0.7),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      children: [
+                                        const TextSpan(text: 'FLUXOGRAMAS '),
+                                        TextSpan(
+                                          text: 'DISPONÍVEIS',
+                                          style: GoogleFonts.permanentMarker(
+                                            fontSize: 48,
+                                            color: const Color(0xFFFF3CA5),
+                                            shadows: [
+                                              Shadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.7),
+                                                blurRadius: 8,
+                                                offset: Offset(0, 4),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  ConstrainedBox(
+                                    constraints:
+                                        const BoxConstraints(maxWidth: 700),
+                                    child: Text(
+                                      'Escolha o curso para visualizar seu fluxograma completo. Você poderá personalizar adicionando matérias optativas e acompanhar seu progresso.',
+                                      textAlign: TextAlign.center,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 18,
+                                        color: const Color(0xFFD1D5DB),
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  ElevatedButton.icon(
+                                    onPressed: () {
+                                      context.go('/assistente');
+                                    },
+                                    icon: const Icon(Icons.lightbulb_outline,
+                                        color: Colors.white, size: 22),
+                                    label: Text(
+                                      'FALE COM O ASSISTENTE',
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 36, vertical: 18),
+                                      backgroundColor: const Color(0xFF6366F1),
+                                      foregroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
+                                      elevation: 8,
+                                      shadowColor:
+                                          Colors.black.withOpacity(0.3),
+                                    ),
                                   ),
                                 ],
                               ),
-                              children: [
-                                const TextSpan(text: 'FLUXOGRAMAS '),
-                                TextSpan(
-                                  text: 'DISPONÍVEIS',
-                                  style: GoogleFonts.permanentMarker(
-                                    fontSize: 48,
-                                    color: const Color(0xFFFF3CA5),
-                                    shadows: [
-                                      Shadow(
-                                        color: Colors.black.withOpacity(0.7),
-                                        blurRadius: 8,
-                                        offset: Offset(0, 4),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
                             ),
-                          ),
-                          const SizedBox(height: 16),
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 700),
-                            child: Text(
-                              'Escolha o curso para visualizar seu fluxograma completo. Você poderá personalizar adicionando matérias optativas e acompanhar seu progresso.',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(
-                                fontSize: 18,
-                                color: const Color(0xFFD1D5DB),
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-                          ElevatedButton.icon(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/assistente');
-                            },
-                            icon: const Icon(Icons.lightbulb_outline, color: Colors.white, size: 22),
-                            label: Text(
-                              'FALE COM O ASSISTENTE',
-                              style: GoogleFonts.poppins(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 18),
-                              backgroundColor: const Color(0xFF6366F1),
-                              foregroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              elevation: 8,
-                              shadowColor: Colors.black.withOpacity(0.3),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // Barra de busca e filtros
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: LayoutBuilder(
-                        builder: (context, constraints) {
-                          final isWide = constraints.maxWidth > 700;
-                          return Flex(
-                            direction: isWide ? Axis.horizontal : Axis.vertical,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              // Barra de busca
-                              Flexible(
-                                flex: isWide ? 5 : 0,
-                                child: Container(
-                                  margin: isWide ? const EdgeInsets.only(right: 16) : const EdgeInsets.only(bottom: 16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.08),
-                                    borderRadius: BorderRadius.circular(32),
-                                    border: Border.all(color: Colors.white.withOpacity(0.18), width: 2),
-                                  ),
-                                  child: Row(
+                            // Barra de busca e filtros
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 40),
+                              child: LayoutBuilder(
+                                builder: (context, constraints) {
+                                  final isWide = constraints.maxWidth > 700;
+                                  return Flex(
+                                    direction: isWide
+                                        ? Axis.horizontal
+                                        : Axis.vertical,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
-                                      Expanded(
-                                        child: TextField(
-                                          controller: _searchController,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              searchText = value;
-                                            });
-                                          },
-                                          decoration: InputDecoration(
-                                            hintText: 'Buscar curso...',
-                                            hintStyle: GoogleFonts.poppins(
-                                              color: Colors.white.withOpacity(0.7),
-                                              fontSize: 18,
-                                            ),
-                                            border: InputBorder.none,
-                                            contentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                                      // Barra de busca
+                                      Flexible(
+                                        flex: isWide ? 5 : 0,
+                                        child: Container(
+                                          margin: isWide
+                                              ? const EdgeInsets.only(right: 16)
+                                              : const EdgeInsets.only(
+                                                  bottom: 16),
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Colors.white.withOpacity(0.08),
+                                            borderRadius:
+                                                BorderRadius.circular(32),
+                                            border: Border.all(
+                                                color: Colors.white
+                                                    .withOpacity(0.18),
+                                                width: 2),
                                           ),
-                                          style: GoogleFonts.poppins(
-                                            color: Colors.white,
-                                            fontSize: 18,
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: TextField(
+                                                  controller: _searchController,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      searchText = value;
+                                                    });
+                                                  },
+                                                  decoration: InputDecoration(
+                                                    hintText: 'Buscar curso...',
+                                                    hintStyle:
+                                                        GoogleFonts.poppins(
+                                                      color: Colors.white
+                                                          .withOpacity(0.7),
+                                                      fontSize: 18,
+                                                    ),
+                                                    border: InputBorder.none,
+                                                    contentPadding:
+                                                        const EdgeInsets
+                                                            .symmetric(
+                                                            horizontal: 24,
+                                                            vertical: 18),
+                                                  ),
+                                                  style: GoogleFonts.poppins(
+                                                    color: Colors.white,
+                                                    fontSize: 18,
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    right: 18.0),
+                                                child: Icon(Icons.search,
+                                                    color: Colors.white
+                                                        .withOpacity(0.7),
+                                                    size: 26),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(right: 18.0),
-                                        child: Icon(Icons.search, color: Colors.white.withOpacity(0.7), size: 26),
+                                      // Filtros
+                                      Flexible(
+                                        flex: isWide ? 4 : 0,
+                                        child: Row(
+                                          mainAxisAlignment: isWide
+                                              ? MainAxisAlignment.end
+                                              : MainAxisAlignment.center,
+                                          children: [
+                                            _buildFilterButton('TODOS', true),
+                                            const SizedBox(width: 10),
+                                            _buildFilterButton('EXATAS', false),
+                                            const SizedBox(width: 10),
+                                            _buildFilterButton(
+                                                'HUMANAS', false),
+                                            const SizedBox(width: 10),
+                                            _buildFilterButton('SAÚDE', false),
+                                          ],
+                                        ),
                                       ),
                                     ],
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
-                              // Filtros
-                              Flexible(
-                                flex: isWide ? 4 : 0,
-                                child: Row(
-                                  mainAxisAlignment: isWide ? MainAxisAlignment.end : MainAxisAlignment.center,
-                                  children: [
-                                    _buildFilterButton('TODOS', true),
-                                    const SizedBox(width: 10),
-                                    _buildFilterButton('EXATAS', false),
-                                    const SizedBox(width: 10),
-                                    _buildFilterButton('HUMANAS', false),
-                                    const SizedBox(width: 10),
-                                    _buildFilterButton('SAÚDE', false),
-                                  ],
-                                ),
+                            ),
+                            // Grid de cards de cursos (placeholder)
+                            GridView.count(
+                              crossAxisCount:
+                                  MediaQuery.of(context).size.width > 1100
+                                      ? 3
+                                      : MediaQuery.of(context).size.width > 700
+                                          ? 2
+                                          : 1,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              crossAxisSpacing: 24,
+                              mainAxisSpacing: 24,
+                              childAspectRatio: 1.2,
+                              children: gridCards,
+                            ),
+                            const SizedBox(height: 48),
+                            // Paginação
+                            Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  _PaginationButton(
+                                      text: '1',
+                                      isActive: currentPage == 1,
+                                      onTap: () => setPage(1)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '2',
+                                      isActive: currentPage == 2,
+                                      onTap: () => setPage(2)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '3',
+                                      isActive: currentPage == 3,
+                                      onTap: () => setPage(3)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '4',
+                                      isActive: currentPage == 4,
+                                      onTap: () => setPage(4)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '5',
+                                      isActive: currentPage == 5,
+                                      onTap: () => setPage(5)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '6',
+                                      isActive: currentPage == 6,
+                                      onTap: () => setPage(6)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '7',
+                                      isActive: currentPage == 7,
+                                      onTap: () => setPage(7)),
+                                  const SizedBox(width: 8),
+                                  _PaginationButton(
+                                      text: '8',
+                                      isActive: currentPage == 8,
+                                      onTap: () => setPage(8)),
+                                ],
                               ),
-                            ],
-                          );
-                        },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    // Grid de cards de cursos (placeholder)
-                    GridView.count(
-                      crossAxisCount: MediaQuery.of(context).size.width > 1100 ? 3 : MediaQuery.of(context).size.width > 700 ? 2 : 1,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisSpacing: 24,
-                      mainAxisSpacing: 24,
-                      childAspectRatio: 1.2,
-                      children: gridCards,
-                    ),
-                    const SizedBox(height: 48),
-                    // Paginação
-                    Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _PaginationButton(text: '1', isActive: currentPage == 1, onTap: () => setPage(1)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '2', isActive: currentPage == 2, onTap: () => setPage(2)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '3', isActive: currentPage == 3, onTap: () => setPage(3)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '4', isActive: currentPage == 4, onTap: () => setPage(4)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '5', isActive: currentPage == 5, onTap: () => setPage(5)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '6', isActive: currentPage == 6, onTap: () => setPage(6)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '7', isActive: currentPage == 7, onTap: () => setPage(7)),
-                          const SizedBox(width: 8),
-                          _PaginationButton(text: '8', isActive: currentPage == 8, onTap: () => setPage(8)),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ),
-          const Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: SafeArea(child: AppNavbar()),
           ),
         ],
       ),
@@ -370,7 +438,8 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
       curve: Curves.easeInOut,
       decoration: BoxDecoration(
         gradient: isActive
-            ? const LinearGradient(colors: [Color(0xFF6366F1), Color(0xFF7C3AED)])
+            ? const LinearGradient(
+                colors: [Color(0xFF6366F1), Color(0xFF7C3AED)])
             : null,
         color: isActive ? null : Colors.white.withOpacity(0.08),
         borderRadius: BorderRadius.circular(32),
@@ -474,7 +543,8 @@ class CourseCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
-                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
                 elevation: 0,
               ),
               child: Text(
@@ -498,7 +568,8 @@ class CourseCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.white.withOpacity(0.08),
-                  border: Border.all(color: Colors.white.withOpacity(0.18), width: 1.2),
+                  border: Border.all(
+                      color: Colors.white.withOpacity(0.18), width: 1.2),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.12),
@@ -580,7 +651,8 @@ class _PaginationButton extends StatelessWidget {
   final String text;
   final bool isActive;
   final VoidCallback? onTap;
-  const _PaginationButton({super.key, required this.text, this.isActive = false, this.onTap});
+  const _PaginationButton(
+      {super.key, required this.text, this.isActive = false, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -609,4 +681,4 @@ class _PaginationButton extends StatelessWidget {
       ),
     );
   }
-} 
+}
