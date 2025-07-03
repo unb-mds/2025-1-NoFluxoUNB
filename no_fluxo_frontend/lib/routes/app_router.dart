@@ -28,10 +28,7 @@ class AppRouter {
       GoRoute(
         path: '/assistente',
         name: 'assistente',
-        builder: (context, state) {
-          print('🟢 Navegando para ASSISTENTE: ${state.uri.path}');
-          return const AssistenteScreen();
-        },
+        builder: (context, state) => const AssistenteScreen(),
       ),
 
       // Auth Routes
