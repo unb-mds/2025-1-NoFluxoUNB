@@ -7,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'anonymous_login_screen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'dart:async';
+import '../../service/auth_service.dart'; // Importar o AuthService
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -24,8 +26,11 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _authService = AuthService(); // Instância do AuthService
+  
   bool _rememberMe = false;
   bool _obscurePassword = true;
+  bool _isLoading = false; // Estado de carregamento
   String? _emailError;
 
   @override
@@ -33,6 +38,113 @@ class _LoginFormState extends State<LoginForm> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  // Método para fazer login com email e senha
+  Future<void> _handleEmailLogin() async {
+    if (!_formKey.currentState!.validate()) {
+      _handleFormValidationError();
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+      _emailError = null;
+    });
+
+    try {
+      // Usando o método login do AuthService
+      final error = await _authService.login(
+        _emailController.text.trim(),
+        _passwordController.text,
+      );
+
+      if (mounted) {
+        if (error == null) {
+          // Login bem-sucedido
+          _showLoginSuccessModal(context, 'email');
+        } else {
+          // Erro no login
+          setState(() {
+            _emailError = error;
+          });
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _emailError = 'Erro inesperado: $e';
+        });
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  // Método para fazer login com Google
+  Future<void> _handleGoogleLogin() async {
+    setState(() {
+      _isLoading = true;
+      _emailError = null;
+    });
+
+    try {
+      await _authService.signInWithGoogle();
+      if (mounted) {
+        _showLoginSuccessModal(context, 'google');
+      }
+    } on AuthException catch (e) {
+      if (mounted) {
+        setState(() {
+          _emailError = e.message;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _emailError = 'Erro no login com Google: $e';
+        });
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  // Método para lidar com erros de validação do formulário
+  void _handleFormValidationError() {
+    final email = _emailController.text;
+    if (email.isEmpty) {
+      setState(() {
+        _emailError = 'Por favor, insira seu e-mail';
+      });
+    } else if (!email.contains('@')) {
+      setState(() {
+        _emailError = 'Inclua um "@" no endereço de e-mail.';
+      });
+    } else {
+      final parts = email.split('@');
+      if (parts.length != 2 || parts[1].isEmpty) {
+        setState(() {
+          _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
+        });
+      } else if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
+        setState(() {
+          _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
+        });
+      } else {
+        setState(() {
+          _emailError = 'E-mail inválido.';
+        });
+      }
+    }
   }
 
   @override
@@ -100,6 +212,7 @@ class _LoginFormState extends State<LoginForm> {
                 TextFormField(
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
+                  enabled: !_isLoading, // Desabilita durante o carregamento
                   decoration: InputDecoration(
                     hintText: 'E-mail',
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
@@ -151,6 +264,7 @@ class _LoginFormState extends State<LoginForm> {
                 TextFormField(
                   controller: _passwordController,
                   obscureText: _obscurePassword,
+                  enabled: !_isLoading, // Desabilita durante o carregamento
                   decoration: InputDecoration(
                     hintText: 'Senha',
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
@@ -194,7 +308,7 @@ class _LoginFormState extends State<LoginForm> {
                   children: [
                     Checkbox(
                       value: _rememberMe,
-                      onChanged: (value) {
+                      onChanged: _isLoading ? null : (value) {
                         setState(() {
                           _rememberMe = value ?? false;
                         });
@@ -208,7 +322,7 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {
+                      onTap: _isLoading ? null : () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -217,12 +331,12 @@ class _LoginFormState extends State<LoginForm> {
                         );
                       },
                       child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
+                        cursor: _isLoading ? SystemMouseCursors.basic : SystemMouseCursors.click,
                         child: Text(
                           'Esqueceu a senha?',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
-                            color: const Color(0xFF6366F1),
+                            color: _isLoading ? Colors.grey[400] : const Color(0xFF6366F1),
                             decoration: TextDecoration.underline,
                           ),
                         ),
@@ -234,41 +348,7 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: () {
-                      final valid = _formKey.currentState!.validate();
-                      if (!valid) {
-                        final email = _emailController.text;
-                        if (email.isEmpty) {
-                          setState(() {
-                            _emailError = 'Por favor, insira seu e-mail';
-                          });
-                        } else if (!email.contains('@')) {
-                          setState(() {
-                            _emailError = 'Inclua um "@" no endereço de e-mail.';
-                          });
-                        } else {
-                          final parts = email.split('@');
-                          if (parts.length != 2 || parts[1].isEmpty) {
-                            setState(() {
-                              _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
-                            });
-                          } else if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
-                            setState(() {
-                              _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
-                            });
-                          } else {
-                            setState(() {
-                              _emailError = 'E-mail inválido.';
-                            });
-                          }
-                        }
-                        return;
-                      }
-                      setState(() {
-                        _emailError = null;
-                      });
-                      _showLoginSuccessModal(context, 'email');
-                    },
+                    onPressed: _isLoading ? null : _handleEmailLogin,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2563EB),
                       foregroundColor: Colors.white,
@@ -281,7 +361,16 @@ class _LoginFormState extends State<LoginForm> {
                       ),
                       elevation: 2,
                     ),
-                    child: const Text('Entrar'),
+                    child: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : const Text('Entrar'),
                   ),
                 ),
                 const SizedBox(height: 18),
@@ -304,18 +393,24 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 52,
                   child: OutlinedButton.icon(
-                    onPressed: () {
-                      _showLoginSuccessModal(context, 'google');
-                    },
-                    icon: SvgPicture.asset(
-                      'assets/icons/Google__G__logo.svg',
-                      height: 24,
-                      width: 24,
-                    ),
+                    onPressed: _isLoading ? null : _handleGoogleLogin,
+                    icon: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : SvgPicture.asset(
+                            'assets/icons/Google__G__logo.svg',
+                            height: 24,
+                            width: 24,
+                          ),
                     label: Text(
                       'Entrar com o Google',
                       style: GoogleFonts.poppins(
-                        color: Colors.grey[800],
+                        color: _isLoading ? Colors.grey[400] : Colors.grey[800],
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
                       ),
@@ -336,14 +431,14 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: _isLoading ? null : () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const AnonymousLoginScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black87,
+                      backgroundColor: _isLoading ? Colors.grey[400] : Colors.black87,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
@@ -360,9 +455,9 @@ class _LoginFormState extends State<LoginForm> {
                 const SizedBox(height: 18),
                 Center(
                   child: TextButton(
-                    onPressed: widget.onToggleView,
+                    onPressed: _isLoading ? null : widget.onToggleView,
                     style: TextButton.styleFrom(
-                      foregroundColor: Colors.black87,
+                      foregroundColor: _isLoading ? Colors.grey[400] : Colors.black87,
                       textStyle: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
