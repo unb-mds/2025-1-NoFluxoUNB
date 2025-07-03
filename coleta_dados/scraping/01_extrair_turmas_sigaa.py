@@ -279,7 +279,7 @@ def carregar_ids_departamentos():
         ids = []
         # Certifique-se que o arquivo 'departamentos_unb_2.csv' está no mesmo diretório
         # ou forneça o caminho completo.
-        with open('dados/departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
+        with open('coleta_dados/dados/departamentos_ID_unb.csv', 'r', encoding='utf-8') as file:
             csv_reader = csv.reader(file)
             next(csv_reader, None) # Pula o cabeçalho, se houver
             for row in csv_reader:

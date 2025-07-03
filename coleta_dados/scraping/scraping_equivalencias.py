@@ -45,7 +45,7 @@ def limpar_texto(texto):
 MAX_WORKERS = 6  # Reduzido para evitar bloqueios
 REQUEST_DELAY = (2, 5)  # Intervalo maior entre requisições
 MAX_RETRIES = 5  # Mais tentativas por departamento
-OUTPUT_DIR = os.path.join("dados", "Equivalencias_Turmas_Departamentos")
+OUTPUT_DIR = os.path.join("coleta_dados/dados", "Equivalencias_Turmas_Departamentos")
 DEBUG = True  # Ativar para ver logs detalhados
 
 def limpar_texto(texto):
