@@ -21,7 +21,7 @@ def gerar_nomes_pastas():
     semestre = 1 if hoje.month <= 6 else 2
     
     sufixo_semestre = f"{ano}_{semestre}"
-    diretorio_base = "dados"
+    diretorio_base = "coleta_dados/dados"
     
     nomes = {
         "dados_finais": os.path.join(diretorio_base, f"dados_finais_{sufixo_semestre}"),
