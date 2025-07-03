@@ -83,7 +83,7 @@ def main():
 
     pastas = gerar_nomes_pastas()
 
-    pasta_scripts = "scraping"
+    pasta_scripts = "coleta_dados/scraping"
 
     # Define a lista de comandos a serem executados
     comandos = [
