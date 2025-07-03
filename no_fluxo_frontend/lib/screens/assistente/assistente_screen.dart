@@ -255,6 +255,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                                               ),
                                             )).toList(),
                               ),
+                              ),
                               const SizedBox(height: 12),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
