@@ -1,6 +1,34 @@
 import requests
 import json
 
+'''
+Esse arquivo tem como objetivo extrair dados dos cursos da UnB, os dados serão estruturados na forma:
+
+ "id_curso": 414112,
+    "nome": "ADMINISTRAÇÃO",
+    "id_servidor": 19007,
+    "coordenador": "VANESSA CABRAL GOMES",
+    "situacao_curso": "ATIVO",
+    "nivel_ensino": null,
+    "grau_academico": "Bacharelado",
+    "modalidade_educacao": "Presencial",
+    "area_conhecimento": "Ciências Sociais Aplicadas",
+    "tipo_oferta": "Semestral",
+    "turno": "Matutino e Vespertino",
+    "tipo_ciclo_formacao": "Um ciclo",
+    "municipio": "BRASÍLIA",
+    "campus": "DARCY RIBEIRO",
+    "id_unidade_responsavel": 327,
+    "website": null,
+    "data_funcionamento": "18/07/2018",
+    "codigo_inep": "145",
+    "portaria_reconhecimento": "271",
+    "convenio_academico": null
+    
+
+'''
+
+
 # URL do JSON
 url = (
     "http://dados.unb.br/dataset/cbae3cab-650f-487e-b936-0a5576ff757b/resource/"
