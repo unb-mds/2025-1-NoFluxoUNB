@@ -175,7 +175,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
   void _continueToFlowchart() {
     // Navegar para a tela do fluxograma
-    context.go('/fluxogramas');
+    context.go('/meu-fluxograma');
   }
 
   void _showHelpModal() {

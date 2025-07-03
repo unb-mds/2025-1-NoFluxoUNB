@@ -7,6 +7,7 @@ import '../screens/auth/login_form.dart';
 import '../screens/auth/signup_form.dart';
 import '../screens/auth/password_recovery_screen.dart';
 import '../screens/upload_historico_screen.dart';
+import '../screens/fluxogramas/fluxos_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -76,6 +77,12 @@ class AppRouter {
       GoRoute(
         path: '/fluxogramas',
         name: 'fluxogramas',
+        builder: (context, state) => const FluxogramasIndexScreen(),
+      ),
+
+      GoRoute(
+        path: '/meu-fluxograma',
+        name: 'meu-fluxograma',
         builder: (context, state) => const FluxogramasPlaceholder(),
       ),
     ],
@@ -113,7 +120,7 @@ class AppRouter {
   );
 }
 
-// Placeholder para a página de fluxogramas
+// Placeholder para a página de fluxograma individual
 class FluxogramasPlaceholder extends StatelessWidget {
   const FluxogramasPlaceholder({Key? key}) : super(key: key);
 
@@ -121,7 +128,7 @@ class FluxogramasPlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fluxogramas'),
+        title: const Text('Meu Fluxograma'),
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
       ),
@@ -136,7 +143,7 @@ class FluxogramasPlaceholder extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Página de Fluxogramas',
+              'Seu Fluxograma',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -144,7 +151,7 @@ class FluxogramasPlaceholder extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'Esta página será implementada em breve!',
+              'Aqui aparecerá o seu fluxograma personalizado após importar o histórico!',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,

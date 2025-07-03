@@ -5,6 +5,7 @@ import '../../widgets/animated_background.dart';
 import '../../widgets/app_navbar.dart';
 import 'dart:async';
 import '../fluxogramas/fluxos_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class AnonymousLoginScreen extends StatelessWidget {
   const AnonymousLoginScreen({super.key});
@@ -74,8 +75,6 @@ class AnonymousLoginScreen extends StatelessWidget {
                     height: 44,
                     child: ElevatedButton(
                       onPressed: () {
-                        closed = true;
-                        timer.cancel();
                         Navigator.of(context).pop();
                       },
                       style: ElevatedButton.styleFrom(
@@ -102,9 +101,7 @@ class AnonymousLoginScreen extends StatelessWidget {
     timer = Timer(const Duration(seconds: 2), () {
       if (!closed && context.mounted) {
         Navigator.of(context).pop();
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const FluxogramasIndexScreen()),
-        );
+        context.go('/fluxogramas');
       }
     });
   }
