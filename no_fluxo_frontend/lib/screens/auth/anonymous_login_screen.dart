@@ -75,6 +75,7 @@ class AnonymousLoginScreen extends StatelessWidget {
                     height: 44,
                     child: ElevatedButton(
                       onPressed: () {
+                        closed = true;
                         Navigator.of(context).pop();
                       },
                       style: ElevatedButton.styleFrom(
@@ -101,8 +102,8 @@ class AnonymousLoginScreen extends StatelessWidget {
     timer = Timer(const Duration(seconds: 2), () {
       if (!closed && context.mounted) {
         Navigator.of(context).pop();
-        context.go('/fluxogramas');
       }
+      context.go('/fluxogramas');
     });
   }
 
@@ -121,7 +122,8 @@ class AnonymousLoginScreen extends StatelessWidget {
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 440),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 28),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 40, vertical: 28),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16),
@@ -166,7 +168,8 @@ class AnonymousLoginScreen extends StatelessWidget {
                               width: double.infinity,
                               height: 48,
                               child: ElevatedButton(
-                                onPressed: () => _showSuccessAndRedirect(context),
+                                onPressed: () =>
+                                    _showSuccessAndRedirect(context),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.black87,
                                   foregroundColor: Colors.white,
@@ -187,11 +190,12 @@ class AnonymousLoginScreen extends StatelessWidget {
                               height: 48,
                               child: OutlinedButton(
                                 onPressed: () {
-                                  Navigator.of(context).pop();
+                                  context.go('/login');
                                 },
                                 style: OutlinedButton.styleFrom(
                                   backgroundColor: Colors.white,
-                                  side: const BorderSide(color: Color(0xFFD1D5DB)),
+                                  side: const BorderSide(
+                                      color: Color(0xFFD1D5DB)),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(14),
                                   ),
@@ -200,7 +204,8 @@ class AnonymousLoginScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                child: const Text('Voltar para o login', style: TextStyle(color: Colors.black87)),
+                                child: const Text('Voltar para o login',
+                                    style: TextStyle(color: Colors.black87)),
                               ),
                             ),
                           ],
@@ -216,4 +221,4 @@ class AnonymousLoginScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}

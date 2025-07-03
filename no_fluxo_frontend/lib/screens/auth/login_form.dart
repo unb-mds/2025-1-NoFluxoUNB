@@ -94,9 +94,9 @@ class _LoginFormState extends State<LoginForm> {
 
     try {
       await _authService.signInWithGoogle();
-      if (mounted) {
+      /* if (mounted) {
         _showLoginSuccessModal(context, 'google');
-      }
+      } */
     } on AuthException catch (e) {
       if (mounted) {
         setState(() {
@@ -432,10 +432,8 @@ class _LoginFormState extends State<LoginForm> {
                   height: 52,
                   child: ElevatedButton(
                     onPressed: _isLoading ? null : () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const AnonymousLoginScreen()),
-                      );
+                      context.go('/login-anonimo');
+                    
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: _isLoading ? Colors.grey[400] : Colors.black87,
@@ -567,7 +565,7 @@ class _LoginFormState extends State<LoginForm> {
           closed = true;
           Navigator.of(context).pop();
         }
-        context.go('/auth/upload');
+        context.go('/upload-historico');
       }
     });
   }

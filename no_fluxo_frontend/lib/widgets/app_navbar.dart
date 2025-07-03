@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile_app/cache/shared_preferences_helper.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../constants/app_colors.dart';
 import '../screens/home_screen.dart';
 import '../screens/auth/auth_page.dart';
@@ -18,13 +20,15 @@ class _AppNavbarState extends State<AppNavbar> {
   bool _isHoveringHome = false;
   bool _isHoveringAbout = false;
   bool _isHoveringAcesso = false;
+  bool _isHoveringLogout = false;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.zero,
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0), // Blur para o efeito de vidro
+        filter: ImageFilter.blur(
+            sigmaX: 4.0, sigmaY: 4.0), // Blur para o efeito de vidro
         child: Container(
           color: Colors.black.withOpacity(0.3), // Vidro translúcido
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
@@ -68,7 +72,9 @@ class _AppNavbarState extends State<AppNavbar> {
                           'HOME',
                           style: GoogleFonts.permanentMarker(
                             fontSize: 19,
-                            color: _isHoveringHome ? AppColors.primary : AppColors.white,
+                            color: _isHoveringHome
+                                ? AppColors.primary
+                                : AppColors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -91,15 +97,18 @@ class _AppNavbarState extends State<AppNavbar> {
                           'SOBRE NÓS',
                           style: GoogleFonts.permanentMarker(
                             fontSize: 19,
-                            color: _isHoveringAbout ? AppColors.primary : AppColors.white,
+                            color: _isHoveringAbout
+                                ? AppColors.primary
+                                : AppColors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 24),
-                  if (!widget.hideAcesseButton)
+                  if (GoRouterState.of(context).uri.path == "/" ||
+                      GoRouterState.of(context).uri.path == "/home") ...[
+                    const SizedBox(width: 24),
                     MouseRegion(
                       onEnter: (_) => setState(() => _isHoveringAcesso = true),
                       onExit: (_) => setState(() => _isHoveringAcesso = false),
@@ -109,14 +118,20 @@ class _AppNavbarState extends State<AppNavbar> {
                         curve: Curves.easeInOut,
                         child: ElevatedButton(
                           onPressed: () {
-                            context.go('/auth');
+                            if (SharedPreferencesHelper.currentUser != null) {
+                              context.go('/upload-historico');
+                            } else {
+                              context.go('/login');
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             elevation: 0,
                             shadowColor: Colors.transparent,
-                            padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 12),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 2, vertical: 12),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0)),
                           ),
                           child: Container(
                             decoration: BoxDecoration(
@@ -127,7 +142,8 @@ class _AppNavbarState extends State<AppNavbar> {
                               ),
                               borderRadius: BorderRadius.circular(30.0),
                             ),
-                            constraints: const BoxConstraints(minWidth: 260.0, minHeight: 40.0),
+                            constraints: const BoxConstraints(
+                                minWidth: 260.0, minHeight: 40.0),
                             alignment: Alignment.center,
                             child: Text(
                               'ACESSE NOSSO SISTEMA',
@@ -142,6 +158,38 @@ class _AppNavbarState extends State<AppNavbar> {
                         ),
                       ),
                     ),
+                  ],
+                  if (SharedPreferencesHelper.currentUser != null &&
+                      GoRouterState.of(context).uri.path != "/home" &&
+                      GoRouterState.of(context).uri.path != "/") ...[
+                    const SizedBox(width: 16),
+                    MouseRegion(
+                        onEnter: (_) =>
+                            setState(() => _isHoveringLogout = true),
+                        onExit: (_) =>
+                            setState(() => _isHoveringLogout = false),
+                        child: AnimatedScale(
+                          scale: _isHoveringLogout ? 1.05 : 1.0,
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.easeInOut,
+                          child: TextButton(
+                            onPressed: () {
+                              SharedPreferencesHelper.currentUser = null;
+                              Supabase.instance.client.auth.signOut();
+                              context.go('/login');
+                            },
+                            child: Text(
+                              'SAIR',
+                              style: GoogleFonts.permanentMarker(
+                                fontSize: 19,
+                                color: _isHoveringLogout
+                                    ? AppColors.primary
+                                    : AppColors.white,
+                              ),
+                            ),
+                          ),
+                        ))
+                  ]
                 ],
               ),
             ],

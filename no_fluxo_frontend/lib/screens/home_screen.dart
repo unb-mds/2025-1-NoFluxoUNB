@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
+import '../cache/shared_preferences_helper.dart';
 import '../constants/app_colors.dart';
 import '../widgets/graffiti_background.dart';
 import '../widgets/app_navbar.dart';
@@ -155,7 +156,11 @@ class _AnimatedAcesseButtonState extends State<_AnimatedAcesseButton> {
         curve: Curves.easeInOut,
         child: ElevatedButton(
           onPressed: () {
-            context.go('/auth');
+            if (SharedPreferencesHelper.currentUser != null) {
+              context.go('/upload-historico');
+            } else {
+              context.go('/login');
+            }
           },
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),

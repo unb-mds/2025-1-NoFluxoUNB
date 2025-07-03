@@ -1,0 +1,489 @@
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mSupabase client initialized[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: GET /testes/banco[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: GET /testes/curso[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: POST /testes/casamento[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mRegistering route: POST /testes/completo[39m
+2025-07-03 17:47:36:4736 [32minfo[39m: [32mServer running on port 3000[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mSupabase client initialized[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: GET /testes/banco[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: GET /testes/curso[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: POST /testes/casamento[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mRegistering route: POST /testes/completo[39m
+2025-07-03 17:47:44:4744 [32minfo[39m: [32mServer running on port 3000[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 17:49:01:491 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 17:53:19:5319 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4BHV[39m
+2025-07-03 17:53:19:5319 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4BHv[39m
+2025-07-03 17:53:27:5327 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4DE0[39m
+2025-07-03 17:53:27:5327 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4DE7[39m
+2025-07-03 17:53:35:5335 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4FBR[39m
+2025-07-03 17:53:35:5335 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4FBg[39m
+2025-07-03 17:53:43:5343 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4H87[39m
+2025-07-03 17:53:43:5343 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4H8G[39m
+2025-07-03 17:53:43:5343 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4H8K[39m
+2025-07-03 17:53:43:5343 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4H8N[39m
+2025-07-03 17:53:43:5343 [35mhttp[39m: [35mGET /socket.io/?EIO=4&transport=polling&t=PVI4H8Q[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 17:53:53:5353 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 17:56:49:5649 [35mhttp[39m: [35mGET /?code=4ba3ee0c-6dd1-4d47-88bb-dae87eda3697[39m
+2025-07-03 17:56:49:5649 [35mhttp[39m: [35mGET /.well-known/appspecific/com.chrome.devtools.json[39m
+2025-07-03 18:00:18:018 [35mhttp[39m: [35mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:00:18:018 [35mhttp[39m: [35mGET request to /users/get-user-by-email[39m
+2025-07-03 18:00:18:018 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:00:18:018 [31merror[39m: [31mErro ao buscar usuário:  JSON object requested, multiple (or no) rows returned[39m
+2025-07-03 18:00:18:018 [35mhttp[39m: [35mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:00:20:020 [35mhttp[39m: [35mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:00:20:020 [35mhttp[39m: [35mGET request to /users/get-user-by-email[39m
+2025-07-03 18:00:20:020 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:00:20:020 [31merror[39m: [31mErro ao buscar usuário:  JSON object requested, multiple (or no) rows returned[39m
+2025-07-03 18:00:20:020 [35mhttp[39m: [35mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:00:29:029 [35mhttp[39m: [35mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:00:29:029 [35mhttp[39m: [35mGET request to /users/get-user-by-email[39m
+2025-07-03 18:00:29:029 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:00:29:029 [31merror[39m: [31mErro ao buscar usuário:  JSON object requested, multiple (or no) rows returned[39m
+2025-07-03 18:00:29:029 [35mhttp[39m: [35mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:00:39:039 [35mhttp[39m: [35mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:00:39:039 [35mhttp[39m: [35mGET request to /users/get-user-by-email[39m
+2025-07-03 18:00:39:039 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:00:40:040 [31merror[39m: [31mErro ao buscar usuário:  JSON object requested, multiple (or no) rows returned[39m
+2025-07-03 18:00:40:040 [35mhttp[39m: [35mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:02:55:255 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:02:59:259 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:03:40:340 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:04:19:419 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:04:19:419 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:04:19:419 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:04:19:419 [31merror[39m: [31mErro ao buscar usuário:  JSON object requested, multiple (or no) rows returned[39m
+2025-07-03 18:04:19:419 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:04:59:459 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:05:09:59 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:05:15:515 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:05:29:529 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:05:33:533 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:05:44:544 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:05:44:544 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:05:44:544 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:05:44:544 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:06:36:636 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:06:36:636 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:06:36:636 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:06:36:636 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:06:48:648 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:06:48:648 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:06:48:648 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:06:48:648 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:07:51:751 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:07:51:751 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:07:51:751 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:07:52:752 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:07:52:752 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:07:52:752 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:07:52:752 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:07:52:752 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:08:06:86 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:08:06:86 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:08:06:86 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:08:06:86 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:08:42:842 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:08:42:842 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:08:42:842 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:08:42:842 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:09:38:938 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:09:38:938 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:09:38:938 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:09:38:938 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:10:14:1014 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:10:14:1014 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:10:14:1014 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:10:14:1014 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:10:15:1015 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:10:15:1015 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:10:15:1015 [34minfo[39m: [34mRegistrando usuário com Google: [39m
+2025-07-03 18:10:15:1015 [31merror[39m: [31mEmail e nome completo são obrigatórios[39m
+2025-07-03 18:10:15:1015 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:11:57:1157 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:12:08:128 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:12:08:128 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:12:08:128 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:12:08:128 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:12:08:128 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:12:08:128 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:12:08:128 [34minfo[39m: [34mRegistrando usuário com Google: {}[39m
+2025-07-03 18:12:08:128 [31merror[39m: [31mEmail e nome completo são obrigatórios[39m
+2025-07-03 18:12:08:128 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:14:56:1456 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:14:56:1456 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:14:56:1456 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:14:57:1457 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:15:09:159 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:15:09:159 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:15:09:159 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:15:09:159 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:15:09:159 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:15:09:159 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:15:09:159 [34minfo[39m: [34mRegistrando usuário com Google: {}[39m
+2025-07-03 18:15:09:159 [31merror[39m: [31mEmail e nome completo são obrigatórios[39m
+2025-07-03 18:15:09:159 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:16:39:1639 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:16:39:1639 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:16:39:1639 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:16:39:1639 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:16:53:1653 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:16:53:1653 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:16:53:1653 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:16:54:1654 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:17:06:176 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:17:06:176 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:17:06:176 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:17:06:176 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:18:05:185 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:18:05:185 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:18:05:185 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:18:05:185 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:22:31:2231 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:22:31:2231 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:22:31:2231 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:22:32:2232 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:22:46:2246 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:22:46:2246 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:22:46:2246 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:22:46:2246 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:23:10:2310 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:23:25:2325 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:23:25:2325 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:23:25:2325 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:23:25:2325 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:23:42:2342 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:23:42:2342 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:23:42:2342 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:23:42:2342 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:23:46:2346 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:23:46:2346 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:23:46:2346 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:23:46:2346 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:23:46:2346 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:24:47:2447 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:24:47:2447 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:24:47:2447 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:24:48:2448 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:24:58:2458 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:24:58:2458 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:24:58:2458 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:24:58:2458 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:24:58:2458 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:24:58:2458 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:24:58:2458 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:24:59:2459 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:24:59:2459 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:25:32:2532 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:25:32:2532 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:25:32:2532 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:25:32:2532 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:25:32:2532 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:25:32:2532 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:25:32:2532 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:25:32:2532 [31merror[39m: [31mUsuário já cadastrado[39m
+2025-07-03 18:25:32:2532 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:25:55:2555 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:25:55:2555 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:25:55:2555 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:25:55:2555 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:26:24:2624 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:26:24:2624 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:26:24:2624 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:26:24:2624 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:26:24:2624 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:26:24:2624 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:26:24:2624 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:26:25:2625 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:26:25:2625 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:26:52:2652 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:26:52:2652 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:26:52:2652 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:26:52:2652 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:27:26:2726 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:27:26:2726 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:27:26:2726 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:27:26:2726 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:27:26:2726 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:27:26:2726 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:27:26:2726 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:27:27:2727 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:27:27:2727 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:27:55:2755 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:27:55:2755 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:27:55:2755 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:27:55:2755 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:27:55:2755 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:27:55:2755 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:27:55:2755 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:27:55:2755 [31merror[39m: [31mUsuário já cadastrado[39m
+2025-07-03 18:27:55:2755 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:28:12:2812 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:28:12:2812 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:28:12:2812 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:28:12:2812 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:28:22:2822 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:28:22:2822 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:28:22:2822 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:28:22:2822 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:28:22:2822 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:28:22:2822 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:28:22:2822 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:28:22:2822 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:28:22:2822 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:28:57:2857 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:28:57:2857 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:28:57:2857 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:28:58:2858 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:29:17:2917 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:29:17:2917 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:29:17:2917 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:29:17:2917 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:29:47:2947 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:29:47:2947 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:29:47:2947 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:29:47:2947 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:29:47:2947 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:29:47:2947 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:29:47:2947 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:29:47:2947 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:29:47:2947 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:30:33:3033 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:30:34:3034 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:30:38:3038 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-03 18:30:40:3040 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-03 18:30:42:3042 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:30:42:3042 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:30:42:3042 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:30:42:3042 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:31:05:315 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:31:05:315 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:31:05:315 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:31:05:315 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:31:05:315 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:31:05:315 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:31:05:315 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:31:05:315 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:31:05:315 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:31:16:3116 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:31:16:3116 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:31:16:3116 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:31:16:3116 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:31:37:3137 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:31:37:3137 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:31:37:3137 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:31:38:3138 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:31:38:3138 [32mhttp[39m: [32mPOST /users/register-user-with-google[39m
+2025-07-03 18:31:38:3138 [32mhttp[39m: [32mPOST request to /users/register-user-with-google[39m
+2025-07-03 18:31:38:3138 [34minfo[39m: [34mRegistrando usuário com Google: {"email":"otaviomaya@gmail.com","nome_completo":"Otavio Maya"}[39m
+2025-07-03 18:31:38:3138 [34minfo[39m: [34mUsuário criado com sucesso: [39m
+2025-07-03 18:31:38:3138 [32mhttp[39m: [32mPOST request to /users/register-user-with-google completed successfully[39m
+2025-07-03 18:33:17:3317 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:33:17:3317 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:33:17:3317 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:33:18:3318 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 18:33:52:3352 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 18:33:52:3352 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 18:33:52:3352 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 18:33:52:3352 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:05:34:534 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:05:34:534 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:05:34:534 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:05:35:535 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:06:17:617 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:06:17:617 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:06:17:617 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:06:18:618 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:07:46:746 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:07:46:746 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:07:46:746 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:07:46:746 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:07:48:748 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:07:48:748 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:07:48:748 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:07:48:748 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:08:51:851 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:08:51:851 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:08:51:851 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:08:51:851 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:12:12:1212 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:12:12:1212 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:12:12:1212 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:12:12:1212 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:12:36:1236 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:12:36:1236 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:12:36:1236 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:12:36:1236 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:12:57:1257 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:12:57:1257 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:12:57:1257 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:12:57:1257 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-03 19:13:31:1331 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-03 19:13:31:1331 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-03 19:13:31:1331 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-03 19:13:31:1331 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m

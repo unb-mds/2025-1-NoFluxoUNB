@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "no_fluxo_frontend (porta 3000)",
+            "name": "no_fluxo_frontend (porta 5000)",
             "cwd": "no_fluxo_frontend",
             "request": "launch",
             "type": "dart",
-            "args": [ "--web-port", "3000"]
+            "args": [ "--web-port", "5000"]
         },
         
     ]

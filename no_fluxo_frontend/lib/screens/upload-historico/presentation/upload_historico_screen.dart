@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import '../widgets/app_navbar.dart';
-import '../widgets/animated_background.dart';
+import 'package:mobile_app/environment.dart';
+import '../../../widgets/app_navbar.dart';
+import '../../../widgets/animated_background.dart';
 import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'package:http_parser/http_parser.dart';
@@ -963,7 +964,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           '📊 Dados extraídos: ${_dadosExtraidos?['extracted_data']?.length} disciplinas');
 
       final response = await http.post(
-        Uri.parse('http://localhost:3000/fluxograma/casar_disciplinas'),
+        Uri.parse('http://localhost:5000/fluxograma/casar_disciplinas'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'dados_extraidos': _dadosExtraidos,
@@ -1109,7 +1110,7 @@ class _PassoHistorico extends StatelessWidget {
 
 Future<void> uploadPdf(File file) async {
   try {
-    var uri = Uri.parse('http://localhost:3000/fluxograma/read_pdf');
+    var uri = Uri.parse('${Environment.apiParsePdfUrl}/fluxograma/read_pdf');
     var request = http.MultipartRequest('POST', uri);
     request.files.add(await http.MultipartFile.fromPath('pdf', file.path));
     var response = await request.send();
@@ -1128,7 +1129,7 @@ Future<void> uploadPdf(File file) async {
 Future<Map<String, dynamic>?> uploadPdfBytes(
     Uint8List bytes, String fileName) async {
   try {
-    var uri = Uri.parse('http://localhost:3000/fluxograma/read_pdf');
+    var uri = Uri.parse('${Environment.apiParsePdfUrl}/fluxograma/read_pdf');
     var request = http.MultipartRequest('POST', uri);
     request.files.add(
       http.MultipartFile.fromBytes(

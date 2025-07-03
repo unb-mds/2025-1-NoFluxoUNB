@@ -1,120 +1,187 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
+import 'package:mobile_app/widgets/router_widget.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import '../cache/shared_preferences_helper.dart';
+import '../screens/auth/anonymous_login_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/assistente/assistente_screen.dart';
 import '../screens/auth/auth_page.dart';
 import '../screens/auth/login_form.dart';
 import '../screens/auth/signup_form.dart';
 import '../screens/auth/password_recovery_screen.dart';
-import '../screens/upload_historico_screen.dart';
+import '../screens/upload-historico/presentation/upload_historico_screen.dart';
 import '../screens/fluxogramas/fluxos_screen.dart';
+import '../service/auth_service.dart';
+
+final log = Logger('AppRouter');
 
 class AppRouter {
-  static final GoRouter router = GoRouter(
-    initialLocation: '/',
-    debugLogDiagnostics: true,
-    routes: [
-      // Home Route
-      GoRoute(
-        path: '/',
-        name: 'home',
-        builder: (context, state) {
-          print('🔵 Navegando para HOME: ${state.uri.path}');
-          return const HomeScreen();
+  static final List<String> routesThatNeedNoLogin = [
+    '/',
+    "/login",
+    "/signup",
+    "/password-recovery",
+    "/home",
+    "/login-anonimo"
+  ];
+
+  static Future<Session?> safeGetSession() async {
+    final supabase = Supabase.instance.client;
+
+    final session = supabase.auth.currentSession;
+
+    if (session == null) {
+      await Supabase.instance.client.auth
+          .signOut(); // ⚠️ limpa tokens inválidos
+      return null;
+    }
+
+    return session;
+  }
+
+  static Future<bool> checkWhenUserLogged(BuildContext context) async {
+    if (!routesThatNeedNoLogin.contains(GoRouterState.of(context).uri.path)) {
+      // ignore: use_build_context_synchronously
+      context.go("/home");
+    }
+
+    return true;
+  }
+
+  static Future<void> checkLoggedIn(
+    BuildContext context, {
+    bool loggedInWithGoogle = false,
+    VoidCallback? onFoundUser,
+    VoidCallback? onUserNotFound,
+    VoidCallback? backToLogin,
+  }) async {
+    try {
+      /// 1. Recupera sessão de forma segura
+      final session = await safeGetSession();
+      final email = session?.user.email;
+
+      if (email == null) {
+        // não logado
+        backToLogin?.call();
+        return;
+      }
+
+      /// 2. Busca o usuário no banco
+      final result = await AuthService.databaseSearchUser(email);
+
+      await result.fold(
+        (error) async {
+          if (loggedInWithGoogle) {
+            final resultRegister =
+                await AuthService.databaseRegisterUserWhenLoggedInWithGoogle(
+                    email,
+                    Supabase.instance.client.auth.currentUser
+                            ?.userMetadata?["name"] ??
+                        "");
+
+            resultRegister.fold(
+              (error) {
+                log.severe(error);
+              },
+              (userFromDb) {
+                SharedPreferencesHelper.currentUser ??= userFromDb;
+              },
+            );
+
+            if (resultRegister.isRight()) {
+              onFoundUser?.call();
+              return;
+            } else {
+              onUserNotFound?.call();
+              return;
+            }
+          }
+
+          onUserNotFound?.call();
         },
-      ),
+        (userFromDb) async {
+          /// 3. Grava em SharedPreferences com segurança de nulos
+          SharedPreferencesHelper.currentUser ??= userFromDb;
 
-      // Assistente Route
-      GoRoute(
-        path: '/assistente',
-        name: 'assistente',
-        builder: (context, state) => const AssistenteScreen(),
-      ),
+          onFoundUser?.call();
 
-      // Auth Routes
-      GoRoute(
-        path: '/auth',
-        name: 'auth',
-        builder: (context, state) => const AuthPage(),
-      ),
-
-      GoRoute(
-        path: '/auth/upload',
-        name: 'auth-upload',
-        builder: (context, state) {
-          print(
-              '📁 Navegando para UPLOAD HISTÓRICO: [36m[1m[4m${state.uri.path}[0m');
-          return const UploadHistoricoScreen();
+          if (onFoundUser == null) {
+            // fluxo normal
+            checkWhenUserLogged(context);
+          }
         },
-      ),
+      );
+    } catch (e, st) {
+      log.severe(e, st);
+      await Supabase.instance.client.auth.signOut();
+      backToLogin?.call();
+    }
+  }
 
-      GoRoute(
-        path: '/login',
-        name: 'login',
-        builder: (context, state) => LoginForm(
-          onToggleView: () => context.go('/signup'),
+  static Map<String, Widget Function(BuildContext, GoRouterState)> routes = {
+    '/home': (context, state) => const HomeScreen(),
+    '/': (context, state) => const HomeScreen(),
+    '/assistente': (context, state) => const AssistenteScreen(),
+    '/upload-historico': (context, state) => const UploadHistoricoScreen(),
+    '/login': (context, state) => const AuthPage(isLogin: true),
+    '/signup': (context, state) => const AuthPage(isLogin: false),
+    '/password-recovery': (context, state) => const PasswordRecoveryScreen(),
+    '/fluxogramas': (context, state) => const FluxogramasIndexScreen(),
+    '/meu-fluxograma': (context, state) => const FluxogramasPlaceholder(),
+    '/login-anonimo': (context, state) => const AnonymousLoginScreen(),
+  };
+
+  static GoRouter? router;
+
+  static GoRouter getRouter() {
+    router ??= GoRouter(
+      initialLocation: '/',
+      debugLogDiagnostics: true,
+      routes: routes.entries.map((entry) {
+        return GoRoute(
+          path: entry.key,
+          name: entry.key,
+          pageBuilder: (context, state) {
+            return NoTransitionPage(
+                child: RouterWidget(route: entry.key, state: state));
+          },
+        );
+      }).toList(),
+      errorBuilder: (context, state) => Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.error_outline,
+                size: 64,
+                color: Colors.red,
+              ),
+              const SizedBox(height: 16),
+              Text(
+                'Página não encontrada',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'A página ${state.uri.path} não existe.',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => context.go('/'),
+                child: const Text('Voltar ao início'),
+              ),
+            ],
+          ),
         ),
       ),
+    );
 
-      GoRoute(
-        path: '/signup',
-        name: 'signup',
-        builder: (context, state) => SignupForm(
-          onToggleView: () => context.go('/login'),
-        ),
-      ),
-
-      GoRoute(
-        path: '/password-recovery',
-        name: 'password-recovery',
-        builder: (context, state) => const PasswordRecoveryScreen(),
-      ),
-
-      // Fluxogramas Route (placeholder - será implementada depois)
-      GoRoute(
-        path: '/fluxogramas',
-        name: 'fluxogramas',
-        builder: (context, state) => const FluxogramasIndexScreen(),
-      ),
-
-      GoRoute(
-        path: '/meu-fluxograma',
-        name: 'meu-fluxograma',
-        builder: (context, state) => const FluxogramasPlaceholder(),
-      ),
-    ],
-
-    // Error handling
-    errorBuilder: (context, state) => Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.error_outline,
-              size: 64,
-              color: Colors.red,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Página não encontrada',
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'A página ${state.uri.path} não existe.',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () => context.go('/'),
-              child: const Text('Voltar ao início'),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
+    return router!;
+  }
 }
 
 // Placeholder para a página de fluxograma individual

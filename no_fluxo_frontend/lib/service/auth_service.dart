@@ -1,9 +1,61 @@
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
+import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/auth/login_form.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../models/user_model.dart';
+
+final log = Logger('AuthService');
+
 class AuthService {
   final supabase = Supabase.instance.client;
+
+  static Future<Either<String, UserModel>> databaseSearchUser(
+      String email) async {
+    try {
+      final response = await http.get(
+        Uri.parse('${Environment.apiUrl}/users/get-user-by-email?email=$email'),
+      );
+
+      if (response.statusCode == 200) {
+        return Right(UserModel.fromJson(jsonDecode(response.body)));
+      }
+
+      return Left(response.body);
+    } catch (e, st) {
+      log.severe(e, st);
+      return Left(e.toString());
+    }
+  }
+
+  static Future<Either<String, UserModel>>
+      databaseRegisterUserWhenLoggedInWithGoogle(
+          String email, String nomeCompleto) async {
+    try {
+      final response = await http.post(
+        Uri.parse('${Environment.apiUrl}/users/register-user-with-google'),
+        body: {
+          'email': email,
+          'nome_completo': nomeCompleto,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        return Right(UserModel.fromJson(jsonDecode(response.body)));
+      }
+
+      return Left(response.body);
+    } catch (e, st) {
+      log.severe(e, st);
+      return Left(e.toString());
+    }
+  }
 
   // Método original signup mantido
   Future<String?> signup(String email, String password) async {
@@ -14,7 +66,7 @@ class AuthService {
       );
       if (response.user != null) {
         return null; // Sign up successful
-      } 
+      }
       return "Algum erro ao criar conta";
     } on AuthException catch (e) {
       return e.message; // Return error message
@@ -35,11 +87,11 @@ class AuthService {
         password: password,
         data: displayName != null ? {'display_name': displayName} : null,
       );
-      
+
       if (response.user != null) {
         return response.user; // Retorna o usuário em caso de sucesso
       }
-      
+
       // Se não há usuário, lança exceção
       throw AuthException("Erro ao criar conta");
     } on AuthException catch (e) {
@@ -50,15 +102,40 @@ class AuthService {
   }
 
   // Método para login com Google (placeholder)
-  Future<User?> signInWithGoogle() async {
+  Future<Either<String, User?>> signInWithGoogle() async {
     try {
-      // Implementar quando tiver configurado o Google Auth no Supabase
-      final result = await supabase.auth.signInWithOAuth(OAuthProvider.google);
-      // signInWithOAuth returns a bool; you may want to check if it's true and then fetch the current user
-      if (result) {
-        return supabase.auth.currentUser;
-      }
-      throw AuthException("Login com Google ainda não está disponível");
+      Completer<Either<String, User?>> completer =
+          Completer<Either<String, User?>>();
+      String? error;
+
+      StreamSubscription<AuthState> subscription =
+          supabase.auth.onAuthStateChange.listen((event) async {
+        await supabase.auth.signInWithOAuth(OAuthProvider.google,
+            redirectTo: "http://localhost:5000/",
+            queryParams: {
+              "prompt": "consent",
+            });
+
+        ////print("AuthChangeEvent: ${event.event}");
+        if (event.event == AuthChangeEvent.signedIn && !completer.isCompleted) {
+          completer.complete(Right(supabase.auth.currentUser!));
+        }
+      }, onError: (err) async {
+        if (err.toString().contains("Invalid auth token")) {
+          await supabase.auth.signOut();
+        }
+
+        error = err.toString();
+        if (!completer.isCompleted) {
+          completer.complete(Left(error!));
+        }
+      }, onDone: () {
+        ////print("------- DONE ------");
+      });
+
+      final result = await completer.future;
+      await subscription.cancel();
+      return result;
     } catch (e) {
       throw AuthException("Erro no login com Google: $e");
     }
@@ -92,11 +169,11 @@ class AuthService {
         email: email,
         password: password,
       );
-      
+
       if (response.user != null) {
         return response.user;
       }
-      
+
       throw AuthException("Email ou senha inválidos");
     } on AuthException catch (e) {
       throw AuthException(e.message);
@@ -122,13 +199,14 @@ class AuthService {
 
   // Método original logout mantido
   Future<void> logout(BuildContext context) async {
-    try{
+    try {
       await supabase.auth.signOut();
-      if(!context.mounted) return;
+      if (!context.mounted) return;
       Navigator.of(
         context,
-      ).pushReplacement(MaterialPageRoute(builder: (_)=> LoginForm(onToggleView: () {})));
-    } catch (e){
+      ).pushReplacement(
+          MaterialPageRoute(builder: (_) => LoginForm(onToggleView: () {})));
+    } catch (e) {
       print("Erro ao fazer logout: $e");
     }
   }
