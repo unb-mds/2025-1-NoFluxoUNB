@@ -11,11 +11,61 @@ import { FluxogramaController } from './controllers/fluxograma_controller';
 import { TestesController } from './controllers/testes_controller';
 import logger from './logger';
 import { UsersController } from './controllers/users_controller';
+import { spawn } from 'child_process';
+import path from 'path';
 
 dotenv.config();
 
 SupabaseWrapper.init();
 logger.info('Supabase client initialized');
+
+// Start the Python PDF parser server
+const pythonProcess = spawn('python', ['parse-pdf/pdf_parser_final.py'], {
+    cwd: path.join(__dirname, '..')
+});
+
+pythonProcess.stdout.on('data', (data) => {
+    logger.info(`\b[PDF Parser] ${data}`);
+});
+
+pythonProcess.stderr.on('data', (data) => {
+    logger.error(`\b[PDF Parser] ${data}`);
+});
+
+pythonProcess.on('close', (code) => {
+    if (code !== 0) {
+        logger.error(`\b[PDF Parser] process exited with code ${code}`);
+    }
+});
+
+// Handle Node.js process termination
+const cleanup = () => {
+    logger.info('[PDF Parser] Terminating Python process...');
+    pythonProcess.kill();
+};
+
+// Handle normal exit
+process.on('exit', cleanup);
+
+// Handle CTRL+C
+process.on('SIGINT', () => {
+    cleanup();
+    process.exit(0);
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+    logger.error('Uncaught Exception:', err);
+    cleanup();
+    process.exit(1);
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+    logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
+    cleanup();
+    process.exit(1);
+});
 
 const router = express.Router();
 
@@ -38,11 +88,11 @@ controllers.forEach(controller => {
             case RequestType.GET:
                 router.get(routePath, async (req: Request, res: Response) => {
                     try {
-                        logger.http(`GET request to ${routePath}`);
+                        logger.http(`\b[GET][${routePath}]`);
                         await callback(req, res);
-                        logger.http(`GET request to ${routePath} completed successfully`);
+                        logger.http(`\b[GET][${routePath}] completed successfully`);
                     } catch (error) {
-                        logger.error(`Error handling GET request to ${routePath}: ${error}`);
+                        logger.error(`\b[GET][${routePath}] Error: ${error}`);
                         res.status(500).json({ error: 'Internal server error' });
                     }
                 });
@@ -50,11 +100,11 @@ controllers.forEach(controller => {
             case RequestType.POST:
                 router.post(routePath, async (req: Request, res: Response) => {
                     try {
-                        logger.http(`POST request to ${routePath}`);
+                        logger.http(`\b[POST][${routePath}]`);
                         await callback(req, res);
-                        logger.http(`POST request to ${routePath} completed successfully`);
+                        logger.http(`\b[POST][${routePath}] completed successfully`);
                     } catch (error) {
-                        logger.error(`Error handling POST request to ${routePath}: ${error}`);
+                        logger.error(`\b[POST][${routePath}] Error: ${error}`);
                         res.status(500).json({ error: 'Internal server error' });
                     }
                 });
@@ -62,11 +112,11 @@ controllers.forEach(controller => {
             case RequestType.PUT:
                 router.put(routePath, async (req: Request, res: Response) => {
                     try {
-                        logger.http(`PUT request to ${routePath}`);
+                        logger.http(`\b[PUT][${routePath}]`);
                         await callback(req, res);
-                        logger.http(`PUT request to ${routePath} completed successfully`);
+                        logger.http(`\b[PUT][${routePath}] completed successfully`);
                     } catch (error) {
-                        logger.error(`Error handling PUT request to ${routePath}: ${error}`);
+                        logger.error(`\b[PUT][${routePath}] Error: ${error}`);
                         res.status(500).json({ error: 'Internal server error' });
                     }
                 });
@@ -86,7 +136,6 @@ app.use(fileUpload())
 app.use(bodyParser.json({ limit: 500 * 1024 * 1024, }));
 app.use(bodyParser.urlencoded({ extended: true, limit: 500 * 1024 * 1024 }));
 app.use(function (req, res, next) {
-    logger.http(`${req.method} ${req.url}`);
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();

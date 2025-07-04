@@ -5,7 +5,6 @@ enum EnvironmentType {
 
 class Environment {
   static String apiUrl = "http://localhost:3000";
-  static String apiParsePdfUrl = "http://localhost:3001";
 
   static EnvironmentType environmentType = EnvironmentType.development;
 
@@ -18,10 +17,8 @@ class Environment {
 
     if (environmentType == EnvironmentType.development) {
       apiUrl = "http://localhost:3000";
-      apiParsePdfUrl = "http://localhost:3001";
     } else {
       apiUrl = "https://no-fluxo.vercel.app";
-      apiParsePdfUrl = "https://no-fluxo.vercel.app";
     }
   }
 }

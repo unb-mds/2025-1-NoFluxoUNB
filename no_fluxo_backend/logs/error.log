@@ -8,3 +8,498 @@
 2025-07-03 18:15:09:159 [31merror[39m: [31mEmail e nome completo são obrigatórios[39m
 2025-07-03 18:25:32:2532 [31merror[39m: [31mUsuário já cadastrado[39m
 2025-07-03 18:27:55:2755 [31merror[39m: [31mUsuário já cadastrado[39m
+2025-07-04 14:53:59:5359 [31merror[39m: [31mPDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[39m
+[31m * Running on http://127.0.0.1:3001[39m
+[31m[39m
+2025-07-04 14:53:59:5359 [31merror[39m: [31mPDF Parser stderr: Press CTRL+C to quit[39m
+[31m[39m
+2025-07-04 14:53:59:5359 [31merror[39m: [31mPDF Parser stderr:  * Restarting with watchdog (fsevents)[39m
+[31m[39m
+2025-07-04 14:54:00:540 [31merror[39m: [31mPDF Parser stderr:  * Debugger is active![39m
+[31m[39m
+2025-07-04 14:54:00:540 [31merror[39m: [31mPDF Parser stderr:  * Debugger PIN: 114-293-037[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[39m
+[31m * Running on http://127.0.0.1:3001[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr: Press CTRL+C to quit[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr:  * Restarting with watchdog (fsevents)[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr:  * Debugger is active![39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr:  * Debugger PIN: 114-293-037[39m
+[31m[39m
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr: Press CTRL+C to quit
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr:  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr:  * Debugger is active!
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr:  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:21:5921][[31mERROR[39m] PDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:21:5921][[31mERROR[39m] PDF Parser stderr: Press CTRL+C to quit
+
+[2025-07-04 14:59:21:5921][[31mERROR[39m] PDF Parser stderr:  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr: Press CTRL+C to quit
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr:  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr:  * Debugger is active!
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr:  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:26:5926][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:26:5926][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 14:59:26:5926][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:27:5927][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 14:59:27:5927][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:28:5928][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:28:5928][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 14:59:28:5928][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:29:5929][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 14:59:29:5929][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:39:5939][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:39:5939][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 14:59:39:5939][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:41:5941][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 14:59:41:5941][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 14:59:41:5941][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 14:59:50:5950][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 14:59:50:5950][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 14:59:50:5950][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 14:59:52:5952][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 14:59:52:5952][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 14:59:52:5952][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 15:01:12:112][[31mERROR[39m] [PDF Parser] Address already in use
+Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 15:01:12:112][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 15:01:23:123][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 15:01:23:123][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 15:01:23:123][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:07:00:70][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:07:00:70][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:07:00:70][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:07:01:71][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:07:01:71][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:07:21:721][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:07:21:721][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:07:21:721][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:07:22:722][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:07:22:722][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:07:37:737][[31mERROR[39m] Erro ao processar PDF: socket hang up
+[2025-07-04 15:08:36:836][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:08:36:836][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:08:36:836][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:12:01:121][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:12:29:1229][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:12:29:1229][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:12:29:1229][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:12:30:1230][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:12:30:1230][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:23:11:2311][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:23:11:2311][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:23:11:2311][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:23:12:2312][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:23:12:2312][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:23:16:2316][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:26:28:2628][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:26:28:2628][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:26:28:2628][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:26:29:2629][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:26:29:2629][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:26:45:2645][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:52:20:5220][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:52:20:5220][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:52:20:5220][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:52:21:5221][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:52:21:5221][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:52:32:5232][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:53:24:5324][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:53:24:5324][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:53:24:5324][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:53:25:5325][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:53:25:5325][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:55:03:553][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:55:03:553][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:55:03:553][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:55:04:554][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:55:04:554][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:57:39:5739][[31mERROR[39m] [PDF Parser]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][WARNING]  * Debugger is active!
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][WARNING]  * Debugger is active!
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:06:596][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:06][INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:59:07:597][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:07][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:12:5912][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:13][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:17:5917][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:59:17:5917][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:17][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:46:5946][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] ==================================================
+[INFO] Request Method: POST
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Request URL: http://127.0.0.1:3001/upload-pdf
+[INFO] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------279629395384020428586312', 'User-Agent': 'axios/1.10.0', 'Content-Length': '26405', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Request Files: dict_keys(['pdf'])
+[INFO] ==================================================
+[INFO] Received PDF upload request
+[INFO] Processing file: historico_211029503-5.pdf
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] File content type: application/pdf
+[INFO] File size: 26178 bytes
+[INFO] Extracted matricula: 211029503-5
+[INFO] Attempting text extraction with PyPDF2
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] PDF has 3 pages
+[INFO] Processing page 1
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Extracted 3337 characters from page 1
+[INFO] Processing page 2
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Extracted 3666 characters from page 2
+[INFO] Processing page 3
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Extracted 2686 characters from page 3
+[INFO] Successfully extracted text using PyPDF2
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] PDF processing completed successfully
+[INFO] Sending response with 77 extracted items
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] 127.0.0.1 - - [04/Jul/2025 16:12:35] "POST /upload-pdf HTTP/1.1" 200 -
+

@@ -4,38 +4,39 @@ import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import axios from 'axios';
 import FormData from 'form-data';
-
+import { createControllerLogger } from '../utils/controller_logger';
 
 export const FluxogramaController: EndpointController = {
     name: "fluxograma",
     routes: {
         "fluxograma": new Pair(RequestType.GET, async (req: Request, res: Response) => {
-
-            console.log(`Chamando fluxograma`);
+            const logger = createControllerLogger("FluxogramaController", "fluxograma");
+            logger.info(`Buscando fluxograma para curso`);
             const nome_curso = req.query.nome_curso as string;
 
-            console.log(nome_curso);
+            logger.info(`Nome do curso: ${nome_curso}`);
             if (!nome_curso) {
-                console.log(`Nome do curso não informado`);
+                logger.error("Nome do curso não informado");
                 return res.status(400).json({ error: "Nome do curso não informado" });
             }
 
-
-            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(materias(*))").like("nome_curso","%"+req.query.nome_curso+"%");
+            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
 
             if (error) {
-                console.log(error);
+                logger.error(`Erro ao buscar fluxograma: ${error.message}`);
                 return res.status(500).json({ error: error.message });
             }
 
-            console.log(data);
-
+            logger.info(`Fluxograma encontrado: ${JSON.stringify(data)}`);
             return res.status(200).json(data);
         }),
 
         "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const logger = createControllerLogger("FluxogramaController", "read_pdf");
+            logger.info("Iniciando leitura de PDF");
             try {
                 if (!req.files || !req.files.pdf) {
+                    logger.error("Arquivo PDF não enviado");
                     return res.status(400).json({ error: "Arquivo PDF não enviado." });
                 }
 
@@ -43,30 +44,46 @@ export const FluxogramaController: EndpointController = {
                 const form = new FormData();
                 form.append('pdf', pdfFile.data, pdfFile.name);
 
-                // Envia para o Python
+                logger.info(`Enviando PDF para processamento: ${pdfFile.name}`);
+                // Envia para o Python com timeout de 30 segundos
                 const response = await axios.post(
-                    'http://localhost:3001/upload-pdf',
+                    'http://127.0.0.1:3001/upload-pdf',
                     form,
-                    { headers: form.getHeaders() }
+                    {
+                        headers: form.getHeaders(),
+                        timeout: 30000, // 30 segundos
+                        maxContentLength: Infinity,
+                        maxBodyLength: Infinity
+                    }
                 );
 
+                logger.info("PDF processado com sucesso");
                 // Retorna a resposta do Python para o frontend
                 return res.status(200).json(response.data);
             } catch (error: any) {
+                logger.error(`Erro ao processar PDF: ${error.message}`);
+                if (error.code === 'ECONNREFUSED') {
+                    return res.status(500).json({ error: 'Serviço de processamento de PDF não está disponível. Por favor, tente novamente em alguns instantes.' });
+                }
+                if (error.code === 'ETIMEDOUT' || error.code === 'ECONNABORTED') {
+                    return res.status(500).json({ error: 'O processamento do PDF demorou muito tempo. Por favor, tente novamente.' });
+                }
                 return res.status(500).json({ error: error.message || "Erro ao processar PDF" });
             }
         }),
 
         "casar_disciplinas": new Pair(RequestType.POST, async (req: Request, res: Response) => {
-            console.log("🚀 Endpoint casar_disciplinas foi chamado!");
+            const logger = createControllerLogger("FluxogramaController", "casar_disciplinas");
+            logger.info("Iniciando casamento de disciplinas");
             try {
                 const { dados_extraidos, nome_curso } = req.body;
 
                 if (!dados_extraidos || !nome_curso) {
+                    logger.error("Dados extraídos e nome do curso são obrigatórios");
                     return res.status(400).json({ error: "Dados extraídos e nome do curso são obrigatórios" });
                 }
 
-                console.log(`🔍 Buscando curso: "${nome_curso}"`);
+                logger.info(`Buscando curso: "${nome_curso}"`);
 
                 // Buscar matérias do curso no banco
                 const { data: materiasBanco, error } = await SupabaseWrapper.get()
@@ -75,23 +92,24 @@ export const FluxogramaController: EndpointController = {
                     .like("nome_curso", "%" + nome_curso + "%");
 
                 if (error) {
-                    console.log(error);
+                    logger.error(`Erro ao buscar matérias do curso: ${error.message}`);
                     return res.status(500).json({ error: error.message });
                 }
 
-                console.log(`📋 Cursos encontrados: ${materiasBanco?.length || 0}`);
+                logger.info(`Cursos encontrados: ${materiasBanco?.length || 0}`);
                 if (materiasBanco && materiasBanco.length > 0) {
-                    console.log(`✅ Curso encontrado: ${materiasBanco[0].nome_curso}`);
+                    logger.info(`Curso encontrado: ${materiasBanco[0].nome_curso}`);
                 } else {
                     // Listar todos os cursos disponíveis para debug
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
                         .select("nome_curso");
-                    console.log(`📚 Cursos disponíveis no banco:`, todosCursos?.map(c => c.nome_curso));
+                    logger.info(`Cursos disponíveis no banco: ${todosCursos?.map(c => c.nome_curso).join(', ')}`);
                 }
 
                 if (!materiasBanco || materiasBanco.length === 0) {
-                    return res.status(404).json({ 
+                    logger.error(`Curso não encontrado: ${nome_curso}`);
+                    return res.status(404).json({
                         error: "Curso não encontrado",
                         curso_buscado: nome_curso,
                         cursos_disponiveis: await SupabaseWrapper.get().from("cursos").select("nome_curso")
@@ -108,10 +126,10 @@ export const FluxogramaController: EndpointController = {
                 const materiasOptativasConcluidas: any[] = [];
                 const materiasOptativasPendentes: any[] = [];
 
-                console.log(`📚 Total de matérias no curso: ${materiasBancoList.length}`);
-                console.log(`📖 Matérias obrigatórias (nivel > 0): ${materiasObrigatorias.length}`);
-                console.log(`🎯 Matérias optativas (nivel = 0): ${materiasOptativas.length}`);
-                
+                logger.info(`Total de matérias no curso: ${materiasBancoList.length}`);
+                logger.info(`Matérias obrigatórias: ${materiasObrigatorias.length}`);
+                logger.info(`Matérias optativas: ${materiasOptativas.length}`);
+
                 // Extrair dados de validação do PDF
                 const dadosValidacao = {
                     ira: null as number | null,
@@ -123,49 +141,35 @@ export const FluxogramaController: EndpointController = {
                 for (const item of dados_extraidos.extracted_data) {
                     if (item.IRA) {
                         dadosValidacao.ira = parseFloat(item.valor);
-                        console.log(`📊 IRA extraído do PDF: ${dadosValidacao.ira}`);
+                        logger.info(`IRA extraído do PDF: ${dadosValidacao.ira}`);
                     }
                     if (item.tipo_dado === 'Pendencias') {
                         dadosValidacao.pendencias = item.valores || [];
-                        console.log(`⚠️ Pendências extraídas do PDF: ${dadosValidacao.pendencias.join(', ')}`);
+                        logger.info(`Pendências extraídas do PDF: ${dadosValidacao.pendencias.join(', ')}`);
                     }
                 }
 
                 // Debug: verificar se há matérias com nível 0 ou nulo
                 const materiasNivelZero = materiasBancoList.filter((m: any) => m.nivel === 0 || m.nivel === null);
-                console.log(`🔍 Matérias com nível 0 ou nulo: ${materiasNivelZero.length}`);
+                logger.info(`Matérias com nível 0 ou nulo: ${materiasNivelZero.length}`);
                 if (materiasNivelZero.length > 0) {
-                    console.log(`📋 Matérias nível 0:`, materiasNivelZero.map((m: any) => `${m.materias.nome_materia} (nível: ${m.nivel})`));
+                    logger.info(`Matérias nível 0: ${materiasNivelZero.map((m: any) => `${m.materias.nome_materia} (nível: ${m.nivel})`).join(', ')}`);
                 }
-                
+
                 // Debug: verificar se há matérias duplicadas
                 const nomesMaterias = materiasBancoList.map((m: any) => m.materias.nome_materia);
                 const nomesUnicos = [...new Set(nomesMaterias)];
-                console.log(`🔍 Verificação de duplicatas:`);
-                console.log(`   Total de nomes: ${nomesMaterias.length}`);
-                console.log(`   Nomes únicos: ${nomesUnicos.length}`);
+                logger.info(`Verificação de duplicatas - Total: ${nomesMaterias.length}, Únicos: ${nomesUnicos.length}`);
                 if (nomesMaterias.length !== nomesUnicos.length) {
-                    console.log(`⚠️  ENCONTRADAS DUPLICATAS!`);
+                    logger.warn("Encontradas matérias duplicadas");
                     const duplicatas = nomesMaterias.filter((nome: string, index: number) => nomesMaterias.indexOf(nome) !== index);
-                    console.log(`   Duplicatas:`, [...new Set(duplicatas)]);
+                    logger.warn(`Matérias duplicadas: ${[...new Set(duplicatas)].join(', ')}`);
                 }
-                
-                // Debug: ver algumas matérias para entender a estrutura
-                if (materiasBancoList.length > 0) {
-                    console.log(`🔍 Exemplo de matéria:`, materiasBancoList[0]);
-                    console.log(`🔍 Níveis encontrados:`, materiasBancoList.map((m: any) => m.nivel));
-                }
-                
-                // Debug: mostrar algumas matérias do banco
-                console.log(`📚 PRIMEIRAS 5 MATÉRIAS DO BANCO:`);
-                materiasObrigatorias.slice(0, 5).forEach((m: any, index: number) => {
-                    console.log(`${index + 1}. "${m.materias.nome_materia}" (${m.materias.codigo_materia}) - Nível: ${m.nivel}`);
-                });
 
                 // Casamento das disciplinas
                 for (const disciplina of dados_extraidos.extracted_data) {
                     if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
-                        
+
                         // Tentar casar primeiro com matérias obrigatórias
                         let materiaBanco = materiasObrigatorias.find((m: any) => {
                             const nomeMatch = m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
@@ -185,19 +189,19 @@ export const FluxogramaController: EndpointController = {
                         if (materiaBanco) {
                             // Verificar se já existe uma disciplina casada com o mesmo ID
                             const disciplinaExistente = disciplinasCasadas.find((d: any) => d.id_materia === materiaBanco.materias.id_materia);
-                            
+
                             if (disciplinaExistente) {
                                 // Se já existe, verificar qual status tem prioridade
                                 const statusAtual = disciplinaExistente.status;
                                 const statusNovo = disciplina.status;
-                                
+
                                 // Prioridade: APR/CUMP > MATR > REP
                                 const prioridade = (status: string) => {
                                     if (status === 'APR' || status === 'CUMP') return 3;
                                     if (status === 'MATR') return 2;
                                     return 1; // REP, etc.
                                 };
-                                
+
                                 if (prioridade(statusNovo) > prioridade(statusAtual)) {
                                     // Substituir pela versão com status melhor
                                     const index = disciplinasCasadas.findIndex((d: any) => d.id_materia === materiaBanco.materias.id_materia);
@@ -208,7 +212,7 @@ export const FluxogramaController: EndpointController = {
                                         nivel: materiaBanco.nivel,
                                         tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
                                     };
-                                    console.log(`🔄 Atualizando status de "${disciplina.nome}": ${statusAtual} → ${statusNovo}`);
+                                    logger.info(`Atualizando status de "${disciplina.nome}": ${statusAtual} → ${statusNovo}`);
                                 }
                             } else {
                                 // Primeira ocorrência da matéria
@@ -231,6 +235,7 @@ export const FluxogramaController: EndpointController = {
                                 tipo: 'nao_encontrada'
                             };
                             disciplinasCasadas.push(disciplinaNaoEncontrada);
+                            logger.warn(`Disciplina não encontrada no banco: ${disciplina.nome}`);
                         }
                     }
                 }
@@ -281,7 +286,7 @@ export const FluxogramaController: EndpointController = {
 
                 // Adicionar matérias obrigatórias do banco que não foram encontradas no histórico
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
-                    return !disciplinasCasadas.some((disc: any) => 
+                    return !disciplinasCasadas.some((disc: any) =>
                         disc.id_materia === materiaBanco.materias.id_materia
                     );
                 }).map((materiaBanco: any) => ({
@@ -299,31 +304,25 @@ export const FluxogramaController: EndpointController = {
                 const todasMateriasPendentes = [...materiasPendentes, ...materiasObrigatoriasNaoEncontradas];
                 const todasMateriasOptativas = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
 
-                // Calcular horas integralizadas das disciplinas casadas e concluídas
+                // Calcular horas integralizadas
                 let horasIntegralizadas = 0;
-                console.log(`\n⏱️ CÁLCULO DETALHADO DE HORAS:`);
+                logger.info("Calculando horas integralizadas:");
                 for (const disciplina of disciplinasCasadas) {
                     if ((disciplina.status === 'APR' || disciplina.status === 'CUMP') && disciplina.carga_horaria) {
-                        console.log(`   ✅ "${disciplina.nome}" - ${disciplina.carga_horaria}h (${disciplina.status})`);
+                        logger.info(`${disciplina.nome} - ${disciplina.carga_horaria}h (${disciplina.status})`);
                         horasIntegralizadas += disciplina.carga_horaria;
-                    } else if (disciplina.status === 'APR' || disciplina.status === 'CUMP') {
-                        console.log(`   ⚠️ "${disciplina.nome}" - Sem carga horária (${disciplina.status})`);
                     }
                 }
                 dadosValidacao.horas_integralizadas = horasIntegralizadas;
-                console.log(`⏱️ TOTAL Horas integralizadas: ${horasIntegralizadas}h`);
-                console.log(`📊 Disciplinas concluídas consideradas: ${disciplinasCasadas.filter(d => d.status === 'APR' || d.status === 'CUMP').length}`);
+                logger.info(`Total de horas integralizadas: ${horasIntegralizadas}h`);
 
-                console.log(`🔍 BREAKDOWN DA CONTAGEM:`);
-                console.log(`   Matérias obrigatórias no banco: ${materiasObrigatorias.length}`);
-                console.log(`   Matérias optativas no banco: ${materiasOptativas.length}`);
-                console.log(`   Disciplinas casadas: ${disciplinasCasadas.length}`);
-                console.log(`   Matérias obrigatórias concluídas: ${materiasConcluidas.length}`);
-                console.log(`   Matérias obrigatórias pendentes: ${todasMateriasPendentes.length}`);
-                console.log(`   Matérias optativas concluídas: ${materiasOptativasConcluidas.length}`);
-                console.log(`   Matérias optativas pendentes: ${materiasOptativasPendentes.length}`);
-                console.log(`   SOMA obrigatórias: ${materiasConcluidas.length + todasMateriasPendentes.length}`);
-                console.log(`   TOTAL optativas: ${todasMateriasOptativas.length}`);
+                // Log do resumo final
+                logger.info("Resumo do processamento:");
+                logger.info(`Total de disciplinas: ${disciplinasCasadas.length}`);
+                logger.info(`Obrigatórias concluídas: ${materiasConcluidas.length}`);
+                logger.info(`Obrigatórias pendentes: ${todasMateriasPendentes.length}`);
+                logger.info(`Optativas: ${todasMateriasOptativas.length}`);
+                logger.info(`Percentual de conclusão: ${(materiasConcluidas.length / (materiasConcluidas.length + todasMateriasPendentes.length) * 100).toFixed(2)}%`);
 
                 return res.status(200).json({
                     disciplinas_casadas: disciplinasCasadas,
@@ -341,7 +340,7 @@ export const FluxogramaController: EndpointController = {
                 });
 
             } catch (error: any) {
-                console.error("Erro ao casar disciplinas:", error);
+                logger.error(`Erro ao casar disciplinas: ${error.message}`);
                 return res.status(500).json({ error: error.message || "Erro ao casar disciplinas" });
             }
         })

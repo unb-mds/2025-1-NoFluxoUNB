@@ -4,9 +4,10 @@
   "description": "Backend do projeto No Fluxo com TypeScript, Express.js e Supabase",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "setup-tesseract": "node scripts/setup-tesseract.js",
+    "build": "npm run setup-tesseract && tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts",
+    "dev": "npm run setup-tesseract && nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

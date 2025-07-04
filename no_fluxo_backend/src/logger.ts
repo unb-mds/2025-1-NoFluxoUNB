@@ -32,12 +32,13 @@ winston.addColors(colors);
 const format = winston.format.combine(
     // Add timestamp
     winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
-    // Add colors
-    winston.format.colorize({ all: true, colors: { info: "blue", http: "green" } }),
     // Format the message
-    winston.format.printf(
-        (info) => `${info.timestamp} ${info.level}: ${info.message}`,
-    ),
+    winston.format.printf((info) => {
+        // Apply colors only to the level
+        const colorizer = winston.format.colorize();
+        const levelColored = colorizer.colorize(info.level, info.level.toUpperCase());
+        return `[${info.timestamp}][${levelColored}] ${info.message}`;
+    }),
 );
 
 // Define which transports the logger must use

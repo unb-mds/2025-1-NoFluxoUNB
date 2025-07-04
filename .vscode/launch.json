@@ -9,8 +9,12 @@
             "cwd": "no_fluxo_frontend",
             "request": "launch",
             "type": "dart",
-            "args": [ "--web-port", "5000"]
+            "args": [
+                "--web-port",
+                "5000",
+                "-d",
+                "chrome"
+            ]
         },
-        
     ]
 }

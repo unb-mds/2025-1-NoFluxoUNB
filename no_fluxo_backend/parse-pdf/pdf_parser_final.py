@@ -3,6 +3,7 @@ import re
 import json
 import io
 import os
+import logging
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image # Importar a biblioteca Pillow (PIL)
@@ -10,19 +11,31 @@ from pdf2image import convert_from_bytes # Para converter PDF para imagem
 import pytesseract # Para o OCR
 from werkzeug.utils import secure_filename
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='\b[%(levelname)s] %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+logger = logging.getLogger(__name__)
+
 app = Flask(__name__)
 CORS(app)
 
-# --- Configuração do Tesseract ---
-# ATENÇÃO: Você PRECISA especificar o caminho para o executável do Tesseract-OCR
-# Se você instalou o Tesseract em um local padrão, pode não precisar desta linha.
-# Exemplo para Windows:
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-# Exemplo para Linux/macOS (se não estiver no PATH):
-# pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/tesseract'
-# Descomente e ajuste a linha abaixo se o Tesseract for encontrado:
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# Request logging middleware
+@app.before_request
+def log_request_info():
+    logger.info('='*50)
+    logger.info(f'Request Method: {request.method}')
+    logger.info(f'Request URL: {request.url}')
+    logger.info(f'Request Headers: {dict(request.headers)}')
+    logger.info(f'Request Files: {request.files.keys() if request.files else "No files"}')
+    logger.info('='*50)
 
+# --- Configuração do Tesseract ---
+tesseract_path = '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract'
+logger.info(f'Using Tesseract path: {tesseract_path}')
+pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
 # Padrões de Expressão Regular (Regex)
 # --- Geral ---
@@ -102,52 +115,63 @@ def upload_pdf():
     Tenta extrair texto com PyPDF2, se falhar, usa OCR.
     Extrai IRA, currículo, pendências e dados de disciplinas do texto.
     """
+    logger.info('Received PDF upload request')
+    
     if 'pdf' not in request.files:
-        print("Erro: Nenhum arquivo PDF enviado.")
+        logger.error('No PDF file in request')
         return jsonify({'error': 'Nenhum arquivo PDF enviado.'}), 400
 
     pdf_file = request.files['pdf']
     filename = pdf_file.filename
-    print(f"Recebido arquivo: {filename}")
+    logger.info(f'Processing file: {filename}')
+    logger.info(f'File content type: {pdf_file.content_type}')
+    logger.info(f'File size: {len(pdf_file.read())} bytes')
+    pdf_file.seek(0)  # Reset file pointer after reading size
 
     # Tenta extrair a matrícula do nome do arquivo
     matricula = "desconhecida"
     if '_' in filename:
         try:
             matricula = filename.split('_', 1)[1].split('.')[0]
-            print(f"Matrícula extraída: {matricula}")
+            logger.info(f'Extracted matricula: {matricula}')
         except IndexError:
-            print("Aviso: Não foi possível extrair a matrícula do nome do arquivo.")
+            logger.warning('Could not extract matricula from filename')
 
     texto_total = ""
     try:
         # Tentar extração de texto normal com PyPDF2 primeiro
+        logger.info('Attempting text extraction with PyPDF2')
         pdf_content_stream = io.BytesIO(pdf_file.read())
-        # IMPORTANTE: Resetar o ponteiro do arquivo para o início para o OCR, se necessário
-        pdf_file.seek(0) 
+        pdf_file.seek(0)
         leitor = PyPDF2.PdfReader(pdf_content_stream)
+        
+        logger.info(f'PDF has {len(leitor.pages)} pages')
         
         # Tenta extrair texto de todas as páginas
         for i, pagina in enumerate(leitor.pages):
+            logger.info(f'Processing page {i+1}')
             pagina_texto = pagina.extract_text()
             if pagina_texto:
                 texto_total += pagina_texto + "\n"
+                logger.info(f'Extracted {len(pagina_texto)} characters from page {i+1}')
         
         if not texto_total.strip():
-            print("PyPDF2 não encontrou texto. Tentando OCR...")
+            logger.info('No text extracted with PyPDF2, attempting OCR')
             # Se PyPDF2 não extraiu nada, tenta OCR
-            images = convert_from_bytes(pdf_file.read(), dpi=300) # Converte PDF para imagens (300 DPI para melhor OCR)
+            images = convert_from_bytes(pdf_file.read(), dpi=300)
+            logger.info(f'Converted PDF to {len(images)} images for OCR')
+            
             for i, image in enumerate(images):
-                print(f"Aplicando OCR na página {i+1}...")
-                # lang='por' especifica o idioma português para melhor precisão
-                texto_total += pytesseract.image_to_string(image, lang='por') + "\n"
+                logger.info(f'Applying OCR to page {i+1}')
+                page_text = pytesseract.image_to_string(image, lang='por')
+                texto_total += page_text + "\n"
+                logger.info(f'Extracted {len(page_text)} characters via OCR from page {i+1}')
                 
             if not texto_total.strip():
-                print("Erro: OCR também não encontrou texto. O PDF pode ser uma imagem de baixa qualidade ou estar vazio.")
+                logger.error('OCR extraction failed - no text found')
                 return jsonify({'error': 'Nenhuma informação textual pôde ser extraída do PDF via PyPDF2 ou OCR. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido.'}), 422
         else:
-            print("Texto extraído com sucesso usando PyPDF2.")
-
+            logger.info('Successfully extracted text using PyPDF2')
 
         print("\n--- Texto Completo Extraído (Primeiras 500 chars) ---")
         print(texto_total[:500] + "..." if len(texto_total) > 500 else texto_total)
@@ -298,27 +322,33 @@ def upload_pdf():
         print(f"Total de itens extraídos: {len(disciplinas)}")
 
         # Retorna os dados extraídos em formato JSON
-        return jsonify({
+        logger.info('PDF processing completed successfully')
+        response_data = {
             'message': 'PDF processado com sucesso!',
             'filename': filename,
             'matricula': matricula,
             'curso_extraido': curso_extraido,
             'full_text': texto_total,
             'extracted_data': disciplinas
-        })
+        }
+        logger.info(f'Sending response with {len(disciplinas)} extracted items')
+        return jsonify(response_data)
 
-    except pytesseract.TesseractNotFoundError:
-        print("Erro: Tesseract OCR não encontrado. Por favor, instale o Tesseract-OCR.")
-        print("Veja as instruções em: https://tesseract-ocr.github.io/tessdoc/Installation.html")
+    except pytesseract.TesseractNotFoundError as e:
+        error_msg = f'Tesseract not found error: {str(e)}'
+        logger.error(error_msg)
         return jsonify({'error': 'Tesseract OCR não encontrado no seu sistema. Por favor, instale-o seguindo as instruções.'}), 500
     except PyPDF2.errors.PdfReadError as e:
-        print(f"Erro ao ler o PDF (PyPDF2): {str(e)}")
+        error_msg = f'PDF read error: {str(e)}'
+        logger.error(error_msg)
         return jsonify({'error': f'Erro ao ler o PDF. Certifique-se de que é um PDF válido e não está corrompido: {str(e)}'}), 400
     except Exception as e:
-        print(f"Erro inesperado no servidor: {str(e)}")
+        error_msg = f'Unexpected error: {str(e)}'
+        logger.error(error_msg)
         import traceback
-        traceback.print_exc() # Imprime o stack trace completo para depuração
+        logger.error(traceback.format_exc())
         return jsonify({'error': f'Ocorreu um erro interno ao processar o PDF: {str(e)}'}), 500
 
 if __name__ == '__main__':
+    logger.info('Starting PDF parser service on port 3001')
     app.run(debug=True, port=3001)

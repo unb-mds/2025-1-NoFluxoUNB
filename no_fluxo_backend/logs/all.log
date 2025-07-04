@@ -502,3 +502,1347 @@
 2025-07-03 19:22:46:2246 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
 2025-07-03 19:22:46:2246 [34minfo[39m: [34mBuscando usuário por email: [39m
 2025-07-03 19:22:47:2247 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-04 14:20:43:2043 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-04 14:24:48:2448 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMU2Ud[39m
+2025-07-04 14:24:51:2451 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMU3Iu[39m
+2025-07-04 14:26:34:2634 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUSOk[39m
+2025-07-04 14:26:40:2640 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUTvq[39m
+2025-07-04 14:26:48:2648 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUVmP[39m
+2025-07-04 14:26:56:2656 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUXmU[39m
+2025-07-04 14:27:04:274 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUZi6[39m
+2025-07-04 14:27:12:2712 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUbfl[39m
+2025-07-04 14:27:22:2722 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUeHb[39m
+2025-07-04 14:27:30:2730 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUgEK[39m
+2025-07-04 14:27:39:2739 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUiBu[39m
+2025-07-04 14:27:46:2746 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUk4p[39m
+2025-07-04 14:27:55:2755 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUm7a[39m
+2025-07-04 14:28:02:282 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMUo1j[39m
+2025-07-04 14:34:19:3419 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWDuK[39m
+2025-07-04 14:34:27:3427 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWFqr[39m
+2025-07-04 14:34:35:3435 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWHoC[39m
+2025-07-04 14:34:43:3443 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWJkx[39m
+2025-07-04 14:34:49:3449 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWLKf[39m
+2025-07-04 14:34:58:3458 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWNTM[39m
+2025-07-04 14:36:42:3642 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWmr1[39m
+2025-07-04 14:36:50:3650 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWoqh[39m
+2025-07-04 14:36:58:3658 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWqmF[39m
+2025-07-04 14:37:06:376 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWskM[39m
+2025-07-04 14:37:14:3714 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWugV[39m
+2025-07-04 14:37:22:3722 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMWweH[39m
+2025-07-04 14:41:52:4152 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMXyd-[39m
+2025-07-04 14:42:00:420 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMX-aU[39m
+2025-07-04 14:42:08:428 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMY0XU[39m
+2025-07-04 14:42:16:4216 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMY2UF[39m
+2025-07-04 14:42:24:4224 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMY4RK[39m
+2025-07-04 14:42:32:4232 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMY6OI[39m
+2025-07-04 14:42:40:4240 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMY8LC[39m
+2025-07-04 14:42:48:4248 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYAI8[39m
+2025-07-04 14:42:56:4256 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYCFJ[39m
+2025-07-04 14:43:04:434 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYEC7[39m
+2025-07-04 14:43:12:4312 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYG9I[39m
+2025-07-04 14:43:20:4320 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYI6B[39m
+2025-07-04 14:43:28:4328 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYK3B[39m
+2025-07-04 14:43:36:4336 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYM0F[39m
+2025-07-04 14:43:44:4344 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYNzF[39m
+2025-07-04 14:43:50:4350 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYPJB[39m
+2025-07-04 14:43:58:4358 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYRRv[39m
+2025-07-04 14:44:06:446 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYTJ1[39m
+2025-07-04 14:44:14:4414 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYVIx[39m
+2025-07-04 14:44:22:4422 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYXES[39m
+2025-07-04 14:44:30:4430 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYZCE[39m
+2025-07-04 14:44:38:4438 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYb8s[39m
+2025-07-04 14:44:46:4446 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYd61[39m
+2025-07-04 14:44:53:4453 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYepP[39m
+2025-07-04 14:45:01:451 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYgmL[39m
+2025-07-04 14:45:09:459 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYijN[39m
+2025-07-04 14:45:17:4517 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYkgL[39m
+2025-07-04 14:45:25:4525 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYmdN[39m
+2025-07-04 14:45:33:4533 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYoaL[39m
+2025-07-04 14:45:41:4541 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYqXL[39m
+2025-07-04 14:45:49:4549 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYsUT[39m
+2025-07-04 14:45:57:4557 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYuRI[39m
+2025-07-04 14:45:58:4558 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-04 14:45:58:4558 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-04 14:45:58:4558 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-04 14:45:59:4559 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-04 14:46:05:465 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYwOL[39m
+2025-07-04 14:46:13:4613 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMYyLM[39m
+2025-07-04 14:46:21:4621 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMY-IO[39m
+2025-07-04 14:46:29:4629 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZ0FN[39m
+2025-07-04 14:46:37:4637 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZ2CH[39m
+2025-07-04 14:46:45:4645 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZ49M[39m
+2025-07-04 14:46:51:4651 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZ5h1[39m
+2025-07-04 14:46:59:4659 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZ7Y8[39m
+2025-07-04 14:47:07:477 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZ9Y1[39m
+2025-07-04 14:47:15:4715 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZBTc[39m
+2025-07-04 14:47:23:4723 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZDRM[39m
+2025-07-04 14:47:31:4731 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZFN_[39m
+2025-07-04 14:47:39:4739 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZHLB[39m
+2025-07-04 14:47:47:4747 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZJI4[39m
+2025-07-04 14:47:53:4753 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZKhF[39m
+2025-07-04 14:47:59:4759 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZM8h[39m
+2025-07-04 14:48:05:485 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZNbk[39m
+2025-07-04 14:48:11:4811 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZP3_[39m
+2025-07-04 14:48:17:4817 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZQXe[39m
+2025-07-04 14:48:23:4823 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZR_Q[39m
+2025-07-04 14:48:29:4829 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZTTC[39m
+2025-07-04 14:48:35:4835 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZUwx[39m
+2025-07-04 14:48:41:4841 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZWOo[39m
+2025-07-04 14:48:47:4847 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZXsN[39m
+2025-07-04 14:48:53:4853 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZZKA[39m
+2025-07-04 14:48:59:4859 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZanx[39m
+2025-07-04 14:49:05:495 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZcFi[39m
+2025-07-04 14:49:11:4911 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZdjS[39m
+2025-07-04 14:49:17:4917 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZfBB[39m
+2025-07-04 14:49:23:4923 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZgex[39m
+2025-07-04 14:49:29:4929 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZi6i[39m
+2025-07-04 14:49:35:4935 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZjaR[39m
+2025-07-04 14:49:41:4941 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZl2H[39m
+2025-07-04 14:49:47:4947 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZmVy[39m
+2025-07-04 14:49:53:4953 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZnzi[39m
+2025-07-04 14:49:59:4959 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZpRQ[39m
+2025-07-04 14:50:05:505 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZqvC[39m
+2025-07-04 14:50:11:5011 [32mhttp[39m: [32mGET /socket.io/?EIO=4&transport=polling&t=PVMZsMx[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-04 14:50:17:5017 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-04 14:50:23:5023 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-04 14:50:29:5029 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-04 14:50:56:5056 [32mhttp[39m: [32mGET /users/get-user-by-email?email=otaviomaya@gmail.com[39m
+2025-07-04 14:50:56:5056 [32mhttp[39m: [32mGET request to /users/get-user-by-email[39m
+2025-07-04 14:50:56:5056 [34minfo[39m: [34mBuscando usuário por email: [39m
+2025-07-04 14:50:57:5057 [32mhttp[39m: [32mGET request to /users/get-user-by-email completed successfully[39m
+2025-07-04 14:51:04:514 [32mhttp[39m: [32mPOST /fluxograma/read_pdf[39m
+2025-07-04 14:51:04:514 [32mhttp[39m: [32mPOST request to /fluxograma/read_pdf[39m
+2025-07-04 14:51:04:514 [32mhttp[39m: [32mPOST request to /fluxograma/read_pdf completed successfully[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mSupabase client initialized[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: GET /fluxograma/fluxograma[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: POST /fluxograma/read_pdf[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: GET /testes/banco[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: GET /testes/curso[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: POST /testes/casamento[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: POST /testes/completo[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: POST /users/register-user-with-google[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mRegistering route: GET /users/get-user-by-email[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mServer running on port 3000[39m
+2025-07-04 14:53:59:5359 [34minfo[39m: [34mPDF Parser stdout:  * Serving Flask app 'pdf_parser_final'[39m
+[34m * Debug mode: on[39m
+[34m[39m
+2025-07-04 14:53:59:5359 [31merror[39m: [31mPDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[39m
+[31m * Running on http://127.0.0.1:3001[39m
+[31m[39m
+2025-07-04 14:53:59:5359 [31merror[39m: [31mPDF Parser stderr: Press CTRL+C to quit[39m
+[31m[39m
+2025-07-04 14:53:59:5359 [31merror[39m: [31mPDF Parser stderr:  * Restarting with watchdog (fsevents)[39m
+[31m[39m
+2025-07-04 14:54:00:540 [31merror[39m: [31mPDF Parser stderr:  * Debugger is active![39m
+[31m[39m
+2025-07-04 14:54:00:540 [31merror[39m: [31mPDF Parser stderr:  * Debugger PIN: 114-293-037[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mSupabase client initialized[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: GET /fluxograma/fluxograma[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: POST /fluxograma/read_pdf[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: POST /fluxograma/casar_disciplinas[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: GET /testes/banco[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: GET /testes/curso[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: POST /testes/casamento[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: POST /testes/completo[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: POST /users/register-user-with-google[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mRegistering route: GET /users/get-user-by-email[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mServer running on port 3000[39m
+[2025-07-04 14:58:29:5829][[34MINFO[39M] [34mPDF Parser stdout:  * Serving Flask app 'pdf_parser_final'[39m
+[34m * Debug mode: on[39m
+[34m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[39m
+[31m * Running on http://127.0.0.1:3001[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr: Press CTRL+C to quit[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr:  * Restarting with watchdog (fsevents)[39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr:  * Debugger is active![39m
+[31m[39m
+[2025-07-04 14:58:29:5829][[31MERROR[39M] [31mPDF Parser stderr:  * Debugger PIN: 114-293-037[39m
+[31m[39m
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:58:57:5857][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:58:58:5858][[32mINFO[39m] PDF Parser stdout:  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr: Press CTRL+C to quit
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr:  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr:  * Debugger is active!
+
+[2025-07-04 14:58:58:5858][[31mERROR[39m] PDF Parser stderr:  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:20:5920][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:21:5921][[32mINFO[39m] PDF Parser]:  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:21:5921][[31mERROR[39m] PDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:21:5921][[31mERROR[39m] PDF Parser stderr: Press CTRL+C to quit
+
+[2025-07-04 14:59:21:5921][[31mERROR[39m] PDF Parser stderr:  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:22:5922][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:23:5923][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:24:5924][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr: WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr: Press CTRL+C to quit
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr:  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr:  * Debugger is active!
+
+[2025-07-04 14:59:24:5924][[31mERROR[39m] PDF Parser stderr:  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:26:5926][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:26:5926][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+
+[2025-07-04 14:59:26:5926][[32mINFO[39m] [PDF Parser]  * Debug mode: on
+
+[2025-07-04 14:59:26:5926][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:26:5926][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 14:59:26:5926][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:27:5927][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 14:59:27:5927][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:28:5928][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:28:5928][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:28:5928][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:28:5928][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 14:59:28:5928][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:29:5929][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 14:59:29:5929][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:39:5939][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:39:5939][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:39:5939][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 14:59:39:5939][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 14:59:39:5939][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:40:5940][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:41:5941][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:41:5941][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 14:59:41:5941][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 14:59:41:5941][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:48:5948][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:50:5950][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:50:5950][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:50:5950][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 14:59:50:5950][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 14:59:50:5950][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Supabase client initialized
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 14:59:52:5952][[32mINFO[39m] Server running on port 3000
+[2025-07-04 14:59:52:5952][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 14:59:52:5952][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 14:59:52:5952][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 14:59:52:5952][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 15:01:12:112][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:01:12:112][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:01:12:112][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:01:12:112][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:01:12:112][[31mERROR[39m] [PDF Parser] Address already in use
+Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 15:01:12:112][[31mERROR[39m] PDF Parser process exited with code 1
+[2025-07-04 15:01:23:123][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:01:23:123][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:01:23:123][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:01:23:123][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:01:23:123][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-04 15:01:23:123][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-04 15:01:23:123][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-04 15:02:50:250][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:02:50:250][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:02:50:250][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:02:50:250][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:02:51:251][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:03:05:35][[35mHTTP[39m] GET /users/get-user-by-email?email=otaviomaya@gmail.com
+[2025-07-04 15:03:05:35][[35mHTTP[39m] GET request to /users/get-user-by-email
+[2025-07-04 15:03:05:35][[32mINFO[39m] Buscando usuário por email: 
+[2025-07-04 15:03:05:35][[35mHTTP[39m] GET request to /users/get-user-by-email completed successfully
+[2025-07-04 15:05:07:57][[35mHTTP[39m] POST /fluxograma/read_pdf
+[2025-07-04 15:05:07:57][[35mHTTP[39m] POST request to /fluxograma/read_pdf
+[2025-07-04 15:05:07:57][[35mHTTP[39m] POST request to /fluxograma/read_pdf completed successfully
+[2025-07-04 15:07:00:70][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:07:00:70][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:07:00:70][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:07:00:70][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:07:00:70][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:07:00:70][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:07:00:70][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:07:01:71][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:07:01:71][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:07:19:719][[32mINFO[39m] [PDF Parser] Terminating Python process...
+[2025-07-04 15:07:21:721][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:07:21:721][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:07:21:721][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:07:21:721][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:07:21:721][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:07:21:721][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:07:21:721][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:07:22:722][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:07:22:722][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:07:31:731][[35mHTTP[39m] GET /users/get-user-by-email?email=otaviomaya@gmail.com
+[2025-07-04 15:07:31:731][[35mHTTP[39m] GET request to /users/get-user-by-email
+[2025-07-04 15:07:31:731][[32mINFO[39m] Buscando usuário por email: 
+[2025-07-04 15:07:32:732][[35mHTTP[39m] GET request to /users/get-user-by-email completed successfully
+[2025-07-04 15:07:37:737][[35mHTTP[39m] POST /fluxograma/read_pdf
+[2025-07-04 15:07:37:737][[35mHTTP[39m] POST request to /fluxograma/read_pdf
+[2025-07-04 15:07:37:737][[32mINFO[39m] Iniciando leitura de PDF
+[2025-07-04 15:07:37:737][[32mINFO[39m] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 15:07:37:737][[31mERROR[39m] Erro ao processar PDF: socket hang up
+[2025-07-04 15:07:37:737][[35mHTTP[39m] POST request to /fluxograma/read_pdf completed successfully
+[2025-07-04 15:08:36:836][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:08:36:836][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:08:36:836][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:08:36:836][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:08:36:836][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:08:36:836][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:08:36:836][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:08:37:837][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:08:37:837][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:08:37:837][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:08:38:838][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:08:38:838][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:09:45:945][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:09:45:945][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:09:45:945][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:09:46:946][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:09:46:946][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:10:16:1016][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:10:16:1016][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:10:16:1016][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:11:55:1155][[35mHTTP[39m] GET /users/get-user-by-email?email=otaviomaya@gmail.com
+[2025-07-04 15:11:55:1155][[35mHTTP[39m] GET request to /users/get-user-by-email
+[2025-07-04 15:11:55:1155][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"otaviomaya@gmail.com"}
+[2025-07-04 15:11:55:1155][[35mHTTP[39m] GET request to /users/get-user-by-email completed successfully
+[2025-07-04 15:12:01:121][[35mHTTP[39m] POST /fluxograma/read_pdf
+[2025-07-04 15:12:01:121][[35mHTTP[39m] POST request to /fluxograma/read_pdf
+[2025-07-04 15:12:01:121][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 15:12:01:121][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 15:12:01:121][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:12:01:121][[35mHTTP[39m] POST request to /fluxograma/read_pdf completed successfully
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:12:29:1229][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:12:29:1229][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:12:29:1229][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:12:29:1229][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:12:29:1229][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:12:30:1230][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:12:30:1230][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:17:14:1714][[35mHTTP[39m] GET /users/get-user-by-email?email=otaviomaya@gmail.com
+[2025-07-04 15:17:14:1714][[35mHTTP[39m] GET request to /users/get-user-by-email
+[2025-07-04 15:17:14:1714][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"otaviomaya@gmail.com"}
+[2025-07-04 15:17:14:1714][[35mHTTP[39m] GET request to /users/get-user-by-email completed successfully
+[2025-07-04 15:17:23:1723][[35mHTTP[39m] GET /users/get-user-by-email?email=otaviomaya@gmail.com
+[2025-07-04 15:17:23:1723][[35mHTTP[39m] GET request to /users/get-user-by-email
+[2025-07-04 15:17:23:1723][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"otaviomaya@gmail.com"}
+[2025-07-04 15:17:23:1723][[35mHTTP[39m] GET request to /users/get-user-by-email completed successfully
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:18:25:1825][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:18:26:1826][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:18:26:1826][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:23:07:237][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:23:07:237][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:23:07:237][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:23:08:238][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:23:08:238][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:23:11:2311][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:23:11:2311][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:23:11:2311][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:23:11:2311][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:23:11:2311][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:23:12:2312][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:23:12:2312][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:23:16:2316][[35mHTTP[39m] POST /fluxograma/read_pdf
+[2025-07-04 15:23:16:2316][[35mHTTP[39m] POST request to /fluxograma/read_pdf
+[2025-07-04 15:23:16:2316][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 15:23:16:2316][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 15:23:16:2316][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:23:16:2316][[35mHTTP[39m] POST request to /fluxograma/read_pdf completed successfully
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:24:28:2428][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:24:28:2428][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:24:28:2428][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:26:28:2628][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:26:28:2628][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:26:28:2628][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:26:28:2628][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:26:28:2628][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:26:29:2629][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:26:29:2629][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:26:45:2645][[35mHTTP[39m] POST /fluxograma/read_pdf
+[2025-07-04 15:26:45:2645][[35mHTTP[39m] POST request to /fluxograma/read_pdf
+[2025-07-04 15:26:45:2645][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 15:26:45:2645][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 15:26:45:2645][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:26:45:2645][[35mHTTP[39m] POST request to /fluxograma/read_pdf completed successfully
+[2025-07-04 15:28:52:2852][[32mINFO[39m] [PDF Parser] Terminating Python process...
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:34:50:3450][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:34:50:3450][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:34:50:3450][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:36:39:3639][[32mINFO[39m] [PDF Parser] Terminating Python process...
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:52:18:5218][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:52:20:5220][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:52:20:5220][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:52:20:5220][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:52:20:5220][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:52:21:5221][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:52:21:5221][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:52:32:5232][[35mHTTP[39m] POST /fluxograma/read_pdf
+[2025-07-04 15:52:32:5232][[35mHTTP[39m] [POST][/fluxograma/read_pdf]
+[2025-07-04 15:52:32:5232][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 15:52:32:5232][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 15:52:32:5232][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:52:33:5233][[35mHTTP[39m] [POST][/fluxograma/read_pdf] completed successfully
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:53:24:5324][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:53:24:5324][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:53:24:5324][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:53:24:5324][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:53:24:5324][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:53:25:5325][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:53:25:5325][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:55:03:553][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:55:03:553][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:55:03:553][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:55:03:553][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:55:03:553][[31mERROR[39m] [PDF Parser] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:55:03:553][[31mERROR[39m] [PDF Parser] Press CTRL+C to quit
+
+[2025-07-04 15:55:03:553][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:55:04:554][[31mERROR[39m] [PDF Parser]  * Debugger is active!
+
+[2025-07-04 15:55:04:554][[31mERROR[39m] [PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:57:39:5739][[31mERROR[39m] [PDF Parser]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][WARNING]  * Debugger is active!
+
+[2025-07-04 15:57:40:5740][[31mERROR[39m] [PDF Parser] [2025-07-04 15:57:40][INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:57:53:5753][[32mINFO[39m] [PDF Parser] Terminating Python process...
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:57:59:5759][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:58:00:580][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][WARNING]  * Debugger is active!
+
+[2025-07-04 15:58:00:580][[31mERROR[39m] [PDF Parser] [2025-07-04 15:58:00][INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:06:596][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:06][INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:59:07:597][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:07][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:08:598][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:12:5912][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:13][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:13:5913][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:17:5917][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 15:59:17:5917][[31mERROR[39m] [PDF Parser] [2025-07-04 15:59:17][INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:18:5918][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:32:5932][[32mINFO[39m] [PDF Parser] Terminating Python process...
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Supabase client initialized
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 15:59:35:5935][[32mINFO[39m] Server running on port 3000
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:36:5936][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 15:59:36:5936][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 15:59:46:5946][[35mHTTP[39m] [POST][/fluxograma/read_pdf]
+[2025-07-04 15:59:46:5946][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 15:59:46:5946][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 15:59:46:5946][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: socket hang up
+[2025-07-04 15:59:46:5946][[35mHTTP[39m] [POST][/fluxograma/read_pdf] completed successfully
+[2025-07-04 16:08:36:836][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:08:36:836][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:08:36:836][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:08:37:837][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:08:37:837][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:11:18:1118][[35mHTTP[39m] [GET][/users/get-user-by-email]
+[2025-07-04 16:11:18:1118][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"otaviomaya@gmail.com"}
+[2025-07-04 16:11:18:1118][[35mHTTP[39m] [GET][/users/get-user-by-email] completed successfully
+[2025-07-04 16:11:58:1158][[32mINFO[39m] [PDF Parser] Terminating Python process...
+[2025-07-04 16:12:01:121][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:12:01:121][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:12:01:121][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:01:121][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:01:121][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:12:02:122][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:12:17:1217][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:17:1217][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:17:1217][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:12:19:1219][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:19:1219][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:12:19:1219][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:12:31:1231][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:31:1231][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:12:31:1231][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:12:32:1232][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:12:35:1235][[35mHTTP[39m] [POST][/fluxograma/read_pdf]
+[2025-07-04 16:12:35:1235][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 16:12:35:1235][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] ==================================================
+[INFO] Request Method: POST
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Request URL: http://127.0.0.1:3001/upload-pdf
+[INFO] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------279629395384020428586312', 'User-Agent': 'axios/1.10.0', 'Content-Length': '26405', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Request Files: dict_keys(['pdf'])
+[INFO] ==================================================
+[INFO] Received PDF upload request
+[INFO] Processing file: historico_211029503-5.pdf
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] File content type: application/pdf
+[INFO] File size: 26178 bytes
+[INFO] Extracted matricula: 211029503-5
+[INFO] Attempting text extraction with PyPDF2
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] PDF has 3 pages
+[INFO] Processing page 1
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Extracted 3337 characters from page 1
+[INFO] Processing page 2
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Extracted 3666 characters from page 2
+[INFO] Processing page 3
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] Extracted 2686 characters from page 3
+[INFO] Successfully extracted text using PyPDF2
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] PDF processing completed successfully
+[INFO] Sending response with 77 extracted items
+
+[2025-07-04 16:12:35:1235][[31mERROR[39m] [PDF Parser] [INFO] 127.0.0.1 - - [04/Jul/2025 16:12:35] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-04 16:12:35:1235][[32mINFO[39m] [FluxogramaController][read_pdf] PDF processado com sucesso
+[2025-07-04 16:12:35:1235][[35mHTTP[39m] [POST][/fluxograma/read_pdf] completed successfully
+[2025-07-04 16:12:35:1235][[35mHTTP[39m] [POST][/fluxograma/casar_disciplinas]
+[2025-07-04 16:12:35:1235][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Iniciando casamento de disciplinas
+[2025-07-04 16:12:35:1235][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Buscando curso: "ENGENHARIA DE SOFTWARE"
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Cursos encontrados: 2
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Curso encontrado: ENGENHARIA DE SOFTWARE
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Total de matérias no curso: 203
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias obrigatórias: 65
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias optativas: 138
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] IRA extraído do PDF: 3.7389
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: TRANC
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: DISP
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REPF
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REPMF
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: TRANC
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CUMP
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias com nível 0 ou nulo: 138
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias nível 0: COMPUTACAO BASICA (nível: 0), ESTRUTURAS DE DADOS (nível: 0), PRINCIPIOS DE COMPUTACAO GRAFICA (nível: 0), PROJETO E ANÁLISE DE ALGORITMOS (nível: 0), INTRODUÇÃO AO DESENVOLVIMENTO DE JOGOS (nível: 0), TECNICAS DE PROGRAMAÇÃO 1 (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), SISTEMAS DIGITAIS 1 (nível: 0), SISTEMAS DIGITAIS 2 (nível: 0), FENOMENOS DE TRANSPORTE (nível: 0), PRÁTICA DESPORTIVA (nível: 0), CONTRATAÇÃO DE SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO (nível: 0), TÉCNICAS DE MEDIÇÃO FUNCIONAL E ESTIMATIVAS DE SOFTWARE (nível: 0), FUNDAMENTOS DE EQUAÇÕES DIFERENCIAIS PARA ENGENHARIA (nível: 0), CONFIABILIDADE DE COMPONENTES E SISTEMAS (nível: 0), SISTEMAS AEROESPACIAIS (nível: 0), FUNDAMENTOS DE ARQUITETURA DE SOFTWARE (nível: 0), PRINCÍPIOS DE ROBÓTICA EDUCACIONAL (nível: 0), PROGRAMAÇÃO PARA COMPETIÇÕES (nível: 0), SEMINÁRIOS EM ENGENHARIA DE SOFTWARE (nível: 0), TÓPICOS ESPECIAIS EM FÍSICA APLICADA (nível: 0), TÓPICOS ESPECIAIS EM MATEMÁTICA APLICADA (nível: 0), PRÉ-CÁLCULO PARA ENGENHARIA (nível: 0), AERODINÂMICA DE SISTEMAS AEROESPACIAIS (nível: 0), TÓPICOS ESPECIAIS EM JOGOS DIGITAIS (nível: 0), TÓPICOS ESPECIAIS EM SISTEMAS CRÍTICOS (nível: 0), DINÂMICA DOS GASES PARA SISTEMAS AEROESPACIAIS (nível: 0), PROJETO DE SISTEMAS DE CONTROLE (nível: 0), MECÂNICA DO VÔO (nível: 0), MÉTODOS E TÉCNICAS DA ESCRITA CIENTÍFICA (nível: 0), PROCESSOS PETROQUÍMICOS (nível: 0), TÓPICOS ESPECIAIS EM PROGRAMAÇÃO (nível: 0), TÓPICOS ESPECIAIS EM GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO (nível: 0), CRIPTOGRAFIA E SEGURANÇA DE REDES (nível: 0), FÍSICA PARA JOGOS ELETRÔNICOS 1 (nível: 0), FUNDAMENTOS DE VARIÁVEL COMPLEXA PARA ENGENHARIA (nível: 0), PRÁTICA DE ELETRÔNICA DIGITAL 2 (nível: 0), TEORIA DE ELETRÔNICA DIGITAL 2 (nível: 0), LABORATÓRIO DE MATERIAIS DE CONSTRUÇÃO (nível: 0), TEORIA DE MATERIAIS DE CONSTRUÇÃO (nível: 0), ONDULATÓRIA E FÍSICA TÉRMICA PARA ENGENHARIA (nível: 0), PRINCÍPIOS DE CONTROLE (nível: 0), QUÍMICA ORGÂNICA APLICADA À ENGENHARIA (nível: 0), CÁLCULO PARA ENGENHARIA 1 (nível: 0), INTRODUÇÃO À GEOMETRIA ANALÍTICA (nível: 0), CÁLCULO PARA ENGENHARIA 2 (nível: 0), EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (nível: 0), CÁLCULO PARA ENGENHARIA 3 (nível: 0), PROCESSAMENTO DIGITAL DE SINAIS FINANCEIROS (nível: 0), TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE (nível: 0), MATERIAIS DE CONSTRUÇÃO DE ENGENHARIA (nível: 0), GESTÃO AMBIENTAL NO SETOR ENERGÉTICO (nível: 0), FUNDAMENTOS DA TEORIA ELETROMAGNÉTICA (nível: 0), FÍSICA MODERNA (nível: 0), ENGENHARIA DE SEGURANÇA DO TRABALHO (nível: 0), ERGONOMIA DO PRODUTO (nível: 0), MECANICA DOS SÓLIDOS 1 PARA ENGENHARIA (nível: 0), INTRODUÇÃO AO DESIGN E CONCEPÇÃO DE VEÍCULOS (nível: 0), COMBUSTÍVEIS E BIOCOMBUSTÍVEIS (nível: 0), ESTRUTURAS MATEMÁTICAS PARA COMPUTAÇÃO (nível: 0), PROCESSO DE DESENVOLVIMENTO DE SOFTWARE (nível: 0), ELEMENTOS E MÉTODOS EM ELETRÔNICA (nível: 0), SISTEMAS AUTOMOTIVOS (nível: 0), FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSÃO (nível: 0), TÉCNICAS DE PROGRAMAÇÃO (nível: 0), DESENVOLVIMENTO SUSTENTÁVEL (nível: 0), ENGENHARIA DE PETRÓLEO E GÁS (nível: 0), MECANICA DOS SÓLIDOS 2 PARA ENGENHARIA (nível: 0), INOVAÇÃO (nível: 0), MICROPROCESSADORES E MICROCONTROLADORES (nível: 0), ELETRICIDADE APLICADA (nível: 0), MÉTODOS MATEMÁTICOS PARA ENGENHARIA (nível: 0), MÉTODOS EXPERIMENTAIS PARA ENGENHARIA (nível: 0), GESTÃO DA PRODUÇÃO AUTOMOTIVA (nível: 0), CIRCUITOS ELETRÔNICOS 1 (nível: 0), SISTEMAS DE CONTROLE (nível: 0), PROJETO DE CIRCUITOS INTEGRADOS DIGITAIS (nível: 0), PLANEJAMENTO E GESTÃO DE ENERGIA (nível: 0), DINÂMICA DOS FLUÍDOS (nível: 0), MODELAGEM DE PROCESSOS (nível: 0), SISTEMAS CRÍTICOS E TOLERÂNCIA A FALHAS (nível: 0), SISTEMAS EMBARCADOS (nível: 0), INTELIGÊNCIA ARTIFICIAL (nível: 0), ELETRÔNICA VEICULAR (nível: 0), GERÊNCIA DE CONFIGURAÇÃO DE SOFTWARE (nível: 0), MÉTODOS FORMAIS (nível: 0), SISTEMAS DE PROPULSÃO HÍBRIDOS (nível: 0), INSTRUMENTAÇÃO E SISTEMAS DE CONTROLE (nível: 0), CIÊNCIAS AEROESPACIAIS (nível: 0), INTRODUÇÃO AOS JOGOS ELETRÔNICOS (nível: 0), INTRODUÇÃO A COMPUTAÇÃO GRÁFICA (nível: 0), ECONOMIA DE ENERGIA (nível: 0), PRODUTIVIDADE E PROFISSIONALISMO EM ENGENHARIA DE SOFTWARE (nível: 0), ENGENHARIA DE SOFTWARE EXPERIMENTAL (nível: 0), COMPUTAÇÃO EM NUVEM (nível: 0), PROGRAMAÇÃO WEB (nível: 0), INTRODUCAO A ATIVIDADE EMPRESARIAL (nível: 0), QUÍMICA GERAL (nível: 0), QUIMICA GERAL TEORICA (nível: 0), QUIMICA GERAL EXPERIMENTAL (nível: 0), LÍNGUA DE SINAIS BRASILEIRA - BÁSICO (nível: 0), CÁLCULO 3 (nível: 0), TEORIA DOS NÚMEROS 1 (nível: 0), EQUACOES DIFERENCIAIS 1 (nível: 0), CÁLCULO 1 - SEMIPRESENCIAL (nível: 0), ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES (nível: 0), DESENVOLVIMENTO DE SOFTWARE (nível: 0), PRÁTICA DE ELETRÔNICA DIGITAL 1 (nível: 0), TEORIA DE ELETRÔNICA DIGITAL 1 (nível: 0), MATEMÁTICA DISCRETA 1 (nível: 0), PROJETO DE ALGORITMOS (nível: 0), QUALIDADE DE SOFTWARE 2 (nível: 0), INFORMAÇÃO, COMUNICAÇÃO E A SOCIEDADE DO CONHECIMENTO (nível: 0), TÉCNICAS DE PROGRAMAÇÃO EM PLATAFORMAS EMERGENTES (nível: 0), FÍSICA PARA JOGOS ELETRÔNICOS 1 (nível: 0), APRENDIZADO DE MÁQUINA (nível: 0), INTRODUÇÃO À WEB SEMÂNTICA (nível: 0), FÍSICA PARA JOGOS ELETRÔNICOS 2 (nível: 0), COMPILADORES 2 (nível: 0), MELHORIA DE PROCESSOS DE SOFTWARE (nível: 0)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Verificação de duplicatas - Total: 203, Únicos: 158
+[2025-07-04 16:12:36:1236][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Encontradas matérias duplicadas
+[2025-07-04 16:12:36:1236][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Matérias duplicadas: PRÁTICA DE ELETRÔNICA DIGITAL 1, TEORIA DE ELETRÔNICA DIGITAL 1, TÉCNICAS DE PROGRAMAÇÃO EM PLATAFORMAS EMERGENTES, PROJETO DE ALGORITMOS, MATEMÁTICA DISCRETA 1, ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES, COMPUTACAO BASICA, PROJETO E ANÁLISE DE ALGORITMOS, ATIVIDADE COMPLEMENTAR, SISTEMAS DIGITAIS 1, FÍSICA PARA JOGOS ELETRÔNICOS 1, ESTRUTURAS MATEMÁTICAS PARA COMPUTAÇÃO, TÉCNICAS DE PROGRAMAÇÃO, DESENVOLVIMENTO DE SOFTWARE, QUALIDADE DE SOFTWARE 2, INFORMAÇÃO, COMUNICAÇÃO E A SOCIEDADE DO CONHECIMENTO, APRENDIZADO DE MÁQUINA, INTRODUÇÃO À WEB SEMÂNTICA, FÍSICA PARA JOGOS ELETRÔNICOS 2, COMPILADORES 2, MELHORIA DE PROCESSOS DE SOFTWARE
+[2025-07-04 16:12:36:1236][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Disciplina não encontrada no banco: CALCULO NUMERICO
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Atualizando status de "PRÁTICA DE ELETRÔNICA DIGITAL 1": REP → APR
+[2025-07-04 16:12:36:1236][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Disciplina não encontrada no banco: ALGEBRA 1
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Atualizando status de "MÉTODOS NUMÉRICOS PARA ENGENHARIA": CANC → MATR
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Calculando horas integralizadas:
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES - 90h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] INTRODUÇÃO À ENGENHARIA - 30h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR - 90h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] CÁLCULO 1 - 90h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] FISICA 1 - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] FISICA 1 EXPERIMENTAL - 30h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] CÁLCULO 2 - 90h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] DESENVOLVIMENTO DE SOFTWARE - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ORIENTAÇÃO A OBJETOS - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] INTRODUCAO A ALGEBRA LINEAR - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] PRÁTICA DE ELETRÔNICA DIGITAL 1 - 30h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] TEORIA DE ELETRÔNICA DIGITAL 1 - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ESTRUTURA DE DADOS E ALGORITMOS - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] INTERAÇÃO HUMANO COMPUTADOR - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] MATEMÁTICA DISCRETA 1 - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ENGENHARIA ECONÔMICA - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] HUMANIDADES E CIDADANIA - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] GERÊNCIA DE CONFIGURAÇÃO E EVOLUÇÃO DE SOFTWARE - 60h (APR)
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Total de horas integralizadas: 1290h
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Resumo do processamento:
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Total de disciplinas: 30
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Obrigatórias concluídas: 20
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Obrigatórias pendentes: 43
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Optativas: 2
+[2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Percentual de conclusão: 31.75%
+[2025-07-04 16:12:36:1236][[35mHTTP[39m] [POST][/fluxograma/casar_disciplinas] completed successfully
