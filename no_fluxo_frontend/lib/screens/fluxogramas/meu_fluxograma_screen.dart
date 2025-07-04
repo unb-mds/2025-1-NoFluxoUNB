@@ -971,6 +971,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   'Verificar',
                   const Color(0xFF22C55E),
                   const Color(0xFF16A34A),
+                  () => _showToolModal(context, title: 'Integralização'),
                 ),
               ),
               const SizedBox(width: 16),
@@ -982,6 +983,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   'Simular',
                   const Color(0xFFF59E0B),
                   const Color(0xFFD97706),
+                  () => _showToolModal(context, title: 'Mudança de Curso'),
                 ),
               ),
             ],
@@ -1377,10 +1379,581 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         },
       );
       return;
-    }
-  }
-
-  // Helper para barra de progresso customizada
+         }
+     if (title == 'Integralização') {
+       showDialog(
+         context: context,
+         builder: (context) {
+           return Dialog(
+             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+             backgroundColor: Colors.black.withOpacity(0.92),
+             child: Container(
+               constraints: const BoxConstraints(maxWidth: 700, minWidth: 400),
+               padding: const EdgeInsets.all(28),
+               child: SingleChildScrollView(
+                 child: Column(
+                   mainAxisSize: MainAxisSize.min,
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         Text(
+                           'Integralização Curricular',
+                           style: GoogleFonts.poppins(
+                             color: const Color(0xFF22C55E),
+                             fontSize: 24,
+                             fontWeight: FontWeight.bold,
+                           ),
+                         ),
+                         IconButton(
+                           icon: const Icon(Icons.close, color: Colors.white54, size: 28),
+                           onPressed: () => Navigator.of(context).pop(),
+                         ),
+                       ],
+                     ),
+                     const SizedBox(height: 18),
+                     // Card de previsão de formatura
+                     Container(
+                       decoration: BoxDecoration(
+                         color: const Color(0xFF14532D),
+                         borderRadius: BorderRadius.circular(12),
+                       ),
+                       padding: const EdgeInsets.all(16),
+                       margin: const EdgeInsets.only(bottom: 24),
+                       child: Row(
+                         children: [
+                           const Icon(Icons.info_outline, color: Color(0xFF22C55E), size: 20),
+                           const SizedBox(width: 8),
+                           Text(
+                             'Previsão de formatura: ',
+                             style: GoogleFonts.poppins(
+                               color: const Color(0xFF22C55E),
+                               fontSize: 14,
+                             ),
+                           ),
+                           Text(
+                             '2º semestre de 2023',
+                             style: GoogleFonts.poppins(
+                               color: const Color(0xFF22C55E),
+                               fontSize: 14,
+                               fontWeight: FontWeight.w600,
+                             ),
+                           ),
+                         ],
+                       ),
+                     ),
+                     // Título dos requisitos
+                     Text(
+                       'Requisitos para Integralização',
+                       style: GoogleFonts.poppins(
+                         color: Colors.white,
+                         fontSize: 18,
+                         fontWeight: FontWeight.w500,
+                       ),
+                     ),
+                     const SizedBox(height: 16),
+                                           // Créditos Obrigatórios
+                      _buildRequirementCard(
+                        'Créditos Obrigatórios',
+                        '0/160 créditos (0%)',
+                        0.0,
+                        'Faltam 160 créditos em disciplinas obrigatórias.',
+                      ),
+                      const SizedBox(height: 12),
+                      // Créditos Optativos
+                      _buildRequirementCard(
+                        'Créditos Optativos',
+                        '0/40 créditos (0%)',
+                        0.0,
+                        'Faltam 40 créditos em disciplinas optativas.',
+                      ),
+                      const SizedBox(height: 12),
+                      // Atividades Complementares
+                      _buildRequirementCard(
+                        'Atividades Complementares',
+                        '0/40 horas (0%)',
+                        0.0,
+                        'Faltam 40 horas de atividades complementares.',
+                      ),
+                     const SizedBox(height: 12),
+                     // TCC
+                     _buildTCCCard(),
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.end,
+                       children: [
+                         ElevatedButton(
+                           onPressed: () => Navigator.of(context).pop(),
+                           style: ElevatedButton.styleFrom(
+                             backgroundColor: const Color(0xFF22C55E),
+                             foregroundColor: Colors.white,
+                             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                           ),
+                           child: const Text('Fechar'),
+                         ),
+                       ],
+                     ),
+                   ],
+                 ),
+               ),
+             ),
+           );
+         },
+       );
+       return;
+     }
+     if (title == 'Mudança de Curso') {
+       showDialog(
+         context: context,
+         builder: (context) {
+           return Dialog(
+             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+             backgroundColor: Colors.black.withOpacity(0.92),
+             child: Container(
+               constraints: const BoxConstraints(maxWidth: 700, minWidth: 400),
+               padding: const EdgeInsets.all(28),
+               child: SingleChildScrollView(
+                 child: Column(
+                   mainAxisSize: MainAxisSize.min,
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                       children: [
+                         Text(
+                           'Simulação de Mudança de Curso',
+                           style: GoogleFonts.poppins(
+                             color: const Color(0xFFF59E0B),
+                             fontSize: 24,
+                             fontWeight: FontWeight.bold,
+                           ),
+                         ),
+                         IconButton(
+                           icon: const Icon(Icons.close, color: Colors.white54, size: 28),
+                           onPressed: () => Navigator.of(context).pop(),
+                         ),
+                       ],
+                     ),
+                     const SizedBox(height: 18),
+                     Text(
+                       'Selecione um curso para simular o aproveitamento de disciplinas e créditos.',
+                       style: GoogleFonts.poppins(
+                         color: const Color(0xFFF59E0B),
+                         fontSize: 15,
+                       ),
+                     ),
+                     const SizedBox(height: 18),
+                     // Dropdown de seleção de curso
+                     Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                         Text(
+                           'Curso de Destino',
+                           style: GoogleFonts.poppins(
+                             color: const Color(0xFFF59E0B),
+                             fontSize: 14,
+                             fontWeight: FontWeight.w500,
+                           ),
+                         ),
+                         const SizedBox(height: 8),
+                         Container(
+                           decoration: BoxDecoration(
+                             border: Border.all(color: const Color(0xFF374151)),
+                             borderRadius: BorderRadius.circular(8),
+                           ),
+                           child: DropdownButtonFormField<String>(
+                             value: null,
+                             decoration: const InputDecoration(
+                               hintText: 'Selecione um curso',
+                               hintStyle: TextStyle(color: Colors.white54),
+                               filled: true,
+                               fillColor: Colors.black,
+                               contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                               border: InputBorder.none,
+                             ),
+                             dropdownColor: Colors.black,
+                             style: const TextStyle(color: Colors.white),
+                             items: const [
+                               DropdownMenuItem(value: 'cc', child: Text('Ciência da Computação')),
+                               DropdownMenuItem(value: 'si', child: Text('Sistemas de Informação')),
+                               DropdownMenuItem(value: 'ec', child: Text('Engenharia da Computação')),
+                               DropdownMenuItem(value: 'ads', child: Text('Análise e Desenvolvimento de Sistemas')),
+                             ],
+                             onChanged: (value) {
+                               // TODO: Implementar lógica de simulação
+                             },
+                           ),
+                         ),
+                       ],
+                     ),
+                     const SizedBox(height: 24),
+                     // Resultados da simulação (inicialmente ocultos)
+                     Container(
+                       decoration: BoxDecoration(
+                         color: const Color(0xFF92400E),
+                         borderRadius: BorderRadius.circular(12),
+                       ),
+                       padding: const EdgeInsets.all(20),
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           Text(
+                             'Resumo do Aproveitamento',
+                             style: GoogleFonts.poppins(
+                               color: const Color(0xFFF59E0B),
+                               fontSize: 18,
+                               fontWeight: FontWeight.w500,
+                             ),
+                           ),
+                           const SizedBox(height: 16),
+                           Row(
+                             children: [
+                               Expanded(
+                                 child: Column(
+                                   children: [
+                                     Text(
+                                       '-',
+                                       style: GoogleFonts.poppins(
+                                         color: const Color(0xFFFCD34D),
+                                         fontSize: 24,
+                                         fontWeight: FontWeight.bold,
+                                       ),
+                                     ),
+                                     Text(
+                                       'Aproveitamento',
+                                       style: GoogleFonts.poppins(
+                                         color: const Color(0xFFF59E0B),
+                                         fontSize: 12,
+                                       ),
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                               Expanded(
+                                 child: Column(
+                                   children: [
+                                     Text(
+                                       '-',
+                                       style: GoogleFonts.poppins(
+                                         color: const Color(0xFFFCD34D),
+                                         fontSize: 24,
+                                         fontWeight: FontWeight.bold,
+                                       ),
+                                     ),
+                                     Text(
+                                       'Créditos aproveitados',
+                                       style: GoogleFonts.poppins(
+                                         color: const Color(0xFFF59E0B),
+                                         fontSize: 12,
+                                       ),
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                               Expanded(
+                                 child: Column(
+                                   children: [
+                                     Text(
+                                       '-',
+                                       style: GoogleFonts.poppins(
+                                         color: const Color(0xFFFCD34D),
+                                         fontSize: 24,
+                                         fontWeight: FontWeight.bold,
+                                       ),
+                                     ),
+                                     Text(
+                                       'Semestres adicionais',
+                                       style: GoogleFonts.poppins(
+                                         color: const Color(0xFFF59E0B),
+                                         fontSize: 12,
+                                       ),
+                                     ),
+                                   ],
+                                 ),
+                               ),
+                             ],
+                           ),
+                         ],
+                       ),
+                     ),
+                     const SizedBox(height: 20),
+                     // Disciplinas aproveitadas
+                     _buildSubjectListCard(
+                       'Disciplinas Aproveitadas',
+                       [],
+                       isApproved: true,
+                     ),
+                     const SizedBox(height: 12),
+                     // Disciplinas adicionais necessárias
+                     _buildSubjectListCard(
+                       'Disciplinas Adicionais Necessárias',
+                       [],
+                       isApproved: false,
+                     ),
+                     const SizedBox(height: 24),
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.end,
+                       children: [
+                         TextButton(
+                           onPressed: () => Navigator.of(context).pop(),
+                           style: TextButton.styleFrom(
+                             foregroundColor: Colors.white,
+                             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                             shape: RoundedRectangleBorder(
+                               borderRadius: BorderRadius.circular(8),
+                               side: const BorderSide(color: Color(0xFF374151)),
+                             ),
+                           ),
+                           child: const Text('Cancelar'),
+                         ),
+                         const SizedBox(width: 12),
+                         ElevatedButton(
+                           onPressed: () {},
+                           style: ElevatedButton.styleFrom(
+                             backgroundColor: const Color(0xFFF59E0B),
+                             foregroundColor: Colors.white,
+                             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                           ),
+                           child: const Text('Simular'),
+                         ),
+                       ],
+                     ),
+                   ],
+                 ),
+               ),
+             ),
+           );
+         },
+       );
+       return;
+     }
+   }
+ 
+   // Helper para card de lista de disciplinas
+   Widget _buildSubjectListCard(String title, List<String> subjects, {required bool isApproved}) {
+     return Container(
+       decoration: BoxDecoration(
+         border: Border.all(color: const Color(0xFFF59E0B)),
+         borderRadius: BorderRadius.circular(12),
+       ),
+       child: Column(
+         children: [
+           Container(
+             width: double.infinity,
+             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+             decoration: const BoxDecoration(
+               color: Color(0xFF111827),
+               borderRadius: BorderRadius.only(
+                 topLeft: Radius.circular(12),
+                 topRight: Radius.circular(12),
+               ),
+             ),
+             child: Text(
+               title,
+               style: GoogleFonts.poppins(
+                 color: Colors.white,
+                 fontSize: 16,
+                 fontWeight: FontWeight.w500,
+               ),
+             ),
+           ),
+           Container(
+             width: double.infinity,
+             padding: const EdgeInsets.all(16),
+             child: subjects.isEmpty
+                 ? Center(
+                     child: Text(
+                       'Selecione um curso para ver as disciplinas',
+                       style: GoogleFonts.poppins(
+                         color: Colors.white.withOpacity(0.6),
+                         fontSize: 14,
+                         fontStyle: FontStyle.italic,
+                       ),
+                     ),
+                   )
+                 : Column(
+                     children: subjects.map((subject) => Padding(
+                       padding: const EdgeInsets.only(bottom: 8),
+                       child: Row(
+                         children: [
+                           Icon(
+                             isApproved ? Icons.check : Icons.add,
+                             color: isApproved ? const Color(0xFF22C55E) : const Color(0xFFF59E0B),
+                             size: 16,
+                           ),
+                           const SizedBox(width: 8),
+                           Text(
+                             subject,
+                             style: GoogleFonts.poppins(
+                               color: Colors.white,
+                               fontSize: 14,
+                             ),
+                           ),
+                         ],
+                       ),
+                     )).toList(),
+                   ),
+           ),
+         ],
+       ),
+     );
+   }
+ 
+   // Helper para card de requisito
+   Widget _buildRequirementCard(String title, String progress, double percent, String description, {bool isCompleted = false}) {
+     return Container(
+       decoration: BoxDecoration(
+         border: Border.all(color: const Color(0xFF374151)),
+         borderRadius: BorderRadius.circular(12),
+       ),
+       child: Column(
+         children: [
+           Container(
+             width: double.infinity,
+             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+             decoration: const BoxDecoration(
+               color: Color(0xFF111827),
+               borderRadius: BorderRadius.only(
+                 topLeft: Radius.circular(12),
+                 topRight: Radius.circular(12),
+               ),
+             ),
+             child: Text(
+               title,
+               style: GoogleFonts.poppins(
+                 color: Colors.white,
+                 fontSize: 16,
+                 fontWeight: FontWeight.w500,
+               ),
+             ),
+           ),
+           Container(
+             width: double.infinity,
+             padding: const EdgeInsets.all(16),
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children: [
+                     Text(
+                       'Progresso:',
+                       style: GoogleFonts.poppins(color: Colors.white, fontSize: 14),
+                     ),
+                     Text(
+                       progress,
+                       style: GoogleFonts.poppins(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                     ),
+                   ],
+                 ),
+                 const SizedBox(height: 8),
+                 ClipRRect(
+                   borderRadius: BorderRadius.circular(8),
+                   child: LinearProgressIndicator(
+                     value: percent,
+                     minHeight: 8,
+                     backgroundColor: const Color(0xFF374151),
+                     valueColor: AlwaysStoppedAnimation<Color>(const Color(0xFF22C55E)),
+                   ),
+                 ),
+                 const SizedBox(height: 12),
+                 if (isCompleted)
+                   Row(
+                     children: [
+                       const Icon(Icons.check, color: Color(0xFF22C55E), size: 16),
+                       const SizedBox(width: 4),
+                       Text(
+                         description,
+                         style: GoogleFonts.poppins(color: const Color(0xFF22C55E), fontSize: 12),
+                       ),
+                     ],
+                   )
+                 else
+                   Text(
+                     description,
+                     style: GoogleFonts.poppins(color: Colors.white.withOpacity(0.7), fontSize: 12),
+                   ),
+               ],
+             ),
+           ),
+         ],
+       ),
+     );
+   }
+ 
+   // Helper para card do TCC
+   Widget _buildTCCCard() {
+     return Container(
+       decoration: BoxDecoration(
+         border: Border.all(color: const Color(0xFF374151)),
+         borderRadius: BorderRadius.circular(12),
+       ),
+       child: Column(
+         children: [
+           Container(
+             width: double.infinity,
+             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+             decoration: const BoxDecoration(
+               color: Color(0xFF111827),
+               borderRadius: BorderRadius.only(
+                 topLeft: Radius.circular(12),
+                 topRight: Radius.circular(12),
+               ),
+             ),
+             child: Text(
+               'Trabalho de Conclusão de Curso',
+               style: GoogleFonts.poppins(
+                 color: Colors.white,
+                 fontSize: 16,
+                 fontWeight: FontWeight.w500,
+               ),
+             ),
+           ),
+           Container(
+             width: double.infinity,
+             padding: const EdgeInsets.all(16),
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 Row(
+                   children: [
+                     Container(
+                       width: 24,
+                       height: 24,
+                       decoration: BoxDecoration(
+                         color: const Color(0xFF374151),
+                         borderRadius: BorderRadius.circular(12),
+                       ),
+                       child: const Center(
+                         child: Text(
+                           '0%',
+                           style: TextStyle(color: Colors.white, fontSize: 10),
+                         ),
+                       ),
+                     ),
+                     const SizedBox(width: 12),
+                     Text(
+                       'Não iniciado',
+                       style: GoogleFonts.poppins(color: Colors.white.withOpacity(0.7), fontSize: 14),
+                     ),
+                   ],
+                 ),
+                 const SizedBox(height: 8),
+                 Text(
+                   'Disponível a partir do 7º semestre.',
+                   style: GoogleFonts.poppins(color: Colors.white.withOpacity(0.7), fontSize: 12),
+                 ),
+               ],
+             ),
+           ),
+         ],
+       ),
+     );
+   }
+ 
+   // Helper para barra de progresso customizada
   Widget _buildProgressBarRow(String label, String value, double percent, Color color) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
