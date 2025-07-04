@@ -947,6 +947,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   'Calcular IRA',
                   const Color(0xFF8B5CF6),
                   const Color(0xFF7C3AED),
+                  () => _showToolModal(context, title: 'Calculadora de IRA'),
                 ),
               ),
               const SizedBox(width: 16),
@@ -958,6 +959,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   'Ver Progresso',
                   const Color(0xFF3B82F6),
                   const Color(0xFF1D4ED8),
+                  () => _showToolModal(context, title: 'Progresso do Curso'),
                 ),
               ),
               const SizedBox(width: 16),
@@ -989,7 +991,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     );
   }
 
-  Widget _buildToolCard(String title, IconData icon, String description, String buttonText, Color startColor, Color endColor) {
+  Widget _buildToolCard(String title, IconData icon, String description, String buttonText, Color startColor, Color endColor, [VoidCallback? onPressed]) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -1035,9 +1037,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                // Abrir modal da ferramenta
-              },
+              onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: startColor,
                 padding: const EdgeInsets.symmetric(vertical: 8),
@@ -1053,6 +1053,355 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showToolModal(BuildContext context, {required String title}) {
+    if (title == 'Calculadora de IRA') {
+      // ...modal customizado da Calculadora de IRA (como já implementado)...
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            backgroundColor: Colors.black.withOpacity(0.92),
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 520, minWidth: 400),
+              padding: const EdgeInsets.all(28),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Calculadora de IRA',
+                        style: GoogleFonts.poppins(
+                          color: const Color(0xFF818CF8),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.close, color: Colors.white54, size: 28),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Adicione as disciplinas e notas esperadas para simular seu IRA futuro.',
+                    style: GoogleFonts.poppins(
+                      color: const Color(0xFF818CF8),
+                      fontSize: 15,
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  // Campos de disciplina (editáveis)
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 8),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Disciplina',
+                              hintStyle: const TextStyle(color: Colors.white54),
+                              filled: true,
+                              fillColor: Colors.black.withOpacity(0.4),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(color: Color(0xFF374151)),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                            ),
+                            style: const TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        SizedBox(
+                          width: 70,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Nota',
+                              hintStyle: const TextStyle(color: Colors.white54),
+                              filled: true,
+                              fillColor: Colors.black.withOpacity(0.4),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(color: Color(0xFF374151)),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            ),
+                            style: const TextStyle(color: Colors.white, fontSize: 14),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        SizedBox(
+                          width: 80,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Créditos',
+                              hintStyle: const TextStyle(color: Colors.white54),
+                              filled: true,
+                              fillColor: Colors.black.withOpacity(0.4),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(color: Color(0xFF374151)),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            ),
+                            style: const TextStyle(color: Colors.white, fontSize: 14),
+                            keyboardType: TextInputType.number,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Botão adicionar disciplina (sem ação)
+                  TextButton.icon(
+                    onPressed: null,
+                    icon: const Icon(Icons.add, color: Color(0xFF818CF8), size: 18),
+                    label: Text(
+                      'Adicionar disciplina',
+                      style: GoogleFonts.poppins(
+                        color: const Color(0xFF818CF8),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  // Card IRA
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF4F46E5),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    padding: const EdgeInsets.all(18),
+                    margin: const EdgeInsets.only(bottom: 18),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('IRA Atual:', style: GoogleFonts.poppins(color: const Color(0xFFDBEAFE), fontWeight: FontWeight.w500)),
+                            Text('-', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('IRA Simulado:', style: GoogleFonts.poppins(color: const Color(0xFFDBEAFE), fontWeight: FontWeight.w500)),
+                            Text('-', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: const Text('Cancelar'),
+                      ),
+                      const SizedBox(width: 10),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF6366F1),
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                        child: const Text('Calcular'),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+      return;
+    }
+    if (title == 'Progresso do Curso') {
+      // ...modal customizado do Progresso do Curso (com progressos zerados)...
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+            backgroundColor: Colors.black.withOpacity(0.92),
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 700, minWidth: 400),
+              padding: const EdgeInsets.all(28),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Progresso do Curso',
+                          style: GoogleFonts.poppins(
+                            color: const Color(0xFF60A5FA),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.close, color: Colors.white54, size: 28),
+                          onPressed: () => Navigator.of(context).pop(),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    // Progresso geral
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 18),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Progresso Geral', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w500)),
+                              Text('0% (0/0 créditos)', style: GoogleFonts.poppins(color: const Color(0xFF60A5FA), fontWeight: FontWeight.w500)),
+                            ],
+                          ),
+                          const SizedBox(height: 6),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: LinearProgressIndicator(
+                              value: 0.0,
+                              minHeight: 12,
+                              backgroundColor: const Color(0xFF374151),
+                              valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF2563EB)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Disciplinas por área e desempenho por área
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Disciplinas por área
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Disciplinas por Área', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w500)),
+                                const SizedBox(height: 10),
+                                _buildProgressBarRow('Obrigatórias', '0/0 créditos', 0.0, Colors.blue),
+                                _buildProgressBarRow('Optativas', '0/0 créditos', 0.0, Colors.blue),
+                                _buildProgressBarRow('Complementares', '0/0 créditos', 0.0, Colors.blue),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Desempenho por área
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Desempenho por Área', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w500)),
+                                const SizedBox(height: 10),
+                                _buildProgressBarRow('Programação', '0.0', 0.0, Colors.green),
+                                _buildProgressBarRow('Matemática', '0.0', 0.0, Colors.green),
+                                _buildProgressBarRow('Engenharia', '0.0', 0.0, Colors.green),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+                    // Histórico de IRA por semestre (área para gráfico)
+                    Text('Histórico de IRA por Semestre', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w500)),
+                    const SizedBox(height: 10),
+                    Container(
+                      width: double.infinity,
+                      height: 180,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF1E293B),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Gráfico em breve...',
+                        style: GoogleFonts.poppins(color: Colors.white38, fontSize: 16, fontStyle: FontStyle.italic),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                          ),
+                          child: const Text('Fechar'),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+      return;
+    }
+  }
+
+  // Helper para barra de progresso customizada
+  Widget _buildProgressBarRow(String label, String value, double percent, Color color) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(label, style: GoogleFonts.poppins(color: Colors.white, fontSize: 14)),
+              Text(value, style: GoogleFonts.poppins(color: Colors.white, fontSize: 14)),
+            ],
+          ),
+          const SizedBox(height: 3),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: LinearProgressIndicator(
+              value: percent,
+              minHeight: 8,
+              backgroundColor: const Color(0xFF374151),
+              valueColor: AlwaysStoppedAnimation<Color>(color),
             ),
           ),
         ],
