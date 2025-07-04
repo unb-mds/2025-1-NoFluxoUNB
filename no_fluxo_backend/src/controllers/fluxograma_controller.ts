@@ -76,20 +76,39 @@ export const FluxogramaController: EndpointController = {
             const logger = createControllerLogger("FluxogramaController", "casar_disciplinas");
             logger.info("Iniciando casamento de disciplinas");
             try {
-                const { dados_extraidos, nome_curso } = req.body;
+                const { dados_extraidos } = req.body;
 
-                if (!dados_extraidos || !nome_curso) {
-                    logger.error("Dados extraídos e nome do curso são obrigatórios");
-                    return res.status(400).json({ error: "Dados extraídos e nome do curso são obrigatórios" });
+                if (!dados_extraidos) {
+                    logger.error("Dados extraídos são obrigatórios");
+                    return res.status(400).json({ error: "Dados extraídos são obrigatórios" });
                 }
 
-                logger.info(`Buscando curso: "${nome_curso}"`);
+                // Extrair informações do PDF
+                const curso_extraido = dados_extraidos.curso_extraido;
+                const matriz_curricular = dados_extraidos.matriz_curricular;
+                const media_ponderada = dados_extraidos.media_ponderada;
+                const frequencia_geral = dados_extraidos.frequencia_geral;
 
-                // Buscar matérias do curso no banco
-                const { data: materiasBanco, error } = await SupabaseWrapper.get()
+                logger.info(`Curso extraído do PDF: "${curso_extraido}"`);
+                logger.info(`Matriz curricular extraída: "${matriz_curricular}"`);
+
+                if (!curso_extraido) {
+                    logger.error("Curso não foi extraído do PDF");
+                    return res.status(400).json({ error: "Curso não foi extraído do PDF" });
+                }
+
+                // Buscar curso no banco usando nome do curso e matriz curricular
+                let query = SupabaseWrapper.get()
                     .from("cursos")
                     .select("*,materias_por_curso(id_materia,nivel,materias(*))")
-                    .like("nome_curso", "%" + nome_curso + "%");
+                    .like("nome_curso", "%" + curso_extraido + "%");
+
+                // Se temos matriz curricular, usar ela para filtrar
+                if (matriz_curricular) {
+                    query = query.eq("matriz_curricular", matriz_curricular);
+                }
+
+                let { data: materiasBanco, error } = await query;
 
                 if (error) {
                     logger.error(`Erro ao buscar matérias do curso: ${error.message}`);
@@ -108,12 +127,26 @@ export const FluxogramaController: EndpointController = {
                 }
 
                 if (!materiasBanco || materiasBanco.length === 0) {
-                    logger.error(`Curso não encontrado: ${nome_curso}`);
-                    return res.status(404).json({
-                        error: "Curso não encontrado",
-                        curso_buscado: nome_curso,
-                        cursos_disponiveis: await SupabaseWrapper.get().from("cursos").select("nome_curso")
-                    });
+                    logger.warn(`Curso não encontrado com matriz curricular específica. Tentando busca alternativa...`);
+                    
+                    // Busca alternativa: apenas pelo nome do curso
+                    const { data: materiasBancoAlt, error: errorAlt } = await SupabaseWrapper.get()
+                        .from("cursos")
+                        .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                        .like("nome_curso", "%" + curso_extraido + "%");
+
+                    if (errorAlt || !materiasBancoAlt || materiasBancoAlt.length === 0) {
+                        logger.error(`Curso não encontrado: ${curso_extraido}`);
+                        return res.status(404).json({
+                            error: "Curso não encontrado",
+                            curso_buscado: curso_extraido,
+                            matriz_curricular_buscada: matriz_curricular,
+                            cursos_disponiveis: await SupabaseWrapper.get().from("cursos").select("nome_curso, matriz_curricular")
+                        });
+                    }
+
+                    logger.info(`Curso encontrado na busca alternativa: ${materiasBancoAlt[0].nome_curso}`);
+                    materiasBanco = materiasBancoAlt;
                 }
 
                 const materiasBancoList = materiasBanco[0].materias_por_curso;
@@ -133,8 +166,12 @@ export const FluxogramaController: EndpointController = {
                 // Extrair dados de validação do PDF
                 const dadosValidacao = {
                     ira: null as number | null,
+                    media_ponderada: media_ponderada ? parseFloat(media_ponderada) : null,
+                    frequencia_geral: frequencia_geral ? parseFloat(frequencia_geral) : null,
                     horas_integralizadas: 0,
-                    pendencias: []
+                    pendencias: [],
+                    curso_extraido: curso_extraido,
+                    matriz_curricular: matriz_curricular
                 };
 
                 // Buscar dados de validação nos dados extraídos
@@ -148,6 +185,9 @@ export const FluxogramaController: EndpointController = {
                         logger.info(`Pendências extraídas do PDF: ${dadosValidacao.pendencias.join(', ')}`);
                     }
                 }
+
+                logger.info(`Média ponderada extraída: ${dadosValidacao.media_ponderada}`);
+                logger.info(`Frequência geral extraída: ${dadosValidacao.frequencia_geral}`);
 
                 // Debug: verificar se há matérias com nível 0 ou nulo
                 const materiasNivelZero = materiasBancoList.filter((m: any) => m.nivel === 0 || m.nivel === null);
@@ -303,7 +343,7 @@ export const FluxogramaController: EndpointController = {
                 // Combinar todas as matérias pendentes
                 const todasMateriasPendentes = [...materiasPendentes, ...materiasObrigatoriasNaoEncontradas];
                 const todasMateriasOptativas = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
-
+                
                 // Calcular horas integralizadas
                 let horasIntegralizadas = 0;
                 logger.info("Calculando horas integralizadas:");
@@ -330,6 +370,8 @@ export const FluxogramaController: EndpointController = {
                     materias_pendentes: todasMateriasPendentes,
                     materias_optativas: todasMateriasOptativas,
                     dados_validacao: dadosValidacao,
+                    curso_extraido: curso_extraido,
+                    matriz_curricular: matriz_curricular,
                     resumo: {
                         total_disciplinas: disciplinasCasadas.length,
                         total_obrigatorias_concluidas: materiasConcluidas.length,
