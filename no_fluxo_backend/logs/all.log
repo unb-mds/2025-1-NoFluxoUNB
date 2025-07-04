@@ -1846,3 +1846,531 @@ Port 3001 is in use by another program. Either identify and stop that program, o
 [2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Optativas: 2
 [2025-07-04 16:12:36:1236][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Percentual de conclusão: 31.75%
 [2025-07-04 16:12:36:1236][[35mHTTP[39m] [POST][/fluxograma/casar_disciplinas] completed successfully
+[2025-07-04 16:18:04:184][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:18:04:184][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:18:04:184][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:18:04:184][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:04:184][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:05:185][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:18:05:185][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:18:05:185][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:06:186][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:18:06:186][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:18:08:188][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:18:08:188][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:18:08:188][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:09:189][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:18:09:189][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:18:12:1812][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:12:1812][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:18:12:1812][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:18:25:1825][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:25:1825][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:25:1825][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:18:26:1826][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:18:29:1829][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:29:1829][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:18:29:1829][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Supabase client initialized
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: GET /fluxograma/fluxograma
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: POST /fluxograma/read_pdf
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: POST /fluxograma/casar_disciplinas
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: GET /testes/banco
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: GET /testes/curso
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: POST /testes/casamento
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: POST /testes/completo
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: POST /users/register-user-with-google
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: GET /users/get-user-by-email
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Registering route: POST /users/registrar-user-with-email
+[2025-07-04 16:21:15:2115][[32mINFO[39m] Server running on port 3000
+[2025-07-04 16:21:15:2115][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:21:15:2115][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:21:15:2115][[32mINFO[39m] [PDF Parser]  * Serving Flask app 'pdf_parser_final'
+ * Debug mode: on
+
+[2025-07-04 16:21:16:2116][[31mERROR[39m] [PDF Parser] [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[INFO] [33mPress CTRL+C to quit[0m
+
+[2025-07-04 16:21:16:2116][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:21:16:2116][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:21:16:2116][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:21:16:2116][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:21:16:2116][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+
+[2025-07-04 16:33:35:3335][[35mHTTP[39m] [POST][/users/registrar-user-with-email]
+[2025-07-04 16:33:35:3335][[32mINFO[39m] [UsersController][registrar-user-with-email] Registrando usuário com email: {"email":"lordgamer903@gmail.com","nome_completo":"joao vitoring"}
+[2025-07-04 16:33:35:3335][[32mINFO[39m] [UsersController][registrar-user-with-email] Usuário criado com sucesso: {"id_user":10,"created_at":"2025-07-04T19:33:35.738801+00:00","email":"lordgamer903@gmail.com","nome_completo":"joao vitoring"}
+[2025-07-04 16:33:35:3335][[35mHTTP[39m] [POST][/users/registrar-user-with-email] completed successfully
+[2025-07-04 16:35:07:357][[35mHTTP[39m] [GET][/users/get-user-by-email]
+[2025-07-04 16:35:07:357][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"lordgamer903@gmail.com"}
+[2025-07-04 16:35:07:357][[35mHTTP[39m] [GET][/users/get-user-by-email] completed successfully
+[2025-07-04 16:44:35:4435][[35mHTTP[39m] [GET][/users/get-user-by-email]
+[2025-07-04 16:44:35:4435][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"lordgamer903@gmail.com"}
+[2025-07-04 16:44:35:4435][[35mHTTP[39m] [GET][/users/get-user-by-email] completed successfully
+[2025-07-04 16:44:42:4442][[35mHTTP[39m] [POST][/fluxograma/read_pdf]
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][read_pdf] Iniciando leitura de PDF
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][read_pdf] Enviando PDF para processamento: historico_211029503-5.pdf
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] ==================================================
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Request Method: POST
+[INFO] Request URL: http://127.0.0.1:3001/upload-pdf
+[INFO] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------900572889562159295419572', 'User-Agent': 'axios/1.10.0', 'Content-Length': '26405', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Request Files: dict_keys(['pdf'])
+[INFO] ==================================================
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Received PDF upload request
+[INFO] Processing file: historico_211029503-5.pdf
+[INFO] File content type: application/pdf
+[INFO] File size: 26178 bytes
+[INFO] Extracted matricula: 211029503-5
+[INFO] Attempting text extraction with PyPDF2
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] PDF has 3 pages
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Processing page 1
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Extracted 3337 characters from page 1
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Processing page 2
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Extracted 3666 characters from page 2
+[INFO] Processing page 3
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Extracted 2686 characters from page 3
+[INFO] Successfully extracted text using PyPDF2
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] PDF processing completed successfully
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] Sending response with 77 extracted items
+
+[2025-07-04 16:44:42:4442][[31mERROR[39m] [PDF Parser] [INFO] 127.0.0.1 - - [04/Jul/2025 16:44:42] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][read_pdf] PDF processado com sucesso
+[2025-07-04 16:44:42:4442][[35mHTTP[39m] [POST][/fluxograma/read_pdf] completed successfully
+[2025-07-04 16:44:42:4442][[35mHTTP[39m] [POST][/fluxograma/casar_disciplinas]
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Iniciando casamento de disciplinas
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Buscando curso: "ENGENHARIA DE SOFTWARE"
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Cursos encontrados: 2
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Curso encontrado: ENGENHARIA DE SOFTWARE
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Total de matérias no curso: 203
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias obrigatórias: 65
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias optativas: 138
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] IRA extraído do PDF: 3.7389
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: TRANC
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: APR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CANC
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: DISP
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REP
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REPF
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: REPMF
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: TRANC
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Pendências extraídas do PDF: CUMP
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias com nível 0 ou nulo: 138
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Matérias nível 0: COMPUTACAO BASICA (nível: 0), ESTRUTURAS DE DADOS (nível: 0), PRINCIPIOS DE COMPUTACAO GRAFICA (nível: 0), PROJETO E ANÁLISE DE ALGORITMOS (nível: 0), INTRODUÇÃO AO DESENVOLVIMENTO DE JOGOS (nível: 0), TECNICAS DE PROGRAMAÇÃO 1 (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), ATIVIDADE COMPLEMENTAR (nível: 0), SISTEMAS DIGITAIS 1 (nível: 0), SISTEMAS DIGITAIS 2 (nível: 0), FENOMENOS DE TRANSPORTE (nível: 0), PRÁTICA DESPORTIVA (nível: 0), CONTRATAÇÃO DE SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO (nível: 0), TÉCNICAS DE MEDIÇÃO FUNCIONAL E ESTIMATIVAS DE SOFTWARE (nível: 0), FUNDAMENTOS DE EQUAÇÕES DIFERENCIAIS PARA ENGENHARIA (nível: 0), CONFIABILIDADE DE COMPONENTES E SISTEMAS (nível: 0), SISTEMAS AEROESPACIAIS (nível: 0), FUNDAMENTOS DE ARQUITETURA DE SOFTWARE (nível: 0), PRINCÍPIOS DE ROBÓTICA EDUCACIONAL (nível: 0), PROGRAMAÇÃO PARA COMPETIÇÕES (nível: 0), SEMINÁRIOS EM ENGENHARIA DE SOFTWARE (nível: 0), TÓPICOS ESPECIAIS EM FÍSICA APLICADA (nível: 0), TÓPICOS ESPECIAIS EM MATEMÁTICA APLICADA (nível: 0), PRÉ-CÁLCULO PARA ENGENHARIA (nível: 0), AERODINÂMICA DE SISTEMAS AEROESPACIAIS (nível: 0), TÓPICOS ESPECIAIS EM JOGOS DIGITAIS (nível: 0), TÓPICOS ESPECIAIS EM SISTEMAS CRÍTICOS (nível: 0), DINÂMICA DOS GASES PARA SISTEMAS AEROESPACIAIS (nível: 0), PROJETO DE SISTEMAS DE CONTROLE (nível: 0), MECÂNICA DO VÔO (nível: 0), MÉTODOS E TÉCNICAS DA ESCRITA CIENTÍFICA (nível: 0), PROCESSOS PETROQUÍMICOS (nível: 0), TÓPICOS ESPECIAIS EM PROGRAMAÇÃO (nível: 0), TÓPICOS ESPECIAIS EM GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO (nível: 0), CRIPTOGRAFIA E SEGURANÇA DE REDES (nível: 0), FÍSICA PARA JOGOS ELETRÔNICOS 1 (nível: 0), FUNDAMENTOS DE VARIÁVEL COMPLEXA PARA ENGENHARIA (nível: 0), PRÁTICA DE ELETRÔNICA DIGITAL 2 (nível: 0), TEORIA DE ELETRÔNICA DIGITAL 2 (nível: 0), LABORATÓRIO DE MATERIAIS DE CONSTRUÇÃO (nível: 0), TEORIA DE MATERIAIS DE CONSTRUÇÃO (nível: 0), ONDULATÓRIA E FÍSICA TÉRMICA PARA ENGENHARIA (nível: 0), PRINCÍPIOS DE CONTROLE (nível: 0), QUÍMICA ORGÂNICA APLICADA À ENGENHARIA (nível: 0), CÁLCULO PARA ENGENHARIA 1 (nível: 0), INTRODUÇÃO À GEOMETRIA ANALÍTICA (nível: 0), CÁLCULO PARA ENGENHARIA 2 (nível: 0), EQUAÇÕES DIFERENCIAIS ORDINÁRIAS (nível: 0), CÁLCULO PARA ENGENHARIA 3 (nível: 0), PROCESSAMENTO DIGITAL DE SINAIS FINANCEIROS (nível: 0), TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE (nível: 0), MATERIAIS DE CONSTRUÇÃO DE ENGENHARIA (nível: 0), GESTÃO AMBIENTAL NO SETOR ENERGÉTICO (nível: 0), FUNDAMENTOS DA TEORIA ELETROMAGNÉTICA (nível: 0), FÍSICA MODERNA (nível: 0), ENGENHARIA DE SEGURANÇA DO TRABALHO (nível: 0), ERGONOMIA DO PRODUTO (nível: 0), MECANICA DOS SÓLIDOS 1 PARA ENGENHARIA (nível: 0), INTRODUÇÃO AO DESIGN E CONCEPÇÃO DE VEÍCULOS (nível: 0), COMBUSTÍVEIS E BIOCOMBUSTÍVEIS (nível: 0), ESTRUTURAS MATEMÁTICAS PARA COMPUTAÇÃO (nível: 0), PROCESSO DE DESENVOLVIMENTO DE SOFTWARE (nível: 0), ELEMENTOS E MÉTODOS EM ELETRÔNICA (nível: 0), SISTEMAS AUTOMOTIVOS (nível: 0), FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSÃO (nível: 0), TÉCNICAS DE PROGRAMAÇÃO (nível: 0), DESENVOLVIMENTO SUSTENTÁVEL (nível: 0), ENGENHARIA DE PETRÓLEO E GÁS (nível: 0), MECANICA DOS SÓLIDOS 2 PARA ENGENHARIA (nível: 0), INOVAÇÃO (nível: 0), MICROPROCESSADORES E MICROCONTROLADORES (nível: 0), ELETRICIDADE APLICADA (nível: 0), MÉTODOS MATEMÁTICOS PARA ENGENHARIA (nível: 0), MÉTODOS EXPERIMENTAIS PARA ENGENHARIA (nível: 0), GESTÃO DA PRODUÇÃO AUTOMOTIVA (nível: 0), CIRCUITOS ELETRÔNICOS 1 (nível: 0), SISTEMAS DE CONTROLE (nível: 0), PROJETO DE CIRCUITOS INTEGRADOS DIGITAIS (nível: 0), PLANEJAMENTO E GESTÃO DE ENERGIA (nível: 0), DINÂMICA DOS FLUÍDOS (nível: 0), MODELAGEM DE PROCESSOS (nível: 0), SISTEMAS CRÍTICOS E TOLERÂNCIA A FALHAS (nível: 0), SISTEMAS EMBARCADOS (nível: 0), INTELIGÊNCIA ARTIFICIAL (nível: 0), ELETRÔNICA VEICULAR (nível: 0), GERÊNCIA DE CONFIGURAÇÃO DE SOFTWARE (nível: 0), MÉTODOS FORMAIS (nível: 0), SISTEMAS DE PROPULSÃO HÍBRIDOS (nível: 0), INSTRUMENTAÇÃO E SISTEMAS DE CONTROLE (nível: 0), CIÊNCIAS AEROESPACIAIS (nível: 0), INTRODUÇÃO AOS JOGOS ELETRÔNICOS (nível: 0), INTRODUÇÃO A COMPUTAÇÃO GRÁFICA (nível: 0), ECONOMIA DE ENERGIA (nível: 0), PRODUTIVIDADE E PROFISSIONALISMO EM ENGENHARIA DE SOFTWARE (nível: 0), ENGENHARIA DE SOFTWARE EXPERIMENTAL (nível: 0), COMPUTAÇÃO EM NUVEM (nível: 0), PROGRAMAÇÃO WEB (nível: 0), INTRODUCAO A ATIVIDADE EMPRESARIAL (nível: 0), QUÍMICA GERAL (nível: 0), QUIMICA GERAL TEORICA (nível: 0), QUIMICA GERAL EXPERIMENTAL (nível: 0), LÍNGUA DE SINAIS BRASILEIRA - BÁSICO (nível: 0), CÁLCULO 3 (nível: 0), TEORIA DOS NÚMEROS 1 (nível: 0), EQUACOES DIFERENCIAIS 1 (nível: 0), CÁLCULO 1 - SEMIPRESENCIAL (nível: 0), ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES (nível: 0), DESENVOLVIMENTO DE SOFTWARE (nível: 0), PRÁTICA DE ELETRÔNICA DIGITAL 1 (nível: 0), TEORIA DE ELETRÔNICA DIGITAL 1 (nível: 0), MATEMÁTICA DISCRETA 1 (nível: 0), PROJETO DE ALGORITMOS (nível: 0), QUALIDADE DE SOFTWARE 2 (nível: 0), INFORMAÇÃO, COMUNICAÇÃO E A SOCIEDADE DO CONHECIMENTO (nível: 0), TÉCNICAS DE PROGRAMAÇÃO EM PLATAFORMAS EMERGENTES (nível: 0), FÍSICA PARA JOGOS ELETRÔNICOS 1 (nível: 0), APRENDIZADO DE MÁQUINA (nível: 0), INTRODUÇÃO À WEB SEMÂNTICA (nível: 0), FÍSICA PARA JOGOS ELETRÔNICOS 2 (nível: 0), COMPILADORES 2 (nível: 0), MELHORIA DE PROCESSOS DE SOFTWARE (nível: 0)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Verificação de duplicatas - Total: 203, Únicos: 158
+[2025-07-04 16:44:42:4442][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Encontradas matérias duplicadas
+[2025-07-04 16:44:42:4442][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Matérias duplicadas: PRÁTICA DE ELETRÔNICA DIGITAL 1, TEORIA DE ELETRÔNICA DIGITAL 1, TÉCNICAS DE PROGRAMAÇÃO EM PLATAFORMAS EMERGENTES, PROJETO DE ALGORITMOS, MATEMÁTICA DISCRETA 1, ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES, COMPUTACAO BASICA, PROJETO E ANÁLISE DE ALGORITMOS, ATIVIDADE COMPLEMENTAR, SISTEMAS DIGITAIS 1, FÍSICA PARA JOGOS ELETRÔNICOS 1, ESTRUTURAS MATEMÁTICAS PARA COMPUTAÇÃO, TÉCNICAS DE PROGRAMAÇÃO, DESENVOLVIMENTO DE SOFTWARE, QUALIDADE DE SOFTWARE 2, INFORMAÇÃO, COMUNICAÇÃO E A SOCIEDADE DO CONHECIMENTO, APRENDIZADO DE MÁQUINA, INTRODUÇÃO À WEB SEMÂNTICA, FÍSICA PARA JOGOS ELETRÔNICOS 2, COMPILADORES 2, MELHORIA DE PROCESSOS DE SOFTWARE
+[2025-07-04 16:44:42:4442][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Disciplina não encontrada no banco: CALCULO NUMERICO
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Atualizando status de "PRÁTICA DE ELETRÔNICA DIGITAL 1": REP → APR
+[2025-07-04 16:44:42:4442][[33mWARN[39m] [FluxogramaController][casar_disciplinas] Disciplina não encontrada no banco: ALGEBRA 1
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Atualizando status de "MÉTODOS NUMÉRICOS PARA ENGENHARIA": CANC → MATR
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Calculando horas integralizadas:
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES - 90h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] INTRODUÇÃO À ENGENHARIA - 30h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR - 90h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] CÁLCULO 1 - 90h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] FISICA 1 - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] FISICA 1 EXPERIMENTAL - 30h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] CÁLCULO 2 - 90h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] DESENVOLVIMENTO DE SOFTWARE - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ORIENTAÇÃO A OBJETOS - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] INTRODUCAO A ALGEBRA LINEAR - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] PRÁTICA DE ELETRÔNICA DIGITAL 1 - 30h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] TEORIA DE ELETRÔNICA DIGITAL 1 - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ESTRUTURA DE DADOS E ALGORITMOS - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] INTERAÇÃO HUMANO COMPUTADOR - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] MATEMÁTICA DISCRETA 1 - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] ENGENHARIA ECONÔMICA - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] HUMANIDADES E CIDADANIA - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] GERÊNCIA DE CONFIGURAÇÃO E EVOLUÇÃO DE SOFTWARE - 60h (APR)
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Total de horas integralizadas: 1290h
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Resumo do processamento:
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Total de disciplinas: 30
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Obrigatórias concluídas: 20
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Obrigatórias pendentes: 43
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Optativas: 2
+[2025-07-04 16:44:42:4442][[32mINFO[39m] [FluxogramaController][casar_disciplinas] Percentual de conclusão: 31.75%
+[2025-07-04 16:44:42:4442][[35mHTTP[39m] [POST][/fluxograma/casar_disciplinas] completed successfully
+[2025-07-04 16:45:17:4517][[35mHTTP[39m] [GET][/users/get-user-by-email]
+[2025-07-04 16:45:17:4517][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"lordgamer903@gmail.com"}
+[2025-07-04 16:45:17:4517][[35mHTTP[39m] [GET][/users/get-user-by-email] completed successfully
+[2025-07-04 16:46:38:4638][[35mHTTP[39m] [GET][/users/get-user-by-email]
+[2025-07-04 16:46:38:4638][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"lordgamer903@gmail.com"}
+[2025-07-04 16:46:39:4639][[35mHTTP[39m] [GET][/users/get-user-by-email] completed successfully
+[2025-07-04 16:47:06:476][[35mHTTP[39m] [GET][/users/get-user-by-email]
+[2025-07-04 16:47:06:476][[32mINFO[39m] [UsersController][get-user-by-email] Buscando usuário por email: {"email":"lordgamer903@gmail.com"}
+[2025-07-04 16:47:07:477][[35mHTTP[39m] [GET][/users/get-user-by-email] completed successfully
+[2025-07-04 16:50:24:5024][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 16:50:24:5024][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 16:50:24:5024][[31mERROR[39m] [PDF Parser] [INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/parse-pdf/pdf_parser_final.py', reloading
+
+[2025-07-04 16:50:25:5025][[32mINFO[39m] [PDF Parser] 
+--- Texto Completo Extraído (Primeiras 500 chars) ---
+Histórico Escolar - Emitido em: 03/07/2025 às 19:01DEG - Decanato de Ensino de Graduação
+SAA - Secretaria de Administração Acadêmica
+Dados Pessoais
+Dados do Vínculo do(a) Discente
+ENGENHARIA DE SOFTWARE/FCTE - BACHARELADO - DIURNO
+2028.1 / 2031.1
+-Curso:
+Currículo:
+Ano / Período Letivo Inicial:
+Forma de Ingresso:
+Prazo para Conclusão (Padrão / Máximo):
+Ano/Período de Integralização:6360/1 - 2017.1
+Reconhecimento do Curso: Portaria SERES/MEC nº 313, 05/07/2024. D.O.U.: 08/07/2024Status: ATIVO
+Per...
+----------------------------------------------------
+
+🎓 Curso extraído (padrão alternativo): Administração Acadêmica
+Dados Pessoais
+Dados do Vínculo do
+  -> Currículo encontrado: 6360/1 - 2017.1
+  -> IRA encontrado: 3.7389
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.1ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES' → 'ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES'
+  -> Disciplina Regular encontrada: 'ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.1INTRODUÇÃO À ENGENHARIA' → 'INTRODUÇÃO À ENGENHARIA'
+  -> Disciplina Regular encontrada: 'INTRODUÇÃO À ENGENHARIA' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.1DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR' → 'DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR'
+  -> Disciplina Regular encontrada: 'DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.1CÁLCULO 1' → 'CÁLCULO 1'
+  -> Disciplina Regular encontrada: 'CÁLCULO 1' (Status: APR)
+    📊 Disciplina com números: 'CÁLCULO 1'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.2FISICA 1' → 'FISICA 1'
+  -> Disciplina Regular encontrada: 'FISICA 1' (Status: APR)
+    📊 Disciplina com números: 'FISICA 1'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.2FISICA 1 EXPERIMENTAL' → 'FISICA 1 EXPERIMENTAL'
+  -> Disciplina Regular encontrada: 'FISICA 1 EXPERIMENTAL' (Status: APR)
+    📊 Disciplina com números: 'FISICA 1 EXPERIMENTAL'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2021.2CÁLCULO 2' → 'CÁLCULO 2'
+  -> Disciplina Regular encontrada: 'CÁLCULO 2' (Status: APR)
+    📊 Disciplina com números: 'CÁLCULO 2'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2022.1DESENVOLVIMENTO DE SOFTWARE' → 'DESENVOLVIMENTO DE SOFTWARE'
+  -> Disciplina Regular encontrada: 'DESENVOLVIMENTO DE SOFTWARE' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2022.1ORIENTAÇÃO A OBJETOS' → 'ORIENTAÇÃO A OBJETOS'
+  -> Disciplina Regular encontrada: 'ORIENTAÇÃO A OBJETOS' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2022.1INTRODUCAO A ALGEBRA LINEAR' → 'INTRODUCAO A ALGEBRA LINEAR'
+  -> Disciplina Regular encontrada: 'INTRODUCAO A ALGEBRA LINEAR' (Status: APR)
+  -> Pendências encontradas: ['REP']
+🔧 Limpeza: '2022.1CALCULO NUMERICO' → 'CALCULO NUMERICO'
+  -> Disciplina Regular encontrada: 'CALCULO NUMERICO' (Status: REP)
+  -> Pendências encontradas: ['REP']
+🔧 Limpeza: '2022.2TÓPICOS ESPECIAIS EM PROGRAMAÇÃO' → 'TÓPICOS ESPECIAIS EM PROGRAMAÇÃO'
+  -> Disciplina Regular encontrada: 'TÓPICOS ESPECIAIS EM PROGRAMAÇÃO' (Status: REP)
+  -> Pendências encontradas: ['REP']
+🔧 Limpeza: '2022.2PRÁTICA DE ELETRÔNICA DIGITAL 1' → 'PRÁTICA DE ELETRÔNICA DIGITAL 1'
+  -> Disciplina Regular encontrada: 'PRÁTICA DE ELETRÔNICA DIGITAL 1' (Status: REP)
+    📊 Disciplina com números: 'PRÁTICA DE ELETRÔNICA DIGITAL 1'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2022.2TEORIA DE ELETRÔNICA DIGITAL 1' → 'TEORIA DE ELETRÔNICA DIGITAL 1'
+  -> Disciplina Regular encontrada: 'TEORIA DE ELETRÔNICA DIGITAL 1' (Status: APR)
+    📊 Disciplina com números: 'TEORIA DE ELETRÔNICA DIGITAL 1'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2022.2MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE' → 'MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE'
+  -> Disciplina Regular encontrada: 'MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2022.2ESTRUTURA DE DADOS E ALGORITMOS' → 'ESTRUTURA DE DADOS E ALGORITMOS'
+  -> Disciplina Regular encontrada: 'ESTRUTURA DE DADOS E ALGORITMOS' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.1INTERAÇÃO HUMANO COMPUTADOR' → 'INTERAÇÃO HUMANO COMPUTADOR'
+  -> Disciplina Regular encontrada: 'INTERAÇÃO HUMANO COMPUTADOR' (Status: APR)
+  -> Pendências encontradas: ['APR']
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2PRÁTICA DE ELETRÔNICA DIGITAL 1' → 'PRÁTICA DE ELETRÔNICA DIGITAL 1'
+  -> Disciplina Regular encontrada: 'PRÁTICA DE ELETRÔNICA DIGITAL 1' (Status: APR)
+    📊 Disciplina com números: 'PRÁTICA DE ELETRÔNICA DIGITAL 1'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2MATEMÁTICA DISCRETA 1' → 'MATEMÁTICA DISCRETA 1'
+  -> Disciplina Regular encontrada: 'MATEMÁTICA DISCRETA 1' (Status: APR)
+    📊 Disciplina com números: 'MATEMÁTICA DISCRETA 1'
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2ENGENHARIA ECONÔMICA' → 'ENGENHARIA ECONÔMICA'
+  -> Disciplina Regular encontrada: 'ENGENHARIA ECONÔMICA' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE' → 'TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE'
+  -> Disciplina Regular encontrada: 'TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA' → 'PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA'
+  -> Disciplina Regular encontrada: 'PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2HUMANIDADES E CIDADANIA' → 'HUMANIDADES E CIDADANIA'
+  -> Disciplina Regular encontrada: 'HUMANIDADES E CIDADANIA' (Status: APR)
+  -> Pendências encontradas: ['APR']
+🔧 Limpeza: '2023.2GERÊNCIA DE CONFIGURAÇÃO E EVOLUÇÃO DE SOFTWARE' → 'GERÊNCIA DE CONFIGURAÇÃO E EVOLUÇÃO DE SOFTWARE'
+  -> Disciplina Regular encontrada: 'GERÊNCIA DE CONFIGURAÇÃO E EVOLUÇÃO DE SOFTWARE' (Status: APR)
+  -> Pendências encontradas: ['CANC']
+  -> Pendências encontradas: ['CANC']
+🔧 Limpeza: '2024.1MÉTODOS NUMÉRICOS PARA ENGENHARIA' → 'MÉTODOS NUMÉRICOS PARA ENGENHARIA'
+  -> Disciplina Regular encontrada: 'MÉTODOS NUMÉRICOS PARA ENGENHARIA' (Status: CANC)
+  -> Pendências encontradas: ['CANC']
+🔧 Limpeza: '2024.1ALGEBRA 1' → 'ALGEBRA 1'
+  -> Disciplina Regular encontrada: 'ALGEBRA 1' (Status: CANC)
+    📊 Disciplina com números: 'ALGEBRA 1'
+  -> Pendências encontradas: ['MATR']
+🔧 Limpeza: '2025.1MATEMÁTICA DISCRETA 2' → 'MATEMÁTICA DISCRETA 2'
+  -> Disciplina Regular encontrada: 'MATEMÁTICA DISCRETA 2' (Status: MATR)
+    📊 Disciplina com números: 'MATEMÁTICA DISCRETA 2'
+  -> Pendências encontradas: ['MATR']
+🔧 Limpeza: '2025.1FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES' → 'FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES'
+  -> Disciplina Regular encontrada: 'FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES' (Status: MATR)
+  -> Pendências encontradas: ['MATR']
+🔧 Limpeza: '2025.1MÉTODOS NUMÉRICOS PARA ENGENHARIA' → 'MÉTODOS NUMÉRICOS PARA ENGENHARIA'
+  -> Disciplina Regular encontrada: 'MÉTODOS NUMÉRICOS PARA ENGENHARIA' (Status: MATR)
+  -> Pendências encontradas: ['MATR']
+🔧 Limpeza: '2025.1PROJETO INTEGRADOR DE ENGENHARIA 1' → 'PROJETO INTEGRADOR DE ENGENHARIA 1'
+  -> Disciplina Regular encontrada: 'PROJETO INTEGRADOR DE ENGENHARIA 1' (Status: MATR)
+    📊 Disciplina com números: 'PROJETO INTEGRADOR DE ENGENHARIA 1'
+  -> Pendências encontradas: ['TRANC']
+🔧 Limpeza: '2025.1GESTÃO DA PRODUÇÃO E QUALIDADE' → 'GESTÃO DA PRODUÇÃO E QUALIDADE'
+  -> Disciplina Regular encontrada: 'GESTÃO DA PRODUÇÃO E QUALIDADE' (Status: TRANC)
+  -> Pendências encontradas: ['MATR']
+🔧 Limpeza: '2025.1REQUISITOS DE SOFTWARE' → 'REQUISITOS DE SOFTWARE'
+
+[2025-07-04 16:50:25:5025][[32mINFO[39m] [PDF Parser]   -> Disciplina Regular encontrada: 'REQUISITOS DE SOFTWARE' (Status: MATR)
+  -> Pendências encontradas: ['APR']
+  -> Pendências encontradas: ['CANC']
+  -> Pendências encontradas: ['DISP']
+  -> Pendências encontradas: ['MATR']
+  -> Pendências encontradas: ['REP']
+  -> Pendências encontradas: ['REPF']
+  -> Pendências encontradas: ['REPMF']
+  -> Pendências encontradas: ['TRANC']
+  -> Pendências encontradas: ['CUMP']
+
+--- Fim do processamento de linhas ---
+Total de itens extraídos: 77
+
+[2025-07-04 16:50:25:5025][[31mERROR[39m] [PDF Parser] [INFO]  * Restarting with watchdog (fsevents)
+
+[2025-07-04 16:50:25:5025][[31mERROR[39m] [PDF Parser] [INFO] Using Tesseract path: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract
+
+[2025-07-04 16:50:25:5025][[31mERROR[39m] [PDF Parser] [INFO] Starting PDF parser service on port 3001
+
+[2025-07-04 16:50:25:5025][[31mERROR[39m] [PDF Parser] [WARNING]  * Debugger is active!
+
+[2025-07-04 16:50:25:5025][[31mERROR[39m] [PDF Parser] [INFO]  * Debugger PIN: 114-293-037
+

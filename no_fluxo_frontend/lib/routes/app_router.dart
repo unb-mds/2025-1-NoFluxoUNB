@@ -21,6 +21,7 @@ final log = Logger('AppRouter');
 class AppRouter {
   static final List<String> routesThatNeedNoLogin = [
     '/',
+    "",
     "/login",
     "/signup",
     "/password-recovery",

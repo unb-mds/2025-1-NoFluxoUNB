@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  brasil_fields:
+    dependency: "direct main"
+    description:
+      name: brasil_fields
+      sha256: "61b8502887e5e54929fddd2026de9fc54a3222d491560fe634c84703d8cde0f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.18.0"
   characters:
     dependency: transitive
     description:
@@ -256,6 +264,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3df61194eb431efc39c4ceba583b95633a403f46c9fd341e550ce0bfa50e9aa5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.2"
   jwt_decode:
     dependency: transitive
     description:

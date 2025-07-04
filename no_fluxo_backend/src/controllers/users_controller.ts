@@ -66,6 +66,42 @@ export const UsersController: EndpointController = {
             }
 
             return res.status(404).json({ error: "Usuário não encontrado" });
+        }),
+        "registrar-user-with-email": new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            const logger = createControllerLogger("UsersController", "registrar-user-with-email");
+            logger.info(`Registrando usuário com email: ${JSON.stringify(req.body)}`);
+
+            const { email, nome_completo } = req.body;
+
+            if (!email || !nome_completo) {
+                logger.error("Email e nome completo são obrigatórios");
+                return res.status(400).json({ error: "Email e nome completo são obrigatórios" });
+            }
+
+            var { data: userExistsResult, error: userExistsError } = await SupabaseWrapper.get().from("users").select("*").eq("email", email);
+
+            if (userExistsError) {
+                logger.error(`Erro ao buscar usuário: ${JSON.stringify(userExistsError)}`);
+                return res.status(500).json({ error: "Erro ao buscar usuário" });
+            }
+
+            if (userExistsResult && userExistsResult.length > 0) {
+                logger.error("Usuário já cadastrado");
+                return res.status(400).json({ error: "Usuário já cadastrado" });
+            }
+
+            var { data: userCreatedResult, error: userCreatedError } = await SupabaseWrapper.get().from("users").insert({
+                email,
+                nome_completo
+            }).select("*").single();
+
+            if (userCreatedError) {
+                logger.error(`Erro ao criar usuário: ${JSON.stringify(userCreatedError)}`);
+                return res.status(500).json({ error: "Erro ao criar usuário" });
+            }
+
+            logger.info(`Usuário criado com sucesso: ${JSON.stringify(userCreatedResult)}`);
+            return res.status(200).json(userCreatedResult);
         })
     }
 } 

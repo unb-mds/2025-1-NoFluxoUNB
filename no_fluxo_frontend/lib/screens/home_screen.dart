@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mobile_app/config/size_config.dart';
 import '../cache/shared_preferences_helper.dart';
 import '../constants/app_colors.dart';
 import '../widgets/graffiti_background.dart';
@@ -26,7 +27,8 @@ class HomeScreen extends StatelessWidget {
               children: [
                 // Adiciona sombra/fundo escuro translúcido atrás da primeira seção
                 Container(
-                  padding: const EdgeInsets.only(top: 88, left: 64, right: 64, bottom: 48),
+                  padding: const EdgeInsets.only(
+                      top: 88, left: 64, right: 64, bottom: 48),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.3),
                   ),
@@ -53,7 +55,8 @@ class HomeScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       shadows: [
                                         Shadow(
-                                          color: AppColors.black.withOpacity(0.3),
+                                          color:
+                                              AppColors.black.withOpacity(0.3),
                                           offset: const Offset(3, 3),
                                           blurRadius: 6,
                                         ),
@@ -68,7 +71,8 @@ class HomeScreen extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       shadows: [
                                         Shadow(
-                                          color: AppColors.black.withOpacity(0.3),
+                                          color:
+                                              AppColors.black.withOpacity(0.3),
                                           offset: const Offset(3, 3),
                                           blurRadius: 6,
                                         ),
@@ -112,6 +116,8 @@ class HomeScreen extends StatelessWidget {
                           child: SvgPicture.asset(
                             'assets/icons/computer_phone.svg',
                             width: 600,
+                            theme: SvgTheme(
+                                fontSize: getProportionateFontSize(10)),
                           ),
                         ),
                       ),

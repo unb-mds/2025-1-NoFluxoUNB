@@ -8,7 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/auth/login_form.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
+import '../cache/shared_preferences_helper.dart';
 import '../models/user_model.dart';
 
 final log = Logger('AuthService');
@@ -82,21 +82,38 @@ class AuthService {
     String? displayName,
   }) async {
     try {
-      final response = await supabase.auth.signUp(
+      // First, create the user in Supabase Auth
+      final authResponse = await supabase.auth.signUp(
         email: email,
         password: password,
         data: displayName != null ? {'display_name': displayName} : null,
       );
 
-      if (response.user != null) {
-        return response.user; // Retorna o usuário em caso de sucesso
+      if (authResponse.user == null) {
+        throw AuthException("Erro ao criar conta no Supabase");
       }
 
-      // Se não há usuário, lança exceção
-      throw AuthException("Erro ao criar conta");
+      // Then, register the user in our backend
+      final response = await http.post(
+        Uri.parse('${Environment.apiUrl}/users/registrar-user-with-email'),
+        body: {
+          'email': email,
+          'nome_completo': displayName ?? email.split('@')[0],
+        },
+      );
+
+      if (response.statusCode != 200) {
+        // If backend registration fails, delete the Supabase auth user
+        await supabase.auth.signOut();
+        throw AuthException(response.body);
+      }
+
+      return authResponse.user;
     } on AuthException catch (e) {
+      log.severe('Auth error during signup', e);
       throw AuthException(e.message);
-    } catch (e) {
+    } catch (e, st) {
+      log.severe('Unexpected error during signup', e, st);
       throw AuthException("Erro inesperado: $e");
     }
   }
@@ -149,6 +166,20 @@ class AuthService {
         password: password,
       );
       if (response.user != null) {
+        // Fetch user data from backend and set in SharedPreferences
+        final result = await databaseSearchUser(email);
+        final error = await result.fold(
+          (error) async => error,
+          (userFromDb) async {
+            SharedPreferencesHelper.currentUser = userFromDb;
+            return null;
+          },
+        );
+
+        if (error != null) {
+          await supabase.auth.signOut();
+          return error;
+        }
         return null; // Login successful
       }
       return "Email ou senha inválidos";
@@ -171,13 +202,26 @@ class AuthService {
       );
 
       if (response.user != null) {
+        // Fetch user data from backend and set in SharedPreferences
+        final result = await databaseSearchUser(email);
+        await result.fold(
+          (error) async {
+            throw AuthException(error);
+          },
+          (userFromDb) async {
+            SharedPreferencesHelper.currentUser = userFromDb;
+          },
+        );
+
         return response.user;
       }
 
       throw AuthException("Email ou senha inválidos");
     } on AuthException catch (e) {
+      log.severe('Auth error during login', e);
       throw AuthException(e.message);
-    } catch (e) {
+    } catch (e, st) {
+      log.severe('Unexpected error during login', e, st);
       throw AuthException("Erro inesperado: $e");
     }
   }

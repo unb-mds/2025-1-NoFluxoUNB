@@ -4,7 +4,7 @@ import 'package:mobile_app/service/auth_service.dart';
 import '../../constants/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:email_validator/email_validator.dart';
+import 'package:brasil_fields/brasil_fields.dart';
 
 class SignupForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -30,7 +30,33 @@ class _SignupFormState extends State<SignupForm> {
   bool _obscureConfirmPassword = true;
   String? _emailError;
   String? _termsError;
-  bool _isLoading = false; // Novo estado para controlar loading
+  bool _isLoading = false;
+
+  // Validation states
+  bool _isNameValid = false;
+  bool _isEmailValid = false;
+  bool _isPasswordValid = false;
+  bool _isConfirmPasswordValid = false;
+
+  // Password requirements
+  final _minLength = 8;
+  final _hasUpperCase = RegExp(r'[A-Z]');
+  final _hasLowerCase = RegExp(r'[a-z]');
+  final _hasNumbers = RegExp(r'[0-9]');
+  final _hasSpecialCharacters = RegExp(r'[!@#\$&*~]');
+  final _emailRegex = RegExp(
+    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    // Add listeners to all controllers
+    _nameController.addListener(_validateForm);
+    _emailController.addListener(_validateForm);
+    _passwordController.addListener(_validateForm);
+    _confirmPasswordController.addListener(_validateForm);
+  }
 
   @override
   void dispose() {
@@ -39,6 +65,68 @@ class _SignupFormState extends State<SignupForm> {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  void _validateForm() {
+    setState(() {
+      // Validate name
+      _isNameValid = _nameController.text.trim().split(' ').length >= 2 &&
+          _nameController.text.trim().length >= 3;
+
+      // Validate email
+      _isEmailValid = _emailRegex.hasMatch(_emailController.text.trim());
+
+      // Validate password
+      final password = _passwordController.text;
+      _isPasswordValid = password.length >= _minLength &&
+          _hasUpperCase.hasMatch(password) &&
+          _hasLowerCase.hasMatch(password) &&
+          _hasNumbers.hasMatch(password) &&
+          _hasSpecialCharacters.hasMatch(password);
+
+      // Validate confirm password
+      _isConfirmPasswordValid =
+          _confirmPasswordController.text == _passwordController.text &&
+              _confirmPasswordController.text.isNotEmpty;
+    });
+  }
+
+  bool get _isFormValid =>
+      _isNameValid &&
+      _isEmailValid &&
+      _isPasswordValid &&
+      _isConfirmPasswordValid &&
+      _acceptTerms;
+
+  List<String> get _missingRequirements {
+    final missing = <String>[];
+    if (!_isNameValid) missing.add('Nome completo válido');
+    if (!_isEmailValid) missing.add('Email válido');
+    if (!_isPasswordValid) missing.add('Senha que atenda aos requisitos');
+    if (!_isConfirmPasswordValid) missing.add('Confirmação de senha');
+    if (!_acceptTerms) missing.add('Aceitar os termos');
+    return missing;
+  }
+
+  // Password strength indicators
+  Widget _buildPasswordStrengthIndicator(String requirement, bool isMet) {
+    return Row(
+      children: [
+        Icon(
+          isMet ? Icons.check_circle : Icons.cancel,
+          color: isMet ? Colors.green : Colors.grey,
+          size: 16,
+        ),
+        const SizedBox(width: 8),
+        Text(
+          requirement,
+          style: GoogleFonts.poppins(
+            color: isMet ? Colors.green : Colors.grey[600],
+            fontSize: 12,
+          ),
+        ),
+      ],
+    );
   }
 
   // Função para criar conta com email/senha
@@ -75,7 +163,7 @@ class _SignupFormState extends State<SignupForm> {
       if (user != null) {
         // Sucesso - navega para próxima tela
         if (mounted) {
-          //context.go('/upload-historico');
+          context.go('/upload-historico');
         }
       } else {
         // Falha na criação da conta
@@ -178,6 +266,8 @@ class _SignupFormState extends State<SignupForm> {
 
   @override
   Widget build(BuildContext context) {
+    final password = _passwordController.text;
+
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 440),
@@ -272,9 +362,12 @@ class _SignupFormState extends State<SignupForm> {
                 const SizedBox(height: 28),
                 TextFormField(
                   controller: _nameController,
-                  enabled: !_isLoading, // Desabilita durante loading
+                  enabled: !_isLoading,
                   decoration: InputDecoration(
                     hintText: 'Nome completo',
+                    errorText: _nameController.text.isNotEmpty && !_isNameValid
+                        ? 'Insira nome e sobrenome'
+                        : null,
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
                     filled: true,
                     fillColor: Colors.white,
@@ -309,6 +402,10 @@ class _SignupFormState extends State<SignupForm> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: 'E-mail',
+                    errorText:
+                        _emailController.text.isNotEmpty && !_isEmailValid
+                            ? 'Email inválido'
+                            : null,
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
                     filled: true,
                     fillColor: Colors.white,
@@ -345,7 +442,7 @@ class _SignupFormState extends State<SignupForm> {
                         parts[1].endsWith('.')) {
                       return 'Inclua um domínio válido após o "@" (ex: gmail.com).';
                     }
-                    if (!EmailValidator.validate(value)) {
+                    if (!_emailRegex.hasMatch(value)) {
                       return 'E-mail inválido.';
                     }
                     return null;
@@ -365,6 +462,10 @@ class _SignupFormState extends State<SignupForm> {
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     hintText: 'Senha',
+                    errorText:
+                        _passwordController.text.isNotEmpty && !_isPasswordValid
+                            ? 'Senha não atende aos requisitos'
+                            : null,
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
                     filled: true,
                     fillColor: Colors.white,
@@ -409,11 +510,31 @@ class _SignupFormState extends State<SignupForm> {
                   },
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 4.0, left: 2.0),
-                  child: Text(
-                    'A senha deve ter pelo menos 8 caracteres',
-                    style: GoogleFonts.poppins(
-                        fontSize: 12, color: Colors.grey[500]),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildPasswordStrengthIndicator(
+                        'Mínimo de $_minLength caracteres',
+                        password.length >= _minLength,
+                      ),
+                      _buildPasswordStrengthIndicator(
+                        'Letra maiúscula',
+                        _hasUpperCase.hasMatch(password),
+                      ),
+                      _buildPasswordStrengthIndicator(
+                        'Letra minúscula',
+                        _hasLowerCase.hasMatch(password),
+                      ),
+                      _buildPasswordStrengthIndicator(
+                        'Número',
+                        _hasNumbers.hasMatch(password),
+                      ),
+                      _buildPasswordStrengthIndicator(
+                        'Caractere especial (!@#\$&*~)',
+                        _hasSpecialCharacters.hasMatch(password),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -423,6 +544,10 @@ class _SignupFormState extends State<SignupForm> {
                   obscureText: _obscureConfirmPassword,
                   decoration: InputDecoration(
                     hintText: 'Confirmar senha',
+                    errorText: _confirmPasswordController.text.isNotEmpty &&
+                            !_isConfirmPasswordValid
+                        ? 'As senhas não coincidem'
+                        : null,
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
                     filled: true,
                     fillColor: Colors.white,
@@ -516,11 +641,12 @@ class _SignupFormState extends State<SignupForm> {
                 SizedBox(
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: _isLoading ? null : _signUpWithEmail,
+                    onPressed:
+                        _isFormValid && !_isLoading ? _signUpWithEmail : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2563EB),
                       foregroundColor: Colors.white,
-                      disabledBackgroundColor: Colors.grey[400],
+                      disabledBackgroundColor: Colors.grey[300],
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
@@ -614,6 +740,48 @@ class _SignupFormState extends State<SignupForm> {
                     child: const Text('Já tem uma conta? Faça login'),
                   ),
                 ),
+                if (_missingRequirements.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[100],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Falta preencher:',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          ...(_missingRequirements.map((req) => Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 2.0),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.error_outline,
+                                        size: 16, color: Colors.grey[600]),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      req,
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.grey[600],
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ))),
+                        ],
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
