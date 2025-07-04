@@ -44,9 +44,14 @@ padrao_curriculo = r'(\d+/\d+(?:\s*-\s*\d{4}\.\d)?)'
 padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
+# --- Novos padrões para informações adicionais ---
+padrao_media_ponderada = re.compile(r"(?:MP|MÉDIA PONDERADA|MEDIA PONDERADA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
+padrao_frequencia = re.compile(r"(?:FREQ|FREQUÊNCIA|FREQUENCIA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
+padrao_matriz_curricular = re.compile(r"(?:MATRIZ|CURRÍCULO|CURRICULO)[:\s]+([A-ZÀ-Ÿ\s\d\.\-]+?)(?:\n|$)", re.IGNORECASE)
+padrao_professor = re.compile(r"^(?:Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)\s+([A-ZÀ-Ÿ\s\.]+?)(?:\s|$)", re.IGNORECASE)
+
 # --- Extração de Curso ---
-padrao_curso = re.compile(r'(?:CURSO|GRADUAÇÃO|BACHARELADO|LICENCIATURA)[:\s]+([A-ZÀ-Ÿ\s]+?)(?:\n|$)', re.IGNORECASE)
-padrao_curso_alternativo = re.compile(r'(?:ENGENHARIA|CIÊNCIA|ADMINISTRAÇÃO|DIREITO|MEDICINA|PEDAGOGIA|LETRAS|HISTÓRIA|GEOGRAFIA|MATEMÁTICA|FÍSICA|QUÍMICA|BIOLOGIA|PSICOLOGIA|SOCIOLOGIA|FILOSOFIA|ECONOMIA|CONTABILIDADE|SISTEMAS|COMPUTAÇÃO|INFORMÁTICA|TECNOLOGIA)[\s\wÀ-Ÿ]+', re.IGNORECASE)
+padrao_curso = re.compile(r'CURSO[:\s]+([A-ZÀ-Ÿ\s]+?)(?:\n|$)', re.IGNORECASE)
 
 # --- Disciplinas Padrão (com professor) ---
 padrao_status = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
@@ -63,18 +68,10 @@ def extrair_curso(texto):
     """
     Extrai o nome do curso do texto do PDF
     """
-    # Tentar padrão específico primeiro
     match_curso = padrao_curso.search(texto)
     if match_curso:
         curso = match_curso.group(1).strip()
         print(f"🎓 Curso extraído: {curso}")
-        return curso
-    
-    # Tentar padrão alternativo
-    match_curso_alt = padrao_curso_alternativo.search(texto)
-    if match_curso_alt:
-        curso = match_curso_alt.group(0).strip()
-        print(f"🎓 Curso extraído (padrão alternativo): {curso}")
         return curso
     
     print("⚠️ Curso não encontrado no PDF")
@@ -107,6 +104,18 @@ def limpar_nome_disciplina(nome):
         print(f"🔧 Limpeza: '{nome_original}' → '{nome_limpo}'")
     
     return nome_limpo
+
+def extrair_nome_professor(linha):
+    """
+    Extrai o nome do professor da linha
+    """
+    match_professor = padrao_professor.search(linha)
+    if match_professor:
+        nome_professor = match_professor.group(1).strip()
+        # Remove títulos acadêmicos que podem ter ficado
+        nome_limpo = re.sub(r'^(Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)\s*', '', nome_professor, flags=re.IGNORECASE)
+        return nome_limpo.strip()
+    return None
 
 @app.route('/upload-pdf', methods=['POST'])
 def upload_pdf():
@@ -180,6 +189,11 @@ def upload_pdf():
         # Extrair curso do texto
         curso_extraido = extrair_curso(texto_total)
 
+        # Variáveis para informações gerais do histórico
+        matriz_curricular = None
+        media_ponderada = None
+        frequencia_geral = None
+        
         disciplinas = [] # Lista para armazenar os dados extraídos das disciplinas
         lines = texto_total.splitlines()
 
@@ -197,7 +211,42 @@ def upload_pdf():
                 disciplinas.append({"IRA": "IRA", "valor": ira})
                 print(f"  -> IRA encontrado: {ira}")
 
-            # 2. Encontrar o Currículo
+            # 2. Encontrar Média Ponderada (MP)
+            match_mp = padrao_media_ponderada.search(linha)
+            if match_mp:
+                media_ponderada = match_mp.group(1)
+                disciplinas.append({"tipo_dado": "MediaPonderada", "valor": media_ponderada})
+                print(f"  -> Média Ponderada encontrada: {media_ponderada}")
+            # Busca alternativa para média ponderada (formato numérico simples)
+            elif "MP" in linha and re.search(r'\d+\.\d+', linha):
+                match_mp_alt = re.search(r'(\d+\.\d+)', linha)
+                if match_mp_alt:
+                    media_ponderada = match_mp_alt.group(1)
+                    disciplinas.append({"tipo_dado": "MediaPonderada", "valor": media_ponderada})
+                    print(f"  -> Média Ponderada encontrada (alt): {media_ponderada}")
+
+            # 3. Encontrar Frequência
+            match_freq = padrao_frequencia.search(linha)
+            if match_freq:
+                frequencia_geral = match_freq.group(1)
+                disciplinas.append({"tipo_dado": "Frequencia", "valor": frequencia_geral})
+                print(f"  -> Frequência encontrada: {frequencia_geral}")
+            # Busca alternativa para frequência (formato numérico simples)
+            elif "FREQ" in linha and re.search(r'\d+\.\d+', linha):
+                match_freq_alt = re.search(r'(\d+\.\d+)', linha)
+                if match_freq_alt:
+                    frequencia_geral = match_freq_alt.group(1)
+                    disciplinas.append({"tipo_dado": "Frequencia", "valor": frequencia_geral})
+                    print(f"  -> Frequência encontrada (alt): {frequencia_geral}")
+
+            # 4. Encontrar Matriz Curricular
+            match_matriz = padrao_matriz_curricular.search(linha)
+            if match_matriz:
+                matriz_curricular = match_matriz.group(1).strip()
+                disciplinas.append({"tipo_dado": "MatrizCurricular", "valor": matriz_curricular})
+                print(f"  -> Matriz Curricular encontrada: {matriz_curricular}")
+
+            # 5. Encontrar o Currículo (padrão antigo)
             if "Currículo" in linha or "Ano/Período de Integralização" in linha:
                 match_curriculo = re.search(padrao_curriculo, linha)
                 if not match_curriculo and i + 1 < len(lines):
@@ -209,7 +258,7 @@ def upload_pdf():
                     disciplinas.append({"tipo_dado": "Curriculo", "valor": curriculo})
                     print(f"  -> Currículo encontrado: {curriculo}")
 
-            # 3. Encontrar pendências (geralmente uma lista de status em uma linha)
+            # 6. Encontrar pendências (geralmente uma lista de status em uma linha)
             match_pend = padrao_pend.findall(linha)
             if match_pend:
                 disciplinas.append({"tipo_dado": "Pendencias", "valores": match_pend})
@@ -219,6 +268,9 @@ def upload_pdf():
             is_professor_line = linha.startswith("Dr.") or linha.startswith("MSc.") or linha.startswith("Dra.")
 
             if is_professor_line:
+                # Extrair nome do professor
+                nome_professor = extrair_nome_professor(linha)
+                
                 # Tenta extrair da linha atual
                 match_status = padrao_status.search(linha)
                 match_mencao = padrao_mencao.findall(linha)
@@ -257,7 +309,7 @@ def upload_pdf():
                                 # Aplica a função de limpeza mesmo no fallback
                                 nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                     
-                    disciplinas.append({
+                    disciplina_data = {
                         "tipo_dado": "Disciplina Regular",
                         "nome": nome_disciplina,
                         "status": status,
@@ -266,7 +318,14 @@ def upload_pdf():
                         "codigo": codigo,
                         "carga_horaria": carga_horaria,
                         "natureza": natureza
-                    })
+                    }
+                    
+                    # Adicionar professor se encontrado
+                    if nome_professor:
+                        disciplina_data["professor"] = nome_professor
+                        print(f"    👨‍🏫 Professor: {nome_professor}")
+                    
+                    disciplinas.append(disciplina_data)
                     print(f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})")
                     
                     # Debug: verificar se a disciplina contém números
@@ -328,6 +387,9 @@ def upload_pdf():
             'filename': filename,
             'matricula': matricula,
             'curso_extraido': curso_extraido,
+            'matriz_curricular': matriz_curricular,
+            'media_ponderada': media_ponderada,
+            'frequencia_geral': frequencia_geral,
             'full_text': texto_total,
             'extracted_data': disciplinas
         }
