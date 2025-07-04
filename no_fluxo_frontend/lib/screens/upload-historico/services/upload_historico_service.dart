@@ -71,8 +71,16 @@ class UploadHistoricoService {
         return Right(resultado);
       } else {
         final errorBody = response.body;
+        final errorData = jsonDecode(errorBody);
         log.warning(
             'Erro na resposta: ${response.statusCode}\nDetalhes: $errorBody');
+
+        // Verificar se é um erro de seleção de curso
+        if (errorData['cursos_disponiveis'] != null) {
+          log.info('Erro de seleção de curso: ${errorData['message']}');
+          return Left('SELECAO_CURSO:${jsonEncode(errorData)}');
+        }
+
         return Left('Erro ao processar disciplinas: ${response.statusCode}');
       }
     } catch (e, st) {

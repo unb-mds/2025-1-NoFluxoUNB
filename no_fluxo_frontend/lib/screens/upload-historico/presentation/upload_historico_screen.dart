@@ -331,108 +331,107 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           // Fundo animado com círculos coloridos borrados
           const AnimatedBackground(),
           SafeArea(
-            child: Column(
-              children: [
-                // Navbar padrão
-                const AppNavbar(),
-                const Spacer(),
-                // Container de Upload Principal
-                Center(
-                  child: Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.symmetric(horizontal: 300),
-                    child: _buildUploadContainer(),
-                  ),
-                ),
-                const SizedBox(height: 32),
-                // Botão de ajuda (apenas no estado inicial)
-                if (_uploadState == UploadState.initial)
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const AppNavbar(),
+                  SizedBox(height: 32),
                   Center(
-                    child: _buildHelpButton(),
-                  ),
-                const Spacer(),
-                if (_disciplinasCasadas != null) ...[
-                  const SizedBox(height: 24),
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.symmetric(horizontal: 300),
+                      child: _buildUploadContainer(),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('📊 Resultado do Processamento:',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18)),
-                        const SizedBox(height: 12),
-                        Text(
-                            '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
-                            style: TextStyle(color: Colors.white)),
-                        Text(
-                            '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true || d['encontrada_no_banco'] == 'true').length}',
-                            style: TextStyle(color: Colors.green)),
-                        Text(
-                            '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false || d['encontrada_no_banco'] == 'false').length}',
-                            style: TextStyle(color: Colors.orange)),
-                        if (_materiasOptativas != null) ...[
-                          const SizedBox(height: 8),
+                  ),
+                  const SizedBox(height: 32),
+                  if (_uploadState == UploadState.initial)
+                    Center(
+                      child: _buildHelpButton(),
+                    ),
+                  SizedBox(height: 32),
+                  if (_disciplinasCasadas != null) ...[
+                    const SizedBox(height: 24),
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('📊 Resultado do Processamento:',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18)),
+                          const SizedBox(height: 12),
                           Text(
-                              '🎯 Matérias optativas: ${_materiasOptativas!.length}',
-                              style: TextStyle(color: Colors.purple)),
-                        ],
-                        // Contar disciplinas com professores
-                        if (_disciplinasCasadas != null) ...[
-                          const SizedBox(height: 8),
+                              '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
+                              style: TextStyle(color: Colors.white)),
                           Text(
-                              '👨‍🏫 Disciplinas com professor: ${_disciplinasCasadas!.where((d) => d['professor'] != null && d['professor'].toString().isNotEmpty).length}',
-                              style: TextStyle(color: Colors.indigo)),
-                        ],
-                        if (_dadosValidacao != null) ...[
-                          const SizedBox(height: 8),
+                              '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true || d['encontrada_no_banco'] == 'true').length}',
+                              style: TextStyle(color: Colors.green)),
                           Text(
-                              '🎓 Curso: ${_dadosValidacao!['curso_extraido'] ?? 'N/A'}',
-                              style: TextStyle(color: Colors.cyan)),
-                          Text(
-                              '📋 Matriz: ${_dadosValidacao!['matriz_curricular'] ?? 'N/A'}',
-                              style: TextStyle(color: Colors.cyan)),
-                          Text(
-                              '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
-                              style: TextStyle(color: Colors.blue)),
-                          Text(
-                              '📈 Média ponderada: ${_dadosValidacao!['media_ponderada']?.toStringAsFixed(2) ?? 'N/A'}',
-                              style: TextStyle(color: Colors.blue)),
-                          Text(
-                              '📊 Frequência: ${_dadosValidacao!['frequencia_geral']?.toStringAsFixed(2) ?? 'N/A'}%',
-                              style: TextStyle(color: Colors.blue)),
-                          Text(
-                              '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
-                              style: TextStyle(color: Colors.blue)),
-                          if (_dadosValidacao!['pendencias'] != null &&
-                              _dadosValidacao!['pendencias'] is List &&
-                              _dadosValidacao!['pendencias'].isNotEmpty)
+                              '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false || d['encontrada_no_banco'] == 'false').length}',
+                              style: TextStyle(color: Colors.orange)),
+                          if (_materiasOptativas != null) ...[
+                            const SizedBox(height: 8),
                             Text(
-                                '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
-                                style: TextStyle(color: Colors.orange)),
+                                '🎯 Matérias optativas: ${_materiasOptativas!.length}',
+                                style: TextStyle(color: Colors.purple)),
+                          ],
+                          if (_disciplinasCasadas != null) ...[
+                            const SizedBox(height: 8),
+                            Text(
+                                '👨‍🏫 Disciplinas com professor: ${_disciplinasCasadas!.where((d) => d['professor'] != null && d['professor'].toString().isNotEmpty).length}',
+                                style: TextStyle(color: Colors.indigo)),
+                          ],
+                          if (_dadosValidacao != null) ...[
+                            const SizedBox(height: 8),
+                            Text(
+                                '🎓 Curso: ${_dadosValidacao!['curso_extraido'] ?? 'N/A'}',
+                                style: TextStyle(color: Colors.cyan)),
+                            Text(
+                                '📋 Matriz: ${_dadosValidacao!['matriz_curricular'] ?? 'N/A'}',
+                                style: TextStyle(color: Colors.cyan)),
+                            Text(
+                                '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
+                                style: TextStyle(color: Colors.blue)),
+                            Text(
+                                '📈 Média ponderada: ${_dadosValidacao!['media_ponderada']?.toStringAsFixed(2) ?? 'N/A'}',
+                                style: TextStyle(color: Colors.blue)),
+                            Text(
+                                '📊 Frequência: ${_dadosValidacao!['frequencia_geral']?.toStringAsFixed(2) ?? 'N/A'}%',
+                                style: TextStyle(color: Colors.blue)),
+                            Text(
+                                '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
+                                style: TextStyle(color: Colors.blue)),
+                            if (_dadosValidacao!['pendencias'] != null &&
+                                _dadosValidacao!['pendencias'] is List &&
+                                _dadosValidacao!['pendencias'].isNotEmpty)
+                              Text(
+                                  '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
+                                  style: TextStyle(color: Colors.orange)),
+                          ],
+                          const SizedBox(height: 8),
+                          Text(
+                              '💡 Dica: Verifique o console para mais detalhes',
+                              style: TextStyle(
+                                  color: Colors.white70, fontSize: 12)),
+                          const SizedBox(height: 4),
+                          Text(
+                              '🎯 Processamento automático: Curso e matriz extraídos do PDF',
+                              style: TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500)),
                         ],
-                        const SizedBox(height: 8),
-                        Text('💡 Dica: Verifique o console para mais detalhes',
-                            style:
-                                TextStyle(color: Colors.white70, fontSize: 12)),
-                        const SizedBox(height: 4),
-                        Text(
-                            '🎯 Processamento automático: Curso e matriz extraídos do PDF',
-                            style: TextStyle(
-                                color: Colors.green,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500)),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ],
@@ -1011,12 +1010,19 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
       resultado.fold(
         (error) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(error),
-              backgroundColor: Colors.red,
-            ),
-          );
+          // Só mostra o diálogo de seleção de curso se for erro de seleção
+          if (error.startsWith('SELECAO_CURSO:')) {
+            final errorData = Map<String, dynamic>.from(
+                jsonDecode(error.replaceFirst('SELECAO_CURSO:', '')));
+            _mostrarDialogoSelecaoCurso(errorData);
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(error),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
         },
         (dados) {
           setState(() {
@@ -1038,6 +1044,89 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           backgroundColor: Colors.red,
         ),
       );
+    }
+  }
+
+  void _mostrarDialogoSelecaoCurso(Map<String, dynamic> errorData) {
+    final cursosList = (errorData['cursos_disponiveis'] is List)
+        ? errorData['cursos_disponiveis']
+        : (errorData['cursos_disponiveis'] != null
+            ? [errorData['cursos_disponiveis']]
+            : []);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Selecione seu curso'),
+          content: SizedBox(
+            width: double.maxFinite,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  errorData['message'] ??
+                      'Por favor, selecione o curso correto:',
+                  style: const TextStyle(fontSize: 16),
+                ),
+                if (errorData['palavras_chave_encontradas'] != null) ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    'Palavras-chave encontradas: ${(errorData['palavras_chave_encontradas'] as List).join(', ')}',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 16),
+                Flexible(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: cursosList.length,
+                    itemBuilder: (context, index) {
+                      final curso = cursosList[index];
+                      return ListTile(
+                        title: Text(curso['nome_curso'] ?? ''),
+                        subtitle: curso['matriz_curricular'] != null
+                            ? Text('Matriz: ${curso['matriz_curricular']}')
+                            : null,
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          _selecionarCurso(curso);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                _resetUpload();
+              },
+              child: const Text('Cancelar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _selecionarCurso(Map<String, dynamic> cursoSelecionado) async {
+    // Atualizar os dados extraídos com o curso selecionado
+    if (_dadosExtraidos != null) {
+      _dadosExtraidos!['curso_extraido'] = cursoSelecionado['nome_curso'];
+      _dadosExtraidos!['matriz_curricular'] =
+          cursoSelecionado['matriz_curricular'];
+
+      // Tentar casar disciplinas novamente com o curso selecionado
+      await _casarDisciplinasComBanco();
     }
   }
 }

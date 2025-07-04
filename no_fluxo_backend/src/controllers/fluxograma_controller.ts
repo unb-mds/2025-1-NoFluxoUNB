@@ -93,22 +93,85 @@ export const FluxogramaController: EndpointController = {
                 logger.info(`Matriz curricular extraída: "${matriz_curricular}"`);
 
                 if (!curso_extraido) {
-                    logger.error("Curso não foi extraído do PDF");
-                    return res.status(400).json({ error: "Curso não foi extraído do PDF" });
+                    logger.warn("Curso não foi extraído do PDF automaticamente");
+                    // Buscar todos os cursos disponíveis para o usuário escolher
+                    const { data: todosCursos } = await SupabaseWrapper.get()
+                        .from("cursos")
+                        .select("nome_curso, matriz_curricular")
+                        .order("nome_curso");
+                    
+                    return res.status(400).json({ 
+                        error: "Curso não foi extraído do PDF automaticamente",
+                        message: "Por favor, selecione o curso manualmente",
+                        cursos_disponiveis: todosCursos || []
+                    });
                 }
 
-                // Buscar curso no banco usando nome do curso e matriz curricular
-                let query = SupabaseWrapper.get()
-                    .from("cursos")
-                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
-                    .like("nome_curso", "%" + curso_extraido + "%");
-
-                // Se temos matriz curricular, usar ela para filtrar
-                if (matriz_curricular) {
-                    query = query.eq("matriz_curricular", matriz_curricular);
+                // Se extraiu palavras-chave, fazer busca fuzzy
+                let cursosFiltrados = null;
+                if (curso_extraido.startsWith('PALAVRAS_CHAVE:')) {
+                    const palavrasChave = curso_extraido.replace('PALAVRAS_CHAVE:', '').split(',');
+                    logger.info(`Buscando cursos com palavras-chave: ${palavrasChave.join(', ')}`);
+                    
+                    // Buscar cursos que contenham alguma das palavras-chave
+                    const { data: todosCursos } = await SupabaseWrapper.get()
+                        .from("cursos")
+                        .select("nome_curso, matriz_curricular")
+                        .order("nome_curso");
+                    
+                    if (todosCursos) {
+                        cursosFiltrados = todosCursos.filter(curso => 
+                            palavrasChave.some((palavra: string) => 
+                                curso.nome_curso?.toUpperCase().includes(palavra.toUpperCase())
+                            )
+                        );
+                        logger.info(`Encontrados ${cursosFiltrados.length} cursos com palavras-chave`);
+                    }
                 }
 
-                let { data: materiasBanco, error } = await query;
+                // Buscar curso no banco
+                let materiasBanco = null;
+                let error = null;
+
+                if (cursosFiltrados && cursosFiltrados.length > 0) {
+                    if (cursosFiltrados.length === 1) {
+                        // Se só há um curso filtrado, usar ele
+                        const cursoSelecionado = cursosFiltrados[0];
+                        logger.info(`Usando curso filtrado: ${cursoSelecionado.nome_curso}`);
+                        
+                        const { data, error: queryError } = await SupabaseWrapper.get()
+                            .from("cursos")
+                            .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                            .eq("nome_curso", cursoSelecionado.nome_curso);
+                        
+                        materiasBanco = data;
+                        error = queryError;
+                    } else {
+                        // Se há múltiplos cursos, retornar para o usuário escolher
+                        logger.info(`Múltiplos cursos encontrados: ${cursosFiltrados.length}`);
+                        return res.status(400).json({ 
+                            error: "Múltiplos cursos encontrados",
+                            message: "Por favor, selecione o curso correto",
+                            cursos_disponiveis: cursosFiltrados,
+                            palavras_chave_encontradas: curso_extraido.replace('PALAVRAS_CHAVE:', '').split(',')
+                        });
+                    }
+                } else {
+                    // Busca normal por nome do curso e matriz curricular
+                    let query = SupabaseWrapper.get()
+                        .from("cursos")
+                        .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                        .like("nome_curso", "%" + curso_extraido + "%");
+
+                    // Se temos matriz curricular, usar ela para filtrar
+                    if (matriz_curricular) {
+                        query = query.eq("matriz_curricular", matriz_curricular);
+                    }
+
+                    const result = await query;
+                    materiasBanco = result.data;
+                    error = result.error;
+                }
 
                 if (error) {
                     logger.error(`Erro ao buscar matérias do curso: ${error.message}`);
@@ -129,11 +192,15 @@ export const FluxogramaController: EndpointController = {
                 if (!materiasBanco || materiasBanco.length === 0) {
                     logger.warn(`Curso não encontrado com matriz curricular específica. Tentando busca alternativa...`);
                     
-                    // Busca alternativa: apenas pelo nome do curso
-                    const { data: materiasBancoAlt, error: errorAlt } = await SupabaseWrapper.get()
+                    // Busca alternativa: pelo nome do curso e matriz curricular, se existir
+                    let queryAlt = SupabaseWrapper.get()
                         .from("cursos")
                         .select("*,materias_por_curso(id_materia,nivel,materias(*))")
                         .like("nome_curso", "%" + curso_extraido + "%");
+                    if (matriz_curricular) {
+                        queryAlt = queryAlt.eq("matriz_curricular", matriz_curricular);
+                    }
+                    const { data: materiasBancoAlt, error: errorAlt } = await queryAlt;
 
                     if (errorAlt || !materiasBancoAlt || materiasBancoAlt.length === 0) {
                         logger.error(`Curso não encontrado: ${curso_extraido}`);
@@ -209,39 +276,42 @@ export const FluxogramaController: EndpointController = {
                 // Casamento das disciplinas
                 for (const disciplina of dados_extraidos.extracted_data) {
                     if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
-
-                        // Tentar casar primeiro com matérias obrigatórias
+                        // 1º: Casar pelo código da matéria
                         let materiaBanco = materiasObrigatorias.find((m: any) => {
-                            const nomeMatch = m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
-                            const codigoMatch = m.materias.codigo_materia.toLowerCase().trim() === (disciplina.codigo || '').toLowerCase().trim();
-                            return nomeMatch || codigoMatch;
+                            const codigoMatch = m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim();
+                            return codigoMatch;
                         });
-
                         // Se não encontrou nas obrigatórias, tentar nas optativas
                         if (!materiaBanco) {
                             materiaBanco = materiasOptativas.find((m: any) => {
-                                const nomeMatch = m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
-                                const codigoMatch = m.materias.codigo_materia.toLowerCase().trim() === (disciplina.codigo || '').toLowerCase().trim();
-                                return nomeMatch || codigoMatch;
+                                const codigoMatch = m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim();
+                                return codigoMatch;
                             });
                         }
-
+                        // 2º: Se não encontrou pelo código, tentar pelo nome (fallback)
+                        if (!materiaBanco) {
+                            materiaBanco = materiasObrigatorias.find((m: any) => {
+                                return m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
+                            });
+                        }
+                        if (!materiaBanco) {
+                            materiaBanco = materiasOptativas.find((m: any) => {
+                                return m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
+                            });
+                        }
                         if (materiaBanco) {
                             // Verificar se já existe uma disciplina casada com o mesmo ID
                             const disciplinaExistente = disciplinasCasadas.find((d: any) => d.id_materia === materiaBanco.materias.id_materia);
-
                             if (disciplinaExistente) {
                                 // Se já existe, verificar qual status tem prioridade
                                 const statusAtual = disciplinaExistente.status;
                                 const statusNovo = disciplina.status;
-
                                 // Prioridade: APR/CUMP > MATR > REP
                                 const prioridade = (status: string) => {
                                     if (status === 'APR' || status === 'CUMP') return 3;
                                     if (status === 'MATR') return 2;
                                     return 1; // REP, etc.
                                 };
-
                                 if (prioridade(statusNovo) > prioridade(statusAtual)) {
                                     // Substituir pela versão com status melhor
                                     const index = disciplinasCasadas.findIndex((d: any) => d.id_materia === materiaBanco.materias.id_materia);

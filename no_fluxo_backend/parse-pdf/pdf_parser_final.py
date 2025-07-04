@@ -10,11 +10,12 @@ from PIL import Image # Importar a biblioteca Pillow (PIL)
 from pdf2image import convert_from_bytes # Para converter PDF para imagem
 import pytesseract # Para o OCR
 from werkzeug.utils import secure_filename
+import unicodedata
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='\b[%(levelname)s] %(message)s',
+    format='[%(asctime)s][%(levelname)s][PDF Parser] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 logger = logging.getLogger(__name__)
@@ -33,7 +34,7 @@ def log_request_info():
     logger.info('='*50)
 
 # --- Configuração do Tesseract ---
-tesseract_path = '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/tesseract/tesseract-ocr/tesseract'
+tesseract_path = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 logger.info(f'Using Tesseract path: {tesseract_path}')
 pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
@@ -51,7 +52,7 @@ padrao_matriz_curricular = re.compile(r"(?:MATRIZ|CURRÍCULO|CURRICULO)[:\s]+([A
 padrao_professor = re.compile(r"^(?:Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)\s+([A-ZÀ-Ÿ\s\.]+?)(?:\s|$)", re.IGNORECASE)
 
 # --- Extração de Curso ---
-padrao_curso = re.compile(r'CURSO[:\s]+([A-ZÀ-Ÿ\s]+?)(?:\n|$)', re.IGNORECASE)
+padrao_curso = re.compile(r'CURSO[:\s]+([A-ZÀ-Ÿ\s/\\-]+)', re.IGNORECASE)
 
 # --- Disciplinas Padrão (com professor) ---
 padrao_status = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
@@ -64,16 +65,37 @@ padrao_cump = re.compile(r"--\s+CUMP\b")
 # Regex para extrair carga horária de matérias CUMP (o número antes de "100,0")
 padrao_horas_cump = re.compile(r"\b\w+\d+\s+(\d+)\s+\d{1,3},\d\b") # Ex: LET0331 60 100,0
 
+def normalizar(s):
+    return unicodedata.normalize('NFKD', s).encode('ASCII', 'ignore').decode('ASCII').upper()
+
 def extrair_curso(texto):
-    """
-    Extrai o nome do curso do texto do PDF
-    """
-    match_curso = padrao_curso.search(texto)
-    if match_curso:
-        curso = match_curso.group(1).strip()
-        print(f"🎓 Curso extraído: {curso}")
-        return curso
-    
+    linhas = texto.splitlines()
+    # 1. Tenta padrão tradicional
+    for linha in linhas:
+        if re.match(r'^\s*CURSO\s*:', normalizar(linha)):
+            curso = linha.split(":", 1)[1].strip()
+            print(f"🎓 Curso extraído: {curso}")
+            return curso
+    # 2. Tenta padrão UnB: linha após 'DADOS DO VINCULO DO(A) DISCENTE'
+    for i, linha in enumerate(linhas):
+        if "DADOS DO VINCULO DO(A) DISCENTE" in normalizar(linha):
+            # Mostra as próximas 1000 caracteres para debug visual
+            trecho = '\n'.join(linhas[i:i+20])
+            print("--- Trecho após bloco de vínculo ---")
+            print(trecho[:1000])
+            print("------------------------------------")
+            # Pega a próxima linha não vazia
+            for j in range(i+1, min(i+10, len(linhas))):
+                prox = linhas[j].strip()
+                if prox and prox.isupper() and len(prox) > 10:
+                    curso = prox.split('/')[0].strip() if '/' in prox else prox
+                    print(f"🎓 Curso extraído (padrão UnB): {curso}")
+                    return curso
+                # Se não for tudo maiúsculo, mas for longa, ainda pode ser o curso
+                if prox and len(prox) > 15:
+                    curso = prox.split('/')[0].strip() if '/' in prox else prox
+                    print(f"🎓 Curso extraído (padrão UnB flex): {curso}")
+                    return curso
     print("⚠️ Curso não encontrado no PDF")
     return None
 
@@ -115,6 +137,36 @@ def extrair_nome_professor(linha):
         # Remove títulos acadêmicos que podem ter ficado
         nome_limpo = re.sub(r'^(Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)\s*', '', nome_professor, flags=re.IGNORECASE)
         return nome_limpo.strip()
+    return None
+
+# Função para extrair matriz curricular
+def extrair_matriz_curricular(texto):
+    """
+    Extrai a matriz curricular do texto do PDF no formato 'YYYY.N' (ex: 2017.1),
+    procurando nas linhas 'Currículo:' e 'Ano/Período de Integralização:'.
+    """
+    for linha in texto.splitlines():
+        norm = normalizar(linha)
+        if norm.startswith("CURRICULO:") or norm.startswith("ANO/PERIODO DE INTEGRALIZACAO:"):
+            match = re.search(r'(\d{4}\.\d)', linha)
+            if match:
+                matriz = match.group(1)
+                print(f"📋 Matriz Curricular extraída: {matriz}")
+                return matriz
+    print("⚠️ Matriz Curricular não encontrada no PDF")
+    return None
+
+def extrair_media_ponderada(texto):
+    """
+    Extrai a média ponderada (MP) do texto do PDF.
+    """
+    padrao_mp = re.compile(r'MP[:\s]*([0-9]+[.,][0-9]+)', re.IGNORECASE)
+    match_mp = padrao_mp.search(texto)
+    if match_mp:
+        mp = match_mp.group(1).replace(',', '.')
+        print(f"📊 Média Ponderada extraída: {mp}")
+        return float(mp)
+    print("⚠️ Média Ponderada não encontrada")
     return None
 
 @app.route('/upload-pdf', methods=['POST'])
@@ -190,8 +242,8 @@ def upload_pdf():
         curso_extraido = extrair_curso(texto_total)
 
         # Variáveis para informações gerais do histórico
-        matriz_curricular = None
-        media_ponderada = None
+        matriz_curricular = extrair_matriz_curricular(texto_total)
+        media_ponderada = extrair_media_ponderada(texto_total)
         frequencia_geral = None
         
         disciplinas = [] # Lista para armazenar os dados extraídos das disciplinas
@@ -202,61 +254,12 @@ def upload_pdf():
             if not linha: # Pula linhas vazias
                 continue
 
-            # print(f"Processando linha {i+1}: '{linha}'") # Descomente para depuração linha a linha
-
             # 1. Encontrar o IRA
             match_ira = padrao_ira.search(linha)
             if match_ira:
                 ira = match_ira.group(1)
                 disciplinas.append({"IRA": "IRA", "valor": ira})
                 print(f"  -> IRA encontrado: {ira}")
-
-            # 2. Encontrar Média Ponderada (MP)
-            match_mp = padrao_media_ponderada.search(linha)
-            if match_mp:
-                media_ponderada = match_mp.group(1)
-                disciplinas.append({"tipo_dado": "MediaPonderada", "valor": media_ponderada})
-                print(f"  -> Média Ponderada encontrada: {media_ponderada}")
-            # Busca alternativa para média ponderada (formato numérico simples)
-            elif "MP" in linha and re.search(r'\d+\.\d+', linha):
-                match_mp_alt = re.search(r'(\d+\.\d+)', linha)
-                if match_mp_alt:
-                    media_ponderada = match_mp_alt.group(1)
-                    disciplinas.append({"tipo_dado": "MediaPonderada", "valor": media_ponderada})
-                    print(f"  -> Média Ponderada encontrada (alt): {media_ponderada}")
-
-            # 3. Encontrar Frequência
-            match_freq = padrao_frequencia.search(linha)
-            if match_freq:
-                frequencia_geral = match_freq.group(1)
-                disciplinas.append({"tipo_dado": "Frequencia", "valor": frequencia_geral})
-                print(f"  -> Frequência encontrada: {frequencia_geral}")
-            # Busca alternativa para frequência (formato numérico simples)
-            elif "FREQ" in linha and re.search(r'\d+\.\d+', linha):
-                match_freq_alt = re.search(r'(\d+\.\d+)', linha)
-                if match_freq_alt:
-                    frequencia_geral = match_freq_alt.group(1)
-                    disciplinas.append({"tipo_dado": "Frequencia", "valor": frequencia_geral})
-                    print(f"  -> Frequência encontrada (alt): {frequencia_geral}")
-
-            # 4. Encontrar Matriz Curricular
-            match_matriz = padrao_matriz_curricular.search(linha)
-            if match_matriz:
-                matriz_curricular = match_matriz.group(1).strip()
-                disciplinas.append({"tipo_dado": "MatrizCurricular", "valor": matriz_curricular})
-                print(f"  -> Matriz Curricular encontrada: {matriz_curricular}")
-
-            # 5. Encontrar o Currículo (padrão antigo)
-            if "Currículo" in linha or "Ano/Período de Integralização" in linha:
-                match_curriculo = re.search(padrao_curriculo, linha)
-                if not match_curriculo and i + 1 < len(lines):
-                    proxima_linha = lines[i + 1].replace('\xa0', ' ').strip()
-                    proxima_linha = re.sub(r'\s+', ' ', proxima_linha)
-                    match_curriculo = re.search(padrao_curriculo, proxima_linha)
-                if match_curriculo:
-                    curriculo = match_curriculo.group(1)
-                    disciplinas.append({"tipo_dado": "Curriculo", "valor": curriculo})
-                    print(f"  -> Currículo encontrado: {curriculo}")
 
             # 6. Encontrar pendências (geralmente uma lista de status em uma linha)
             match_pend = padrao_pend.findall(linha)
