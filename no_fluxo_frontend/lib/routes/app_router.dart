@@ -13,6 +13,7 @@ import '../screens/auth/signup_form.dart';
 import '../screens/auth/password_recovery_screen.dart';
 import '../screens/upload-historico/presentation/upload_historico_screen.dart';
 import '../screens/fluxogramas/fluxos_screen.dart';
+import '../screens/fluxogramas/meu_fluxograma_screen.dart';
 import '../service/auth_service.dart';
 
 final log = Logger('AppRouter');
@@ -130,6 +131,10 @@ class AppRouter {
     '/password-recovery': (context, state) => const PasswordRecoveryScreen(),
     '/fluxogramas': (context, state) => const FluxogramasIndexScreen(),
     '/meu-fluxograma': (context, state) => const FluxogramasPlaceholder(),
+    '/meu-fluxograma/:courseName': (context, state) {
+      final courseName = state.pathParameters['courseName'] ?? '';
+      return MeuFluxogramaScreen(courseName: courseName);
+    },
     '/login-anonimo': (context, state) => const AnonymousLoginScreen(),
   };
 

@@ -165,18 +165,12 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                   padding: const EdgeInsets.all(16.0),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MeuFluxogramaScreen(courseName: 'Engenharia de Software'),
-                        ),
-                      );
+                      context.go('/meu-fluxograma/Engenharia de Software');
                     },
                     child: const Text('Ver Fluxograma Individual (teste)'),
                   ),
                 ),
                 AppNavbar(isFluxogramasPage: true),
-                const SizedBox(height: 80),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Center(
