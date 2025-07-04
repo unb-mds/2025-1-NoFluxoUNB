@@ -41,18 +41,22 @@ class UploadHistoricoService {
   }
 
   static Future<Either<String, Map<String, dynamic>>> casarDisciplinas(
-      Map<String, dynamic> dadosExtraidos,
-      {String nomeCurso = 'ENGENHARIA DE SOFTWARE'}) async {
+      Map<String, dynamic> dadosExtraidos) async {
     try {
       log.info('Enviando dados para casamento...');
       log.info(
           'Dados extraídos: ${dadosExtraidos['extracted_data']?.length} disciplinas');
 
+      // Log das informações extraídas do PDF
+      log.info('Curso extraído: ${dadosExtraidos['curso_extraido']}');
+      log.info('Matriz curricular: ${dadosExtraidos['matriz_curricular']}');
+      log.info('Média ponderada: ${dadosExtraidos['media_ponderada']}');
+      log.info('Frequência geral: ${dadosExtraidos['frequencia_geral']}');
+
       final response = await http.post(
         Uri.parse('${Environment.apiUrl}/fluxograma/casar_disciplinas'),
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode(
-            {'dados_extraidos': dadosExtraidos, 'nome_curso': nomeCurso}),
+        body: jsonEncode({'dados_extraidos': dadosExtraidos}),
       );
 
       log.info('Status da resposta: ${response.statusCode}');
@@ -93,9 +97,17 @@ class UploadHistoricoService {
       log.info('DADOS DE VALIDAÇÃO:');
       log.info('IRA: ${resultado['dados_validacao']['ira']}');
       log.info(
+          'Média ponderada: ${resultado['dados_validacao']['media_ponderada']}');
+      log.info(
+          'Frequência geral: ${resultado['dados_validacao']['frequencia_geral']}');
+      log.info(
           'Horas integralizadas: ${resultado['dados_validacao']['horas_integralizadas']}h');
       log.info(
           'Pendências: ${resultado['dados_validacao']['pendencias'].join(', ')}');
+      log.info(
+          'Curso extraído: ${resultado['dados_validacao']['curso_extraido']}');
+      log.info(
+          'Matriz curricular: ${resultado['dados_validacao']['matriz_curricular']}');
     }
 
     // Debug detalhado das disciplinas

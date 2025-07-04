@@ -383,10 +383,29 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                               '🎯 Matérias optativas: ${_materiasOptativas!.length}',
                               style: TextStyle(color: Colors.purple)),
                         ],
+                        // Contar disciplinas com professores
+                        if (_disciplinasCasadas != null) ...[
+                          const SizedBox(height: 8),
+                          Text(
+                              '👨‍🏫 Disciplinas com professor: ${_disciplinasCasadas!.where((d) => d['professor'] != null && d['professor'].toString().isNotEmpty).length}',
+                              style: TextStyle(color: Colors.indigo)),
+                        ],
                         if (_dadosValidacao != null) ...[
                           const SizedBox(height: 8),
                           Text(
+                              '🎓 Curso: ${_dadosValidacao!['curso_extraido'] ?? 'N/A'}',
+                              style: TextStyle(color: Colors.cyan)),
+                          Text(
+                              '📋 Matriz: ${_dadosValidacao!['matriz_curricular'] ?? 'N/A'}',
+                              style: TextStyle(color: Colors.cyan)),
+                          Text(
                               '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
+                              style: TextStyle(color: Colors.blue)),
+                          Text(
+                              '📈 Média ponderada: ${_dadosValidacao!['media_ponderada']?.toStringAsFixed(2) ?? 'N/A'}',
+                              style: TextStyle(color: Colors.blue)),
+                          Text(
+                              '📊 Frequência: ${_dadosValidacao!['frequencia_geral']?.toStringAsFixed(2) ?? 'N/A'}%',
                               style: TextStyle(color: Colors.blue)),
                           Text(
                               '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
@@ -402,6 +421,13 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                         Text('💡 Dica: Verifique o console para mais detalhes',
                             style:
                                 TextStyle(color: Colors.white70, fontSize: 12)),
+                        const SizedBox(height: 4),
+                        Text(
+                            '🎯 Processamento automático: Curso e matriz extraídos do PDF',
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500)),
                       ],
                     ),
                   ),
