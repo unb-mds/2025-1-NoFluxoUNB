@@ -4,9 +4,7 @@ import html
 
 def gerar_texto_ranking(json_bruto: dict) -> str:
     """
-    Parser universal que extrai, limpa e formata um ranking de disciplinas.
-    Esta versão corrige o bug que pulava matérias quando a Ementa
-    era opcional no formato de linha única.
+    Parser universal que extrai, limpa e formata um ranking de disciplinas com Markdown.
     """
     try:
         answer_dict = ast.literal_eval(json_bruto['data']['answer'])
@@ -19,49 +17,71 @@ def gerar_texto_ranking(json_bruto: dict) -> str:
         if not ranking_block:
             return "Erro: Não foi possível extrair um bloco de ranking válido do JSON."
 
+        # Ajuste no regex para capturar itens que podem ter ou não Ementa no final
         itens = re.findall(r'\d+\.\s*(.*?)(?=\n\s*\d+\.\s*|\Z)', ranking_block, re.DOTALL)
 
-        texto_final_partes = ["--- RANKING DE DISCIPLINAS ---"]
+        # Usando Markdown para o título e separadores
+        texto_final_partes = [
+            "# 🏆 Ranking de Disciplinas",
+            "",
+            "## 🎯 **Análise Personalizada**",
+            "",
+            "> Baseado nos seus interesses e perfil acadêmico, analisamos centenas de disciplinas da UnB para encontrar as que melhor se alinham com seus objetivos.",
+            "",
+            "### 📋 **Como funciona a pontuação:**",
+            "- **100 pontos:** Perfeita alinhamento com seus interesses",
+            "- **80-99 pontos:** Excelente relevância",
+            "- **60-79 pontos:** Boa relevância",
+            "- **40-59 pontos:** Relevância moderada",
+            "- **20-39 pontos:** Baixa relevância",
+            "",
+            "---",
+            ""
+        ]
         posicao_atual = 1
 
         for item_str in itens:
             disciplina_str, codigo_str, unidade_str, pontuacao_str, justificativa_str, ementa_str = ("N/A",) * 6
 
             # --- DETECÇÃO DE FORMATO ---
-            if '; Codigo:' in item_str: # Identifica o formato de linha única
-                # --- REGEX CORRIGIDA: EMENTA AGORA É OPCIONAL ---
-                main_line_match = re.search(
-                    r'\*\*Disciplina:\*\*\s*(.*?);\s*Codigo:\s*(\S+);\s*Unidade\sresponsavel:\s*(.*?)(?:;\s*Ementa:\s*(.*))?$',
-                    item_str,
-                    re.MULTILINE | re.DOTALL
-                )
-                if main_line_match:
-                    disciplina_str = main_line_match.group(1).strip()
-                    codigo_str = main_line_match.group(2).strip()
-                    unidade_str = main_line_match.group(3).strip()
-                    # A Ementa é o grupo 4 e pode não existir (ser None)
-                    if main_line_match.group(4):
-                        ementa_str = main_line_match.group(4).strip()
+            # Identifica o formato de linha única ou multilinhas
+            # Regex principal para extrair os campos.
+            # Ementa agora é um grupo opcional no final
+            main_line_match = re.search(
+                r'\*\*Disciplina:\*\*\s*(.*?);\s*Codigo:\s*(\S+);\s*Unidade\sresponsavel:\s*(.*?)(?:;\s*Ementa:\s*(.*?))?\s*$',
+                item_str,
+                re.MULTILINE | re.DOTALL
+            )
+
+            if main_line_match: # Formato de linha única detectado
+                disciplina_str = main_line_match.group(1).strip()
+                codigo_str = main_line_match.group(2).strip()
+                unidade_str = main_line_match.group(3).strip()
+                ementa_raw = main_line_match.group(4) # Pode ser None
+                ementa_str = ementa_raw.strip() if ementa_raw else "N/A"
 
                 pontuacao_match = re.search(r'\*\*Pontuação:\*\*\s*(\d+)', item_str)
-                justificativa_match = re.search(r'\*\*Justificativa:\*\*\s*(.*)', item_str, re.DOTALL)
-                
+                justificativa_match = re.search(r'\*\*Justificativa:\*\*\s*(.*)', item_str, re.DOTALL) # Captura até o final do item
+
                 if pontuacao_match:
                     pontuacao_str = pontuacao_match.group(1).strip()
                 if justificativa_match:
                     justificativa_str = justificativa_match.group(1).strip()
 
-            # Senão, usa a lógica para os formatos antigos
-            else:
+            else: # Lógica para formatos antigos / alternativos (menos robusta, mas mantida para compatibilidade)
                 codigo_match = re.search(r'\*\*Código:\*\* (.*?)\s*?$', item_str, re.MULTILINE)
                 disciplina_match = re.search(r'\*\*Disciplina:\*\* (.*?)\s*?$', item_str, re.MULTILINE)
                 unidade_match = re.search(r'\*\*Unidade Responsável:\*\* (.*?)\s*?$', item_str, re.MULTILINE)
-                justificativa_match = re.search(r'\*\*Justificativa:\*\* (.*?)(?=\s*-\\s*\*\*Pontuação:\*\*|\Z)', item_str, re.DOTALL)
                 pontuacao_match = re.search(r'\*\*Pontuação:\*\* (.*?)\s*?$', item_str, re.MULTILINE)
+
+                # A justificativa é a parte mais tricky em formatos mistos
+                # Tenta pegar tudo entre "Justificativa" e "Pontuação" ou o fim
+                justificativa_match = re.search(r'\*\*Justificativa:\*\*\s*(.*?)(?=\s*-\s*\*\*Pontuação:\*\*|\s*$)', item_str, re.DOTALL)
+
 
                 codigo_bruto = codigo_match.group(1).strip() if codigo_match else "N/A"
                 disciplina_bruta = disciplina_match.group(1).strip() if disciplina_match else "N/A"
-                
+
                 codigo_limpo_match = re.search(r'Codigo:\s*(\S+)', codigo_bruto)
                 codigo_str = codigo_limpo_match.group(1) if codigo_limpo_match else codigo_bruto
                 disciplina_str = re.sub(r';\s*Codigo:.*', '', disciplina_bruta).strip()
@@ -69,25 +89,70 @@ def gerar_texto_ranking(json_bruto: dict) -> str:
                 justificativa_str = justificativa_match.group(1).strip() if justificativa_match else "N/A"
                 pontuacao_str = pontuacao_match.group(1).strip() if pontuacao_match else "0"
 
-            # Limpeza final dos dados
+
+            # Limpeza final dos dados e unescape HTML
             justificativa_str = html.unescape(justificativa_str.replace('\\n', ' ')).strip()
             ementa_str = html.unescape(ementa_str.replace('\\n', ' ')).strip()
 
-            # Montagem do bloco de texto formatado
-            bloco_texto = (
-                f"\nPosição: {posicao_atual} (Pontuação: {pontuacao_str})\n\n"
-                f"  \nDisciplina: {disciplina_str} ({codigo_str})\n\n"
-                f"  \nUnidade: {unidade_str}"
-            )
-            if ementa_str and ementa_str != 'N/A':
-                bloco_texto += f"\n  Ementa: {ementa_str}"
-            bloco_texto += f"\n\n  Justificativa: {justificativa_str}"
-            bloco_texto += f"\n\n __________________________________"
+
+            # Montagem do bloco de texto formatado com Markdown e Emojis
+            medal_emoji = "🥇" if posicao_atual == 1 else "🥈" if posicao_atual == 2 else "🥉" if posicao_atual == 3 else "📚"
             
+            bloco_texto = (
+                f"\n---\n\n" # Separador Markdown
+                f"## {medal_emoji} **{posicao_atual}º Lugar** - Pontuação: **{pontuacao_str}/100**\n\n" # Título da posição com emoji e negrito
+                f"### 📖 **{disciplina_str}**\n" # Nome da disciplina em destaque
+                f"| Campo | Valor |\n" # Tabela para informações
+                f"|-------|-------|\n"
+                f"| **Código** | `{codigo_str}` |\n"
+                f"| **Unidade** | {unidade_str} |\n\n"
+            )
+            
+            if ementa_str and ementa_str != 'N/A':
+                bloco_texto += (
+                    f"### 📝 **Ementa**\n"
+                    f"> {ementa_str}\n\n"
+                )
+            
+            bloco_texto += (
+                f"### 💡 **Por que esta disciplina?**\n"
+                f"> {justificativa_str}\n"
+            )
+
             texto_final_partes.append(bloco_texto)
             posicao_atual += 1
         
-        texto_final_partes.append("\n--- FIM DO RANKING ---")
+        # Calcular estatísticas para o resumo
+        pontuacoes = []
+        for item in texto_final_partes:
+            if 'Pontuação: **' in item:
+                try:
+                    pontuacao = int(item.split('Pontuação: **')[1].split('/')[0])
+                    pontuacoes.append(pontuacao)
+                except:
+                    continue
+        
+        max_pontuacao = max(pontuacoes) if pontuacoes else 0
+        
+        texto_final_partes.extend([
+            "\n---",
+            "",
+            "## 📊 **Resumo da Análise**",
+            "",
+            "| Métrica | Valor |",
+            "|---------|-------|",
+            f"| **Total de disciplinas** | {posicao_atual - 1} |",
+            f"| **Melhor pontuação** | {max_pontuacao}/100 |",
+            f"| **Faixa de pontuação** | {min(pontuacoes) if pontuacoes else 0}-{max_pontuacao} |",
+            "",
+            "### 🎯 **Recomendações**",
+            "",
+            "> 🥇 **Disciplinas com pontuação 80-100:** Altamente recomendadas para seus interesses",
+            "> 🥈 **Disciplinas com pontuação 60-79:** Boas opções para complementar sua formação",
+            "> 🥉 **Disciplinas com pontuação 40-59:** Considerar se houver interesse específico",
+            "",
+            "---"
+        ])
         return "\n".join(texto_final_partes)
 
     except (KeyError, TypeError, ValueError, SyntaxError) as e:
