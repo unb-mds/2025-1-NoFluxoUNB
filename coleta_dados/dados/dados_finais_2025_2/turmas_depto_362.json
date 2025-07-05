@@ -1,0 +1,93 @@
+[
+    {
+        "disciplina": " INTRODUCAO A ARQUITETURA E URBANISMO",
+        "codigo": "TAU0002 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "ementa": "Conceitos Fundamentais de arquitetura e urbanismo. A experiencia do espaco. Sociedade, cultura e arquitetura. Funcao, tecnica e estetica producao e uso."
+    },
+    {
+        "disciplina": " MORFOLOGIA ARQUITETONICA",
+        "codigo": "TAU0004 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0006 E TAU0002 ) )",
+        "ementa": "Introducao aos estudos em arquitetura. Configuracao, morfologia e tipologia em arquitetura. Metodologia de representacao das configuracoes arquitetonicas. Gramaticas formais. Morfologia arquitetonica em projeto, em ciencia da construcao e em estudos historicos. Analise morfologica de edificios complexos."
+    },
+    {
+        "disciplina": " HISTORIA DA ARQUITETURA E DA ARTE 1",
+        "codigo": "TAU0005 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0002 ) )",
+        "ementa": "Historia do urbanismo, da arquitetura e da arte no contexto de seus condicionantes sociais, economicos e politicos, desde os primordios da civilizacao ate o gotico."
+    },
+    {
+        "disciplina": " HISTORIA DA ARQUITETURA E DA ARTE 2",
+        "codigo": "TAU0006 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0005 ) OU ( VIS0060 ) )",
+        "ementa": "Historia das cidades, dos edificios e da edificacao na tradicao europeia a partir do inicio do Renascimento na Italia ate o seculo XVIII. Ttransposicao da tradicao tecnico-construtiva e arquitetonica da Europa para as colonias americanas de fala inglesa e francesa."
+    },
+    {
+        "disciplina": " ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+        "codigo": "TAU0007 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0006 ) )",
+        "ementa": "Principios urbanisticos e correntes arquitetonicas, edificios, arquitetos e tecnicas de edificacao desde o seculo XVIII ate a segunda guerra mundial."
+    },
+    {
+        "disciplina": " ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+        "codigo": "TAU0008 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0007 ) )",
+        "ementa": "Producao e teoria da arquitetura e do urbanismo no Brasil da Republica ate o presente. A Presente disciplina pretende familiarizar os estudantes com a producao e o pensamento arquitetonico corrente no Brasil de meados da decada de 1920 a meados da decada de 1980. Para que possam compreender a formacao de desenvolvimento de vocabulario formal da arquitetura moderna brasileira, assim como localizar os principais paradigmas teoricos que justificam a atuacao dos arquitetos brasileiros neste periodo e sua postura atual."
+    },
+    {
+        "disciplina": " ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+        "codigo": "TAU0009 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0007 ) )",
+        "ementa": "A producao  arquitetonica e o processo de urbanizacao do descobrimento ate fins do seculo XIX. Arquitetura indigena, venacula e dos imigrantes."
+    },
+    {
+        "disciplina": " ARQUITERURA E URBANISMO DA AMERICA LATINA",
+        "codigo": "TAU0010 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0009 ) OU ( FAU0225 ) )",
+        "ementa": "Producao arquitetonica pre-colombiana. A formacao de rede urbana e a arquitetura do periodo colonial. As manifestacoes nacionais ate o presente."
+    },
+    {
+        "disciplina": " ARQUITETURA E URBANISMO DA ATUALIDADE",
+        "codigo": "TAU0011 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0009 ) )",
+        "ementa": "Estudo da situacao presente da arquitetura e do urbanismo: producao, pensamento e tendencias."
+    },
+    {
+        "disciplina": " PLANEJAMENTO URBANO",
+        "codigo": "TAU0013 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "ementa": "Introducao a teoria, a pratica e a evolucao historica do planejamento urbano e regional. Planejamento em diferentes sistemas sociais. As teorias do planejamento. A evolucao de politicas de planejamento. A evolucao de politicas de planejamento regional no Brasil. As teorias do crescimento e da organizacao de cidades. de regioes urbanas e de sistema de cidades. Introducao a alguns metodos de analise e de planejamento urbano e regional. Projetacaio de populacao, localizacao de equipamento, perfis urbanos etc."
+    },
+    {
+        "disciplina": " PLANEJAMENTO HABITACIONAL",
+        "codigo": "TAU0021 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0008 E FAU0114 ) )",
+        "ementa": "O objetivo mais geral e ensejar um melhor conhecimento do problema habitacional no Brasil, especialmente quanto as possibilidades das acoes de planejamento. Especialmente, tenciona-se melhorar o nivel de atendimento das seguinte questoes relacionadas ao planejamento habitacional: - utilizacao de instrumental tecnico para o Planejamento da habitacao - compreensao metodologica dos procedimentos tecnicos relativosao planejamento da habitacao."
+    },
+    {
+        "disciplina": " ESTETICA E HISTORIA DA ARTE",
+        "codigo": "TAU0025 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "( ( TAU0006 ) )",
+        "ementa": "Reconhecimento, apreciacao e descricao de artefatos esteticamente qualificados. Arte como uma das formas de criacao da natureza propriamente humana. Como praxis historicamente construida."
+    },
+    {
+        "disciplina": " BRASILIA, EXPERIENCIA URBANISTICA ",
+        "codigo": "TAU0026 ",
+        "unidade_responsavel": "DEPTO TEORIA HISTORIA ARQUIT E URBANISM ",
+        "pre_requisitos": "-",
+        "ementa": ""
+    }
+]

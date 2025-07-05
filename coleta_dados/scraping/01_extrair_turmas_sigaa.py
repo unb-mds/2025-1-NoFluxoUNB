@@ -126,9 +126,9 @@ def coleta_dados(session, component_id, viewstate, base_url, params):
             #"codigo_componente": _remover_acentos(details_raw.get("Codigo", "Nao informado")),
             #"nome_componente": _remover_acentos(details_raw.get("Nome", "Nao informado")),
             "unidade_responsavel": (_remover_acentos(details_raw.get("Unidade Responsavel", "Nao informado"))).split('-')[0],
-            #"pre_requisitos": _remover_acentos(details_raw.get("Pre-Requisitos", "Nao informado")),
+            "pre_requisitos": _remover_acentos(details_raw.get("Pre-Requisitos", "Nao informado")),
             #"co_requisitos": _remover_acentos(details_raw.get("Co-Requisitos", "Nao informado")),
-            #"equivalencias": _remover_acentos(details_raw.get("equivalencias", "Nenhuma")), # 'equivalencias' já deve vir processado
+            #"equivalencias": ((_remover_acentos(details_raw.get("equivalencias", "Nenhuma"))).split())[0], # 'equivalencias' já deve vir processado
             #"excluir_avaliacao": _remover_acentos(details_raw.get("Excluir da Avaliacao Institucional", "Nao informado")),
             #"matriculavel_online": _remover_acentos(details_raw.get("Matriculavel On-Line", "Nao informado")),
             #"horario_flexivel": _remover_acentos(details_raw.get("Horario Flexivel da Turma", "Nao informado")),

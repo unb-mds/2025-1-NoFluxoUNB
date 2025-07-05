@@ -1,0 +1,639 @@
+[
+    {
+        "disciplina": " CINETICA, PROCESSOS E OPERACOES UNITARIAS",
+        "codigo": "ENC0001 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENM0080 E IQD0125 ) OU ( ENC0037 E IQD0125 ) )",
+        "ementa": "Conceitos basicos de cinetica quimica e bioquimica. Analise de reatores. Principais processos e operacoes unitarias aplicados a Engenharia Ambiental."
+    },
+    {
+        "disciplina": " ASPECTOS ECONOMICOS DA ENGENHARIA AMBIENTAL",
+        "codigo": "ENC0002 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( SOL0042 ) )",
+        "ementa": "Evolucao da Ciencia Economica. Principais correntes de economia e meio Ambiente. Elementos de Microeconomia e Macroeconomia. Conceitos de oferta, demanda e mercado. Excedente do consumidor. Tipos de externalidades ambientais. Nivel otimo de poluicao. Instrumentos economicos. Padroes ambientais. Valor economico e valoracao ambiental. Metodos de valoracao monetaria de custos e beneficios ambientais. Estudos de casos."
+    },
+    {
+        "disciplina": " SANEAMENTO, MEIO AMBIENTE E PLANEJAMENTO URBANO",
+        "codigo": "ENC0004 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ECL0030 E ENC0251 E ENC0166 ) OU ( ECL0033 E ENC0251 E ENC0166 ) OU ( ECL0014 E ENC0251 E ENC0166 ) )",
+        "ementa": "Origem e evolucao das cidades. Planejamento urbano e regional. Integracao entre saneamento basico e o tracado urbano. Concepcao de sistemas de abastecimento de agua. Concepcao de sistemas de esgotamento sanitario. Concepcao de sistemas e manejo de aguas pluviais. Concepcao de sistemas de coleta e transporte de residuos. Planejamento integrado de redes urbanas. Gestao do espaco urbano."
+    },
+    {
+        "disciplina": " TRATAMENTO DE AGUAS RESIDUARIAS URBANAS",
+        "codigo": "ENC0007 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0251 E ENC0001 ) OU ( ENC0251 E ENC0168 ) )",
+        "ementa": "Introducao Caracterizacao das Aguas Residuarias e selecao de tecnologias Tratamento Preliminar Remocao de Solidos Sedimentaveis e Gordura Fundamentos do Tratamento Biologico Processo de Lodos Ativados e Variantes Reator de Fluxo Ascendente e Manta de Lodo (UASB) Lagoas de Estabilizacao Tratamento e disposicao do Lodo. Dimensionamento."
+    },
+    {
+        "disciplina": " TRATAMENTO DE AGUA PARA CONSUMO HUMANO",
+        "codigo": "ENC0010 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0251 E ENC0001 ) OU ( ENC0251 E ENC0168 ) )",
+        "ementa": "Normas e legislacoes aplicaveis. Qualidade da agua e selecao de tecnologias. Processos usuais de tratamento de agua de abastecimento: coagulacao, floculacao, sedimentacao, filtracao rapida, desinfeccao, flotacao, filtracao lenta, adsorcao, oxidacao, separacao por membranas. Dimensionamento de estacoes de tratamento convencional."
+    },
+    {
+        "disciplina": " ESTUDOS DOS ECOSSISTEMAS AQUATICOS CONTINENTAIS",
+        "codigo": "ENC0012 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0015 ) )",
+        "ementa": "Apresentacao dos processos fisicos, quimicos e biologicos caracteristicos dos ambientes aquaticos de agua doce. Ecologia aquatica de rios, lagos e represas. Monitoramento e manutencao da qualidade da agua desses ecossistemas."
+    },
+    {
+        "disciplina": " INTRODUCAO A ANALISE DE SISTEMAS AMBIENTAIS",
+        "codigo": "ENC0013 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0275 ) OU ( MAT0053 E CIC0007 ) )",
+        "ementa": "Conceituacao basica da analise de sistemas - formulacao do problema. Funcoes objetivo. Tecnicas de otimizacao. Programacao linear. Programacao nao linear. Programacao dinamica. Otimizacao com multiplos objetivos."
+    },
+    {
+        "disciplina": " AVALIACAO E CONTROLE DE POLUICAO DA AGUA",
+        "codigo": "ENC0015 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0166 E ENC0001 ) )",
+        "ementa": "Causas e efeitos da poluicao dos ecossistemas aquaticos. Caracterizacao das cargas de poluicao aquatica. Nocoes de limnologia aplicada. Sistemas de classificacao ecologica. Conceitos e equacoes fundamentais. Simulacao matematica da poluicao de aguas: rios e canais lagos e reservatorios. Protecao de corpos de agua. Monitoramento. Indicadores biologicos. Legislacao especifica."
+    },
+    {
+        "disciplina": " AVALIACAO E CONTROLE DE POLUICAO DO SOLO",
+        "codigo": "ENC0016 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0183 E ENM0080 ) OU ( ENC0183 E ENC0037 ) OU ( ENC0121 E ENC0037 ) )",
+        "ementa": "Causas e efeitos da poluicao do solo. Mecanismos de contaminacao e degradacao do solo. Comportamento dos residuos no solo e subsolo. Conceitos e equacoes fundamentais. Simulacao matematica de fluxo de contaminantes no solo nas zonas nao saturada e saturada. Medidas de controle e de remediacao. Legislacao especifica."
+    },
+    {
+        "disciplina": " ESTAGIO CURRICULAR EM ENGENHARIA AMBIENTAL",
+        "codigo": "ENC0025 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( EPR0059 ) )",
+        "ementa": "Estagio Curricular obrigatorio a ser desenvolvido junto a iniciativa privada ou as empresas e orgaos governamentais de diferentes niveis (uniao, estados e municipios) ou em organizacoes nao governamentais. O estagio contara com acompanhamento e orientacao academica de forma continuada de acordo as diretrizes academicas da disciplina. Para o cumprimento do estagio o aluno devera desenvolver 165 horas de atividades no ambiente de trabalho, cumprindo plano de trabalho delineado especificamente para essa finalidade, alem de 30 horas dedicadas a orientacao e elaboracao de relatorios."
+    },
+    {
+        "disciplina": " AVALIACAO DE IMPACTOS E RISCOS AMBIENTAIS",
+        "codigo": "ENC0026 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( FDD0282 E EPR0059 ) )",
+        "ementa": "Conceitos de impactos e riscos. Vulnerabilidade ambiental. Passivo ambiental. Historico da avaliacao de impactos ambientais. Estudos de impacto ambiental. Processos de avaliacao. Metodos de avaliacao de impactos ambientais. Prospectiva e formulacao de cenarios. Modelos de representacao de sistemas. Especificidades de empreendimentos. Especificidades de ecossistemas. Monitoramento de impactos. Metodologias de avaliacao de riscos. Gestao do risco. Mitigacao e compensacao de impactos. Avaliacao ambiental estrategica. Sistema de licenciamento ambiental."
+    },
+    {
+        "disciplina": " PROJETO FINAL EM ENGENHARIA AMBIENTAL 1",
+        "codigo": "ENC0028 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Disciplina voltada para a preparacao do plano de trabalho a ser desenvolvido na disciplina ENC 104141 - Projeto Final em Engenharia Ambiental 2. Como parte da disciplina o aluno tera que produzir, e defender frente a banca examinadora, uma monografia constando de fundamentacao teorica e revisao bibliografica sobre o tema do trabalho final de curso, metodologia para desenvolvimento do trabalho e seu cronograma. Durante o desenvolvimento dessa monografia o aluno recebera orientacao do professor-orientador sobre o tema especifico e participara de seminarios que abordarao questoes de metodologia cientifica e comunicacao e expressao em engenharia. O desenvolvimento do Projeto Final em Engenharia Ambiental (trabalho de conclusao de curso) esta detalhado em regulamento especifico."
+    },
+    {
+        "disciplina": " PROJETO FINAL EM ENGENHARIA AMBIENTAL 2",
+        "codigo": "ENC0030 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0028 ) )",
+        "ementa": "Disciplina voltada para o desenvolvimento do plano de trabalho proposto como resultado da disciplina ENC 104132 - Projeto Final em Engenharia Ambiental 1. Como parte da disciplina o aluno tera que produzir, e defender frente a banca examinadora, uma monografia versando sobre tema especifico, no qual o formando devera demonstrar sua capacidade de resolver problemas relativos a Engenharia Ambiental sintetizando e integrando conhecimentos adquiridos ao longo do curso, estando preparado para exercer de forma cidada suas atividades profissionais. Durante o desenvolvimento dessa monografia o aluno recebera orientacao do professor-orientador sobre o tema e participara de seminarios que abordarao questoes de metodologia cientifica e comunicacao e expressao em engenharia e, tambem, etica profissional. O desenvolvimento do Projeto Final em Engenharia Ambiental e detalhado em regulamento especifico."
+    },
+    {
+        "disciplina": " PLANEJAMENTO E GESTAO AMBIENTAL",
+        "codigo": "ENC0031 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( FDD0282 E ENC0014 E ENC0016 ) OU ( FDD0282 E ENC0014 E ENC0015 ) OU ( FDD0282 E ENC0016 E ENC0015 ) )",
+        "ementa": "Evolucao da questao ambiental. Questoes ambientais locais, regionais, nacionais e globais. Politica ambiental no Brasil. Sistema Nacional de Meio Ambiente. Principios e instrumentos da gestao ambiental. Instrumentos de comando-e-controle. Instrumentos economicos. Planejamento ambiental. Gestao ambiental na empresa. Auditoria ambiental. Certificacao ambiental. Variavel ambiental e mercado. Tendencias e perspectivas no planejamento e gestao ambiental."
+    },
+    {
+        "disciplina": " RECUPERACAO E REABILITACAO DE AREAS DEGRADADAS POR MINERACAO",
+        "codigo": "ENC0033 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0183 ) )",
+        "ementa": "Atividades de mineracao. Disposicao de estereis e rejeitos de mineracao. Impactos ambientais em mineracao. Conceitos basicos relativos a degradacao, recuperacao e reabilitacao ambiental de areas degradadas por mineracao. Aspectos legais e institucionais da recuperacao de areas degradadas por mineracao. Metodos e tecnicas de recuperacao de areas degradadas por mineracao. Planos de desativacao de minas e reabilitacao de areas degradadas. Mineracao e desenvolvimento sustentavel."
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA TERRITORIAL",
+        "codigo": "ENC0034 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Introducao ao Curso. Problemas do Crescimento Economico e dos Investimentos em Infraestrutura. Conceito de Programa Territorial e Exemplos. Conceito da Engenharia Territorial. Processo de Elaboracao e Implantacao de Programas Territoriais. Ferramentas para a Elaboracao de Programas Territoriais: Marco Logico, Construcao Politica e Modelagem. Introducao a Analise de Insumo-Produto e a avaliacao da sustentabilidade fiscal de programas territoriais. Inovacoes organizacionais e institucionais relacionadas com Programas Territoriais. Concepcao do crescimento economico conforme a Engenharia Territorial."
+    },
+    {
+        "disciplina": " INTRODUCAO A MECANICA DOS SOLIDOS",
+        "codigo": "ENC0035 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IFD0171 E MAT0026 E MAT0031 ) OU ( IFD0171 E MAT0025 E MAT0039 ) )",
+        "ementa": "Geometria das massas. Equilibrio: particula e corpo rigido. Forcas internas (vigas). Tensoes. Deformacoes. Propriedades Mecanicas. Cargas axiais. Flexao. Cisalhamento."
+    },
+    {
+        "disciplina": " TRANSFERENCIA DE ENERGIA E MASSA",
+        "codigo": "ENC0037 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( MAT0027 E ENC0132 ) OU ( MAT0027 E ENC0035 ) )",
+        "ementa": "1) Mecanica dos fluidos\n1.1) Propriedades dos fluidos\n1.2) Estatica dos fluidos - manometria, forcas em superficies planas e curvas,\nempuxo, estabilidade de corpos submersos e flutuantes\n1.3) Estudo dos fluidos em movimento - tipos de escoamento, conceitos de sistema\ne volume de controle, conservacao de massa, equacao de energia e suas aplicacoes,\nequacao de Bernoulli, linhas de gradiente de energia, equacao da quantidade de\nmovimento e suas aplicacoes\n1.4) Analise dimensional e semelhanca dinamica\n1.5) Escoamentos internos - efeitos de viscosidade, escoamentos laminar e\nturbulento, perdas distribuidas e localizadas, escoamento permanente a superficie\nlivre.\n1.6) Maquinas de fluxo - teoria, diagrama de velocidades, equacoes teoricas das\nmaquinas, aplicacoes simples de curvas de bombas 3 curvas de sistema\n1.7) Escoamentos externos\n1.8) Escoamento de fluidos compressiveis\n2) Transferencia de massa\n2.1) Difusao molecular e difusividade\n2.2) Transferencia de massa por conveccao e difusao turbulenta\n3) Transmissao de calor."
+    },
+    {
+        "disciplina": " PROJETO DE INSTALACAO PREDIAL 1",
+        "codigo": "ENC0038 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0140 E ENC0251 E ENC0252 E ENE0001 E ENE0002 ) )",
+        "ementa": "Instalacao de agua fria, agua quente, esgoto e aguas pluviais: Principios gerais; Conceitos; Requisitos hidraulicos e sanitarios. Concepcao e consumo de agua; metodos de consumo. Materiais empregados; Simbologias; Partes componentes dos sistemas; Classificacao de riscos; Normas Tecnicas. Instalacoes eletricas: Conceitos Basicos: Corrente, tensao e potencia eletrica. Fator de potencia. Iluminacao de interiores e exteriores: Simbologia, lancamento de pontos, divisao de circuitos, quadro de cargas, protecao e conducao, tubulacao e fiacao, entrada de energia. Protecao das instalacoes eletricas arquitetonicas. Luminotecnica. SPDA."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM CONSTRUCAO CIVIL",
+        "codigo": "ENC0041 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0254 E ENC0255 ) )",
+        "ementa": "Ementa Variavel(Disciplina, de carater esporadico, voltada para abordar questoes especificas na tematica construcao civil)."
+    },
+    {
+        "disciplina": " PLANEJAMENTO DE REDES LOGISTICAS NA CONSTRUCAO",
+        "codigo": "ENC0042 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( EST0023 ) )",
+        "ementa": "Compreender a abordagem sistemica da logistica e das cadeias de suprimentos em um sistema de construcao, para: a) definir melhor os objetivos e metas empresariais dentro de um mercado cada vez mais competitivob) montar estrategias para implementar novas praticas gerenciais e a adocao de modelos e metodos quantitativos e computacionais que permitam melhorar a produtividade da empresa c) planejar os processos construtivos sob a visao da logistica para reduzir custos e desperdicios, cumprir prazos, garantir a qualidade de todos os processos e melhorar o desempenho de toda a rede logistica e cadeia de suprimento d) planejar a rede logistica reversa."
+    },
+    {
+        "disciplina": " SISTEMAS DE INFORMACAO GEOGRAFICA APLICADA AOS TRANSPORTES",
+        "codigo": "ENC0044 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": ""
+    },
+    {
+        "disciplina": " BIM APLICADO A ENGENHARIA I ",
+        "codigo": "ENC0045 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": ""
+    },
+    {
+        "disciplina": " MANUTENCAO DE RODOVIAS COM GERENCIA DE PAVIMENTOS",
+        "codigo": "ENC0049 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Breve historico da pavimentacao no Brasil e no Mundo. Origem dos criterios de dimensionamento da estrutura dos pavimentos. Sistemas de Gerencia de Pavimentos (SGP) como Sistema de Apoio a Decisao (SAD). Estrutura organizacional de um SGP (nivel de rede e nivel de projeto). Avaliacao estrutural e funcional dos Pavimentos. Metodologia para identificacao de defeitos em campo e definicao do Indice de Condicao do Pavimento (ICP). Coeficientes de atrito pneu-pavimento.  Estrategias de Manutencao e Reabilitacao (M&R).  Softwares auxiliares em SGP (HDM-4). SGP como criterio para financiamento internacional de obras no Brasil."
+    },
+    {
+        "disciplina": " RESIDUOS SOLIDOS URBANOS",
+        "codigo": "ENC0052 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0168 E ENC0121 ) OU ( ENC0183 E ENC0001 ) )",
+        "ementa": "Gestao de residuos solidos. Gerenciamento integrado de residuos solidos. Caracterizacao dos residuos solidos. Servicos de limpeza. Residuos Especiais. Tecnologias para Tratamento. Disposicao Final de Residuos Solidos. Tratamento de lixiviados. Remediacao de Lixoes. Reducao, reutilizacao e reciclagem."
+    },
+    {
+        "disciplina": " DESENHO TECNICO",
+        "codigo": "ENC0053 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Sistemas de projecao sistemas de representacao esbocos a mao livre e perspectivas escalas introducao a computacao grafica modelamento 3D em computador fundamentos da linguagem VRML modeladores 3D cortes e secoes introducao a fotogrametria cotagem normas tecnicas fundamentos do projeto arquitetonico projeto arquitetonico em 3D.(Disciplina comum a varios cursos, porem com turmas especificas para cada curso. Ementa comum, com abordagem especifica e trabalho de pratico final diferenciado para cada curso.)"
+    },
+    {
+        "disciplina": " GEOTECNIA 3",
+        "codigo": "ENC0121 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0235 ) OU ( ENC0249 ) )",
+        "ementa": "Equilibrio Plastico dos Solos, Estabilidade de Taludes, Estruturas de Contencao."
+    },
+    {
+        "disciplina": " PROJETO ARQUITETONICO DE EDIFICACOES",
+        "codigo": "ENC0128 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0053 ) )",
+        "ementa": "Introducao a metodologia do projeto. Programa de necessidades. Desenho de projetos graficos de arquitetura e engenharia contendo planta de situacao, de locacao, de cobertura, de edificacoes (baixa), cortes e fachadas. Desenho de detalhes construtivos (fundacao, alvenaria, estrutura e cobertura). Circulacao vertical (escadas, rampas e elavdores). Nocoes de desenho de projetos complementares (agua, esgoto, luz e forca, telefone). Detalhes de desenho de esquadrias. Compartimentos (iluminacao e ventilacao)."
+    },
+    {
+        "disciplina": " MECANICA DOS SOLIDOS 1",
+        "codigo": "ENC0132 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IFD0171 E MAT0026 E MAT0031 ) OU ( IFD0171 E MAT0026 E MAT0039 ) )",
+        "ementa": "Resumo de calculo vetorial. Geometria das massas. cinematica: vinculos e graus de liberdade necanismos simples. Estatica: metodo do equilibrio: esforcos seccionais: definicao. Linhas de estado de vigas e porticos isostaticos simples.Trelicas simples e compostas: metodo de Ritter e Cremona. Metodo dos trabalhos virtuais: aplicacoes a determinacao de esforcos e linhas de influencia de estruturas isostaticas. Dinamica dos corpos rigidos: 2a. lei de Newton teorema do movimento do centro de massa esforcos de origem dinamica em elementos de mecanismos em  movimento."
+    },
+    {
+        "disciplina": " MECANICA DOS SOLIDOS 2",
+        "codigo": "ENC0133 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0132 E MAT0027 ) )",
+        "ementa": "Introducao. Conceitos fundamentais. Solicitacoes axiais. Estados multiplos de tensoes e deformacoes. Tensoes na flexao. Deformacoes na flexao. Energia de deformacao."
+    },
+    {
+        "disciplina": " MECANICA DOS SOLIDOS 3",
+        "codigo": "ENC0134 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0133 E MAT0048 ) )",
+        "ementa": "Torcao de Saint-Venant. Criterios de ruptura. Teoremas fundamentais da analise limite.Estabilidade do equilibrio. Flambagem de colunas."
+    },
+    {
+        "disciplina": " TEORIA DAS ESTRUTURAS 1",
+        "codigo": "ENC0135 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( MAT0053 E ENC0134 ) )",
+        "ementa": "Fornecer ao aluno conhecimentos basicos dos principios energeticos que regem o comportamento de estruturas e seus elementos, submetidos as solicitacoes usuais. Formular os metodos classicos de resolucao de estruturas hiperestaticas, visando uma solida formacao basica, capaz de mobilizar a capacidade de analise, de logica e de reflexao, necessarias ao tratamento de problemas de engenharia."
+    },
+    {
+        "disciplina": " TEORIA DAS ESTRUTURAS 2",
+        "codigo": "ENC0136 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0135 ) )",
+        "ementa": "Equilibrio, compatibilidade e dualidade estatico-cinematico em estruturas. Relacoes construtivas do material. Formulacao sistematica para analise computacional: a estrutura com um NETWORK, o membro estrutura e l como um elemento finito, a descricao de malha e a descricao nodal da estatica e da cinematica, as formulacoes malha-flexibilidade e nodal-rigidez para a analise linear elastico. Automocao completa: metodo da rigidez direta. Introducao a dinamica estrutural."
+    },
+    {
+        "disciplina": " ISOSTATICA",
+        "codigo": "ENC0137 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0132 ) )",
+        "ementa": "Aprimorar os conhecimentos de estatica adquiridos em Mecanica dos Solidos 1. Desenvolver, no aluno, a capacidade de obter solucoes mais simples e eficientes para os problemas de analise estrutural, baseadas em uma analise critica dos mesmos. Preparar os alunos para o estudo das estruturas hiperestaticas a serem abordadas em Teoria das Estruturas 1."
+    },
+    {
+        "disciplina": " CALCULO PLASTICO DAS ESTRUTURAS",
+        "codigo": "ENC0139 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0135 ) )",
+        "ementa": "Estatica e cinematica das estruturas lineares. Relacoes constitutivas dos materiais estruturais. Analise elasto-plastica (MET.incremental). analise plastica limite. Projeto de minimo peso. Analise de Shakedown. Colapso plastico de lajes."
+    },
+    {
+        "disciplina": " TECNOLOGIA DAS CONSTRUCOES 1",
+        "codigo": "ENC0140 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0043 E ENC0254 E ENC0255 E ENC0053 ) OU ( IGD0043 E ENC0254 E ENC0255 E ENC0053 ) OU ( IGD0043 E ENC0254 E ENC0255 E ENC0128 ) OU ( IGD0183 E ENC0254 E ENC0255 E ENC0128 ) )",
+        "ementa": "Orientar e fornecer subsidios ao aluno para o estudo da producao/execucao de edificacoes bem como o desempenho, a racionalizacao e a qualidade dos sistemas construtivos e de seus elementos  e componentes. Fornecer uma visao geral e preliminar da engenharia, envolvendo os projetos e as especificacoes e fase de execucao."
+    },
+    {
+        "disciplina": " PLANEJAMENTO E CONTROLE DE CONSTRUCOES",
+        "codigo": "ENC0145 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0140 ) )",
+        "ementa": "Canteiro: estruturas de apoio estruturas de producao, NR-18. Orcamento: Orcamento por estimativa Custo Unitario Basico Discriminacao tecnica Orcamento informatizado Composicao dos servicos Discriminacao orcamentaria e quantificacao dos servicos Custos: materiais e equipamentos Leis sociais BDI.  Projeto: Processo de projeto de edificacoes compatibilizacao de projetos documentos de projetos aprovacao de projetos. Planejamento: Conceitos elementares e tecnicas de planejamento e controle de obras Licitacao: Lei 8666. 6. Contratos: Estrutura e tipos de contratos Norma 12721."
+    },
+    {
+        "disciplina": " ESTRUTURA DE CONCRETO ARMADO 1",
+        "codigo": "ENC0146 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0134 E ENC0135 E ENC0143 ) OU ( ENC0134 E ENC0135 E ENC0254 E ENC0255 ) )",
+        "ementa": "Introducao. Fundamentos do projeto estrutural em concreto armado. Pilares a compressao centrada. Flexao normal simples de pecas de concreto armado. Lajes macicas retangulares de edificios."
+    },
+    {
+        "disciplina": " ESTRUTURAS DE CONCRETO ARMADO 2",
+        "codigo": "ENC0147 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0146 ) )",
+        "ementa": "Abordagem de topicos selecionados que complementam o estudo do concreto. Estados limites do concreto. Estados  limites ultimo e de utilizacao. Fissuracao. Flechas. Lajes a ruptura. Flexao composta normal e obliqua. Pilar padrao. Torcao. Lajes nervuradas. Cortinas. Escadas. Marquises. Caixa d'agua. Pilares parede. Vigas parede. Lajes cogumelo. Puncao. Normatizacao"
+    },
+    {
+        "disciplina": " ESTRUTURAS METALICAS E DE MADEIRA",
+        "codigo": "ENC0148 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0134 E ENC0135 E ENC0143 ) OU ( ENC0134 E ENC0135 E ENC0254 E ENC0255 ) )",
+        "ementa": "Historico, criterios de dimensionamento e cargas. Introducao ao estudo dos perfis de chapa dobrada a frio. Dimensionamento de perfis laminados: Dimensionamento de barras tracionadas. Dimensionamento de barras comprimidas. Dimensionamento de barras fletidas. Dimensionamento de barras submetidas a solicitacao composta. Ligacoes."
+    },
+    {
+        "disciplina": " PROJETO DE EDIFICIOS",
+        "codigo": "ENC0152 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0148 E ENC0146 ) )",
+        "ementa": "Concepcao estrutural. Lancamento da estrutura. Detalhamento de pecas e da estrutura. Apresentacao dos projetos."
+    },
+    {
+        "disciplina": " PROJETO DE PONTES",
+        "codigo": "ENC0154 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0148 E ENC0146 ) )",
+        "ementa": "Estruturas de Pontes, classificacao, fixacao de dimensoes, perfil longitudinal e transversal, superestrutura, meso-estrutura e infra-estrutura. Canteiro e construcao de pontes."
+    },
+    {
+        "disciplina": " PROJETO DE ESTRUTURAS DE ACO",
+        "codigo": "ENC0155 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0148 ) )",
+        "ementa": "Apresentar ao aluno definicoes de projeto, tipos e formas estruturais mais usuais, ligacoes mais comuns, plantas a apresentar, etc, para galpoes e edificios de andares multiplos."
+    },
+    {
+        "disciplina": " HIDROLOGIA APLICADA",
+        "codigo": "ENC0166 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENM0080 E EST0023 E IGD0043 ) OU ( ENM0080 E EST0023 E IGD0183 ) OU ( ENM0080 E ENC0267 E ENC0274 ) OU ( ENM0080 E ENC0267 E EST0023 ) OU ( ENC0037 E EST0023 E IGD0043 ) OU ( ENC0037 E EST0023 E IGD0183 ) OU ( ENC0037 E ENC0267 E ENC0274 ) OU ( ENC0037 E ENC0267 E EST0023 ) )",
+        "ementa": "Ciclo hidrologico. Bacia hidrografica. Medidas climatologicas. Precipitacao. Infiltracao. Evaporacao e transpiracao. Fluviometria. Escoamento superficial. Aguas subterraneas - fluxo, tecnicas de localizacao e prospeccao de aquiferos, hidraulica de pocos. Estatistica aplicada. Regularizacao de vazoes e controle de cheias. Tecnicas de previsao de cheias e secas."
+    },
+    {
+        "disciplina": " SANEAMENTO AMBIENTAL",
+        "codigo": "ENC0168 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0167 ) OU ( ENC0251 E ENC0252 ) )",
+        "ementa": "1. Entender as formas de atuacao do engenheiro civil na area de saneamento  2. Conhecer as tecnicas de deteccao das principais impurezas presentes na agua, e saber interpretar um exame de qualidade da agua3. Entender os fundamentos dos principais processos de tratamento de agua para abastecimento publico e saber dimensionar as unidades referentes a estes processos4. Reconhecer os principais fenomenos de poluicao e de autodepuracao dos corpos de agua, e saber as medidas de controle aplicaveis5. Compreender o funcionamento, e saber dimensionar os principais processos de tratamento de aguas residuarias6. Conhecer o funcionamento e operacao dos sistemas de limpeza publica e de coleta, transporte, tratamento e disposicao de residuos solidos urbanos7. Reconhecer os principais problemas de poluicao atmosferica, e saber quais podem ser as medidas de controle."
+    },
+    {
+        "disciplina": " SISTEMAS HIDRAULICOS DE SANEAMENTO",
+        "codigo": "ENC0169 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0166 E ENC0167 ) OU ( ENC0251 E ENC0252 E ENC0166 ) )",
+        "ementa": "Nocoes de demografia. Mananciais. Mananciais subterraneos, mananciais superficiais. Sistemas de abastecimento de agua. Parametros de projeto Captacao, aducao, reservacao, distribuicao Sistemas de esgotos sanitarios - rede coletora, interceptadores, emissarios, estacoes elevatorias Sistema de aguas pluviais - rede coletora, orgaos acessorios Desenvolvimento de projeto."
+    },
+    {
+        "disciplina": " GEOTECNIA AMBIENTAL",
+        "codigo": "ENC0183 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0197 ) OU ( ENC0235 ) )",
+        "ementa": "Estabilidade de taludes, movimentos de massa e processos erosivos. Impacto ambiental de obras de engenharia. Controle ambiental na mineracao. Disposicao de residuos municipais com enfase em aterros sanitarios (projeto, implantacao, operacao). Determinacao de parametros ambientais em laboratorio e \"in situ\". Recuperacao de areas degradadas."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM GEOTECNIA",
+        "codigo": "ENC0191 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0133 ) OU ( ENC0121 ) )",
+        "ementa": "Ementa Variavel(Disciplina, de carater esporadico, voltada para abordar questoes especificas na tematica geotecnia)."
+    },
+    {
+        "disciplina": " INTRODUCAO A DINAMICA DE ESTRUTURAS",
+        "codigo": "ENC0193 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0135 ) OU ( ENM0112 E MAT0048 ) )",
+        "ementa": "01. INTRODUCAO:  RUDIMENTOS DE DINAMICA E APRESENTACAO GERAL DA DINAMICA DE  ESTRUTURAS.                                                                02. FORMULACAO DAS EQUACOES DE MOVIMENTO.                               03. OSCILACOES LIVRES.                                                  04. RESPOSTA A UM CARREGAMENTO HARMONICO.                               05. RESPOSTA A UM CARREGAMENTO PERIODICO QUALQUER                       06. RESPOSTA A UM CARREGAMENTO IMPULSIVO.                               07. ESTUDO DA RESPOSTA DINAMICA: METODO DA SUPERPOSICAO MODAL.    08. PORPAGACAO DE ONDAS.                                                09. NOCOES DE ENGENHARIA SISMICA.                                       10. NOCOES DE INTERACAO FLUIDO-ESTRUTURA.                               11. NOCOES DE BALISTICA EXTERIOR ( MOVIMENTO DE PROJETEIS EM MEIO FLUIDO)."
+    },
+    {
+        "disciplina": " PROJETO DE ESTRADAS",
+        "codigo": "ENC0199 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0043 E ENC0195 E ENC0203 ) OU ( IGD0043 E ENC0249 E ENC0250 E ENC0203 ) OU ( IGD0043 E ENC0249 E ENC0240 E ENC0203 ) OU ( IGD0183 E ENC0241 E ENC0240 E ENC0203 ) )",
+        "ementa": "Introducao ao estudo de estradas. Leis do modelado terrestre. Reconhecimento de um tracado. Exploracao ou projeto basico. Locacao ou projeto definitivo. Estudos complementares: comparacao de tracados, terraplanagem, drenagem e estudos geotecnicos. Impactos ambientais de rodovias."
+    },
+    {
+        "disciplina": " PROJETO DE ESTRADAS 2",
+        "codigo": "ENC0200 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0199 ) )",
+        "ementa": "Apresentacao. Historico das Ferrovias. Situacao no Brasil. Superestrutura. Trilho. Dormentes. Lastro. Tipos. Calculo. Patios. Tipos. Acessorios. Patios especiais. Condicoes projeto. Material rodante. Carros. Vagoes. Componentes. Material de Tracao. Locomotivas. Vapor. Diesel. Eletricas. Vantagens. Criterio de escolha. Resistencias ao movimento. Oficinas. Comunicacoes. Sinalizacao. Trafego. Eletrificacao. Instalacoes fixas e moveis. Vantagens e desvantagens. Conservacao das instalacoes. Caracteristicas de ferrovias suburbanas. Visita."
+    },
+    {
+        "disciplina": " ENGENHARIA DE TRAFEGO",
+        "codigo": "ENC0202 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Introducao a Engenharia de Trafego. Sinalizacao Semaforica e Estatigrafica. Projetos de Vias Urbanas. Projetos de Intersecao. Projetos de Terminais e Estacionamentos. Transportes Publicos."
+    },
+    {
+        "disciplina": " PLANEJAMENTO DE TRANSPORTES",
+        "codigo": "ENC0203 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( CIC0007 E EST0023 ) )",
+        "ementa": "Ementa:Conceitos de Planejamento Planejamento de Transporte Urbano Tecnologia de Transporte Economia de Transportes."
+    },
+    {
+        "disciplina": " PAVIMENTACAO",
+        "codigo": "ENC0206 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0195 E ENC0199 ) OU ( ENC0249 E ENC0250 E ENC0199 ) OU ( ENC0235 E ENC0199 ) OU ( ENC0249 E ENC0240 E ENC0199 ) )",
+        "ementa": "Fornecer o conhecimento basico dos elementos utilizados em pavimentacao de rodovias, ferrovias e aeroportos, tanto no que se refere a projetos como em execucao, dando enfase as condicoes locais."
+    },
+    {
+        "disciplina": " PROJETO DE AEROPORTOS",
+        "codigo": "ENC0207 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0203 ) )",
+        "ementa": "Ementa:Historia da aviacao civil e militar. Importancia economica de transporte aereo. Financiamentos dos aeroportos. Caracteristicas das aeronaves civis. Controle de trafego aereo. Localizacao dos aeroportos. Ante-projeto para localizar e construir um aeroporto."
+    },
+    {
+        "disciplina": " ASPECTOS GEOTECNICOS DE FUNDACOES",
+        "codigo": "ENC0211 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0197 ) OU ( ENC0121 ) )",
+        "ementa": "Fundacoes por sapatas. Tipos de fundacoes. Tecnologia de sapatas. Fundacoes por estacas. Tecnologia de estacas. Tipos de fundacoes profundas por tubuloes. Tecnologia de tubuloes. Fundacoes especiais."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM TRANSPORTE 2",
+        "codigo": "ENC0217 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Ementa Variavel(Disciplina, de carater esporadico, voltada para abordar questoes especificas na tematica transportes)."
+    },
+    {
+        "disciplina": " TOPICOS ESPECIAIS EM TRANSPOTES 3",
+        "codigo": "ENC0218 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Ementa Variavel(Disciplina, de carater esporadico, voltada para abordar questoes especificas na tematica transportes)"
+    },
+    {
+        "disciplina": " INTRODUCAO AO METODO DOS ELEMENTOS FINITOS",
+        "codigo": "ENC0219 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0134 ) )",
+        "ementa": "METODOS NUMERICOS APLICADOS A PROBLEMAS DE ENGENHARIA. INTRODUCAO AOS PRINCIPIOS VARIACIONAIS APLICADOS A  MECANICA DOS  SOLIDOS. METODOS DE RAVLEIGH-RITZ E DOS RESIDUOS PONDERADOS ( METODOS DE GALERKIN ). ME- TODO DOS ELEMENTOS FINITOS. DISCRETIZACAO E SOLUCAO APROXIMADA. APLICA- CAO EM ESTRUTURAS DE BARRAS, LAMINARES E MACICAS. ELEMENTOS  ISOPARAME- TRICOS. PROBLEMAS NUMERICOS ( CONVERGENCIA ) E TECNICAS DE PROGRAMACAO."
+    },
+    {
+        "disciplina": " MATERIAIS DE CONSTRUCAO ",
+        "codigo": "ENC0229 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( TEC0018 ) OU ( TEC0038 E TEC0039 ) )",
+        "ementa": "Estudos dos materiais de construcao, suas propriedades fisicas, mecanicas e normalizacao. Metodos de controle de qualidade do concreto, do aco, da madeira, dos materiais ceramicos, vidros, tintas e outros."
+    },
+    {
+        "disciplina": " MATERIAIS DE CONSTRUCAO ",
+        "codigo": "ENC0230 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( TEC0018 ) OU ( TEC0038 E TEC0039 ) )",
+        "ementa": "ENSAIOS DOS MATERIAIS DE CONSTRUCAO ENSAIOS DE RESISTENCIAS MECANICAS DE CONCRETO, ACO  PARA CONCRETO  ARMADO E PROTENDIDO, BLOCOS  CERAMICOS ENSAIOS DE CARACTERIZACAO DE AGREGADOS ENSAIOS DE RESISTENCIAS  MECANICAS PARA MADEIRA."
+    },
+    {
+        "disciplina": " GEOTECNIA 2",
+        "codigo": "ENC0235 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0241 E ENC0240 E MAT0027 ) )",
+        "ementa": "Tensoes geostaticas e induzidas. Permeabilidade. Fluxo bi-dimensional. Compressibilidade. Resistencia ao cisalhamento."
+    },
+    {
+        "disciplina": " LABORATORIO DE GEOTECNIA 2",
+        "codigo": "ENC0238 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0240 E ENC0241 ) )",
+        "ementa": ""
+    },
+    {
+        "disciplina": " LABORATORIO DE GEOTECNIA 1",
+        "codigo": "ENC0240 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0173 ) OU ( IGD0021 ) )",
+        "ementa": "Objetivos da experimentacao laboratorial. Investigacao e amostragem de solo. Identificacao e Classificacao de solos. Compactacao e controle de obras de terra. Comportamento mecanico e hidraulico dos solos.(Disciplina experimental ministrada em turmas com no maximo 12 alunos.)"
+    },
+    {
+        "disciplina": " GEOTECNIA 1",
+        "codigo": "ENC0241 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IFD0171 E MAT0025 E IGD0173 ) OU ( IFD0171 E MAT0025 E IGD0021 ) )",
+        "ementa": "Minerais e rochas. Clima e relevo. Aguas superficiais e subterraneas. Processos da dinamica superficial. Investigacao geologica superficial. Investigacao subterranea direta. Caracterizacao e classificacao de macicos rochosos. Origem e formacao dos solos. Estrutura dos solos. Indices fisicos. Granulometria. Capilaridade. Consistencia dos solos. Classificacao dos solos."
+    },
+    {
+        "disciplina": " PROJETO FINAL EM ENGENHARIA CIVIL 1",
+        "codigo": "ENC0242 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "VARIAVEL - Depende do tema escolhido pelo alunoA disciplina Projeto Final em Engenharia Civil 1 devera incluir uma revisao bibliografica relacionada ao tema escolhido, bem como o plano de trabalho a ser desenvolvido na disciplina Projeto Final em Engenharia Civil 2."
+    },
+    {
+        "disciplina": " PROJETO FINAL EM ENGENHARIA CIVIL 2",
+        "codigo": "ENC0243 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0242 ) )",
+        "ementa": "VARIAVEL - Depende do tema escolhido pelo alunoDesenvolvimento do plano de trabalho proposto na disciplina Projeto Final em Engenharia Civil 1. A disciplina Projeto Final em Engenharia Civil 2 podera assumir caracteristicas de pesquisa, projeto ou demais atividades da area de atuacao do Engenheiro Civil."
+    },
+    {
+        "disciplina": " SENSORIAMENTO REMOTO APLICADO A ENGENHARIA CIVIL",
+        "codigo": "ENC0244 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0043 ) OU ( IGD0183 ) )",
+        "ementa": "O objetivo da disciplina e prover os alunos de conceitos basicos do sensoriamento remoto e outras areas afins de forma a capacita-lo a realizar aplicacoes produtos de sensoriamento remoto em trabalhos e projetos de engenharia civil."
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA CIVIL",
+        "codigo": "ENC0246 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Apresentacao do curso de engenharia civil. Apresentacao dos principais campos de atuacao abrangidos pela engenharia civil."
+    },
+    {
+        "disciplina": " MECANICA DAS ROCHAS",
+        "codigo": "ENC0248 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0197 E ENC0121 ) )",
+        "ementa": "TIPOS DE ROCHA. ROCHA INTACTA, DESCONTINUIDADES E MACICO ROCHOSO. DESCRICAO QUANTITATIVA DAS DESCONTINUIDADES. PROPRIEDADES DA ROCHA  INTACTA. CLASSIFICACAO  GEOMECANICA DOS MACICOS ROCHOSOS. DEFORMABILIDADE E RESISTENCIA. CRITERIOS DE RUPTURA. ANALISE DE ESTABILIDADE DE TALUDES EM ROCHA:  RUPTURA  PLANA, CIRCULAR, CUNHAS E TOMBAMENTO. FUNDACOES  EM ROCHAS. ESCAVACOES SUBTERRANEAS: HISTORICO, TENSOES  IN-SITU E  INDUZI- DAS, SISTEMAS DE SUPORTE E INTERACAO MACICO-SUPORTE."
+    },
+    {
+        "disciplina": " HIDRAULICA ",
+        "codigo": "ENC0251 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0043 E ENM0080 ) OU ( IGD0183 E ENM0080 ) OU ( ENC0267 E ENM0080 ) OU ( IGD0043 E ENC0037 ) OU ( IGD0183 E ENC0037 ) OU ( ENC0267 E ENC0037 ) )",
+        "ementa": "Orificios, bocais, adufas e calhas. Vertedores. Escoamento a superficie livre - rios e canais, escoamento uniforme e variado. Escoamento em condutos forcados - perda de carga, adutoras e redes. Bombas hidraulicas - dimensionamento, cavitacao, selecao. Transientes hidraulicos. Aplicacoes."
+    },
+    {
+        "disciplina": " HIDRAULICA EXPERIMENTAL",
+        "codigo": "ENC0252 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0043 E ENM0080 ) OU ( IGD0183 E ENM0080 ) OU ( ENC0267 E ENM0080 ) OU ( IGD0043 E ENC0037 ) OU ( IGD0183 E ENC0037 ) OU ( ENC0267 E ENC0037 ) )",
+        "ementa": "Estudo em laboratorio dos principais fenomenos hidraulicos de importancia para a Engenharia: Jatos livres energia especifica escoamento em condutos livres ressalto hidraulico escoamentos em condutos forcados bombas hidraulicas transientes hidraulicos.(Disciplina experimental ministrada em turmas com no maximo 12 alunos.)"
+    },
+    {
+        "disciplina": " MATERIAIS DE CONSTRUCAO CIVIL 1 ",
+        "codigo": "ENC0254 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IQD0051 E IGD0021 ) OU ( IQD0051 E IGD0173 ) OU ( IQD0125 E IQD0126 E IGD0021 ) OU ( IQD0125 E IQD0126 E IGD0173 ) )",
+        "ementa": "1- Estudar os materiais utilizados construcao civil, principalmente os empregados em edificacoes, sob o ponto de vista de suas propriedades, emprego e custos.2 - Sensibilizar o aluno a pesquisa de novos materiais e de novas tecnicas construtivas.3 - Dar os conhecimentos necessarios para que o futuro profissional possa executar obras e exercer controles de qualidade dos materiais.4 - Contribuir na formacao do engenheiro no que diz respeito a avaliacao e especificacao correta dos materiais utilizados na construcao civil."
+    },
+    {
+        "disciplina": " MATERIAIS DE CONSTRUCAO CIVIL 1 ",
+        "codigo": "ENC0255 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IQD0051 E IGD0021 ) OU ( IQD0051 E IGD0173 ) OU ( IQD0125 E IQD0126 E IGD0021 ) OU ( IQD0125 E IQD0126 E IGD0173 ) )",
+        "ementa": "Ensaios dos materiais de construcao: ensaios de resistencias mecanicas de concreto, aco para concreto armado e protendido, blocos ceramicos ensaios de caracterizacao de agregados ensaios de resistencias mecanicas para madeira."
+    },
+    {
+        "disciplina": " GEOSSINTETICOS EM GEOTECNIA E MEIO AMBIENTE",
+        "codigo": "ENC0259 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0121 ) )",
+        "ementa": "Geossinteticos, Aterros Sobre Solos Moles, , Geossinteticos em Obras Geotecnicas e de Protecao Ambiental."
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA AMBIENTAL",
+        "codigo": "ENC0263 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Formacao do Engenheiro Ambiental, sua abrangencia, interfaces e papel na sociedade. O curso de Engenharia Ambiental na UnB e sua proposta pedagogica. Conceitos de metodologia cientifica e Tecnologica. Nocoes de comunicacao oral e escrita em engenharia ambiental."
+    },
+    {
+        "disciplina": " TRANSPORTE E MEIO AMBIENTE",
+        "codigo": "ENC0264 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0227 ) OU ( ENC0267 ) )",
+        "ementa": "Estudo e diagnostico do impacto das atividades do setor de transportes no meio ambiente. Uso de energia em transportes (combustiveis convencionais e alternativos). Intrusao Visual. Vibracao. Poluicao Sonora. Poluicao Atmosferica. Chuva Acida. Efeito estufa. Gestao ambiental para implantacao, operacao e manutencao das infraestruturas de transporte."
+    },
+    {
+        "disciplina": " INTRODUCAO A ENGENHARIA URBANA",
+        "codigo": "ENC0265 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "-",
+        "ementa": "Estudo geral do conceito de cidade e de infraestruturas urbanas\nEstudo sobre as condicoes de vida e do problema de infraestruturas na favela: sistema viario, agua, esgoto, mobilidade (analise de documentos, vlogs e palestras com lideres comunitarios)\nEquacionamento do problema\nEstudo aprofundado dos problemas de infraestrutura nas favelas, por meio de estudo de casos, palestras\nProspeccao de alternativas tecnologicas e de arranjos institucionais para saneamento basico, com foco no esgoto condominial (analise de documentos, vlogs e palestras)\nEstudos de caso, em favela indicada, de aplicacao preliminar da abordagem de esgoto condominial, contendo:\n•\tTecnicas cartograficas (QGIS)\n•\tEstudo populacional\n•\tDesenho de Rede (SaniBid)\n•\tRamais condominiais (esgoto e agua)"
+    },
+    {
+        "disciplina": " CLIMATOLOGIA APLICADA",
+        "codigo": "ENC0266 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IFD0175 ) )",
+        "ementa": "Introducao ao sistema climatico. O balanco global de energia. Estrutura vertical da atmosfera, conveccao e o ciclo hidrologico. Balanco de energia na superficie. Dinamica atmosferica: pressao, ventos, movimentos horizontal e vertical. Circulacao da atmosfera e sistemas de tempo. Circulacao do oceano e o clima. Oscilacoes climaticas: El Nino e outras oscilacoes. Climas do passado, forcantes naturais e antropogenicas, sensibilidade e mecanismos de feedback. Aquecimento global e o ciclo do carbono. Modelos climaticos e projecoes futuras."
+    },
+    {
+        "disciplina": " CARTOGRAFIA E GEOPROCESSAMENTO APLICADO",
+        "codigo": "ENC0267 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IGD0173 E ENC0053 ) OU ( IGD0021 E ENC0053 ) )",
+        "ementa": "Cartografia basica e tematica: Representacao cartografica base de dados cartograficos cartas de inventario, diagnostico e prognostico. Introducao ao geoprocessamento: geocodificacao tratamento de dados espaciais. Sistemas de informacoes geograficas: Componentes e funcionalidades de um SIG Modelagem de dados. Nocoes de topografia: Levantamentos topograficos, planimetricos e altimetricos Nocoes de geodesia. Introducao ao sensoriamento remoto: Conceitos radiometricos basicos Comportamento espectral de alvos Niveis de aquisicao de dados Processamento digital de imagens."
+    },
+    {
+        "disciplina": " CIENCIA DOS MATERIAIS",
+        "codigo": "ENC0268 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( IQD0125 ) )",
+        "ementa": "Estrutura e ligacoes atomicas, arranjos moleculares, cristalinos e amorfos da materia Tipos de Materiais (Classificacao - estruturas atomicas): Metais Ceramicos e Vidros Polimeros Novos materiais - compositos Principais propriedades intrinsecas aos materiais Tecnicas experimentais para determinacao das propriedades gerais dos materiais e de estudo da microestrutura dos materiais Criterios basicos de selecao de materiais para engenharia Utilizacao dos materiais na engenharia e Ciclo de vida de materiais: obtencao e deterioracao dos materiais."
+    },
+    {
+        "disciplina": " MICROBIOLOGIA AMBIENTAL",
+        "codigo": "ENC0269 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( CEL0088 )",
+        "ementa": "Introducao: aspectos ecologicos e aplicacao. Crescimento e fisiologia microbiana. Procedimentos de manipulacao de micro-organismos. O ambiente microbiano: agua, solo e ar. Interacoes e atividades microbianas no ambiente. Micro-organismos no controle da poluicao ambiental. Importancia sanitaria."
+    },
+    {
+        "disciplina": " MICROBIOLOGIA AMBIENTAL E EXPERIMENTAL",
+        "codigo": "ENC0270 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( CEL0088 )",
+        "ementa": "Conhecimento da estrutura basica do laboratorio de microbiologia. Aprendizado e treinamento de tecnicas basicas de manipulacao de micro-organismos. Identificacao e quantificacao de micro-organismos de culturas puras e de amostras ambientais. Medidas de atividade biologica. Ensaios de biodegradabilidade.(Disciplina experimental ministrada em turmas com no maximo 12 alunos.)"
+    },
+    {
+        "disciplina": " MATERIAIS PARA CONSTRUCAO 1",
+        "codigo": "ENC0271 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( TEC0026 ) OU ( ENC0268 ) )",
+        "ementa": "Estudar os materiais utilizados construcao civil, principalmente os empregados em edificacoes, sob o ponto de vista de suas propriedades, emprego e custos. Sensibilizar o aluno a pesquisa de novos materiais e de novas tecnicas construtivas. Dar os conhecimentos necessarios para que o futuro arquiteto possa executar obras e exercer controles de qualidade de materiais. Contribuir na formacao do arquiteto no que diz respeito a avaliacao e especificacao correta dos materiais utilizados na construcao civil."
+    },
+    {
+        "disciplina": " ASPECTOS QUIMICOS DE QUALIDADE DA AGUA",
+        "codigo": "ENC0272 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( IQD0125 )",
+        "ementa": "Aspectos Gerais da quimica da agua. Planejamento e Tecnicas de Amostragem. Caracteristicas Fisicas. Caracteristicas Quimicas. Nutrientes. Materia Organica. Microcontaminantes organicos e inorganicos. Interpretacao de resultados e legislacao."
+    },
+    {
+        "disciplina": " ASPECTOS QUIMICOS DE QUALIDADE DE AGUA",
+        "codigo": "ENC0273 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( IQD0125 )",
+        "ementa": "Tecnicas de amostragem, pre-tratamento e preservacao de amostras. Conceitos basicos de Quimica Analitica: analise gravimetrica e volumetrica, colorimetria e metodos fisicos de analise. Metodos instrumentais de analise. Metodos analiticos padronizados para determinacao das caracteristicas fisicas e quimicas das aguas e aguas residuarias.(Disciplina experimental ministrada em turmas com no maximo 12 alunos.)"
+    },
+    {
+        "disciplina": " ESTATISTICA APLICADA A ENGENHARIA AMBIENTAL",
+        "codigo": "ENC0274 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( MAT0027 ) )",
+        "ementa": "Fundamentos da Probabilidade e Estatistica na Engenharia. Teoria da probabilidade. Estatistica descritiva. Inferencia estatistica. Regressao e Correlacao. Analise multivariada. Aplicacoes em engenharia ambiental: controle de qualidade e planejamento de experimentos, tendencias em series temporais de precipitacao e temperatura, eventos extremos de seca e cheias, analise de risco ambiental, sistemas multidimensionais, analise e previsao de variaveis hidroclimatologicas."
+    },
+    {
+        "disciplina": " METODOS COMPUTACIONAIS EM ENGENHARIA AMBIENTAL",
+        "codigo": "ENC0275 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( MAT0027 ) )",
+        "ementa": "Introducao a computacao - algoritmos e nocoes de programacao. Elementos de calculo numerico - erros, principais metodos sobre: zero de funcoes, sistemas lineares, integracao numerica, ajustes de curva. Solucao numerica de equacoes diferenciais ordinarias. Introducao a solucao de equacoes diferenciais parciais - metodo das diferencas finitas, problemas de difusao e adveccao."
+    },
+    {
+        "disciplina": " MATERIAIS PARA CONSTRUCAO EXPERIMENTAL",
+        "codigo": "ENC0276 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0271 ) )",
+        "ementa": ""
+    },
+    {
+        "disciplina": " MATERIAIS PARA CONSTRUCAO 2",
+        "codigo": "ENC0277 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ( ENC0271 ) )",
+        "ementa": ""
+    },
+    {
+        "disciplina": " PLANEJAMENTO E GESTAO DE SISTEMAS HIDRICOS",
+        "codigo": "ENC0282 ",
+        "unidade_responsavel": "DEPTO ENGENHARIA CIVIL E AMBIENTAL ",
+        "pre_requisitos": "( ENC0166 )",
+        "ementa": "Apresentacao dos principais desafios do planejamento e gestao de sistemas hidricos (visao global, nacional e regional). Evolucao da gestao de recursos hidricos (integrada, adaptativa, complexa).\n\nPolitica Nacional de Recursos Hidricos -  Lei 9.433 e Sistema Nacional de Gerenciamento de Recursos Hidricos (Governanca)\n\nInstrumentos de gestao de recursos hidricos (outorga, cobranca, sistema de informacoes, planos, enquadramento): fundamentos e mecanismos operacionais. \n\nModelagem para apoio ao processo de tomada de decisao (planejamento e gerenciamento) em sistemas hidricos: alocacao de recursos escassos, gestao da qualidade da agua, aspectos distributivos, equidade, adaptacao a mudancas globais (climaticas, sociais e economicas). Tratamento da incerteza e utilizacao de bases teoricas de sistemas complexos para planejamento e gestao de sistemas hidricos."
+    }
+]

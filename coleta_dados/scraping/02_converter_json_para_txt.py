@@ -23,6 +23,8 @@ os.makedirs(saida, exist_ok=True)
 campos = [
     "disciplina",
     "codigo",
+    #"equivalencias",
+    "pre_requisitos",
     "unidade_responsavel",
     "ementa"
 
