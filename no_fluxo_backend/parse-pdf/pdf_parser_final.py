@@ -4,6 +4,7 @@ import json
 import io
 import os
 import logging
+import sys
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image # Importar a biblioteca Pillow (PIL)
@@ -11,6 +12,12 @@ from pdf2image import convert_from_bytes # Para converter PDF para imagem
 import pytesseract # Para o OCR
 from werkzeug.utils import secure_filename
 import unicodedata
+
+# Configurar encoding UTF-8 para o console
+if sys.platform.startswith('win'):
+    import codecs
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
+    sys.stderr = codecs.getwriter('utf-8')(sys.stderr.detach())
 
 # Configure logging
 logging.basicConfig(
@@ -46,9 +53,9 @@ padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
 # --- Novos padrões para informações adicionais ---
-padrao_media_ponderada = re.compile(r"(?:MP|MÉDIA PONDERADA|MEDIA PONDERADA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
-padrao_frequencia = re.compile(r"(?:FREQ|FREQUÊNCIA|FREQUENCIA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
-padrao_matriz_curricular = re.compile(r"(?:MATRIZ|CURRÍCULO|CURRICULO)[:\s]+([A-ZÀ-Ÿ\s\d\.\-]+?)(?:\n|$)", re.IGNORECASE)
+padrao_media_ponderada = re.compile(r"(?:MP|MEDIA PONDERADA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
+padrao_frequencia = re.compile(r"(?:FREQ|FREQUENCIA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
+padrao_matriz_curricular = re.compile(r"(?:MATRIZ|CURRICULO)[:\s]+([A-ZÀ-Ÿ\s\d\.\-]+?)(?:\n|$)", re.IGNORECASE)
 padrao_professor = re.compile(r"^(?:Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)\s+([A-ZÀ-Ÿ\s\.]+?)(?:\s|$)", re.IGNORECASE)
 
 # --- Extração de Curso ---
@@ -74,7 +81,7 @@ def extrair_curso(texto):
     for linha in linhas:
         if re.match(r'^\s*CURSO\s*:', normalizar(linha)):
             curso = linha.split(":", 1)[1].strip()
-            print(f"🎓 Curso extraído: {curso}")
+            print(f"[CURSO] Curso extraído: {curso}")
             return curso
     # 2. Tenta padrão UnB: linha após 'DADOS DO VINCULO DO(A) DISCENTE'
     for i, linha in enumerate(linhas):
@@ -89,14 +96,14 @@ def extrair_curso(texto):
                 prox = linhas[j].strip()
                 if prox and prox.isupper() and len(prox) > 10:
                     curso = prox.split('/')[0].strip() if '/' in prox else prox
-                    print(f"🎓 Curso extraído (padrão UnB): {curso}")
+                    print(f"[CURSO] Curso extraído (padrão UnB): {curso}")
                     return curso
                 # Se não for tudo maiúsculo, mas for longa, ainda pode ser o curso
                 if prox and len(prox) > 15:
                     curso = prox.split('/')[0].strip() if '/' in prox else prox
-                    print(f"🎓 Curso extraído (padrão UnB flex): {curso}")
+                    print(f"[CURSO] Curso extraído (padrão UnB flex): {curso}")
                     return curso
-    print("⚠️ Curso não encontrado no PDF")
+    print("[AVISO] Curso não encontrado no PDF")
     return None
 
 def limpar_nome_disciplina(nome):
@@ -113,7 +120,7 @@ def limpar_nome_disciplina(nome):
     
     # Remove outros padrões comuns que podem aparecer no início
     nome_limpo = re.sub(r'^--\s*', '', nome_limpo)
-    nome_limpo = re.sub(r'^—\s*', '', nome_limpo)
+    nome_limpo = re.sub(r'^--\s*', '', nome_limpo)
     
     # Remove apenas caracteres especiais do início e fim, preservando letras, números e espaços
     nome_limpo = re.sub(r'^[^\w\s]+|[^\w\s]+$', '', nome_limpo)
@@ -123,7 +130,7 @@ def limpar_nome_disciplina(nome):
     
     # Debug: mostrar quando o nome foi alterado
     if nome_original != nome_limpo:
-        print(f"🔧 Limpeza: '{nome_original}' → '{nome_limpo}'")
+        print(f"[LIMPEZA] Limpeza: '{nome_original}' -> '{nome_limpo}'")
     
     return nome_limpo
 
@@ -151,9 +158,9 @@ def extrair_matriz_curricular(texto):
             match = re.search(r'(\d{4}\.\d)', linha)
             if match:
                 matriz = match.group(1)
-                print(f"📋 Matriz Curricular extraída: {matriz}")
+                print(f"[MATRIZ] Matriz Curricular extraída: {matriz}")
                 return matriz
-    print("⚠️ Matriz Curricular não encontrada no PDF")
+    print("[AVISO] Matriz Curricular não encontrada no PDF")
     return None
 
 def extrair_media_ponderada(texto):
@@ -164,9 +171,9 @@ def extrair_media_ponderada(texto):
     match_mp = padrao_mp.search(texto)
     if match_mp:
         mp = match_mp.group(1).replace(',', '.')
-        print(f"📊 Média Ponderada extraída: {mp}")
+        print(f"[MEDIA] Média Ponderada extraída: {mp}")
         return float(mp)
-    print("⚠️ Média Ponderada não encontrada")
+    print("[AVISO] Média Ponderada não encontrada")
     return None
 
 @app.route('/upload-pdf', methods=['POST'])
@@ -295,14 +302,14 @@ def upload_pdf():
                         prev_line = lines[i - 1].strip()
                         # Regex melhorada para capturar o nome da disciplina incluindo números
                         # Captura tudo até encontrar status no final da linha
-                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
+                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--))?$', prev_line, re.IGNORECASE)
                         if name_match:
                             nome_disciplina = name_match.group(1).strip()
                             # Aplica a função de limpeza para remover períodos e outros elementos
                             nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                         else:
                             # Fallback se o padrão mais específico não funcionar
-                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
+                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--))?$', prev_line, re.IGNORECASE)
                             if fallback_name_match:
                                 nome_disciplina = fallback_name_match.group(1).strip()
                                 # Aplica a função de limpeza para remover períodos e outros elementos
@@ -326,14 +333,14 @@ def upload_pdf():
                     # Adicionar professor se encontrado
                     if nome_professor:
                         disciplina_data["professor"] = nome_professor
-                        print(f"    👨‍🏫 Professor: {nome_professor}")
+                        print(f"    [PROFESSOR] Professor: {nome_professor}")
                     
                     disciplinas.append(disciplina_data)
                     print(f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})")
                     
                     # Debug: verificar se a disciplina contém números
                     if re.search(r'\d', nome_disciplina):
-                        print(f"    📊 Disciplina com números: '{nome_disciplina}'")
+                        print(f"    [INFO] Disciplina com números: '{nome_disciplina}'")
                 # else:
                     # print(f"  -> Linha de professor, mas dados insuficientes para disciplina regular. Status: {match_status}, Codigo: {match_codigo}, Horas: {match_horas}")
 
