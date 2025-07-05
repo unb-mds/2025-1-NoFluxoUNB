@@ -276,12 +276,11 @@ export const FluxogramaController: EndpointController = {
                 // Casamento das disciplinas
                 for (const disciplina of dados_extraidos.extracted_data) {
                     if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
-                        // 1º: Casar pelo código da matéria
+                        // 1º: Casar pelo código da matéria na matriz principal
                         let materiaBanco = materiasObrigatorias.find((m: any) => {
                             const codigoMatch = m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim();
                             return codigoMatch;
                         });
-                        // Se não encontrou nas obrigatórias, tentar nas optativas
                         if (!materiaBanco) {
                             materiaBanco = materiasOptativas.find((m: any) => {
                                 const codigoMatch = m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim();
@@ -299,9 +298,66 @@ export const FluxogramaController: EndpointController = {
                                 return m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
                             });
                         }
+                        // 3º: Se ainda não encontrou, buscar em outras matrizes do mesmo curso
+                        if (!materiaBanco) {
+                            // Buscar todas as matrizes do mesmo curso (nome igual, matriz diferente)
+                            const { data: outrasMatrizes, error: errorOutras } = await SupabaseWrapper.get()
+                                .from("cursos")
+                                .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                                .eq("nome_curso", materiasBanco[0].nome_curso);
+                            if (!errorOutras && outrasMatrizes && outrasMatrizes.length > 0) {
+                                for (const matriz of outrasMatrizes) {
+                                    if (matriz.matriz_curricular === materiasBanco[0].matriz_curricular) continue; // já buscou na principal
+                                    const obrig = matriz.materias_por_curso.filter((m: any) => m.nivel > 0);
+                                    const opt = matriz.materias_por_curso.filter((m: any) => m.nivel === 0);
+                                    // Tenta casar pelo código
+                                    materiaBanco = obrig.find((m: any) => m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim());
+                                    if (!materiaBanco) {
+                                        materiaBanco = opt.find((m: any) => m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim());
+                                    }
+                                    // Tenta casar pelo nome
+                                    if (!materiaBanco) {
+                                        materiaBanco = obrig.find((m: any) => m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim());
+                                    }
+                                    if (!materiaBanco) {
+                                        materiaBanco = opt.find((m: any) => m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim());
+                                    }
+                                    if (materiaBanco) {
+                                        logger.info(`Disciplina '${disciplina.nome}' encontrada em outra matriz curricular: ${matriz.matriz_curricular}`);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        // 4º: Se ainda não encontrou, buscar na tabela de equivalências
+                        if (!materiaBanco) {
+                            // Buscar equivalência genérica (id_curso null)
+                            const { data: equivalenciasGenericas } = await SupabaseWrapper.get()
+                                .from("equivalencias")
+                                .select("*,materias(*)")
+                                .is("id_curso", null)
+                                .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
+                            if (equivalenciasGenericas && equivalenciasGenericas.length > 0) {
+                                materiaBanco = equivalenciasGenericas[0].materias;
+                                logger.info(`Disciplina '${disciplina.nome}' casada por equivalência genérica: ${equivalenciasGenericas[0].expressao}`);
+                            }
+                        }
+                        // 5º: Se ainda não encontrou, buscar equivalência específica para o curso do usuário
+                        if (!materiaBanco && materiasBanco && materiasBanco[0] && materiasBanco[0].id_curso) {
+                            const idCursoUsuario = materiasBanco[0].id_curso;
+                            const { data: equivalenciasEspecificas } = await SupabaseWrapper.get()
+                                .from("equivalencias")
+                                .select("*,materias(*)")
+                                .eq("id_curso", idCursoUsuario)
+                                .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
+                            if (equivalenciasEspecificas && equivalenciasEspecificas.length > 0) {
+                                materiaBanco = equivalenciasEspecificas[0].materias;
+                                logger.info(`Disciplina '${disciplina.nome}' casada por equivalência específica para o curso: ${idCursoUsuario}`);
+                            }
+                        }
                         if (materiaBanco) {
                             // Verificar se já existe uma disciplina casada com o mesmo ID
-                            const disciplinaExistente = disciplinasCasadas.find((d: any) => d.id_materia === materiaBanco.materias.id_materia);
+                            const disciplinaExistente = disciplinasCasadas.find((d: any) => d.id_materia === materiaBanco.id_materia);
                             if (disciplinaExistente) {
                                 // Se já existe, verificar qual status tem prioridade
                                 const statusAtual = disciplinaExistente.status;
@@ -314,10 +370,10 @@ export const FluxogramaController: EndpointController = {
                                 };
                                 if (prioridade(statusNovo) > prioridade(statusAtual)) {
                                     // Substituir pela versão com status melhor
-                                    const index = disciplinasCasadas.findIndex((d: any) => d.id_materia === materiaBanco.materias.id_materia);
+                                    const index = disciplinasCasadas.findIndex((d: any) => d.id_materia === materiaBanco.id_materia);
                                     disciplinasCasadas[index] = {
                                         ...disciplina,
-                                        id_materia: materiaBanco.materias.id_materia,
+                                        id_materia: materiaBanco.id_materia,
                                         encontrada_no_banco: true,
                                         nivel: materiaBanco.nivel,
                                         tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
@@ -328,7 +384,7 @@ export const FluxogramaController: EndpointController = {
                                 // Primeira ocorrência da matéria
                                 const disciplinaCasada = {
                                     ...disciplina,
-                                    id_materia: materiaBanco.materias.id_materia,
+                                    id_materia: materiaBanco.id_materia,
                                     encontrada_no_banco: true,
                                     nivel: materiaBanco.nivel,
                                     tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
@@ -397,12 +453,12 @@ export const FluxogramaController: EndpointController = {
                 // Adicionar matérias obrigatórias do banco que não foram encontradas no histórico
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) =>
-                        disc.id_materia === materiaBanco.materias.id_materia
+                        disc.id_materia === materiaBanco.id_materia
                     );
                 }).map((materiaBanco: any) => ({
-                    id_materia: materiaBanco.materias.id_materia,
-                    nome: materiaBanco.materias.nome_materia,
-                    codigo: materiaBanco.materias.codigo_materia,
+                    id_materia: materiaBanco.id_materia,
+                    nome: materiaBanco.nome_materia,
+                    codigo: materiaBanco.codigo_materia,
                     nivel: materiaBanco.nivel,
                     encontrada_no_banco: true,
                     encontrada_no_historico: false,
