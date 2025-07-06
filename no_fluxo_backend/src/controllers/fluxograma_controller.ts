@@ -331,12 +331,13 @@ export const FluxogramaController: EndpointController = {
                         }
                         // 4º: Se ainda não encontrou, buscar na tabela de equivalências
                         if (!materiaBanco) {
-                            // Buscar equivalência genérica (id_curso null)
                             const { data: equivalenciasGenericas } = await SupabaseWrapper.get()
                                 .from("equivalencias")
                                 .select("*,materias(*)")
                                 .is("id_curso", null)
                                 .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
+                            logger.info(`[DEBUG] Buscando equivalência genérica para '${disciplina.nome}' (${disciplina.codigo})`);
+                            logger.info(`[DEBUG] Resultado equivalências genéricas: ${JSON.stringify(equivalenciasGenericas)}`);
                             if (equivalenciasGenericas && equivalenciasGenericas.length > 0) {
                                 materiaBanco = equivalenciasGenericas[0].materias;
                                 logger.info(`Disciplina '${disciplina.nome}' casada por equivalência genérica: ${equivalenciasGenericas[0].expressao}`);
@@ -350,6 +351,8 @@ export const FluxogramaController: EndpointController = {
                                 .select("*,materias(*)")
                                 .eq("id_curso", idCursoUsuario)
                                 .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
+                            logger.info(`[DEBUG] Buscando equivalência específica para '${disciplina.nome}' (${disciplina.codigo}) no curso ${idCursoUsuario}`);
+                            logger.info(`[DEBUG] Resultado equivalências específicas: ${JSON.stringify(equivalenciasEspecificas)}`);
                             if (equivalenciasEspecificas && equivalenciasEspecificas.length > 0) {
                                 materiaBanco = equivalenciasEspecificas[0].materias;
                                 logger.info(`Disciplina '${disciplina.nome}' casada por equivalência específica para o curso: ${idCursoUsuario}`);
@@ -450,15 +453,15 @@ export const FluxogramaController: EndpointController = {
                     }
                 }
 
-                // Adicionar matérias obrigatórias do banco que não foram encontradas no histórico
+                // Corrigir a montagem de materiasObrigatoriasNaoEncontradas
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) =>
                         disc.id_materia === materiaBanco.id_materia
                     );
                 }).map((materiaBanco: any) => ({
                     id_materia: materiaBanco.id_materia,
-                    nome: materiaBanco.nome_materia,
-                    codigo: materiaBanco.codigo_materia,
+                    nome: materiaBanco.materias.nome_materia,
+                    codigo: materiaBanco.materias.codigo_materia,
                     nivel: materiaBanco.nivel,
                     encontrada_no_banco: true,
                     encontrada_no_historico: false,
@@ -466,9 +469,111 @@ export const FluxogramaController: EndpointController = {
                     status_fluxograma: 'nao_cursada'
                 }));
 
-                // Combinar todas as matérias pendentes
-                const todasMateriasPendentes = [...materiasPendentes, ...materiasObrigatoriasNaoEncontradas];
-                const todasMateriasOptativas = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
+                // Adicionar log antes do loop de equivalências para listar obrigatórias não encontradas
+                logger.info(`[DEBUG-LISTA-OBRIGATORIAS-NAO-ENCONTRADAS] Matérias obrigatórias não encontradas no histórico:`);
+                for (const mat of materiasObrigatoriasNaoEncontradas) {
+                    logger.info(`[DEBUG-LISTA-OBRIGATORIAS-NAO-ENCONTRADAS] ${mat.nome} (${mat.codigo})`);
+                }
+
+                // Após montar disciplinasCasadas e materiasObrigatoriasNaoEncontradas
+                const materiasConcluidasPorEquivalencia: any[] = [];
+                const materiasPendentesAjustadas: any[] = [];
+                for (const materiaObrigatoria of materiasObrigatoriasNaoEncontradas) {
+                    const codigoObrigatoria = materiaObrigatoria.codigo; // deve ser o codigo_materia
+                    const idMateriaObrigatoria = materiaObrigatoria.id_materia;
+                    let cumpridaPorEquivalencia = false;
+                    // Buscar equivalências para a obrigatória (id_materia = obrigatória)
+                    const { data: equivalencias } = await SupabaseWrapper.get()
+                        .from("equivalencias")
+                        .select("id_equivalencia,expressao")
+                        .eq("id_materia", idMateriaObrigatoria);
+                    logger.info(`[DEBUG] Buscando equivalências para obrigatória '${materiaObrigatoria.nome}' (${codigoObrigatoria}) [id_materia=${idMateriaObrigatoria}]`);
+                    logger.info(`[DEBUG] Resultado equivalências: ${JSON.stringify(equivalencias)}`);
+                    if (equivalencias && equivalencias.length > 0) {
+                        for (const eq of equivalencias) {
+                            // Revisar extração de códigos de matéria da expressão
+                            // Extrai todos os códigos de matéria (ex: FGA0108, MAT0038) da expressão, mesmo dentro de parênteses
+                            const codigosEquivalentes = Array.from(eq.expressao.matchAll(/[A-Z]{2,}\d{3,}/gi)).map((m: any) => m[0].replace(/\s+/g, '').toUpperCase());
+                            for (const codigoEq of codigosEquivalentes) {
+                                const encontrada = disciplinasCasadas.find(
+                                    d => d.codigo === codigoEq && (d.status === 'APR' || d.status === 'CUMP')
+                                );
+                                if (encontrada) {
+                                    cumpridaPorEquivalencia = true;
+                                    materiasConcluidasPorEquivalencia.push({
+                                        ...materiaObrigatoria,
+                                        status_fluxograma: 'concluida_equivalencia',
+                                        equivalencia: encontrada.nome
+                                    });
+                                    logger.info(`[DEBUG] Matéria obrigatória '${materiaObrigatoria.nome}' (${codigoObrigatoria}) marcada como concluída por equivalência com '${encontrada.nome}' (${encontrada.codigo})`);
+                                    break;
+                                }
+                            }
+                            if (cumpridaPorEquivalencia) break;
+                        }
+                    }
+                    if (!cumpridaPorEquivalencia) {
+                        materiasPendentesAjustadas.push(materiaObrigatoria);
+                    }
+                }
+                // Atualizar listas finais
+                const todasMateriasPendentes = [...materiasPendentes, ...materiasPendentesAjustadas];
+                const todasMateriasConcluidas = [...materiasConcluidas, ...materiasConcluidasPorEquivalencia];
+
+                // Novo bloco: antes de processar as optativas, tente casar equivalências específicas para obrigatórias
+                const optativasParaProcessar = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
+                const optativasRestantes: any[] = [];
+                for (const disciplinaOptativa of optativasParaProcessar) {
+                    let marcadaComoEquivalencia = false;
+                    // Debug específico para Teoria dos Números
+                    if (disciplinaOptativa.codigo === 'MAT0038' || disciplinaOptativa.nome?.toUpperCase().includes('TEORIA DOS NÚMEROS')) {
+                        logger.info(`[DEBUG-TEORIA] Processando Teoria dos Números: ${JSON.stringify(disciplinaOptativa)}`);
+                    }
+                    // Buscar se essa disciplina do histórico é equivalência de alguma obrigatória do curso
+                    const { data: obrigatoriasEquivalentes } = await SupabaseWrapper.get()
+                        .from("equivalencias")
+                        .select("id_equivalencia,id_materia,expressao");
+                    if (obrigatoriasEquivalentes && obrigatoriasEquivalentes.length > 0) {
+                        for (const eq of obrigatoriasEquivalentes) {
+                            // Só processa se a expressão contém o código da optativa
+                            if (!eq.expressao || !eq.expressao.toUpperCase().includes(disciplinaOptativa.codigo)) continue;
+                            // Buscar a obrigatória correspondente
+                            const obrigatoria = materiasObrigatoriasNaoEncontradas.find((m: any) => m.id_materia === eq.id_materia);
+                            if (!obrigatoria) continue;
+                            // Extrai todos os códigos de matéria (ex: FGA0108, MAT0038) da expressão, mesmo dentro de parênteses
+                            const codigosEquivalentes = Array.from(eq.expressao.matchAll(/[A-Z]{2,}\d{3,}/g)).map((m: any) => m[0]);
+                            logger.info(`[DEBUG-TEORIA-ESPECIFICA-TRACE] Checando equivalência id=${eq.id_equivalencia}, expressao=${eq.expressao}, obrigatoria=${obrigatoria.nome} (${obrigatoria.codigo})`);
+                            // Debug específico para equivalência 8522
+                            if (eq.id_equivalencia === 8522 && eq.expressao.includes('MAT0038')) {
+                                logger.info(`[DEBUG-TEORIA-ESPECIFICA] Verificando se Teoria dos Números (MAT0038) está sendo considerada equivalência específica para '${obrigatoria.nome}' (${obrigatoria.codigo})`);
+                            }
+                            for (const codigoEq of codigosEquivalentes) {
+                                const encontrada = disciplinasCasadas.find(
+                                    d => d.codigo === codigoEq && (d.status === 'APR' || d.status === 'CUMP')
+                                );
+                                if (encontrada) {
+                                    if ((disciplinaOptativa.codigo === 'MAT0038' || disciplinaOptativa.nome?.toUpperCase().includes('TEORIA DOS NÚMEROS')) && eq.id_equivalencia === 8522) {
+                                        logger.info(`[DEBUG-TEORIA-ESPECIFICA] Teoria dos Números (MAT0038) marcada como equivalência específica para '${obrigatoria.nome}' (${obrigatoria.codigo}) via expressão '${eq.expressao}' (id_equivalencia=8522)`);
+                                    }
+                                    materiasConcluidasPorEquivalencia.push({
+                                        ...obrigatoria,
+                                        status_fluxograma: 'concluida_equivalencia',
+                                        equivalencia: disciplinaOptativa.nome
+                                    });
+                                    logger.info(`[DEBUG] Disciplina do histórico '${disciplinaOptativa.nome}' (${disciplinaOptativa.codigo}) marcada como equivalência específica para obrigatória '${obrigatoria.nome}' (${obrigatoria.codigo})`);
+                                    marcadaComoEquivalencia = true;
+                                    break;
+                                }
+                            }
+                            if (marcadaComoEquivalencia) break;
+                        }
+                    }
+                    if (!marcadaComoEquivalencia) {
+                        optativasRestantes.push(disciplinaOptativa);
+                    }
+                }
+                // Agora use optativasRestantes para montar todasMateriasOptativas
+                const todasMateriasOptativas = [...optativasRestantes];
                 
                 // Calcular horas integralizadas
                 let horasIntegralizadas = 0;
@@ -492,7 +597,7 @@ export const FluxogramaController: EndpointController = {
 
                 return res.status(200).json({
                     disciplinas_casadas: disciplinasCasadas,
-                    materias_concluidas: materiasConcluidas,
+                    materias_concluidas: todasMateriasConcluidas,
                     materias_pendentes: todasMateriasPendentes,
                     materias_optativas: todasMateriasOptativas,
                     dados_validacao: dadosValidacao,
@@ -500,10 +605,10 @@ export const FluxogramaController: EndpointController = {
                     matriz_curricular: matriz_curricular,
                     resumo: {
                         total_disciplinas: disciplinasCasadas.length,
-                        total_obrigatorias_concluidas: materiasConcluidas.length,
+                        total_obrigatorias_concluidas: todasMateriasConcluidas.length,
                         total_obrigatorias_pendentes: todasMateriasPendentes.length,
                         total_optativas: todasMateriasOptativas.length,
-                        percentual_conclusao_obrigatorias: materiasConcluidas.length / (materiasConcluidas.length + todasMateriasPendentes.length) * 100
+                        percentual_conclusao_obrigatorias: todasMateriasConcluidas.length / (todasMateriasConcluidas.length + todasMateriasPendentes.length) * 100
                     }
                 });
 
