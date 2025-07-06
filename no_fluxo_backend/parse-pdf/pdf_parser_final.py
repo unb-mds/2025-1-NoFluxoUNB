@@ -77,30 +77,38 @@ def normalizar(s):
 
 def extrair_curso(texto):
     linhas = texto.splitlines()
+    print("==== DEBUG: Primeiras 30 linhas do PDF extraído ====")
+    for idx, linha in enumerate(linhas[:30]):
+        print(f"{idx}: {repr(linha)}")
+    print("====================================================")
     # 1. Tenta padrão tradicional
     for linha in linhas:
+        print(f"Testando linha para CURSO: {repr(linha)}")
         if re.match(r'^\s*CURSO\s*:', normalizar(linha)):
             curso = linha.split(":", 1)[1].strip()
+            # Limpa sufixos após / ou -
+            curso = re.split(r'/|-', curso)[0].strip()
             print(f"[CURSO] Curso extraído: {curso}")
             return curso
     # 2. Tenta padrão UnB: linha após 'DADOS DO VINCULO DO(A) DISCENTE'
     for i, linha in enumerate(linhas):
+        print(f"Testando linha para VÍNCULO: {repr(linha)}")
         if "DADOS DO VINCULO DO(A) DISCENTE" in normalizar(linha):
-            # Mostra as próximas 1000 caracteres para debug visual
-            trecho = '\n'.join(linhas[i:i+20])
+            # Mostra as próximas 2000 caracteres para debug visual
+            trecho = '\n'.join(linhas[i:i+40])
             print("--- Trecho após bloco de vínculo ---")
-            print(trecho[:1000])
+            print(trecho[:2000])
             print("------------------------------------")
             # Pega a próxima linha não vazia
             for j in range(i+1, min(i+10, len(linhas))):
                 prox = linhas[j].strip()
                 if prox and prox.isupper() and len(prox) > 10:
-                    curso = prox.split('/')[0].strip() if '/' in prox else prox
+                    curso = re.split(r'/|-', prox)[0].strip()
                     print(f"[CURSO] Curso extraído (padrão UnB): {curso}")
                     return curso
                 # Se não for tudo maiúsculo, mas for longa, ainda pode ser o curso
                 if prox and len(prox) > 15:
-                    curso = prox.split('/')[0].strip() if '/' in prox else prox
+                    curso = re.split(r'/|-', prox)[0].strip()
                     print(f"[CURSO] Curso extraído (padrão UnB flex): {curso}")
                     return curso
     print("[AVISO] Curso não encontrado no PDF")
