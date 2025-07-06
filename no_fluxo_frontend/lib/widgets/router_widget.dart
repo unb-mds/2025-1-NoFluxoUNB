@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../cache/shared_preferences_helper.dart';
 import '../environment.dart';
 import '../routes/app_router.dart';
+import '../service/auth_service.dart';
 import 'splash_widget.dart';
 
 class RouterWidget extends StatefulWidget {
@@ -18,38 +19,58 @@ class RouterWidget extends StatefulWidget {
 
 class _RouterWidgetState extends State<RouterWidget> {
   bool loading = true;
+  bool _initialized = false;
+
+  Future<void> _checkAuth() async {
+    if (widget.route == "/") {
+      print(
+          "Checking logged in, checking with google? ${widget.state.uri.queryParameters.containsKey("code")}");
+
+      await AppRouter.checkLoggedIn(
+        context,
+        loggedInWithGoogle:
+            widget.state.uri.queryParameters.containsKey("code"),
+        onFoundUser: () {
+          if (mounted) {
+            context.go("/upload-historico");
+          }
+        },
+        onUserNotFound: () {
+          if (mounted) {
+            context.go("/signup");
+          }
+        },
+        backToLogin: () {
+          if (mounted) {
+            context.go("/login");
+          }
+        },
+      );
+    } else {
+      await AppRouter.checkLoggedIn(
+        context,
+        onUserNotFound: () {
+          if (mounted) {
+            context.go("/signup");
+          }
+        },
+      );
+    }
+
+    if (mounted) {
+      setState(() {
+        loading = false;
+      });
+    }
+  }
 
   @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      () async {
-        if (widget.route == "/") {
-          print(
-              "Checking logged in, checking with google? ${widget.state.uri.queryParameters.containsKey("code")}");
-
-          await AppRouter.checkLoggedIn(
-            // ignore: use_build_context_synchronously
-            context,
-            loggedInWithGoogle:
-                widget.state.uri.queryParameters.containsKey("code"),
-            onFoundUser: () => context.go("/upload-historico"),
-            onUserNotFound: () => context.go("/signup"),
-            backToLogin: () => context.go("/login"),
-          );
-        } else {
-          await AppRouter.checkLoggedIn(
-            // ignore: use_build_context_synchronously
-            context,
-            onUserNotFound: () => context.go("/signup"),
-          );
-        }
-        setState(() {
-          loading = false;
-        });
-      }();
-    });
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      _initialized = true;
+      _checkAuth();
+    }
   }
 
   @override

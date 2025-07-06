@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:logging/logging.dart';
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/upload-historico/services/upload_historico_service.dart';
+import '../../../cache/shared_preferences_helper.dart';
+import '../../../models/user_model.dart';
 import '../../../widgets/app_navbar.dart';
 import '../../../widgets/animated_background.dart';
 import 'package:http/http.dart' as http;
@@ -11,6 +14,8 @@ import 'dart:typed_data';
 import 'package:go_router/go_router.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'dart:convert';
+
+var log = Logger("UploadHistoricoScreen");
 
 enum UploadState { initial, uploading, success }
 
@@ -195,9 +200,58 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     _fadeController.reset();
   }
 
-  void _continueToFlowchart() {
-    // Navegar para a tela do fluxograma
-    context.go('/meu-fluxograma');
+  Future<void> _continueToFlowchart() async {
+    // upload fluxograma para o banco de dados
+
+    try {
+      final user = SharedPreferencesHelper.currentUser;
+
+      if (user == null) {
+        return;
+      }
+
+      DadosFluxogramaUser dadosFluxograma = DadosFluxogramaUser(
+          nomeCurso: "",
+          ira: 0,
+          dadosFluxograma: [],
+          matricula: "",
+          semestreAtual: 0,
+          matrizCurricular: "");
+
+      dadosFluxograma.nomeCurso = _dadosValidacao!['curso_extraido'];
+
+      dadosFluxograma.matricula = _dadosExtraidos!["matricula"];
+
+      dadosFluxograma.matrizCurricular = _dadosExtraidos!["matriz_curricular"];
+
+      dadosFluxograma.ira = _dadosExtraidos!["media_ponderada"];
+
+      dadosFluxograma.dadosFluxograma = List.generate(20, (index) => []);
+
+      for (var materiaCasada in _disciplinasCasadas!) {
+        var nivel = materiaCasada["nivel"];
+
+        nivel ??= 0;
+
+        dadosFluxograma.dadosFluxograma[nivel]
+            .add(DadosMateria.fromJson(materiaCasada));
+      }
+
+      final uploadResult =
+          await UploadHistoricoService.uploadFluxogramaToDB(dadosFluxograma);
+      uploadResult.fold(
+        (error) {
+          log.severe('Erro ao salvar fluxograma: $error');
+        },
+        (message) {
+          log.info('Fluxograma salvo com sucesso: $message');
+
+          context.go('/meu-fluxograma');
+        },
+      );
+    } catch (e, st) {
+      log.severe(e, st);
+    }
   }
 
   void _showHelpModal() {
@@ -948,14 +1002,6 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   Widget _buildContinueButton() {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double width = 260;
-        double fontSize = 16;
-        EdgeInsets padding = const EdgeInsets.symmetric(vertical: 16);
-        if (constraints.maxWidth < 400) {
-          width = constraints.maxWidth * 0.95;
-          fontSize = 14;
-          padding = const EdgeInsets.symmetric(vertical: 12);
-        }
         return MouseRegion(
           onEnter: (_) => _onHover(true),
           onExit: (_) => _onHover(false),

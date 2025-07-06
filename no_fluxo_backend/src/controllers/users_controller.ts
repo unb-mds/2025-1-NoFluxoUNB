@@ -54,7 +54,7 @@ export const UsersController: EndpointController = {
                 return res.status(400).json({ error: "Email é obrigatório" });
             }
 
-            var { data: userResult, error: userError } = await SupabaseWrapper.get().from("users").select("*").eq("email", email);
+            var { data: userResult, error: userError } = await SupabaseWrapper.get().from("users").select("*,dados_users(*)").eq("email", email);
 
             if (userError) {
                 logger.error(`Erro ao buscar usuário: ${JSON.stringify(userError)}`);

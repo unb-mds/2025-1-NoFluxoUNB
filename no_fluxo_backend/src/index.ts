@@ -132,14 +132,16 @@ const app: Express = express();
 
 //expressws(app);
 
+// Configure CORS properly
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'User-ID']
+}));
+
 app.use(fileUpload())
 app.use(bodyParser.json({ limit: 500 * 1024 * 1024, }));
 app.use(bodyParser.urlencoded({ extended: true, limit: 500 * 1024 * 1024 }));
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-});
 
 app.use(router);
 

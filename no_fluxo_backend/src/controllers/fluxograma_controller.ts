@@ -1,10 +1,11 @@
 import { EndpointController, RequestType } from "../interfaces";
-import { Pair } from "../utils";
+import { Pair, Utils } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import axios from 'axios';
 import FormData from 'form-data';
 import { createControllerLogger } from '../utils/controller_logger';
+import logger from "../logger";
 
 export const FluxogramaController: EndpointController = {
     name: "fluxograma",
@@ -99,8 +100,8 @@ export const FluxogramaController: EndpointController = {
                         .from("cursos")
                         .select("nome_curso, matriz_curricular")
                         .order("nome_curso");
-                    
-                    return res.status(400).json({ 
+
+                    return res.status(400).json({
                         error: "Curso não foi extraído do PDF automaticamente",
                         message: "Por favor, selecione o curso manualmente",
                         cursos_disponiveis: todosCursos || []
@@ -112,16 +113,16 @@ export const FluxogramaController: EndpointController = {
                 if (curso_extraido.startsWith('PALAVRAS_CHAVE:')) {
                     const palavrasChave = curso_extraido.replace('PALAVRAS_CHAVE:', '').split(',');
                     logger.info(`Buscando cursos com palavras-chave: ${palavrasChave.join(', ')}`);
-                    
+
                     // Buscar cursos que contenham alguma das palavras-chave
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
                         .select("nome_curso, matriz_curricular")
                         .order("nome_curso");
-                    
+
                     if (todosCursos) {
-                        cursosFiltrados = todosCursos.filter(curso => 
-                            palavrasChave.some((palavra: string) => 
+                        cursosFiltrados = todosCursos.filter(curso =>
+                            palavrasChave.some((palavra: string) =>
                                 curso.nome_curso?.toUpperCase().includes(palavra.toUpperCase())
                             )
                         );
@@ -138,18 +139,18 @@ export const FluxogramaController: EndpointController = {
                         // Se só há um curso filtrado, usar ele
                         const cursoSelecionado = cursosFiltrados[0];
                         logger.info(`Usando curso filtrado: ${cursoSelecionado.nome_curso}`);
-                        
+
                         const { data, error: queryError } = await SupabaseWrapper.get()
                             .from("cursos")
                             .select("*,materias_por_curso(id_materia,nivel,materias(*))")
                             .eq("nome_curso", cursoSelecionado.nome_curso);
-                        
+
                         materiasBanco = data;
                         error = queryError;
                     } else {
                         // Se há múltiplos cursos, retornar para o usuário escolher
                         logger.info(`Múltiplos cursos encontrados: ${cursosFiltrados.length}`);
-                        return res.status(400).json({ 
+                        return res.status(400).json({
                             error: "Múltiplos cursos encontrados",
                             message: "Por favor, selecione o curso correto",
                             cursos_disponiveis: cursosFiltrados,
@@ -191,7 +192,7 @@ export const FluxogramaController: EndpointController = {
 
                 if (!materiasBanco || materiasBanco.length === 0) {
                     logger.warn(`Curso não encontrado com matriz curricular específica. Tentando busca alternativa...`);
-                    
+
                     // Busca alternativa: pelo nome do curso e matriz curricular, se existir
                     let queryAlt = SupabaseWrapper.get()
                         .from("cursos")
@@ -615,6 +616,32 @@ export const FluxogramaController: EndpointController = {
             } catch (error: any) {
                 logger.error(`Erro ao casar disciplinas: ${error.message}`);
                 return res.status(500).json({ error: error.message || "Erro ao casar disciplinas" });
+            }
+        }),
+        "upload-dados-fluxograma": new Pair(RequestType.POST, async (req: Request, res: Response) => {
+            var log = createControllerLogger("FluxogramaController", "upload-dados-fluxograma");
+            log.info("Upload fluxograma chamado");
+            try {
+                if (!await Utils.checkAuthorization(req as Request)) {
+                    return res.status(401).json({ error: "Usuário não autorizado" });
+                }
+
+                var userId = req.headers["user-id"] || req.headers["User-ID"];
+
+                const { fluxograma, periodo_letivo } = req.body;
+
+                const { data, error } = await SupabaseWrapper.get()
+                    .from("dados_users")
+                    .insert({
+                        fluxograma_atual: fluxograma,
+                        id_user: userId,
+                        semestre_atual: periodo_letivo
+                    }).select("*");
+                if (error) throw error;
+                return res.status(200).json(data);
+            } catch (error: any) {
+                log.error(`Erro ao salvar fluxograma: ${error.message}`);
+                return res.status(500).json({ error: error.message || "Erro ao salvar fluxograma" });
             }
         })
     }

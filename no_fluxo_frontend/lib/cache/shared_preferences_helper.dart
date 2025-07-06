@@ -17,12 +17,21 @@ class SharedPreferencesHelper {
     if (userJson == "null") {
       return null;
     }
-    return userJson != null ? UserModel.fromJson(jsonDecode(userJson)) : null;
+
+    if (userJson == null) {
+      return null;
+    }
+
+    var userJsonMap = jsonDecode(userJson);
+
+    var user = UserModel.fromJson(userJsonMap);
+    user.token = userJsonMap["token"];
+    return user;
   }
 
   static set currentUser(UserModel? user) {
     if (user != null) {
-      _prefs?.setString(keyUser, jsonEncode(user.toJson()));
+      _prefs?.setString(keyUser, jsonEncode(user.toJson(includeToken: true)));
     } else {
       _prefs?.remove(keyUser);
     }

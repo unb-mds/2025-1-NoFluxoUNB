@@ -52,6 +52,7 @@ padrao_curriculo = r'(\d+/\d+(?:\s*-\s*\d{4}\.\d)?)'
 padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
+
 # --- Novos padrões para informações adicionais ---
 padrao_media_ponderada = re.compile(r"(?:MP|MEDIA PONDERADA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
 padrao_frequencia = re.compile(r"(?:FREQ|FREQUENCIA)[:\s]+(\d+\.\d+)", re.IGNORECASE)

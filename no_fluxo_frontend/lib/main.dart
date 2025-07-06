@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 import 'cache/shared_preferences_helper.dart';
@@ -37,6 +38,8 @@ class _MyAppState extends State<MyApp> {
     SharedPreferencesHelper.init();
   }
 
+  GoRouter get router => AppRouter.getRouter();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -48,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         textTheme: GoogleFonts.poppinsTextTheme(),
         useMaterial3: true,
       ),
-      routerConfig: AppRouter.getRouter(),
+      routerConfig: router,
     );
   }
 }

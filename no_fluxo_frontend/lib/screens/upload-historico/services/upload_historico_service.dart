@@ -7,6 +7,10 @@ import 'package:logging/logging.dart';
 import 'package:mobile_app/environment.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:mobile_app/models/user_model.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../../cache/shared_preferences_helper.dart';
 
 final log = Logger('UploadHistoricoService');
 
@@ -131,6 +135,30 @@ class UploadHistoricoService {
           log.fine('ENCONTRADA: "${disc['nome']}" (ID: ${disc['id_materia']})');
         }
       }
+    }
+  }
+
+  static Future<Either<String, String>> uploadFluxogramaToDB(
+      DadosFluxogramaUser dadosFluxograma) async {
+    try {
+      log.info('Salvando fluxograma no banco de dados...');
+      var uri =
+          Uri.parse('${Environment.apiUrl}/fluxograma/upload-dados-fluxograma');
+      var response = await http.post(uri,
+          body: jsonEncode(dadosFluxograma.toJson()
+            ..addAll({
+              'periodo_letivo': dadosFluxograma.semestreAtual,
+            })),
+          headers: Environment.getHeadersForAuthorizedRequest());
+      if (response.statusCode == 200) {
+        return Right('Fluxograma salvo com sucesso');
+      } else {
+        log.severe('Erro ao salvar fluxograma: ${response.body}');
+        return Left('Erro ao salvar fluxograma: ${response.body}');
+      }
+    } catch (e, st) {
+      log.severe('Erro ao salvar fluxograma', e, st);
+      return Left('Erro ao salvar fluxograma: $e');
     }
   }
 }

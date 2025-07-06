@@ -24,7 +24,9 @@ class AuthService {
       );
 
       if (response.statusCode == 200) {
-        return Right(UserModel.fromJson(jsonDecode(response.body)));
+        var user = UserModel.fromJson(jsonDecode(response.body));
+        user.token = Supabase.instance.client.auth.currentSession?.accessToken;
+        return Right(user);
       }
 
       return Left(response.body);

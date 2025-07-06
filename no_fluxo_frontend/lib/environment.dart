@@ -1,3 +1,7 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'cache/shared_preferences_helper.dart';
+
 enum EnvironmentType {
   development,
   production,
@@ -20,5 +24,13 @@ class Environment {
     } else {
       apiUrl = "https://no-fluxo.vercel.app";
     }
+  }
+
+  static Map<String, String> getHeadersForAuthorizedRequest() {
+    return {
+      "Authorization": SharedPreferencesHelper.currentUser?.token ?? "",
+      "User-ID": SharedPreferencesHelper.currentUser?.idUser.toString() ?? "",
+      "Content-Type": "application/json"
+    };
   }
 }

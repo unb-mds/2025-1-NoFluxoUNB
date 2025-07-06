@@ -44,8 +44,8 @@ class CourseData {
 }
 
 class MeuFluxogramaScreen extends StatefulWidget {
-  final String courseName;
-  const MeuFluxogramaScreen({super.key, required this.courseName});
+  final String? courseName;
+  const MeuFluxogramaScreen({super.key, this.courseName});
 
   @override
   State<MeuFluxogramaScreen> createState() => _MeuFluxogramaScreenState();
@@ -61,7 +61,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     super.initState();
     // TODO: Aqui será feita a integração com o banco de dados
     // Por enquanto, criamos dados vazios baseados no nome do curso
-    courseData = _loadCourseData(widget.courseName);
+    courseData = _loadCourseData(widget.courseName ?? '');
   }
 
   // Função que será substituída pela integração com banco de dados
