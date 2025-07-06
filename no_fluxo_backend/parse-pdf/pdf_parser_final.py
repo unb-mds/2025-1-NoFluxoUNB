@@ -81,11 +81,14 @@ def extrair_curso(texto):
     for idx, linha in enumerate(linhas[:30]):
         print(f"{idx}: {repr(linha)}")
     print("====================================================")
-    # 1. Tenta padrão tradicional
+    # 1. Tenta padrão tradicional (com ou sem acento, com espaços)
     for linha in linhas:
         print(f"Testando linha para CURSO: {repr(linha)}")
-        if re.match(r'^\s*CURSO\s*:', normalizar(linha)):
-            curso = linha.split(":", 1)[1].strip()
+        norm = normalizar(linha)
+        # Aceita 'CURSO:', 'CURSO :', 'CURSO-', etc.
+        if re.match(r'^CURSO\s*[:\-]', norm):
+            # Pega tudo depois do primeiro ':' ou '-'
+            curso = re.split(r'[:\-]', linha, maxsplit=1)[1].strip()
             # Limpa sufixos após / ou -
             curso = re.split(r'/|-', curso)[0].strip()
             print(f"[CURSO] Curso extraído: {curso}")
@@ -94,19 +97,16 @@ def extrair_curso(texto):
     for i, linha in enumerate(linhas):
         print(f"Testando linha para VÍNCULO: {repr(linha)}")
         if "DADOS DO VINCULO DO(A) DISCENTE" in normalizar(linha):
-            # Mostra as próximas 2000 caracteres para debug visual
             trecho = '\n'.join(linhas[i:i+40])
             print("--- Trecho após bloco de vínculo ---")
             print(trecho[:2000])
             print("------------------------------------")
-            # Pega a próxima linha não vazia
             for j in range(i+1, min(i+10, len(linhas))):
                 prox = linhas[j].strip()
                 if prox and prox.isupper() and len(prox) > 10:
                     curso = re.split(r'/|-', prox)[0].strip()
                     print(f"[CURSO] Curso extraído (padrão UnB): {curso}")
                     return curso
-                # Se não for tudo maiúsculo, mas for longa, ainda pode ser o curso
                 if prox and len(prox) > 15:
                     curso = re.split(r'/|-', prox)[0].strip()
                     print(f"[CURSO] Curso extraído (padrão UnB flex): {curso}")
@@ -156,31 +156,44 @@ def extrair_nome_professor(linha):
 
 # Função para extrair matriz curricular
 def extrair_matriz_curricular(texto):
-    """
-    Extrai a matriz curricular do texto do PDF no formato 'YYYY.N' (ex: 2017.1),
-    procurando nas linhas 'Currículo:' e 'Ano/Período de Integralização:'.
-    """
-    for linha in texto.splitlines():
+    linhas = texto.splitlines()
+    # Debug: mostrar todas as linhas que contêm 'CURRICULO'
+    for i, linha in enumerate(linhas):
+        if "CURRICULO" in normalizar(linha):
+            print(f"[DEBUG MATRIZ] Linha {i}: {repr(linha)}")
+            if i + 1 < len(linhas):
+                print(f"[DEBUG MATRIZ] Próxima linha {i+1}: {repr(linhas[i+1])}")
+    for i, linha in enumerate(linhas):
         norm = normalizar(linha)
-        if norm.startswith("CURRICULO:") or norm.startswith("ANO/PERIODO DE INTEGRALIZACAO:"):
+        # Procura por 'CURRICULO' na linha
+        if "CURRICULO" in norm:
+            # Tenta extrair o padrão na mesma linha
             match = re.search(r'(\d{4}\.\d)', linha)
             if match:
                 matriz = match.group(1)
                 print(f"[MATRIZ] Matriz Curricular extraída: {matriz}")
                 return matriz
+            # Se não encontrar, tenta na próxima linha
+            if i + 1 < len(linhas):
+                prox = linhas[i + 1]
+                match_prox = re.search(r'(\d{4}\.\d)', prox)
+                if match_prox:
+                    matriz = match_prox.group(1)
+                    print(f"[MATRIZ] Matriz Curricular extraída (linha seguinte): {matriz}")
+                    return matriz
     print("[AVISO] Matriz Curricular não encontrada no PDF")
     return None
 
 def extrair_media_ponderada(texto):
-    """
-    Extrai a média ponderada (MP) do texto do PDF.
-    """
-    padrao_mp = re.compile(r'MP[:\s]*([0-9]+[.,][0-9]+)', re.IGNORECASE)
-    match_mp = padrao_mp.search(texto)
-    if match_mp:
-        mp = match_mp.group(1).replace(',', '.')
-        print(f"[MEDIA] Média Ponderada extraída: {mp}")
-        return float(mp)
+    linhas = texto.splitlines()
+    for linha in linhas:
+        if "MP" in normalizar(linha):
+            # Busca o padrão MP: número
+            match = re.search(r'MP[:\s]*([0-9]+[.,][0-9]+)', linha)
+            if match:
+                mp = match.group(1).replace(',', '.')
+                print(f"[MEDIA] Média Ponderada extraída: {mp}")
+                return float(mp)
     print("[AVISO] Média Ponderada não encontrada")
     return None
 
@@ -263,10 +276,10 @@ def upload_pdf():
         
         disciplinas = [] # Lista para armazenar os dados extraídos das disciplinas
         lines = texto_total.splitlines()
-
+        ultima_materia = None
         for i, linha in enumerate(lines):
             linha = linha.strip()
-            if not linha: # Pula linhas vazias
+            if not linha:
                 continue
 
             # 1. Encontrar o IRA
@@ -282,105 +295,67 @@ def upload_pdf():
                 disciplinas.append({"tipo_dado": "Pendencias", "valores": match_pend})
                 print(f"  -> Pendências encontradas: {match_pend}")
 
+            # 3. Detectar linha de matéria (ex: 2022.2  & CIC0004  ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES)
+            match_materia = re.match(r'^(\d{4}\.\d)\s+([&*#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+(.+)$', linha)
+            if match_materia:
+                ultima_materia = {
+                    "ano_periodo": match_materia.group(1),
+                    "codigo": match_materia.group(3),
+                    "nome": limpar_nome_disciplina(match_materia.group(4)),
+                    "prefixo": match_materia.group(2)
+                }
+                continue
+
             # 4. Processar linhas com prefixos de professor ou padrões de disciplina
             is_professor_line = linha.startswith("Dr.") or linha.startswith("MSc.") or linha.startswith("Dra.")
 
-            if is_professor_line:
-                # Extrair nome do professor
+            if is_professor_line and ultima_materia:
                 nome_professor = extrair_nome_professor(linha)
-                
-                # Tenta extrair da linha atual
                 match_status = padrao_status.search(linha)
                 match_mencao = padrao_mencao.findall(linha)
-                match_codigo = padrao_codigo.search(linha)
-                match_horas = padrao_horas.search(linha) # Usar search para pegar o primeiro match
-                match_natureza = padrao_natureza.findall(linha)
-
-                if match_status and match_codigo and match_horas:
-                    status = match_status.group(1)
-                    mencao = match_mencao[-1] if match_mencao else "-"
-                    codigo = match_codigo.group()
-                    carga_horaria = int(match_horas.group(1))
-                    creditos = int(carga_horaria / 15)
-                    natureza = match_natureza[-1] if match_natureza else " "
-                    
-
-                    nome_disciplina = "Nome da Disciplina N/A"
-                    if i - 1 >= 0:
-                        prev_line = lines[i - 1].strip()
-                        # Regex melhorada para capturar o nome da disciplina incluindo números
-                        # Captura tudo até encontrar status no final da linha
-                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--))?$', prev_line, re.IGNORECASE)
-                        if name_match:
-                            nome_disciplina = name_match.group(1).strip()
-                            # Aplica a função de limpeza para remover períodos e outros elementos
-                            nome_disciplina = limpar_nome_disciplina(nome_disciplina)
-                        else:
-                            # Fallback se o padrão mais específico não funcionar
-                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--))?$', prev_line, re.IGNORECASE)
-                            if fallback_name_match:
-                                nome_disciplina = fallback_name_match.group(1).strip()
-                                # Aplica a função de limpeza para remover períodos e outros elementos
-                                nome_disciplina = limpar_nome_disciplina(nome_disciplina)
-                            else:
-                                nome_disciplina = prev_line # Último recurso: usa a linha anterior inteira
-                                # Aplica a função de limpeza mesmo no fallback
-                                nome_disciplina = limpar_nome_disciplina(nome_disciplina)
-                    
-                    disciplina_data = {
-                        "tipo_dado": "Disciplina Regular",
-                        "nome": nome_disciplina,
-                        "status": status,
-                        "mencao": mencao,
-                        "creditos": creditos,
-                        "codigo": codigo,
-                        "carga_horaria": carga_horaria,
-                        "natureza": natureza
-                    }
-                    
-                    # Adicionar professor se encontrado
-                    if nome_professor:
-                        disciplina_data["professor"] = nome_professor
-                        print(f"    [PROFESSOR] Professor: {nome_professor}")
-                    
-                    disciplinas.append(disciplina_data)
-                    print(f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})")
-                    
-                    # Debug: verificar se a disciplina contém números
-                    if re.search(r'\d', nome_disciplina):
-                        print(f"    [INFO] Disciplina com números: '{nome_disciplina}'")
-                # else:
-                    # print(f"  -> Linha de professor, mas dados insuficientes para disciplina regular. Status: {match_status}, Codigo: {match_codigo}, Horas: {match_horas}")
+                match_horas = padrao_horas.search(linha)
+                status = match_status.group(1) if match_status else None
+                mencao = match_mencao[-1] if match_mencao else "-"
+                carga_horaria = int(match_horas.group(1)) if match_horas else None
+                creditos = int(carga_horaria / 15) if carga_horaria else None
+                disciplina_data = {
+                    "tipo_dado": "Disciplina Regular",
+                    "nome": ultima_materia["nome"],
+                    "status": status,
+                    "mencao": mencao,
+                    "creditos": creditos,
+                    "codigo": ultima_materia["codigo"],
+                    "carga_horaria": carga_horaria,
+                    "ano_periodo": ultima_materia["ano_periodo"],
+                    "prefixo": ultima_materia["prefixo"]
+                }
+                if nome_professor:
+                    disciplina_data["professor"] = nome_professor
+                    print(f"    [PROFESSOR] Professor: {nome_professor}")
+                disciplinas.append(disciplina_data)
+                print(f"  -> Disciplina Regular encontrada: '{ultima_materia['nome']}' (Status: {status})")
+                ultima_materia = None
+                continue
 
             # 5. Processar disciplinas com status 'CUMP'
             elif padrao_cump.search(linha):
                 match_padrao_horas_cump = padrao_horas_cump.search(linha)
                 match_codigo = padrao_codigo.search(linha)
-
                 nome_materia_cump = "Nome da Disciplina CUMP N/A"
                 carga_horaria = 0
                 codigo = "Código CUMP N/A"
                 creditos_cump = 0
-
-                # Nova regex para capturar o nome da matéria CUMP
-                # Lida com '-- NOME -- CUMP' ou 'ANO.PERÍODO NOME -- CUMP'
                 cump_name_match = re.search(r"^(?:--\s*|\d{4}\.\d\s*)(.*?)(?:\s+--|\s+—)\s*CUMP", linha, re.IGNORECASE)
                 if cump_name_match:
-                    nome_materia_cump = cump_name_match.group(1).strip()
-                    # Aplica a função de limpeza para remover períodos e outros elementos
-                    nome_materia_cump = limpar_nome_disciplina(nome_materia_cump)
-
-
+                    nome_materia_cump = limpar_nome_disciplina(cump_name_match.group(1).strip())
                 if match_padrao_horas_cump:
                     try:
                         carga_horaria = int(match_padrao_horas_cump.group(1))
                         creditos_cump = int(carga_horaria / 15)
                     except ValueError:
                         print(f"  -> Aviso: Carga horária CUMP inválida na linha: {linha}")
-
                 if match_codigo:
                     codigo = match_codigo.group()
-
                 if nome_materia_cump != "Nome da Disciplina CUMP N/A" or codigo != "Código CUMP N/A":
                     disciplinas.append({
                         "tipo_dado": "Disciplina CUMP",
@@ -392,8 +367,6 @@ def upload_pdf():
                         "carga_horaria": carga_horaria
                     })
                     print(f"  -> Disciplina CUMP encontrada: '{nome_materia_cump}' (Carga Horária: {carga_horaria})")
-                # else:
-                    # print(f"  -> Linha CUMP, mas nome ou código não encontrados: '{linha}'")
 
         print("\n--- Fim do processamento de linhas ---")
         print(f"Total de itens extraídos: {len(disciplinas)}")
