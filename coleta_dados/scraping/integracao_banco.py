@@ -412,4 +412,4 @@ def periodo_letivo_to_date(periodo):
 if __name__ == "__main__":
     processar_matrizes()
     processar_materias()
-    print("Processamento concluído!")
+    print("Processamento concluído!")   
