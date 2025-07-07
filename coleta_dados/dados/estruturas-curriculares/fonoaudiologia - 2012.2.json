@@ -3,1349 +3,1342 @@
   "periodo_letivo_vigor": "2012.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FCE0038",
-          "nome": "INTRODUÇÃO A FONOAUDIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A FONOAUDIOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0040",
           "nome": "ESTUDOS LINGUISTICOS 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FCE0116",
           "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FCE0187",
           "nome": "EPIDEMIOLOGIA DESCRITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0188",
-          "nome": "SAÚDE E SOCIEDADE 1: INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS EM SÁUDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0189",
-          "nome": "SEMINÁRIO INTEGRATIVO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0192",
-          "nome": "DO ÁTOMO À CÉLULA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0201",
-          "nome": "ORGANIZAÇÃO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FCE0042",
           "nome": "ESTUDOS LINGUISTICOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0043",
-          "nome": "FÍSICA ACÚSTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FISICA ACUSTICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0117",
           "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FCE0118",
-          "nome": "MORFOFISIOLOGIA DOS ORGÃOS DA FALA E DA AUDIÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MORFOFISIOLOGIA DOS ORGAOS DA FALA E DA AUDICAO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0204",
-          "nome": "DO GENE À VIDA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0222",
-          "nome": "INTEGRAÇÃO DOS PROCESSOS VITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0234",
-          "nome": "POLÍTICAS, SISTEMAS E SERVIÇOS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FCE0069",
-          "nome": "FONOAUDIOLOGIA NA ATENÇÃO PRIMARIA À SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FONOAUDIOLOGIA NA ATENCAO PRIMARIA A SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0119",
           "nome": "FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0122",
           "nome": "FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0124",
           "nome": "FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0125",
           "nome": "FUNDAMENTOS DE AUDIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0231",
-          "nome": "SISTEMA IMUNITÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0264",
-          "nome": "SISTEMAS DE MANUTENÇÃO DA VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FCE0113",
-          "nome": "AVALIAÇÃO E DIAGNÓSTICO FONOAUDIOLÓGICO NO PRIMEIRO CICLO DE VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0114",
-          "nome": "AVALIAÇÃO E DIAGNÓSTICO FONOAUDIOLÓGICO NO SEGUNDO CICLO DE VIDA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO SEGUNDO CICLO DE VIDA",
+          "ch": "90"
         },
         {
           "codigo": "FCE0115",
-          "nome": "AVALIAÇÃO E DIAGNÓSTICO FONOAUDIOLÓGICO NO TERCEIRO CICLO DE VIDA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
         },
         {
           "codigo": "FCE0126",
           "nome": "FUNDAMENTOS DE AUDIOLOGIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FCE0194",
-          "nome": "INTRODUÇÃO A PESQUISA CIENTÍFICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FCE0092",
           "nome": "FONOAUDIOLOGIA EDUCACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FCE0120",
-          "nome": "EXERCÍCIO PROFISSIONAL E DEONTOLOGIA EM FONOAUDIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "EXERCICIO PROFISSIONAL E DEONTOLOGIA EM FONOAUDIOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0121",
-          "nome": "VIVÊNCIAS EM SAÚDE FONOAUDIOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "VIVENCIAS EM SAUDE FONOAUDIOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0123",
-          "nome": "RECURSOS TERAPÊUTICOS EM FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0128",
-          "nome": "RECURSOS TERAPÊUTICOS EM FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0132",
-          "nome": "RECURSOS TERAPÊUTICOS EM FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FCE0065",
           "nome": "TECNOLOGIAS ASSISTIVAS EM AUDIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0080",
-          "nome": "SURDEZ: CULTURA, LÍNGUA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SURDEZ: CULTURA, LINGUA E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0105",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM FONOAUDIOLOGIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0130",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 1",
-          "carga_horaria": "210h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 1",
+          "ch": "210"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FCE0127",
-          "nome": "SEMINÁRIOS INTEGRATIVOS EM FONOAUDIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIOS INTEGRATIVOS EM FONOAUDIOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0129",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 2",
-          "carga_horaria": "270h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 2",
+          "ch": "270"
         },
         {
           "codigo": "FCE0142",
-          "nome": "GESTÃO DE SERVIÇOS E RECURSOS HUMANOS EM FONOAUDIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE SERVICOS E RECURSOS HUMANOS EM FONOAUDIOLOGIA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FCE0106",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM FONOAUDIOLOGIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0131",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 3",
-          "carga_horaria": "240h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 3",
+          "ch": "240"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "CEL0019",
-          "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "135h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEL0021",
-          "nome": "BIOQUIMICA E BIOFISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "BIOFISICA",
+          "nome": "135H OPTATIVA CEL0021 - BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
         },
         {
           "codigo": "CEL0025",
           "nome": "IMUNOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0035",
           "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0050",
           "nome": "MICROBIOLOGIA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0094",
           "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CFS0007",
           "nome": "FISIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0037",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0039",
           "nome": "ELEMENTOS DE FISIOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0041",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENF0043",
           "nome": "INTRODUCAO ENFERMAGEM E ESTAGIO",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "ENF0047",
-          "nome": "CONTEXTUALIZAÇÃO DA ENFERMAGEM NA SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTUALIZACAO DA ENFERMAGEM NA SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "ENF0051",
           "nome": "SISTEMATIZACAO DA ASSISTENCIA EM ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ENF0058",
-          "nome": "VIVÊNCIAS INTEGRADORAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIVENCIAS INTEGRADORAS 1",
+          "ch": "30"
         },
         {
           "codigo": "ENF0059",
-          "nome": "VIVÊNCIAS INTEGRADORAS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIVENCIAS INTEGRADORAS 2",
+          "ch": "30"
         },
         {
           "codigo": "ENF0086",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA APLICADA À ENFERMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA APLICADA A ENFERMAGEM",
+          "ch": "60"
         },
         {
           "codigo": "EST0026",
           "nome": "BIOESTATISTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0031",
           "nome": "FARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0021",
-          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRÁTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0026",
-          "nome": "TEORIAS DO DESENVOLVIMENTO MOTOR: REPERCUSSÕES NA INTERVENÇÃO PRECOCE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DO DESENVOLVIMENTO MOTOR: REPERCUSSOES NA INTERVENCAO PRECOCE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0031",
-          "nome": "INTRODUÇÃO A PSICOMOTRICIDADE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOMOTRICIDADE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0032",
-          "nome": "NEUROPSICOLOGIA CLÍNICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "NEUROPSICOLOGIA CLINICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0033",
           "nome": "FUNDAMENTOS DA PSICOLOGIA APLICADOS AOS CICLOS DA VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0037",
-          "nome": "INTRODUÇÃO À ANÁLISE DE DISCURSO CRÍTICA DA SAÚDE E DA DOENÇA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANALISE DE DISCURSO CRITICA DA SAUDE E DA DOENCA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0041",
-          "nome": "MORFOSIOLOGIA DE CABEÇA E PESCOÇO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "MORFOSIOLOGIA DE CABECA E PESCOCO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0045",
-          "nome": "MÉTODO DA ERGONOMIA DA ATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODO DA ERGONOMIA DA ATIVIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0046",
-          "nome": "INTRODUÇÃO A SAÚDE DO TRABALHADOR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SAUDE DO TRABALHADOR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0047",
-          "nome": "MORFOFISIOPATOLOGIA DA AUDIÇÃO E DO EQUILÍBRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MORFOFISIOPATOLOGIA DA AUDICAO E DO EQUILIBRIO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0048",
           "nome": "TRABALHO DE CAMPO EM FONOAUDIOLOGIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0049",
           "nome": "LINGUAGEM E PENSAMENTO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0051",
-          "nome": "PRONTUÁRIO ELETRÔNICO DO PACIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0057",
-          "nome": "FONÉTICA ACÚSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FONETICA ACUSTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0058",
-          "nome": "CICLOS DE VIDA E FONOAUDIOLOGIA DO NASCIMENTO À PRIMEIRA INFÂNCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CICLOS DE VIDA E FONOAUDIOLOGIA DO NASCIMENTO A PRIMEIRA INFANCIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0059",
           "nome": "FUNDAMENTOS DE AUDIOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FCE0064",
-          "nome": "IMPOSTAÇÃO DE VOZ",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "IMPOSTACAO DE VOZ",
+          "ch": "30"
         },
         {
           "codigo": "FCE0066",
-          "nome": "PRÁTICAS EM FONOAUDIOLOGIA: DO NASCIMENTO À PRIMEIRA INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS EM FONOAUDIOLOGIA: DO NASCIMENTO A PRIMEIRA INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0067",
-          "nome": "PESQUISAS EM DISTURBIOS DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISAS EM DISTURBIOS DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0068",
-          "nome": "VIVÊNCIA EM SAÚDE FONOAUDIOLÓGICA: DO NASCIMENTO À PRIMEIRA INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "VIVENCIA EM SAUDE FONOAUDIOLOGICA: DO NASCIMENTO A PRIMEIRA INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0070",
           "nome": "PESQUISA EM MOTRICIDADE OROFACIAL E DISFAGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0073",
           "nome": "PESQUISA EM ONCOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0076",
-          "nome": "CICLOS DE VIDA E FONOAUDIOLOGIA: INFÂNCIA A ADOLESCÊNCIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CICLOS DE VIDA E FONOAUDIOLOGIA: INFANCIA A ADOLESCENCIA",
+          "ch": "90"
         },
         {
           "codigo": "FCE0079",
-          "nome": "BASES DE FISIOLOGIA ENDÓCRINA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "BASES DE FISIOLOGIA ENDOCRINA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0082",
-          "nome": "PRÁTICAS EM FONOAUDIOLOGIA DA INFÂNCIA A ADOLESCÊNCIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS EM FONOAUDIOLOGIA DA INFANCIA A ADOLESCENCIA",
+          "ch": "120"
         },
         {
           "codigo": "FCE0083",
-          "nome": "VIVÊNCIA EM SAÚDE FONOAUDIOLÓGICA DA INFÂNCIA A ADOLESCÊNCIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "VIVENCIA EM SAUDE FONOAUDIOLOGICA DA INFANCIA A ADOLESCENCIA",
+          "ch": "120"
         },
         {
           "codigo": "FCE0086",
-          "nome": "TÓPICOS AVANÇADOS EM AUDIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM AUDIOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0087",
-          "nome": "TÓPICOS ESPECIAIS EM NEUROCIÊNCIA COGNITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM NEUROCIENCIA COGNITIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0088",
-          "nome": "PESQUISA EM NEUROCIÊNCIA COGNITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM NEUROCIENCIA COGNITIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0090",
           "nome": "FONOAUDIOLOGIA HOSPITALAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0091",
           "nome": "CICLOS DE VIDA E FONOAUDIOLOGIA: VIDA ADULTA E ENVELHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0094",
-          "nome": "LABORATÓRIO DE ESCRITA ETNOGRÁFICA EM SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ESCRITA ETNOGRAFICA EM SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0095",
-          "nome": "PESQUISA EM SAÚDE E MARCADORES SOCIAIS DA DIFERENÇA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM SAUDE E MARCADORES SOCIAIS DA DIFERENCA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0096",
           "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA HIPERTROFIA MUSCULAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0102",
-          "nome": "TÓPICOS AVANÇADOS EM AUDIOLOGIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM AUDIOLOGIA 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0103",
-          "nome": "TÓPICOS AVANÇADOS EM AUDIOLOGIA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM AUDIOLOGIA 3",
+          "ch": "30"
         },
         {
           "codigo": "FCE0104",
-          "nome": "PRÁTICAS EM FONOAUDIOLOGIA : DO ADULTO E DO IDOSO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS EM FONOAUDIOLOGIA : DO ADULTO E DO IDOSO",
+          "ch": "120"
         },
         {
           "codigo": "FCE0107",
-          "nome": "FONOAUDIOLOGIA E SAÚDE DO TRABALHADOR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FONOAUDIOLOGIA E SAUDE DO TRABALHADOR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0108",
-          "nome": "PRODUÇÃO AUDIOVISUAL EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0109",
-          "nome": "PESQUISA EM ERGONOMIA E BIOMECÂNICA OCUPACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECANICA OCUPACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FCE0110",
-          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0135",
-          "nome": "BASES CIENTÍFICAS DE NUTRIÇÃO E ATIVIDADE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES CIENTIFICAS DE NUTRICAO E ATIVIDADE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0140",
-          "nome": "SEGURANÇA DO PACIENTE NA ATENÇÃO A SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEGURANCA DO PACIENTE NA ATENCAO A SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0141",
-          "nome": "PESQUISA EM EXERCÍCIO FÍSICO, REABILITAÇÃO E DESEMPENHO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM EXERCICIO FISICO, REABILITACAO E DESEMPENHO HUMANO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0145",
           "nome": "SUPORTE E MOVIMENTO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0146",
-          "nome": "DA CÉLULA AOS SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DA CELULA AOS SISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0147",
-          "nome": "PROCESSOS PATOLÓGICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS PATOLOGICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0148",
-          "nome": "PRÁTICA EM BIOQUÍMICA CELULAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA EM BIOQUIMICA CELULAR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0150",
           "nome": "PARASITOSES HUMANAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0151",
           "nome": "ENFERMAGEM NO CONTEXTO DO ENVELHECIMENTO HUMANO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0152",
           "nome": "PESQUISA EM TERAPIA OCUPACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0158",
-          "nome": "RECONSTRUÇÃO OCUPACIONAL E TRANSFORMAÇÃO SOCIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "RECONSTRUCAO OCUPACIONAL E TRANSFORMACAO SOCIAL",
+          "ch": "30"
         },
         {
           "codigo": "FCE0159",
           "nome": "PESQUISA EM TERAPIA OCUPACIONAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0161",
-          "nome": "ESTUDOS LINGUÍSTICOS 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS LINGUISTICOS 3",
+          "ch": "30"
         },
         {
           "codigo": "FCE0163",
-          "nome": "ESTUDOS LINGUÍSTICOS 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS LINGUISTICOS 4",
+          "ch": "60"
         },
         {
           "codigo": "FCE0165",
-          "nome": "TÓPICOS AVANÇADOS EM VOZ 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM VOZ 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0168",
-          "nome": "PESQUISA EM ENFERMAGEM GERONTOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM ENFERMAGEM GERONTOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0169",
-          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS SUPERVISIONADAS EM ENFERMAGEM 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0170",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 2",
+          "ch": "120"
         },
         {
           "codigo": "FCE0171",
-          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS SUPERVISIONADAS EM ENFERMAGEM 2",
+          "ch": "60"
         },
         {
           "codigo": "FCE0172",
-          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS SUPERVISIONADAS EM ENFERMAGEM 3",
+          "ch": "60"
         },
         {
           "codigo": "FCE0173",
-          "nome": "PRÁTICAS SUPERVISIONADAS EM ENFERMAGEM 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS SUPERVISIONADAS EM ENFERMAGEM 4",
+          "ch": "30"
         },
         {
           "codigo": "FCE0176",
-          "nome": "CUIDADO INTEGRAL À SAÚDE DO ADULTO E IDOSO NO CONTEXTO CIRÚRGICO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CUIDADO INTEGRAL A SAUDE DO ADULTO E IDOSO NO CONTEXTO CIRURGICO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0178",
-          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "30"
         },
         {
           "codigo": "FCE0193",
           "nome": "FUNDAMENTOS DE FISIOTERAPIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0197",
-          "nome": "FISIOLOGIA CLÍNICA DO EXERCÍCIO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISIOLOGIA CLINICA DO EXERCICIO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0198",
-          "nome": "BIOFÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOFISICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0206",
-          "nome": "EPIDEMIOLOGIA ANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0208",
-          "nome": "SAÚDE E SOCIEDADE 2: A CONSTRUÇÃO SOCIAL DO PROCESSO SAÚDE E DOENÇA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 2: A CONSTRUCAO SOCIAL DO PROCESSO SAUDE E DOENCA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0216",
-          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FCE0217",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0218",
-          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FÍSICOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FISICOS",
+          "ch": "90"
         },
         {
           "codigo": "FCE0224",
-          "nome": "INTEGRAÇÃO METABÓLICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0226",
           "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0227",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL: ATIVIDADE HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0228",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0229",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS ACADÊMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0233",
           "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0235",
           "nome": "PROCESSO DE TRABALHO E RELACIONAMENTO INTERPESSOAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0244",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL: MOVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0246",
-          "nome": "FARMACOLOGIA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0247",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FCE0248",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 2",
+          "ch": "90"
         },
         {
           "codigo": "FCE0249",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0250",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 3",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 3",
+          "ch": "120"
         },
         {
           "codigo": "FCE0254",
           "nome": "AGENTES INFECCIOSOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0265",
-          "nome": "DA CÉLULA AOS SISTEMAS 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DA CELULA AOS SISTEMAS 4",
+          "ch": "30"
         },
         {
           "codigo": "FCE0266",
-          "nome": "DA CÉLULA AOS SISTEMAS 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DA CELULA AOS SISTEMAS 4",
+          "ch": "30"
         },
         {
           "codigo": "FCE0273",
-          "nome": "SAÚDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0276",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0279",
           "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FCE0282",
-          "nome": "INTERAÇÃO PARASITO-HOSPEDEIRO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0314",
-          "nome": "NUTRIÇÃO HUMANA EM SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "NUTRICAO HUMANA EM SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0316",
-          "nome": "PALPAÇÃO OSTEOMIOARTICULAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PALPACAO OSTEOMIOARTICULAR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0325",
-          "nome": "EPIDEMIOLOGIA PARA A GESTÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0362",
-          "nome": "CUIDADO INTEGRAL A SAÚDE DO ADULTO E IDOSO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CUIDADO INTEGRAL A SAUDE DO ADULTO E IDOSO",
+          "ch": "90"
         },
         {
           "codigo": "FCE0363",
-          "nome": "CUIDADO DE ENFERMAGEM PSICOSSOCIAL EM SAÚDE MENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CUIDADO DE ENFERMAGEM PSICOSSOCIAL EM SAUDE MENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FCE0364",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 4",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 4",
+          "ch": "120"
         },
         {
           "codigo": "FCE0376",
-          "nome": "CUIDADO INTEGRAL A SAÚDE DA MULHER E CRIANÇA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "CUIDADO INTEGRAL A SAUDE DA MULHER E CRIANCA",
+          "ch": "120"
         },
         {
           "codigo": "FCE0397",
           "nome": "PROCESSO DE CUIDAR EM ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0432",
           "nome": "TUTORIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0441",
-          "nome": "INTRODUÇÃO À NEUROPSICOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A NEUROPSICOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0741",
           "nome": "PESQUISA EM MOTRICIDADE OROFACIAL E DISFAGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0745",
-          "nome": "PESQUISA EM DISTÚRBIOS DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM DISTURBIOS DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0756",
-          "nome": "PESQUISAS EM NEUROCIÊNCIA COGNITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISAS EM NEUROCIENCIA COGNITIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0844",
-          "nome": "PESQUISA EM BASES BIOLÓGICAS E DA SAÚDE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM BASES BIOLOGICAS E DA SAUDE",
+          "ch": "90"
         },
         {
           "codigo": "FEF0408",
-          "nome": "CIÊNCIA E PESQUISA EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0409",
-          "nome": "ANATOMIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FMD0071",
           "nome": "PARASITOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FMD0095",
           "nome": "PATOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0512",
           "nome": "HISTOLOGIA MEDICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FUP0313",
-          "nome": "QUÍMICA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0023",
           "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0042",
           "nome": "HISTOLOGIA VETERINARIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0054",
           "nome": "HISTOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ICB0143",
           "nome": "HISTOLOGIA ANIMAL 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0120",
           "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0124",
           "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0133",
           "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0137",
-          "nome": "REAÇÕES ORGÂNICAS E SEUS MECANISMOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0213",
-          "nome": "QUÍMICA BIOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "LIP0045",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0095",
           "nome": "INTRODUCAO A ANALISE DO DISCURSO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0099",
           "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0141",
-          "nome": "FONÉTICA E FONOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FONETICA E FONOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "LIP0175",
-          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0038",
+          "nome": "INTRODUCAO A FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0040",
+          "nome": "ESTUDOS LINGUISTICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0116",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0042",
+          "nome": "ESTUDOS LINGUISTICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0043",
+          "nome": "FISICA ACUSTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0117",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0118",
+          "nome": "MORFOFISIOLOGIA DOS ORGAOS DA FALA E DA AUDICAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0234",
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0069",
+          "nome": "FONOAUDIOLOGIA NA ATENCAO PRIMARIA A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0119",
+          "nome": "FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0122",
+          "nome": "FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0124",
+          "nome": "FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0125",
+          "nome": "FUNDAMENTOS DE AUDIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0113",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0114",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO SEGUNDO CICLO DE VIDA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0115",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0126",
+          "nome": "FUNDAMENTOS DE AUDIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0092",
+          "nome": "FONOAUDIOLOGIA EDUCACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0120",
+          "nome": "EXERCICIO PROFISSIONAL E DEONTOLOGIA EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0121",
+          "nome": "VIVENCIAS EM SAUDE FONOAUDIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0123",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0128",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0132",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0065",
+          "nome": "TECNOLOGIAS ASSISTIVAS EM AUDIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0080",
+          "nome": "SURDEZ: CULTURA, LINGUA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0105",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0130",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 1",
+          "ch": "210"
+        },
+        {
+          "codigo": "FCE0127",
+          "nome": "SEMINARIOS INTEGRATIVOS EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0129",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 2",
+          "ch": "270"
+        },
+        {
+          "codigo": "FCE0142",
+          "nome": "GESTAO DE SERVICOS E RECURSOS HUMANOS EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0106",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0131",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 3",
+          "ch": "240"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     }

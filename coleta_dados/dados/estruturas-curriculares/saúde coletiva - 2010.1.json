@@ -3,2019 +3,1892 @@
   "periodo_letivo_vigor": "2010.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "DSC0007",
           "nome": "INTRODUCAO A BIOETICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "DSC0050",
-          "nome": "POLÍTICAS PÚBLICAS EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0052",
-          "nome": "FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA",
+          "ch": "60"
         },
         {
           "codigo": "DSC0057",
-          "nome": "CIÊNCIAS SOCIAIS EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0044",
           "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DSC0051",
-          "nome": "DEMOGRAFIA E BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "DSC0010",
-          "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0058",
-          "nome": "FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 2",
+          "ch": "60"
         },
         {
           "codigo": "DSC0060",
-          "nome": "SEMINÁRIOS INTEGRADOS EM SAÚDE COLETIVA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIOS INTEGRADOS EM SAUDE COLETIVA 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0187",
           "nome": "EPIDEMIOLOGIA DESCRITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "DSC0059",
-          "nome": "PESQUISA SOCIAL EM SAÚDE COLETIVA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA SOCIAL EM SAUDE COLETIVA",
+          "ch": "45"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "DSC0016",
-          "nome": "EDUCAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0038",
           "nome": "SAUDE FAMILIAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "DSC0062",
-          "nome": "PRÁTICAS INTEGRADAS EM SAÚDE COLETIVA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS INTEGRADAS EM SAUDE COLETIVA 1",
+          "ch": "60"
         },
         {
           "codigo": "DSC0063",
-          "nome": "DIREITO SANITÁRIO E LEGISLAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "DIREITO SANITARIO E LEGISLACAO",
+          "ch": "30"
         },
         {
           "codigo": "DSC0075",
-          "nome": "GESTÃO E PROMOÇÃO DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO E PROMOCAO DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0064",
-          "nome": "BIOÉTICA E SAÚDE PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "DSC0056",
-          "nome": "COMUNICAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "COMUNICACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0065",
-          "nome": "GESTÃO ESTRATÉGICA PARTICIPAÇÃO E CONTROLE SOCIAL EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO ESTRATEGICA PARTICIPACAO E CONTROLE SOCIAL EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0076",
-          "nome": "SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0326",
-          "nome": "PLANEJAMENTO E PROGRAMAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E PROGRAMACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0043",
           "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DSC0066",
-          "nome": "ÉTICA, CIÊNCIA E TECNOLOGIA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA, CIENCIA E TECNOLOGIA EM SAUDE",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "DSC0061",
-          "nome": "FUNDAMENTOS BIOLÓGICOS EM SAÚDE COLETIVA 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 3",
+          "ch": "60"
         },
         {
           "codigo": "DSC0067",
-          "nome": "PRÁTICAS INTEGRADAS EM SAÚDE 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS INTEGRADAS EM SAUDE 2",
+          "ch": "60"
         },
         {
           "codigo": "DSC0070",
-          "nome": "MONITORAMENTO E AVALIAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MONITORAMENTO E AVALIACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0079",
-          "nome": "GESTÃO DE SISTEMAS E SERVIÇOS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0206",
-          "nome": "EPIDEMIOLOGIA ANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
         },
         {
           "codigo": "DSC0025",
-          "nome": "AMBIENTE SAÚDE E TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AMBIENTE SAUDE E TRABALHO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "DSC0069",
-          "nome": "EPIDEMIOLOGIA PARA A GESTÃO 3 VIGILÂNCIA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO 3 VIGILANCIA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0072",
-          "nome": "GESTÃO DO TRABALHO E EDUCAÇÃO PERMANENTE NA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DO TRABALHO E EDUCACAO PERMANENTE NA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0006",
-          "nome": "INTRODUÇÃO À GESTÃO HOSPITALAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GESTAO HOSPITALAR",
+          "ch": "30"
         },
         {
           "codigo": "DSC0073",
-          "nome": "TECNOLOGIAS PARA INFORMAÇÃO COMUNICAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS PARA INFORMACAO COMUNICACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0086",
-          "nome": "SAÚDE INTERNACIONAL - TÓPICOS ESPECIAIS EM SAÚDE COLETIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE INTERNACIONAL - TOPICOS ESPECIAIS EM SAUDE COLETIVA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "DSC0078",
-          "nome": "SEMINÁRIO INTEGRADOR EM SAÚDE COLETIVA 3",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 3",
+          "ch": "45"
         },
         {
           "codigo": "DSC0084",
-          "nome": "ESTÁGIO SUPERVISIONADO 1",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "150"
         },
         {
           "codigo": "ADM0225",
           "nome": "ELABORACAO E AVALIACAO DE PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "DSC0083",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "150"
         },
         {
           "codigo": "DSC0085",
-          "nome": "ESTÁGIO SUPERVISIONADO 2",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "150"
         },
         {
           "codigo": "DSC0087",
-          "nome": "ELABORAÇÃO DO TRABALHO CIENTÍFICO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELABORACAO DO TRABALHO CIENTIFICO 2",
+          "ch": "60"
         },
         {
           "codigo": "FCE0323",
-          "nome": "ECONOMIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "DSC0004",
-          "nome": "ESTÁGIO SUPERVISIONADO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FCE0323",
-          "nome": "ECONOMIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FCE0336",
-          "nome": "ECONOMIA E FINANCIAMENTO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "ADM0014",
-          "nome": "ADMINISTRAÇÃO PÚBLICA E GESTÃO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0030",
-          "nome": "TEORIA ADMINISTRATIVA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "SOCIAL",
+          "nome": "60H OPTATIVA ADM0030 - TEORIA ADMINISTRATIVA",
+          "ch": "90"
         },
         {
           "codigo": "ADM0040",
           "nome": "ADMINISTRACAO DE RECURSOS HUMANOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0059",
           "nome": "ADMINISTRACAO DE RECURSOS MATERIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0157",
-          "nome": "ESTRATÉGIA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0168",
           "nome": "ADMINISTRACAO DE SERVICOS PUBLICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0174",
           "nome": "ORCAMENTO PUBLICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "ADM0213",
           "nome": "TEORIA E ANALISE DAS ORGANIZACOES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0308",
-          "nome": "NEGOCIAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NEGOCIACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0316",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ADMINISTRAÇÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
         },
         {
           "codigo": "CCA0103",
-          "nome": "INTRODUÇÃO À CONTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "CDS0007",
-          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
         },
         {
           "codigo": "CDS0008",
           "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CDS0011",
           "nome": "SISTEMAS SOCIOAMBIENTAIS E COMPLEXIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0019",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "135h",
-          "natureza": "Optativa"
+          "ch": "135"
         },
         {
           "codigo": "CEL0021",
           "nome": "BIOQUIMICA E BIOFISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0025",
           "nome": "IMUNOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0035",
           "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0050",
           "nome": "MICROBIOLOGIA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0094",
           "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEM0051",
-          "nome": "PROMOÇÃO DA SAÚDE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROMOCAO DA SAUDE 3",
+          "ch": "60"
         },
         {
           "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0036",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0037",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0019",
           "nome": "ANTROPOLOGIA DO CORPO E DA PESSOA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DAN0041",
-          "nome": "TEORIA ANTROPOLÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "DAN0055",
-          "nome": "ANTROPOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DAN0083",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 10",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 10",
+          "ch": "60"
         },
         {
           "codigo": "DAP0096",
-          "nome": "OFICINA BÁSICA DE AUDIOVISUAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
         },
         {
           "codigo": "DAP0101",
-          "nome": "FUNDAMENTOS DE COMUNICAÇÃO VISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0204",
-          "nome": "VIGILÂNCIA EPIDEMIOLÓGICA COMUNITÁRIA E PARTICIPATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "VIGILANCIA EPIDEMIOLOGICA COMUNITARIA E PARTICIPATIVA",
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX1108",
-          "nome": "CONSTRUÇÃO DE PROJETOS SOCIAIS MULTIDISCIPLINARES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONSTRUCAO DE PROJETOS SOCIAIS MULTIDISCIPLINARES",
+          "ch": "60"
         },
         {
           "codigo": "DSC0001",
-          "nome": "COMUNICAÇÃO EM SAÚDE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO EM SAUDE 2",
+          "ch": "60"
         },
         {
           "codigo": "DSC0003",
-          "nome": "SAÚDE INDÍGENA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE INDIGENA",
+          "ch": "60"
         },
         {
           "codigo": "DSC0005",
-          "nome": "POLÍTICAS DE SEGURANÇA ALIMENTAR E NUTRICIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS DE SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "60"
         },
         {
           "codigo": "DSC0011",
           "nome": "SAUDE E SOCIEDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0020",
           "nome": "EPIDEMIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0037",
           "nome": "PRATICAS DE SAUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0045",
           "nome": "VIGILANCIA SANITARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0046",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0048",
-          "nome": "LABORATÓRIO DA ANTROPOLOGIA DA SAÚDE E DA DOENÇA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DA ANTROPOLOGIA DA SAUDE E DA DOENCA",
+          "ch": "90"
         },
         {
           "codigo": "DSC0068",
-          "nome": "SAÚDE DO TRABALHADOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE DO TRABALHADOR",
+          "ch": "60"
         },
         {
           "codigo": "DSC0082",
-          "nome": "GESTÃO DE INSUMOS MATERIAL E PATRIMONIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE INSUMOS MATERIAL E PATRIMONIO",
+          "ch": "60"
         },
         {
           "codigo": "DSC0089",
-          "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE 2",
+          "ch": "60"
         },
         {
           "codigo": "DSC0090",
-          "nome": "EXTENSÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EXTENSAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0091",
-          "nome": "PESQUISA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "ECL0033",
           "nome": "ECOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0021",
-          "nome": "HISTÓRIA ECONÔMICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0259",
-          "nome": "ECONOMIA PARA  POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "ELA0008",
-          "nome": "PENSAMENTO SOCIAL E POLÍTICO NA AMÉRICA LATINA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO SOCIAL E POLITICO NA AMERICA LATINA",
+          "ch": "60"
         },
         {
           "codigo": "ELA0013",
-          "nome": "INTRODUÇÃO À METODOLOGIA DAS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "ENF0057",
-          "nome": "GESTÃO EM POLITICAS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO EM POLITICAS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "ENF0060",
-          "nome": "TECNOLOGIA DA EDUCAÇÃO EM SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA DA EDUCACAO EM SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "EST0026",
           "nome": "BIOESTATISTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0027",
-          "nome": "BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FAC0029",
-          "nome": "INTRODUÇÃO AO MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO MARKETING",
+          "ch": "60"
         },
         {
           "codigo": "FAC0031",
-          "nome": "INTRODUÇÃO AS TEORIAS DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AS TEORIAS DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FAR0119",
-          "nome": "ASSISTÊNCIA FARMACÊUTICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ASSISTENCIA FARMACEUTICA 1",
+          "ch": "30"
         },
         {
           "codigo": "FAR0169",
-          "nome": "VIGILÂNCIA SANITÁRIA APLICADA À FARMÁCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIGILANCIA SANITARIA APLICADA A FARMACIA",
+          "ch": "30"
         },
         {
           "codigo": "FAR0173",
-          "nome": "ASSISTÊNCIA FARMACÊUTICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ASSISTENCIA FARMACEUTICA 2",
+          "ch": "30"
         },
         {
           "codigo": "FAV0016",
-          "nome": "MÉTODOS QUANTITATIVOS EM MEDICINA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0018",
-          "nome": "PARASITOLOGIA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PARASITOLOGIA VETERINARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0066",
           "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0158",
-          "nome": "PATOLOGIA VETERINÁRIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "PATOLOGIA VETERINARIA",
+          "ch": "120"
         },
         {
           "codigo": "FAV0159",
           "nome": "PARASITOLOGIA E DOENCAS PARASITARIAS",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0160",
           "nome": "EPIDEMIOLOGIA VETERINARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0206",
           "nome": "MICROBIOLOGIA VETERINARIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0234",
           "nome": "INTRODUCAO A MEDICINA VETERINARIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0236",
           "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0303",
-          "nome": "PATOLOGIA GERAL VETERINÁRIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PATOLOGIA GERAL VETERINARIA",
+          "ch": "90"
         },
         {
           "codigo": "FCE0017",
-          "nome": "PRINCIPAIS VETORES DE IMPORTÂNCIA EM SAÚDE COLETIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPAIS VETORES DE IMPORTANCIA EM SAUDE COLETIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0021",
-          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRÁTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0044",
-          "nome": "ANTROPOLOGIA DA SAÚDE E ADOECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA DA SAUDE E ADOECIMENTO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0045",
-          "nome": "MÉTODO DA ERGONOMIA DA ATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODO DA ERGONOMIA DA ATIVIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0051",
-          "nome": "PRONTUÁRIO ELETRÔNICO DO PACIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0073",
           "nome": "PESQUISA EM ONCOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0108",
-          "nome": "PRODUÇÃO AUDIOVISUAL EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0110",
-          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0140",
-          "nome": "SEGURANÇA DO PACIENTE NA ATENÇÃO A SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEGURANCA DO PACIENTE NA ATENCAO A SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0152",
           "nome": "PESQUISA EM TERAPIA OCUPACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0159",
           "nome": "PESQUISA EM TERAPIA OCUPACIONAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0178",
-          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "30"
         },
         {
           "codigo": "FCE0188",
-          "nome": "SAÚDE E SOCIEDADE 1: INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS EM SÁUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0194",
-          "nome": "INTRODUÇÃO A PESQUISA CIENTÍFICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0208",
-          "nome": "SAÚDE E SOCIEDADE 2: A CONSTRUÇÃO SOCIAL DO PROCESSO SAÚDE E DOENÇA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 2: A CONSTRUCAO SOCIAL DO PROCESSO SAUDE E DOENCA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0216",
-          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FCE0217",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0219",
-          "nome": "INTRODUÇÃO À PSICOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0229",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS ACADÊMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0234",
-          "nome": "POLÍTICAS, SISTEMAS E SERVIÇOS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0243",
-          "nome": "PRÁTICAS DE SAÚDE BASEADAS EM EVIDÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE SAUDE BASEADAS EM EVIDENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0273",
-          "nome": "SAÚDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0274",
-          "nome": "ANÁLISE DO DISCURSO DA SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DO DISCURSO DA SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0275",
           "nome": "SOCIOLOGIA DO CORPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0278",
-          "nome": "TEORIAS E MODELOS DE ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS E MODELOS DE ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0313",
-          "nome": "IMUNOBIOLOGIA DA RELAÇÃO PATÓGENO - HOSPEDEIRO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "IMUNOBIOLOGIA DA RELACAO PATOGENO - HOSPEDEIRO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0324",
-          "nome": "DIREITO SANITÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIREITO SANITARIO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0330",
-          "nome": "PENSAMENTO SOCIAL EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO SOCIAL EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0335",
-          "nome": "PROMOÇÃO DA SAÚDE CONCEITOS E CONTEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROMOCAO DA SAUDE CONCEITOS E CONTEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0336",
-          "nome": "ECONOMIA E FINANCIAMENTO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA E FINANCIAMENTO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0339",
-          "nome": "SEMINÁRIO INTEGRATIVO 7",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTEGRATIVO 7",
+          "ch": "30"
         },
         {
           "codigo": "FCE0343",
-          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0344",
-          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0345",
-          "nome": "PRÁTICAS INTEGRADAS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS INTEGRADAS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0349",
-          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 3",
+          "ch": "30"
         },
         {
           "codigo": "FCE0350",
-          "nome": "TÓPICOS ESPECIAIS EM SAÚDE COLETIVA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 4",
+          "ch": "30"
         },
         {
           "codigo": "FCE0382",
           "nome": "PESQUISA EM GERONTOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0390",
           "nome": "FARMACOEPIDEMIOLOGIA E FARMACOVIGILANCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0397",
           "nome": "PROCESSO DE CUIDAR EM ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0401",
-          "nome": "SEMINÁRIO INTEGRATIVO 8",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTEGRATIVO 8",
+          "ch": "30"
         },
         {
           "codigo": "FCI0012",
-          "nome": "INTRODUÇÃO À MUSEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0013",
-          "nome": "INTRODUÇÃO À MUSEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0014",
           "nome": "MUSEOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0062",
           "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCS0047",
           "nome": "INTRODUCAO A ASSISTENCIA FARMACEUTICA",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "FDD0004",
-          "nome": "INSTITUIÇÕES DE DIREITO PÚBLICO E PRIVADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0006",
-          "nome": "INTRODUÇÃO AO DIREITO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
         },
         {
           "codigo": "FDD0015",
-          "nome": "LEGISLAÇÃO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "FDD0019",
-          "nome": "TEORIA GERAL DO DIREITO PÚBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0141",
-          "nome": "LEGISLAÇÃO TRIBUTÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0153",
-          "nome": "PESQUISA JURÍDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0155",
-          "nome": "NOÇÕES DE DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0167",
-          "nome": "INTRODUÇÃO AO DIREITO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
         },
         {
           "codigo": "FDD0172",
-          "nome": "LEGISLAÇÃO ADMINISTRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0249",
           "nome": "TEORIA GERAL DO ESTADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FDD0270",
-          "nome": "INTRODUÇÃO À FILOSOFIA GERAL E JURÍDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA GERAL E JURIDICA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0271",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA GERAL E JURÍDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0274",
-          "nome": "ARBITRAGEM, MEDIAÇÃO E NEGOCIAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARBITRAGEM, MEDIACAO E NEGOCIACAO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0277",
           "nome": "DIREITO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0039",
-          "nome": "INTRODUÇÃO À PEDAGOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FED0165",
           "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0183",
-          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0104",
-          "nome": "PRÁTICA DESPORTIVA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
         },
         {
           "codigo": "FIL0064",
-          "nome": "ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0120",
           "nome": "TOPICOS ESPECIAIS DE ETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0166",
-          "nome": "INTRODUÇÃO A PRÁTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0167",
-          "nome": "ÉTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ETICA FILOSOFICA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0169",
-          "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 3",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 3",
+          "ch": "120"
         },
         {
           "codigo": "FMD0095",
           "nome": "PATOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0165",
           "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0167",
           "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0512",
           "nome": "HISTOLOGIA MEDICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FMD0570",
-          "nome": "EPIDEMIOLOGIA DOS ACIDENTES DE TRÂNSITO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EPIDEMIOLOGIA DOS ACIDENTES DE TRANSITO",
+          "ch": "30"
         },
         {
           "codigo": "GEA0041",
-          "nome": "GEOGRAFIA HUMANA E ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "GEM0014",
           "nome": "GENETICA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0023",
           "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0042",
           "nome": "HISTOLOGIA VETERINARIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0054",
           "nome": "HISTOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GPP0021",
-          "nome": "INTRODUÇÃO À GESTÃO DE POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GESTAO DE POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "GPP0037",
-          "nome": "FUNDAMENTOS DA ADMINISTRAÇÃO PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "GPP0040",
-          "nome": "INOVAÇÃO NO SETOR PÚBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INOVACAO NO SETOR PUBLICO",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0102",
-          "nome": "HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0110",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ICB0143",
           "nome": "HISTOLOGIA ANIMAL 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "ICB0244",
-          "nome": "FILOSOFIA E HISTÓRIA DAS CIÊNCIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA E HISTORIA DAS CIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "ILD0037",
           "nome": "ESPANHOL INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0120",
           "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0124",
           "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0133",
           "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0137",
-          "nome": "REAÇÕES ORGÂNICAS E SEUS MECANISMOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0213",
-          "nome": "QUÍMICA BIOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "JOR0078",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0021",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0024",
           "nome": "CALCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "MUS0139",
           "nome": "CANTO CORAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "NUT0017",
           "nome": "NUTRICAO NORMAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "NUT0054",
           "nome": "NUTRICAO HUMANA 1",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "PAD0011",
           "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0019",
           "nome": "HIGIENE ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         },
         {
           "codigo": "PED0072",
-          "nome": "PSICOLOGIA DO GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DO GENERO",
+          "ch": "60"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0012",
-          "nome": "TEORIA POLÍTICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
         },
         {
           "codigo": "POL0055",
-          "nome": "FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0067",
           "nome": "APRENDIZAGEM NO ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0009",
           "nome": "PSICOLOGIA SOCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0025",
           "nome": "PSICOLOGIA APLICADA A ADMINISTRACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0033",
           "nome": "ERGONOMIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0048",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
         },
         {
           "codigo": "SER0014",
-          "nome": "POLÍTICA SOCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "POLITICA SOCIAL",
+          "ch": "90"
         },
         {
           "codigo": "SER0015",
-          "nome": "POLÍTICA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SER0033",
           "nome": "MOVIMENTOS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0050",
           "nome": "PLANEJAMENTO E ADMINISTRACAO EM SERVICO SOCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "SER0068",
-          "nome": "INFÂNCIA, ADOLESCÊNCIA E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0036",
-          "nome": "INTRODUÇÃO À METODOLOGIA DAS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0043",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "TEF0003",
-          "nome": "EDUCAÇÃO INCLUSIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0004",
-          "nome": "TECNOLOGIAS NA EDUCAÇÃO ESPECIAL E INCLUSIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL E INCLUSIVA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0065",
-          "nome": "DINÂMICA PSICOSSOCIAL DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0118",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0044",
           "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DSC0051",
-          "nome": "DEMOGRAFIA E BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "DSC0059",
-          "nome": "PESQUISA SOCIAL EM SAÚDE COLETIVA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA SOCIAL EM SAUDE COLETIVA",
+          "ch": "45"
         },
         {
           "codigo": "DSC0064",
-          "nome": "BIOÉTICA E SAÚDE PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "DSC0043",
           "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DSC0066",
-          "nome": "ÉTICA, CIÊNCIA E TECNOLOGIA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA, CIENCIA E TECNOLOGIA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0025",
-          "nome": "AMBIENTE SAÚDE E TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AMBIENTE SAUDE E TRABALHO",
+          "ch": "60"
         },
         {
           "codigo": "DSC0006",
-          "nome": "INTRODUÇÃO À GESTÃO HOSPITALAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GESTAO HOSPITALAR",
+          "ch": "30"
         },
         {
           "codigo": "DSC0073",
-          "nome": "TECNOLOGIAS PARA INFORMAÇÃO COMUNICAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS PARA INFORMACAO COMUNICACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0086",
-          "nome": "SAÚDE INTERNACIONAL - TÓPICOS ESPECIAIS EM SAÚDE COLETIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE INTERNACIONAL - TOPICOS ESPECIAIS EM SAUDE COLETIVA",
+          "ch": "60"
         },
         {
           "codigo": "ADM0225",
           "nome": "ELABORACAO E AVALIACAO DE PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "DSC0087",
-          "nome": "ELABORAÇÃO DO TRABALHO CIENTÍFICO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELABORACAO DO TRABALHO CIENTIFICO 2",
+          "ch": "60"
         },
         {
           "codigo": "FCE0323",
-          "nome": "ECONOMIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0004",
-          "nome": "ESTÁGIO SUPERVISIONADO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0052",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0057",
+          "nome": "CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0044",
+          "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0051",
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0010",
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0058",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0060",
+          "nome": "SEMINARIOS INTEGRADOS EM SAUDE COLETIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0059",
+          "nome": "PESQUISA SOCIAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0016",
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0038",
+          "nome": "SAUDE FAMILIAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0062",
+          "nome": "PRATICAS INTEGRADAS EM SAUDE COLETIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0063",
+          "nome": "DIREITO SANITARIO E LEGISLACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0075",
+          "nome": "GESTAO E PROMOCAO DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0064",
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0056",
+          "nome": "COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0065",
+          "nome": "GESTAO ESTRATEGICA PARTICIPACAO E CONTROLE SOCIAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0076",
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0326",
+          "nome": "PLANEJAMENTO E PROGRAMACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0066",
+          "nome": "ETICA, CIENCIA E TECNOLOGIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0061",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0067",
+          "nome": "PRATICAS INTEGRADAS EM SAUDE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0070",
+          "nome": "MONITORAMENTO E AVALIACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0079",
+          "nome": "GESTAO DE SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0025",
+          "nome": "AMBIENTE SAUDE E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0069",
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO 3 VIGILANCIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0072",
+          "nome": "GESTAO DO TRABALHO E EDUCACAO PERMANENTE NA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0006",
+          "nome": "INTRODUCAO A GESTAO HOSPITALAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0073",
+          "nome": "TECNOLOGIAS PARA INFORMACAO COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0086",
+          "nome": "SAUDE INTERNACIONAL - TOPICOS ESPECIAIS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0078",
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 3",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0084",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "ADM0225",
+          "nome": "ELABORACAO E AVALIACAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0083",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DSC0085",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "DSC0087",
+          "nome": "ELABORACAO DO TRABALHO CIENTIFICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0004",
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
         }
       ]
     }

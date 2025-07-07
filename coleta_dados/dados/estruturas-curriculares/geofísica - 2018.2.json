@@ -3,694 +3,757 @@
   "periodo_letivo_vigor": "2018.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0173",
           "nome": "FISICA 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "IGD0251",
-          "nome": "PRINCÍPIOS DE GEOFÍSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "IFD0175",
           "nome": "FISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0177",
           "nome": "FISICA 2 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0140",
           "nome": "FUNDAMENTOS DE MINERALOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0198",
-          "nome": "CARTOGRAFIA E GEODÉSIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0252",
-          "nome": "PRINCÍPIOS DE GEOFÍSICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "IFD0179",
           "nome": "FISICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0181",
           "nome": "FISICA 3 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0143",
           "nome": "DESENHO TECNICO GEOLOGICO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "IGD0203",
           "nome": "GEOLOGIA SEDIMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0027",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "IGD0051",
           "nome": "ESTRATIGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0160",
-          "nome": "INTRODUÇÃO AO SISTEMA DE INFORMAÇÕES GEOGRÁFICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0187",
-          "nome": "PROGRAMAÇÃO EM GEOFÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROGRAMACAO EM GEOFISICA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0244",
-          "nome": "PETROLOGIA ÍGNEA E METAMÓRFICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0059",
-          "nome": "METODOS MATEMÁTICOS DA FÍSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "IGD0138",
-          "nome": "METODOS QUANTITATIVOS EM GEOCIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS QUANTITATIVOS EM GEOCIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0213",
-          "nome": "ANÁLISE DE SINAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE DE SINAIS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0214",
-          "nome": "PROPRIEDADES FÍSICAS DAS ROCHAS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PROPRIEDADES FISICAS DAS ROCHAS",
+          "ch": "30"
         },
         {
           "codigo": "IGD0224",
-          "nome": "INTRODUÇÃO A GEOLOGIA ESTRUTURAL",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
         },
         {
           "codigo": "IGD0226",
-          "nome": "INTRODUÇÃO À FOTOGEOLOGIA E AO SENSORIAMENTO REMOTO",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A FOTOGEOLOGIA E AO SENSORIAMENTO REMOTO",
+          "ch": "75"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "IGD0217",
-          "nome": "MÉTODOS POTENCIAIS",
-          "carga_horaria": "105h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS POTENCIAIS",
+          "ch": "105"
         },
         {
           "codigo": "IGD0220",
-          "nome": "MÉTODOS ELÉTRICOS",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS ELETRICOS",
+          "ch": "75"
         },
         {
           "codigo": "IGD0223",
-          "nome": "SISMICA DE REFRAÇÃO",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "SISMICA DE REFRACAO",
+          "ch": "75"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "IGD0228",
-          "nome": "SÍSMICA DE REFLEXÃO",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "SISMICA DE REFLEXAO",
+          "ch": "75"
         },
         {
           "codigo": "IGD0230",
-          "nome": "GEOFÍSICA NUCLEAR",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "GEOFISICA NUCLEAR",
+          "ch": "45"
         },
         {
           "codigo": "IGD0250",
-          "nome": "MÉTODOS ELETROMAGNÉTICOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS ELETROMAGNETICOS",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "IGD0008",
-          "nome": "PREPARAÇÃO TRABALHO FINAL - GEOFÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PREPARACAO TRABALHO FINAL - GEOFISICA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "IGD0231",
-          "nome": "TRABALHO FINAL - GEOFÍSICA",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO FINAL - GEOFISICA",
+          "ch": "150"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "CIC0152",
-          "nome": "INTRODUCAO A MICROINFORMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "codigo": "MICROINFORMATICA",
+          "nome": "60H OPTATIVA DEG0200 - ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "GEA0038",
           "nome": "GEOMORFOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0042",
           "nome": "CARTOGRAFIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0011",
-          "nome": "FUNDAMENTOS MATEMÁTICOS DA FÍSICA A",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA A",
+          "ch": "60"
         },
         {
           "codigo": "IFD0012",
-          "nome": "FUNDAMENTOS MATEMÁTICOS DA FÍSICA B",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA B",
+          "ch": "60"
         },
         {
           "codigo": "IFD0017",
-          "nome": "FÍSICA MATEMÁTICA A",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FISICA MATEMATICA A",
+          "ch": "60"
         },
         {
           "codigo": "IFD0198",
           "nome": "FISICA MATEMATICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0353",
-          "nome": "PROGRAMAÇÃO PARA SISTEMAS FÍSICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0003",
-          "nome": "INTRODUÇÃO À VULCANOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A VULCANOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0004",
-          "nome": "INTRODUÇÃO À METEOROLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A METEOROLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0005",
-          "nome": "SISMOLOGIA AVANÇADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISMOLOGIA AVANCADA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0006",
-          "nome": "MÉTODOS AEROELETROMAGNÉTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS AEROELETROMAGNETICOS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0007",
-          "nome": "PROCESSAMENTOS DE DADOS SISMOLÓGICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSAMENTOS DE DADOS SISMOLOGICOS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0024",
           "nome": "CRISTALOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0057",
-          "nome": "GEOLOGIA DO PETRÓLEO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "GEOLOGIA DO PETROLEO",
+          "ch": "30"
         },
         {
           "codigo": "IGD0085",
-          "nome": "GEOLOGIA HISTÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOLOGIA HISTORICA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0088",
           "nome": "GEOLOGIA DO BRASIL",
-          "carga_horaria": "105h",
-          "natureza": "Optativa"
+          "ch": "105"
         },
         {
           "codigo": "IGD0126",
-          "nome": "ESTÁGIO SUPERVISIONADO EM GEOCIÊNCIAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOCIENCIAS",
+          "ch": "90"
         },
         {
           "codigo": "IGD0142",
-          "nome": "GEOQUÍMICA ANALÍTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "GEOQUIMICA ANALITICA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0148",
           "nome": "GEOLOGIA ESTRUTURAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0159",
-          "nome": "INTRODUÇÃO AO PROCESSAMENTO DE IMAGENS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0164",
-          "nome": "INTROD AO PROCESSAMENTO E INTERPRETAÇÃO DADOS EM GEOFÍSICA AÉREA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTROD AO PROCESSAMENTO E INTERPRETACAO DADOS EM GEOFISICA AEREA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0166",
-          "nome": "ESTÁGIO SUPERVISIONADO AVANÇADO EM GEOCIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO AVANCADO EM GEOCIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0169",
-          "nome": "INTRODUÇÃO À GEOLOGIA DO PETRÓLEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GEOLOGIA DO PETROLEO",
+          "ch": "60"
         },
         {
           "codigo": "IGD0183",
           "nome": "TOPOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0184",
-          "nome": "SISMOLOGIA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISMOLOGIA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0185",
-          "nome": "INTRODUÇÃO A MINERALOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MINERALOGIA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0192",
-          "nome": "INTRODUÇÃO À FÍSICA DA TERRA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FISICA DA TERRA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0194",
           "nome": "MINERALOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "IGD0195",
-          "nome": "MINERALOGIA DE NÃO SILICATOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0208",
           "nome": "PALEOCEANOGRAFIA E PALEOCLIMA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IGD0209",
-          "nome": "RADAR DE PENETRAÇÃO NO SOLO (GPR)",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RADAR DE PENETRACAO NO SOLO (GPR)",
+          "ch": "60"
         },
         {
           "codigo": "IGD0210",
           "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0232",
-          "nome": "PROCESSAMENTO E INTERPRETAÇÃO GEOFÍSICA AÉREA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSAMENTO E INTERPRETACAO GEOFISICA AEREA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0233",
-          "nome": "INTEGRAÇÃO DE DADOS GEOLÓGICOS E GEOFÍSICOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO DE DADOS GEOLOGICOS E GEOFISICOS",
+          "ch": "90"
         },
         {
           "codigo": "IGD0234",
-          "nome": "MÉTODOS DE INVERSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS DE INVERSAO",
+          "ch": "60"
         },
         {
           "codigo": "IGD0235",
-          "nome": "MÉTODOS GEOFÍSICOS EM HIDROGEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS GEOFISICOS EM HIDROGEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0236",
-          "nome": "OCEANOGRAFIA FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OCEANOGRAFIA FISICA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0237",
-          "nome": "GEOFÍSICA DE PETRÓLEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOFISICA DE PETROLEO",
+          "ch": "60"
         },
         {
           "codigo": "IGD0238",
-          "nome": "GEOFÍSICA DE EXPLORAÇÃO MINERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOFISICA DE EXPLORACAO MINERAL",
+          "ch": "60"
         },
         {
           "codigo": "IGD0239",
-          "nome": "PERFILAGEM GEOFÍSICA DE POÇOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PERFILAGEM GEOFISICA DE POCOS",
+          "ch": "30"
         },
         {
           "codigo": "IGD0240",
-          "nome": "GEOFÍSICA MARINHA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOFISICA MARINHA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0241",
-          "nome": "GEOFÍSICA APLICADA A GEOTECNIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "GEOFISICA APLICADA A GEOTECNIA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0242",
-          "nome": "MÉTODOS MAGNETOTELÚRICO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "METODOS MAGNETOTELURICO",
+          "ch": "30"
         },
         {
           "codigo": "IGD0243",
-          "nome": "GEOFÍSICA APLICADA AO MONITORAMENTO AMBIENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "GEOFISICA APLICADA AO MONITORAMENTO AMBIENTAL",
+          "ch": "30"
         },
         {
           "codigo": "IGD0262",
-          "nome": "EXPLORAÇÃO GEOFÍSICA EM BACIAS SEDIMENTARES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EXPLORACAO GEOFISICA EM BACIAS SEDIMENTARES",
+          "ch": "60"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0028",
           "nome": "VARIAVEL COMPLEXA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0187",
+          "nome": "PROGRAMACAO EM GEOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0138",
+          "nome": "METODOS QUANTITATIVOS EM GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0213",
+          "nome": "ANALISE DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0214",
+          "nome": "PROPRIEDADES FISICAS DAS ROCHAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0226",
+          "nome": "INTRODUCAO A FOTOGEOLOGIA E AO SENSORIAMENTO REMOTO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0217",
+          "nome": "METODOS POTENCIAIS",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0220",
+          "nome": "METODOS ELETRICOS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0223",
+          "nome": "SISMICA DE REFRACAO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0228",
+          "nome": "SISMICA DE REFLEXAO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0230",
+          "nome": "GEOFISICA NUCLEAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "IGD0250",
+          "nome": "METODOS ELETROMAGNETICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0008",
+          "nome": "PREPARACAO TRABALHO FINAL - GEOFISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0231",
+          "nome": "TRABALHO FINAL - GEOFISICA",
+          "ch": "150"
         }
       ]
     }

@@ -3,591 +3,737 @@
   "periodo_letivo_vigor": "2017.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "IFD0356",
-          "nome": "APRESENTAÇÃO DO CURSO DE FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "APRESENTACAO DO CURSO DE FISICA",
+          "ch": "30"
         },
         {
           "codigo": "IFD0373",
-          "nome": "FÍSICA ZERO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FISICA ZERO",
+          "ch": "60"
         },
         {
           "codigo": "IFD0391",
-          "nome": "FRONTEIRAS DA FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FRONTEIRAS DA FISICA",
+          "ch": "30"
         },
         {
           "codigo": "IFD0371",
-          "nome": "ESTRATÉGIAS DE ENSINO E APRENDIZAGEM À DISTÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRATEGIAS DE ENSINO E APRENDIZAGEM A DISTANCIA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0385",
           "nome": "O USO DO AMBIENTE VIRTUAL DE APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "IFD0357",
-          "nome": "INTRODUÇÃO AO ENSINO E DIVULGAÇÃO DA FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO ENSINO E DIVULGACAO DA FISICA",
+          "ch": "30"
         },
         {
           "codigo": "IFD0359",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "IFD0374",
-          "nome": "MECÂNICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MECANICA 1",
+          "ch": "60"
         },
         {
           "codigo": "IFD0378",
-          "nome": "MÉTODOS DA FÍSICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS DA FISICA EXPERIMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IFD0388",
-          "nome": "TICS NO ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TICS NO ENSINO DE FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FED0168",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0360",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         },
         {
           "codigo": "IFD0375",
-          "nome": "MECÂNICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MECANICA 2",
+          "ch": "60"
         },
         {
           "codigo": "IFD0380",
-          "nome": "LABORATÓRIO DE INSTRUMENTAÇÃO CIENTÍFICA A",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE INSTRUMENTACAO CIENTIFICA A",
+          "ch": "60"
         },
         {
           "codigo": "IFD0362",
-          "nome": "CIÊNCIAS NA EDUCAÇÃO INFANTIL E NO ENSINO FUNDAMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CIENCIAS NA EDUCACAO INFANTIL E NO ENSINO FUNDAMENTAL",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "IFD0361",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         },
         {
           "codigo": "IFD0365",
-          "nome": "METODOLOGIA DO ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DO ENSINO DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0381",
-          "nome": "LABORATÓRIO DE MECÂNICA, ÓPTICA E TERMODINÂMICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE MECANICA, OPTICA E TERMODINAMICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0386",
-          "nome": "ONDAS, ÓPTICA E TERMODINÂMICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ONDAS, OPTICA E TERMODINAMICA",
+          "ch": "90"
         },
         {
           "codigo": "IFD0363",
-          "nome": "EDUCAÇÃO CIENTÍFICA E CTS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO CIENTIFICA E CTS",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "IFD0364",
           "nome": "ELETROMAGNETISMO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "IFD0366",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FÍSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 1",
+          "ch": "90"
         },
         {
           "codigo": "IFD0382",
-          "nome": "LABORATÓRIO DE ONDAS E ELETROMAGNETISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE ONDAS E ELETROMAGNETISMO",
+          "ch": "60"
         },
         {
           "codigo": "IFD0383",
-          "nome": "MATERIAIS DIDÁTICOS PARA O ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MATERIAIS DIDATICOS PARA O ENSINO DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0387",
-          "nome": "TEORIAS DA APRENDIZAGEM E ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA APRENDIZAGEM E ENSINO DE FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FED0170",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "IFD0367",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FÍSICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 2",
+          "ch": "90"
         },
         {
           "codigo": "IFD0372",
-          "nome": "FÍSICA QUÂNTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FISICA QUANTICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0379",
-          "nome": "LABORATÓRIO DE FÍSICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE FISICA MODERNA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FED0184",
-          "nome": "ESCOLARIZAÇÃO DE SURDOS E LIBRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
         },
         {
           "codigo": "IFD0368",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FÍSICA 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 3",
+          "ch": "90"
         },
         {
           "codigo": "IFD0376",
-          "nome": "HISTÓRIA DA FÍSICA CLÁSSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA FISICA CLASSICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0392",
-          "nome": "PROJETOS E PROGRAMAS PARA O ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETOS E PROGRAMAS PARA O ENSINO DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FED0164",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FED0183",
-          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "IFD0369",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FÍSICA 4",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 4",
+          "ch": "90"
         },
         {
           "codigo": "IFD0377",
-          "nome": "HISTÓRIA DA FÍSICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA FISICA MODERNA",
+          "ch": "60"
         },
         {
           "codigo": "FED0153",
-          "nome": "EDUCAÇÃO DE ADULTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DE ADULTOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0165",
           "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "IFD0370",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM FÍSICA 5",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 5",
+          "ch": "90"
         },
         {
           "codigo": "IFD0384",
-          "nome": "METODOLOGIA DA PESQUISA EM ENSINO DE CIÊNCIAS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DA PESQUISA EM ENSINO DE CIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "IFD0389",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
         },
         {
           "codigo": "FED0151",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0157",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "IFD0390",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
         },
         {
           "codigo": "FED0004",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0173",
-          "nome": "POLÍTICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "IFD0358",
-          "nome": "AVALIAÇÃO NO ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO NO ENSINO DE FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0201",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "IFD0393",
-          "nome": "MECÂNICA CLÁSSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MECANICA CLASSICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0394",
-          "nome": "TEORIA ELETROMAGNÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA ELETROMAGNETICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0395",
-          "nome": "TERMOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TERMOESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0396",
-          "nome": "FUNDAMENTOS MATEMÁTICOS DA FÍSICA A",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA A",
+          "ch": "60"
         },
         {
           "codigo": "IFD0397",
-          "nome": "FUNDAMENTOS MATEMÁTICOS DA FÍSICA B",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA B",
+          "ch": "60"
         },
         {
           "codigo": "IFD0398",
-          "nome": "ESTRUTURA DA MATÉRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA DA MATERIA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0399",
-          "nome": "COMPUTAÇÃO ALGÉBRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPUTACAO ALGEBRICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0400",
-          "nome": "LABORATÓRIO DE OSCILAÇÕES, ONDAS E FLUIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE OSCILACOES, ONDAS E FLUIDOS",
+          "ch": "60"
         },
         {
           "codigo": "IFD0371",
-          "nome": "ESTRATÉGIAS DE ENSINO E APRENDIZAGEM À DISTÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRATEGIAS DE ENSINO E APRENDIZAGEM A DISTANCIA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0385",
           "nome": "O USO DO AMBIENTE VIRTUAL DE APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0388",
-          "nome": "TICS NO ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TICS NO ENSINO DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0362",
-          "nome": "CIÊNCIAS NA EDUCAÇÃO INFANTIL E NO ENSINO FUNDAMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CIENCIAS NA EDUCACAO INFANTIL E NO ENSINO FUNDAMENTAL",
+          "ch": "30"
         },
         {
           "codigo": "IFD0363",
-          "nome": "EDUCAÇÃO CIENTÍFICA E CTS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO CIENTIFICA E CTS",
+          "ch": "30"
         },
         {
           "codigo": "IFD0387",
-          "nome": "TEORIAS DA APRENDIZAGEM E ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA APRENDIZAGEM E ENSINO DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FED0164",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FED0153",
-          "nome": "EDUCAÇÃO DE ADULTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DE ADULTOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0165",
           "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0151",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0157",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0004",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0173",
-          "nome": "POLÍTICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "IFD0358",
-          "nome": "AVALIAÇÃO NO ENSINO DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO NO ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0356",
+          "nome": "APRESENTACAO DO CURSO DE FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0373",
+          "nome": "FISICA ZERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0391",
+          "nome": "FRONTEIRAS DA FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0371",
+          "nome": "ESTRATEGIAS DE ENSINO E APRENDIZAGEM A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0385",
+          "nome": "O USO DO AMBIENTE VIRTUAL DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0357",
+          "nome": "INTRODUCAO AO ENSINO E DIVULGACAO DA FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0359",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0374",
+          "nome": "MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0378",
+          "nome": "METODOS DA FISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0388",
+          "nome": "TICS NO ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0168",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0360",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0375",
+          "nome": "MECANICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0380",
+          "nome": "LABORATORIO DE INSTRUMENTACAO CIENTIFICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0362",
+          "nome": "CIENCIAS NA EDUCACAO INFANTIL E NO ENSINO FUNDAMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0361",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0365",
+          "nome": "METODOLOGIA DO ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0381",
+          "nome": "LABORATORIO DE MECANICA, OPTICA E TERMODINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0386",
+          "nome": "ONDAS, OPTICA E TERMODINAMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0363",
+          "nome": "EDUCACAO CIENTIFICA E CTS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0364",
+          "nome": "ELETROMAGNETISMO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0366",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0382",
+          "nome": "LABORATORIO DE ONDAS E ELETROMAGNETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0383",
+          "nome": "MATERIAIS DIDATICOS PARA O ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0387",
+          "nome": "TEORIAS DA APRENDIZAGEM E ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0367",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0372",
+          "nome": "FISICA QUANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0379",
+          "nome": "LABORATORIO DE FISICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0184",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0368",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0376",
+          "nome": "HISTORIA DA FISICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0392",
+          "nome": "PROJETOS E PROGRAMAS PARA O ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0164",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0183",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0369",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0377",
+          "nome": "HISTORIA DA FISICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0153",
+          "nome": "EDUCACAO DE ADULTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0165",
+          "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0370",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FISICA 5",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0384",
+          "nome": "METODOLOGIA DA PESQUISA EM ENSINO DE CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0389",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FED0151",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0157",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0390",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0004",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0173",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0358",
+          "nome": "AVALIACAO NO ENSINO DE FISICA",
+          "ch": "60"
         }
       ]
     }

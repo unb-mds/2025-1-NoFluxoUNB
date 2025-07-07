@@ -3,1066 +3,937 @@
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CEN0010",
-          "nome": "FUNDAMENTOS DA LICENCIATURA EM ARTES CÊNICAS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DA LICENCIATURA EM ARTES CENICAS",
+          "ch": "30"
         },
         {
           "codigo": "CEN0011",
-          "nome": "POLÍTICAS PÚBLICAS E GESTÃO EM ARTE EDUCAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS PUBLICAS E GESTAO EM ARTE EDUCACAO",
+          "ch": "30"
         },
         {
           "codigo": "CEN0164",
-          "nome": "POÉTICAS TEATRAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
         },
         {
           "codigo": "CEN0167",
           "nome": "A VOZ EM PERFORMANCE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEN0171",
-          "nome": "INTERPRETAÇÃO TEATRAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
         },
         {
           "codigo": "CEN0177",
           "nome": "MOVIMENTO E LINGUAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "CEN0135",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO ARTÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DA EDUCACAO ARTISTICA",
+          "ch": "60"
         },
         {
           "codigo": "CEN0165",
           "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEN0168",
           "nome": "A PALAVRA EM PERFORMANCE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEN0172",
-          "nome": "INTERPRETAÇÃO TEATRAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
         },
         {
           "codigo": "CEN0178",
           "nome": "MOVIMENTO E LINGUAGEM 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "CEN0012",
           "nome": "PEDAGOGIA DO TEATRO E DIVERSIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEN0182",
-          "nome": "ENCENAÇÃO TEATRAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ENCENACAO TEATRAL 1",
+          "ch": "90"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "CEN0025",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO DE OBSERVAÇÃO EM ARTES CÊNICAS",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO DE OBSERVACAO EM ARTES CENICAS",
+          "ch": "75"
         },
         {
           "codigo": "CEN0166",
           "nome": "TEATRALIDADES BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEN0183",
-          "nome": "ENCENAÇÃO TEATRAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ENCENACAO TEATRAL 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "CEN0026",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ARTES CÊNICAS NO ENSINO FUNDAMENTAL",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM ARTES CENICAS NO ENSINO FUNDAMENTAL",
+          "ch": "120"
         },
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "CEN0027",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM ARTES CÊNICAS NO ENSINO MÉDIO",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM ARTES CENICAS NO ENSINO MEDIO",
+          "ch": "120"
         },
         {
           "codigo": "CEN0029",
-          "nome": "PRÁTICA DE MONTAGEM EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE MONTAGEM EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "CEN0028",
-          "nome": "ESTÁGIO CURR SUPERVISIONADO EM ARTES CÊNICAS EM ESPAÇOS ALTERNATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURR SUPERVISIONADO EM ARTES CENICAS EM ESPACOS ALTERNATIVOS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0191",
-          "nome": "METODOLOGIA DE PESQUISA EM ARTES CÊNICAS E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS E EDUCACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "CEN0014",
-          "nome": "DIPLOMAÇÃO EM LICENCIATURA EM ARTES CÊNICAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "DIPLOMACAO EM LICENCIATURA EM ARTES CENICAS",
+          "ch": "90"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "CEN0262",
-          "nome": "PRÁTICA DOCENTE EM ARTE CONTEMPORÂNEA E CENA EXPANDIDA: AÇÕES PERFORMATIVAS EM AMBIENTE ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0015",
-          "nome": "PRÁTICA DOCENTE EM CONTAÇÃO DE HISTÓRIAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0021",
-          "nome": "PRÁTICA DOCENTE EM DANÇA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0022",
-          "nome": "PRÁTICA DOCENTE EM HISTÓRIA DO TEATRO E LITERATURA DRAMÁTICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0265",
-          "nome": "PRÁTICA DOCENTE EM INTERDISCIPLINARIDADES E HIBRIDISMOS ARTÍSTICOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0016",
-          "nome": "PRÁTICA DOCENTE EM JOGOS PARA A CENA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0017",
-          "nome": "PRÁTICA DOCENTE EM MANIFESTAÇÕES CÊNICAS TRADICIONAIS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0020",
-          "nome": "PRÁTICA DOCENTE EM PEDAGOGIA DO TEATRO PARA INCLUSÃO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0018",
-          "nome": "PRÁTICA DOCENTE EM RELAÇÕES ÉTNICAS E DE GÊNERO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0273",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS 1 – TEATRO DE MÁSCARAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0023",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0275",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 2 – TEATRO DE BONECOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0289",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 3 – TEATRO DE SOMBRAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0296",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS  4 – TEATRO DE OBJETOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0341",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 5 – TEATRO LAMBE-LAMBE",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0019",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DO OPRIMIDO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0024",
-          "nome": "PRÁTICA DOCENTE EM TEATRO INFANTO-JUVENIL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CEN0007",
-          "nome": "LABORATÓRIO DE CRIAÇÃO CÊNICO-MUSICAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "NICO",
+          "nome": "MUSICAL",
+          "ch": "90"
         },
         {
           "codigo": "CEN0008",
           "nome": "CORPOREIDADES BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0009",
           "nome": "CORPOREIDADES BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0015",
-          "nome": "PRÁTICA DOCENTE EM CONTAÇÃO DE HISTÓRIAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM CONTACAO DE HISTORIAS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0016",
-          "nome": "PRÁTICA DOCENTE EM JOGOS PARA A CENA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM JOGOS PARA A CENA",
+          "ch": "90"
         },
         {
           "codigo": "CEN0017",
-          "nome": "PRÁTICA DOCENTE EM MANIFESTAÇÕES CÊNICAS TRADICIONAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM MANIFESTACOES CENICAS TRADICIONAIS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0018",
-          "nome": "PRÁTICA DOCENTE EM RELAÇÕES ÉTNICAS E DE GÊNERO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM RELACOES ETNICAS E DE GENERO",
+          "ch": "90"
         },
         {
           "codigo": "CEN0019",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DO OPRIMIDO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DO OPRIMIDO",
+          "ch": "90"
         },
         {
           "codigo": "CEN0020",
-          "nome": "PRÁTICA DOCENTE EM PEDAGOGIA DO TEATRO PARA INCLUSÃO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM PEDAGOGIA DO TEATRO PARA INCLUSAO ESCOLAR",
+          "ch": "90"
         },
         {
           "codigo": "CEN0021",
-          "nome": "PRÁTICA DOCENTE EM DANÇA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM DANCA",
+          "ch": "90"
         },
         {
           "codigo": "CEN0022",
-          "nome": "PRÁTICA DOCENTE EM HISTÓRIA DO TEATRO E LITERATURA DRAMÁTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM HISTORIA DO TEATRO E LITERATURA DRAMATICA",
+          "ch": "90"
         },
         {
           "codigo": "CEN0023",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS ANIMADAS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0024",
-          "nome": "PRÁTICA DOCENTE EM TEATRO INFANTO-JUVENIL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO INFANTO-JUVENIL",
+          "ch": "90"
         },
         {
           "codigo": "CEN0051",
           "nome": "SEMINARIO AVANCADO DE TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0053",
           "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0055",
           "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0109",
           "nome": "CRITICA TEATRAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0131",
           "nome": "O CORPO TRAGICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0154",
           "nome": "HISTORIA DO ENSINO DAS ARTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0184",
-          "nome": "ENCENAÇÃO TEATRAL 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ENCENACAO TEATRAL 3",
+          "ch": "90"
         },
         {
           "codigo": "CEN0196",
-          "nome": "SEMINÁRIO DE ARTE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO DE ARTE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "CEN0199",
-          "nome": "LABORATÓRIO DE TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE TEATRO",
+          "ch": "60"
         },
         {
           "codigo": "CEN0262",
-          "nome": "PRÁTICA DOCENTE EM ARTE CONTEMPORÂNEA E CENA EXPANDIDA: AÇÕES PERFORMATIVAS EM AMBIENTE ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM ARTE CONTEMPORANEA E CENA EXPANDIDA: ACOES PERFORMATIVAS EM AMBIENTE ESCOLAR",
+          "ch": "90"
         },
         {
           "codigo": "CEN0265",
-          "nome": "PRÁTICA DOCENTE EM INTERDISCIPLINARIDADES E HIBRIDISMOS ARTÍSTICOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM INTERDISCIPLINARIDADES E HIBRIDISMOS ARTISTICOS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0273",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS 1 – TEATRO DE MÁSCARAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS 1  TEATRO DE MASCARAS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0275",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 2 – TEATRO DE BONECOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 2  TEATRO DE BONECOS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0289",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 3 – TEATRO DE SOMBRAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 3  TEATRO DE SOMBRAS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0296",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS  4 – TEATRO DE OBJETOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS ANIMADAS  4  TEATRO DE OBJETOS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0341",
-          "nome": "PRÁTICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 5 – TEATRO LAMBE-LAMBE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 5  TEATRO LAMBE-LAMBE",
+          "ch": "90"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG1101",
-          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIAÇÃO À DOCÊNCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIACAO A DOCENCIA",
+          "ch": "30"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DIN0020",
           "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DIN0049",
           "nome": "INTRODUCAO AO DESIGN",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0064",
-          "nome": "ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0068",
-          "nome": "ESTÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0124",
           "nome": "FILOSOFIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0134",
           "nome": "MITO E FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0270",
-          "nome": "PRINCÍPIO INTERDISCIPLINAR 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIO INTERDISCIPLINAR 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0085",
-          "nome": "LÍNGUA INGLESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0086",
           "nome": "LINGUA INGLESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0120",
-          "nome": "LÍNGUA ESPANHOLA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0122",
-          "nome": "LÍNGUA ESPANHOLA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0337",
           "nome": "LINGUA ITALIANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0085",
           "nome": "OFICINA DE PRODUCAO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "MUS0089",
-          "nome": "OFICINA BÁSICA DE MÚSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0139",
           "nome": "CANTO CORAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0142",
           "nome": "CANTO CORAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0237",
           "nome": "MUSICA E SOCIEDADE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0239",
-          "nome": "TÉCNICA DE EXPRESSÃO VOCAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0241",
           "nome": "TECNICA DE EXPRESSAO VOCAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0244",
-          "nome": "EVOLUÇÃO DA MÚSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO DA MUSICA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0263",
           "nome": "MUSICA POPULAR BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0714",
           "nome": "APRECIACAO MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0735",
           "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0015",
           "nome": "PSICOLOGIA DA PERSONALIDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0016",
           "nome": "PSICOLOGIA DA PERSONALIDADE 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0002",
           "nome": "PROCESSOS DE DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0025",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0027",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0032",
           "nome": "PSICOLOGIA DA CRIATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0053",
           "nome": "PSICOLOGIA ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0096",
-          "nome": "SUPERDOTAÇÃO, TALENTO E DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SUPERDOTACAO, TALENTO E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0054",
           "nome": "PERCEPCAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0112",
           "nome": "ARTE E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0021",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0027",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0041",
           "nome": "ANTROPOLOGIA E EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0052",
           "nome": "METODOS, TECNICAS E RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0082",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "TEL0014",
           "nome": "INTRODUCAO A TEORIA DA LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0027",
           "nome": "LITERATURA BRASILEIRA - TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0031",
           "nome": "ESTETICA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0095",
           "nome": "TEORIA DO TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0063",
           "nome": "DESENHO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0085",
           "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0113",
-          "nome": "PRÁTICAS DE ENSINO: MATERIAIS EM ARTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE ENSINO: MATERIAIS EM ARTES",
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0127",
           "nome": "FUNDAMENTOS DE LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0129",
           "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0141",
           "nome": "HISTORIA DA ARTE ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0231",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0233",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
         },
         {
           "codigo": "VIS0236",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
         },
         {
           "codigo": "VIS0238",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
         },
         {
           "codigo": "VIS0251",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 5",
+          "ch": "60"
         },
         {
           "codigo": "VIS0253",
           "nome": "HISTORIA DA ARTE MEDIEVAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0254",
           "nome": "HISTORIA DA ARTE MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0255",
           "nome": "HISTORIA DA ARTE CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0256",
-          "nome": "HISTÓRIA DA ARTE NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0010",
+          "nome": "FUNDAMENTOS DA LICENCIATURA EM ARTES CENICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0011",
+          "nome": "POLITICAS PUBLICAS E GESTAO EM ARTE EDUCACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0164",
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0167",
+          "nome": "A VOZ EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0171",
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0177",
+          "nome": "MOVIMENTO E LINGUAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0135",
+          "nome": "FUNDAMENTOS DA EDUCACAO ARTISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0165",
+          "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0168",
+          "nome": "A PALAVRA EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0172",
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0178",
+          "nome": "MOVIMENTO E LINGUAGEM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0012",
+          "nome": "PEDAGOGIA DO TEATRO E DIVERSIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0182",
+          "nome": "ENCENACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0025",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO DE OBSERVACAO EM ARTES CENICAS",
+          "ch": "75"
+        },
+        {
+          "codigo": "CEN0166",
+          "nome": "TEATRALIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0183",
+          "nome": "ENCENACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0026",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM ARTES CENICAS NO ENSINO FUNDAMENTAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0027",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM ARTES CENICAS NO ENSINO MEDIO",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEN0029",
+          "nome": "PRATICA DE MONTAGEM EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0028",
+          "nome": "ESTAGIO CURR SUPERVISIONADO EM ARTES CENICAS EM ESPACOS ALTERNATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0191",
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0014",
+          "nome": "DIPLOMACAO EM LICENCIATURA EM ARTES CENICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     }

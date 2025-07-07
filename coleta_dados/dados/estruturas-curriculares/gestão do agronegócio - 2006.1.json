@@ -3,749 +3,542 @@
   "periodo_letivo_vigor": "2006.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FUP0276",
-          "nome": "MATEMÁTICA PARA AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MATEMATICA PARA AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0277",
-          "nome": "INTRODUÇÃO AO AGRONEGÓCIO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO AGRONEGOCIO",
+          "ch": "30"
         },
         {
           "codigo": "FUP0280",
-          "nome": "ECONOMIA APLICADA AO AGRONEGÓCIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 1",
+          "ch": "60"
         },
         {
           "codigo": "FUP0281",
-          "nome": "ADMINISTRAÇÃO APLICADA AO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO APLICADA AO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0306",
           "nome": "SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FUP0279",
-          "nome": "EVOLUÇÃO DA AGRICULTURA FAMILIAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EVOLUCAO DA AGRICULTURA FAMILIAR",
+          "ch": "60"
         },
         {
           "codigo": "FUP0289",
           "nome": "CONTABILIDADE GERENCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0292",
-          "nome": "SISTEMAS DE PRODUÇÃO DE MATÉRIAS-PRIMAS VEGETAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMAS DE PRODUCAO DE MATERIAS-PRIMAS VEGETAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0293",
-          "nome": "ECONOMIA APLICADA AO AGRONEGÓCIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 2",
+          "ch": "60"
         },
         {
           "codigo": "FUP0294",
           "nome": "SISTEMAS AGROINDUTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FUP0307",
-          "nome": "COMERCIALIZAÇÃO DE PRODUTOS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "COMERCIALIZACAO DE PRODUTOS AGROINDUSTRIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0308",
-          "nome": "MARKETING NO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MARKETING NO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0309",
-          "nome": "SISTEMAS DE PRODUÇÃO DE MATÉRIAS-PRIMAS ANIMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMAS DE PRODUCAO DE MATERIAS-PRIMAS ANIMAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0310",
-          "nome": "ESTATÍSTICA APLICADA À GESTÃO DO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA APLICADA A GESTAO DO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0311",
           "nome": "METODOLOGIA DE PESQUISA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0312",
-          "nome": "PESQUISA E EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PESQUISA E EXTENSAO",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FUP0282",
-          "nome": "ADMINISTRAÇÃO FINANCEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO FINANCEIRA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0333",
           "nome": "CUSTOS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0334",
-          "nome": "GESTÃO DA QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DA QUALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0335",
-          "nome": "GESTÃO DE PESSOAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE PESSOAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0336",
           "nome": "PESQUISA OPERACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FUP0342",
-          "nome": "PLANEJAMENTO ESTRATÉGICO E EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO ESTRATEGICO E EMPRESARIAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0343",
-          "nome": "INOVAÇÃO TECNOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INOVACAO TECNOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0344",
-          "nome": "REGULAÇÃO E POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "REGULACAO E POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0345",
-          "nome": "SISTEMA DE INFORMAÇÃO E AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMA DE INFORMACAO E AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0346",
-          "nome": "ANÁLISE DE DECISÕES E ADMINISTRAÇÃO DE RISCOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE DE DECISOES E ADMINISTRACAO DE RISCOS",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FUP0410",
           "nome": "TECNOLOGIAS DE PRODUTOS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0411",
-          "nome": "GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0412",
-          "nome": "GESTÃO DE COOPERATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE COOPERATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0414",
-          "nome": "TRANSPORTE E LOGÍSTICA AGROINDUSTRIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRANSPORTE E LOGISTICA AGROINDUSTRIAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FUP0445",
-          "nome": "ELABORAÇÃO E ANÁLISE DE PROJETOS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ELABORACAO E ANALISE DE PROJETOS AGROINDUSTRIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0446",
-          "nome": "GESTÃO DE NEGÓCIOS INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE NEGOCIOS INTERNACIONAIS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FUP0238",
-          "nome": "ESTÁGIO SUPERVISIONADO",
-          "carga_horaria": "300h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "300"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0061",
-          "nome": "LOGÍSTICA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0061 - LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "CCA0103",
-          "nome": "INTRODUÇÃO À CONTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "FAV0344",
           "nome": "MARKETING AGROINDUSTRIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FTD0007",
           "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0004",
-          "nome": "FUNDAMENTOS EM CIÊNCIAS E MICROBIOLOGIA DOS ALIMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS EM CIENCIAS E MICROBIOLOGIA DOS ALIMENTOS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0026",
-          "nome": "TÓPICOS AVANÇADOS EM GESTÃO DO AGRONEGÓCIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO 2",
+          "ch": "60"
         },
         {
           "codigo": "FUP0028",
-          "nome": "TÓPICOS AVANÇADOS EM GESTÃO DO AGRONEGÓCIO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO 3",
+          "ch": "60"
         },
         {
           "codigo": "FUP0030",
-          "nome": "TÓPICOS AVANÇADOS EM GESTÃO DO AGRONEGÓCIO 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO 4",
+          "ch": "60"
         },
         {
           "codigo": "FUP0035",
-          "nome": "CÁLCULO VETORIAL E GEOMETRIA ANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CALCULO VETORIAL E GEOMETRIA ANALITICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0036",
-          "nome": "EDUCAÇÃO E COMUNICAÇÃO COMUNITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO E COMUNICACAO COMUNITARIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0040",
-          "nome": "PRÁTICAS DE CAMPO EM BOTÂNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE CAMPO EM BOTANICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0125",
-          "nome": "CIÊNCIA, TECNOLOGIA, SOCIEDADE: UMA INTRODUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA, TECNOLOGIA, SOCIEDADE: UMA INTRODUCAO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0127",
-          "nome": "POLÍTICAS AGRÍCOLAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS AGRICOLAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0128",
-          "nome": "ECONOMIA BRASILEIRA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0139",
           "nome": "UNIVERSIDADE, SOCIEDADE E DEMOCRACIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0160",
-          "nome": "AÇÃO COLETIVA E FORMAÇÃO DE GRUPOS DE INTERESSE NO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ACAO COLETIVA E FORMACAO DE GRUPOS DE INTERESSE NO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0161",
           "nome": "AGROECOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0239",
-          "nome": "CANAIS DE DISTRIBUIÇÃO DE ALIMENTOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CANAIS DE DISTRIBUICAO DE ALIMENTOS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0268",
-          "nome": "USO DO PROGRAMA R COM APLICAÇÕES AMBIENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "USO DO PROGRAMA R COM APLICACOES AMBIENTAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0270",
-          "nome": "DIREITO NO AGRONEGÓCIO E LEGISLAÇÃO TRIBUTÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIREITO NO AGRONEGOCIO E LEGISLACAO TRIBUTARIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0271",
-          "nome": "MÉTODOS DE APOIO A DECISÃO EM AGRONEGÓCIO E LOGÍSTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "METODOS DE APOIO A DECISAO EM AGRONEGOCIO E LOGISTICA",
+          "ch": "30"
         },
         {
           "codigo": "FUP0272",
-          "nome": "MERCADOS FUTUROS E DE OPÇÕES AGROPECUÁRIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MERCADOS FUTUROS E DE OPCOES AGROPECUARIAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0273",
-          "nome": "COMUNICAÇÃO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO RURAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0274",
-          "nome": "EXTENSÃO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EXTENSAO RURAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0278",
-          "nome": "INICIAÇÃO A FORMAÇÃO UNIVERSITÁRIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A FORMACAO UNIVERSITARIA",
+          "ch": "30"
         },
         {
           "codigo": "FUP0283",
-          "nome": "CIÊNCIA E TECNOLOGIA",
-          "carga_horaria": "135h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA E TECNOLOGIA",
+          "ch": "135"
         },
         {
           "codigo": "FUP0284",
-          "nome": "CIÊNCIA E TECNOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA E TECNOLOGIA",
+          "ch": "120"
         },
         {
           "codigo": "FUP0285",
-          "nome": "HISTÓRIA E FILOSOFIA DA CIÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0286",
-          "nome": "ENSINO DE CIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0287",
-          "nome": "ENSINO DE CIÊNCIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0288",
-          "nome": "INTRODUÇÃO À ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0290",
-          "nome": "ÉTICA E PERFIL DO PROFISSIONAL NO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA E PERFIL DO PROFISSIONAL NO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0291",
-          "nome": "AGRICULTURA FAMILIAR E POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AGRICULTURA FAMILIAR E POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0295",
           "nome": "SISTEMAS AGROINDUTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0296",
-          "nome": "FILOSOFIA E SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA E SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0300",
-          "nome": "SISTEMAS ECOLÓGICOS",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
         },
         {
           "codigo": "FUP0303",
           "nome": "PROJETO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0304",
-          "nome": "MATEMÁTICA PARA CIÊNCIAS NATURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MATEMATICA PARA CIENCIAS NATURAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0305",
-          "nome": "CRIATIVIDADE NAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CRIATIVIDADE NAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "FUP0314",
-          "nome": "BASES PSICOLÓGICAS PARA O ENSINO DE CIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES PSICOLOGICAS PARA O ENSINO DE CIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0337",
           "nome": "METODOS QUALITATIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0339",
-          "nome": "TÓPICOS AVANÇADOS EM GESTÃO DO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0340",
-          "nome": "AGRONEGÓCIO E DESENVOLVIMENTO REGIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "AGRONEGOCIO E DESENVOLVIMENTO REGIONAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0341",
-          "nome": "SEMINÁRIO EM AGRONEGÓCIO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM AGRONEGOCIO 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0368",
           "nome": "NOVA ECONOMIA INSTITUCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0369",
-          "nome": "GESTÃO DA CADEIA DE SUPRIMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0370",
-          "nome": "GESTÃO DA EMPRESA RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0372",
-          "nome": "SISTEMAS AGROINDUSTRIAIS NO CENTRO-OESTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0373",
-          "nome": "AGRONEGÓCIO E DESENVOLVIMENTO REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0413",
-          "nome": "PESQUISA DE MERCADO E COMPORTAMENTO DO CONSUMIDOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0436",
-          "nome": "FUNDAMENTOS DA ABORDAGEM ECOSSISTEMICA A SAÚDE HUMANA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0437",
-          "nome": "MAPEAMENTO ECOLÓGICO EM UNIDADES DE CONSERVAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0501",
-          "nome": "EXTENSÃO RURAL NO AGRONEGÓCIO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0502",
-          "nome": "ECONOMIA E MERCADO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0504",
-          "nome": "TERRITORIALIDADE NO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0518",
-          "nome": "POLÍTICA INTERNACIONAL DESENVOLVIMENTO E AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0519",
-          "nome": "CONSTRUÇÃO DE MERCADO E ANÁLISE INSTITUCIONAL NO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0522",
-          "nome": "PLANEJAMENTO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0540",
-          "nome": "TERRA, AGRICULTURA FAMILIAR E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0554",
-          "nome": "MICROBIOLOGIA APLICADA À PRODUÇÃO VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     }

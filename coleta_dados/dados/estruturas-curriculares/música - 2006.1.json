@@ -3,322 +3,287 @@
   "periodo_letivo_vigor": "2006.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "MUS0157",
           "nome": "COMPOSICAO MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "MUS0160",
           "nome": "COMPOSICAO MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0163",
           "nome": "COMPOSICAO MUSICAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "MUS0239",
-          "nome": "TÉCNICA DE EXPRESSÃO VOCAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0201",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "MUS0020",
-          "nome": "HISTÓRIA DA MÚSICA BRASILEIRA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0022",
-          "nome": "HISTÓRIA DA MÚSICA POPULAR DO BRASIL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0093",
           "nome": "INTRODUCAO A MUSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MUS0096",
-          "nome": "INTRODUÇÃO À MÚSICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MUS0102",
           "nome": "HARMONIA SUPERIOR 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0110",
           "nome": "PROSODIA MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0250",
           "nome": "PERCEPCAO MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0730",
-          "nome": "HISTÓRIA DA MÚSICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0157",
+          "nome": "COMPOSICAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0160",
+          "nome": "COMPOSICAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0163",
+          "nome": "COMPOSICAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0239",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
         }
       ]
     }

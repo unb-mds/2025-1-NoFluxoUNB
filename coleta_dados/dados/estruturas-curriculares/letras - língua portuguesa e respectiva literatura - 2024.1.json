@@ -3,699 +3,637 @@
   "periodo_letivo_vigor": "2024.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "ILD0074",
-          "nome": "PRÁTICA DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "ILD0075",
-          "nome": "INTRODUÇÃO À TEORIA DA LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0076",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0077",
-          "nome": "FUNDAMENTOS DE AQUISIÇÃO DE LÍNGUA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DE AQUISICAO DE LINGUA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ILD0078",
-          "nome": "FONÉTICA E FONOLOGIA DO PORTUGUÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
+          "ch": "60"
         },
         {
           "codigo": "ILD0080",
-          "nome": "LITERATURA PORTUGUESA: DO MODERNISMO À CONTEMPORANEIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA PORTUGUESA: DO MODERNISMO A CONTEMPORANEIDADE",
+          "ch": "60"
         },
         {
           "codigo": "ILD0081",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0082",
-          "nome": "LITERATURA BRASILEIRA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FED0163",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ILD0083",
-          "nome": "MORFOLOGIA DO PORTUGUÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
         },
         {
           "codigo": "ILD0084",
-          "nome": "LITERATURA BRASILEIRA NO SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA BRASILEIRA NO SECULO XX",
+          "ch": "60"
         },
         {
           "codigo": "ILD0085",
-          "nome": "LABORATÓRIO DE LEITURA E CRIAÇÃO LITERÁRIA PARA O ENSINO FUNDAMENTAL E MÉDIO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE LEITURA E CRIACAO LITERARIA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "ILD0086",
-          "nome": "SINTAXE DO PORTUGUÊS CONTEMPORÂNEO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0087",
-          "nome": "LITERATURA BRASILEIRA DO SÉCULO XIX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA BRASILEIRA DO SECULO XIX",
+          "ch": "60"
         },
         {
           "codigo": "ILD0088",
-          "nome": "LITERATURA PORTUGUESA NO SÉCULO XIX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA PORTUGUESA NO SECULO XIX",
+          "ch": "60"
         },
         {
           "codigo": "ILD0089",
-          "nome": "LABORATÓRIO DE PRODUÇÃO DE TEXTO PARA O ENSINO FUNDAMENTAL E MÉDIO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE PRODUCAO DE TEXTO PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
         },
         {
           "codigo": "ILD0186",
-          "nome": "PROJETO DE EXTENSÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE EXTENSAO 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "ILD0187",
-          "nome": "PROJETO DE EXTENSÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE EXTENSAO 2",
+          "ch": "60"
         },
         {
           "codigo": "ILD0191",
-          "nome": "SOCIOLINGUÍSTICA DO PORTUGUÊS DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ILD0192",
-          "nome": "LITERATURA BRASILEIRA: DAS ORIGENS AO SÉCULO XVIII",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA BRASILEIRA: DAS ORIGENS AO SECULO XVIII",
+          "ch": "60"
         },
         {
           "codigo": "ILD0193",
-          "nome": "LITERATURA PORTUGUESA: DAS ORIGENS MEDIEVAIS AO PERÍODO RENASCENTISTA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LITERATURA PORTUGUESA: DAS ORIGENS MEDIEVAIS AO PERIODO RENASCENTISTA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0214",
-          "nome": "LABORATÓRIO DE GRAMÁTICA PARA O ENSINO FUNDAMENTAL E MÉDIO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE GRAMATICA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "ILD0001",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0011",
           "nome": "LATIM 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ILD0188",
-          "nome": "PROJETO DE EXTENSÃO 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE EXTENSAO 3",
+          "ch": "60"
         },
         {
           "codigo": "ILD0201",
-          "nome": "ESTÁGIO SUPERVISIONADO EM PORTUGUÊS 1",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 1",
+          "ch": "120"
         },
         {
           "codigo": "ILD0215",
-          "nome": "LABORATÓRIO DE LITERATURA PARA O ENSINO FUNDAMENTAL E MÉDIO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE LITERATURA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "ILD0189",
-          "nome": "HISTÓRIA DA LÍNGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA LINGUA PORTUGUESA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0190",
-          "nome": "PROJETO DE EXTENSÃO 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE EXTENSAO 4",
+          "ch": "60"
         },
         {
           "codigo": "ILD0217",
-          "nome": "ESTÁGIO SUPERVISIONADO EM PORTUGUÊS 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "ILD0218",
-          "nome": "ESTÁGIO SUPERVISIONADO EM PORTUGUÊS 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 3",
+          "ch": "90"
         },
         {
           "codigo": "ILD0221",
-          "nome": "PROJETO DE EXTENSÃO 5",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE EXTENSAO 5",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "ILD0219",
-          "nome": "ESTÁGIO SUPERVISIONADO EM PORTUGUÊS 4",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 4",
+          "ch": "120"
         },
         {
           "codigo": "ILD0220",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ILD0101",
-          "nome": "ESTÉTICA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0181",
-          "nome": "EXPERIÊNCIA E TEORIA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0213",
-          "nome": "FUNDAMENTOS DE HISTÓRIA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0207",
-          "nome": "LITERATURA BRASILEIRA ESCRITA POR MULHERES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0216",
-          "nome": "LITERATURA INFANTIL E JUVENIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0206",
-          "nome": "LITERATURAS AFRICANAS DE LÍNGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0203",
-          "nome": "TEORIA DA LINGUAGEM POÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0204",
-          "nome": "TEORIA DA NARRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0205",
-          "nome": "TEORIA DO TEXTO DRAMÁTICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0168",
-          "nome": "TEORIA E PRÁTICA DA ANÁLISE DO TEXTO LITERÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0178",
-          "nome": "TEORIAS CRÍTICAS CONTEMPORÂNEAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0180",
-          "nome": "TEORIAS DA ESCRITA E DA LEITURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0182",
-          "nome": "TÓPICOS EM TEORIA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0198",
-          "nome": "INTRODUÇÃO À SINTAXE FORMAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0197",
-          "nome": "INTRODUÇÃO À SINTAXE FUNCIONAL E TIPOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0196",
-          "nome": "LINGUAGEM, INTERAÇÃO E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0195",
-          "nome": "LINGUÍSTICA HISTÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0194",
-          "nome": "LINGUÍSTICA TEXTUAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0199",
-          "nome": "NEUROCIÊNCIAS E EDUCAÇÃO LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0037",
-          "nome": "ESPANHOL INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0036",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0009",
-          "nome": "ESPANHOL INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ILD0008",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "FED0004",
-          "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FED0183",
-          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "EDUCACIONAL",
+          "nome": "60H OPTATIVA FED0183 - EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FED0193",
-          "nome": "EDUCAÇÃO INCLUSIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
         },
         {
           "codigo": "FED0194",
-          "nome": "INFÂNCIA, CRIANÇA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0197",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "FED0199",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "FED0211",
-          "nome": "EDUCAÇÃO, TECNOLOGIA E  COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO, TECNOLOGIA E  COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0212",
-          "nome": "GESTÃO DAS ORGANIZAÇÕES EDUCATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0231",
-          "nome": "EDUCAÇÃO DE JOVENS, ADULTOS E IDOSOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0234",
-          "nome": "PROCESSOS DE ALFABETIZAÇÃO E LETRAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
         },
         {
           "codigo": "FED0377",
-          "nome": "INTRODUÇÃO À PEDAGOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0008",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "ILD0009",
           "nome": "ESPANHOL INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0021",
           "nome": "LATIM 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0034",
-          "nome": "INTRODUÇÃO À ANÁLISE DO DISCURSO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANALISE DO DISCURSO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0036",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "ILD0037",
           "nome": "ESPANHOL INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0038",
-          "nome": "HISTORIOGRAFIA LITERÁRIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIOGRAFIA LITERARIA BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0040",
           "nome": "A NOVA NARRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0042",
-          "nome": "OFICINA DE PRODUÇÃO, COMPETÊNCIAS LINGUÍSITCAS E MIDIÁTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE PRODUCAO, COMPETENCIAS LINGUISITCAS E MIDIATICAS",
+          "ch": "60"
         },
         {
           "codigo": "ILD0045",
-          "nome": "O PORTUGUÊS COMO SEGUNDA LÍNGUA NO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "O PORTUGUES COMO SEGUNDA LINGUA NO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "ILD0050",
-          "nome": "LITERATURA E INDÚSTRIA CULTURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA E INDUSTRIA CULTURAL",
+          "ch": "60"
         },
         {
           "codigo": "ILD0062",
-          "nome": "LINGÜÍSTICA APLICADA AO ENSINO DO PORTUGUÊS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LINGUISTICA APLICADA AO ENSINO DO PORTUGUES",
+          "ch": "30"
         },
         {
           "codigo": "ILD0068",
           "nome": "SEMANTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0072",
-          "nome": "O PORTUGUÊS COMO SEGUNDA LÍNGUA NO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "O PORTUGUES COMO SEGUNDA LINGUA NO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "ILD0101",
-          "nome": "ESTÉTICA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA E LITERATURA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0168",
-          "nome": "TEORIA E PRÁTICA DA ANÁLISE DO TEXTO LITERÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E PRATICA DA ANALISE DO TEXTO LITERARIO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0178",
-          "nome": "TEORIAS CRÍTICAS CONTEMPORÂNEAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS CRITICAS CONTEMPORANEAS",
+          "ch": "60"
         },
         {
           "codigo": "ILD0180",
           "nome": "TEORIAS DA ESCRITA E DA LEITURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0181",
-          "nome": "EXPERIÊNCIA E TEORIA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EXPERIENCIA E TEORIA LITERARIA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0182",
-          "nome": "TÓPICOS EM TEORIA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM TEORIA LITERARIA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0194",
-          "nome": "LINGUÍSTICA TEXTUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUISTICA TEXTUAL",
+          "ch": "60"
         },
         {
           "codigo": "ILD0195",
-          "nome": "LINGUÍSTICA HISTÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUISTICA HISTORICA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0196",
-          "nome": "LINGUAGEM, INTERAÇÃO E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAGEM, INTERACAO E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "ILD0197",
-          "nome": "INTRODUÇÃO À SINTAXE FUNCIONAL E TIPOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SINTAXE FUNCIONAL E TIPOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0198",
-          "nome": "INTRODUÇÃO À SINTAXE FORMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SINTAXE FORMAL",
+          "ch": "60"
         },
         {
           "codigo": "ILD0199",
-          "nome": "NEUROCIÊNCIAS E EDUCAÇÃO LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NEUROCIENCIAS E EDUCACAO LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0200",
-          "nome": "TÓPICOS ESPECIAIS EM LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM LITERATURA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0202",
-          "nome": "CRÍTICA LITERÁRIA DIALÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CRITICA LITERARIA DIALETICA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0203",
-          "nome": "TEORIA DA LINGUAGEM POÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DA LINGUAGEM POETICA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0204",
           "nome": "TEORIA DA NARRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0205",
-          "nome": "TEORIA DO TEXTO DRAMÁTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DO TEXTO DRAMATICO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0206",
-          "nome": "LITERATURAS AFRICANAS DE LÍNGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURAS AFRICANAS DE LINGUA PORTUGUESA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0207",
           "nome": "LITERATURA BRASILEIRA ESCRITA POR MULHERES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0209",
-          "nome": "REPRESENTAÇÃO NA LITERATURA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REPRESENTACAO NA LITERATURA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0210",
           "nome": "LITERATURA E OUTRAS ARTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ILD0211",
-          "nome": "ESTUDOS LITERÁRIOS COMPARADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS LITERARIOS COMPARADOS",
+          "ch": "60"
         },
         {
           "codigo": "ILD0212",
-          "nome": "POÉTICAS E POLÍTICAS DO TEXTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POETICAS E POLITICAS DO TEXTO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0213",
-          "nome": "FUNDAMENTOS DE HISTÓRIA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
+          "ch": "60"
         },
         {
           "codigo": "ILD0216",
           "nome": "LITERATURA INFANTIL E JUVENIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0074",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0075",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0076",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0077",
+          "nome": "FUNDAMENTOS DE AQUISICAO DE LINGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0078",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0080",
+          "nome": "LITERATURA PORTUGUESA: DO MODERNISMO A CONTEMPORANEIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0081",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0082",
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0163",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0083",
+          "nome": "MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0084",
+          "nome": "LITERATURA BRASILEIRA NO SECULO XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0085",
+          "nome": "LABORATORIO DE LEITURA E CRIACAO LITERARIA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0086",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0087",
+          "nome": "LITERATURA BRASILEIRA DO SECULO XIX",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0088",
+          "nome": "LITERATURA PORTUGUESA NO SECULO XIX",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0089",
+          "nome": "LABORATORIO DE PRODUCAO DE TEXTO PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0186",
+          "nome": "PROJETO DE EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0187",
+          "nome": "PROJETO DE EXTENSAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0191",
+          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0192",
+          "nome": "LITERATURA BRASILEIRA: DAS ORIGENS AO SECULO XVIII",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0193",
+          "nome": "LITERATURA PORTUGUESA: DAS ORIGENS MEDIEVAIS AO PERIODO RENASCENTISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0214",
+          "nome": "LABORATORIO DE GRAMATICA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0011",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0188",
+          "nome": "PROJETO DE EXTENSAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0201",
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "ILD0215",
+          "nome": "LABORATORIO DE LITERATURA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0189",
+          "nome": "HISTORIA DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0190",
+          "nome": "PROJETO DE EXTENSAO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0217",
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0218",
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0221",
+          "nome": "PROJETO DE EXTENSAO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0219",
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 4",
+          "ch": "120"
+        },
+        {
+          "codigo": "ILD0220",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "90"
         }
       ]
     }

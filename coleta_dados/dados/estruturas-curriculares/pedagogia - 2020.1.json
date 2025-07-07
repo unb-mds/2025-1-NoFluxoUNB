@@ -3,694 +3,752 @@
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FED0157",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0158",
-          "nome": "ANTROPOLOGIA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0170",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0377",
-          "nome": "INTRODUÇÃO À PEDAGOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FED0150",
-          "nome": "PESQUISA EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PESQUISA EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0151",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0166",
-          "nome": "HISTÓRIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0193",
-          "nome": "EDUCAÇÃO INCLUSIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
         },
         {
           "codigo": "FED0194",
-          "nome": "INFÂNCIA, CRIANÇA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FED0132",
-          "nome": "EDUCAÇÃO INFANTIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
         },
         {
           "codigo": "FED0163",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FED0182",
-          "nome": "HISTÓRIA DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "FED0184",
-          "nome": "ESCOLARIZAÇÃO DE SURDOS E LIBRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0234",
-          "nome": "PROCESSOS DE ALFABETIZAÇÃO E LETRAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FED0155",
-          "nome": "EDUCAÇÃO MATEMÁTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FED0168",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "FED0199",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "FED0211",
-          "nome": "EDUCAÇÃO, TECNOLOGIA E  COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO, TECNOLOGIA E  COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0231",
-          "nome": "EDUCAÇÃO DE JOVENS, ADULTOS E IDOSOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FED0125",
-          "nome": "ENSINO E APRENDIZAGEM DA LÍNGUA MATERNA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
         },
         {
           "codigo": "FED0130",
-          "nome": "ENSINO DE CIÊNCIA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FED0172",
-          "nome": "ENSINO DE HISTÓRIA, IDENTIDADE E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "FED0175",
-          "nome": "EDUCAÇÃO EM GEOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "FED0236",
-          "nome": "ESTÁGIO SUPERVISIONADO I: EDUCAÇÃO INFANTIL",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO I: EDUCACAO INFANTIL",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FED0197",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "FED0212",
-          "nome": "GESTÃO DAS ORGANIZAÇÕES EDUCATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0237",
-          "nome": "ESTÁGIO SUPERVISIONADO II: ANOS INICIAIS ( CRIANÇAS OU ADULTOS/EJAI)",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO II: ANOS INICIAIS ( CRIANCAS OU ADULTOS/EJAI)",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FED0123",
-          "nome": "EDUCAÇÃO E TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
         },
         {
           "codigo": "FED0173",
-          "nome": "POLÍTICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0238",
-          "nome": "ESTÁGIO SUPERVISIONADO III: GESTÃO ESCOLAR",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO III: GESTAO ESCOLAR",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FED0239",
           "nome": "TRABALHO FINAL DE CURSO I",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FED0240",
-          "nome": "ESTÁGIO SUPERVISIONADO IV: ESPAÇOS EDUCATIVOS NÃO ESCOLARES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO IV: ESPACOS EDUCATIVOS NAO ESCOLARES",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "FED0174",
-          "nome": "AVALIAÇÃO NAS ORGANIZAÇÕES EDUCATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0241",
           "nome": "TRABALHO FINAL DE CURSO II",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FEA0001",
-          "nome": "EDUCAÇÃO A DISTÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FED0001",
-          "nome": "GÊNERO E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "NCIA",
+          "nome": "60H OPTATIVA FED0001 - GENERO E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0004",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0124",
           "nome": "APRENDIZAGEM E DESENVOLVIMENTO DO PNEE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0126",
           "nome": "CULTURA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0127",
-          "nome": "EDUCAÇÃO MATEMÁTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
         },
         {
           "codigo": "FED0129",
           "nome": "PROJETO 3 FASE 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FED0131",
-          "nome": "ADMINISTRAÇÃO DAS ORGANIZAÇÕES EDUCATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0152",
-          "nome": "INTRODUÇÃO A CLASSE HOSPITALAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CLASSE HOSPITALAR",
+          "ch": "60"
         },
         {
           "codigo": "FED0153",
-          "nome": "EDUCAÇÃO DE ADULTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DE ADULTOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0154",
           "nome": "PROJETO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FED0156",
-          "nome": "FUNDAMENTOS DA ARTE NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0159",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0160",
-          "nome": "TEORIAS DA EDUCAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
         },
         {
           "codigo": "FED0161",
-          "nome": "INVESTIGAÇÃO FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INVESTIGACAO FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FED0162",
           "nome": "PROJETO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0164",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FED0165",
           "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0167",
-          "nome": "SOCIONOMIA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIONOMIA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0169",
           "nome": "PROJETO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0171",
-          "nome": "PROCESSO DE ALFABETIZAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSO DE ALFABETIZACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0176",
-          "nome": "FUNDAMENTOS DA LINGUAGEM NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA LINGUAGEM NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0177",
-          "nome": "OFICINA DE FORMAÇÃO DE PROFESSOR LEITOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE FORMACAO DE PROFESSOR LEITOR",
+          "ch": "60"
         },
         {
           "codigo": "FED0178",
           "nome": "PROJETO 3 FASE 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FED0179",
-          "nome": "FUNDAMENTOS DA LINGUAGEM MUSICAL NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA LINGUAGEM MUSICAL NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0180",
           "nome": "PROJETO 4 FASE 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "FED0181",
-          "nome": "EDUCAÇÃO À DISTÂNCIA - PEDAGOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO A DISTANCIA - PEDAGOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FED0183",
-          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FED0185",
-          "nome": "ORIENTAÇÃO VOCACIONAL PROFISSIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO VOCACIONAL PROFISSIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FED0186",
           "nome": "PROJETO 4 FASE 2",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "FED0187",
           "nome": "PROJETO 5 FASE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0188",
-          "nome": "LITERATURA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0189",
-          "nome": "PSICOLOGIA SOCIAL NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA SOCIAL NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0190",
           "nome": "PROJETO 5 FASE 2 - TFC",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0191",
-          "nome": "FILOSOFIA COM CRIANÇAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA COM CRIANCAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0192",
           "nome": "ARTE, PEDAGOGIA E CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0195",
-          "nome": "ATIVIDADES LÚDICAS EM INÍCIO ESCOLARIZAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES LUDICAS EM INICIO ESCOLARIZACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0196",
-          "nome": "AVALIAÇÃO EDUCACIONAL DO PNEE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO EDUCACIONAL DO PNEE",
+          "ch": "60"
         },
         {
           "codigo": "FED0198",
-          "nome": "CRIATIVIDADE E INOVAÇÃO NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CRIATIVIDADE E INOVACAO NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0200",
-          "nome": "DESENVOLVIMENTO HUMANO E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO HUMANO E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0201",
-          "nome": "EDUCAÇÃO E LINGUAGENS TECNOLÓGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO E LINGUAGENS TECNOLOGICAS",
+          "ch": "60"
         },
         {
           "codigo": "FED0202",
-          "nome": "EDUCAÇÃO EM ARTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO EM ARTES",
+          "ch": "60"
         },
         {
           "codigo": "FED0203",
-          "nome": "EDUCAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FED0204",
-          "nome": "EDUCAÇÃO MULTICULTURAL NA CONTEMPORANEIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO MULTICULTURAL NA CONTEMPORANEIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FED0205",
-          "nome": "EDUCAÇÃO NÃO-FORMAL CIÊNCIA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO NAO-FORMAL CIENCIA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FED0206",
-          "nome": "FILOSOFIA DA EDUCAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "FED0207",
-          "nome": "FORMAS DE EXPRESSÃO DA CRIANÇA DE 0 A 6 ANOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FORMAS DE EXPRESSAO DA CRIANCA DE 0 A 6 ANOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0208",
-          "nome": "HISTÓRIA DA EDUCAÇÃO BRASILEIRA II",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA II",
+          "ch": "60"
         },
         {
           "codigo": "FED0209",
           "nome": "MULTICULTURALISMO E ENSINO RELIGIOSO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0210",
-          "nome": "OFICINAS DE TEXTOS ACADÊMICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINAS DE TEXTOS ACADEMICOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0213",
-          "nome": "ENSINO DE CIÊNCIAS E TECNOLOGIA II",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE CIENCIAS E TECNOLOGIA II",
+          "ch": "60"
         },
         {
           "codigo": "FED0214",
-          "nome": "TÓPICOS ESPECIAIS EM PSICOLOGIA  DA EDUCAÇÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM PSICOLOGIA  DA EDUCACAO",
+          "ch": "120"
         },
         {
           "codigo": "FED0215",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FED0216",
           "nome": "PENSAMENTO EDUCACIONAL BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0217",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0218",
-          "nome": "PRÁTICAS MIDIÁTICAS EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS MIDIATICAS EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0219",
-          "nome": "TÓPICOS ESPECIAIS EM FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0220",
-          "nome": "PRODUÇÃO E LEITURA DA IMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO E LEITURA DA IMAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FED0221",
-          "nome": "TÓPICOS ESPECIAIS EM EDUCAÇÃO ESPECIAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "ch": "30"
         },
         {
           "codigo": "FED0222",
-          "nome": "PSICANÁLISE E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICANALISE E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0223",
-          "nome": "TÓPICOS ESPECIAIS DE PESQUISA EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE PESQUISA EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0224",
-          "nome": "PSICODRAMA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICODRAMA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0225",
-          "nome": "OFICINA DE AUDIOVISUAIS NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE AUDIOVISUAIS NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0226",
-          "nome": "PSICOLOGIA, CULTURA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA, CULTURA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0227",
-          "nome": "TECNOLOGIAS NA EDUCAÇÃO ESPECIAL E INCLUSIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL E INCLUSIVA",
+          "ch": "60"
         },
         {
           "codigo": "FED0228",
-          "nome": "TÓPICOS ESPECIAIS DA HISTÓRIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DA HISTORIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FED0229",
-          "nome": "GESTÃO DE PROGRAMAS E PROJETOS EDUCACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE PROGRAMAS E PROJETOS EDUCACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "FED0230",
-          "nome": "ENFOQUES PSICOPEDAGÓGICOS DAS DIFICULDADES DE APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENFOQUES PSICOPEDAGOGICOS DAS DIFICULDADES DE APRENDIZAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FED0232",
-          "nome": "EDUCAÇÃO EM GEOGRAFIA II",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO EM GEOGRAFIA II",
+          "ch": "60"
         },
         {
           "codigo": "FED0233",
-          "nome": "EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO PROFISSIONAL E TECNOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FED0235",
-          "nome": "FINANCIAMENTO DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FINANCIAMENTO DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "ILD0001",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0001",
-          "nome": "TÓPICOS ESPECIAIS EM PRÁTICAS PEDAGÓGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM PRATICAS PEDAGOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0157",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0158",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0377",
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0150",
+          "nome": "PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0151",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0166",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0193",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0194",
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0132",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0163",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0182",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0184",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0234",
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0155",
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0168",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0199",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0211",
+          "nome": "EDUCACAO, TECNOLOGIA E  COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0231",
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0125",
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0130",
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0172",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0175",
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0236",
+          "nome": "ESTAGIO SUPERVISIONADO I: EDUCACAO INFANTIL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0197",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0212",
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0237",
+          "nome": "ESTAGIO SUPERVISIONADO II: ANOS INICIAIS ( CRIANCAS OU ADULTOS/EJAI)",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0123",
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0173",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0238",
+          "nome": "ESTAGIO SUPERVISIONADO III: GESTAO ESCOLAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0239",
+          "nome": "TRABALHO FINAL DE CURSO I",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0240",
+          "nome": "ESTAGIO SUPERVISIONADO IV: ESPACOS EDUCATIVOS NAO ESCOLARES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0174",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0241",
+          "nome": "TRABALHO FINAL DE CURSO II",
+          "ch": "60"
         }
       ]
     }

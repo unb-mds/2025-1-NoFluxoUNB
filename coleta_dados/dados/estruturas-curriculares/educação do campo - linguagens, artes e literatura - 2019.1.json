@@ -3,671 +3,872 @@
   "periodo_letivo_vigor": "2019.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FUP0041",
-          "nome": "CEBEP 1 - CONFLITOS ESTRUTURAIS BRASILEIROS E EDUCAÇÃO POPULAR",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CEBEP 1 - CONFLITOS ESTRUTURAIS BRASILEIROS E EDUCACAO POPULAR",
+          "ch": "30"
         },
         {
           "codigo": "FUP0043",
-          "nome": "HISTÓRIA DA EDUCAÇÃO",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "45"
         },
         {
           "codigo": "FUP0374",
-          "nome": "ECONOMIA POLÍTICA 1",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "45"
         },
         {
           "codigo": "FUP0375",
           "nome": "FILOSOFIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FUP0377",
-          "nome": "TEORIA PEDAGÓGICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA PEDAGOGICA 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0381",
-          "nome": "ESCOLA E EDUCAÇÃO DO CAMPO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0384",
-          "nome": "PESQUISA E MEMÓRIA 1",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "PESQUISA E MEMORIA 1",
+          "ch": "15"
         },
         {
           "codigo": "FUP0386",
-          "nome": "PRÁTICAS PEDAGÓGICAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0390",
-          "nome": "ORGANIZAÇÃO ESCOLAR E MÉTODO DO TRABALHO PEDAGÓGICO 1",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 1",
+          "ch": "15"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FUP0049",
-          "nome": "CEBEP 2 - FORMAÇÃO NACIONAL E IDENTID CAMPONESA INDÍGENA E QUILOMBOLA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CEBEP 2 - FORMACAO NACIONAL E IDENTID CAMPONESA INDIGENA E QUILOMBOLA",
+          "ch": "30"
         },
         {
           "codigo": "FUP0052",
-          "nome": "FUNDAMENTOS BÁSICOS DAS ARTES PLÁSTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS BASICOS DAS ARTES PLASTICAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0062",
-          "nome": "PESQUISA E MEMÓRIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PESQUISA E MEMORIA 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0392",
-          "nome": "TEORIA PEDAGÓGICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA PEDAGOGICA 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0397",
           "nome": "ECONOMIA POLITICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FUP0400",
           "nome": "FILOSOFIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FUP0403",
-          "nome": "PRÁTICAS PEDAGÓGICAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 2",
+          "ch": "60"
         },
         {
           "codigo": "FUP0506",
-          "nome": "FUNDAMENTOS DA LÍNGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DA LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0509",
-          "nome": "ESTUDOS LITERÁRIOS 1: LITERATURA E NAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS LITERARIOS 1: LITERATURA E NACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FUP0068",
-          "nome": "TEORIA E HISTÓRIA DAS ARTES PLÁSTICAS E VISUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA E HISTORIA DAS ARTES PLASTICAS E VISUAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0075",
-          "nome": "PESQUISA E MEMÓRIA 3",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PESQUISA E MEMORIA 3",
+          "ch": "30"
         },
         {
           "codigo": "FUP0077",
-          "nome": "CEBEP 3: RAÇA, GÊNERO E GERAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CEBEP 3: RACA, GENERO E GERACAO",
+          "ch": "30"
         },
         {
           "codigo": "FUP0227",
-          "nome": "FONÉTICA, FONOLOGIA E MORFOLOGIA DO PORTUGUÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FONETICA, FONOLOGIA E MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
         },
         {
           "codigo": "FUP0229",
-          "nome": "ESTUDOS LITERÁRIOS 2 :CONSOLIDAÇÃO DO SIST LIT E DESAGREGAÇÃO NACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS LITERARIOS 2 :CONSOLIDACAO DO SIST LIT E DESAGREGACAO NACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0379",
           "nome": "POLITICA EDUCACIONAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FUP0417",
-          "nome": "PRÁTICAS PEDAGÓGICAS 3",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 3",
+          "ch": "45"
         },
         {
           "codigo": "FUP0427",
-          "nome": "ORGANIZAÇÃO ESCOLAR E MÉTODO DO TRABALHO PEDAGÓGICO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0429",
           "nome": "FILOSOFIA 3",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FUP0431",
-          "nome": "TEORIA PEDAGÓGICA 3",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA PEDAGOGICA 3",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FUP0079",
-          "nome": "CEBEP 4 - QUESTÃO SOCIAL E QUESTÃO AGRÁRIA NO BRASIL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CEBEP 4 - QUESTAO SOCIAL E QUESTAO AGRARIA NO BRASIL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0083",
-          "nome": "OFICINA BÁSICA DE ARTES CÊNICAS OBAC",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "OFICINA BASICA DE ARTES CENICAS OBAC",
+          "ch": "60"
         },
         {
           "codigo": "FUP0084",
-          "nome": "INTRODUÇÃO A LINGUAGEM AUDIOVISUAL",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A LINGUAGEM AUDIOVISUAL",
+          "ch": "15"
         },
         {
           "codigo": "FUP0165",
-          "nome": "TEORIA PEDAGÓGICA 4",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA PEDAGOGICA 4",
+          "ch": "15"
         },
         {
           "codigo": "FUP0176",
-          "nome": "ESTUDOS LITERÁRIOS 3: REPRESENTAÇÃO DO PERSONAGEM POPULAR BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS LITERARIOS 3: REPRESENTACAO DO PERSONAGEM POPULAR BRASILEIRO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0458",
           "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FUP0499",
-          "nome": "PRÁTICAS PEDAGÓGICAS 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 4",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FUP0109",
-          "nome": "AUDIOVISUAL ESTÉTICA POLÍTICA E EDUCAÇÃO",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "AUDIOVISUAL ESTETICA POLITICA E EDUCACAO",
+          "ch": "15"
         },
         {
           "codigo": "FUP0110",
           "nome": "PEDAGOGIA DO TEATRO",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "ch": "45"
         },
         {
           "codigo": "FUP0174",
           "nome": "SINTAXE DA LINGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0193",
-          "nome": "ESTUDOS LITERÁRIOS 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS LITERARIOS 4",
+          "ch": "60"
         },
         {
           "codigo": "FUP0222",
-          "nome": "PRÁTICA PEDAGÓGICA 5",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA PEDAGOGICA 5",
+          "ch": "60"
         },
         {
           "codigo": "FUP0225",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO 1 - COMUNIDADE",
-          "carga_horaria": "105h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 1 - COMUNIDADE",
+          "ch": "105"
         },
         {
           "codigo": "FUP0460",
           "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM 2",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "ch": "45"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FUP0111",
-          "nome": "CEBEP 6: SOBERANIA, SEGURANÇA ALIMENTAR E NUTRICIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CEBEP 6: SOBERANIA, SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0113",
-          "nome": "TEORIA PEDAGÓGICA 5",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA PEDAGOGICA 5",
+          "ch": "15"
         },
         {
           "codigo": "FUP0120",
-          "nome": "SEMÂNTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SEMANTICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0121",
-          "nome": "TEORIA E HISTÓRIA DO TEATRO",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA E HISTORIA DO TEATRO",
+          "ch": "45"
         },
         {
           "codigo": "FUP0122",
           "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL 1",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "ch": "15"
         },
         {
           "codigo": "FUP0166",
-          "nome": "TRABALHO DE CONCLUSÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0167",
-          "nome": "PRÁTICAS PEDAGÓGICAS 6",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 6",
+          "ch": "60"
         },
         {
           "codigo": "FUP0169",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO 2: EJA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 2: EJA",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FUP0129",
-          "nome": "LÍNGUA BRASILEIRA DE SINAIS 1",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA BRASILEIRA DE SINAIS 1",
+          "ch": "15"
         },
         {
           "codigo": "FUP0131",
-          "nome": "TEORIA PEDAGÓGICA 6",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA PEDAGOGICA 6",
+          "ch": "30"
         },
         {
           "codigo": "FUP0185",
-          "nome": "TRABALHO DE CONCLUSÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0187",
-          "nome": "PRÁTICAS PEDAGÓGICAS 7",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 7",
+          "ch": "45"
         },
         {
           "codigo": "FUP0189",
-          "nome": "ESTÁGIO C. S. 3 - GESTÃO DE DOCÊNCIA",
-          "carga_horaria": "105h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO C. S. 3 - GESTAO DE DOCENCIA",
+          "ch": "105"
         },
         {
           "codigo": "FUP0191",
-          "nome": "TÓPICOS AVANÇADOS EM LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TOPICOS AVANCADOS EM LINGUISTICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FUP0143",
-          "nome": "ECOLOGIA POLÍTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ECOLOGIA POLITICA",
+          "ch": "30"
         },
         {
           "codigo": "FUP0144",
-          "nome": "LÍNGUA BRASILEIRA DE SINAIS 2 LIBRAS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0209",
-          "nome": "ESCOLA E EDUCAÇÃO DO CAMPO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0210",
-          "nome": "TRABALHO DE CONCLUSÃO 3",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO 3",
+          "ch": "15"
         },
         {
           "codigo": "FUP0212",
-          "nome": "PRÁTICAS PEDAGÓGICAS 8",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS PEDAGOGICAS 8",
+          "ch": "45"
         },
         {
           "codigo": "FUP0214",
-          "nome": "ESTÁGIO C. S. 4 - GESTÃO E DOCÊNCIA",
-          "carga_horaria": "105h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO C. S. 4 - GESTAO E DOCENCIA",
+          "ch": "105"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FUP0005",
-          "nome": "CURRÍCULO E AVALIAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FUP0044",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA FUP0044 - LEITURA E PRODUCAO DE TEXTO 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0045",
-          "nome": "MATEMÁTICA E SOCIEDADE",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "MATEMATICA E SOCIEDADE",
+          "ch": "45"
         },
         {
           "codigo": "FUP0047",
-          "nome": "PROMOÇÃO DA SAÚDE",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "PROMOCAO DA SAUDE",
+          "ch": "45"
         },
         {
           "codigo": "FUP0050",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO 2",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTO 2",
+          "ch": "15"
         },
         {
           "codigo": "FUP0063",
-          "nome": "LETRAMENTO CIENTÍFICO E DIGITAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LETRAMENTO CIENTIFICO E DIGITAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0074",
-          "nome": "COMUNICAÇÃO E TECNOLOGIAS DA INFORMAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E TECNOLOGIAS DA INFORMACAO",
+          "ch": "30"
         },
         {
           "codigo": "FUP0076",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO 3",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTO 3",
+          "ch": "15"
         },
         {
           "codigo": "FUP0080",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO 4",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTO 4",
+          "ch": "15"
         },
         {
           "codigo": "FUP0081",
           "nome": "MORFOSSINTAXE",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "FUP0096",
-          "nome": "PESQUISA E MEMÓRIA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA E MEMORIA 4",
+          "ch": "30"
         },
         {
           "codigo": "FUP0106",
           "nome": "CEBEP 5: DIVERSIDADE GERACIONAL NO CAMPO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0107",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO 5",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTO 5",
+          "ch": "15"
         },
         {
           "codigo": "FUP0108",
-          "nome": "PESQUISA E MEMÓRIA 5",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA E MEMORIA 5",
+          "ch": "30"
         },
         {
           "codigo": "FUP0112",
           "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM NA ESCOLA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0119",
           "nome": "LITERATURA MUNDIAL ENTRE O CENTRO E A PERIFERIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0126",
-          "nome": "HISTÓRIA DOS MOVIMENTOS SOCIAIS NO CAMPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DOS MOVIMENTOS SOCIAIS NO CAMPO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0130",
-          "nome": "CEBEP: TÓPICOS ESPECIAIS",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "CEBEP: TOPICOS ESPECIAIS",
+          "ch": "15"
         },
         {
           "codigo": "FUP0132",
           "nome": "PROCESSO EXPERIMENTAL EM TEATRO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0133",
-          "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL: PRODUÇÃO E FINALIZAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL: PRODUCAO E FINALIZACAO",
+          "ch": "30"
         },
         {
           "codigo": "FUP0142",
-          "nome": "LITERATURA COMO FORMAÇÃO: FUNDAMENTOS HISTÓRICO ONTOLÓGICO E ESTÉTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA COMO FORMACAO: FUNDAMENTOS HISTORICO ONTOLOGICO E ESTETICO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0146",
           "nome": "PROCESSO EXPERIMENTAL EM TEATRO 2",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "FUP0148",
-          "nome": "TÓPICOS EM ECOLINGUÍSTICA",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM ECOLINGUISTICA",
+          "ch": "15"
         },
         {
           "codigo": "FUP0149",
-          "nome": "TEXTOS ACADÊMICOS: ATIVIDADES DE LEITURA, ESCRITA E REESCRITA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS ACADEMICOS: ATIVIDADES DE LEITURA, ESCRITA E REESCRITA",
+          "ch": "30"
         },
         {
           "codigo": "FUP0150",
-          "nome": "EDUCAÇÃO POPULAR E EDUCAÇÃO DE JOVENS E ADULTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO POPULAR E EDUCACAO DE JOVENS E ADULTOS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0151",
-          "nome": "EDUCAÇÃO DO CAMPO E DIREITOS HUMANOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DO CAMPO E DIREITOS HUMANOS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0152",
-          "nome": "EDUCAÇÃO DO CAMPO SAÚDE E MEIO AMBIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DO CAMPO SAUDE E MEIO AMBIENTE",
+          "ch": "30"
         },
         {
           "codigo": "FUP0153",
-          "nome": "AGROBIODIVERSIDADE E SEGURANÇA ALIMENTAR E NUTRICIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "AGROBIODIVERSIDADE E SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0154",
           "nome": "AGROECOLOGIA E ESCOLA DO CAMPO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "FUP0155",
-          "nome": "TÓPICOS ESPECIAIS EM EDUCAÇÃO DO CAMPO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO DO CAMPO",
+          "ch": "45"
         },
         {
           "codigo": "FUP0156",
-          "nome": "LABORATÓRIO DE DIREÇÃO E INTERPRETAÇÃO TEATRAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE DIRECAO E INTERPRETACAO TEATRAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0157",
-          "nome": "EXPRESSÕES ESTÉTICA E CULTURA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EXPRESSOES ESTETICA E CULTURA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0158",
-          "nome": "LABORATÓRIO DE DRAMATURGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE DRAMATURGIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0159",
-          "nome": "DOCUMENTÁRIO, TERRITÓRIO E EDUCAÇÃO DO CAMPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DOCUMENTARIO, TERRITORIO E EDUCACAO DO CAMPO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0163",
-          "nome": "POLÍTICA EDUCACIONAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "POLITICA EDUCACIONAL 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0171",
           "nome": "OUTRAS FORMAS DE ATIVIDADES ESPANHOL INSTRUMENTAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0205",
           "nome": "OUTRAS FORMAS DE ATIVIDADE: ESPANHOL INSTRUMENTAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0393",
-          "nome": "MEDIAÇÕES ENTRE FORMA SOCIAL E ESTÉTICA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "MEDIACOES ENTRE FORMA SOCIAL E ESTETICA",
+          "ch": "45"
         },
         {
           "codigo": "FUP0405",
-          "nome": "OUTRAS FORMAS DE ATIVIDADES: OFICINA INFORMÁTICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OUTRAS FORMAS DE ATIVIDADES: OFICINA INFORMATICA 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0466",
           "nome": "FILOSOFIA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0468",
           "nome": "FILOSOFIA 5",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0493",
-          "nome": "ORGANIZAÇÃO ESCOLAR E MÉTODO DE TRABALHO PEDAGÓGICO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO ESCOLAR E METODO DE TRABALHO PEDAGOGICO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0041",
+          "nome": "CEBEP 1 - CONFLITOS ESTRUTURAIS BRASILEIROS E EDUCACAO POPULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0043",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0374",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0375",
+          "nome": "FILOSOFIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0377",
+          "nome": "TEORIA PEDAGOGICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0381",
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0384",
+          "nome": "PESQUISA E MEMORIA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0386",
+          "nome": "PRATICAS PEDAGOGICAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0390",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0049",
+          "nome": "CEBEP 2 - FORMACAO NACIONAL E IDENTID CAMPONESA INDIGENA E QUILOMBOLA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0052",
+          "nome": "FUNDAMENTOS BASICOS DAS ARTES PLASTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0062",
+          "nome": "PESQUISA E MEMORIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0392",
+          "nome": "TEORIA PEDAGOGICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0397",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0400",
+          "nome": "FILOSOFIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0403",
+          "nome": "PRATICAS PEDAGOGICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0506",
+          "nome": "FUNDAMENTOS DA LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0509",
+          "nome": "ESTUDOS LITERARIOS 1: LITERATURA E NACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0068",
+          "nome": "TEORIA E HISTORIA DAS ARTES PLASTICAS E VISUAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0075",
+          "nome": "PESQUISA E MEMORIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0077",
+          "nome": "CEBEP 3: RACA, GENERO E GERACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0227",
+          "nome": "FONETICA, FONOLOGIA E MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0229",
+          "nome": "ESTUDOS LITERARIOS 2 :CONSOLIDACAO DO SIST LIT E DESAGREGACAO NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0379",
+          "nome": "POLITICA EDUCACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0417",
+          "nome": "PRATICAS PEDAGOGICAS 3",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0427",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0429",
+          "nome": "FILOSOFIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0431",
+          "nome": "TEORIA PEDAGOGICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0079",
+          "nome": "CEBEP 4 - QUESTAO SOCIAL E QUESTAO AGRARIA NO BRASIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0083",
+          "nome": "OFICINA BASICA DE ARTES CENICAS OBAC",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0084",
+          "nome": "INTRODUCAO A LINGUAGEM AUDIOVISUAL",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0165",
+          "nome": "TEORIA PEDAGOGICA 4",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0176",
+          "nome": "ESTUDOS LITERARIOS 3: REPRESENTACAO DO PERSONAGEM POPULAR BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0458",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0499",
+          "nome": "PRATICAS PEDAGOGICAS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0109",
+          "nome": "AUDIOVISUAL ESTETICA POLITICA E EDUCACAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0110",
+          "nome": "PEDAGOGIA DO TEATRO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0174",
+          "nome": "SINTAXE DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0193",
+          "nome": "ESTUDOS LITERARIOS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0222",
+          "nome": "PRATICA PEDAGOGICA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0225",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 1 - COMUNIDADE",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0460",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0111",
+          "nome": "CEBEP 6: SOBERANIA, SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0113",
+          "nome": "TEORIA PEDAGOGICA 5",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0120",
+          "nome": "SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0121",
+          "nome": "TEORIA E HISTORIA DO TEATRO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0122",
+          "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0166",
+          "nome": "TRABALHO DE CONCLUSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0167",
+          "nome": "PRATICAS PEDAGOGICAS 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0169",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 2: EJA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FUP0129",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0131",
+          "nome": "TEORIA PEDAGOGICA 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0185",
+          "nome": "TRABALHO DE CONCLUSAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0187",
+          "nome": "PRATICAS PEDAGOGICAS 7",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0189",
+          "nome": "ESTAGIO C. S. 3 - GESTAO DE DOCENCIA",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0191",
+          "nome": "TOPICOS AVANCADOS EM LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0143",
+          "nome": "ECOLOGIA POLITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0144",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0209",
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0210",
+          "nome": "TRABALHO DE CONCLUSAO 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0212",
+          "nome": "PRATICAS PEDAGOGICAS 8",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0214",
+          "nome": "ESTAGIO C. S. 4 - GESTAO E DOCENCIA",
+          "ch": "105"
         }
       ]
     }

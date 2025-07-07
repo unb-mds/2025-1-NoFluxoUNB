@@ -52,7 +52,6 @@ padrao_curriculo = r'(\d+/\d+(?:\s*-\s*\d{4}\.\d)?)'
 padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
-
 # --- Novos padrões para informações adicionais ---
 padrao_media_ponderada = re.compile(r"(?:MP|MEDIA PONDERADA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
 padrao_frequencia = re.compile(r"(?:FREQ|FREQUENCIA)[:\s]+(\d+\.\d+)", re.IGNORECASE)
@@ -283,6 +282,8 @@ def upload_pdf():
             if not linha:
                 continue
 
+            print(f"[DEBUG] Linha analisada: '{linha}'")
+
             # 1. Encontrar o IRA
             match_ira = padrao_ira.search(linha)
             if match_ira:
@@ -297,7 +298,7 @@ def upload_pdf():
                 print(f"  -> Pendências encontradas: {match_pend}")
 
             # 3. Detectar linha de matéria (ex: 2022.2  & CIC0004  ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES)
-            match_materia = re.match(r'^(\d{4}\.\d)\s+([&*#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+(.+)$', linha)
+            match_materia = re.match(r'^(\\d{4}\.\d)\s+([&*#e@§%]?)\s*([A-Z]{2,}\\d{3,})\s+(.+)$', linha)
             if match_materia:
                 ultima_materia = {
                     "ano_periodo": match_materia.group(1),
@@ -308,8 +309,9 @@ def upload_pdf():
                 continue
 
             # 4. Processar linhas com prefixos de professor ou padrões de disciplina
-            is_professor_line = linha.startswith("Dr.") or linha.startswith("MSc.") or linha.startswith("Dra.")
-
+            is_professor_line = any(linha.strip().startswith(prefix) for prefix in ["Dr.", "Dra.", "MSc.", "Prof.", "Professor", "Professora"])
+            if is_professor_line:
+                print(f"[DEBUG] Linha reconhecida como professor: '{linha}'")
             if is_professor_line and ultima_materia:
                 nome_professor = extrair_nome_professor(linha)
                 match_status = padrao_status.search(linha)
@@ -372,6 +374,21 @@ def upload_pdf():
         print("\n--- Fim do processamento de linhas ---")
         print(f"Total de itens extraídos: {len(disciplinas)}")
 
+        # Extrair equivalências do PDF
+        equivalencias_pdf = []
+        for linha in lines:
+            match_eq = re.match(
+                r'Cumpriu\s+([A-Z]{2,}\d{3,})\s*-\s*([A-ZÇÃÕÉÍÓÚÂÊÔÀÈÌÒÙÜÑ0-9 ]+)\s*\(\d+h\)\s*através\s*de\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÇÃÕÉÍÓÚÂÊÔÀÈÌÒÙÜÑ0-9 ]+)\s*\(\d+h\)',
+                linha
+            )
+            if match_eq:
+                equivalencias_pdf.append({
+                    "cumpriu": match_eq.group(1),
+                    "nome_cumpriu": match_eq.group(2).strip(),
+                    "atraves_de": match_eq.group(3),
+                    "nome_equivalente": match_eq.group(4).strip()
+                })
+
         # Retorna os dados extraídos em formato JSON
         logger.info('PDF processing completed successfully')
         response_data = {
@@ -383,7 +400,8 @@ def upload_pdf():
             'media_ponderada': media_ponderada,
             'frequencia_geral': frequencia_geral,
             'full_text': texto_total,
-            'extracted_data': disciplinas
+            'extracted_data': disciplinas,
+            'equivalencias_pdf': equivalencias_pdf
         }
         logger.info(f'Sending response with {len(disciplinas)} extracted items')
         return jsonify(response_data)

@@ -3,1623 +3,1507 @@
   "periodo_letivo_vigor": "2016.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0010",
-          "nome": "GEOMETRIA ANALÍTICA PARA MATEMÁTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GEOMETRIA ANALITICA PARA MATEMATICA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0173",
           "nome": "FISICA 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "IFD0175",
           "nome": "FISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0027",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         },
         {
           "codigo": "MAT0038",
-          "nome": "TEORIA DOS NÚMEROS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "MAT0034",
           "nome": "ALGEBRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "MAT0082",
           "nome": "ANALISE COMBINATORIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "MAT0111",
           "nome": "GEOMETRIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "PPB0067",
           "nome": "APRENDIZAGEM NO ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0060",
           "nome": "HISTORIA DA MATEMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "MAT0075",
           "nome": "CALCULO DE PROBABILIDADE 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MAT0114",
           "nome": "GEOMETRIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "MAT0045",
           "nome": "ANALISE 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0122",
-          "nome": "ÁLGEBRA PARA O ENSINO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ALGEBRA PARA O ENSINO 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0129",
           "nome": "GEOMETRIA PARA O ENSINO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "MAT0131",
           "nome": "GEOMETRIA PARA O ENSINO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MAT0134",
-          "nome": "ÁLGEBRA PARA O ENSINO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ALGEBRA PARA O ENSINO 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "MAT0028",
           "nome": "VARIAVEL COMPLEXA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MAT0124",
-          "nome": "REGÊNCIA 2",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "REGENCIA 2",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0136",
-          "nome": "REGÊNCIA 1",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "REGENCIA 1",
+          "ch": "120"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0192",
-          "nome": "CALCULO FINANCEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0192 - CALCULO FINANCEIRO",
+          "ch": "60"
         },
         {
           "codigo": "CCA0103",
-          "nome": "INTRODUÇÃO À CONTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "CEM0097",
           "nome": "DIREITOS HUMANOS E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0002",
-          "nome": "FUNDAMENTOS TEÓRICOS DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS TEORICOS DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
         },
         {
           "codigo": "CIC0008",
           "nome": "PROGRAMACAO SISTEMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0010",
           "nome": "INTRODUCAO A COMPILACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CIC0088",
           "nome": "COMPUTACAO BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CIC0090",
           "nome": "ESTRUTURAS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0093",
           "nome": "LINGUAGENS DE PROGRAMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0095",
           "nome": "TEORIA DA COMPUTACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0111",
           "nome": "PRINCIPIOS DE COMPUTACAO GRAFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0134",
           "nome": "PROGRAMACAO EM LOGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0152",
           "nome": "INTRODUCAO A MICROINFORMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0174",
           "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0175",
           "nome": "PROGRAMACAO AVANCADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0182",
-          "nome": "LÓGICA COMPUTACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA COMPUTACIONAL 1",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ENC0054",
           "nome": "GEOMETRIA DESCRITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0177",
           "nome": "ELETROMAGNETISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0022",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
         },
         {
           "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "EST0024",
-          "nome": "ESTATÍSTICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA 1",
+          "ch": "90"
         },
         {
           "codigo": "EST0025",
-          "nome": "ESTATÍSTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA 2",
+          "ch": "90"
         },
         {
           "codigo": "EST0034",
-          "nome": "ANÁLISE ESTATÍSTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ESTATISTICA",
+          "ch": "90"
         },
         {
           "codigo": "EST0048",
           "nome": "PROCESSOS ESTOCASTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0053",
           "nome": "PESQUISA OPERACIONAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "EST0054",
           "nome": "PESQUISA OPERACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0056",
           "nome": "PESQUISA OPERACIONAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0069",
           "nome": "INTRODUCAO A PROBABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0133",
-          "nome": "SEMINÁRIO INTERDISCIPLINAR EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0105",
-          "nome": "PRÁTICA DESPORTIVA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0107",
           "nome": "PRATICA DESPORTIVA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FGA0147",
           "nome": "ESTRUTURA DE DADOS E ALGORITMOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0029",
-          "nome": "EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0056",
-          "nome": "LÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0107",
           "nome": "HISTORIA DA CIENCIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0011",
-          "nome": "FUNDAMENTOS MATEMÁTICOS DA FÍSICA A",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA A",
+          "ch": "60"
         },
         {
           "codigo": "IFD0012",
-          "nome": "FUNDAMENTOS MATEMÁTICOS DA FÍSICA B",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA B",
+          "ch": "60"
         },
         {
           "codigo": "IFD0013",
-          "nome": "ONDAS, ÓPTICA E TERMODINÂMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ONDAS, OPTICA E TERMODINAMICA",
+          "ch": "90"
         },
         {
           "codigo": "IFD0018",
-          "nome": "RELATIVIDADE E FÍSICA QUÂNTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "RELATIVIDADE E FISICA QUANTICA",
+          "ch": "90"
         },
         {
           "codigo": "IFD0055",
           "nome": "ELETROMAGNETISMO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0069",
-          "nome": "MECÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "MECANICA",
+          "ch": "90"
         },
         {
           "codigo": "IFD0071",
           "nome": "MECANICA CLASSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0074",
           "nome": "TEORIA ELETROMAGNETICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0078",
           "nome": "TERMODINAMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0088",
           "nome": "MECANICA CLASSICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0091",
           "nome": "INTRODUCAO A CINEMATICA RELATIVISTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0093",
-          "nome": "TEORIA DOS FLUIDOS CLÁSSICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DOS FLUIDOS CLASSICOS",
+          "ch": "60"
         },
         {
           "codigo": "IFD0096",
           "nome": "FISICA ONDULATORIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0098",
           "nome": "FISICA QUANTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0122",
           "nome": "FISICA NUCLEAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0137",
           "nome": "LABORATORIO ESPECIAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "IFD0177",
           "nome": "FISICA 2 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0179",
           "nome": "FISICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0181",
           "nome": "FISICA 3 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0183",
           "nome": "FISICA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0185",
           "nome": "FISICA 4 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0198",
           "nome": "FISICA MATEMATICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0210",
           "nome": "FISICA GERAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0213",
           "nome": "FISICA GERAL 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IFD0217",
           "nome": "FISICA GERAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0220",
           "nome": "FISICA GERAL 2 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0224",
           "nome": "FISICA GERAL 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0227",
           "nome": "FISICA GERAL 3 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0236",
           "nome": "FISICA GERAL 4 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0244",
           "nome": "FISICA GERAL 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0250",
-          "nome": "MECÂNICA CLÁSSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MECANICA CLASSICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0252",
           "nome": "FISICA MATEMATICA - NOTURNO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0256",
           "nome": "FISICA MODERNA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0296",
           "nome": "METODOS MATEMATICOS DA FISICA TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0353",
-          "nome": "PROGRAMAÇÃO PARA SISTEMAS FÍSICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0153",
-          "nome": "PORTUGUÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0039",
           "nome": "ALGEBRA LINEAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0040",
           "nome": "ALGEBRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0041",
           "nome": "INTRODUCAO A OTIMIZACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0046",
           "nome": "ANALISE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0047",
           "nome": "TOPOLOGIA DOS ESPACOS METRICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0048",
           "nome": "EQUACOES DIFERENCIAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0050",
           "nome": "GEOMETRIA DIFERENCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0053",
           "nome": "CALCULO NUMERICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0054",
           "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0057",
           "nome": "ANALISE NUMERICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0059",
-          "nome": "METODOS MATEMÁTICOS DA FÍSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0061",
           "nome": "ALGEBRA PARA ENSINO  1 E 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0062",
           "nome": "GEOMETRIA PARA ENSINO DO 1 E 2 GRAUS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0065",
           "nome": "SEMINARIO DE TOPICOS EM ANALISE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0067",
-          "nome": "SEMINÁRIO DE TÓPICOS EM ÁLGEBRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO DE TOPICOS EM ALGEBRA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0069",
           "nome": "SEMINARIO DE TOPICOS EM GEOMETRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0072",
           "nome": "FUNDAMENTOS MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0076",
           "nome": "CALCULO DE PROBABILIDADE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0077",
           "nome": "INTRODUCAO A AUTOMATOS PROBABILISTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0078",
           "nome": "ANALISE DE ALGORITMOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0080",
           "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0081",
           "nome": "LINGUAGENS FORMAIS E AUTOMATOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0085",
           "nome": "GEOMETRIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0087",
           "nome": "SEMINARIO TOPICOS ESPECIAIS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MAT0089",
           "nome": "ESTAGIO EM LABORATORIO DE ENSINO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MAT0091",
           "nome": "ESTAGIO DE PESQUISA BIBLIOGRAFICA SOBRE ENSINO DE MATEMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0094",
           "nome": "ESTAGIO DE REDACAO SOBRE ENSINO DE MATEMATICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MAT0097",
           "nome": "ESTAGIO SUPERVISIONADO DE REGENCIA EM MATEMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0098",
           "nome": "PROGRAMACAO INTEIRA E DINAMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0099",
           "nome": "INTRODUCAO AS EQUACOES DIFERENCIAIS PARCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0100",
           "nome": "PROGRAMACAO NAO LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0101",
           "nome": "OTIMIZACAO DE SISTEMAS DE GRANDE PORTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0102",
           "nome": "METODOS MATEMATICOS DA FISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0103",
           "nome": "FUNDAMENTOS GEOMETRICOS DA RELATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0105",
           "nome": "INTRODUCAO A COMPUTACAO ALGEBRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0106",
           "nome": "ANALISE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0107",
           "nome": "ALGEBRA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0108",
           "nome": "ESTAGIO EM LABORATORIO DE ENSINO DE MATEMATICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0115",
           "nome": "ESTAGIO ESPECIAL DE ENSINO E REGENCIA EM MATEMATICA",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "MAT0116",
           "nome": "SEMINARIO DE TOPICOS EM MATEMATICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0118",
-          "nome": "TEORIA DOS NÚMEROS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DOS NUMEROS 2",
+          "ch": "60"
         },
         {
           "codigo": "MAT0119",
-          "nome": "LÓGICA MATEMÁTICA E COMPUTACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA MATEMATICA E COMPUTACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "MAT0120",
-          "nome": "INTRODUÇÃO À TEORIA DE MEDIDA E INTEGRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A TEORIA DE MEDIDA E INTEGRACAO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0125",
           "nome": "TRABALHO FINAL 1",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "MAT0126",
           "nome": "TRABALHO FINAL 2",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "MAT0132",
-          "nome": "PROGRAMAÇÃO MATEMÁTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO MATEMATICA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0139",
-          "nome": "PRÁTICAS DE EXTENSÃO EM MATEMÁTICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE EXTENSAO EM MATEMATICA 1",
+          "ch": "30"
         },
         {
           "codigo": "MAT0140",
-          "nome": "PRÁTICAS DE EXTENSÃO EM MATEMÁTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE EXTENSAO EM MATEMATICA 2",
+          "ch": "60"
         },
         {
           "codigo": "MAT0141",
-          "nome": "PRÁTICAS DE EXTENSÃO EM MATEMÁTICA 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE EXTENSAO EM MATEMATICA 3",
+          "ch": "90"
         },
         {
           "codigo": "MAT0142",
-          "nome": "INICIAÇÃO CIENTÍFICA EM MATEMÁTICA 1",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO CIENTIFICA EM MATEMATICA 1",
+          "ch": "15"
         },
         {
           "codigo": "MAT0143",
-          "nome": "INICIAÇÃO CIENTÍFICA EM MATEMÁTICA 2",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO CIENTIFICA EM MATEMATICA 2",
+          "ch": "15"
         },
         {
           "codigo": "MAT0144",
-          "nome": "INICIAÇÃO CIENTÍFICA EM MATEMÁTICA 3",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO CIENTIFICA EM MATEMATICA 3",
+          "ch": "15"
         },
         {
           "codigo": "MTC0013",
-          "nome": "DIDÁTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MTC0017",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0018",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0021",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0022",
           "nome": "CURRICULOS E PROGRAMAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0027",
           "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0028",
           "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0029",
           "nome": "ENSINO SUPLETIVO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0030",
           "nome": "ENSINO SUPLETIVO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0035",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "MTC0055",
-          "nome": "EDUCAÇÃO MATEMÁTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
         },
         {
           "codigo": "MTC0072",
-          "nome": "EDUCAÇÃO E LINGUAGENS TECNOLÓGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO E LINGUAGENS TECNOLOGICAS",
+          "ch": "60"
         },
         {
           "codigo": "MTC0105",
-          "nome": "EDUCAÇÃO MATEMÁTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
         },
         {
           "codigo": "PAD0011",
           "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0017",
           "nome": "LEGISLACAO DO ENSINO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0018",
           "nome": "LEGISLACAO DO ENSINO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0019",
           "nome": "HIGIENE ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0022",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0031",
-          "nome": "POLITICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "PED0024",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0025",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0027",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0032",
           "nome": "PSICOLOGIA DA CRIATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0054",
           "nome": "DESENVOLVIMENTO COGNITIVO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0057",
           "nome": "TOPICOS EM PSICOLOGIA DO DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0016",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0012",
           "nome": "PSICOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0014",
           "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0016",
           "nome": "HISTORIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0019",
-          "nome": "POLÍTICAS DE EDUCAÇÃO COMPARADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0020",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0022",
           "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0027",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0041",
           "nome": "ANTROPOLOGIA E EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0045",
           "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0065",
-          "nome": "DINÂMICA PSICOSSOCIAL DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0069",
           "nome": "ORIENTACAO VOCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0072",
           "nome": "FUNDAMENTOS DE ORIENTACAO VOCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0079",
           "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0082",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0118",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0074",
           "nome": "DESENHO GEOMETRICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0082",
           "nome": "ANALISE COMBINATORIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0060",
           "nome": "HISTORIA DA MATEMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0010",
+          "nome": "GEOMETRIA ANALITICA PARA MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0038",
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0034",
+          "nome": "ALGEBRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0082",
+          "nome": "ANALISE COMBINATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0111",
+          "nome": "GEOMETRIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0060",
+          "nome": "HISTORIA DA MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0114",
+          "nome": "GEOMETRIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0122",
+          "nome": "ALGEBRA PARA O ENSINO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0129",
+          "nome": "GEOMETRIA PARA O ENSINO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0131",
+          "nome": "GEOMETRIA PARA O ENSINO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0134",
+          "nome": "ALGEBRA PARA O ENSINO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0124",
+          "nome": "REGENCIA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0136",
+          "nome": "REGENCIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         }
       ]
     }

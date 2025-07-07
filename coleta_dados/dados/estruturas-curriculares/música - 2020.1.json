@@ -3,401 +3,497 @@
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "IDA0307",
-          "nome": "LABORATÓRIO DE MÚSICA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE MUSICA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "IDA0371",
-          "nome": "PERCEPÇÃO E ESTRUTURAÇÃO MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
         },
         {
           "codigo": "IDA0399",
-          "nome": "PRÁTICA DE CANTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE CANTO 1",
+          "ch": "60"
         },
         {
           "codigo": "IDA0438",
           "nome": "INSTRUMENTO SUPLEMENTAR 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0824",
-          "nome": "PRÁTICAS MUSICAIS COLETIVAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS MUSICAIS COLETIVAS 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0849",
           "nome": "FUNDAMENTOS DA ARTE MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "IDA0383",
-          "nome": "PERCEPÇÃO E ESTRUTURAÇÃO MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 2",
+          "ch": "60"
         },
         {
           "codigo": "IDA0385",
-          "nome": "PRÁTICAS MUSICAIS DA CULTURA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS MUSICAIS DA CULTURA 1",
+          "ch": "60"
         },
         {
           "codigo": "IDA0437",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0439",
-          "nome": "PRÁTICAS DE INSTRUMENTO DE PERCUSSÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE INSTRUMENTO DE PERCUSSAO 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FED0168",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "IDA0291",
-          "nome": "PERCEPÇÃO E ESTRUTURAÇÃO MUSICAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
         },
         {
           "codigo": "MUS0825",
-          "nome": "PRÁTICAS MUSICAIS COLETIVAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS MUSICAIS COLETIVAS 2",
+          "ch": "60"
         },
         {
           "codigo": "MUS0827",
           "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MUS0828",
           "nome": "INSTRUMENTO PRINCIPAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "IDA0288",
-          "nome": "PRÁTICAS MUSICAIS DA CULTURA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS MUSICAIS DA CULTURA 2",
+          "ch": "60"
         },
         {
           "codigo": "IDA0298",
-          "nome": "PERCEPÇÃO E ESTRUTURAÇÃO MUSICAL 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 4",
+          "ch": "60"
         },
         {
           "codigo": "MUS0829",
-          "nome": "ESTÁGIO SUPERVISIONADO EM MÚSICA 1",
-          "carga_horaria": "135h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 1",
+          "ch": "135"
         },
         {
           "codigo": "MUS0831",
           "nome": "INSTRUMENTO PRINCIPAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "ILD0001",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MUS0830",
-          "nome": "ESTÁGIO SUPERVISIONADO EM MÚSICA 2",
-          "carga_horaria": "135h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "135"
         },
         {
           "codigo": "MUS0832",
-          "nome": "ARRANJO E CRIAÇÃO PARA O ENSINO E APRENDIZAGEM DA MÚSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ARRANJO E CRIACAO PARA O ENSINO E APRENDIZAGEM DA MUSICA",
+          "ch": "60"
         },
         {
           "codigo": "MUS0833",
           "nome": "INSTRUMENTO PRINCIPAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "IDA0295",
-          "nome": "PRÁTICAS MUSICAIS DA CULTURA 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS MUSICAIS DA CULTURA 3",
+          "ch": "60"
         },
         {
           "codigo": "IDA0384",
-          "nome": "INTRODUÇÃO À PESQUISA EM EDUCAÇÃO MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A PESQUISA EM EDUCACAO MUSICAL",
+          "ch": "60"
         },
         {
           "codigo": "MUS0834",
-          "nome": "ESTÁGIO SUPERVISIONADO EM MÚSICA 3",
-          "carga_horaria": "135h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 3",
+          "ch": "135"
         },
         {
           "codigo": "MUS0835",
           "nome": "INSTRUMENTO PRINCIPAL 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "IDA0301",
-          "nome": "PRÁTICAS MUSICAIS DA CULTURA 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS MUSICAIS DA CULTURA 4",
+          "ch": "60"
         },
         {
           "codigo": "MUS0826",
           "nome": "INSTRUMENTO SUPLEMENTAR 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0836",
-          "nome": "TRABALHO OU RECITAL DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO OU RECITAL DE CONCLUSAO DE CURSO",
+          "ch": "120"
         },
         {
           "codigo": "MUS0837",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "MUS0839",
-          "nome": "DEFESA DE TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "DEFESA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "15"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "IDA0311",
-          "nome": "ELABORAÇÃO DE PROJETO FINAL DE CURSO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "IDA0349",
-          "nome": "PSICOLOGIA E CONSTRUÇÃO DO CONHECIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "CURSO",
+          "nome": "90H OPTATIVA IDA0349 - PSICOLOGIA E CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0352",
-          "nome": "TEORIAS DA EDUCAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0353",
-          "nome": "ESTRATÉGIAS DE APRENDIZAGEM À DISTÂNCIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTRATEGIAS DE APRENDIZAGEM A DISTANCIA",
+          "ch": "90"
         },
         {
           "codigo": "IDA0359",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0379",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 2",
+          "ch": "90"
         },
         {
           "codigo": "IDA0440",
-          "nome": "PROJETO DE EXTENSÃO EM MÚSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE EXTENSAO EM MUSICA 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0441",
-          "nome": "PROJETO DE EXTENSÃO EM MÚSICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE EXTENSAO EM MUSICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MUS0838",
-          "nome": "PROJETO EM MÚSICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROJETO EM MUSICA",
+          "ch": "90"
         },
         {
           "codigo": "MUS0840",
-          "nome": "TEORIAS DA EDUCAÇÃO MUSICAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA EDUCACAO MUSICAL",
+          "ch": "90"
         },
         {
           "codigo": "MUS0841",
           "nome": "TEORIA DA ARTE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MUS0842",
           "nome": "ARTE E CULTURA POPULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MUS0843",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 3",
+          "ch": "90"
         },
         {
           "codigo": "MUS0846",
-          "nome": "TEORIA E PRÁTICA DE GRAVAÇÃO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E PRATICA DE GRAVACAO 1",
+          "ch": "90"
         },
         {
           "codigo": "MUS1052",
-          "nome": "PRÁTICAS MUSICAIS COLETIVAS 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS MUSICAIS COLETIVAS 3",
+          "ch": "90"
         },
         {
           "codigo": "MUS1195",
-          "nome": "PRÁTICAS VOCAIS COLETIVAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS VOCAIS COLETIVAS",
+          "ch": "90"
         },
         {
           "codigo": "MUS1200",
-          "nome": "EDUCAÇÃO AUDITIVA MUSICAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO AUDITIVA MUSICAL 1",
+          "ch": "90"
         },
         {
           "codigo": "MUS1203",
-          "nome": "SEMINÁRIO EM EDUCAÇÃO MUSICAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 2",
+          "ch": "90"
         },
         {
           "codigo": "MUS1209",
-          "nome": "INTRODUÇÃO À LINGUAGEM MUSICAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUAGEM MUSICAL 1",
+          "ch": "90"
         },
         {
           "codigo": "MUS1210",
-          "nome": "INTRODUÇÃO À LINGUAGEM MUSICAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUAGEM MUSICAL 2",
+          "ch": "90"
         },
         {
           "codigo": "MUS1211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "MUS1214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "MUS1219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS1223",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "MUS1224",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS1227",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MUS1231",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
+        },
+        {
+          "codigo": "IDA0307",
+          "nome": "LABORATORIO DE MUSICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0371",
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0399",
+          "nome": "PRATICA DE CANTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0438",
+          "nome": "INSTRUMENTO SUPLEMENTAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0824",
+          "nome": "PRATICAS MUSICAIS COLETIVAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0849",
+          "nome": "FUNDAMENTOS DA ARTE MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0383",
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0385",
+          "nome": "PRATICAS MUSICAIS DA CULTURA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0437",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0439",
+          "nome": "PRATICAS DE INSTRUMENTO DE PERCUSSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0168",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0291",
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0825",
+          "nome": "PRATICAS MUSICAIS COLETIVAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0827",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0828",
+          "nome": "INSTRUMENTO PRINCIPAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0288",
+          "nome": "PRATICAS MUSICAIS DA CULTURA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0298",
+          "nome": "PERCEPCAO E ESTRUTURACAO MUSICAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0829",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 1",
+          "ch": "135"
+        },
+        {
+          "codigo": "MUS0831",
+          "nome": "INSTRUMENTO PRINCIPAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0830",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "135"
+        },
+        {
+          "codigo": "MUS0832",
+          "nome": "ARRANJO E CRIACAO PARA O ENSINO E APRENDIZAGEM DA MUSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0833",
+          "nome": "INSTRUMENTO PRINCIPAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0295",
+          "nome": "PRATICAS MUSICAIS DA CULTURA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0384",
+          "nome": "INTRODUCAO A PESQUISA EM EDUCACAO MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0834",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 3",
+          "ch": "135"
+        },
+        {
+          "codigo": "MUS0835",
+          "nome": "INSTRUMENTO PRINCIPAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0301",
+          "nome": "PRATICAS MUSICAIS DA CULTURA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0826",
+          "nome": "INSTRUMENTO SUPLEMENTAR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0836",
+          "nome": "TRABALHO OU RECITAL DE CONCLUSAO DE CURSO",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0837",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0839",
+          "nome": "DEFESA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "15"
         }
       ]
     }

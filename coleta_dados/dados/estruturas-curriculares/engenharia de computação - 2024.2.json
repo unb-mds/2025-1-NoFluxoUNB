@@ -3,1005 +3,1037 @@
   "periodo_letivo_vigor": "2024.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
         },
         {
           "codigo": "CIC0188",
-          "nome": "INTRODUÇÃO À ENGENHARIA DE COMPUTAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ENGENHARIA DE COMPUTACAO",
+          "ch": "30"
         },
         {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0173",
           "nome": "FISICA 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "CIC0090",
           "nome": "ESTRUTURAS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0175",
           "nome": "FISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0177",
           "nome": "FISICA 2 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "CIC0197",
-          "nome": "TECNICAS DE PROGRAMAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "ENE0039",
           "nome": "SISTEMAS DIGITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENE0040",
-          "nome": "LABORATÓRIO DE SISTEMAS DIGITAIS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE SISTEMAS DIGITAIS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0066",
-          "nome": "INTRODUÇÃO AOS CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0067",
-          "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0027",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "CIC0198",
-          "nome": "TECNICAS DE PROGRAMAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TECNICAS DE PROGRAMACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "ENE0056",
           "nome": "SISTEMAS MICROPROCESSADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENE0058",
-          "nome": "LABORATÓRIO DE SISTEMAS MICROPROCESSADOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE SISTEMAS MICROPROCESSADOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0177",
           "nome": "ELETROMAGNETISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENE0282",
-          "nome": "LABORATÓRIO DE CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0304",
-          "nome": "CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
         },
         {
           "codigo": "MAT0053",
           "nome": "CALCULO NUMERICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "CIC0093",
           "nome": "LINGUAGENS DE PROGRAMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CIC0099",
-          "nome": "ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
         },
         {
           "codigo": "CIC0235",
-          "nome": "TELEINFORMÁTICA E REDES 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TELEINFORMATICA E REDES 1",
+          "ch": "60"
         },
         {
           "codigo": "ENE0045",
-          "nome": "ELETRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0046",
-          "nome": "LABORATÓRIO DE ELETRÔNICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
         },
         {
           "codigo": "ENE0068",
           "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "CIC0104",
           "nome": "SOFTWARE BASICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CIC0105",
           "nome": "ENGENHARIA DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CIC0189",
-          "nome": "PROJETO E ANÁLISE DE ALGORITMOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO E ANALISE DE ALGORITMOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0236",
-          "nome": "TELEINFORMÁTICA E REDES 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TELEINFORMATICA E REDES 2",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "CIC0108",
           "nome": "SISTEMAS OPERACIONAIS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "CIC0265",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ENGENHARIA DE COMPUTAÇÃO 1",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM ENGENHARIA DE COMPUTACAO 1",
+          "ch": "150"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "CIC0266",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ENGENHARIA DE COMPUTAÇÃO 2",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM ENGENHARIA DE COMPUTACAO 2",
+          "ch": "150"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "CIC0267",
-          "nome": "PROJETO FINAL EM ENGENHARIA DE COMPUTAÇÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO FINAL EM ENGENHARIA DE COMPUTACAO 1",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "CIC0268",
-          "nome": "PROJETO FINAL EM ENGENHARIA DE COMPUTAÇÃO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO FINAL EM ENGENHARIA DE COMPUTACAO 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "CIC0002",
-          "nome": "FUNDAMENTOS TEÓRICOS DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0087",
-          "nome": "TOPICOS AVANCADOS EM COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA CIC0087 - TOPICOS AVANCADOS EM COMPUTADORES",
+          "ch": "60"
         },
         {
           "codigo": "CIC0095",
           "nome": "TEORIA DA COMPUTACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0097",
           "nome": "BANCOS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0101",
           "nome": "SISTEMAS DE INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0111",
           "nome": "PRINCIPIOS DE COMPUTACAO GRAFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0121",
           "nome": "ARQUITETURAS AVANCADAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0130",
-          "nome": "INTRODUÇÃO AOS SISTEMAS EMBARCADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AOS SISTEMAS EMBARCADOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0133",
           "nome": "PROGRAMACAO FUNCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0134",
           "nome": "PROGRAMACAO EM LOGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0135",
           "nome": "INTRODUCAO A INTELIGENCIA ARTIFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0142",
           "nome": "INFORMATICA E SOCIEDADE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CIC0158",
           "nome": "INFORMATICA APLICADA A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0159",
           "nome": "TOPICOS ESPECIAIS EM INFORMATICA NA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0161",
-          "nome": "AUTÔMATOS E COMPUTABILIDADE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "AUTOMATOS E COMPUTABILIDADE",
+          "ch": "90"
         },
         {
           "codigo": "CIC0169",
-          "nome": "PROGRAMAÇÃO COMPETITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO COMPETITIVA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0176",
           "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0182",
-          "nome": "LÓGICA COMPUTACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA COMPUTACIONAL 1",
+          "ch": "60"
         },
         {
           "codigo": "CIC0183",
-          "nome": "LÓGICA COMPUTACIONAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA COMPUTACIONAL 2",
+          "ch": "60"
         },
         {
           "codigo": "CIC0186",
           "nome": "SISTEMAS DIGITAIS INTEGRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0187",
           "nome": "QUALIDADE DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0191",
-          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO DE JOGOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO DE JOGOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0194",
-          "nome": "INTERAÇÃO HUMANO COMPUTADOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERACAO HUMANO COMPUTADOR",
+          "ch": "60"
         },
         {
           "codigo": "CIC0195",
-          "nome": "PRINCÍPIOS DE VISÃO COMPUTACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE VISAO COMPUTACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "CIC0196",
-          "nome": "PROCESSAMENTO DE SINAIS MULTIMÍDIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSAMENTO DE SINAIS MULTIMIDIA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0199",
-          "nome": "TEORIA E APLICAÇÃO DE GRAFOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E APLICACAO DE GRAFOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0200",
-          "nome": "METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA CIENTIFICA",
+          "ch": "30"
         },
         {
           "codigo": "CIC0201",
-          "nome": "SEGURANÇA COMPUTACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEGURANCA COMPUTACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "CIC0203",
-          "nome": "COMPUTAÇÃO EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPUTACAO EXPERIMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "CIC0204",
           "nome": "COMPILADORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0226",
           "nome": "DESENVOLVIMENTO DE APLICATIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0233",
-          "nome": "FUNDAMENTOS COMPUTACIONAIS DE ROBÓTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS COMPUTACIONAIS DE ROBOTICA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0241",
           "nome": "MODELAGEM DE SISTEMAS COMPUTACIONAIS E DE REDES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0248",
           "nome": "SISTEMAS DE TEMPO REAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0256",
-          "nome": "PRÁTICA EXTENSIONISTA EM COMPUTAÇÃO A",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO A",
+          "ch": "60"
         },
         {
           "codigo": "CIC0258",
-          "nome": "TÓPICOS ESPECIAIS EM PROGRAMAÇÃO COMPETITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO COMPETITIVA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0259",
-          "nome": "ESTUDOS EM CODIFICAÇÃO E CRIPTOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS EM CODIFICACAO E CRIPTOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0260",
-          "nome": "ESTUDOS EM COMPUTAÇÃO MULTIMÍDIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS EM COMPUTACAO MULTIMIDIA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0261",
-          "nome": "ESTUDOS EM INTELIGÊNCIA ARTIFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS EM INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
         },
         {
           "codigo": "CIC0262",
-          "nome": "ESTUDOS EM SISTEMAS DE COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS EM SISTEMAS DE COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0263",
-          "nome": "ESTUDOS EM SISTEMAS DE INFORMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS EM SISTEMAS DE INFORMACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0264",
-          "nome": "PRÁTICAS EM COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS EM COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0269",
           "nome": "PROCESSAMENTO DE LINGUAGEM NATURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0286",
-          "nome": "FUNDAMENTOS DE APRENDIZAGEM DE MÁQUINA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE APRENDIZAGEM DE MAQUINA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0287",
           "nome": "REDES NEURAIS ARTIFICIAIS E APRENDIZAGEM PROFUNDA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0288",
-          "nome": "INTELIGÊNCIA ARTIFICIAL GENERATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTELIGENCIA ARTIFICIAL GENERATIVA",
+          "ch": "60"
         },
         {
           "codigo": "CIC0289",
           "nome": "ATIVIDADES EXTENSIONISTAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0352",
-          "nome": "VISUALIZAÇÃO DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "VISUALIZACAO DE DADOS",
+          "ch": "60"
         },
         {
           "codigo": "ECL0014",
           "nome": "CIENCIAS DO AMBIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ENC0035",
-          "nome": "INTRODUÇÃO À MECÂNICA DOS SÓLIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0011",
-          "nome": "LABORATÓRIO DE REDES",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE REDES",
+          "ch": "30"
         },
         {
           "codigo": "ENE0015",
           "nome": "FUNDAMENTOS DE REDES 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0019",
-          "nome": "TÓPICOS ESPECIAIS EM MICROELETRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM MICROELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0021",
-          "nome": "TÓPICOS EM REDES DE COMUNICAÇÃO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM REDES DE COMUNICACAO 3",
+          "ch": "30"
         },
         {
           "codigo": "ENE0022",
-          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "ENE0024",
-          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "ENE0025",
           "nome": "PROTOCOLOS DE TRANSPORTE E ROTEAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0049",
-          "nome": "MATERIAIS ELÉTRICOS E MAGNÉTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MATERIAIS ELETRICOS E MAGNETICOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0050",
-          "nome": "LABORATÓRIO DE MATERIAIS ELÉTRICOS E MAGNÉTICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE MATERIAIS ELETRICOS E MAGNETICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0053",
           "nome": "ELETROMAGNETISMO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0054",
-          "nome": "LABORATÓRIO DE ELETROMAGNETISMO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ELETROMAGNETISMO 2",
+          "ch": "30"
         },
         {
           "codigo": "ENE0059",
-          "nome": "ELETRÔNICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELETRONICA 2",
+          "ch": "60"
         },
         {
           "codigo": "ENE0060",
-          "nome": "LABORATÓRIO DE ELETRÔNICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ELETRONICA 2",
+          "ch": "30"
         },
         {
           "codigo": "ENE0076",
-          "nome": "FUNDAMENTOS DE COMPRESSÃO DE SINAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE COMPRESSAO DE SINAIS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0077",
-          "nome": "CONTROLE DE SISTEMAS DINÂMICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0078",
-          "nome": "LABORATÓRIO DE CONTROLE DE SISTEMAS DINÂMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0079",
-          "nome": "CONTROLE NO ESPAÇO DE ESTADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTROLE NO ESPACO DE ESTADOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0081",
-          "nome": "COMUNICAÇÕES VIA SATÉLITE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACOES VIA SATELITE",
+          "ch": "60"
         },
         {
           "codigo": "ENE0082",
-          "nome": "NOÇÕES DE INTELIGÊNCIA ARTIFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NOCOES DE INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
         },
         {
           "codigo": "ENE0088",
-          "nome": "SISTEMAS DE INFORMAÇÃO DISTRIBUÍDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS DE INFORMACAO DISTRIBUIDOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0089",
           "nome": "CABEAMENTO ESTRUTURADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0154",
-          "nome": "INTELIGÊNCIA COMPUTACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTELIGENCIA COMPUTACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ENE0167",
           "nome": "CONTROLE DIGITAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0170",
-          "nome": "TÓPICOS ESPECIAIS EM ENGENHARIA BIOMÉDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA BIOMEDICA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0195",
           "nome": "PROPAGACAO DE ONDAS ELETROMAGNETICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0199",
-          "nome": "CIRCUITOS DE RADIOFREQUÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIRCUITOS DE RADIOFREQUENCIA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0202",
           "nome": "SISTEMAS DE COMUNICACOES 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0209",
           "nome": "PROCESSAMENTO DIGITAL DE IMAGENS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0211",
           "nome": "TEORIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0238",
-          "nome": "FOTÔNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FOTONICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0260",
-          "nome": "IDENTIFICAÇÃO DE SISTEMAS DINÂMICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "IDENTIFICACAO DE SISTEMAS DINAMICOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0262",
-          "nome": "COMUNICAÇÕES DIGITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACOES DIGITAIS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0265",
           "nome": "TOPICOS ESPECIAIS EM TELECOMUNICACOES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0270",
           "nome": "TOPICOS ESPECIAIS EM SISTEMA DIGITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0295",
-          "nome": "LABORATÓRIO DE PRINCÍPIOS DE COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE PRINCIPIOS DE COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "ENE0306",
-          "nome": "PRINCÍPIOS DE COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "ENE0328",
           "nome": "TOPICOS EM CONTROLE E AUTOMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0329",
           "nome": "COMUNICACOES OPTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0332",
           "nome": "TOPICOS EM ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0339",
           "nome": "TOPICOS ESPECIAIS EM PROCESSAMENTO DE SINAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0344",
-          "nome": "COMUNICAÇÕES MÓVEIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACOES MOVEIS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0345",
-          "nome": "PRINCÍPIOS DE CONTROLE DE ROBÔS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE CONTROLE DE ROBOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0347",
-          "nome": "TÓPICOS EM REDES DE COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM REDES DE COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "ENE0353",
-          "nome": "ANTENAS EM REDES DE COMUNICAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTENAS EM REDES DE COMUNICACOES",
+          "ch": "60"
         },
         {
           "codigo": "ENE0355",
-          "nome": "INSTRUMENTAÇÃO ELETRÔNICA E SENSORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTACAO ELETRONICA E SENSORES",
+          "ch": "60"
         },
         {
           "codigo": "ENE0438",
           "nome": "PROJETO INTEGRADOR DE TECNOLOGIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0450",
           "nome": "PROJETO INTEGRADOR DE FUNDAMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0459",
-          "nome": "ENGENHARIA E MUDANÇAS CLIMÁTICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ENGENHARIA E MUDANCAS CLIMATICAS",
+          "ch": "30"
         },
         {
           "codigo": "ENM0080",
           "nome": "FENOMENOS DE TRANSPORTE",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "EPR0059",
-          "nome": "HIGIENE E SEGURANÇA DO TRABALHO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
         },
         {
           "codigo": "EPR0068",
-          "nome": "ORGANIZAÇÃO INDUSTRIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
         },
         {
           "codigo": "FDD0155",
-          "nome": "NOÇÕES DE DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FTD0007",
           "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FTD0008",
           "nome": "EMPRESA JUNIOR 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FTD0009",
           "nome": "EMPRESA JUNIOR 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FTD0010",
-          "nome": "EMPREENDEDORISMO E INOVAÇÃO TECNOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EMPREENDEDORISMO E INOVACAO TECNOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FTD0011",
-          "nome": "PESQUISA EM EMPREENDEDORISMO E INOVAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM EMPREENDEDORISMO E INOVACAO",
+          "ch": "60"
         },
         {
           "codigo": "FTD0018",
           "nome": "IMPACTOS SOCIAIS DA TECNOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0028",
           "nome": "VARIAVEL COMPLEXA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0034",
           "nome": "ALGEBRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0038",
-          "nome": "TEORIA DOS NÚMEROS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0188",
+          "nome": "INTRODUCAO A ENGENHARIA DE COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0197",
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0039",
+          "nome": "SISTEMAS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0040",
+          "nome": "LABORATORIO DE SISTEMAS DIGITAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0198",
+          "nome": "TECNICAS DE PROGRAMACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0056",
+          "nome": "SISTEMAS MICROPROCESSADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0058",
+          "nome": "LABORATORIO DE SISTEMAS MICROPROCESSADOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0177",
+          "nome": "ELETROMAGNETISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0282",
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0093",
+          "nome": "LINGUAGENS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0099",
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0235",
+          "nome": "TELEINFORMATICA E REDES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0045",
+          "nome": "ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0046",
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0068",
+          "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0104",
+          "nome": "SOFTWARE BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0105",
+          "nome": "ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0189",
+          "nome": "PROJETO E ANALISE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0236",
+          "nome": "TELEINFORMATICA E REDES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0108",
+          "nome": "SISTEMAS OPERACIONAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0265",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENGENHARIA DE COMPUTACAO 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "CIC0266",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENGENHARIA DE COMPUTACAO 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "CIC0267",
+          "nome": "PROJETO FINAL EM ENGENHARIA DE COMPUTACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0268",
+          "nome": "PROJETO FINAL EM ENGENHARIA DE COMPUTACAO 2",
+          "ch": "90"
         }
       ]
     }

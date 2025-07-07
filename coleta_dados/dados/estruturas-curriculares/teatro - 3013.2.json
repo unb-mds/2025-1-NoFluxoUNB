@@ -3,270 +3,322 @@
   "periodo_letivo_vigor": "3013.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "IDA0001",
-          "nome": "INFORMATICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INFORMATICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IDA0002",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO - TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LEITURA E PRODUCAO DE TEXTO - TEATRO",
+          "ch": "60"
         },
         {
           "codigo": "IDA0366",
-          "nome": "LABORATÓRIO DO TEATRO 1 - INTRODUÇÃO A LINGUAGEM CÊNICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DO TEATRO 1 - INTRODUCAO A LINGUAGEM CENICA",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "IDA0359",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0380",
-          "nome": "LABORATÓRIO DE TEATRO 2 - MOVIMENTO E VOZ",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE TEATRO 2 - MOVIMENTO E VOZ",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "IDA0316",
-          "nome": "SUPORTE CÊNICO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "SUPORTE CENICO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0317",
-          "nome": "LABORÁTORIO DE TEATRO 3 - INTRODUÇÃO A INTERPRETAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE TEATRO 3 - INTRODUCAO A INTERPRETACAO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0376",
-          "nome": "HISTÓRIA DA ARTE-EDUCAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA ARTE-EDUCACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "IDA0379",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "IDA0319",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0320",
-          "nome": "LABORATÓRIO DE TEATRO 4 - TEATRO DE FORMAS ANIMADAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE TEATRO 4 - TEATRO DE FORMAS ANIMADAS",
+          "ch": "90"
         },
         {
           "codigo": "IDA0338",
           "nome": "PEDAGOGIA DO TEATRO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "IDA0321",
-          "nome": "HISTÓRIA DO TEATRO NO BRASIL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DO TEATRO NO BRASIL",
+          "ch": "90"
         },
         {
           "codigo": "IDA0323",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 2",
+          "ch": "90"
         },
         {
           "codigo": "IDA0334",
           "nome": "PEDAGOGIA DO TEATRO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "IDA0306",
           "nome": "ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IDA0336",
-          "nome": "PROCESSOS DE ENCENAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PROCESSOS DE ENCENACAO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0389",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 3",
-          "carga_horaria": "105h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 3",
+          "ch": "105"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "IDA0327",
-          "nome": "ESTÁGIO CURRICULAR SUPERVISIONADO EM TEATRO 4",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 4",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "IDA0003",
-          "nome": "TÓPICOS ESPECIAIS EM ARTES CÊNICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "IDA0007",
-          "nome": "HISTÓRIA DO TEATRO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "1",
+          "nome": "90H OPTATIVA IDA0007 - HISTORIA DO TEATRO 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0012",
-          "nome": "METODOLOGIA DE PESQUISA EM ARTES CÊNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS",
+          "ch": "60"
         },
         {
           "codigo": "IDA0013",
-          "nome": "TÓPICOS ESPECIAIS EM ARTES CÊNICAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ARTES CENICAS 2",
+          "ch": "60"
         },
         {
           "codigo": "IDA0014",
-          "nome": "TÓPICOS ESPECIAIS EM ARTES CÊNICAS 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ARTES CENICAS 3",
+          "ch": "90"
         },
         {
           "codigo": "IDA0015",
-          "nome": "TÓPICOS ESPECIAIS EM ARTES CÊNICAS 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ARTES CENICAS 4",
+          "ch": "60"
         },
         {
           "codigo": "IDA0318",
-          "nome": "HISTÓRIA DAS ARTES - EDUCAÇÃO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DAS ARTES - EDUCACAO 2",
+          "ch": "90"
         },
         {
           "codigo": "IDA0322",
-          "nome": "LABORATÓRIO DE POÉTICAS CONTEMPORÂNEAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE POETICAS CONTEMPORANEAS",
+          "ch": "90"
         },
         {
           "codigo": "IDA0349",
-          "nome": "PSICOLOGIA E CONSTRUÇÃO DO CONHECIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA E CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0354",
           "nome": "FUNDAMENTOS DO CURSO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "IDA0360",
-          "nome": "A PSICOLOGIA E A CONSTRUÇÃO DO CONHECIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "A PSICOLOGIA E A CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0361",
           "nome": "ANTROPOLOGIA CULTURAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0365",
           "nome": "TEORIA DA ARTE 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0373",
           "nome": "FUNDAMENTOS DA LICENCIATURA EM TEATRO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "IDA0378",
-          "nome": "HISTÓRIA DO TEATRO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "90"
         },
         {
           "codigo": "IDA0442",
-          "nome": "POLÍTICAS PÚBLICAS E GESTÃO EM ARTE EDUCAÇÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS E GESTAO EM ARTE EDUCACAO",
+          "ch": "45"
         },
         {
           "codigo": "IDA0443",
-          "nome": "PRÁTICA DOCENTE EM PEDAGOGIA DO TEATRO PARA A INCLUSÃO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM PEDAGOGIA DO TEATRO PARA A INCLUSAO ESCOLAR",
+          "ch": "90"
         },
         {
           "codigo": "IDA0444",
-          "nome": "PRÁTICA DOCENTE EM DANÇA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DOCENTE EM DANCA",
+          "ch": "90"
         },
         {
           "codigo": "ILD0001",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0001",
+          "nome": "INFORMATICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0002",
+          "nome": "LEITURA E PRODUCAO DE TEXTO - TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0366",
+          "nome": "LABORATORIO DO TEATRO 1 - INTRODUCAO A LINGUAGEM CENICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0359",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0380",
+          "nome": "LABORATORIO DE TEATRO 2 - MOVIMENTO E VOZ",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0316",
+          "nome": "SUPORTE CENICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0317",
+          "nome": "LABORATORIO DE TEATRO 3 - INTRODUCAO A INTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0376",
+          "nome": "HISTORIA DA ARTE-EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0379",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0319",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0320",
+          "nome": "LABORATORIO DE TEATRO 4 - TEATRO DE FORMAS ANIMADAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0338",
+          "nome": "PEDAGOGIA DO TEATRO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0321",
+          "nome": "HISTORIA DO TEATRO NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0323",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0334",
+          "nome": "PEDAGOGIA DO TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0306",
+          "nome": "ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0336",
+          "nome": "PROCESSOS DE ENCENACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0389",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "IDA0327",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 4",
+          "ch": "120"
         }
       ]
     }

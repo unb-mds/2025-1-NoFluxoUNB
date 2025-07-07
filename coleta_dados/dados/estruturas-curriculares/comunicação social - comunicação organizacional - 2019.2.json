@@ -3,2513 +3,2252 @@
   "periodo_letivo_vigor": "2019.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "COM0127",
-          "nome": "ÉTICA, LEGISLAÇÃO E RESPONSABILIDADE SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ETICA, LEGISLACAO E RESPONSABILIDADE SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "COM0128",
-          "nome": "INTRODUÇÃO AO MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO MARKETING",
+          "ch": "60"
         },
         {
           "codigo": "COM0129",
-          "nome": "LINGUAGENS DA COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUAGENS DA COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "COM0130",
-          "nome": "INTRODUÇÃO AS TEORIAS DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AS TEORIAS DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "COM0131",
-          "nome": "INTRODUÇÃO AO PLANEJAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO PLANEJAMENTO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "COM0132",
-          "nome": "LINGUAGENS DA COMUNICAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUAGENS DA COMUNICACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "COM0133",
-          "nome": "METODOLOGIA DE PESQUISA EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DE PESQUISA EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "COM0134",
-          "nome": "PLANEJAMENTO EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "COM0135",
-          "nome": "PRODUÇÃO E EDIÇÃO DE IMAGEM E SOM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRODUCAO E EDICAO DE IMAGEM E SOM",
+          "ch": "60"
         },
         {
           "codigo": "COM0136",
-          "nome": "TEORIAS DA COMUNICAÇÃO ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIAS DA COMUNICACAO ORGANIZACIONAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "COM0137",
-          "nome": "TÉCNICAS DE JORNALISMO IMPRESSO E ON LINE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TECNICAS DE JORNALISMO IMPRESSO E ON LINE",
+          "ch": "60"
         },
         {
           "codigo": "COM0138",
-          "nome": "PLANEJAMENTO GRÁFICO, VISUAL E WEB",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO GRAFICO, VISUAL E WEB",
+          "ch": "60"
         },
         {
           "codigo": "COM0139",
-          "nome": "GESTÃO EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "COM0140",
-          "nome": "POLÍTICAS DE COMUNICAÇÃO, SOCIEDADE E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS DE COMUNICACAO, SOCIEDADE E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "COM0155",
-          "nome": "COMUNICAÇÃO CULTURA E CONSUMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO CULTURA E CONSUMO",
+          "ch": "60"
         },
         {
           "codigo": "FAC0056",
-          "nome": "OFICINA DE PRODUÇÃO DE ARTIGOS CIENTÍFICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE PRODUCAO DE ARTIGOS CIENTIFICOS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "COM0141",
-          "nome": "TÉCNICAS DE JORNALISMO EM RÁDIO E TV",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TECNICAS DE JORNALISMO EM RADIO E TV",
+          "ch": "60"
         },
         {
           "codigo": "COM0142",
-          "nome": "INSTRUMENTO DA COMUNICAÇÃO ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INSTRUMENTO DA COMUNICACAO ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "COM0143",
-          "nome": "PLANEJAMENTO E GESTÃO EM MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO EM MARKETING",
+          "ch": "60"
         },
         {
           "codigo": "COM0144",
-          "nome": "CRIAÇÃO EM COMUNICAÇÃO E PUBLICIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CRIACAO EM COMUNICACAO E PUBLICIDADE",
+          "ch": "60"
         },
         {
           "codigo": "COM0156",
-          "nome": "LINGUAGEM E ESTÉTICA FOTOGRÁFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAGEM E ESTETICA FOTOGRAFICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "COM0145",
-          "nome": "ROTEIRO, PRODUÇÃO E DIREÇÃO PARA WEB, VÍDEO E CINEMA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ROTEIRO, PRODUCAO E DIRECAO PARA WEB, VIDEO E CINEMA",
+          "ch": "60"
         },
         {
           "codigo": "COM0146",
-          "nome": "PESQUISA EM OPINIÃO E MERCADO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PESQUISA EM OPINIAO E MERCADO",
+          "ch": "60"
         },
         {
           "codigo": "COM0147",
-          "nome": "PLANEJAMENTO E GESTÃO EM ORG PÚBLICAS, PRIVADAS E DO TERCEIRO SETOR",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO EM ORG PUBLICAS, PRIVADAS E DO TERCEIRO SETOR",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "COM0148",
-          "nome": "FORMATAÇÃO E GERENCIAMENTO DE PROJETOS EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FORMATACAO E GERENCIAMENTO DE PROJETOS EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "COM0149",
-          "nome": "PLANEJAMENTO E GESTÃO EM WEB",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO EM WEB",
+          "ch": "60"
         },
         {
           "codigo": "COM0150",
-          "nome": "GESTÃO ESTRATÉGICA PARA A SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO ESTRATEGICA PARA A SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "COM0151",
-          "nome": "AVALIAÇÃO EM PROJETOS DE COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO EM PROJETOS DE COMUNICACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "COM0152",
-          "nome": "ASSESSORIA E CONSULTORIA EM COMUNICAÇÃO",
-          "carga_horaria": "180h",
-          "natureza": "Obrigatória"
+          "nome": "ASSESSORIA E CONSULTORIA EM COMUNICACAO",
+          "ch": "180"
         },
         {
           "codigo": "COM0153",
-          "nome": "PRÉ-PROJETO DE TCC",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRE-PROJETO DE TCC",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "COM0154",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "150"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0025",
-          "nome": "ORGANIZACAO E SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0025 - ORGANIZACAO E SISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0035",
-          "nome": "ANÁLISE DE DECISÕES 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
         },
         {
           "codigo": "ADM0061",
-          "nome": "LOGÍSTICA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0064",
-          "nome": "ADMINISTRAÇÃO DE MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
         },
         {
           "codigo": "CCA0015",
           "nome": "CONTABILIDADE GERAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
         },
         {
           "codigo": "CEN0031",
           "nome": "OFICINA BASICA DE ARTES CENICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0036",
           "nome": "HISTORIA DO TEATRO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0038",
           "nome": "CORPO E MOVIMENTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0039",
           "nome": "ENCENACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CET0038",
           "nome": "ESTUDO DO TURISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "COM0001",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 4",
+          "ch": "60"
         },
         {
           "codigo": "COM0002",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 3",
+          "ch": "60"
         },
         {
           "codigo": "COM0004",
-          "nome": "MÍDIA, CULTURA E SUBJETIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MIDIA, CULTURA E SUBJETIVIDADE",
+          "ch": "60"
         },
         {
           "codigo": "COM0005",
-          "nome": "INTERNET E POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERNET E POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "COM0006",
-          "nome": "EXTENSÃO EM COMUNICAÇÃO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "EXTENSAO EM COMUNICACAO 1",
+          "ch": "90"
         },
         {
           "codigo": "COM0007",
-          "nome": "EXTENSÃO EM COMUNICAÇÃO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "EXTENSAO EM COMUNICACAO 2",
+          "ch": "90"
         },
         {
           "codigo": "COM0009",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 5",
+          "ch": "60"
         },
         {
           "codigo": "COM0010",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 6",
+          "ch": "60"
         },
         {
           "codigo": "COM0012",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 7",
+          "ch": "60"
         },
         {
           "codigo": "COM0014",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 8",
+          "ch": "60"
         },
         {
           "codigo": "COM0016",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 9",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 9",
+          "ch": "60"
         },
         {
           "codigo": "COM0017",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 10",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 10",
+          "ch": "60"
         },
         {
           "codigo": "COM0157",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 1",
+          "ch": "60"
         },
         {
           "codigo": "COM0195",
-          "nome": "COMUNICAÇÃO, DEMOCRACIA E ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO, DEMOCRACIA E ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0001",
-          "nome": "BRANDING: UMA VISÃO PRÁTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BRANDING: UMA VISAO PRATICA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0004",
           "nome": "LINGUAGEM PUBLICITARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0006",
           "nome": "PRODUCAO GRAFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0007",
           "nome": "ANALISE DA PUBLICIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0008",
           "nome": "ARGUMENTO E ROTEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0011",
           "nome": "CRIATIVIDADE EM PUBLICIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0012",
           "nome": "DIRECAO DE ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0014",
           "nome": "REDACAO PARA PUBLICIDADE AUDIO-VISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0015",
           "nome": "CINEMA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0016",
           "nome": "DIRECAO DO FILME 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0017",
           "nome": "ANALISE DO FILME",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0021",
           "nome": "CINEMA BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0022",
           "nome": "TENDENCIAS DO CINEMA E DA TELEVISAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0024",
           "nome": "TECNOLOGIA DO RADIO E TV",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0030",
-          "nome": "ADMINISTRAÇÃO PUBLICITÁRIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO PUBLICITARIA",
+          "ch": "30"
         },
         {
           "codigo": "DAP0031",
           "nome": "PRODUCAO PUBLICITARIA PARA RADIO, TELEVISAO E CINEMA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DAP0033",
           "nome": "PROJETOS EXPERIMENTAIS - PUBLICIDADE",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DAP0035",
           "nome": "PROJETOS EXPERIMENTAIS - CINEMA",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DAP0038",
           "nome": "REDACAO PARA TV 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0042",
-          "nome": "DOCUMENTÁRIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DOCUMENTARIO 2",
+          "ch": "60"
         },
         {
           "codigo": "DAP0044",
-          "nome": "PESQUISA PUBLICITÁRIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA PUBLICITARIA",
+          "ch": "30"
         },
         {
           "codigo": "DAP0055",
           "nome": "FOTOGRAFIA E ILUMINACAO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0060",
           "nome": "PUBLICIDADE E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0061",
           "nome": "INTRODUCAO AS HISTORIAS EM QUADRINHOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0064",
           "nome": "MIDIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0067",
           "nome": "HISTORIA DO CINEMA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0068",
           "nome": "REDACAO PARA RADIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0072",
           "nome": "PRODUCAO E INTERPRETACAO PARA RADIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0076",
-          "nome": "FOTOGRAFIA E ILUMINAÇÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FOTOGRAFIA E ILUMINACAO 1",
+          "ch": "30"
         },
         {
           "codigo": "DAP0078",
-          "nome": "DIREÇÃO DO FILME 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIRECAO DO FILME 1",
+          "ch": "60"
         },
         {
           "codigo": "DAP0079",
-          "nome": "INTRODUÇÃO A FOTOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0083",
           "nome": "ANALISE DA IMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0084",
-          "nome": "COMUNICAÇÃO E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "DAP0085",
           "nome": "INTRODUCAO AS COMUNICACOES MEDIADAS POR COMPUTADOR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DAP0089",
           "nome": "INFORMATICA E CINEMA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0090",
           "nome": "EDICAO DO FILME 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0091",
           "nome": "SOM DO FILME 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0093",
-          "nome": "PRODUÇÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO 2",
+          "ch": "30"
         },
         {
           "codigo": "DAP0096",
-          "nome": "OFICINA BÁSICA DE AUDIOVISUAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
         },
         {
           "codigo": "DAP0097",
-          "nome": "LEITURA DOS MEIOS DE COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEITURA DOS MEIOS DE COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "DAP0098",
-          "nome": "INTRODUÇÃO A PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PUBLICIDADE E PROPAGANDA",
+          "ch": "30"
         },
         {
           "codigo": "DAP0099",
-          "nome": "COMUNICAÇÃO E MÚSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E MUSICA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0100",
-          "nome": "COMUNICAÇÃO E GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E GENERO",
+          "ch": "60"
         },
         {
           "codigo": "DAP0101",
-          "nome": "FUNDAMENTOS DE COMUNICAÇÃO VISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0102",
-          "nome": "CRIATIVIDADE EM COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CRIATIVIDADE EM COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "DAP0103",
-          "nome": "LINGUAGENS CINEMATOGRÁFICA E AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAGENS CINEMATOGRAFICA E AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0104",
-          "nome": "TEORIA ESTÉTICA DO CINEMA E DO AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA ESTETICA DO CINEMA E DO AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0105",
           "nome": "OFICINA DE ARGUMENTO E ROTEIRO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0107",
-          "nome": "DIREÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DIRECAO",
+          "ch": "30"
         },
         {
           "codigo": "DAP0108",
-          "nome": "PRODUÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO",
+          "ch": "30"
         },
         {
           "codigo": "DAP0110",
           "nome": "SOM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0111",
-          "nome": "EDIÇÃO E MONTAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDICAO E MONTAGEM",
+          "ch": "30"
         },
         {
           "codigo": "DAP0112",
-          "nome": "LABORATÓRIO DE REALIZAÇÃO EM TV E VIDEO",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE REALIZACAO EM TV E VIDEO",
+          "ch": "210"
         },
         {
           "codigo": "DAP0113",
-          "nome": "LABORATÓRIO DE REALIZAÇÃO EM CINEMA",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE REALIZACAO EM CINEMA",
+          "ch": "210"
         },
         {
           "codigo": "DAP0114",
-          "nome": "LABORATÓRIO DE REALIZAÇÃO EM ÁUDIO",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE REALIZACAO EM AUDIO",
+          "ch": "210"
         },
         {
           "codigo": "DAP0115",
-          "nome": "PRÉ-PROJETO EM AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRE-PROJETO EM AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0116",
           "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DAP0117",
-          "nome": "INTRODUÇÃO A LINGUAGEM SONORA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUAGEM SONORA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0118",
-          "nome": "ROTEIRO, PRODUÇÃO E REALIZAÇÃO EM ÁUDIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ROTEIRO, PRODUCAO E REALIZACAO EM AUDIO",
+          "ch": "60"
         },
         {
           "codigo": "DAP0119",
-          "nome": "SEMINÁRIOS AVANÇADOS EM AUDIOVISUAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS AVANCADOS EM AUDIOVISUAL 2",
+          "ch": "30"
         },
         {
           "codigo": "DAP0120",
-          "nome": "FOTOGRAFIA PUBLICITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FOTOGRAFIA PUBLICITARIA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0123",
           "nome": "MARKETING EM PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DAP0124",
-          "nome": "REDAÇÃO PUBLICITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REDACAO PUBLICITARIA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0125",
-          "nome": "DIREÇÃO DE ARTE EM ARTES GRÁFICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIRECAO DE ARTE EM ARTES GRAFICAS",
+          "ch": "60"
         },
         {
           "codigo": "DAP0126",
-          "nome": "PLANEJAMENTO PUBLICITÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO PUBLICITARIO",
+          "ch": "60"
         },
         {
           "codigo": "DAP0127",
           "nome": "GERENCIAMENTO DE CONTAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0128",
-          "nome": "LABORATÓRIO EM PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO EM PUBLICIDADE E PROPAGANDA",
+          "ch": "240"
         },
         {
           "codigo": "DAP0129",
-          "nome": "SEMINÁRIOS AVANÇADOS EM ÁUDIOVISUAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS AVANCADOS EM AUDIOVISUAL 1",
+          "ch": "30"
         },
         {
           "codigo": "DAP0130",
-          "nome": "PRÉ-PROJETO EM PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRE-PROJETO EM PUBLICIDADE E PROPAGANDA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0131",
-          "nome": "OFICINA DE INTERPRETAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE INTERPRETACAO",
+          "ch": "30"
         },
         {
           "codigo": "DAP0132",
           "nome": "OFICINA DE PUBLICIDADE E PROPAGANDA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0133",
           "nome": "OFICINA DE PUBLICIDADE E PROPAGANDA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0134",
           "nome": "OFICINA DE PUBLICIDADE E PROPAGANDA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0139",
           "nome": "ARTE E PUBLICIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0140",
           "nome": "ECONOMIA DO CINEMA E AUDIOVISUAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0141",
-          "nome": "FORMATAÇÃO PROJETO  AUDIOVISUAL E CAPTAÇÃO DE RECURSOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FORMATACAO PROJETO  AUDIOVISUAL E CAPTACAO DE RECURSOS",
+          "ch": "30"
         },
         {
           "codigo": "DAP0143",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 3",
+          "ch": "60"
         },
         {
           "codigo": "DAP0145",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 4",
+          "ch": "60"
         },
         {
           "codigo": "DAP0147",
-          "nome": "DIREÇÃO DE ARTE PARA PRODUTO AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIRECAO DE ARTE PARA PRODUTO AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0149",
-          "nome": "DIREÇÃO DE ATORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIRECAO DE ATORES",
+          "ch": "60"
         },
         {
           "codigo": "DAP0150",
-          "nome": "OFICINA DE ANIMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE ANIMACAO",
+          "ch": "60"
         },
         {
           "codigo": "DAP0151",
-          "nome": "HISTÓRIA DO CINEMA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO CINEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "DAP0154",
-          "nome": "DOCUMENTÁRIO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DOCUMENTARIO 1",
+          "ch": "30"
         },
         {
           "codigo": "DAP0155",
           "nome": "CINEMA BRASILEIRO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0156",
-          "nome": "REDAÇÃO PRODUÇÃO E EDIÇÃO EM TELEVISÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REDACAO PRODUCAO E EDICAO EM TELEVISAO",
+          "ch": "60"
         },
         {
           "codigo": "DAP0157",
           "nome": "NOVAS MIDIAS AUDIOVISUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0158",
-          "nome": "PRODUÇÃO PUBLICITÁRIA AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO PUBLICITARIA AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0159",
           "nome": "PROJETO FINAL EM PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DAP0162",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO NÃO VERBAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO NAO VERBAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0164",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 7",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 7",
+          "ch": "30"
         },
         {
           "codigo": "DAP0166",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 8",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 8",
+          "ch": "30"
         },
         {
           "codigo": "DAP0167",
           "nome": "OFICINA DE PUBLICIDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0168",
           "nome": "OFICINA DE PUBLICIDADE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAP0169",
-          "nome": "OFICINA DE HISTÓRIA EM QUADRINHOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE HISTORIA EM QUADRINHOS",
+          "ch": "60"
         },
         {
           "codigo": "DAP0170",
-          "nome": "LEGISLAÇÃO E REGULAMENTAÇÃO DE PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO E REGULAMENTACAO DE PUBLICIDADE E PROPAGANDA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0171",
-          "nome": "LEGISLAÇÃO, DESENVOLVIMENTO E PRODUÇÃO DE PROJETOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO, DESENVOLVIMENTO E PRODUCAO DE PROJETOS",
+          "ch": "30"
         },
         {
           "codigo": "DAP0172",
-          "nome": "MÍDIA E GERENCIAMENTO DE CONTAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MIDIA E GERENCIAMENTO DE CONTAS",
+          "ch": "60"
         },
         {
           "codigo": "DAP0174",
           "nome": "SOM 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAP0175",
-          "nome": "DIREÇÃO EM AUDIOVISUAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIRECAO EM AUDIOVISUAL 2",
+          "ch": "60"
         },
         {
           "codigo": "DAP0176",
-          "nome": "EDIÇÃO E MONTAGEM 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDICAO E MONTAGEM 2",
+          "ch": "60"
         },
         {
           "codigo": "DAP0177",
-          "nome": "INTRODUÇÃO AS REDES SOCIAIS VIRTUAIS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AS REDES SOCIAIS VIRTUAIS",
+          "ch": "30"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "DSC0037",
           "nome": "PRATICAS DE SAUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ECO0021",
-          "nome": "HISTÓRIA ECONÔMICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0050",
           "nome": "CONTABILIDADE NACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0099",
           "nome": "MACROECONOMIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0108",
           "nome": "ECONOMIA RURAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0126",
           "nome": "MICROECONOMIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0147",
           "nome": "CONJUNTURA ECONOMICA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0185",
           "nome": "MICROECONOMIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0187",
           "nome": "ECONOMIA QUANTITATIVA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0189",
           "nome": "MACROECONOMIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0218",
           "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FAC0002",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO ORGANIZACIONAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 2",
+          "ch": "30"
         },
         {
           "codigo": "FAC0007",
-          "nome": "ANÁLISE AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "FAC0008",
-          "nome": "SEMIÓTICA E COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMIOTICA E COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FAC0010",
-          "nome": "COMUNICAÇÃO INTERNA E CULTURA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO INTERNA E CULTURA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FAC0016",
-          "nome": "ESTÉTICA E CULTURA DE MASSA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
         },
         {
           "codigo": "FAC0058",
-          "nome": "LABORATÓIRO DE PESQUISA EM COMUNICAÇÃO CULTURA E CONSUMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATOIRO DE PESQUISA EM COMUNICACAO CULTURA E CONSUMO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0062",
           "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0105",
-          "nome": "PRÁTICA DESPORTIVA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
         },
         {
           "codigo": "FIL0029",
-          "nome": "EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0053",
           "nome": "TEORIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0056",
-          "nome": "LÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FIL0068",
-          "nome": "ESTÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0077",
-          "nome": "INICIAÇÃO À METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0109",
           "nome": "INTRODUCAO A LOGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0134",
           "nome": "MITO E FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0158",
           "nome": "IDEIAS FILOSOFICAS EM FORMA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0166",
-          "nome": "INTRODUÇÃO A PRÁTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
         },
         {
           "codigo": "FTD0007",
           "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0286",
-          "nome": "ENSINO DE CIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0314",
-          "nome": "BASES PSICOLÓGICAS PARA O ENSINO DE CIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES PSICOLOGICAS PARA O ENSINO DE CIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "GEA0041",
-          "nome": "GEOGRAFIA HUMANA E ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0100",
-          "nome": "HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0102",
-          "nome": "HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0104",
-          "nome": "HISTÓRIA DO BRASIL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
         },
         {
           "codigo": "HIS0106",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0110",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0140",
           "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0141",
           "nome": "CULTURA BRASILEIRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IRI0013",
-          "nome": "INTRODUÇÃO AO ESTUDO DAS RELAÇÕES INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "JOR0001",
-          "nome": "COMUNICAÇÃO, INFORMAÇÃO E COMPUTAÇÃO : FUNDAMENTOS E APLICAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO, INFORMACAO E COMPUTACAO : FUNDAMENTOS E APLICACAO",
+          "ch": "90"
         },
         {
           "codigo": "JOR0002",
-          "nome": "HISTÓRIA DO JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO JORNALISMO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0003",
-          "nome": "PROCESSOS GRÁFICOS EM JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS GRAFICOS EM JORNALISMO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0004",
-          "nome": "ÉTICA E JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA E JORNALISMO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0005",
-          "nome": "APURAÇÃO E TEXTO JORNALISTICO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "APURACAO E TEXTO JORNALISTICO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0006",
-          "nome": "JORNALISMO EM RÁDIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO EM RADIO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0007",
           "nome": "WEBDESIGN EM JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0008",
-          "nome": "APURAÇÃO E TEXTO JORNALISTICO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "APURACAO E TEXTO JORNALISTICO 2",
+          "ch": "60"
         },
         {
           "codigo": "JOR0009",
           "nome": "WEBJORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0010",
-          "nome": "CAMPUS MULTIMÍDIA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "CAMPUS MULTIMIDIA",
+          "ch": "180"
         },
         {
           "codigo": "JOR0012",
-          "nome": "EMPREENDEDORISMO E GESTÃO EM COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EMPREENDEDORISMO E GESTAO EM COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "JOR0013",
           "nome": "JORNALISMO CULTURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0014",
-          "nome": "JORNALISMO EM RÁDIO 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO EM RADIO 2",
+          "ch": "120"
         },
         {
           "codigo": "JOR0015",
           "nome": "JORNALISMO EM TV 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0016",
           "nome": "JORNALISMO EM TV 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "JOR0017",
           "nome": "JORNALISMO ESPORTIVO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0018",
           "nome": "JORNALISMO INTERNACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0019",
           "nome": "JORNALISMO INVESTIGATIVO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0020",
           "nome": "JORNALISMO LOCAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0021",
           "nome": "JORNALISMO OPINATIVO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0022",
-          "nome": "TEORIA E PESQUISA DE OPINIÃO PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E PESQUISA DE OPINIAO PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "JOR0023",
           "nome": "TEORIAS DO JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0024",
-          "nome": "ASSESSORIA DE COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ASSESSORIA DE COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0025",
-          "nome": "ASSESSORIA DE COMUNICAÇÃO 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ASSESSORIA DE COMUNICACAO 2",
+          "ch": "120"
         },
         {
           "codigo": "JOR0026",
-          "nome": "ESTÁGIO OBRIGATÓRIO",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO OBRIGATORIO",
+          "ch": "210"
         },
         {
           "codigo": "JOR0027",
           "nome": "JORNAL CAMPUS",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "JOR0030",
           "nome": "TELEJORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0033",
           "nome": "ANALISE E OPINIAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0034",
           "nome": "JORNALISMO ESPECIALIZADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0036",
           "nome": "PROJETOS EXPERIMENTAIS - JORNALISMO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "JOR0037",
           "nome": "JORNALISMO DE REVISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0039",
           "nome": "FOTOJORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0041",
           "nome": "IMPRENSA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0044",
           "nome": "FOTOGRAFIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0045",
-          "nome": "TEORIAS DA COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0046",
           "nome": "REDACAO DE JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0047",
           "nome": "EDICAO JORNALISTICA",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "JOR0048",
           "nome": "NOTICIA E MERCADOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0049",
           "nome": "PLANEJAMENTO GRAFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0050",
           "nome": "HISTORIA DA IMPRENSA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0054",
           "nome": "RADIOJORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0056",
           "nome": "ETICA E LEGISLACAO EM COMUNICACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0057",
           "nome": "REALIDADE BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0058",
           "nome": "OFICINA DE TEXTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0059",
           "nome": "REALIDADE REGIONAL EM COMUNICACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0061",
-          "nome": "OFICINA AVANÇADA DE NARRATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA AVANCADA DE NARRATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "JOR0062",
-          "nome": "ÉTICA NA COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ETICA NA COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "JOR0063",
-          "nome": "MÉTODOS E TÉCNICAS EM PESQUISA EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS E TECNICAS EM PESQUISA EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0064",
-          "nome": "ESTÉTICA DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0065",
-          "nome": "POLITICAS DE COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS DE COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0067",
-          "nome": "ASSESSORIA DE COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ASSESSORIA DE COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "JOR0070",
-          "nome": "TÉCNICAS DE JORNALISMO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE JORNALISMO",
+          "ch": "90"
         },
         {
           "codigo": "JOR0071",
           "nome": "CAMPUS 2",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "JOR0072",
           "nome": "OFICINA DE TEXTO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0073",
-          "nome": "COMUNICAÇÃO E PROCESSOS DE INTERPRETAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E PROCESSOS DE INTERPRETACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0074",
-          "nome": "TÓPICOS ESPECIAIS EM ESTÉTICA E CULTURA DE MASSA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
         },
         {
           "codigo": "JOR0075",
           "nome": "REPORTAGEM FOTOGRAFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0076",
           "nome": "ELABORACAO DE PROJETOS EM COMUNICACAO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0078",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0079",
-          "nome": "COMUNICAÇÃO E UNIVERSIDADE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E UNIVERSIDADE",
+          "ch": "30"
         },
         {
           "codigo": "JOR0080",
-          "nome": "INTRODUÇÃO AO JORNALISMO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO JORNALISMO",
+          "ch": "30"
         },
         {
           "codigo": "JOR0082",
           "nome": "CAMPUS 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "JOR0083",
-          "nome": "COMUNICAÇÃO COMUNITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO COMUNITARIA",
+          "ch": "60"
         },
         {
           "codigo": "JOR0085",
           "nome": "OFICINA DE JORNALISMO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0086",
           "nome": "TELEJORNALISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0087",
           "nome": "RADIOJORNALISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0088",
-          "nome": "PRÉ-PROJETO EXPERIMENTAL EM JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRE-PROJETO EXPERIMENTAL EM JORNALISMO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0089",
-          "nome": "TECNOLOGIA DE COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA DE COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "JOR0092",
-          "nome": "LEGISLAÇÃO E DIREITO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO E DIREITO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0093",
-          "nome": "COMUNICAÇÃO INSTITUCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO INSTITUCIONAL",
+          "ch": "60"
         },
         {
           "codigo": "JOR0094",
-          "nome": "DIREITO DO PÚBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIREITO DO PUBLICO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0095",
-          "nome": "COMUNICAÇÃO E POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "JOR0097",
-          "nome": "ANÁLISE DO JORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DO JORNALISMO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0098",
-          "nome": "JORNALISMO ECONÔMICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO ECONOMICO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0100",
           "nome": "JORNALISMO E PODER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0101",
           "nome": "JORNALISMO CORPORATIVO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0102",
-          "nome": "PLANEJAMENTO GRÁFICO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO GRAFICO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0103",
           "nome": "OFICINA DE JORNALISMO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0104",
           "nome": "OFICINA DE JORNALISMO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0105",
-          "nome": "ANÁLISE DO JORNALISMO AUDIOVISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DO JORNALISMO AUDIOVISUAL",
+          "ch": "60"
         },
         {
           "codigo": "JOR0107",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0109",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "JOR0110",
-          "nome": "JORNALISMO POLÍTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO POLITICO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0112",
           "nome": "PROJETO FINAL EM JORNALISMO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "JOR0114",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 5",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 5",
+          "ch": "30"
         },
         {
           "codigo": "JOR0116",
-          "nome": "TÓPICOS ESPECIAIS EM COMUNICAÇÃO 6",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 6",
+          "ch": "30"
         },
         {
           "codigo": "JOR0117",
           "nome": "OFICINA DE JORNALISMO DIGITAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0118",
           "nome": "OFICINA DE JORNALISMO DIGITAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0119",
           "nome": "OFICINA DE JORNALISMO DIGITAL 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0120",
           "nome": "OFICINA DE JORNALISMO DIGITAL 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0121",
           "nome": "OFICINA DE JORNALISMO 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0122",
           "nome": "OFICINA DE JORNALISMO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0124",
           "nome": "OFICINA DE JORNALISMO 6",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "JOR0125",
           "nome": "OFICINA DE JORNALISMO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0127",
-          "nome": "COMUNICAÇÃO E POLÍTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E POLITICA 2",
+          "ch": "60"
         },
         {
           "codigo": "JOR0128",
-          "nome": "COMUNICAÇÃO COMUNITÁRIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO COMUNITARIA 2",
+          "ch": "60"
         },
         {
           "codigo": "JOR0130",
-          "nome": "HISTÓRIA DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0131",
-          "nome": "CRÍTICA DA MÍDIA EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CRITICA DA MIDIA EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0132",
-          "nome": "OFICINA DE DIAGRAMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE DIAGRAMACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0133",
-          "nome": "EDIÇÃO DE IMAGEM EM REVISTAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDICAO DE IMAGEM EM REVISTAS",
+          "ch": "60"
         },
         {
           "codigo": "JOR0134",
           "nome": "OFICINA DE TELEJORNALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0135",
-          "nome": "JORNALISMO LITERÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO LITERARIO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0136",
-          "nome": "LABORATÓRIO CAMPUS REPORTER 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO CAMPUS REPORTER 1",
+          "ch": "90"
         },
         {
           "codigo": "JOR0137",
-          "nome": "TÉCNICAS DE RÁDIO E TV",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE RADIO E TV",
+          "ch": "30"
         },
         {
           "codigo": "JOR0138",
-          "nome": "JORNALISMO EM TELEVISÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO EM TELEVISAO",
+          "ch": "120"
         },
         {
           "codigo": "JOR0139",
-          "nome": "JORNALISMO EM RÁDIO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "JORNALISMO EM RADIO",
+          "ch": "120"
         },
         {
           "codigo": "LET0044",
           "nome": "LINGUA ALEMA INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0077",
           "nome": "LINGUA FRANCESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0078",
           "nome": "LINGUA FRANCESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0079",
           "nome": "LINGUA FRANCESA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0085",
-          "nome": "LÍNGUA INGLESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0086",
           "nome": "LINGUA INGLESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0087",
           "nome": "LINGUA INGLESA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0102",
           "nome": "LINGUA ALEMA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0103",
           "nome": "LINGUA ALEMA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0104",
           "nome": "LINGUA ALEMA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0120",
-          "nome": "LÍNGUA ESPANHOLA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0122",
-          "nome": "LÍNGUA ESPANHOLA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
         },
         {
           "codigo": "LIP0045",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0058",
           "nome": "SEMANTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MUS0089",
-          "nome": "OFICINA BÁSICA DE MÚSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
         },
         {
           "codigo": "PED0025",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0027",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0012",
-          "nome": "TEORIA POLÍTICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
         },
         {
           "codigo": "POL0013",
-          "nome": "TEORIA POLÍTICA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "POL0017",
-          "nome": "POLÍTICA BRASILEIRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0012",
           "nome": "PSICOLOGIA SOCIAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "SER0015",
-          "nome": "POLÍTICA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SER0024",
-          "nome": "INTRODUÇÃO AO SERVIÇO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "SOL0047",
           "nome": "SOCIOLOGIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "SOL0058",
           "nome": "SOCIOLOGIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0069",
-          "nome": "PENSAMENTO SOCIOLÓGICO LATINO-AMERICANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO SOCIOLOGICO LATINO-AMERICANO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0104",
-          "nome": "TEORIAS SOCIOLÓGICAS CLÁSSICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
         },
         {
           "codigo": "SOL0105",
-          "nome": "TEORIAS SOCIOLÓGICAS MARXISTAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
         },
         {
           "codigo": "TAU0002",
           "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0005",
-          "nome": "OFICINA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA LITERARIA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0014",
           "nome": "INTRODUCAO A TEORIA DA LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0022",
           "nome": "LITERATURA BRASILEIRA - REALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0024",
           "nome": "LITERATURA BRASILEIRA - BARROCO E ARCADISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0026",
-          "nome": "LITERATURA BRASILEIRA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "VIS0060",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
         },
         {
           "codigo": "VIS0061",
           "nome": "HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0127",
           "nome": "FUNDAMENTOS DE LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0129",
           "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0141",
           "nome": "HISTORIA DA ARTE ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0253",
           "nome": "HISTORIA DA ARTE MEDIEVAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0254",
           "nome": "HISTORIA DA ARTE MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0255",
           "nome": "HISTORIA DA ARTE CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "COM0155",
-          "nome": "COMUNICAÇÃO CULTURA E CONSUMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO CULTURA E CONSUMO",
+          "ch": "60"
         },
         {
           "codigo": "FAC0056",
-          "nome": "OFICINA DE PRODUÇÃO DE ARTIGOS CIENTÍFICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA DE PRODUCAO DE ARTIGOS CIENTIFICOS",
+          "ch": "60"
         },
         {
           "codigo": "COM0156",
-          "nome": "LINGUAGEM E ESTÉTICA FOTOGRÁFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAGEM E ESTETICA FOTOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0127",
+          "nome": "ETICA, LEGISLACAO E RESPONSABILIDADE SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0128",
+          "nome": "INTRODUCAO AO MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0129",
+          "nome": "LINGUAGENS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0130",
+          "nome": "INTRODUCAO AS TEORIAS DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0131",
+          "nome": "INTRODUCAO AO PLANEJAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0132",
+          "nome": "LINGUAGENS DA COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0133",
+          "nome": "METODOLOGIA DE PESQUISA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0134",
+          "nome": "PLANEJAMENTO EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0135",
+          "nome": "PRODUCAO E EDICAO DE IMAGEM E SOM",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0136",
+          "nome": "TEORIAS DA COMUNICACAO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0137",
+          "nome": "TECNICAS DE JORNALISMO IMPRESSO E ON LINE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0138",
+          "nome": "PLANEJAMENTO GRAFICO, VISUAL E WEB",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0139",
+          "nome": "GESTAO EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0140",
+          "nome": "POLITICAS DE COMUNICACAO, SOCIEDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0155",
+          "nome": "COMUNICACAO CULTURA E CONSUMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0056",
+          "nome": "OFICINA DE PRODUCAO DE ARTIGOS CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0141",
+          "nome": "TECNICAS DE JORNALISMO EM RADIO E TV",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0142",
+          "nome": "INSTRUMENTO DA COMUNICACAO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0143",
+          "nome": "PLANEJAMENTO E GESTAO EM MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0144",
+          "nome": "CRIACAO EM COMUNICACAO E PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0156",
+          "nome": "LINGUAGEM E ESTETICA FOTOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0145",
+          "nome": "ROTEIRO, PRODUCAO E DIRECAO PARA WEB, VIDEO E CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0146",
+          "nome": "PESQUISA EM OPINIAO E MERCADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0147",
+          "nome": "PLANEJAMENTO E GESTAO EM ORG PUBLICAS, PRIVADAS E DO TERCEIRO SETOR",
+          "ch": "120"
+        },
+        {
+          "codigo": "COM0148",
+          "nome": "FORMATACAO E GERENCIAMENTO DE PROJETOS EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0149",
+          "nome": "PLANEJAMENTO E GESTAO EM WEB",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0150",
+          "nome": "GESTAO ESTRATEGICA PARA A SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0151",
+          "nome": "AVALIACAO EM PROJETOS DE COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0152",
+          "nome": "ASSESSORIA E CONSULTORIA EM COMUNICACAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "COM0153",
+          "nome": "PRE-PROJETO DE TCC",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0154",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "150"
         }
       ]
     }

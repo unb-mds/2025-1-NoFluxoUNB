@@ -3,562 +3,587 @@
   "periodo_letivo_vigor": "2025.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0517",
-          "nome": "PRODUÇÃO VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRODUCAO VEGETAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0518",
-          "nome": "AGRONEGÓCIOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "AGRONEGOCIOS",
+          "ch": "30"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FAV0009",
-          "nome": "GESTÃO DO TRABALHO NO CONTEXTO RURAL E AGROINDUSTRIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DO TRABALHO NO CONTEXTO RURAL E AGROINDUSTRIAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0519",
-          "nome": "AGRICULTURA FAMILIAR E SISTEMAS ALIMENTARES SUSTENTÁVEIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AGRICULTURA FAMILIAR E SISTEMAS ALIMENTARES SUSTENTAVEIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0520",
-          "nome": "PRODUÇÃO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRODUCAO ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0535",
-          "nome": "GESTÃO DA INOVAÇÃO NOS AGRONEGÓCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DA INOVACAO NOS AGRONEGOCIOS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "CCA0103",
-          "nome": "INTRODUÇÃO À CONTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FAV0516",
-          "nome": "GOVERNANÇA E POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GOVERNANCA E POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0536",
-          "nome": "INTRODUÇÃO À EXTENSÃO UNIVERSITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A EXTENSAO UNIVERSITARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0537",
-          "nome": "GESTÃO E MERCADO NA AQUICULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO E MERCADO NA AQUICULTURA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "FAV0354",
-          "nome": "MÉTODOS QUALITATIVOS APLICADOS AO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS QUALITATIVOS APLICADOS AO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FAV0522",
-          "nome": "METODOLOGIA DO TRABALHO ACADÊMICO-CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DO TRABALHO ACADEMICO-CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "FAV0523",
-          "nome": "CUSTOS NOS AGRONEGÓCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CUSTOS NOS AGRONEGOCIOS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "ADM0061",
-          "nome": "LOGÍSTICA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0320",
-          "nome": "ANÁLISE ORGANIZACIONAL, SISTEMAS E MÉTODOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0524",
-          "nome": "TRABALHO E SAÚDE EM ORGANIZAÇÕES DOS AGRONEGÓCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO E SAUDE EM ORGANIZACOES DOS AGRONEGOCIOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0525",
-          "nome": "GESTÃO DA QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DA QUALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FAV0579",
-          "nome": "ESTÁGIO SUPERVISIONADO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "ADM0035",
-          "nome": "ANÁLISE DE DECISÕES 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
         },
         {
           "codigo": "ADM0192",
           "nome": "CALCULO FINANCEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0521",
-          "nome": "AGRONEGÓCIOS E SISTEMAS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AGRONEGOCIOS E SISTEMAS AGROINDUSTRIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0528",
-          "nome": "INTRODUÇÃO À MÉTODOS QUANTITATIVOS EM GESTÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A METODOS QUANTITATIVOS EM GESTAO",
+          "ch": "60"
         },
         {
           "codigo": "FAV0548",
-          "nome": "EXTENSÃO UNIVERSITÁRIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EXTENSAO UNIVERSITARIA 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FAV0514",
-          "nome": "COMERCIALIZAÇÃO DE PRODUTOS AGROPECUÁRIOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "COMERCIALIZACAO DE PRODUTOS AGROPECUARIOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0515",
-          "nome": "GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0527",
-          "nome": "AÇÃO COLETIVA NOS AGRONEGÓCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ACAO COLETIVA NOS AGRONEGOCIOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0533",
           "nome": "CANAIS DE MARKETING E COMPORTAMENTO DO CONSUMIDOR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0581",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FAV0526",
-          "nome": "COMÉRCIO INTERNACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0531",
-          "nome": "DESENVOLVIMENTO E GESTÃO DE PROJETOS NOS AGRONEGÓCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DESENVOLVIMENTO E GESTAO DE PROJETOS NOS AGRONEGOCIOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0590",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "60"
         },
         {
           "codigo": "FAV0594",
-          "nome": "ATIVIDADE OBRIGATÓRIA DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE OBRIGATORIA DE EXTENSAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "CEM0110",
-          "nome": "AGRICULTURA ALTERNATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FUP0373",
-          "nome": "AGRONEGÓCIO E DESENVOLVIMENTO REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FUP0270",
-          "nome": "DIREITO NO AGRONEGÓCIO E LEGISLAÇÃO TRIBUTÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FUP0280",
-          "nome": "ECONOMIA APLICADA AO AGRONEGÓCIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ECO0072",
-          "nome": "ECONOMIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FAV0339",
-          "nome": "FATORES DE PRODUÇÃO AGROPECUÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FAV0344",
-          "nome": "MARKETING AGROINDUSTRIAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FAV0349",
-          "nome": "PESQUISA OPERACIONAL EM SISTEMAS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FAV0355",
-          "nome": "PRINCÍPIOS DE SOCIOLOGIA ECONÔMICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FAV0351",
-          "nome": "CENÁRIOS CORPORATIVOS NO AGRONEGÓCIO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CEM0015",
-          "nome": "UNIVERSIDADE, SOCIEDADE E ESTADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0097",
-          "nome": "DIREITOS HUMANOS E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "ESTADO",
+          "nome": "60H OPTATIVA CEM0097 - DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "CEM0110",
           "nome": "AGRICULTURA ALTERNATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "COM0143",
-          "nome": "PLANEJAMENTO E GESTÃO EM MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO E GESTAO EM MARKETING",
+          "ch": "60"
         },
         {
           "codigo": "COM0146",
-          "nome": "PESQUISA EM OPINIÃO E MERCADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM OPINIAO E MERCADO",
+          "ch": "60"
         },
         {
           "codigo": "ECL0036",
-          "nome": "EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0072",
           "nome": "ECONOMIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0012",
-          "nome": "ESTÁGIO SUPERVISIONADO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
         },
         {
           "codigo": "FAV0025",
           "nome": "EMPREENDEDORISMO E MARKETING RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0195",
           "nome": "PLANEJAMENTO E DESENVOLVIMENTO AGRICOLA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0259",
           "nome": "POLITICA AGRICOLA E DESENVOLVIMENTO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0339",
-          "nome": "FATORES DE PRODUÇÃO AGROPECUÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FATORES DE PRODUCAO AGROPECUARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0342",
-          "nome": "ADMINISTRAÇÃO AGROINDUSTRIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO AGROINDUSTRIAL",
+          "ch": "30"
         },
         {
           "codigo": "FAV0344",
           "nome": "MARKETING AGROINDUSTRIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0349",
           "nome": "PESQUISA OPERACIONAL EM SISTEMAS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0351",
-          "nome": "CENÁRIOS CORPORATIVOS NO AGRONEGÓCIO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CENARIOS CORPORATIVOS NO AGRONEGOCIO",
+          "ch": "30"
         },
         {
           "codigo": "FAV0355",
-          "nome": "PRINCÍPIOS DE SOCIOLOGIA ECONÔMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE SOCIOLOGIA ECONOMICA",
+          "ch": "30"
         },
         {
           "codigo": "FAV0554",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "FAV0563",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0564",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0566",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0571",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "FAV0602",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAV0604",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "FDD0155",
-          "nome": "NOÇÕES DE DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0270",
-          "nome": "DIREITO NO AGRONEGÓCIO E LEGISLAÇÃO TRIBUTÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIREITO NO AGRONEGOCIO E LEGISLACAO TRIBUTARIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0280",
-          "nome": "ECONOMIA APLICADA AO AGRONEGÓCIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 1",
+          "ch": "60"
         },
         {
           "codigo": "FUP0373",
-          "nome": "AGRONEGÓCIO E DESENVOLVIMENTO REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AGRONEGOCIO E DESENVOLVIMENTO REGIONAL",
+          "ch": "60"
         },
         {
           "codigo": "GPP0031",
-          "nome": "ECONOMIA PARA  POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0153",
-          "nome": "PORTUGUÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0087",
           "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0147",
-          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0517",
+          "nome": "PRODUCAO VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0518",
+          "nome": "AGRONEGOCIOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0009",
+          "nome": "GESTAO DO TRABALHO NO CONTEXTO RURAL E AGROINDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0519",
+          "nome": "AGRICULTURA FAMILIAR E SISTEMAS ALIMENTARES SUSTENTAVEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0520",
+          "nome": "PRODUCAO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0535",
+          "nome": "GESTAO DA INOVACAO NOS AGRONEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0516",
+          "nome": "GOVERNANCA E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0536",
+          "nome": "INTRODUCAO A EXTENSAO UNIVERSITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0537",
+          "nome": "GESTAO E MERCADO NA AQUICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0354",
+          "nome": "METODOS QUALITATIVOS APLICADOS AO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0522",
+          "nome": "METODOLOGIA DO TRABALHO ACADEMICO-CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0523",
+          "nome": "CUSTOS NOS AGRONEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0061",
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0524",
+          "nome": "TRABALHO E SAUDE EM ORGANIZACOES DOS AGRONEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0525",
+          "nome": "GESTAO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0579",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0035",
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0192",
+          "nome": "CALCULO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0521",
+          "nome": "AGRONEGOCIOS E SISTEMAS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0528",
+          "nome": "INTRODUCAO A METODOS QUANTITATIVOS EM GESTAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0548",
+          "nome": "EXTENSAO UNIVERSITARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0514",
+          "nome": "COMERCIALIZACAO DE PRODUTOS AGROPECUARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0515",
+          "nome": "GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0527",
+          "nome": "ACAO COLETIVA NOS AGRONEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0533",
+          "nome": "CANAIS DE MARKETING E COMPORTAMENTO DO CONSUMIDOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0581",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0526",
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0531",
+          "nome": "DESENVOLVIMENTO E GESTAO DE PROJETOS NOS AGRONEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0590",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0594",
+          "nome": "ATIVIDADE OBRIGATORIA DE EXTENSAO",
+          "ch": "60"
         }
       ]
     }

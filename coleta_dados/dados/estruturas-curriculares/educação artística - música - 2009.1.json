@@ -3,4167 +3,3397 @@
   "periodo_letivo_vigor": "2009.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "MUS0120",
           "nome": "FISIOLOGIA DA VOZ",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0139",
           "nome": "CANTO CORAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0752",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0729",
-          "nome": "HISTÓRIA DA MÚSICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 1",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "MUS0254",
-          "nome": "ACÚSTICA MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ACUSTICA MUSICAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0751",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 2",
+          "ch": "60"
         },
         {
           "codigo": "MUS0148",
           "nome": "PIANO SUPLEMENTAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0239",
-          "nome": "TÉCNICA DE EXPRESSÃO VOCAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0730",
-          "nome": "HISTÓRIA DA MÚSICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 2",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "MUS0758",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM MUSICAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 3",
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "IDA0022",
           "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0151",
           "nome": "PIANO SUPLEMENTAR 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0719",
-          "nome": "TECNOLOGIA MUSICAL BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA MUSICAL BASICA",
+          "ch": "60"
         },
         {
           "codigo": "MUS0761",
-          "nome": "HISTÓRIA DA MÚSICA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 3",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "MUS0106",
           "nome": "CONTRAPONTO E FUGA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0742",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DA EDUCACAO MUSICAL",
+          "ch": "60"
         },
         {
           "codigo": "MUS0750",
-          "nome": "SEMINÁRIO EM EDUCAÇÃO MUSICAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0762",
-          "nome": "HISTÓRIA DA MÚSICA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 4",
+          "ch": "30"
         },
         {
           "codigo": "VIS0063",
           "nome": "DESENHO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "MUS0102",
           "nome": "HARMONIA SUPERIOR 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0112",
-          "nome": "TEORIAS CONTEMPORÂNEAS DA MÚSICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0142",
           "nome": "CANTO CORAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0184",
-          "nome": "REGÊNCIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "REGENCIA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0735",
           "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEN0053",
           "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "MUS0104",
           "nome": "HARMONIA SUPERIOR 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0248",
-          "nome": "ANÁLISE MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE MUSICAL 1",
+          "ch": "60"
         },
         {
           "codigo": "VIS0061",
           "nome": "HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0127",
           "nome": "FUNDAMENTOS DE LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "MUS0262",
-          "nome": "ESTÁGIO SUPERVISIONADO EM MÚSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 1",
+          "ch": "120"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "MUS0633",
           "nome": "ANALISE MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "MUS0737",
-          "nome": "ESTÁGIO SUPERVISIONADO EM MÚSICA 2",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "120"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "MTC0006",
           "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0093",
           "nome": "INTRODUCAO A MUSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MUS0096",
-          "nome": "INTRODUÇÃO À MÚSICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A MUSICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MUS0244",
-          "nome": "EVOLUÇÃO DA MÚSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EVOLUCAO DA MUSICA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0246",
           "nome": "EVOLUCAO DA MUSICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0250",
           "nome": "PERCEPCAO MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0252",
           "nome": "PERCEPCAO MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MUS0494",
           "nome": "TECNICA DE INICIACAO MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "MUS0779",
-          "nome": "INSTRUMENTO SUPLEMENTAR CANTO POPULAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0770",
-          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0765",
-          "nome": "INSTRUMENTO SUPLEMENTAR VIOLÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0348",
-          "nome": "INTRODUCAO A CLARINETA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0440",
-          "nome": "INTRODUCAO A FLAUTA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0716",
-          "nome": "INTRODUÇÃO À FLAUTA DOCE 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0648",
-          "nome": "INTRODUCAO AO CANTO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0540",
-          "nome": "INTRODUCAO AO CONTRABAIXO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0414",
-          "nome": "INTRODUCAO AO FAGOTE 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0369",
-          "nome": "INTRODUÇÃO AO OBOÉ 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0467",
-          "nome": "INTRODUCAO AO PIANO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0759",
-          "nome": "INTRODUÇÃO AO PIANO POPULAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0562",
-          "nome": "INTRODUÇÃO AO SAXOFONE 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0724",
-          "nome": "INTRODUÇÃO AO TROMBONE 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0517",
-          "nome": "INTRODUCAO AO TROMPETE 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0587",
-          "nome": "INTRODUCAO AO VIOLAO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0271",
-          "nome": "INTRODUÇÃO AO VIOLINO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0324",
-          "nome": "INTRODUÇÃO AO VIOLONCELO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0392",
-          "nome": "INTRODUCAO A TROMPA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0298",
-          "nome": "INTRODUCAO A VIOLA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0803",
-          "nome": "INSTRUMENTO SUPLEMENTAR CANTO POPULAR 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0786",
-          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0772",
-          "nome": "INSTRUMENTO SUPLEMENTAR VIOLÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0350",
-          "nome": "INTRODUCAO A CLARINETA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0442",
-          "nome": "INTRODUCAO A FLAUTA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0718",
-          "nome": "INTRODUÇÃO A FLAUTA DOCE 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0650",
-          "nome": "INTRODUCAO AO CANTO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0542",
-          "nome": "INTRODUCAO AO CONTRABAIXO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0416",
-          "nome": "INTRODUCAO AO FAGOTE 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0371",
-          "nome": "INTRODUÇÃO AO OBOÉ 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0471",
-          "nome": "INTRODUCAO AO PIANO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0760",
-          "nome": "INTRODUÇÃO AO PIANO POPULAR 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0564",
-          "nome": "INTRODUÇÃO AO SAXOFONE 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0725",
-          "nome": "INTRODUÇÃO AO TROMBONE 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0519",
-          "nome": "INTRODUCAO AO TROMPETE 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0590",
-          "nome": "INTRODUCAO AO VIOLAO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0273",
-          "nome": "INTRODUÇÃO AO VIOLINO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0326",
-          "nome": "INTRODUÇÃO AO VIOLONCELO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0394",
-          "nome": "INTRODUCAO A TROMPA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MUS0302",
-          "nome": "INTRODUCAO A VIOLA 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0122",
-          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0060",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0127",
-          "nome": "FUNDAMENTOS DE LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0061",
-          "nome": "HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0141",
-          "nome": "HISTORIA DA ARTE ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0255",
-          "nome": "HISTORIA DA ARTE CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0253",
-          "nome": "HISTORIA DA ARTE MEDIEVAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0254",
-          "nome": "HISTORIA DA ARTE MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0256",
-          "nome": "HISTÓRIA DA ARTE NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0231",
-          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0154",
-          "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 1",
-          "carga_horaria": "225h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0155",
-          "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 2",
-          "carga_horaria": "225h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0156",
-          "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 3",
-          "carga_horaria": "225h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0157",
-          "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 4",
-          "carga_horaria": "225h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0063",
-          "nome": "DESENHO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0129",
-          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "VIS0085",
-          "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0171",
-          "nome": "INTERPRETAÇÃO TEATRAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0177",
-          "nome": "MOVIMENTO E LINGUAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEN0053",
-          "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEN0031",
-          "nome": "OFICINA BASICA DE ARTES CENICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "2",
+          "nome": "60H OPTATIVA CEN0031 - OFICINA BASICA DE ARTES CENICAS 1",
+          "ch": "90"
         },
         {
           "codigo": "CEN0032",
           "nome": "OFICINA BASICA DE ARTES CENICAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0034",
           "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0036",
           "nome": "HISTORIA DO TEATRO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0038",
           "nome": "CORPO E MOVIMENTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0039",
           "nome": "ENCENACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0040",
           "nome": "ENCENACAO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0042",
           "nome": "DIRECAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0044",
           "nome": "CENOGRAFIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0049",
           "nome": "HISTORIA DO TEATRO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0050",
           "nome": "SEMINARIO AVANCADO DE TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0051",
           "nome": "SEMINARIO AVANCADO DE TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0052",
           "nome": "TECNICAS DE DANCA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0055",
           "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0057",
           "nome": "LINGUAGEM DRAMATICA NA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0059",
           "nome": "SEMINARIO INTERDISCIPLINAR 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0064",
           "nome": "PROJETO DE DIPLOMACAO EM ARTES CENICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0066",
           "nome": "CORPO E MOVIMENTO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0067",
           "nome": "CORPO E MOVIMENTO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0068",
           "nome": "EXPRESSAO CORPORAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0069",
           "nome": "EXPRESSAO CORPORAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0070",
           "nome": "EXPRESSAO CORPORAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0071",
           "nome": "EXPRESSAO CORPORAL 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0072",
           "nome": "VOZ E DICCAO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CEN0076",
           "nome": "VOZ E DICCAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0078",
           "nome": "VOZ E MOVIMENTO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CEN0081",
           "nome": "METODOLOGIA DA ENCENACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0083",
           "nome": "METODOLOGIA DA ENCENACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0085",
           "nome": "TEATRO BRASILEIRO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0087",
           "nome": "TEATRO BRASILEIRO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0088",
           "nome": "LITERATURA DRAMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0089",
           "nome": "LITERATURA DRAMATICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0090",
           "nome": "LITERATURA DRAMATICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0091",
           "nome": "LITERATURA DRAMATICA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0092",
           "nome": "INTRODUCAO A ENCENACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0093",
           "nome": "ENCENACAO 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0095",
           "nome": "INTRODUCAO A INTERPRETACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0097",
           "nome": "INTERPRETACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0098",
           "nome": "INTERPRETACAO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0099",
           "nome": "INTERPRETACAO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0100",
           "nome": "INTERPRETACAO 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0101",
           "nome": "INTRODUCAO A DIRECAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0102",
           "nome": "DIRECAO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0103",
           "nome": "DIRECAO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0104",
           "nome": "DIRECAO 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0105",
           "nome": "TEORIA DO TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0106",
           "nome": "TEORIA DO TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0107",
           "nome": "INTRODUCAO AS TECNICAS TEATRAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0108",
           "nome": "CRITICA TEATRAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0109",
           "nome": "CRITICA TEATRAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0111",
           "nome": "INDUMENTARIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0112",
           "nome": "INDUMENTARIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0113",
           "nome": "INDUMENTARIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0114",
           "nome": "SONOPLASTIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0116",
           "nome": "SONOPLASTIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0119",
           "nome": "ILUMINACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0121",
           "nome": "ILUMINACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0122",
           "nome": "ILUMINACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0123",
           "nome": "MAQUIAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CEN0125",
           "nome": "PRODUCAO TEATRAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CEN0129",
-          "nome": "PROJETO DE DIPLOMAÇÃO EM INTERPRETAÇÃO TEATRAL",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE DIPLOMACAO EM INTERPRETACAO TEATRAL",
+          "ch": "180"
         },
         {
           "codigo": "CEN0130",
           "nome": "O CORPO TRAGICO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "CEN0133",
           "nome": "DINAMICA DA VOZ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0134",
           "nome": "DINAMICA DA VOZ 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0135",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO ARTÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO ARTISTICA",
+          "ch": "60"
         },
         {
           "codigo": "CEN0137",
           "nome": "TECNICAS DE INTERPRETACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0139",
           "nome": "TECNICAS DE SUPORTE CENICO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0140",
           "nome": "TECNICAS DE SUPORTE CENICO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0142",
           "nome": "METODOLOGIA DA ENCENACAO E DIRECAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0143",
           "nome": "METODOLOGIA DA ENCENACAO E DIRECAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0146",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES CÊNICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS 1",
+          "ch": "90"
         },
         {
           "codigo": "CEN0149",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES CÊNICAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS 2",
+          "ch": "90"
         },
         {
           "codigo": "CEN0157",
           "nome": "VOZ NO TEATRO CONTEMPORANEO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CEN0160",
-          "nome": "SEMINÁRIO EM ARTE EDUCAÇÃO PARA A INCLUSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM ARTE EDUCACAO PARA A INCLUSAO",
+          "ch": "60"
         },
         {
           "codigo": "CEN0164",
-          "nome": "POÉTICAS TEATRAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
         },
         {
           "codigo": "CEN0165",
           "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0166",
           "nome": "TEATRALIDADES BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0167",
           "nome": "A VOZ EM PERFORMANCE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0168",
           "nome": "A PALAVRA EM PERFORMANCE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0169",
           "nome": "VOZ E PALAVRA NA PERFORMANCE TEATRAL CONTEMPORANEA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0171",
-          "nome": "INTERPRETAÇÃO TEATRAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
         },
         {
           "codigo": "CEN0172",
-          "nome": "INTERPRETAÇÃO TEATRAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
         },
         {
           "codigo": "CEN0173",
-          "nome": "INTERPRETAÇÃO TEATRAL 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTERPRETACAO TEATRAL 3",
+          "ch": "90"
         },
         {
           "codigo": "CEN0174",
-          "nome": "INTERPRETAÇÃO TEATRAL 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTERPRETACAO TEATRAL 4",
+          "ch": "90"
         },
         {
           "codigo": "CEN0175",
-          "nome": "PRÁTICA DE MONTAGEM",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE MONTAGEM",
+          "ch": "120"
         },
         {
           "codigo": "CEN0176",
-          "nome": "INTERPRETAÇÃO E MONTAGEM",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "INTERPRETACAO E MONTAGEM",
+          "ch": "150"
         },
         {
           "codigo": "CEN0177",
           "nome": "MOVIMENTO E LINGUAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0178",
           "nome": "MOVIMENTO E LINGUAGEM 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0179",
           "nome": "MOVIMENTO E LINGUAGEM 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0182",
-          "nome": "ENCENAÇÃO TEATRAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ENCENACAO TEATRAL 1",
+          "ch": "90"
         },
         {
           "codigo": "CEN0183",
-          "nome": "ENCENAÇÃO TEATRAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ENCENACAO TEATRAL 2",
+          "ch": "90"
         },
         {
           "codigo": "CEN0184",
-          "nome": "ENCENAÇÃO TEATRAL 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ENCENACAO TEATRAL 3",
+          "ch": "90"
         },
         {
           "codigo": "CEN0185",
-          "nome": "METODOLOGIA DE PESQUISA EM ARTES CÊNICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS",
+          "ch": "90"
         },
         {
           "codigo": "CEN0189",
           "nome": "METODOLOGIA DO ENSINO DO TEATRO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0190",
           "nome": "METODOLOGIA DO ENSINO DO TEATRO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0191",
-          "nome": "METODOLOGIA DE PESQUISA EM ARTES CÊNICAS E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DAN0023",
           "nome": "ANTROPOLOGIA CULTURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0041",
-          "nome": "TEORIA ANTROPOLÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "DAN0043",
           "nome": "ANTROPOLOGIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ENC0053",
           "nome": "DESENHO TECNICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENC0054",
           "nome": "GEOMETRIA DESCRITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAC0016",
-          "nome": "ESTÉTICA E CULTURA DE MASSA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
         },
         {
           "codigo": "FAC0017",
-          "nome": "PESQUISA EM COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0013",
-          "nome": "INTRODUÇÃO À MUSEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0014",
           "nome": "MUSEOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0062",
           "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FDD0117",
           "nome": "DIREITO INDUSTRIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FED0133",
-          "nome": "SEMINÁRIO INTERDISCIPLINAR EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0104",
-          "nome": "PRÁTICA DESPORTIVA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
         },
         {
           "codigo": "FEF0107",
           "nome": "PRATICA DESPORTIVA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FEF0174",
           "nome": "PRATICA DESPORTIVA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FIL0066",
           "nome": "ESTETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0084",
           "nome": "FILOSOFIA DA LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0109",
           "nome": "INTRODUCAO A LOGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0124",
           "nome": "FILOSOFIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0134",
           "nome": "MITO E FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0142",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0102",
-          "nome": "HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "IDA0391",
-          "nome": "LABORATÓRIO INTERARTÍSTICO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO INTERARTISTICO",
+          "ch": "120"
         },
         {
           "codigo": "JOR0045",
-          "nome": "TEORIAS DA COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0078",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "LET0076",
           "nome": "FRANCES INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0085",
-          "nome": "LÍNGUA INGLESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0086",
           "nome": "LINGUA INGLESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0106",
           "nome": "LINGUA JAPONESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0120",
-          "nome": "LÍNGUA ESPANHOLA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0122",
-          "nome": "LÍNGUA ESPANHOLA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0326",
           "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0337",
           "nome": "LINGUA ITALIANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0013",
-          "nome": "DIDÁTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MTC0014",
           "nome": "ENSINO PROGRAMADO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0015",
           "nome": "ENSINO PROGRAMADO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0017",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0018",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0019",
           "nome": "PRATICA DE ENSINO NA ESCOLA DE 1 GRAU COM ESTAGIO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "MTC0021",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0022",
           "nome": "CURRICULOS E PROGRAMAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0023",
           "nome": "PRINCIPIOS E METODOS DE SUPERVISAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0024",
           "nome": "SUPERVISAO NA ESCOLA DE 1 GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0025",
           "nome": "SUPERVISAO NA ESCOLA DE 2 GRAU 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0026",
           "nome": "SUPERVISAO NA ESCOLA DE 2 GRAU 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0027",
           "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0028",
           "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0029",
           "nome": "ENSINO SUPLETIVO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0030",
           "nome": "ENSINO SUPLETIVO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0035",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "MTC0143",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "MUS0089",
-          "nome": "OFICINA BÁSICA DE MÚSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0091",
           "nome": "OFICINA BASICA DE MUSICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0108",
           "nome": "CONTRAPONTO E FUGA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0110",
           "nome": "PROSODIA MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0122",
-          "nome": "INSTRUMENTAÇÃO E ORQUESTRAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTACAO E ORQUESTRACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0124",
           "nome": "INSTRUMENTACAO E ORQUESTRACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0129",
-          "nome": "MÚSICA DE CÂMARA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSICA DE CAMARA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0133",
-          "nome": "MÚSICA DE CÂMARA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSICA DE CAMARA 2",
+          "ch": "60"
         },
         {
           "codigo": "MUS0145",
           "nome": "CANTO CORAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0157",
           "nome": "COMPOSICAO MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0160",
           "nome": "COMPOSICAO MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0206",
-          "nome": "INTRODUÇÃO À MUSICOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSICOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "MUS0215",
           "nome": "INSTRUMENTO SUPLEMENTAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0218",
           "nome": "CANTO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0223",
           "nome": "CANTO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0226",
           "nome": "CANTO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0229",
           "nome": "CANTO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0231",
           "nome": "CANTO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0233",
           "nome": "CANTO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0241",
           "nome": "TECNICA DE EXPRESSAO VOCAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0259",
-          "nome": "MÚSICA DE CÂMARA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSICA DE CAMARA 4",
+          "ch": "60"
         },
         {
           "codigo": "MUS0263",
           "nome": "MUSICA POPULAR BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0271",
-          "nome": "INTRODUÇÃO AO VIOLINO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO VIOLINO 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0273",
-          "nome": "INTRODUÇÃO AO VIOLINO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO VIOLINO 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0277",
           "nome": "VIOLINO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0279",
           "nome": "VIOLINO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0281",
           "nome": "VIOLINO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0283",
           "nome": "VIOLINO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0286",
           "nome": "VIOLINO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0291",
           "nome": "VIOLINO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0294",
           "nome": "VIOLINO 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0298",
           "nome": "INTRODUCAO A VIOLA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0302",
           "nome": "INTRODUCAO A VIOLA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0306",
           "nome": "VIOLA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0308",
           "nome": "VIOLA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0310",
           "nome": "VIOLA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0315",
           "nome": "VIOLA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0319",
           "nome": "VIOLA 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0321",
           "nome": "VIOLA 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0324",
-          "nome": "INTRODUÇÃO AO VIOLONCELO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO VIOLONCELO 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0326",
-          "nome": "INTRODUÇÃO AO VIOLONCELO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO VIOLONCELO 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0328",
           "nome": "VIOLONCELO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0330",
           "nome": "VIOLONCELO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0332",
           "nome": "VIOLONCELO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0334",
           "nome": "VIOLONCELO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0337",
           "nome": "VIOLONCELO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0340",
           "nome": "VIOLONCELO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0343",
           "nome": "VIOLONCELO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0346",
           "nome": "VIOLONCELO 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0348",
           "nome": "INTRODUCAO A CLARINETA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0350",
           "nome": "INTRODUCAO A CLARINETA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0352",
           "nome": "CLARINETA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0354",
           "nome": "CLARINETA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0356",
           "nome": "CLARINETA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0358",
           "nome": "CLARINETA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0360",
           "nome": "CLARINETA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0363",
           "nome": "CLARINETA 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0365",
           "nome": "CLARINETA 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0367",
           "nome": "CLARINETA 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0369",
-          "nome": "INTRODUÇÃO AO OBOÉ 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO OBOE 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0371",
-          "nome": "INTRODUÇÃO AO OBOÉ 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO OBOE 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0373",
           "nome": "OBOE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0375",
           "nome": "OBOE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0377",
           "nome": "OBOE 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0382",
           "nome": "OBOE 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0387",
           "nome": "OBOE 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0392",
           "nome": "INTRODUCAO A TROMPA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0394",
           "nome": "INTRODUCAO A TROMPA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0397",
           "nome": "TROMPA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0399",
           "nome": "TROMPA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0401",
           "nome": "TROMPA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0403",
           "nome": "TROMPA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0406",
           "nome": "TROMPA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0408",
           "nome": "TROMPA 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0410",
           "nome": "TROMPA 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0412",
           "nome": "TROMPA 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0414",
           "nome": "INTRODUCAO AO FAGOTE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0416",
           "nome": "INTRODUCAO AO FAGOTE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0420",
           "nome": "FAGOTE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0422",
           "nome": "FAGOTE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0424",
           "nome": "FAGOTE 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0426",
           "nome": "FAGOTE 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0429",
           "nome": "FAGOTE 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0432",
           "nome": "FAGOTE 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0435",
           "nome": "FAGOTE 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0440",
           "nome": "INTRODUCAO A FLAUTA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0442",
           "nome": "INTRODUCAO A FLAUTA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0446",
           "nome": "FLAUTA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0448",
           "nome": "FLAUTA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0450",
           "nome": "FLAUTA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0452",
           "nome": "FLAUTA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0455",
           "nome": "FLAUTA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0457",
           "nome": "FLAUTA 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0460",
           "nome": "FLAUTA 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0467",
           "nome": "INTRODUCAO AO PIANO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0471",
           "nome": "INTRODUCAO AO PIANO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0475",
           "nome": "PIANO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0477",
           "nome": "PIANO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0479",
           "nome": "PIANO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0481",
           "nome": "PIANO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0484",
           "nome": "PIANO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0486",
           "nome": "PIANO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0488",
           "nome": "PIANO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0490",
           "nome": "PIANO 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0492",
           "nome": "ESTAGIO SUPERVISIONADO EM CANTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0497",
           "nome": "PRATICA DE CONJUNTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0502",
           "nome": "PRATICA DE CONJUNTO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0505",
           "nome": "PRATICA DE CONJUNTO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0508",
           "nome": "PRATICA DE CONJUNTO 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0511",
-          "nome": "PRÁTICA DE CONJUNTO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE CONJUNTO 5",
+          "ch": "60"
         },
         {
           "codigo": "MUS0514",
-          "nome": "PRÁTICA DE CONJUNTO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE CONJUNTO 6",
+          "ch": "60"
         },
         {
           "codigo": "MUS0517",
           "nome": "INTRODUCAO AO TROMPETE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0519",
           "nome": "INTRODUCAO AO TROMPETE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0540",
           "nome": "INTRODUCAO AO CONTRABAIXO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0542",
           "nome": "INTRODUCAO AO CONTRABAIXO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0545",
           "nome": "CONTRABAIXO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0547",
           "nome": "CONTRABAIXO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0549",
           "nome": "CONTRABAIXO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0551",
           "nome": "CONTRABAIXO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0553",
           "nome": "CONTRABAIXO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0555",
           "nome": "CONTRABAIXO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0557",
           "nome": "CONTRABAIXO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0559",
           "nome": "CONTRABAIXO 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0562",
-          "nome": "INTRODUÇÃO AO SAXOFONE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO SAXOFONE 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0564",
-          "nome": "INTRODUÇÃO AO SAXOFONE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO SAXOFONE 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0568",
           "nome": "SAXOFONE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0570",
           "nome": "SAXOFONE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0572",
           "nome": "SAXOFONE 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0574",
           "nome": "SAXOFONE 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0577",
           "nome": "SAXOFONE 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0580",
           "nome": "SAXOFONE 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0583",
           "nome": "SAXOFONE 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0585",
           "nome": "SAXOFONE 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0587",
           "nome": "INTRODUCAO AO VIOLAO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0590",
           "nome": "INTRODUCAO AO VIOLAO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0592",
           "nome": "VIOLAO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0594",
           "nome": "VIOLAO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0596",
           "nome": "VIOLAO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0598",
           "nome": "VIOLAO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0601",
           "nome": "VIOLAO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0603",
           "nome": "VIOLAO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0606",
           "nome": "VIOLAO 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0609",
           "nome": "VIOLAO 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0612",
-          "nome": "PRÁTICA DE ORQUESTRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ORQUESTRA 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0615",
           "nome": "PRATICA DE ORQUESTRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0618",
           "nome": "PRATICA DE ORQUESTRA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0621",
           "nome": "PRATICA DE ORQUESTRA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0624",
           "nome": "PRATICA DE ORQUESTRA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0643",
           "nome": "HARMONIA SUPERIOR 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0648",
           "nome": "INTRODUCAO AO CANTO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0650",
           "nome": "INTRODUCAO AO CANTO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0653",
           "nome": "PIANO SUPLEMENTAR 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0656",
           "nome": "PIANO SUPLEMENTAR 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0672",
           "nome": "ESTAGIO SUPERVISIONADO EM CONTRABAIXO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0674",
           "nome": "ESTAGIO SUPERVISIONADO EM SAXOFONE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0676",
           "nome": "ESTAGIO SUPERVISIONADO EM VIOLINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0678",
           "nome": "ESTAGIO SUPERVISIONADO EM VIOLA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0680",
           "nome": "ESTAGIO SUPERVISIONADO EM VIOLONCELO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0682",
           "nome": "ESTAGIO SUPERVISIONADO EM CLARINETA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0684",
           "nome": "ESTAGIO SUPERVISIONADO EM OBOE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0686",
           "nome": "ESTAGIO SUPERVISIONADO EM TROMPA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0692",
           "nome": "ESTAGIO SUPERVISIONADO EM PIANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0694",
           "nome": "ESTAGIO SUPERVISIONADO EM VIOLAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0697",
           "nome": "TROMBONE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0700",
           "nome": "TROMBONE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0702",
           "nome": "TROMBONE 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0704",
           "nome": "TROMBONE 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0706",
           "nome": "TROMBONE 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0708",
           "nome": "TROMBONE 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0710",
           "nome": "TROMBONE 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0712",
           "nome": "TROMBONE 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0713",
           "nome": "ESTAGIO SUPERVISIONADO EM TROMBONE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0714",
           "nome": "APRECIACAO MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0716",
-          "nome": "INTRODUÇÃO À FLAUTA DOCE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FLAUTA DOCE 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0718",
-          "nome": "INTRODUÇÃO A FLAUTA DOCE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FLAUTA DOCE 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0724",
-          "nome": "INTRODUÇÃO AO TROMBONE 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO TROMBONE 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0725",
-          "nome": "INTRODUÇÃO AO TROMBONE 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO TROMBONE 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0726",
-          "nome": "ÓPERA - ESTUDIO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OPERA - ESTUDIO 3",
+          "ch": "60"
         },
         {
           "codigo": "MUS0727",
-          "nome": "ÓPERA - ESTUDIO 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OPERA - ESTUDIO 4",
+          "ch": "60"
         },
         {
           "codigo": "MUS0728",
-          "nome": "ÓPERA - ESTUDIO 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OPERA - ESTUDIO 5",
+          "ch": "60"
         },
         {
           "codigo": "MUS0738",
-          "nome": "ESTÁGIO SUPERVISIONADO EM MÚSICA 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "120"
         },
         {
           "codigo": "MUS0741",
           "nome": "ESTRUTURACAO MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0744",
-          "nome": "ÓPERA - ESTÚDIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OPERA - ESTUDIO 2",
+          "ch": "60"
         },
         {
           "codigo": "MUS0745",
-          "nome": "FUNDAMENTOS DA TÉCNICA VOCAL/INSTRUMENTAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0746",
-          "nome": "FUNDAMENTOS DA TÉCNICAVOCAL/INSTRUMENTAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA TECNICAVOCAL/INSTRUMENTAL 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0747",
-          "nome": "FUNDAMENTOS DA TÉCNICA VOCAL/INSTRUMENTAL 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 3",
+          "ch": "30"
         },
         {
           "codigo": "MUS0748",
-          "nome": "FUNDAMENTOS DA TÉCNICA VOCAL/INSTRUMENTAL 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 4",
+          "ch": "30"
         },
         {
           "codigo": "MUS0749",
-          "nome": "SEMINÁRIO EM EDUCAÇÃO MUSICAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0753",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0754",
-          "nome": "LITERATURA CORAL DO CLASSICISMO AO SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA CORAL DO CLASSICISMO AO SECULO XX",
+          "ch": "60"
         },
         {
           "codigo": "MUS0756",
           "nome": "LITERATURA CORAL DO RENASCIMENTO E BARROCO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0759",
-          "nome": "INTRODUÇÃO AO PIANO POPULAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO PIANO POPULAR 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0760",
-          "nome": "INTRODUÇÃO AO PIANO POPULAR 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO PIANO POPULAR 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0763",
-          "nome": "LABORATÓRIO ORQUESTRAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO ORQUESTRAL 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0764",
-          "nome": "LABORATÓRIO ORQUESTRAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO ORQUESTRAL 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0765",
-          "nome": "INSTRUMENTO SUPLEMENTAR VIOLÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTO SUPLEMENTAR VIOLAO 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0770",
-          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0772",
-          "nome": "INSTRUMENTO SUPLEMENTAR VIOLÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTO SUPLEMENTAR VIOLAO 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0779",
           "nome": "INSTRUMENTO SUPLEMENTAR CANTO POPULAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0780",
           "nome": "LITERATURA CORAL 3: CLASSICISMO E ROMANTISMO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0781",
           "nome": "LITERATURA CORAL 4: ERA MODERNA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0786",
-          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 2",
+          "ch": "30"
         },
         {
           "codigo": "MUS0788",
-          "nome": "PROJETO DE ESTÁGIO E PRÁTICA DOCENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE ESTAGIO E PRATICA DOCENTE",
+          "ch": "60"
         },
         {
           "codigo": "MUS0803",
           "nome": "INSTRUMENTO SUPLEMENTAR CANTO POPULAR 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "PAD0006",
-          "nome": "ESTRUTURA E FUNCIONAMENTO DO ENSINO DE 1º E 2º GRAUS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA E FUNCIONAMENTO DO ENSINO DE 1O E 2O GRAUS 2",
+          "ch": "90"
         },
         {
           "codigo": "PAD0007",
-          "nome": "ESTRUTURA E FUNCIONAMENTO DO ENSINO DE 1º  GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA E FUNCIONAMENTO DO ENSINO DE 1O  GRAU",
+          "ch": "90"
         },
         {
           "codigo": "PAD0008",
-          "nome": "ESTRUTURA E  FUNCIONAMENTO DO ENSINO DE 2º  GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA E  FUNCIONAMENTO DO ENSINO DE 2O  GRAU",
+          "ch": "90"
         },
         {
           "codigo": "PAD0009",
           "nome": "ESTRUTURA E FUNCIONAMENTO DO ENSINO  SUPERIOR 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0011",
           "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0012",
           "nome": "ADMINISTRACAO DA ESCOLA DE 1 GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0013",
           "nome": "ADMINISTRACAO DA ESCOLA DE 2 GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0014",
           "nome": "PRINCIPIOS E METODOS DE INSPECAO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0015",
           "nome": "INSPECAO DO ENSINO DE 1 GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0016",
           "nome": "INSPECAO DO ENSINO DE 2 GRAU",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0017",
           "nome": "LEGISLACAO DO ENSINO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0018",
           "nome": "LEGISLACAO DO ENSINO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0019",
           "nome": "HIGIENE ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0022",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0031",
-          "nome": "POLITICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "PCL0015",
           "nome": "PSICOLOGIA DA PERSONALIDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0032",
           "nome": "PSICOLOGIA DA CRIATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0054",
           "nome": "PERCEPCAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0067",
           "nome": "APRENDIZAGEM NO ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PRO0025",
           "nome": "DESENHO E PLASTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PRO0026",
           "nome": "DESENHO E PLASTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0009",
           "nome": "PSICOLOGIA SOCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0033",
           "nome": "ERGONOMIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0043",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "SOL0045",
-          "nome": "TEORIA SOCIOLÓGICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 2",
+          "ch": "90"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0012",
           "nome": "PSICOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0014",
           "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0016",
           "nome": "HISTORIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0019",
-          "nome": "POLÍTICAS DE EDUCAÇÃO COMPARADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0020",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0022",
           "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0027",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0065",
-          "nome": "DINÂMICA PSICOSSOCIAL DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0069",
           "nome": "ORIENTACAO VOCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0118",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0014",
           "nome": "INTRODUCAO A TEORIA DA LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0021",
           "nome": "LITERATURA BRASILEIRA - ROMANTISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0059",
           "nome": "INFOESTETICA 1 - ESTETICA DAS IMAGENS INFORMATICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0060",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
         },
         {
           "codigo": "VIS0065",
           "nome": "DESENHO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0067",
           "nome": "ESCULTURA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0072",
           "nome": "MORFOLOGIA GEOMETRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0073",
           "nome": "MORFOLOGIA EXPERIMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0074",
           "nome": "DESENHO GEOMETRICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0075",
           "nome": "DESENHO PERSPECTIVO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0076",
           "nome": "OFICINA DE COMPOSICAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0079",
           "nome": "INICIACAO AS TECNICAS INDUSTRIAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0080",
           "nome": "INTRODUCAO AS TECNICAS ARTESANAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0085",
           "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0088",
           "nome": "OFICINA DE FOTOGRAFIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0090",
           "nome": "OFICINA DE FOTOGRAFIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0096",
           "nome": "OFICINA DE CINEMA E TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0104",
           "nome": "ANALISE DO FILME 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0111",
           "nome": "MATERIAIS EM ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0113",
-          "nome": "PRÁTICAS DE ENSINO: MATERIAIS EM ARTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE ENSINO: MATERIAIS EM ARTES",
+          "ch": "60"
         },
         {
           "codigo": "VIS0116",
           "nome": "MODELAGEM DO OBJETO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0118",
           "nome": "OFICINA BASICA DE ARTES PLASTICAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0119",
           "nome": "TECNICAS EXPERIMENTAIS DE ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0124",
           "nome": "TECNICAS DE GRAVURA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0125",
           "nome": "TECNICAS DE GRAVURA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0126",
           "nome": "TECNICAS DE GRAVURA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0129",
           "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0130",
           "nome": "TECNICAS DE REPRESENTACAO GRAFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0135",
           "nome": "ESTAGIO SUPERVISIONADO EM ARTES PLASTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0136",
           "nome": "ESTAGIO SUPERVISIONADO EM DESENHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0137",
           "nome": "OFICINA BASICA DE CINEMA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0138",
           "nome": "TECNICAS DE GRAVURA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0140",
-          "nome": "ANATOMIA ARTÍSTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANATOMIA ARTISTICA",
+          "ch": "90"
         },
         {
           "codigo": "VIS0141",
           "nome": "HISTORIA DA ARTE ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0143",
           "nome": "ATELIE DE ESCULTURA 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0145",
           "nome": "ATELIE DE ESCULTURA 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0147",
           "nome": "ATELIE DE ESCULTURA 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0149",
           "nome": "ATELIE DE ESCULTURA 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0150",
           "nome": "ATELIE DE MULTI MEIOS 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0151",
           "nome": "ATELIE DE MULTI MEIOS 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0152",
           "nome": "ATELIE DE MULTI MEIOS 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0153",
           "nome": "ATELIE DE MULTI MEIOS 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0154",
           "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0155",
           "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0156",
           "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0157",
           "nome": "SEMINARIO INTERDISCIPLINAR EM TEORIA E HISTORIA DA ARTE 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0160",
-          "nome": "DIPLOMAÇÃO EM ARTES PLÁSTICAS - LICENCIATURA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "DIPLOMACAO EM ARTES PLASTICAS - LICENCIATURA",
+          "ch": "90"
         },
         {
           "codigo": "VIS0163",
           "nome": "MATERIAIS EM ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0165",
           "nome": "ATELIE DE PINTURA 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0167",
           "nome": "ATELIE DE PINTURA 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0169",
           "nome": "ATELIE DE PINTURA 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0171",
           "nome": "ATELIE DE PINTURA 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0173",
           "nome": "ATELIE DE GRAVURA 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0175",
           "nome": "ATELIE DE GRAVURA 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0177",
           "nome": "ATELIE DE GRAVURA 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0179",
           "nome": "ATELIE DE GRAVURA 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0180",
           "nome": "ATELIE DE CERAMICA 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0181",
           "nome": "ATELIE DE CERAMICA 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0182",
           "nome": "ATELIE DE CERAMICA 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0183",
           "nome": "ATELIE DE CERAMICA 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0185",
           "nome": "ARTE ELETRONICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0187",
           "nome": "PINTURA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0188",
           "nome": "INTRODUCAO A GRAVURA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0192",
           "nome": "ATELIE DE DESENHO 1",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0194",
           "nome": "ATELIE DE DESENHO 2",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0196",
           "nome": "ATELIE DE DESENHO 3",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0198",
           "nome": "ATELIE DE DESENHO 4",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "VIS0199",
           "nome": "PROJETO DE DIPLOMACAO EM MULTIMEIOS",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "VIS0201",
           "nome": "PROJETO DE DIPLOMACAO EM ESCULTURA",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "VIS0203",
           "nome": "PROJETO DE DIPLOMACAO EM PINTURA",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "VIS0205",
           "nome": "PROJETO DE DIPLOMACAO EM GRAVURA",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "VIS0207",
           "nome": "PROJETO DE DIPLOMACAO EM TEORIA HISTORIA E CRITICA DA ARTE",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "VIS0208",
           "nome": "PROJETO DE DIPLOMACAO EM DESENHO, PARA O BACHARELADO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "VIS0211",
           "nome": "DESENHO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0217",
           "nome": "ATELIE 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "VIS0219",
           "nome": "ATELIE 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "VIS0220",
           "nome": "PROJETO INTERDISCIPLINAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0222",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES PLÁSTICAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES PLASTICAS 1",
+          "ch": "60"
         },
         {
           "codigo": "VIS0224",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES PLÁSTICAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES PLASTICAS 2",
+          "ch": "60"
         },
         {
           "codigo": "VIS0226",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES PLÁSTICAS 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES PLASTICAS 3",
+          "ch": "60"
         },
         {
           "codigo": "VIS0230",
           "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0231",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0232",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0235",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0237",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0239",
           "nome": "SERIGRAFIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0240",
           "nome": "PINTURA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0241",
           "nome": "ESCULTURA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0244",
-          "nome": "ANIMAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANIMACAO",
+          "ch": "90"
         },
         {
           "codigo": "VIS0245",
           "nome": "DESENHO 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0246",
           "nome": "ARTE ELETRONICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0247",
           "nome": "XILOGRAVURA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0248",
           "nome": "LITOGRAFIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0249",
           "nome": "CALCOGRAVURA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0250",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0253",
           "nome": "HISTORIA DA ARTE MEDIEVAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0254",
           "nome": "HISTORIA DA ARTE MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0255",
           "nome": "HISTORIA DA ARTE CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0256",
-          "nome": "HISTÓRIA DA ARTE NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "VIS0257",
           "nome": "TEORIA E HISTORIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0258",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0260",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0262",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0264",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 9",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0266",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 10",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0270",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 11",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 11",
+          "ch": "60"
         },
         {
           "codigo": "VIS0272",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 12",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 12",
+          "ch": "60"
         },
         {
           "codigo": "VIS0274",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 13",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 13",
+          "ch": "60"
         },
         {
           "codigo": "VIS0276",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 14",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 14",
+          "ch": "60"
         },
         {
           "codigo": "VIS0278",
-          "nome": "SEMINÁRIO EM TEORIA, CRÍTICA E HISTÓRIA DA ARTE 15",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 15",
+          "ch": "60"
         },
         {
           "codigo": "MUS0729",
-          "nome": "HISTÓRIA DA MÚSICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0148",
           "nome": "PIANO SUPLEMENTAR 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0239",
-          "nome": "TÉCNICA DE EXPRESSÃO VOCAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0730",
-          "nome": "HISTÓRIA DA MÚSICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 2",
+          "ch": "30"
         },
         {
           "codigo": "IDA0022",
           "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0151",
           "nome": "PIANO SUPLEMENTAR 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "MUS0719",
-          "nome": "TECNOLOGIA MUSICAL BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA MUSICAL BASICA",
+          "ch": "60"
         },
         {
           "codigo": "MUS0761",
-          "nome": "HISTÓRIA DA MÚSICA 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 3",
+          "ch": "30"
         },
         {
           "codigo": "MUS0750",
-          "nome": "SEMINÁRIO EM EDUCAÇÃO MUSICAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 1",
+          "ch": "30"
         },
         {
           "codigo": "MUS0762",
-          "nome": "HISTÓRIA DA MÚSICA 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA MUSICA 4",
+          "ch": "30"
         },
         {
           "codigo": "VIS0063",
           "nome": "DESENHO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0053",
           "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0061",
           "nome": "HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0127",
           "nome": "FUNDAMENTOS DE LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MUS0633",
           "nome": "ANALISE MUSICAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0120",
+          "nome": "FISIOLOGIA DA VOZ",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0752",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0729",
+          "nome": "HISTORIA DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0254",
+          "nome": "ACUSTICA MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0751",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0148",
+          "nome": "PIANO SUPLEMENTAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0239",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0730",
+          "nome": "HISTORIA DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0758",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0022",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0151",
+          "nome": "PIANO SUPLEMENTAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0719",
+          "nome": "TECNOLOGIA MUSICAL BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0761",
+          "nome": "HISTORIA DA MUSICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0106",
+          "nome": "CONTRAPONTO E FUGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0742",
+          "nome": "FUNDAMENTOS DA EDUCACAO MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0750",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0762",
+          "nome": "HISTORIA DA MUSICA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0102",
+          "nome": "HARMONIA SUPERIOR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0112",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0184",
+          "nome": "REGENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0735",
+          "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0053",
+          "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0104",
+          "nome": "HARMONIA SUPERIOR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0248",
+          "nome": "ANALISE MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0262",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0633",
+          "nome": "ANALISE MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0122",
+          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0737",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0006",
+          "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0093",
+          "nome": "INTRODUCAO A MUSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0096",
+          "nome": "INTRODUCAO A MUSICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0244",
+          "nome": "EVOLUCAO DA MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0246",
+          "nome": "EVOLUCAO DA MUSICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0250",
+          "nome": "PERCEPCAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0252",
+          "nome": "PERCEPCAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0494",
+          "nome": "TECNICA DE INICIACAO MUSICAL",
+          "ch": "60"
         }
       ]
     }

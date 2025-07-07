@@ -3,747 +3,902 @@
   "periodo_letivo_vigor": "2025.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
         },
         {
           "codigo": "FGA0163",
-          "nome": "INTRODUÇÃO À ENGENHARIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
         },
         {
           "codigo": "FGA0168",
           "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FGA0302",
           "nome": "ENGENHARIA E AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FGA0133",
-          "nome": "ENGENHARIA ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0157",
-          "nome": "PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0173",
           "nome": "FISICA 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FGA0071",
-          "nome": "PRÁTICA DE ELETRÔNICA DIGITAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
         },
         {
           "codigo": "FGA0073",
-          "nome": "TEORIA DE ELETRÔNICA DIGITAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0154",
-          "nome": "MECANICA DOS SÓLIDOS 1 PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0160",
-          "nome": "MÉTODOS NUMÉRICOS PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0027",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "ENM0080",
           "nome": "FENOMENOS DE TRANSPORTE",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "ch": "75"
         },
         {
           "codigo": "FGA0067",
-          "nome": "TEORIA DE CIRCUITOS ELETRÔNICOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0069",
-          "nome": "PRÁTICA DE CIRCUITOS ELETRÔNICOS 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
         },
         {
           "codigo": "FGA0072",
-          "nome": "PRÁTICA DE ELETRÔNICA DIGITAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ELETRONICA DIGITAL 2",
+          "ch": "30"
         },
         {
           "codigo": "FGA0074",
-          "nome": "TEORIA DE ELETRÔNICA DIGITAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE ELETRONICA DIGITAL 2",
+          "ch": "60"
         },
         {
           "codigo": "FGA0119",
           "nome": "TEORIA DE ELETROMAGNETISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0120",
-          "nome": "PRÁTICA DE ELETROMAGNETISMO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ELETROMAGNETISMO",
+          "ch": "30"
         },
         {
           "codigo": "FGA0303",
           "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FGA0075",
-          "nome": "LABORATÓRIO DE MATERIAIS DE CONSTRUÇÃO",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
         },
         {
           "codigo": "FGA0078",
-          "nome": "TEORIA DE MATERIAIS DE CONSTRUÇÃO",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
         },
         {
           "codigo": "FGA0086",
           "nome": "TEORIA DE ELETRICIDADE APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0087",
-          "nome": "LABORATÓRIO DE ELETRICIDADE APLICADA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
         },
         {
           "codigo": "FGA0100",
-          "nome": "PRÁTICA DE FÍSICA DOS DISPOSITIVOS ELETRÔNICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "30"
         },
         {
           "codigo": "FGA0101",
-          "nome": "TEORIA DE FÍSICA DOS DISPOSITIVOS ELETRÔNICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0102",
           "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FGA0308",
-          "nome": "ELETRÔNICA EMBARCADA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ELETRONICA EMBARCADA",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FGA0068",
-          "nome": "TEORIA DE CIRCUITOS ELETRÔNICOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "60"
         },
         {
           "codigo": "FGA0070",
-          "nome": "PRÁTICA DE CIRCUITOS ELETRÔNICOS 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "30"
         },
         {
           "codigo": "FGA0092",
-          "nome": "PRINCÍPIOS DE COMUNICAÇÃO PARA ENGENHARIA",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "PRINCIPIOS DE COMUNICACAO PARA ENGENHARIA",
+          "ch": "75"
         },
         {
           "codigo": "FGA0093",
-          "nome": "PRINCÍPIOS DE CONTROLE",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "PRINCIPIOS DE CONTROLE",
+          "ch": "75"
         },
         {
           "codigo": "FGA0164",
           "nome": "HUMANIDADES E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0307",
-          "nome": "GESTÃO DA PRODUÇÃO E QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FGA0017",
           "nome": "PROJETOS DE CIRCUITOS INTEGRADOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0132",
-          "nome": "INSTRUMENTAÇÃO ELETRÔNICA PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INSTRUMENTACAO ELETRONICA PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0148",
-          "nome": "ENGENHARIA DE SEGURANÇA DO TRABALHO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
         },
         {
           "codigo": "FGA0219",
           "nome": "PROCESSAMENTO DE SINAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0309",
           "nome": "SISTEMAS OPERACIONAIS EMBARCADOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FGA0310",
-          "nome": "PROJETO EXTENSIONISTA EM ENGENHARIA ELETRÔNICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO EXTENSIONISTA EM ENGENHARIA ELETRONICA 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FGA0098",
-          "nome": "PRÁTICA DE CIRCUITOS ELETRÔNICOS 3",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "30"
         },
         {
           "codigo": "FGA0099",
-          "nome": "TEORIA DE CIRCUITOS ELETRÔNICOS 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "60"
         },
         {
           "codigo": "FGA0295",
-          "nome": "ATIVIDADE DE EXTENSÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0304",
           "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "FGA0287",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0288",
-          "nome": "ESTÁGIO SUPERVISIONADO",
-          "carga_horaria": "210h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
         },
         {
           "codigo": "FGA0311",
-          "nome": "PROJETO EXTENSIONISTA EM ENGENHARIA ELETRÔNICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO EXTENSIONISTA EM ENGENHARIA ELETRONICA 2",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "FGA0290",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
         },
         {
           "codigo": "FGA0296",
-          "nome": "ATIVIDADE DE EXTENSÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FGA0003",
-          "nome": "COMPILADORES 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FGA0013",
-          "nome": "ANATOMIA E FISIOLOGIA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "1",
+          "nome": "60H OPTATIVA FGA0013 - ANATOMIA E FISIOLOGIA HUMANA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0014",
-          "nome": "PROCESSAMENTO DE SINAIS BIOLÓGICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSAMENTO DE SINAIS BIOLOGICOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0015",
           "nome": "PROCESSAMENTO DIGITAL DE IMAGENS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0016",
-          "nome": "TÓPICOS ESPECIAL EM INSTRUMENTAÇÃO BIOMÉDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAL EM INSTRUMENTACAO BIOMEDICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0025",
-          "nome": "SISTEMAS DE ENERGIA SOLAR E EÓLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS DE ENERGIA SOLAR E EOLICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0028",
-          "nome": "PROGRAMAÇÃO PARA COMPETIÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO PARA COMPETICOES",
+          "ch": "60"
         },
         {
           "codigo": "FGA0044",
           "nome": "PROJETO DE SISTEMAS DE CONTROLE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0046",
-          "nome": "MÉTODOS E TÉCNICAS DA ESCRITA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS E TECNICAS DA ESCRITA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0053",
-          "nome": "TÓPICOS ESPECIAIS EM PROGRAMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0057",
-          "nome": "ELETRÔNICA DE POTÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELETRONICA DE POTENCIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0088",
-          "nome": "TEORIA DE SISTEMAS DE CONVERSÃO DE ENERGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DE SISTEMAS DE CONVERSAO DE ENERGIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0089",
-          "nome": "LABORATÓRIO DE SISTEMAS DE CONVERSÃO DE ENERGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE SISTEMAS DE CONVERSAO DE ENERGIA",
+          "ch": "30"
         },
         {
           "codigo": "FGA0094",
           "nome": "ANTENAS IMPRESSAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0095",
-          "nome": "CODIFICAÇÃO E COMPRESSÃO DE SINAIS, IMAGENS E VÍDEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CODIFICACAO E COMPRESSAO DE SINAIS, IMAGENS E VIDEO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0097",
-          "nome": "ELETRÔNICA DE RÁDIO FREQUÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELETRONICA DE RADIO FREQUENCIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0116",
-          "nome": "ELETRÔNICA DE ALTA FREQUÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELETRONICA DE ALTA FREQUENCIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0129",
           "nome": "PROCESSAMENTO DIGITAL DE SINAIS FINANCEIROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0138",
-          "nome": "MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
         },
         {
           "codigo": "FGA0147",
           "nome": "ESTRUTURA DE DADOS E ALGORITMOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0158",
-          "nome": "ORIENTAÇÃO A OBJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO A OBJETOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0165",
           "nome": "PROCESSO DE DESENVOLVIMENTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0166",
-          "nome": "ELEMENTOS E MÉTODOS EM ELETRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0167",
           "nome": "SISTEMAS AUTOMOTIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0169",
-          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0170",
           "nome": "FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0171",
-          "nome": "TÉCNICAS DE PROGRAMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PROGRAMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0181",
-          "nome": "INOVAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INOVACAO",
+          "ch": "30"
         },
         {
           "codigo": "FGA0195",
-          "nome": "GESTÃO DA PRODUÇÃO AUTOMOTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DA PRODUCAO AUTOMOTIVA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0198",
           "nome": "PROJETO COM CIRCUITOS RECONFIGURAVEIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0200",
           "nome": "ENGENHARIA DE PRODUTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0201",
           "nome": "PROJETO DE CIRCUITOS INTEGRADOS DIGITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0202",
-          "nome": "INFORMÁTICA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFORMATICA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FGA0211",
           "nome": "FUNDAMENTOS DE REDES DE COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0221",
-          "nome": "INTELIGÊNCIA ARTIFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
         },
         {
           "codigo": "FGA0222",
-          "nome": "INSTRUMENTAÇÃO BIOMÉDICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTACAO BIOMEDICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0224",
-          "nome": "COMUNICAÇÕES DIGITAIS PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACOES DIGITAIS PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0226",
-          "nome": "ELETRÔNICA VEICULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELETRONICA VEICULAR",
+          "ch": "60"
         },
         {
           "codigo": "FGA0254",
-          "nome": "CIÊNCIAS AEROESPACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0256",
           "nome": "PROJETO DE SENSORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0257",
           "nome": "INTEGRIDADES DE SINAIS E DESIGN DE CIRCUITOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0258",
-          "nome": "INSTRUMENTAÇÃO BIOMÉDICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INSTRUMENTACAO BIOMEDICA 2",
+          "ch": "60"
         },
         {
           "codigo": "FGA0259",
-          "nome": "MODELAGEM DE SISTEMAS BIOLÓGICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MODELAGEM DE SISTEMAS BIOLOGICOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0260",
-          "nome": "TÓPICOS AVANÇADOS EM ELETROMAGNETISMO APLICADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM ELETROMAGNETISMO APLICADO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0261",
-          "nome": "TÓPICOS ESPECIAIS EM ELETRONICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0262",
-          "nome": "TRANSMISSÃO E DISTRIBUIÇÃO DE ENERGIA ELÉTRICA",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "TRANSMISSAO E DISTRIBUICAO DE ENERGIA ELETRICA",
+          "ch": "75"
         },
         {
           "codigo": "FGA0280",
-          "nome": "PROJETO DE CIRCUITOS ELETRÔNICOS INTEGRADOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE CIRCUITOS ELETRONICOS INTEGRADOS 2",
+          "ch": "60"
         },
         {
           "codigo": "FGA0292",
-          "nome": "INTRODUÇÃO À FOTÔNICA E OPTRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FOTONICA E OPTRONICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0323",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "FGA0324",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FGA0325",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "FGA0326",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0327",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FGA0328",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FGA0380",
-          "nome": "PROCESSOS ESTOCÁSTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS ESTOCASTICOS",
+          "ch": "60"
         },
         {
           "codigo": "FTD0007",
           "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0177",
           "nome": "FISICA 2 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0179",
           "nome": "FISICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0181",
           "nome": "FISICA 3 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0302",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0071",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0073",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0067",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0069",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0072",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0074",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0119",
+          "nome": "TEORIA DE ELETROMAGNETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0120",
+          "nome": "PRATICA DE ELETROMAGNETISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0303",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0075",
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0078",
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0086",
+          "nome": "TEORIA DE ELETRICIDADE APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0087",
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0100",
+          "nome": "PRATICA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0101",
+          "nome": "TEORIA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0102",
+          "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0308",
+          "nome": "ELETRONICA EMBARCADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0068",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0070",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0092",
+          "nome": "PRINCIPIOS DE COMUNICACAO PARA ENGENHARIA",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0093",
+          "nome": "PRINCIPIOS DE CONTROLE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0307",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0017",
+          "nome": "PROJETOS DE CIRCUITOS INTEGRADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0132",
+          "nome": "INSTRUMENTACAO ELETRONICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0219",
+          "nome": "PROCESSAMENTO DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0309",
+          "nome": "SISTEMAS OPERACIONAIS EMBARCADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0310",
+          "nome": "PROJETO EXTENSIONISTA EM ENGENHARIA ELETRONICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0098",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0099",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0295",
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0304",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0287",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0288",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "FGA0311",
+          "nome": "PROJETO EXTENSIONISTA EM ENGENHARIA ELETRONICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0290",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0296",
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
         }
       ]
     }

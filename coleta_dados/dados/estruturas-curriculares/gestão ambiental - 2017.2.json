@@ -3,1157 +3,1197 @@
   "periodo_letivo_vigor": "2017.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0262",
-          "nome": "METODOLOGIA DA PESQUISA CIENTÍFICA E ELABORAÇÃO DE PROJETOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DA PESQUISA CIENTIFICA E ELABORACAO DE PROJETOS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0263",
-          "nome": "INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0358",
           "nome": "SOCIEDADE E NATUREZA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0265",
-          "nome": "BIOLOGIA GERAL APLICADA A GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "BIOLOGIA GERAL APLICADA A GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0360",
-          "nome": "FUNDAMENTOS DAS CIÊNCIAS DA NATUREZA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DAS CIENCIAS DA NATUREZA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0434",
-          "nome": "CLIMATOLOGIA E MUDANÇAS CLIMÁTICAS GLOBAIS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CLIMATOLOGIA E MUDANCAS CLIMATICAS GLOBAIS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0524",
-          "nome": "ORGANIZAÇÃO E MÉTODOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO E METODOS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0259",
-          "nome": "HISTÓRIA AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA AMBIENTAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FUP0200",
-          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULAÇÕES E COMUNIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
         },
         {
           "codigo": "FUP0267",
-          "nome": "ESTADO POLÍTICA AMBIENTE E SUSTENTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTADO POLITICA AMBIENTE E SUSTENTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0438",
-          "nome": "QUÍMICA AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "QUIMICA AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0520",
           "nome": "GEOPROCESSAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0526",
-          "nome": "GESTÃO E INOVAÇÃO TECNOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO E INOVACAO TECNOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0547",
           "nome": "ESTUDOS INTERDISCIPLINARES DO CERRADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FUP0240",
-          "nome": "TEORIA, CONCEITOS E METODOLOGIAS EM EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA, CONCEITOS E METODOLOGIAS EM EDUCACAO AMBIENTAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0261",
           "nome": "PEDOLOGIA E EDAFOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0521",
-          "nome": "ADMINISTRAÇÃO PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0522",
           "nome": "PLANEJAMENTO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0523",
           "nome": "ECOSSISTEMAS TERRESTRES AQUATICOS E INTERFACES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0525",
-          "nome": "GESTÃO AMBIENTAL EMPRESARIAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO AMBIENTAL EMPRESARIAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0437",
-          "nome": "MAPEAMENTO ECOLÓGICO EM UNIDADES DE CONSERVAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "MAPEAMENTO ECOLOGICO EM UNIDADES DE CONSERVACAO",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FUP0443",
-          "nome": "INTRODUÇÃO À SAÚDE PÚBLICA E AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A SAUDE PUBLICA E AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0531",
           "nome": "ECONOMIA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0534",
-          "nome": "DIREITO E LEGISLAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIREITO E LEGISLACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0535",
-          "nome": "GESTÃO AMBIENTAL URBANA E REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO AMBIENTAL URBANA E REGIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0441",
           "nome": "SOCIOLOGIA DO AMBIENTALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FUP0530",
-          "nome": "PLANEJAMENTO E GESTÃO DE RECURSOS HÍDRICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO DE RECURSOS HIDRICOS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0536",
           "nome": "CONTABILIDADE AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0545",
           "nome": "AGRICULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0546",
-          "nome": "ESTATÍSTICA E ECOLOGIA NUMÉRICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA E ECOLOGIA NUMERICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0533",
-          "nome": "RECUPERAÇÃO ÁREAS DEGRADADAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RECUPERACAO AREAS DEGRADADAS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FUP0335",
-          "nome": "GESTÃO DE PESSOAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE PESSOAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0440",
           "nome": "CONFLITOS SOCIOAMBIENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FUP0529",
-          "nome": "COMERCIALIZAÇÃO DE PRODUTOS AMBIENTAIS E MARKETING AMBIENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "COMERCIALIZACAO DE PRODUTOS AMBIENTAIS E MARKETING AMBIENTAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0549",
-          "nome": "INSTRUMENTOS DE AVALIAÇÃO DE IMPACTO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INSTRUMENTOS DE AVALIACAO DE IMPACTO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0553",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM GESTÃO AMBIENTAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM GESTAO AMBIENTAL 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0558",
-          "nome": "POLUIÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLUICAO AMBIENTAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FUP0560",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM GESTÃO AMBIENTAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM GESTAO AMBIENTAL 2",
+          "ch": "30"
         },
         {
           "codigo": "FUP0412",
-          "nome": "GESTÃO DE COOPERATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE COOPERATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0552",
-          "nome": "TÓPICOS ESPECIAIS EM GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0555",
-          "nome": "POLÍTICA E GESTÃO DE RESÍDUOS URBANOS E RECICLAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E GESTAO DE RESIDUOS URBANOS E RECICLAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FUP0556",
-          "nome": "GEOPOLÍTICA, MEIO AMBIENTE E RELAÇÕES INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOPOLITICA, MEIO AMBIENTE E RELACOES INTERNACIONAIS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0025",
-          "nome": "ORGANIZACAO E SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0070",
-          "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "SISTEMAS",
+          "nome": "60H OPTATIVA ADM0070 - GOVERNO E ADMINISTRACAO NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "BOT0021",
           "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "BOT0044",
-          "nome": "ORGANOGRAFIA E SISTEMÁTICA FANEROFÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
         },
         {
           "codigo": "CEL0035",
           "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "ECL0002",
           "nome": "ECOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "ECL0013",
           "nome": "LIMNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0014",
           "nome": "CIENCIAS DO AMBIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ECL0030",
-          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
         },
         {
           "codigo": "ECL0033",
           "nome": "ECOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ECL0042",
-          "nome": "MEIO AMBIENTE FÍSICO E ECOSSISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "ECL0043",
-          "nome": "ECOLOGIA DE POPULAÇÕES E COMUNIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
         },
         {
           "codigo": "ECL0049",
           "nome": "BIOLOGIA E ECOLOGIA DE PEIXES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0004",
           "nome": "ECOLOGIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0002",
-          "nome": "GESTÃO DE RESÍDUOS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE RESIDUOS AGROINDUSTRIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0236",
           "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FMD0013",
           "nome": "MORFOFUNCIONAL 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0004",
-          "nome": "FUNDAMENTOS EM CIÊNCIAS E MICROBIOLOGIA DOS ALIMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS EM CIENCIAS E MICROBIOLOGIA DOS ALIMENTOS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0035",
-          "nome": "CÁLCULO VETORIAL E GEOMETRIA ANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CALCULO VETORIAL E GEOMETRIA ANALITICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0036",
-          "nome": "EDUCAÇÃO E COMUNICAÇÃO COMUNITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO E COMUNICACAO COMUNITARIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0040",
-          "nome": "PRÁTICAS DE CAMPO EM BOTÂNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE CAMPO EM BOTANICA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0044",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTO 1",
+          "ch": "30"
         },
         {
           "codigo": "FUP0125",
-          "nome": "CIÊNCIA, TECNOLOGIA, SOCIEDADE: UMA INTRODUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA, TECNOLOGIA, SOCIEDADE: UMA INTRODUCAO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0139",
           "nome": "UNIVERSIDADE, SOCIEDADE E DEMOCRACIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0161",
           "nome": "AGROECOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0219",
           "nome": "TRABALHO DE CAMPO 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FUP0241",
-          "nome": "ANTROPOLOGIA ECOLÓGICA, ETNOCONSERVACIONISMO E GESTÃO DOS BENS COMUNS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA ECOLOGICA, ETNOCONSERVACIONISMO E GESTAO DOS BENS COMUNS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0244",
-          "nome": "QUÍMICA E ANÁLISE DO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA E ANALISE DO AMBIENTE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0257",
           "nome": "EPIDEMIOLOGIA AMBIENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0260",
-          "nome": "HIDROLOGIA APLICADA A GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HIDROLOGIA APLICADA A GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0264",
-          "nome": "PLANEJAMENTO GESTÃO E SINALIZAÇÃO DE TRILHAS INTERPRETATIVAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO GESTAO E SINALIZACAO DE TRILHAS INTERPRETATIVAS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0268",
-          "nome": "USO DO PROGRAMA R COM APLICAÇÕES AMBIENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "USO DO PROGRAMA R COM APLICACOES AMBIENTAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0277",
-          "nome": "INTRODUÇÃO AO AGRONEGÓCIO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO AGRONEGOCIO",
+          "ch": "30"
         },
         {
           "codigo": "FUP0280",
-          "nome": "ECONOMIA APLICADA AO AGRONEGÓCIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 1",
+          "ch": "60"
         },
         {
           "codigo": "FUP0281",
-          "nome": "ADMINISTRAÇÃO APLICADA AO AGRONEGÓCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO APLICADA AO AGRONEGOCIO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0295",
           "nome": "SISTEMAS AGROINDUTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0302",
-          "nome": "SISTEMAS ECOLÓGICOS",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
         },
         {
           "codigo": "FUP0304",
-          "nome": "MATEMÁTICA PARA CIÊNCIAS NATURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MATEMATICA PARA CIENCIAS NATURAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0313",
-          "nome": "QUÍMICA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0316",
           "nome": "UNIVERSO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0318",
           "nome": "SERES VIVOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0326",
           "nome": "TERRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0328",
           "nome": "SERES VIVOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0329",
-          "nome": "COMPOSTOS ORGÂNICOS E VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPOSTOS ORGANICOS E VIDA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0342",
-          "nome": "PLANEJAMENTO ESTRATÉGICO E EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO ESTRATEGICO E EMPRESARIAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0344",
-          "nome": "REGULAÇÃO E POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REGULACAO E POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0355",
-          "nome": "CÉLULA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CELULA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0356",
-          "nome": "INTRODUÇÃO AO CURSO DE GESTÃO AMBIENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO CURSO DE GESTAO AMBIENTAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0357",
-          "nome": "CIÊNCIAS AMBIENTAIS E SUA MULTIDISCIPLINARIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIAS AMBIENTAIS E SUA MULTIDISCIPLINARIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0362",
-          "nome": "ENERGIA E DINÂMICA DAS TRANSFORMAÇÕES QUÍMICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENERGIA E DINAMICA DAS TRANSFORMACOES QUIMICAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0368",
           "nome": "NOVA ECONOMIA INSTITUCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0372",
           "nome": "SISTEMAS AGROINDUSTRIAIS NO CENTRO-OESTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0411",
-          "nome": "GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0435",
-          "nome": "TEORIA DO DESENVOLVIMENTO SUSTENTÁVEL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0436",
-          "nome": "FUNDAMENTOS DA ABORDAGEM ECOSSISTEMICA A SAÚDE HUMANA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA ABORDAGEM ECOSSISTEMICA A SAUDE HUMANA",
+          "ch": "30"
         },
         {
           "codigo": "FUP0442",
           "nome": "TEORIA DE SISTEMAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0444",
           "nome": "GEOMORFOLOGIA TROPICAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FUP0528",
           "nome": "ZOOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0532",
-          "nome": "POLÍTICA E GESTÃO AMBIENTAL EM TERRAS INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E GESTAO AMBIENTAL EM TERRAS INDIGENAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0548",
-          "nome": "GESTÃO DE EFLUENTES LÍQUIDOS E ÁGUAS RESIDUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE EFLUENTES LIQUIDOS E AGUAS RESIDUAIS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0550",
-          "nome": "POLÍTICA E GESTÃO EM ECOTURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E GESTAO EM ECOTURISMO",
+          "ch": "60"
         },
         {
           "codigo": "FUP0557",
-          "nome": "POLÍTICA E GESTÃO DE UNIDADES DE CONSERVAÇÃO E ÁREAS PROTEGIDAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E GESTAO DE UNIDADES DE CONSERVACAO E AREAS PROTEGIDAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0559",
-          "nome": "TEORIA POLÍTICA MODERNA E SUSTENTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA MODERNA E SUSTENTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0561",
-          "nome": "AUDITORIA, PERÍCIA E CERTIFICAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AUDITORIA, PERICIA E CERTIFICACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0562",
           "nome": "ENGENHARIA AMBIENTAL E COMISSIONAMENTO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0563",
-          "nome": "ESTATÍSTICA MULTIVARIADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA MULTIVARIADA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0564",
-          "nome": "GESTÃO DA BIODIVERSIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DA BIODIVERSIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0565",
           "nome": "MEIO AMBIENTE E DIREITOS HUMANOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0566",
           "nome": "PERMACULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0038",
           "nome": "GEOMORFOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0011",
           "nome": "EMBRIOLOGIA GERAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0040",
           "nome": "FUNDAMENTOS DE EMBRIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0043",
           "nome": "EMBRIOLOGIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0054",
           "nome": "HISTOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ICB0098",
           "nome": "MORFOLOGIA E TAXONOMIA VEGETAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "IGD0024",
           "nome": "CRISTALOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0047",
           "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IGD0049",
           "nome": "PALEONTOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0051",
           "nome": "ESTRATIGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0054",
           "nome": "HIDROGEOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IGD0140",
           "nome": "FUNDAMENTOS DE MINERALOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0143",
           "nome": "DESENHO TECNICO GEOLOGICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IGD0147",
-          "nome": "MAPEAMENTO GEOLÓGICO 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "MAPEAMENTO GEOLOGICO 1",
+          "ch": "75"
         },
         {
           "codigo": "IGD0148",
           "nome": "GEOLOGIA ESTRUTURAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0183",
           "nome": "TOPOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0194",
           "nome": "MINERALOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "IGD0195",
-          "nome": "MINERALOGIA DE NÃO SILICATOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0198",
-          "nome": "CARTOGRAFIA E GEODÉSIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0200",
           "nome": "PETROLOGIA SEDIMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0203",
           "nome": "GEOLOGIA SEDIMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0211",
           "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "LIP0175",
-          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "ZOO0013",
           "nome": "ZOOLOGIA INVERTEBRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0017",
           "nome": "ZOOLOGIA VERTEBRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0259",
-          "nome": "HISTÓRIA AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0547",
           "nome": "ESTUDOS INTERDISCIPLINARES DO CERRADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0437",
-          "nome": "MAPEAMENTO ECOLÓGICO EM UNIDADES DE CONSERVAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "MAPEAMENTO ECOLOGICO EM UNIDADES DE CONSERVACAO",
+          "ch": "30"
         },
         {
           "codigo": "FUP0441",
           "nome": "SOCIOLOGIA DO AMBIENTALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0533",
-          "nome": "RECUPERAÇÃO ÁREAS DEGRADADAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RECUPERACAO AREAS DEGRADADAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0558",
-          "nome": "POLUIÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLUICAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0412",
-          "nome": "GESTÃO DE COOPERATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE COOPERATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FUP0552",
-          "nome": "TÓPICOS ESPECIAIS EM GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0555",
-          "nome": "POLÍTICA E GESTÃO DE RESÍDUOS URBANOS E RECICLAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E GESTAO DE RESIDUOS URBANOS E RECICLAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FUP0556",
-          "nome": "GEOPOLÍTICA, MEIO AMBIENTE E RELAÇÕES INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOPOLITICA, MEIO AMBIENTE E RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0262",
+          "nome": "METODOLOGIA DA PESQUISA CIENTIFICA E ELABORACAO DE PROJETOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0263",
+          "nome": "INTRODUCAO AS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0358",
+          "nome": "SOCIEDADE E NATUREZA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0265",
+          "nome": "BIOLOGIA GERAL APLICADA A GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0360",
+          "nome": "FUNDAMENTOS DAS CIENCIAS DA NATUREZA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0434",
+          "nome": "CLIMATOLOGIA E MUDANCAS CLIMATICAS GLOBAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0524",
+          "nome": "ORGANIZACAO E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0259",
+          "nome": "HISTORIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0200",
+          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0267",
+          "nome": "ESTADO POLITICA AMBIENTE E SUSTENTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0438",
+          "nome": "QUIMICA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0520",
+          "nome": "GEOPROCESSAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0526",
+          "nome": "GESTAO E INOVACAO TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0547",
+          "nome": "ESTUDOS INTERDISCIPLINARES DO CERRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0240",
+          "nome": "TEORIA, CONCEITOS E METODOLOGIAS EM EDUCACAO AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0261",
+          "nome": "PEDOLOGIA E EDAFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0521",
+          "nome": "ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0522",
+          "nome": "PLANEJAMENTO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0523",
+          "nome": "ECOSSISTEMAS TERRESTRES AQUATICOS E INTERFACES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0525",
+          "nome": "GESTAO AMBIENTAL EMPRESARIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0437",
+          "nome": "MAPEAMENTO ECOLOGICO EM UNIDADES DE CONSERVACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0443",
+          "nome": "INTRODUCAO A SAUDE PUBLICA E AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0531",
+          "nome": "ECONOMIA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0534",
+          "nome": "DIREITO E LEGISLACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0535",
+          "nome": "GESTAO AMBIENTAL URBANA E REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0441",
+          "nome": "SOCIOLOGIA DO AMBIENTALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0530",
+          "nome": "PLANEJAMENTO E GESTAO DE RECURSOS HIDRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0536",
+          "nome": "CONTABILIDADE AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0545",
+          "nome": "AGRICULTURA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0546",
+          "nome": "ESTATISTICA E ECOLOGIA NUMERICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0533",
+          "nome": "RECUPERACAO AREAS DEGRADADAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0335",
+          "nome": "GESTAO DE PESSOAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0440",
+          "nome": "CONFLITOS SOCIOAMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0529",
+          "nome": "COMERCIALIZACAO DE PRODUTOS AMBIENTAIS E MARKETING AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0549",
+          "nome": "INSTRUMENTOS DE AVALIACAO DE IMPACTO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0553",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM GESTAO AMBIENTAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0558",
+          "nome": "POLUICAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0560",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM GESTAO AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0412",
+          "nome": "GESTAO DE COOPERATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0552",
+          "nome": "TOPICOS ESPECIAIS EM GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0555",
+          "nome": "POLITICA E GESTAO DE RESIDUOS URBANOS E RECICLAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0556",
+          "nome": "GEOPOLITICA, MEIO AMBIENTE E RELACOES INTERNACIONAIS",
+          "ch": "60"
         }
       ]
     }

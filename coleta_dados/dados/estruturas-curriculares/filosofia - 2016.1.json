@@ -3,975 +3,807 @@
   "periodo_letivo_vigor": "2016.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FIL0165",
-          "nome": "INTRODUÇÃO À HISTÓRIA DA FILOSOFIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A HISTORIA DA FILOSOFIA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0166",
-          "nome": "INTRODUÇÃO A PRÁTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FIL0167",
-          "nome": "ÉTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ETICA FILOSOFICA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0179",
-          "nome": "LÓGICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "LOGICA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0180",
           "nome": "FILOSOFIA ANTIGA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FIL0175",
           "nome": "EPISTEMOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FIL0176",
-          "nome": "FILOSOFIA POLÍTICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FILOSOFIA POLITICA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0177",
           "nome": "FILOSOFIA MEDIEVAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FIL0181",
           "nome": "FILOSOFIA MODERNA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FIL0182",
-          "nome": "ESTÉTICA E FILOSOFIA DA ARTE",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTETICA E FILOSOFIA DA ARTE",
+          "ch": "90"
         },
         {
           "codigo": "FIL0183",
-          "nome": "FILOSOFIA DA CIÊNCIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FILOSOFIA DA CIENCIA",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FIL0002",
-          "nome": "TEORIAS FILOSÓFICAS DA LINGUAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIAS FILOSOFICAS DA LINGUAGEM",
+          "ch": "90"
         },
         {
           "codigo": "FIL0003",
-          "nome": "FILOSOFIA CONTEMPORÂNEA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FILOSOFIA CONTEMPORANEA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0004",
-          "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 1",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FIL0007",
-          "nome": "FILOSOFIA GERAL E METAFÍSICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FILOSOFIA GERAL E METAFISICA",
+          "ch": "90"
         },
         {
           "codigo": "FIL0168",
-          "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FIL0025",
-          "nome": "PROJETO DE MONOGRAFIA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE MONOGRAFIA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0170",
-          "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 3",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 3",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FIL0028",
-          "nome": "MONOGRAFIA FILOSÓFICA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "MONOGRAFIA FILOSOFICA",
+          "ch": "120"
         },
         {
           "codigo": "FIL0173",
-          "nome": "ESTÁGIO PEDAGÓGICO SUPERVISIONADO 4",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 4",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "TEF0041",
-          "nome": "ANTROPOLOGIA E EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FIL0184",
-          "nome": "ÉTICA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0017",
-          "nome": "EVOLUCAO DA EDUCACAO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FIL0014",
-          "nome": "FILOSOFIA AFRICANA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0109",
-          "nome": "FILOSOFIA COM CRIANÇAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0022",
-          "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FIL0015",
-          "nome": "FILOSOFIA DO ENSINO DE FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FIL0016",
-          "nome": "FILOSOFIA E CRIANÇAS - UMA EDUCAÇÃO FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FIL0017",
-          "nome": "FILOSOFIA E FEMINISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PED0058",
-          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0044",
-          "nome": "FUNDAMENTOS POLITICOS DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0015",
-          "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0016",
-          "nome": "HISTORIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0038",
-          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0111",
-          "nome": "INVESTIGAÇÃO FILOSÓFICA NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FIL0010",
-          "nome": "METODOLOGIA DE ENSINO DE FILOSOFIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DEG1101",
-          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIAÇÃO À DOCÊNCIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEF0014",
-          "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0201",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEG1101",
-          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIAÇÃO À DOCÊNCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIACAO A DOCENCIA",
+          "ch": "30"
         },
         {
           "codigo": "FIL0001",
-          "nome": "TÓPICOS ESPECIAIS EM FILOSOFIA ORIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM FILOSOFIA ORIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FIL0005",
-          "nome": "FILOSOFIA NA AMÉRICA LATINA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA NA AMERICA LATINA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0008",
-          "nome": "TÓPICOS ESPECIAIS DE EPISTEMOLOGIA DAS CIÊNCIAS HUMANAS E SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FIL0009",
-          "nome": "FILOSOFIA DA PSICANÁLISE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA PSICANALISE",
+          "ch": "60"
         },
         {
           "codigo": "FIL0010",
           "nome": "METODOLOGIA DE ENSINO DE FILOSOFIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FIL0011",
-          "nome": "PRÁTICAS PEDAGÓGICAS EM FILOSOFIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS PEDAGOGICAS EM FILOSOFIA",
+          "ch": "30"
         },
         {
           "codigo": "FIL0013",
-          "nome": "FILOSOFIA FRANCESA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA FRANCESA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0014",
           "nome": "FILOSOFIA AFRICANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0015",
           "nome": "FILOSOFIA DO ENSINO DE FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0016",
-          "nome": "FILOSOFIA E CRIANÇAS - UMA EDUCAÇÃO FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA E CRIANCAS - UMA EDUCACAO FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0017",
           "nome": "FILOSOFIA E FEMINISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0018",
-          "nome": "LÓGICA MODAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA MODAL",
+          "ch": "60"
         },
         {
           "codigo": "FIL0019",
-          "nome": "LÓGICAS NÃO-CLÁSSICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICAS NAO-CLASSICAS",
+          "ch": "60"
         },
         {
           "codigo": "FIL0020",
-          "nome": "FILOSOFIA DA MATEMÁTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA MATEMATICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0021",
-          "nome": "TEORIA CRÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA CRITICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0022",
-          "nome": "INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA EM LINGUA FRANCESA 1",
+          "ch": "60"
         },
         {
           "codigo": "FIL0023",
-          "nome": "INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA EM LINGUA FRANCESA 2",
+          "ch": "60"
         },
         {
           "codigo": "FIL0024",
-          "nome": "INTRODUÇÃO À FILOSOFIA EM LÍNGUA FRANCESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA EM LINGUA FRANCESA 3",
+          "ch": "60"
         },
         {
           "codigo": "FIL0026",
           "nome": "FILOSOFIA ORIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0027",
-          "nome": "TÓPICOS ESPECIAIS DE FILOSOFIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE FILOSOFIA DA RELIGIAO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0050",
-          "nome": "HISTÓRIA DA FILOSOFIA NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA FILOSOFIA NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "FIL0063",
-          "nome": "ANTROPOLOGIA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0065",
-          "nome": "FILOSOFIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0068",
-          "nome": "ESTÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0079",
           "nome": "LOGICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0087",
           "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0088",
           "nome": "HERMENEUTICA FILOSOFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0089",
           "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0090",
           "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA MEDIEVAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0091",
           "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0092",
           "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0094",
-          "nome": "TÓPICOS ESPECIAIS DE LÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE LOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0096",
           "nome": "TOPICOS ESPECIAIS DE TEORIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0097",
           "nome": "TOPICOS ESPECIAIS DE TEORIA DA CIENCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0099",
           "nome": "TOPICOS ESPECIAIS DE FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0101",
           "nome": "TOPICOS ESPECIAIS DE ANTROPOLOGIA FILOSOFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0107",
           "nome": "HISTORIA DA CIENCIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0118",
           "nome": "FILOSOFIA DA LOGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0120",
           "nome": "TOPICOS ESPECIAIS DE ETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0122",
           "nome": "TOPICOS ESPECIAIS DE FILOSOFIA SOCIAL E POLITICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0124",
           "nome": "FILOSOFIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0125",
           "nome": "FENOMENOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0127",
           "nome": "FILOSOFIA MARXISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0129",
           "nome": "DIALETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0130",
           "nome": "FILOSOFIA ANALITICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0132",
           "nome": "EXISTENCIALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0134",
           "nome": "MITO E FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0136",
-          "nome": "FILOSOFIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA RELIGIAO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0137",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 4",
+          "ch": "60"
         },
         {
           "codigo": "FIL0138",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 5",
+          "ch": "60"
         },
         {
           "codigo": "FIL0139",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 6",
+          "ch": "60"
         },
         {
           "codigo": "FIL0141",
           "nome": "FILOSOFIA DA NATUREZA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0142",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 1",
+          "ch": "60"
         },
         {
           "codigo": "FIL0143",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 2",
+          "ch": "60"
         },
         {
           "codigo": "FIL0144",
-          "nome": "TEXTOS FILOSÓFICOS GREGOS 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEXTOS FILOSOFICOS GREGOS 3",
+          "ch": "60"
         },
         {
           "codigo": "FIL0145",
           "nome": "TEXTOS FILOSOFICOS LATINOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0146",
           "nome": "TEXTOS FILOSOFICOS LATINOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0147",
           "nome": "TEXTOS FILOSOFICOS LATINOS 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0149",
           "nome": "METAFILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0150",
           "nome": "SEMINARIO ESPECIAL DE FILOSOFIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0151",
           "nome": "SEMINARIO ESPECIAL DE FILOSOFIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0152",
           "nome": "FILOSOFIA DA MENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0156",
           "nome": "HISTORIA DA CIENCIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0158",
           "nome": "IDEIAS FILOSOFICAS EM FORMA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0159",
           "nome": "TOPICOS ESPECIAIS DE HISTORIA DA FILOSOFIA NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0160",
           "nome": "TOPICOS ESPECIAIS DE FILOSOFIA DA HISTORIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0161",
           "nome": "TOPICOS ESPECIAIS DE FILOSOFIA DA LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0162",
           "nome": "TOPICOS ESPECIAIS DE ESTETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0184",
-          "nome": "ÉTICA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0185",
-          "nome": "FILOSOFIA DA MÚSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA MUSICA",
+          "ch": "60"
         },
         {
           "codigo": "ICB0080",
           "nome": "FILOSOFIA DA BIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ICB0081",
-          "nome": "HISTÓRIA DA BIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA BIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "PED0052",
           "nome": "PSICOLOGIA ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0014",
           "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0016",
           "nome": "HISTORIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0017",
           "nome": "EVOLUCAO DA EDUCACAO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0022",
           "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0041",
           "nome": "ANTROPOLOGIA E EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0044",
           "nome": "FUNDAMENTOS POLITICOS DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0109",
-          "nome": "FILOSOFIA COM CRIANÇAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA COM CRIANCAS",
+          "ch": "60"
         },
         {
           "codigo": "TEF0111",
-          "nome": "INVESTIGAÇÃO FILOSÓFICA NA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INVESTIGACAO FILOSOFICA NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEL0004",
-          "nome": "TRAGÉDIA GREGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TRAGEDIA GREGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0165",
+          "nome": "INTRODUCAO A HISTORIA DA FILOSOFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0167",
+          "nome": "ETICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0179",
+          "nome": "LOGICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0180",
+          "nome": "FILOSOFIA ANTIGA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0175",
+          "nome": "EPISTEMOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0176",
+          "nome": "FILOSOFIA POLITICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0177",
+          "nome": "FILOSOFIA MEDIEVAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0181",
+          "nome": "FILOSOFIA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0182",
+          "nome": "ESTETICA E FILOSOFIA DA ARTE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0183",
+          "nome": "FILOSOFIA DA CIENCIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0002",
+          "nome": "TEORIAS FILOSOFICAS DA LINGUAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0003",
+          "nome": "FILOSOFIA CONTEMPORANEA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0004",
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0007",
+          "nome": "FILOSOFIA GERAL E METAFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0168",
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0025",
+          "nome": "PROJETO DE MONOGRAFIA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0170",
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "FIL0028",
+          "nome": "MONOGRAFIA FILOSOFICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FIL0173",
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 4",
+          "ch": "120"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     }

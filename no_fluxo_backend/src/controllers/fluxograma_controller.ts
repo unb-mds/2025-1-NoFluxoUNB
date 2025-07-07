@@ -1,11 +1,10 @@
 import { EndpointController, RequestType } from "../interfaces";
-import { Pair, Utils } from "../utils";
+import { Pair } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
 import axios from 'axios';
 import FormData from 'form-data';
 import { createControllerLogger } from '../utils/controller_logger';
-import logger from "../logger";
 
 export const FluxogramaController: EndpointController = {
     name: "fluxograma",
@@ -100,8 +99,8 @@ export const FluxogramaController: EndpointController = {
                         .from("cursos")
                         .select("nome_curso, matriz_curricular")
                         .order("nome_curso");
-
-                    return res.status(400).json({
+                    
+                    return res.status(400).json({ 
                         error: "Curso não foi extraído do PDF automaticamente",
                         message: "Por favor, selecione o curso manualmente",
                         cursos_disponiveis: todosCursos || []
@@ -113,16 +112,16 @@ export const FluxogramaController: EndpointController = {
                 if (curso_extraido.startsWith('PALAVRAS_CHAVE:')) {
                     const palavrasChave = curso_extraido.replace('PALAVRAS_CHAVE:', '').split(',');
                     logger.info(`Buscando cursos com palavras-chave: ${palavrasChave.join(', ')}`);
-
+                    
                     // Buscar cursos que contenham alguma das palavras-chave
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
                         .select("nome_curso, matriz_curricular")
                         .order("nome_curso");
-
+                    
                     if (todosCursos) {
-                        cursosFiltrados = todosCursos.filter(curso =>
-                            palavrasChave.some((palavra: string) =>
+                        cursosFiltrados = todosCursos.filter(curso => 
+                            palavrasChave.some((palavra: string) => 
                                 curso.nome_curso?.toUpperCase().includes(palavra.toUpperCase())
                             )
                         );
@@ -139,18 +138,18 @@ export const FluxogramaController: EndpointController = {
                         // Se só há um curso filtrado, usar ele
                         const cursoSelecionado = cursosFiltrados[0];
                         logger.info(`Usando curso filtrado: ${cursoSelecionado.nome_curso}`);
-
+                        
                         const { data, error: queryError } = await SupabaseWrapper.get()
                             .from("cursos")
                             .select("*,materias_por_curso(id_materia,nivel,materias(*))")
                             .eq("nome_curso", cursoSelecionado.nome_curso);
-
+                        
                         materiasBanco = data;
                         error = queryError;
                     } else {
                         // Se há múltiplos cursos, retornar para o usuário escolher
                         logger.info(`Múltiplos cursos encontrados: ${cursosFiltrados.length}`);
-                        return res.status(400).json({
+                        return res.status(400).json({ 
                             error: "Múltiplos cursos encontrados",
                             message: "Por favor, selecione o curso correto",
                             cursos_disponiveis: cursosFiltrados,
@@ -192,7 +191,7 @@ export const FluxogramaController: EndpointController = {
 
                 if (!materiasBanco || materiasBanco.length === 0) {
                     logger.warn(`Curso não encontrado com matriz curricular específica. Tentando busca alternativa...`);
-
+                    
                     // Busca alternativa: pelo nome do curso e matriz curricular, se existir
                     let queryAlt = SupabaseWrapper.get()
                         .from("cursos")
@@ -221,236 +220,90 @@ export const FluxogramaController: EndpointController = {
                 // Filtrar matérias obrigatórias (nivel > 0) e optativas (nivel = 0)
                 const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
                 const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+
+                // Novo fluxo de casamento de disciplinas
                 const disciplinasCasadas: any[] = [];
                 const materiasConcluidas: any[] = [];
                 const materiasPendentes: any[] = [];
                 const materiasOptativasConcluidas: any[] = [];
                 const materiasOptativasPendentes: any[] = [];
 
-                logger.info(`Total de matérias no curso: ${materiasBancoList.length}`);
-                logger.info(`Matérias obrigatórias: ${materiasObrigatorias.length}`);
-                logger.info(`Matérias optativas: ${materiasOptativas.length}`);
-
-                // Extrair dados de validação do PDF
-                const dadosValidacao = {
-                    ira: null as number | null,
-                    media_ponderada: media_ponderada ? parseFloat(media_ponderada) : null,
-                    frequencia_geral: frequencia_geral ? parseFloat(frequencia_geral) : null,
-                    horas_integralizadas: 0,
-                    pendencias: [],
-                    curso_extraido: curso_extraido,
-                    matriz_curricular: matriz_curricular
-                };
-
-                // Buscar dados de validação nos dados extraídos
-                for (const item of dados_extraidos.extracted_data) {
-                    if (item.IRA) {
-                        dadosValidacao.ira = parseFloat(item.valor);
-                        logger.info(`IRA extraído do PDF: ${dadosValidacao.ira}`);
-                    }
-                    if (item.tipo_dado === 'Pendencias') {
-                        dadosValidacao.pendencias = item.valores || [];
-                        logger.info(`Pendências extraídas do PDF: ${dadosValidacao.pendencias.join(', ')}`);
-                    }
-                }
-
-                logger.info(`Média ponderada extraída: ${dadosValidacao.media_ponderada}`);
-                logger.info(`Frequência geral extraída: ${dadosValidacao.frequencia_geral}`);
-
-                // Debug: verificar se há matérias com nível 0 ou nulo
-                const materiasNivelZero = materiasBancoList.filter((m: any) => m.nivel === 0 || m.nivel === null);
-                logger.info(`Matérias com nível 0 ou nulo: ${materiasNivelZero.length}`);
-                if (materiasNivelZero.length > 0) {
-                    logger.info(`Matérias nível 0: ${materiasNivelZero.map((m: any) => `${m.materias.nome_materia} (nível: ${m.nivel})`).join(', ')}`);
-                }
-
-                // Debug: verificar se há matérias duplicadas
-                const nomesMaterias = materiasBancoList.map((m: any) => m.materias.nome_materia);
-                const nomesUnicos = [...new Set(nomesMaterias)];
-                logger.info(`Verificação de duplicatas - Total: ${nomesMaterias.length}, Únicos: ${nomesUnicos.length}`);
-                if (nomesMaterias.length !== nomesUnicos.length) {
-                    logger.warn("Encontradas matérias duplicadas");
-                    const duplicatas = nomesMaterias.filter((nome: string, index: number) => nomesMaterias.indexOf(nome) !== index);
-                    logger.warn(`Matérias duplicadas: ${[...new Set(duplicatas)].join(', ')}`);
-                }
-
-                // Casamento das disciplinas
                 for (const disciplina of dados_extraidos.extracted_data) {
-                    if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
-                        // 1º: Casar pelo código da matéria na matriz principal
-                        let materiaBanco = materiasObrigatorias.find((m: any) => {
-                            const codigoMatch = m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim();
-                            return codigoMatch;
-                        });
-                        if (!materiaBanco) {
-                            materiaBanco = materiasOptativas.find((m: any) => {
-                                const codigoMatch = m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim();
-                                return codigoMatch;
-                            });
-                        }
-                        // 2º: Se não encontrou pelo código, tentar pelo nome (fallback)
-                        if (!materiaBanco) {
-                            materiaBanco = materiasObrigatorias.find((m: any) => {
-                                return m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
-                            });
-                        }
-                        if (!materiaBanco) {
-                            materiaBanco = materiasOptativas.find((m: any) => {
-                                return m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim();
-                            });
-                        }
-                        // 3º: Se ainda não encontrou, buscar em outras matrizes do mesmo curso
-                        if (!materiaBanco) {
-                            // Buscar todas as matrizes do mesmo curso (nome igual, matriz diferente)
-                            const { data: outrasMatrizes, error: errorOutras } = await SupabaseWrapper.get()
-                                .from("cursos")
-                                .select("*,materias_por_curso(id_materia,nivel,materias(*))")
-                                .eq("nome_curso", materiasBanco[0].nome_curso);
-                            if (!errorOutras && outrasMatrizes && outrasMatrizes.length > 0) {
-                                for (const matriz of outrasMatrizes) {
-                                    if (matriz.matriz_curricular === materiasBanco[0].matriz_curricular) continue; // já buscou na principal
-                                    const obrig = matriz.materias_por_curso.filter((m: any) => m.nivel > 0);
-                                    const opt = matriz.materias_por_curso.filter((m: any) => m.nivel === 0);
-                                    // Tenta casar pelo código
-                                    materiaBanco = obrig.find((m: any) => m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim());
-                                    if (!materiaBanco) {
-                                        materiaBanco = opt.find((m: any) => m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim());
-                                    }
-                                    // Tenta casar pelo nome
-                                    if (!materiaBanco) {
-                                        materiaBanco = obrig.find((m: any) => m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim());
-                                    }
-                                    if (!materiaBanco) {
-                                        materiaBanco = opt.find((m: any) => m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim());
-                                    }
-                                    if (materiaBanco) {
-                                        logger.info(`Disciplina '${disciplina.nome}' encontrada em outra matriz curricular: ${matriz.matriz_curricular}`);
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        // 4º: Se ainda não encontrou, buscar na tabela de equivalências
-                        if (!materiaBanco) {
-                            const { data: equivalenciasGenericas } = await SupabaseWrapper.get()
-                                .from("equivalencias")
-                                .select("*,materias(*)")
-                                .is("id_curso", null)
-                                .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
-                            logger.info(`[DEBUG] Buscando equivalência genérica para '${disciplina.nome}' (${disciplina.codigo})`);
-                            logger.info(`[DEBUG] Resultado equivalências genéricas: ${JSON.stringify(equivalenciasGenericas)}`);
-                            if (equivalenciasGenericas && equivalenciasGenericas.length > 0) {
-                                materiaBanco = equivalenciasGenericas[0].materias;
-                                logger.info(`Disciplina '${disciplina.nome}' casada por equivalência genérica: ${equivalenciasGenericas[0].expressao}`);
-                            }
-                        }
-                        // 5º: Se ainda não encontrou, buscar equivalência específica para o curso do usuário
-                        if (!materiaBanco && materiasBanco && materiasBanco[0] && materiasBanco[0].id_curso) {
-                            const idCursoUsuario = materiasBanco[0].id_curso;
-                            const { data: equivalenciasEspecificas } = await SupabaseWrapper.get()
-                                .from("equivalencias")
-                                .select("*,materias(*)")
-                                .eq("id_curso", idCursoUsuario)
-                                .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
-                            logger.info(`[DEBUG] Buscando equivalência específica para '${disciplina.nome}' (${disciplina.codigo}) no curso ${idCursoUsuario}`);
-                            logger.info(`[DEBUG] Resultado equivalências específicas: ${JSON.stringify(equivalenciasEspecificas)}`);
-                            if (equivalenciasEspecificas && equivalenciasEspecificas.length > 0) {
-                                materiaBanco = equivalenciasEspecificas[0].materias;
-                                logger.info(`Disciplina '${disciplina.nome}' casada por equivalência específica para o curso: ${idCursoUsuario}`);
-                            }
-                        }
-                        if (materiaBanco) {
-                            // Verificar se já existe uma disciplina casada com o mesmo ID
-                            const disciplinaExistente = disciplinasCasadas.find((d: any) => d.id_materia === materiaBanco.id_materia);
-                            if (disciplinaExistente) {
-                                // Se já existe, verificar qual status tem prioridade
-                                const statusAtual = disciplinaExistente.status;
-                                const statusNovo = disciplina.status;
-                                // Prioridade: APR/CUMP > MATR > REP
-                                const prioridade = (status: string) => {
-                                    if (status === 'APR' || status === 'CUMP') return 3;
-                                    if (status === 'MATR') return 2;
-                                    return 1; // REP, etc.
-                                };
-                                if (prioridade(statusNovo) > prioridade(statusAtual)) {
-                                    // Substituir pela versão com status melhor
-                                    const index = disciplinasCasadas.findIndex((d: any) => d.id_materia === materiaBanco.id_materia);
-                                    disciplinasCasadas[index] = {
-                                        ...disciplina,
-                                        id_materia: materiaBanco.id_materia,
-                                        encontrada_no_banco: true,
-                                        nivel: materiaBanco.nivel,
-                                        tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
-                                    };
-                                    logger.info(`Atualizando status de "${disciplina.nome}": ${statusAtual} → ${statusNovo}`);
-                                }
-                            } else {
-                                // Primeira ocorrência da matéria
-                                const disciplinaCasada = {
-                                    ...disciplina,
-                                    id_materia: materiaBanco.id_materia,
-                                    encontrada_no_banco: true,
-                                    nivel: materiaBanco.nivel,
-                                    tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
-                                };
-                                disciplinasCasadas.push(disciplinaCasada);
-                            }
-                        } else {
-                            // Disciplina não encontrada no banco (nem obrigatória nem optativa)
-                            const disciplinaNaoEncontrada = {
-                                ...disciplina,
-                                id_materia: null,
-                                encontrada_no_banco: false,
-                                nivel: null,
-                                tipo: 'nao_encontrada'
-                            };
-                            disciplinasCasadas.push(disciplinaNaoEncontrada);
-                            logger.warn(`Disciplina não encontrada no banco: ${disciplina.nome}`);
+                    if (!(disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP')) continue;
+                    let encontrada = false;
+                    let materiaBanco = null;
+                    // 1º: Casar como obrigatória (código)
+                    materiaBanco = materiasObrigatorias.find((m: any) => m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim());
+                    // 2º: Se não encontrou, tentar pelo nome
+                    if (!materiaBanco) {
+                        materiaBanco = materiasObrigatorias.find((m: any) => m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim());
+                    }
+                    // 3º: Se não encontrou, buscar equivalência genérica
+                    if (!materiaBanco) {
+                        const { data: equivalenciasGenericas } = await SupabaseWrapper.get()
+                            .from("equivalencias")
+                            .select("*,materias(*)")
+                            .is("id_curso", null)
+                            .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
+                        if (equivalenciasGenericas && equivalenciasGenericas.length > 0) {
+                            materiaBanco = equivalenciasGenericas[0].materias;
                         }
                     }
-                }
-
-                // Classificar as disciplinas casadas por status e tipo
-                for (const disciplinaCasada of disciplinasCasadas) {
-                    if (disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP') {
-                        // Matéria concluída
-                        if (disciplinaCasada.tipo === 'optativa') {
-                            materiasOptativasConcluidas.push({
-                                ...disciplinaCasada,
-                                status_fluxograma: 'concluida'
-                            });
-                        } else {
-                            materiasConcluidas.push({
-                                ...disciplinaCasada,
-                                status_fluxograma: 'concluida'
-                            });
+                    // 4º: Se não encontrou, buscar equivalência específica para o curso do usuário
+                    if (!materiaBanco && materiasBanco && materiasBanco[0] && materiasBanco[0].id_curso) {
+                        const idCursoUsuario = materiasBanco[0].id_curso;
+                        const { data: equivalenciasEspecificas } = await SupabaseWrapper.get()
+                            .from("equivalencias")
+                            .select("*,materias(*)")
+                            .eq("id_curso", idCursoUsuario)
+                            .or(`expressao.eq.${disciplina.codigo},expressao.eq.${disciplina.nome}`);
+                        if (equivalenciasEspecificas && equivalenciasEspecificas.length > 0) {
+                            materiaBanco = equivalenciasEspecificas[0].materias;
                         }
-                    } else if (disciplinaCasada.status === 'MATR') {
-                        // Matéria em andamento
-                        if (disciplinaCasada.tipo === 'optativa') {
-                            materiasOptativasPendentes.push({
-                                ...disciplinaCasada,
-                                status_fluxograma: 'em_andamento'
-                            });
+                    }
+                    // 5º: Se não encontrou, tentar casar como optativa (código)
+                    if (!materiaBanco) {
+                        materiaBanco = materiasOptativas.find((m: any) => m.materias.codigo_materia && disciplina.codigo && m.materias.codigo_materia.toLowerCase().trim() === disciplina.codigo.toLowerCase().trim());
+                    }
+                    // 6º: Se não encontrou, tentar casar como optativa (nome)
+                    if (!materiaBanco) {
+                        materiaBanco = materiasOptativas.find((m: any) => m.materias.nome_materia.toLowerCase().trim() === disciplina.nome.toLowerCase().trim());
+                    }
+                    // 7º: Se encontrou em algum passo acima, classifica
+                    if (materiaBanco) {
+                        encontrada = true;
+                        const tipo = materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria';
+                        const disciplinaCasada = {
+                            ...disciplina,
+                            id_materia: materiaBanco.id_materia,
+                            encontrada_no_banco: true,
+                            nivel: materiaBanco.nivel,
+                            tipo: tipo
+                        };
+                        disciplinasCasadas.push(disciplinaCasada);
+                        if (disciplina.status === 'APR' || disciplina.status === 'CUMP') {
+                            if (tipo === 'optativa') {
+                                materiasOptativasConcluidas.push({ ...disciplinaCasada, status_fluxograma: 'concluida' });
+                            } else {
+                                materiasConcluidas.push({ ...disciplinaCasada, status_fluxograma: 'concluida' });
+                            }
+                        } else if (disciplina.status === 'MATR') {
+                            if (tipo === 'optativa') {
+                                materiasOptativasPendentes.push({ ...disciplinaCasada, status_fluxograma: 'em_andamento' });
+                            } else {
+                                materiasPendentes.push({ ...disciplinaCasada, status_fluxograma: 'em_andamento' });
+                            }
                         } else {
-                            materiasPendentes.push({
-                                ...disciplinaCasada,
-                                status_fluxograma: 'em_andamento'
-                            });
+                            if (tipo === 'optativa') {
+                                materiasOptativasPendentes.push({ ...disciplinaCasada, status_fluxograma: 'pendente' });
+                            } else {
+                                materiasPendentes.push({ ...disciplinaCasada, status_fluxograma: 'pendente' });
+                            }
                         }
-                    } else {
-                        // Matéria não concluída (REP, etc.)
-                        if (disciplinaCasada.tipo === 'optativa') {
-                            materiasOptativasPendentes.push({
-                                ...disciplinaCasada,
-                                status_fluxograma: 'pendente'
-                            });
-                        } else {
-                            materiasPendentes.push({
-                                ...disciplinaCasada,
-                                status_fluxograma: 'pendente'
-                            });
-                        }
+                    }
+                    // 8º: Se não encontrou em nenhum, adiciona como módulo livre
+                    if (!encontrada) {
+                        disciplinasCasadas.push(disciplina);
                     }
                 }
 
@@ -483,6 +336,17 @@ export const FluxogramaController: EndpointController = {
                     const codigoObrigatoria = materiaObrigatoria.codigo; // deve ser o codigo_materia
                     const idMateriaObrigatoria = materiaObrigatoria.id_materia;
                     let cumpridaPorEquivalencia = false;
+                    // Verifica equivalência explícita do PDF
+                    const eqPdf = dados_extraidos.equivalencias_pdf.find((eq: any) => eq.cumpriu === codigoObrigatoria);
+                    if (eqPdf) {
+                        materiasConcluidasPorEquivalencia.push({
+                            ...materiaObrigatoria,
+                            status_fluxograma: 'concluida_equivalencia_pdf',
+                            equivalencia: eqPdf.nome_equivalente
+                        });
+                        logger.info(`[DEBUG-EQUIV-PDF] Matéria obrigatória '${materiaObrigatoria.nome}' (${materiaObrigatoria.codigo}) marcada como concluída por equivalência explícita do PDF com '${eqPdf.nome_equivalente}' (${eqPdf.atraves_de})`);
+                        continue; // pula para a próxima obrigatória
+                    }
                     // Buscar equivalências para a obrigatória (id_materia = obrigatória)
                     const { data: equivalencias } = await SupabaseWrapper.get()
                         .from("equivalencias")
@@ -585,22 +449,68 @@ export const FluxogramaController: EndpointController = {
                         horasIntegralizadas += disciplina.carga_horaria;
                     }
                 }
-                dadosValidacao.horas_integralizadas = horasIntegralizadas;
-                logger.info(`Total de horas integralizadas: ${horasIntegralizadas}h`);
+                const dadosValidacao = {
+                    ira: null as number | null,
+                    media_ponderada: media_ponderada ? parseFloat(media_ponderada) : null,
+                    frequencia_geral: frequencia_geral ? parseFloat(frequencia_geral) : null,
+                    horas_integralizadas: horasIntegralizadas,
+                    pendencias: [],
+                    curso_extraido: curso_extraido,
+                    matriz_curricular: matriz_curricular
+                };
 
-                // Log do resumo final
-                logger.info("Resumo do processamento:");
-                logger.info(`Total de disciplinas: ${disciplinasCasadas.length}`);
-                logger.info(`Obrigatórias concluídas: ${materiasConcluidas.length}`);
-                logger.info(`Obrigatórias pendentes: ${todasMateriasPendentes.length}`);
-                logger.info(`Optativas: ${todasMateriasOptativas.length}`);
-                logger.info(`Percentual de conclusão: ${(materiasConcluidas.length / (materiasConcluidas.length + todasMateriasPendentes.length) * 100).toFixed(2)}%`);
+                // Buscar dados de validação nos dados extraídos
+                for (const item of dados_extraidos.extracted_data) {
+                    if (item.IRA) {
+                        dadosValidacao.ira = parseFloat(item.valor);
+                        logger.info(`IRA extraído do PDF: ${dadosValidacao.ira}`);
+                    }
+                    if (item.tipo_dado === 'Pendencias') {
+                        dadosValidacao.pendencias = item.valores || [];
+                        logger.info(`Pendências extraídas do PDF: ${dadosValidacao.pendencias.join(', ')}`);
+                    }
+                }
+
+                logger.info(`Média ponderada extraída: ${dadosValidacao.media_ponderada}`);
+                logger.info(`Frequência geral extraída: ${dadosValidacao.frequencia_geral}`);
+
+                // Debug: verificar se há matérias com nível 0 ou nulo
+                const materiasNivelZero = materiasBancoList.filter((m: any) => m.nivel === 0 || m.nivel === null);
+                logger.info(`Matérias com nível 0 ou nulo: ${materiasNivelZero.length}`);
+                if (materiasNivelZero.length > 0) {
+                    logger.info(`Matérias nível 0: ${materiasNivelZero.map((m: any) => `${m.materias.nome_materia} (nível: ${m.nivel})`).join(', ')}`);
+                }
+
+                // Debug: verificar se há matérias duplicadas
+                const nomesMaterias = materiasBancoList.map((m: any) => m.materias.nome_materia);
+                const nomesUnicos = [...new Set(nomesMaterias)];
+                logger.info(`Verificação de duplicatas - Total: ${nomesMaterias.length}, Únicos: ${nomesUnicos.length}`);
+                if (nomesMaterias.length !== nomesUnicos.length) {
+                    logger.warn("Encontradas matérias duplicadas");
+                    const duplicatas = nomesMaterias.filter((nome: string, index: number) => nomesMaterias.indexOf(nome) !== index);
+                    logger.warn(`Matérias duplicadas: ${[...new Set(duplicatas)].join(', ')}`);
+                }
+
+                // Após processar disciplinasCasadas, materiasObrigatoriasNaoEncontradas, optativasRestantes
+                // Identificar módulos livres: disciplinas do histórico que não foram casadas nem como obrigatória nem optativa
+                const codigosCasados = new Set([
+                    ...disciplinasCasadas.map((d: any) => d.codigo),
+                    ...materiasConcluidasPorEquivalencia.map((d: any) => d.equivalencia ? d.equivalencia : d.codigo),
+                    ...materiasConcluidas.map((d: any) => d.codigo),
+                    ...materiasOptativasConcluidas.map((d: any) => d.codigo),
+                    ...materiasOptativasPendentes.map((d: any) => d.codigo)
+                ]);
+                const modulosLivres = dados_extraidos.extracted_data.filter((disc: any) => {
+                    return (disc.tipo_dado === 'Disciplina Regular' || disc.tipo_dado === 'Disciplina CUMP') && !codigosCasados.has(disc.codigo);
+                });
+                logger.info(`[DEBUG] Módulos livres encontrados: ${modulosLivres.map((d: any) => d.nome + ' (' + d.codigo + ')').join(', ')}`);
 
                 return res.status(200).json({
                     disciplinas_casadas: disciplinasCasadas,
                     materias_concluidas: todasMateriasConcluidas,
                     materias_pendentes: todasMateriasPendentes,
                     materias_optativas: todasMateriasOptativas,
+                    modulos_livres: modulosLivres,
                     dados_validacao: dadosValidacao,
                     curso_extraido: curso_extraido,
                     matriz_curricular: matriz_curricular,
@@ -609,6 +519,7 @@ export const FluxogramaController: EndpointController = {
                         total_obrigatorias_concluidas: todasMateriasConcluidas.length,
                         total_obrigatorias_pendentes: todasMateriasPendentes.length,
                         total_optativas: todasMateriasOptativas.length,
+                        total_modulos_livres: modulosLivres.length,
                         percentual_conclusao_obrigatorias: todasMateriasConcluidas.length / (todasMateriasConcluidas.length + todasMateriasPendentes.length) * 100
                     }
                 });
@@ -616,32 +527,6 @@ export const FluxogramaController: EndpointController = {
             } catch (error: any) {
                 logger.error(`Erro ao casar disciplinas: ${error.message}`);
                 return res.status(500).json({ error: error.message || "Erro ao casar disciplinas" });
-            }
-        }),
-        "upload-dados-fluxograma": new Pair(RequestType.POST, async (req: Request, res: Response) => {
-            var log = createControllerLogger("FluxogramaController", "upload-dados-fluxograma");
-            log.info("Upload fluxograma chamado");
-            try {
-                if (!await Utils.checkAuthorization(req as Request)) {
-                    return res.status(401).json({ error: "Usuário não autorizado" });
-                }
-
-                var userId = req.headers["user-id"] || req.headers["User-ID"];
-
-                const { fluxograma, periodo_letivo } = req.body;
-
-                const { data, error } = await SupabaseWrapper.get()
-                    .from("dados_users")
-                    .insert({
-                        fluxograma_atual: fluxograma,
-                        id_user: userId,
-                        semestre_atual: periodo_letivo
-                    }).select("*");
-                if (error) throw error;
-                return res.status(200).json(data);
-            } catch (error: any) {
-                log.error(`Erro ao salvar fluxograma: ${error.message}`);
-                return res.status(500).json({ error: error.message || "Erro ao salvar fluxograma" });
             }
         })
     }

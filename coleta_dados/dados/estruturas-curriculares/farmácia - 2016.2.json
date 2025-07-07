@@ -3,1845 +3,1772 @@
   "periodo_letivo_vigor": "2016.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FCE0187",
           "nome": "EPIDEMIOLOGIA DESCRITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0188",
-          "nome": "SAÚDE E SOCIEDADE 1: INTRODUÇÃO ÀS CIÊNCIAS SOCIAIS EM SÁUDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0189",
-          "nome": "SEMINÁRIO INTEGRATIVO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0192",
-          "nome": "DO ÁTOMO À CÉLULA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0201",
-          "nome": "ORGANIZAÇÃO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0212",
-          "nome": "QUÍMICA INORGÂNICA APLICADA A FARMÁCIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "QUIMICA INORGANICA APLICADA A FARMACIA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FCE0204",
-          "nome": "DO GENE À VIDA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0206",
-          "nome": "EPIDEMIOLOGIA ANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0209",
-          "nome": "QUÍMICA ORGÂNICA APLICADA A FARMÁCIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "QUIMICA ORGANICA APLICADA A FARMACIA 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0213",
-          "nome": "ASSISTÊNCIA FARMACÊUTICA E SISTEMAS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ASSISTENCIA FARMACEUTICA E SISTEMAS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0222",
-          "nome": "INTEGRAÇÃO DOS PROCESSOS VITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0225",
-          "nome": "FÍSICO-QUÍMICA APLICADA A FARMÁCIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FISICO-QUIMICA APLICADA A FARMACIA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FCE0220",
-          "nome": "FARMACOBOTÂNICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACOBOTANICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0224",
-          "nome": "INTEGRAÇÃO METABÓLICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0231",
-          "nome": "SISTEMA IMUNITÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0238",
-          "nome": "QUÍMICA ANALÍTICA FARMACÊUTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "QUIMICA ANALITICA FARMACEUTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0239",
-          "nome": "QUÍMICA ORGÂNICA APLICADA  A FARMÁCIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "QUIMICA ORGANICA APLICADA  A FARMACIA 2",
+          "ch": "60"
         },
         {
           "codigo": "FCE0264",
-          "nome": "SISTEMAS DE MANUTENÇÃO DA VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FCE0246",
-          "nome": "FARMACOLOGIA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0254",
           "nome": "AGENTES INFECCIOSOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0255",
-          "nome": "DEONTOLOGIA E LEGISLAÇÃO FARMACÊUTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0258",
           "nome": "FARMACOGNOSIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0259",
-          "nome": "QUÍMICA FARMACÊUTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0260",
-          "nome": "ANÁLISE INSTRUMENTAL FARMACÊUTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE INSTRUMENTAL FARMACEUTICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FCE0256",
           "nome": "FARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0277",
-          "nome": "MODELOS E PRÁTICAS DE ATENÇÃO À SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MODELOS E PRATICAS DE ATENCAO A SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0282",
-          "nome": "INTERAÇÃO PARASITO-HOSPEDEIRO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0307",
-          "nome": "INTRODUÇÃO ÀS ANÁLISES CLÍNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AS ANALISES CLINICAS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0308",
-          "nome": "FARMACOTÉCNICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACOTECNICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FCE0309",
-          "nome": "CONTROLE FÍSICO-QUÍMICO DA QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CONTROLE FISICO-QUIMICO DA QUALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0329",
-          "nome": "MECANISMOS DE AGRESSÃO E DEFESA 3 - PRÁTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "MECANISMOS DE AGRESSAO E DEFESA 3 - PRATICA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FCE0367",
-          "nome": "BIOQUÍMICA CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "BIOQUIMICA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0368",
-          "nome": "FARMÁCIA HOSPITALAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACIA HOSPITALAR",
+          "ch": "60"
         },
         {
           "codigo": "FCE0369",
-          "nome": "FARMACOTÉCNICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACOTECNICA 2",
+          "ch": "60"
         },
         {
           "codigo": "FCE0370",
-          "nome": "FARMACOLOGIA CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0372",
-          "nome": "TOXICOLOGIA APLICADA A FARMÁCIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TOXICOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0373",
-          "nome": "CONTROLE DA QUALIDADE MICROBIOLÓGICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FAR0050",
           "nome": "BROMATOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCE0381",
-          "nome": "FARMÁCIA CLÍNICA E ATENÇÃO FARMACÊUTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FARMACIA CLINICA E ATENCAO FARMACEUTICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0402",
-          "nome": "TECNOLOGIA APLICADA À FARMÁCIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TECNOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FCE0398",
-          "nome": "MICROBIOLOGIA CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MICROBIOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0399",
-          "nome": "ECONOMIA E GESTÃO FARMACÊUTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ECONOMIA E GESTAO FARMACEUTICA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "FCE0409",
-          "nome": "ESTÁGIO SUPERVISIONADO 1",
-          "carga_horaria": "435h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "435"
         },
         {
           "codigo": "FCE0410",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM FARMÁCIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FARMACIA 1",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "FCE0412",
-          "nome": "ESTÁGIO SUPERVISIONADO 2",
-          "carga_horaria": "450h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "450"
         },
         {
           "codigo": "FCE0413",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "CEL0019",
-          "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "135h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEL0021",
-          "nome": "BIOQUIMICA E BIOFISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "BIOFISICA",
+          "nome": "135H OPTATIVA CEL0021 - BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
         },
         {
           "codigo": "CEL0025",
           "nome": "IMUNOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0035",
           "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0050",
           "nome": "MICROBIOLOGIA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0076",
           "nome": "PESQUISA EM MICROBIOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0094",
           "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0095",
           "nome": "BIOLOGIA MOLECULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0110",
           "nome": "IMUNOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CEL0111",
           "nome": "MICROBIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0002",
-          "nome": "PESQUISA EM REPRODUÇÃO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM REPRODUCAO ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "CFS0007",
           "nome": "FISIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0037",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0039",
           "nome": "ELEMENTOS DE FISIOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0041",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0052",
-          "nome": "BASES BIOLÓGICAS DA REPRODUÇÃO EM MAMÍFEROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES BIOLOGICAS DA REPRODUCAO EM MAMIFEROS",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DSC0007",
           "nome": "INTRODUCAO A BIOETICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "EFL0010",
           "nome": "INICIACAO A ENGENHARIA FLORESTAL",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "ENF0043",
           "nome": "INTRODUCAO ENFERMAGEM E ESTAGIO",
-          "carga_horaria": "225h",
-          "natureza": "Optativa"
+          "ch": "225"
         },
         {
           "codigo": "ENF0047",
-          "nome": "CONTEXTUALIZAÇÃO DA ENFERMAGEM NA SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTUALIZACAO DA ENFERMAGEM NA SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "ENF0051",
           "nome": "SISTEMATIZACAO DA ASSISTENCIA EM ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ENF0058",
-          "nome": "VIVÊNCIAS INTEGRADORAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIVENCIAS INTEGRADORAS 1",
+          "ch": "30"
         },
         {
           "codigo": "ENF0059",
-          "nome": "VIVÊNCIAS INTEGRADORAS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIVENCIAS INTEGRADORAS 2",
+          "ch": "30"
         },
         {
           "codigo": "ENF0080",
-          "nome": "PRÁTICAS SAUDÁVEIS E TERAPIAS INTEGRATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS SAUDAVEIS E TERAPIAS INTEGRATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "ENF0086",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA APLICADA À ENFERMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA APLICADA A ENFERMAGEM",
+          "ch": "60"
         },
         {
           "codigo": "EST0027",
-          "nome": "BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0002",
-          "nome": "CONTROLE DE QUALIDADE FÍSICO-QUÍMICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO",
+          "ch": "60"
         },
         {
           "codigo": "FAR0024",
-          "nome": "ANÁLISE INSTRUMENTAL TEÓRICA E EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE INSTRUMENTAL TEORICA E EXPERIMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FAR0031",
           "nome": "FARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0048",
-          "nome": "BIOPROSPECÇÃO FARMACÊUTICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOPROSPECCAO FARMACEUTICA",
+          "ch": "120"
         },
         {
           "codigo": "FAR0119",
-          "nome": "ASSISTÊNCIA FARMACÊUTICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ASSISTENCIA FARMACEUTICA 1",
+          "ch": "30"
         },
         {
           "codigo": "FAR0124",
-          "nome": "GENÉTICA BÁSICA E MOLECULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GENETICA BASICA E MOLECULAR",
+          "ch": "60"
         },
         {
           "codigo": "FAR0126",
           "nome": "QUIMICA FARMACEUTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0136",
           "nome": "FARMACOTECNICA E COSMETOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAR0137",
           "nome": "IMUNOFARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0139",
-          "nome": "TECNOLOGIA FARMACÊUTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA FARMACEUTICA",
+          "ch": "90"
         },
         {
           "codigo": "FAR0140",
-          "nome": "FÍSICA INDUSTRIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FISICA INDUSTRIAL",
+          "ch": "60"
         },
         {
           "codigo": "FAR0141",
-          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTACAO",
+          "ch": "60"
         },
         {
           "codigo": "FAR0142",
           "nome": "FUNDAMENTOS DE BIOTECNOLOGIA DE MEDICAMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0155",
-          "nome": "ESTÁGIO EM TECNOLOGIA FARMACÊUTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO EM TECNOLOGIA FARMACEUTICA",
+          "ch": "90"
         },
         {
           "codigo": "FAR0165",
-          "nome": "INTRODUÇÃO À GESTÃO DA QUALIDADE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GESTAO DA QUALIDADE",
+          "ch": "30"
         },
         {
           "codigo": "FAR0167",
-          "nome": "ANÁLISE ORGÂNICA DOS FÁRMACOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ORGANICA DOS FARMACOS",
+          "ch": "60"
         },
         {
           "codigo": "FAR0168",
-          "nome": "ANÁLISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FARMACOS",
+          "ch": "90"
         },
         {
           "codigo": "FAR0174",
-          "nome": "PATOLOGIA CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PATOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0176",
-          "nome": "FARMACOTÉCNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FARMACOTECNICA",
+          "ch": "90"
         },
         {
           "codigo": "FCE0001",
-          "nome": "FUNDAMENTOS DE CITOGENÉTICA HUMANA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE CITOGENETICA HUMANA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0005",
-          "nome": "PATOLOGIA MOLECULAR CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PATOLOGIA MOLECULAR CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0006",
-          "nome": "HEMATOLOGIA CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HEMATOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0008",
-          "nome": "PROCESSOS COGNITIVOS: APLICAÇÕES EM FISIOTERAPIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS COGNITIVOS: APLICACOES EM FISIOTERAPIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0010",
-          "nome": "TÓPICOS AVANÇADOS EM PATOLOGIA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM PATOLOGIA HUMANA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0016",
           "nome": "HOMEOPATIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0017",
-          "nome": "PRINCIPAIS VETORES DE IMPORTÂNCIA EM SAÚDE COLETIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPAIS VETORES DE IMPORTANCIA EM SAUDE COLETIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0018",
-          "nome": "METODOLOGIAS QUALITATIVAS EM SAÚDE COLETIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIAS QUALITATIVAS EM SAUDE COLETIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0019",
-          "nome": "SAÚDE, CUIDADO E RECONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE, CUIDADO E RECONHECIMENTO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0021",
-          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRÁTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0028",
           "nome": "FUNDAMENTOS DE CANCEROLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0029",
           "nome": "CONTROLE DE QUALIDADE DE MEDICAMENTOS NATURAIS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0030",
-          "nome": "PESQUISAS EM FORMAS FARMACÊNTICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PESQUISAS EM FORMAS FARMACENTICAS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0039",
-          "nome": "VIROLOGIA CLÍNICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIROLOGIA CLINICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0045",
-          "nome": "MÉTODO DA ERGONOMIA DA ATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODO DA ERGONOMIA DA ATIVIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0046",
-          "nome": "INTRODUÇÃO A SAÚDE DO TRABALHADOR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SAUDE DO TRABALHADOR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0051",
-          "nome": "PRONTUÁRIO ELETRÔNICO DO PACIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0052",
           "nome": "ENFERMAGEM EM ONCOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0053",
-          "nome": "PROCESSOS COGNITIVOS: CINÉSIO-FISIOPATOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS COGNITIVOS: CINESIO-FISIOPATOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0054",
-          "nome": "ESTÁGIO SUP EM ASSISTÊNCIA FARMACÊUTICA NA ATENÇÃO PRIMÁRIA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUP EM ASSISTENCIA FARMACEUTICA NA ATENCAO PRIMARIA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0055",
           "nome": "TOXICANTES DE INTERESSE EM ALIMENTOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0056",
           "nome": "TOXICOLOGIA E ESSENCIALIDADE DE METAIS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0061",
-          "nome": "BASES CELULARES E MORFOLÓGICAS DO DESENVOLVIMENTO REGENERAÇÃO MUSCULAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "BASES CELULARES E MORFOLOGICAS DO DESENVOLVIMENTO REGENERACAO MUSCULAR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0062",
-          "nome": "INTRODUÇÃO À FARMÁCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FARMACIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0063",
-          "nome": "SERVIÇOS CLÍNICOS FARMACÊUTICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SERVICOS CLINICOS FARMACEUTICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0071",
-          "nome": "PESQUISA EM PROMOÇÃO DO USO RACIONAL DOS MEDICAMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PROMOCAO DO USO RACIONAL DOS MEDICAMENTOS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0073",
           "nome": "PESQUISA EM ONCOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0077",
-          "nome": "NEUROANATOMIA CLÍNICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "NEUROANATOMIA CLINICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0081",
-          "nome": "VALIDAÇÃO DE MÉTODOS ANALÍTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "VALIDACAO DE METODOS ANALITICOS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0084",
-          "nome": "TÓPICOS DE TECNOLOGIA FARMACÊUTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS DE TECNOLOGIA FARMACEUTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0085",
-          "nome": "INFORMAÇÃO SOBRE MEDICAMENTOS: BUSCA, RECUPERAÇÃO E ANÁLISE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INFORMACAO SOBRE MEDICAMENTOS: BUSCA, RECUPERACAO E ANALISE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0093",
-          "nome": "COMPOSTOS BIOATIVOS EM ALIMENTAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "COMPOSTOS BIOATIVOS EM ALIMENTACAO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0094",
-          "nome": "LABORATÓRIO DE ESCRITA ETNOGRÁFICA EM SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ESCRITA ETNOGRAFICA EM SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0108",
-          "nome": "PRODUÇÃO AUDIOVISUAL EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0109",
-          "nome": "PESQUISA EM ERGONOMIA E BIOMECÂNICA OCUPACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECANICA OCUPACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FCE0110",
-          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0112",
-          "nome": "ANÁLISES LABORATORIAIS DOS FLUÍDOS BIOLÓGICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ANALISES LABORATORIAIS DOS FLUIDOS BIOLOGICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0133",
-          "nome": "CUIDADOS FARMACÊUTICOS EM PROBLEMAS DE SAÚDE AUTOLIMITADOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CUIDADOS FARMACEUTICOS EM PROBLEMAS DE SAUDE AUTOLIMITADOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0135",
-          "nome": "BASES CIENTÍFICAS DE NUTRIÇÃO E ATIVIDADE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES CIENTIFICAS DE NUTRICAO E ATIVIDADE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0138",
-          "nome": "PROCESSO DE INOVAÇÃO EM TECNOLOGIA ASSISTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSO DE INOVACAO EM TECNOLOGIA ASSISTIVA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0139",
-          "nome": "INFECÇÃO RELACIONADA A ASSISTÊNCIA A SAÚDE: VIGILÂNCIA E CONTROLE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INFECCAO RELACIONADA A ASSISTENCIA A SAUDE: VIGILANCIA E CONTROLE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0140",
-          "nome": "SEGURANÇA DO PACIENTE NA ATENÇÃO A SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEGURANCA DO PACIENTE NA ATENCAO A SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0141",
-          "nome": "PESQUISA EM EXERCÍCIO FÍSICO, REABILITAÇÃO E DESEMPENHO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM EXERCICIO FISICO, REABILITACAO E DESEMPENHO HUMANO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0145",
           "nome": "SUPORTE E MOVIMENTO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0146",
-          "nome": "DA CÉLULA AOS SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DA CELULA AOS SISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0147",
-          "nome": "PROCESSOS PATOLÓGICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS PATOLOGICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0148",
-          "nome": "PRÁTICA EM BIOQUÍMICA CELULAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA EM BIOQUIMICA CELULAR",
+          "ch": "30"
         },
         {
           "codigo": "FCE0150",
           "nome": "PARASITOSES HUMANAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0151",
           "nome": "ENFERMAGEM NO CONTEXTO DO ENVELHECIMENTO HUMANO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0152",
           "nome": "PESQUISA EM TERAPIA OCUPACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0153",
-          "nome": "ESTATÍSTICA APLICADA ÀS CIÊNCIAS FARMACÊUTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA AS CIENCIAS FARMACEUTICAS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0155",
-          "nome": "TÓPICOS ESPECIAIS EM INTERAÇÕES PATÓGENO - HOSPEDEIRO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM INTERACOES PATOGENO - HOSPEDEIRO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0157",
-          "nome": "RADIOFARMÁCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "RADIOFARMACIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0159",
           "nome": "PESQUISA EM TERAPIA OCUPACIONAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0168",
-          "nome": "PESQUISA EM ENFERMAGEM GERONTOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM ENFERMAGEM GERONTOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0178",
-          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "30"
         },
         {
           "codigo": "FCE0193",
           "nome": "FUNDAMENTOS DE FISIOTERAPIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0194",
-          "nome": "INTRODUÇÃO A PESQUISA CIENTÍFICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0197",
-          "nome": "FISIOLOGIA CLÍNICA DO EXERCÍCIO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISIOLOGIA CLINICA DO EXERCICIO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0198",
-          "nome": "BIOFÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOFISICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0199",
-          "nome": "PESQUISA SOCIAL EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA SOCIAL EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0205",
-          "nome": "SEMINÁRIO INTEGRATIVO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTEGRATIVO 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0208",
-          "nome": "SAÚDE E SOCIEDADE 2: A CONSTRUÇÃO SOCIAL DO PROCESSO SAÚDE E DOENÇA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 2: A CONSTRUCAO SOCIAL DO PROCESSO SAUDE E DOENCA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0210",
-          "nome": "PESQUISA EM NOVOS COMPOSTOS APLICADOS A SAÚDE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM NOVOS COMPOSTOS APLICADOS A SAUDE",
+          "ch": "90"
         },
         {
           "codigo": "FCE0211",
-          "nome": "PESQUISA EM BIONANOTECNOLOGIA APLICADO A SAÚDE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM BIONANOTECNOLOGIA APLICADO A SAUDE",
+          "ch": "90"
         },
         {
           "codigo": "FCE0214",
-          "nome": "BIOSSEGURANÇA E BIOPROTEÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "BIOSSEGURANCA E BIOPROTECAO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0215",
-          "nome": "PESQUISA EM DESENVOLVIMENTO DE COSMÉTICOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM DESENVOLVIMENTO DE COSMETICOS",
+          "ch": "90"
         },
         {
           "codigo": "FCE0216",
-          "nome": "CONTEXTO HISTÓRICO E SOCIAL DA ENFERMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "60"
         },
         {
           "codigo": "FCE0217",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0218",
-          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FÍSICOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FISICOS",
+          "ch": "90"
         },
         {
           "codigo": "FCE0219",
-          "nome": "INTRODUÇÃO À PSICOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0226",
           "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0227",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL: ATIVIDADE HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0228",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0229",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS ACADÊMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0233",
           "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0234",
-          "nome": "POLÍTICAS, SISTEMAS E SERVIÇOS DE SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0235",
           "nome": "PROCESSO DE TRABALHO E RELACIONAMENTO INTERPESSOAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0236",
-          "nome": "PROMOÇÃO À SAÚDE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROMOCAO A SAUDE 1",
+          "ch": "60"
         },
         {
           "codigo": "FCE0237",
-          "nome": "RACIONALIDADES MÉDICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RACIONALIDADES MEDICAS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0240",
-          "nome": "SAÚDE, AMBIENTE E TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE, AMBIENTE E TRABALHO",
+          "ch": "60"
         },
         {
           "codigo": "FCE0241",
-          "nome": "SEMINÁRIO INTEGRATIVO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTEGRATIVO 3",
+          "ch": "30"
         },
         {
           "codigo": "FCE0244",
           "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL: MOVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0247",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FCE0248",
-          "nome": "SEMIOLOGIA E SEMIOTÉCNICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 2",
+          "ch": "90"
         },
         {
           "codigo": "FCE0249",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0250",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 3",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 3",
+          "ch": "120"
         },
         {
           "codigo": "FCE0257",
-          "nome": "INTRODUÇÃO A PROCESSOS FOTOQUÍMICOS E FOTOBIOLÓGICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PROCESSOS FOTOQUIMICOS E FOTOBIOLOGICOS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0266",
-          "nome": "DA CÉLULA AOS SISTEMAS 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DA CELULA AOS SISTEMAS 4",
+          "ch": "30"
         },
         {
           "codigo": "FCE0267",
-          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDÊNCIAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDENCIAS 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0272",
-          "nome": "SEMINÁRIO INTEGRATIVO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTEGRATIVO 4",
+          "ch": "30"
         },
         {
           "codigo": "FCE0273",
-          "nome": "SAÚDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0276",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0279",
           "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FCE0283",
-          "nome": "FISIOTERAPIA BASEADA EM EVIDÊNCIAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0288",
-          "nome": "FISIOTERAPIA BASEADA EM EVIDÊNCIAS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0292",
-          "nome": "FISIOTERAPIA BASEADA EM EVIDÊNCIAS 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 3",
+          "ch": "30"
         },
         {
           "codigo": "FCE0305",
-          "nome": "TÓPICOS ESPECIAIS EM MICROBIOLOGIA APLICADOS A SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM MICROBIOLOGIA APLICADOS A SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0306",
-          "nome": "VIGILÂNCIA SANITÁRIA APLICADA A PROFISSIONAIS DE SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "VIGILANCIA SANITARIA APLICADA A PROFISSIONAIS DE SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0310",
           "nome": "FARMACOLOGIA EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0311",
-          "nome": "DEPENDÊNCIA QUÍMICA E SUA TERAPÊUTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DEPENDENCIA QUIMICA E SUA TERAPEUTICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0312",
           "nome": "NEUROBIOLOGIA DOS TRANSTORNOS MENTAIS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0313",
-          "nome": "IMUNOBIOLOGIA DA RELAÇÃO PATÓGENO - HOSPEDEIRO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "IMUNOBIOLOGIA DA RELACAO PATOGENO - HOSPEDEIRO",
+          "ch": "30"
         },
         {
           "codigo": "FCE0314",
-          "nome": "NUTRIÇÃO HUMANA EM SAÚDE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "NUTRICAO HUMANA EM SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "FCE0315",
-          "nome": "TÓPICOS EM METABOLISMO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM METABOLISMO 1",
+          "ch": "30"
         },
         {
           "codigo": "FCE0318",
-          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDÊNCIAS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDENCIAS 2",
+          "ch": "30"
         },
         {
           "codigo": "FCE0323",
-          "nome": "ECONOMIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0325",
-          "nome": "EPIDEMIOLOGIA PARA A GESTÃO EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0351",
-          "nome": "INTRODUÇÃO A PROCESSOS FOTOQUÍMICOS E FOTOBIOLÓGICOS EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PROCESSOS FOTOQUIMICOS E FOTOBIOLOGICOS EXPERIMENTAL",
+          "ch": "30"
         },
         {
           "codigo": "FCE0352",
           "nome": "FARMACOGNOSIA EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0353",
-          "nome": "QUÍMICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA EXPERIMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FCE0354",
-          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDÊNCIAS 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDENCIAS 3",
+          "ch": "30"
         },
         {
           "codigo": "FCE0362",
-          "nome": "CUIDADO INTEGRAL A SAÚDE DO ADULTO E IDOSO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CUIDADO INTEGRAL A SAUDE DO ADULTO E IDOSO",
+          "ch": "90"
         },
         {
           "codigo": "FCE0364",
-          "nome": "INTEGRAÇÃO AO CENÁRIO DAS PRÁTICAS 4",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 4",
+          "ch": "120"
         },
         {
           "codigo": "FCE0371",
-          "nome": "IMUNOLOGIA CLÍNICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "IMUNOLOGIA CLINICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0375",
           "nome": "FITOTERAPIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0385",
           "nome": "FISIOPATOLOGIA E FARMACOLOGIA DO DIABETES",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0390",
           "nome": "FARMACOEPIDEMIOLOGIA E FARMACOVIGILANCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0397",
           "nome": "PROCESSO DE CUIDAR EM ENFERMAGEM",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FCE0400",
           "nome": "TECNOLOGIA DE ALIMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCE0403",
-          "nome": "CITOLOGIA CLÍNICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CITOLOGIA CLINICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0404",
-          "nome": "PARASITOLOGIA CLÍNICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PARASITOLOGIA CLINICA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0405",
-          "nome": "ANÁLISES TOXICOLÓGICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ANALISES TOXICOLOGICAS",
+          "ch": "30"
         },
         {
           "codigo": "FCE0406",
-          "nome": "TECNOLOGIA DE COSMÉTICOS APLICADA A FARMÁCIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA DE COSMETICOS APLICADA A FARMACIA",
+          "ch": "30"
         },
         {
           "codigo": "FCE0407",
-          "nome": "PROMOÇÃO À SAÚDE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROMOCAO A SAUDE 2",
+          "ch": "60"
         },
         {
           "codigo": "FCE0414",
-          "nome": "SINALIZAÇÃO REDOX NO SISTEMA BIOLÓGICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SINALIZACAO REDOX NO SISTEMA BIOLOGICO",
+          "ch": "90"
         },
         {
           "codigo": "FCE0454",
-          "nome": "PESQUISA EM MECANISMOS DE INTERAÇÃO PATÓGENO-HOSPEDEIRO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM MECANISMOS DE INTERACAO PATOGENO-HOSPEDEIRO",
+          "ch": "90"
         },
         {
           "codigo": "FCE0844",
-          "nome": "PESQUISA EM BASES BIOLÓGICAS E DA SAÚDE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM BASES BIOLOGICAS E DA SAUDE",
+          "ch": "90"
         },
         {
           "codigo": "FCS0003",
-          "nome": "PATOLOGIA MOLECULAR CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PATOLOGIA MOLECULAR CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FCS0061",
           "nome": "ESTAGIO EM BIOTECNOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FCS0079",
-          "nome": "TÓPICOS EM PATOLOGIA MOLECULAR CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PATOLOGIA MOLECULAR CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0408",
-          "nome": "CIÊNCIA E PESQUISA EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0409",
-          "nome": "ANATOMIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FMD0071",
           "nome": "PARASITOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FMD0095",
           "nome": "PATOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0512",
           "nome": "HISTOLOGIA MEDICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FTD0007",
           "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0313",
-          "nome": "QUÍMICA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "GEM0014",
           "nome": "GENETICA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0023",
           "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0029",
           "nome": "ESTAGIO EM GENETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0042",
           "nome": "HISTOLOGIA VETERINARIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0047",
           "nome": "PESQUISA EM GENETICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0054",
           "nome": "HISTOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ICB0143",
           "nome": "HISTOLOGIA ANIMAL 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "IFD0189",
           "nome": "FISICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0063",
           "nome": "QUIMICA ANALITICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0118",
           "nome": "QUIMICA ANALITICA QUALITATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0120",
           "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0124",
           "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0133",
           "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0137",
-          "nome": "REAÇÕES ORGÂNICAS E SEUS MECANISMOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0213",
-          "nome": "QUÍMICA BIOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0243",
-          "nome": "QUÍMICA ANALÍTICA QUANTITATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ANALITICA QUANTITATIVA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0296",
-          "nome": "FUNDAMENTOS DE FÍSICO-QUÍMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0212",
+          "nome": "QUIMICA INORGANICA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0209",
+          "nome": "QUIMICA ORGANICA APLICADA A FARMACIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0213",
+          "nome": "ASSISTENCIA FARMACEUTICA E SISTEMAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0225",
+          "nome": "FISICO-QUIMICA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0238",
+          "nome": "QUIMICA ANALITICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0239",
+          "nome": "QUIMICA ORGANICA APLICADA  A FARMACIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0255",
+          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0258",
+          "nome": "FARMACOGNOSIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0259",
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0260",
+          "nome": "ANALISE INSTRUMENTAL FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0256",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0277",
+          "nome": "MODELOS E PRATICAS DE ATENCAO A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0307",
+          "nome": "INTRODUCAO AS ANALISES CLINICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0308",
+          "nome": "FARMACOTECNICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0309",
+          "nome": "CONTROLE FISICO-QUIMICO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0329",
+          "nome": "MECANISMOS DE AGRESSAO E DEFESA 3 - PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0367",
+          "nome": "BIOQUIMICA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0368",
+          "nome": "FARMACIA HOSPITALAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0369",
+          "nome": "FARMACOTECNICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0370",
+          "nome": "FARMACOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0372",
+          "nome": "TOXICOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0373",
+          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0050",
+          "nome": "BROMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0381",
+          "nome": "FARMACIA CLINICA E ATENCAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0402",
+          "nome": "TECNOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0398",
+          "nome": "MICROBIOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0399",
+          "nome": "ECONOMIA E GESTAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0409",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "435"
+        },
+        {
+          "codigo": "FCE0410",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FARMACIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0412",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "450"
+        },
+        {
+          "codigo": "FCE0413",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
         }
       ]
     }

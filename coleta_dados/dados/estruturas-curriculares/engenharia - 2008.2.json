@@ -3,913 +3,852 @@
   "periodo_letivo_vigor": "2008.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FGA0161",
           "nome": "ENGENHARIA E AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0162",
-          "nome": "INTRODUÇÃO À ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0168",
           "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "MAT0024",
           "nome": "CALCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FGA0157",
-          "nome": "PROBABILIDADE E ESTATÍSTICA APLICADO A ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0173",
           "nome": "FISICA 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         },
         {
           "codigo": "MAT0030",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0084",
           "nome": "DESENVOLVIMENTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0166",
-          "nome": "ELEMENTOS E MÉTODOS EM ELETRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0167",
           "nome": "SISTEMAS AUTOMOTIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0169",
-          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0254",
-          "nome": "CIÊNCIAS AEROESPACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FGA0153",
-          "nome": "MECANICA DOS SÓLIDOS PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MECANICA DOS SOLIDOS PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0160",
-          "nome": "MÉTODOS NUMÉRICOS PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0027",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         },
         {
           "codigo": "FGA0090",
-          "nome": "ONDULATÓRIA E FÍSICA TÉRMICA PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0133",
-          "nome": "ENGENHARIA ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FGA0150",
           "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "ENE0277",
           "nome": "SISTEMAS DIGITAIS 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FGA0008",
           "nome": "SISTEMAS AEROESPACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0009",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0143",
-          "nome": "FUNDAMENTOS DA TEORIA ELETROMAGNÉTICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DA TEORIA ELETROMAGNETICA",
+          "ch": "90"
         },
         {
           "codigo": "FGA0144",
-          "nome": "FÍSICA MODERNA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FISICA MODERNA",
+          "ch": "90"
         },
         {
           "codigo": "FGA0148",
-          "nome": "ENGENHARIA DE SEGURANÇA DO TRABALHO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
         },
         {
           "codigo": "FGA0164",
           "nome": "HUMANIDADES E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FGA0184",
-          "nome": "GESTÃO DA PRODUÇÃO E QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FGA0087",
-          "nome": "LABORATÓRIO DE ELETRICIDADE APLICADA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0092 - ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
         },
         {
-          "codigo": "IGD0221",
-          "nome": "SÍSMICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FGA0086",
-          "nome": "TEORIA DE ELETRICIDADE APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "IQD0126",
-          "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "IQD0125",
-          "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0088",
           "nome": "COMPUTACAO BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FGA0139",
-          "nome": "MATERIAIS DE CONSTRUÇÃO DE ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FGA0078",
-          "nome": "TEORIA DE MATERIAIS DE CONSTRUÇÃO",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FGA0075",
-          "nome": "LABORATÓRIO DE MATERIAIS DE CONSTRUÇÃO",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0092",
-          "nome": "ADMINISTRAÇÃO DA PRODUÇÃO E OPERAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0088",
-          "nome": "COMPUTACAO BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CIC0090",
           "nome": "ESTRUTURAS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0093",
           "nome": "LINGUAGENS DE PROGRAMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0105",
           "nome": "ENGENHARIA DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0140",
           "nome": "GERENCIA DE PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0174",
           "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0175",
           "nome": "PROGRAMACAO AVANCADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0197",
-          "nome": "TECNICAS DE PROGRAMAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "ENC0035",
-          "nome": "INTRODUÇÃO À MECÂNICA DOS SÓLIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
         },
         {
           "codigo": "ENC0132",
           "nome": "MECANICA DOS SOLIDOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0334",
           "nome": "COMPUTACAO PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENM0080",
           "nome": "FENOMENOS DE TRANSPORTE",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "ENM0120",
           "nome": "MECANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EPR0072",
-          "nome": "SISTEMAS DE INFORMAÇÃO EM ENGENHARIA DE PRODUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS DE INFORMACAO EM ENGENHARIA DE PRODUCAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0001",
-          "nome": "CONTRATAÇÃO DE SERVIÇOS DE TECNOLOGIA DA INFORMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTRATACAO DE SERVICOS DE TECNOLOGIA DA INFORMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0002",
           "nome": "FUNDAMENTOS DE COMPILADORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0004",
-          "nome": "TÉCNICAS DE MEDIÇÃO FUNCIONAL E ESTIMATIVAS DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE MEDICAO FUNCIONAL E ESTIMATIVAS DE SOFTWARE",
+          "ch": "60"
         },
         {
           "codigo": "FGA0005",
-          "nome": "MATEMÁTICA APLICADA A SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MATEMATICA APLICADA A SISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0007",
           "nome": "CONFIABILIDADE DE COMPONENTES E SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0026",
           "nome": "FUNDAMENTOS DE ARQUITETURA DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0027",
-          "nome": "PRINCÍPIOS DE ROBÓTICA EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE ROBOTICA EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "FGA0028",
-          "nome": "PROGRAMAÇÃO PARA COMPETIÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO PARA COMPETICOES",
+          "ch": "60"
         },
         {
           "codigo": "FGA0029",
           "nome": "ESTRUTURAS DE DADOS E ALGORITMOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0031",
-          "nome": "SEMINÁRIOS EM ENGENHARIA DE SOFTWARE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM ENGENHARIA DE SOFTWARE",
+          "ch": "30"
         },
         {
           "codigo": "FGA0032",
-          "nome": "TÓPICOS ESPECIAIS EM FÍSICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM FISICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0034",
-          "nome": "TÓPICOS ESPECIAIS EM MATEMÁTICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM MATEMATICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0035",
-          "nome": "ANÁLISE DE SISTEMAS DE ENERGIA ELÉTRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DE SISTEMAS DE ENERGIA ELETRICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0036",
-          "nome": "PRÉ-CÁLCULO PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRE-CALCULO PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0038",
-          "nome": "AERODINÂMICA DE SISTEMAS AEROESPACIAIS",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "AERODINAMICA DE SISTEMAS AEROESPACIAIS",
+          "ch": "75"
         },
         {
           "codigo": "FGA0041",
-          "nome": "TÓPICOS ESPECIAIS EM JOGOS DIGITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM JOGOS DIGITAIS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0042",
-          "nome": "TÓPICOS ESPECIAIS EM SISTEMAS CRÍTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SISTEMAS CRITICOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0043",
-          "nome": "DINÂMICA DOS GASES PARA SISTEMAS AEROESPACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA DOS GASES PARA SISTEMAS AEROESPACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0044",
           "nome": "PROJETO DE SISTEMAS DE CONTROLE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0045",
-          "nome": "MECÂNICA DO VÔO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MECANICA DO VOO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0046",
-          "nome": "MÉTODOS E TÉCNICAS DA ESCRITA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS E TECNICAS DA ESCRITA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0047",
-          "nome": "PROCESSOS PETROQUÍMICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS PETROQUIMICOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0053",
-          "nome": "TÓPICOS ESPECIAIS EM PROGRAMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0054",
-          "nome": "TÓPICOS ESPECIAIS EM GOVERNANÇA DE TECNOLOGIA DA INFORMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GOVERNANCA DE TECNOLOGIA DA INFORMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0067",
-          "nome": "TEORIA DE CIRCUITOS ELETRÔNICOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0069",
-          "nome": "PRÁTICA DE CIRCUITOS ELETRÔNICOS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
         },
         {
           "codigo": "FGA0071",
-          "nome": "PRÁTICA DE ELETRÔNICA DIGITAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
         },
         {
           "codigo": "FGA0073",
-          "nome": "TEORIA DE ELETRÔNICA DIGITAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0075",
-          "nome": "LABORATÓRIO DE MATERIAIS DE CONSTRUÇÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
         },
         {
           "codigo": "FGA0078",
-          "nome": "TEORIA DE MATERIAIS DE CONSTRUÇÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
         },
         {
           "codigo": "FGA0086",
           "nome": "TEORIA DE ELETRICIDADE APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0087",
-          "nome": "LABORATÓRIO DE ELETRICIDADE APLICADA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
         },
         {
           "codigo": "FGA0093",
-          "nome": "PRINCÍPIOS DE CONTROLE",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE CONTROLE",
+          "ch": "75"
         },
         {
           "codigo": "FGA0102",
           "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FGA0104",
-          "nome": "QUÍMICA ORGÂNICA APLICADA À ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA APLICADA A ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0123",
-          "nome": "CÁLCULO PARA ENGENHARIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CALCULO PARA ENGENHARIA 1",
+          "ch": "60"
         },
         {
           "codigo": "FGA0125",
-          "nome": "INTRODUÇÃO À GEOMETRIA ANALÍTICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GEOMETRIA ANALITICA",
+          "ch": "30"
         },
         {
           "codigo": "FGA0126",
-          "nome": "CÁLCULO PARA ENGENHARIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CALCULO PARA ENGENHARIA 2",
+          "ch": "60"
         },
         {
           "codigo": "FGA0127",
-          "nome": "EQUAÇÕES DIFERENCIAIS ORDINÁRIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EQUACOES DIFERENCIAIS ORDINARIAS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0128",
-          "nome": "CÁLCULO PARA ENGENHARIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CALCULO PARA ENGENHARIA 3",
+          "ch": "60"
         },
         {
           "codigo": "FGA0134",
-          "nome": "TÓPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE",
+          "ch": "60"
         },
         {
           "codigo": "FGA0135",
           "nome": "SISTEMAS DE BANCOS DE DADOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FGA0138",
-          "nome": "MÉTODOS DE DESENVOLVIMENTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
         },
         {
           "codigo": "FGA0139",
-          "nome": "MATERIAIS DE CONSTRUÇÃO DE ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MATERIAIS DE CONSTRUCAO DE ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0140",
-          "nome": "GESTÃO AMBIENTAL PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO AMBIENTAL PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0142",
           "nome": "FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0145",
           "nome": "ESTRUTURAS DE DADOS E ALGORITMOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0151",
           "nome": "ERGONOMIA DO PRODUTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0154",
-          "nome": "MECANICA DOS SÓLIDOS 1 PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0155",
-          "nome": "INTRODUÇÃO AO DESIGN E CONCEPÇÃO DE VEÍCULOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DESIGN E CONCEPCAO DE VEICULOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0156",
-          "nome": "COMBUSTÍVEIS E BIOCOMBUSTÍVEIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMBUSTIVEIS E BIOCOMBUSTIVEIS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0158",
-          "nome": "ORIENTAÇÃO A OBJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO A OBJETOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0159",
-          "nome": "ESTRUTURAS MATEMÁTICAS PARA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURAS MATEMATICAS PARA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0165",
           "nome": "PROCESSO DE DESENVOLVIMENTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0171",
-          "nome": "TÉCNICAS DE PROGRAMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PROGRAMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0172",
           "nome": "REQUISITOS DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0175",
-          "nome": "ENGENHARIA DE PETRÓLEO E GÁS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENGENHARIA DE PETROLEO E GAS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0179",
-          "nome": "MECANICA DOS SÓLIDOS 2 PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MECANICA DOS SOLIDOS 2 PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0187",
-          "nome": "MÉTODOS MATEMÁTICOS PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS MATEMATICOS PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0197",
           "nome": "SISTEMAS DE CONTROLE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0204",
-          "nome": "DINÂMICA DOS FLUÍDOS",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA DOS FLUIDOS",
+          "ch": "75"
         },
         {
           "codigo": "FGA0206",
           "nome": "ENGENHARIA DE PRODUTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0208",
           "nome": "ARQUITETURA E DESENHO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0242",
-          "nome": "TÉCNICAS DE PROGRAMAÇÃO EM PLATAFORMAS EMERGENTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PROGRAMACAO EM PLATAFORMAS EMERGENTES",
+          "ch": "60"
         },
         {
           "codigo": "FGA0248",
-          "nome": "SISTEMAS DE PROPULSÃO HÍBRIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS DE PROPULSAO HIBRIDOS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0262",
-          "nome": "TRANSMISSÃO E DISTRIBUIÇÃO DE ENERGIA ELÉTRICA",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "TRANSMISSAO E DISTRIBUICAO DE ENERGIA ELETRICA",
+          "ch": "75"
         },
         {
           "codigo": "IFD0353",
-          "nome": "PROGRAMAÇÃO PARA SISTEMAS FÍSICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
         },
         {
           "codigo": "IGD0221",
-          "nome": "SÍSMICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISMICA 1",
+          "ch": "60"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0010",
-          "nome": "GEOMETRIA ANALÍTICA PARA MATEMÁTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOMETRIA ANALITICA PARA MATEMATICA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0039",
           "nome": "ALGEBRA LINEAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0048",
           "nome": "EQUACOES DIFERENCIAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
         },
         {
           "codigo": "FGA0084",
           "nome": "DESENVOLVIMENTO DE SOFTWARE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0166",
-          "nome": "ELEMENTOS E MÉTODOS EM ELETRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0167",
           "nome": "SISTEMAS AUTOMOTIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FGA0169",
-          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
         },
         {
           "codigo": "FGA0254",
-          "nome": "CIÊNCIAS AEROESPACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FGA0090",
-          "nome": "ONDULATÓRIA E FÍSICA TÉRMICA PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "FGA0133",
-          "nome": "ENGENHARIA ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FGA0150",
           "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0162",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0030",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0084",
+          "nome": "DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0166",
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0169",
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0254",
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0153",
+          "nome": "MECANICA DOS SOLIDOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0277",
+          "nome": "SISTEMAS DIGITAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0008",
+          "nome": "SISTEMAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0143",
+          "nome": "FUNDAMENTOS DA TEORIA ELETROMAGNETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0144",
+          "nome": "FISICA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
         }
       ]
     }

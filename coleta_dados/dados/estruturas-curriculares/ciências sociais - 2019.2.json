@@ -3,2386 +3,2107 @@
   "periodo_letivo_vigor": "2019.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0110",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ECO0021",
-          "nome": "HISTÓRIA ECONÔMICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0025",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "GEA0041",
-          "nome": "GEOGRAFIA HUMANA E ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0012",
-          "nome": "TEORIA POLÍTICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "SOL0062",
-          "nome": "PRÁTICA DE ENSINO EM CIÊNCIAS SOCIAIS",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO EM CIENCIAS SOCIAIS",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "DAN0041",
-          "nome": "TEORIA ANTROPOLÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "ELA0013",
-          "nome": "INTRODUÇÃO À METODOLOGIA DAS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "SOL0097",
-          "nome": "MÉTODOS SOCIOLÓGICOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0021",
-          "nome": "SOCIOLOGIA APLICADA À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0023 - INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0025",
           "nome": "ORGANIZACAO E SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0041",
-          "nome": "GESTÃO DE PESSOAS EM ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE PESSOAS EM ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "ADM0070",
           "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "BOT0056",
-          "nome": "ETNOBOTÂNICA DO CERRADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETNOBOTANICA DO CERRADO",
+          "ch": "60"
         },
         {
           "codigo": "CEL0035",
           "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0094",
           "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0095",
           "nome": "BIOLOGIA MOLECULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0021",
-          "nome": "SEMINÁRIO DE PESQUISA ANTROPOLÓGICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO DE PESQUISA ANTROPOLOGICA",
+          "ch": "90"
         },
         {
           "codigo": "DAN0024",
           "nome": "MULHER, CULTURA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0031",
-          "nome": "DISSERTAÇÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "DISSERTACAO",
+          "ch": "300"
         },
         {
           "codigo": "DAN0036",
           "nome": "SOCIEDADES COMPLEXAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0040",
-          "nome": "MÉTODOS E TÉCNICAS EM ANTROPOLOGIA SOCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODOS E TECNICAS EM ANTROPOLOGIA SOCIAL",
+          "ch": "90"
         },
         {
           "codigo": "DAN0042",
-          "nome": "TEORIA ANTROPOLÓGICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
         },
         {
           "codigo": "DAN0043",
           "nome": "ANTROPOLOGIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0045",
-          "nome": "EXCURSÃO DIDÁTICA DE PESQUISA",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "EXCURSAO DIDATICA DE PESQUISA",
+          "ch": "240"
         },
         {
           "codigo": "DAN0046",
-          "nome": "ANTROPOLOGIA ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA ECONOMICA",
+          "ch": "60"
         },
         {
           "codigo": "DAN0047",
-          "nome": "ANTROPOLOGIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA DA RELIGIAO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0049",
-          "nome": "INDIVÍDUO, CULTURA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INDIVIDUO, CULTURA E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "DAN0050",
-          "nome": "ORGANIZAÇÃO SOCIAL E PARENTESCO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO SOCIAL E PARENTESCO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0052",
           "nome": "CULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0053",
-          "nome": "ANTROPOLOGIA DO GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA DO GENERO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0054",
-          "nome": "ANTROPOLOGIA DA MÚSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA DA MUSICA",
+          "ch": "60"
         },
         {
           "codigo": "DAN0055",
-          "nome": "ANTROPOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DAN0056",
-          "nome": "ANTROPOLOGIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "DAN0058",
-          "nome": "IDENTIDADE E RELAÇÕES INTERÉTNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "IDENTIDADE E RELACOES INTERETNICAS",
+          "ch": "60"
         },
         {
           "codigo": "DAN0060",
-          "nome": "TRADIÇÕES CULTURAIS BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TRADICOES CULTURAIS BRASILEIRAS",
+          "ch": "60"
         },
         {
           "codigo": "DAN0061",
           "nome": "ESTUDOS AFRO-BRASILEIROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0062",
           "nome": "SOCIEDADES CAMPONESAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0063",
-          "nome": "SOCIEDADES INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
         },
         {
           "codigo": "DAN0065",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 1",
+          "ch": "60"
         },
         {
           "codigo": "DAN0066",
-          "nome": "TÓPICOS ESPECIAIS EM  ANTROPOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM  ANTROPOLOGIA 2",
+          "ch": "60"
         },
         {
           "codigo": "DAN0068",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 3",
+          "ch": "60"
         },
         {
           "codigo": "DAN0070",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 4",
+          "ch": "60"
         },
         {
           "codigo": "DAN0072",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 5",
+          "ch": "60"
         },
         {
           "codigo": "DAN0074",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 6",
+          "ch": "60"
         },
         {
           "codigo": "DAN0076",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 7",
+          "ch": "60"
         },
         {
           "codigo": "DAN0077",
-          "nome": "PENSAMENTO ANTROPOLÓGICO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO ANTROPOLOGICO BRASILEIRO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0078",
           "nome": "ANTROPOLOGIA URBANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0080",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 8",
+          "ch": "60"
         },
         {
           "codigo": "DAN0082",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 9",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 9",
+          "ch": "60"
         },
         {
           "codigo": "DAN0084",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 10",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 10",
+          "ch": "60"
         },
         {
           "codigo": "DAN0086",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 11",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 11",
+          "ch": "60"
         },
         {
           "codigo": "DAN0088",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA 12",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 12",
+          "ch": "60"
         },
         {
           "codigo": "DAN0089",
-          "nome": "ARTES E OFÍCIOS DOS SABERES TRADICIONAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ARTES E OFICIOS DOS SABERES TRADICIONAIS",
+          "ch": "90"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "DSC0007",
           "nome": "INTRODUCAO A BIOETICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DSC0037",
           "nome": "PRATICAS DE SAUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0030",
-          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
         },
         {
           "codigo": "ECO0072",
           "nome": "ECONOMIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0143",
           "nome": "FORMACAO ECONOMICA DA AMERICA LATINA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0145",
           "nome": "EMPRESAS MULTINACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0218",
           "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ELA0001",
-          "nome": "TÓPICOS ESPECIAIS DE METODOLOGIA QUALITATIVA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE METODOLOGIA QUALITATIVA 1",
+          "ch": "60"
         },
         {
           "codigo": "ELA0003",
-          "nome": "CULTURA E IDENTIDADE NAS AMÉRICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CULTURA E IDENTIDADE NAS AMERICAS",
+          "ch": "60"
         },
         {
           "codigo": "ELA0004",
-          "nome": "TÓPICOS ESPECIAIS DE METODOLOGIA QUANTITATIVA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS DE METODOLOGIA QUANTITATIVA 1",
+          "ch": "60"
         },
         {
           "codigo": "ELA0007",
-          "nome": "POLÍTICA E ESTADO NAS AMÉRICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E ESTADO NAS AMERICAS",
+          "ch": "60"
         },
         {
           "codigo": "ELA0008",
-          "nome": "PENSAMENTO SOCIAL E POLÍTICO NA AMÉRICA LATINA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO SOCIAL E POLITICO NA AMERICA LATINA",
+          "ch": "60"
         },
         {
           "codigo": "ELA0009",
-          "nome": "PROCESSOS DE DESENVOLVIMENTO NAS AMÉRICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS DE DESENVOLVIMENTO NAS AMERICAS",
+          "ch": "60"
         },
         {
           "codigo": "ELA0010",
-          "nome": "ESTUDOS COMPARADOS SOBRE AS AMÉRICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS COMPARADOS SOBRE AS AMERICAS",
+          "ch": "60"
         },
         {
           "codigo": "ELA0012",
-          "nome": "SOCIEDADE, CULTURA E POLÍTICA NAS AMÉRICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIEDADE, CULTURA E POLITICA NAS AMERICAS",
+          "ch": "60"
         },
         {
           "codigo": "FAC0020",
           "nome": "SOCIOLOGIA DA COMUNICACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0236",
           "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FCI0013",
-          "nome": "INTRODUÇÃO À MUSEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0014",
           "nome": "MUSEOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FDD0006",
-          "nome": "INTRODUÇÃO AO DIREITO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
         },
         {
           "codigo": "FDD0019",
-          "nome": "TEORIA GERAL DO DIREITO PÚBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0035",
-          "nome": "DIREITO INTERNACIONAL PÚBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIREITO INTERNACIONAL PUBLICO",
+          "ch": "60"
         },
         {
           "codigo": "FED0133",
-          "nome": "SEMINÁRIO INTERDISCIPLINAR EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0105",
-          "nome": "PRÁTICA DESPORTIVA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
         },
         {
           "codigo": "FIL0029",
-          "nome": "EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0034",
-          "nome": "HISTÓRIA DA FILOSOFIA ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0049",
-          "nome": "HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0053",
           "nome": "TEORIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0056",
-          "nome": "LÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FIL0059",
-          "nome": "TEORIA DA CIÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0063",
-          "nome": "ANTROPOLOGIA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0064",
-          "nome": "ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0077",
-          "nome": "INICIAÇÃO À METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0082",
           "nome": "FILOSOFIA SOCIAL E POLITICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0086",
           "nome": "FILOSOFIA DA LINGUAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0107",
           "nome": "HISTORIA DA CIENCIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0109",
           "nome": "INTRODUCAO A LOGICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0117",
-          "nome": "HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA 2",
+          "ch": "60"
         },
         {
           "codigo": "FIL0125",
           "nome": "FENOMENOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0127",
           "nome": "FILOSOFIA MARXISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0129",
           "nome": "DIALETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0134",
           "nome": "MITO E FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0156",
           "nome": "HISTORIA DA CIENCIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0166",
-          "nome": "INTRODUÇÃO A PRÁTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
         },
         {
           "codigo": "FMD0013",
           "nome": "MORFOFUNCIONAL 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "FMD0095",
           "nome": "PATOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0512",
           "nome": "HISTOLOGIA MEDICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEA0004",
-          "nome": "URBANIZAÇÃO NA AMÉRICA LATINA E CARIBE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
         },
         {
           "codigo": "GEA0012",
           "nome": "GEOGRAFIA AGRARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0014",
-          "nome": "REGIONALIZAÇÃO DO ESPAÇO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
+          "ch": "60"
         },
         {
           "codigo": "GEA0018",
           "nome": "GEOGRAFIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0032",
           "nome": "GEOGRAFIA URBANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0039",
           "nome": "GEOGRAFIA HUMANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0011",
           "nome": "EMBRIOLOGIA GERAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0014",
           "nome": "GENETICA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0018",
-          "nome": "EVOLUÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO",
+          "ch": "30"
         },
         {
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0040",
           "nome": "FUNDAMENTOS DE EMBRIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0042",
           "nome": "HISTOLOGIA VETERINARIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0043",
           "nome": "EMBRIOLOGIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0054",
           "nome": "HISTOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0055",
-          "nome": "GENÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GENETICA",
+          "ch": "60"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0088",
-          "nome": "HISTÓRIA ANTIGA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0100",
-          "nome": "HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0102",
-          "nome": "HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0106",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0107",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0113",
-          "nome": "TEORIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0140",
           "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0141",
           "nome": "CULTURA BRASILEIRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0143",
           "nome": "CULTURA BRASILEIRA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ICB0143",
           "nome": "HISTOLOGIA ANIMAL 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "ICS0001",
           "nome": "ESTUDOS AMERICANOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IGD0167",
-          "nome": "FUNDAMENTOS DA HISTÓRIA DA TERRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA HISTORIA DA TERRA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0120",
           "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0124",
           "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0133",
           "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IRI0011",
-          "nome": "HISTÓRIA DA POLÍTICA EXTERIOR DO BRASIL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA POLITICA EXTERIOR DO BRASIL",
+          "ch": "90"
         },
         {
           "codigo": "IRI0013",
-          "nome": "INTRODUÇÃO AO ESTUDO DAS RELAÇÕES INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0015",
-          "nome": "TEORIA DAS RELAÇÕES INTERNACIONAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
         },
         {
           "codigo": "IRI0018",
-          "nome": "ORGANIZAÇÕES INTERNACIONAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACOES INTERNACIONAIS 1",
+          "ch": "60"
         },
         {
           "codigo": "IRI0023",
-          "nome": "POLÍTICA EXTERNA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA EXTERNA BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "IRI0052",
-          "nome": "TEORIA DAS RELAÇÕES INTERNACIONAIS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 2",
+          "ch": "60"
         },
         {
           "codigo": "IRI0053",
-          "nome": "COMÉRCIO INTERNACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "IRI0054",
           "nome": "DIREITO DAS SOCIEDADES COMERCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IRI0055",
-          "nome": "SISTEMAS DE DIREITO CONTEMPORÂNEOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS DE DIREITO CONTEMPORANEOS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0065",
-          "nome": "RELAÇÕES ECONÔMICAS INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0066",
           "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IRI0068",
-          "nome": "PROBLEMAS ESTRATÉGICOS CONTEMPORÂNEOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROBLEMAS ESTRATEGICOS CONTEMPORANEOS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0111",
-          "nome": "CIÊNCIA, TECNOLOGIA E GOVERNO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA, TECNOLOGIA E GOVERNO",
+          "ch": "60"
         },
         {
           "codigo": "IRI0168",
-          "nome": "ECONOMIA POLÍTICA INTERNACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
         },
         {
           "codigo": "IRI0169",
-          "nome": "ECONOMIA POLÍTICA INTERNACIONAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0044",
           "nome": "LINGUA ALEMA INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0116",
           "nome": "LINGUA ALEMA INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0158",
           "nome": "LINGUA ESTRANGEIRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0252",
-          "nome": "INGLÊS: COMPREENSÃO DE TEXTOS ESCRITOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0254",
-          "nome": "INGLÊS: COMPREENSÃO DE TEXTOS ESCRITOS 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 2",
+          "ch": "30"
         },
         {
           "codigo": "LET0326",
           "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0432",
-          "nome": "FRANCÊS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 2",
+          "ch": "60"
         },
         {
           "codigo": "LIP0045",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "MTC0013",
-          "nome": "DIDÁTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MTC0017",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0018",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0021",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0022",
           "nome": "CURRICULOS E PROGRAMAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0027",
           "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0028",
           "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0029",
           "nome": "ENSINO SUPLETIVO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0030",
           "nome": "ENSINO SUPLETIVO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0035",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "MTC0143",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PAD0011",
           "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0017",
           "nome": "LEGISLACAO DO ENSINO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0018",
           "nome": "LEGISLACAO DO ENSINO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0019",
           "nome": "HIGIENE ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0022",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0031",
-          "nome": "POLITICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         },
         {
           "codigo": "POL0005",
-          "nome": "PRÁTICA DE ENSINO EM INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0010",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA LATINO-AMERICANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA LATINO-AMERICANA",
+          "ch": "60"
         },
         {
           "codigo": "POL0013",
-          "nome": "TEORIA POLÍTICA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "POL0015",
-          "nome": "ELITES POLÍTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
         },
         {
           "codigo": "POL0017",
-          "nome": "POLÍTICA BRASILEIRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
         },
         {
           "codigo": "POL0019",
-          "nome": "POLÍTICA E SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "POL0021",
-          "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 1",
+          "ch": "60"
         },
         {
           "codigo": "POL0022",
-          "nome": "COMPORTAMENTO POLÍTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPORTAMENTO POLITICO",
+          "ch": "60"
         },
         {
           "codigo": "POL0026",
-          "nome": "MONOGRAFIA EM CIÊNCIA POLÍTICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "MONOGRAFIA EM CIENCIA POLITICA 1",
+          "ch": "30"
         },
         {
           "codigo": "POL0028",
-          "nome": "INFORMÁTICA EM CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFORMATICA EM CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0029",
-          "nome": "TÉCNICAS DE PESQUISA EM CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PESQUISA EM CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0030",
-          "nome": "ANÁLISE POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0032",
-          "nome": "POLÍTICA BRASILEIRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA BRASILEIRA 2",
+          "ch": "60"
         },
         {
           "codigo": "POL0033",
-          "nome": "TEORIA POLÍTICA CLÁSSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA CLASSICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0035",
-          "nome": "POLÍTICA REGIONAL AFRICANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA REGIONAL AFRICANA",
+          "ch": "60"
         },
         {
           "codigo": "POL0037",
-          "nome": "PARTIDOS POLÍTICOS E SISTEMAS ELEITORAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PARTIDOS POLITICOS E SISTEMAS ELEITORAIS",
+          "ch": "60"
         },
         {
           "codigo": "POL0038",
-          "nome": "LEGISLAÇÃO E PROCESSO POLÍTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO E PROCESSO POLITICO",
+          "ch": "60"
         },
         {
           "codigo": "POL0040",
-          "nome": "AVALIAÇÃO DE POLÍTICAS GOVERNAMENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE POLITICAS GOVERNAMENTAIS",
+          "ch": "60"
         },
         {
           "codigo": "POL0042",
-          "nome": "POLÍTICA E MOVIMENTOS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E MOVIMENTOS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "POL0045",
-          "nome": "ESTÁGIO EM CIÊNCIA POLÍTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO EM CIENCIA POLITICA",
+          "ch": "90"
         },
         {
           "codigo": "POL0046",
-          "nome": "PENSAMENTO POLÍTICO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO POLITICO NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "POL0047",
           "nome": "ESTRUTURA DO PODER NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "POL0048",
-          "nome": "POLÍTICA E ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "POL0050",
-          "nome": "MUDANÇA POLÍTICA NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUDANCA POLITICA NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "POL0051",
           "nome": "ESTADO E DESENVOLVIMENTO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "POL0052",
-          "nome": "SEMINÁRIO SOBRE O BRASIL CONTEMPORÂNEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO SOBRE O BRASIL CONTEMPORANEO",
+          "ch": "60"
         },
         {
           "codigo": "POL0055",
-          "nome": "FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "POL0059",
-          "nome": "TEORIA E MÉTODOS MARXISTAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E METODOS MARXISTAS",
+          "ch": "60"
         },
         {
           "codigo": "POL0060",
-          "nome": "POLÍTICAS PÚBLICAS E TEORIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS E TEORIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0062",
-          "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 2",
+          "ch": "60"
         },
         {
           "codigo": "POL0117",
-          "nome": "MÉTODOS QUANTITATIVOS APLICADOS ÀS POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0018",
           "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0067",
           "nome": "APRENDIZAGEM NO ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0015",
-          "nome": "POLÍTICA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SER0024",
-          "nome": "INTRODUÇÃO AO SERVIÇO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SER0026",
           "nome": "PARTICIPACAO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0033",
           "nome": "MOVIMENTOS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0087",
-          "nome": "INSTITUIÇÕES E PRÁTICAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INSTITUICOES E PRATICAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0001",
-          "nome": "PENSAMENTO SOCIAL BRASILEIRO, INSTITUIÇÕES E CULTURA POLÍTICA NACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO SOCIAL BRASILEIRO, INSTITUICOES E CULTURA POLITICA NACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "SOL0003",
           "nome": "TEORIA DOS SISTEMAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0004",
-          "nome": "TEORIA CRÍTICA DA SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA CRITICA DA SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "SOL0005",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 8",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 8",
+          "ch": "60"
         },
         {
           "codigo": "SOL0006",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 9",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 9",
+          "ch": "60"
         },
         {
           "codigo": "SOL0007",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 10",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 10",
+          "ch": "60"
         },
         {
           "codigo": "SOL0008",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 11",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 11",
+          "ch": "60"
         },
         {
           "codigo": "SOL0010",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 12",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 12",
+          "ch": "60"
         },
         {
           "codigo": "SOL0011",
           "nome": "SOCIOLOGIA DO DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0012",
-          "nome": "ADMINISTRAÇÃO INSTITUCIONAL DE CONFLITOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO INSTITUCIONAL DE CONFLITOS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0013",
-          "nome": "SOCIOLOGIA DO TRABALHO E RELAÇÕES SOCIAIS DE GENERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DO TRABALHO E RELACOES SOCIAIS DE GENERO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0014",
           "nome": "SOCIOLOGIA DO AUDIO VISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0015",
-          "nome": "SOCIOLOGIA DAS DIFERENÇAS SEXUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DAS DIFERENCAS SEXUAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0017",
           "nome": "TEORIA E PENSAMENTO SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0018",
           "nome": "SOCIOLOGIAS EMERGENTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0019",
-          "nome": "EPISTEMOLOGIA DAS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EPISTEMOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0021",
           "nome": "SOCIOLOGIA DO CONFLITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0022",
-          "nome": "SOCIOLOGIA DA VIOLÊNCIA NA PERSPECTIVA DAS RELAÇÕES DE GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA VIOLENCIA NA PERSPECTIVA DAS RELACOES DE GENERO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0023",
-          "nome": "SOCIOLOGIAS DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIAS DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0024",
-          "nome": "TÓPICOS ESPECIAIS EM ENSINO DE SOCIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE SOCIOLOGIA 1",
+          "ch": "60"
         },
         {
           "codigo": "SOL0025",
-          "nome": "SEMINÁRIOS EM SOCIOLOGIA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM SOCIOLOGIA 1",
+          "ch": "30"
         },
         {
           "codigo": "SOL0026",
-          "nome": "SEMINÁRIOS EM SOCIOLOGIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM SOCIOLOGIA 2",
+          "ch": "30"
         },
         {
           "codigo": "SOL0027",
-          "nome": "PENSAMENTO POLÍTICO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO POLITICO BRASILEIRO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0028",
-          "nome": "SOCIOLOGIA DAS MÍDIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DAS MIDIAS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0029",
-          "nome": "SOCIOLOGIA DAS POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DAS POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0030",
           "nome": "SOCIOLOGIA DA JUVENTUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0031",
-          "nome": "SOCIOLOGIA DA MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0032",
-          "nome": "SEMINÁRIO DE SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO DE SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0033",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 13",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 13",
+          "ch": "60"
         },
         {
           "codigo": "SOL0035",
-          "nome": "PARADIGMAS DA CATEGORIA GÊNERO E RAÇA NO CONTEXTO LATINOAMERICANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PARADIGMAS DA CATEGORIA GENERO E RACA NO CONTEXTO LATINOAMERICANO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0037",
           "nome": "SOCIOLOGIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0039",
-          "nome": "PRÁTICA DE PESQUISA 2 (DISSERTAÇÃO)",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE PESQUISA 2 (DISSERTACAO)",
+          "ch": "120"
         },
         {
           "codigo": "SOL0041",
-          "nome": "PRÁTICA DE PESQUISA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE PESQUISA 1",
+          "ch": "90"
         },
         {
           "codigo": "SOL0053",
-          "nome": "TEORIAS DA SOCIALIZAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA SOCIALIZACAO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0055",
-          "nome": "SOCIOLOGIA DAS ORGANIZAÇÕES FORMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DAS ORGANIZACOES FORMAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0058",
           "nome": "SOCIOLOGIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0063",
-          "nome": "ESTRUTURA DE CLASSES E ESTRATIFICAÇÃO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA DE CLASSES E ESTRATIFICACAO SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SOL0069",
-          "nome": "PENSAMENTO SOCIOLÓGICO LATINO-AMERICANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO SOCIOLOGICO LATINO-AMERICANO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0080",
-          "nome": "SOCIOLOGIA DA CIÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA CIENCIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0081",
-          "nome": "UTILIZAÇÃO DE COMPUTADORES NAS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "UTILIZACAO DE COMPUTADORES NAS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0085",
           "nome": "SOCIOLOGIA DO ESPORTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0087",
           "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0089",
           "nome": "SOCIOLOGIA DA CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0090",
-          "nome": "TEORIAS SOCIOLÓGICAS CONTEMPORÂNEAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 2",
+          "ch": "60"
         },
         {
           "codigo": "SOL0091",
-          "nome": "ESTRUTURA E MUDANÇAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA E MUDANCAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0092",
-          "nome": "SOCIOLOGIA DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0093",
-          "nome": "SOCIOLOGIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0094",
           "nome": "SOCIOLOGIA DA IDEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0096",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 1",
+          "ch": "60"
         },
         {
           "codigo": "SOL0098",
-          "nome": "TÉCNICAS DE PESQUISA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PESQUISA",
+          "ch": "90"
         },
         {
           "codigo": "SOL0099",
-          "nome": "DESENVOLVIMENTO E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0100",
           "nome": "SOCIOLOGIA RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0101",
           "nome": "SOCIOLOGIA URBANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0102",
           "nome": "SOCIOLOGIA DO TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0103",
-          "nome": "TEORIAS SOCIOLÓGICAS CONTEMPORÂNEAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "90"
         },
         {
           "codigo": "SOL0104",
-          "nome": "TEORIAS SOCIOLÓGICAS CLÁSSICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
         },
         {
           "codigo": "SOL0105",
-          "nome": "TEORIAS SOCIOLÓGICAS MARXISTAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
         },
         {
           "codigo": "SOL0106",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 2",
+          "ch": "60"
         },
         {
           "codigo": "SOL0107",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 3",
+          "ch": "60"
         },
         {
           "codigo": "SOL0108",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 4",
+          "ch": "60"
         },
         {
           "codigo": "SOL0109",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 5",
+          "ch": "60"
         },
         {
           "codigo": "SOL0110",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 6",
+          "ch": "60"
         },
         {
           "codigo": "SOL0111",
-          "nome": "TÓPICOS ESPECIAIS EM SOCIOLOGIA 7",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 7",
+          "ch": "60"
         },
         {
           "codigo": "SOL0112",
           "nome": "ARTE E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0113",
           "nome": "SOCIOLOGIA DO DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0114",
           "nome": "MEIO AMBIENTE E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0115",
-          "nome": "SOCIOLOGIA DAS RELAÇÕES DE GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DAS RELACOES DE GENERO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0116",
-          "nome": "SOCIOLOGIA DA VIOLÊNCIA E DA CONFLITUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA VIOLENCIA E DA CONFLITUALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "SOL0117",
-          "nome": "SOCIOLOGIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA RELIGIAO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0118",
-          "nome": "CIÊNCIA, TECNOLOGIA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CIENCIA, TECNOLOGIA E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "SOL0121",
-          "nome": "SOCIOLOGIA DAS RELAÇÕES RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DAS RELACOES RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "SOL0131",
-          "nome": "ENSINO SUPERIOR E GLOBALIZAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO SUPERIOR E GLOBALIZACAO",
+          "ch": "60"
         },
         {
           "codigo": "TAU0002",
           "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TAU0005",
           "nome": "HISTORIA DA ARQUITETURA E DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TAU0006",
           "nome": "HISTORIA DA ARQUITETURA E DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TAU0007",
           "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TAU0009",
           "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TAU0011",
           "nome": "ARQUITETURA E URBANISMO DA ATUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0012",
           "nome": "PSICOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0014",
           "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0016",
           "nome": "HISTORIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0019",
-          "nome": "POLÍTICAS DE EDUCAÇÃO COMPARADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0021",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0022",
           "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0027",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0065",
-          "nome": "DINÂMICA PSICOSSOCIAL DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0069",
           "nome": "ORIENTACAO VOCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0118",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0060",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0013",
           "nome": "ZOOLOGIA INVERTEBRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0017",
           "nome": "ZOOLOGIA VERTEBRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0025",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0025",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0062",
+          "nome": "PRATICA DE ENSINO EM CIENCIAS SOCIAIS",
+          "ch": "120"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0097",
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
         }
       ]
     }

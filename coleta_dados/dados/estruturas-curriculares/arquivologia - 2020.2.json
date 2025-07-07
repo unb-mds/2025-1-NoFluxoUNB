@@ -3,529 +3,547 @@
   "periodo_letivo_vigor": "2020.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0062",
           "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCI0128",
-          "nome": "PATRIMÔNIO, PRESERVAÇÃO E MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PATRIMONIO, PRESERVACAO E MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0004",
-          "nome": "INSTITUIÇÕES DE DIREITO PÚBLICO E PRIVADO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ADM0320",
-          "nome": "ANÁLISE ORGANIZACIONAL, SISTEMAS E MÉTODOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0119",
-          "nome": "AVALIAÇÃO ARQUIVÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "AVALIACAO ARQUIVISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0120",
-          "nome": "CLASSIFICAÇÃO ARQUIVÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CLASSIFICACAO ARQUIVISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0172",
-          "nome": "LEGISLAÇÃO ADMINISTRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FCI0066",
           "nome": "DIPLOMATICA E TIPOLOGIA DOCUMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCI0124",
-          "nome": "GESTÃO INTEGRADA DE DOCUMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO INTEGRADA DE DOCUMENTOS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0129",
-          "nome": "REPRESENTAÇÃO DA INFORMAÇÃO ARQUIVÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "REPRESENTACAO DA INFORMACAO ARQUIVISTICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FCI0121",
-          "nome": "DESCRIÇÃO ARQUIVÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DESCRICAO ARQUIVISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0125",
-          "nome": "INFORMAÇÃO, TECNOLOGIAS E DOCUMENTOS ARQUIVÍSTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INFORMACAO, TECNOLOGIAS E DOCUMENTOS ARQUIVISTICOS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0126",
-          "nome": "PLANEJAMENTO E GESTÃO DE INSTITUIÇÕES ARQUIVÍSTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO DE INSTITUICOES ARQUIVISTICAS",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FCI0118",
-          "nome": "ACESSO E DIFUSÃO DAS INFORMAÇÕES ARQUIVÍSTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ACESSO E DIFUSAO DAS INFORMACOES ARQUIVISTICAS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0123",
-          "nome": "GESTÃO DE DOCUMENTOS ARQUIVÍSTICOS DIGITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE DOCUMENTOS ARQUIVISTICOS DIGITAIS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0127",
-          "nome": "INTRODUÇÃO AO TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FCI0122",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARQUIVOS",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARQUIVOS",
+          "ch": "120"
         },
         {
           "codigo": "FCI0130",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0201",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "FCI0013",
-          "nome": "INTRODUÇÃO À MUSEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0041",
-          "nome": "MUSEOLOGIA PATRIMONIO MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA PATRIMONIO MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0048",
           "nome": "ORGANIZACAO DO TRABALHO INTELECTUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0053",
           "nome": "CONTROLE BIBLIOGRAFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0054",
           "nome": "LINGUAGENS DOCUMENTARIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0059",
           "nome": "INDEXACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0073",
           "nome": "SEMINARIO EM ARQUIVISTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0074",
           "nome": "SEMINARIO EM ARQUIVISTICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0082",
-          "nome": "USABILIDADE NA INTERAÇÃO HUMANO - COMPUTADOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "USABILIDADE NA INTERACAO HUMANO - COMPUTADOR",
+          "ch": "60"
         },
         {
           "codigo": "FCI0083",
-          "nome": "ARQUIVO, CINEMA, INFORMAÇÃO E MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARQUIVO, CINEMA, INFORMACAO E MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0106",
           "nome": "ACERVOS AUDIOVISUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0107",
-          "nome": "ARQUIVOLOGIA E EXTENSÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARQUIVOLOGIA E EXTENSAO 1",
+          "ch": "60"
         },
         {
           "codigo": "FCI0108",
-          "nome": "ARQUIVOLOGIA E EXTENSÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARQUIVOLOGIA E EXTENSAO 2",
+          "ch": "60"
         },
         {
           "codigo": "FCI0109",
-          "nome": "ARQUIVOS DE ORGANIZAÇÕES DE DIREITO PRIVADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARQUIVOS DE ORGANIZACOES DE DIREITO PRIVADO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0110",
           "nome": "ARQUIVOS E DIREITOS HUMANOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0111",
-          "nome": "ARQUIVOS E MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARQUIVOS E MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0112",
           "nome": "ARQUIVOS PESSOAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0113",
-          "nome": "HISTÓRIA DA ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA ARQUIVOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0114",
           "nome": "IDENTIDADE PROFISSIONAL DO ARQUIVISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0115",
-          "nome": "ORGANIZAÇÃO ARQUIVÍSTICA DE MATERIAIS FOTOGRÁFICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO ARQUIVISTICA DE MATERIAIS FOTOGRAFICOS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0116",
-          "nome": "PRESERVAÇÃO E CONSERVAÇÃO DE BENS CULTURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRESERVACAO E CONSERVACAO DE BENS CULTURAIS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0117",
-          "nome": "USOS E USUÁRIOS DE ARQUIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "USOS E USUARIOS DE ARQUIVOS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0505",
-          "nome": "PRÁTICA DESPORTIVA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "GPP0037",
-          "nome": "FUNDAMENTOS DA ADMINISTRAÇÃO PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0110",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0115",
-          "nome": "METODOLOGIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0140",
           "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0150",
-          "nome": "HISTÓRIA REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0253",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0085",
           "nome": "OFICINA DE PRODUCAO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0086",
           "nome": "REDACAO OFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0153",
-          "nome": "PORTUGUÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0128",
+          "nome": "PATRIMONIO, PRESERVACAO E MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0119",
+          "nome": "AVALIACAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0120",
+          "nome": "CLASSIFICACAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0172",
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0066",
+          "nome": "DIPLOMATICA E TIPOLOGIA DOCUMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0124",
+          "nome": "GESTAO INTEGRADA DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0129",
+          "nome": "REPRESENTACAO DA INFORMACAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0121",
+          "nome": "DESCRICAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0125",
+          "nome": "INFORMACAO, TECNOLOGIAS E DOCUMENTOS ARQUIVISTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0126",
+          "nome": "PLANEJAMENTO E GESTAO DE INSTITUICOES ARQUIVISTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0118",
+          "nome": "ACESSO E DIFUSAO DAS INFORMACOES ARQUIVISTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0123",
+          "nome": "GESTAO DE DOCUMENTOS ARQUIVISTICOS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0127",
+          "nome": "INTRODUCAO AO TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0122",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARQUIVOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCI0130",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     }

@@ -3,1361 +3,1267 @@
   "periodo_letivo_vigor": "2018.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "ADM0315",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ADMINISTRAÇÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 1",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ADM0214",
-          "nome": "INTRODUÇÃO A TEORIAS ORGANIZACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0231",
           "nome": "COMPORTAMENTO ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CCA0103",
-          "nome": "INTRODUÇÃO À CONTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "ADM0316",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ADMINISTRAÇÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "ADM0014",
-          "nome": "ADMINISTRAÇÃO PÚBLICA E GESTÃO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO PUBLICA E GESTAO SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0041",
-          "nome": "GESTÃO DE PESSOAS EM ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE PESSOAS EM ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "ADM0187",
           "nome": "MICROECONOMIA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ADM0192",
           "nome": "CALCULO FINANCEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ADM0198",
-          "nome": "METODOLOGIA CIENTÍFICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA CIENTIFICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "ADM0321",
-          "nome": "ABORDAGENS CRÍTICAS AO ESTUDO DE ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "ADM0052",
-          "nome": "FINANÇAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FINANCAS 1",
+          "ch": "60"
         },
         {
           "codigo": "ADM0064",
-          "nome": "ADMINISTRAÇÃO DE MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
         },
         {
           "codigo": "ADM0190",
           "nome": "MACROECONOMIA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ADM0320",
-          "nome": "ANÁLISE ORGANIZACIONAL, SISTEMAS E MÉTODOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "ADM0021",
-          "nome": "SOCIOLOGIA APLICADA À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SOCIOLOGIA APLICADA A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0035",
-          "nome": "ANÁLISE DE DECISÕES 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
         },
         {
           "codigo": "ADM0092",
-          "nome": "ADMINISTRAÇÃO DA PRODUÇÃO E OPERAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
         },
         {
           "codigo": "FDD0004",
-          "nome": "INSTITUIÇÕES DE DIREITO PÚBLICO E PRIVADO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "ADM0047",
-          "nome": "MÉTODOS E MODELOS QUANTITATIVOS DE DECISÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 1",
+          "ch": "60"
         },
         {
           "codigo": "ADM0061",
-          "nome": "LOGÍSTICA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0157",
-          "nome": "ESTRATÉGIA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0298",
-          "nome": "ADMINISTRAÇÃO DE SISTEMAS DE INFORMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "ADM0273",
-          "nome": "PROJETO DE PESQUISA EM ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE PESQUISA EM ADMINISTRACAO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "ADM0297",
-          "nome": "ELABORAÇÃO DE TRABALHO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ELABORACAO DE TRABALHO DE CURSO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0002",
-          "nome": "ESTUDOS E PESQUISAS EM ADMINISTRAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0003",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ESTRATÉGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "30H OPTATIVA ADM0003 - TOPICOS CONTEMPORANEOS EM ESTRATEGIA",
+          "ch": "30"
         },
         {
           "codigo": "ADM0004",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM INOVAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM INOVACAO",
+          "ch": "30"
         },
         {
           "codigo": "ADM0005",
-          "nome": "INOVAÇÃO EM SERVIÇOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INOVACAO EM SERVICOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0006",
-          "nome": "GESTÃO DE MARCAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE MARCAS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0007",
-          "nome": "LOGÍSTICA INTERNACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGISTICA INTERNACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0008",
-          "nome": "MARKETING SOCIALMENTE RESPONSÁVEL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MARKETING SOCIALMENTE RESPONSAVEL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0009",
-          "nome": "MARKETING DE SERVIÇOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MARKETING DE SERVICOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0010",
           "nome": "MARKETING DIGITAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0011",
           "nome": "ECONOMIA COMPORTAMENTAL APLICADA AO MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0012",
-          "nome": "ADMINISTRAÇÃO DE CUSTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO DE CUSTOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0013",
-          "nome": "AVALIAÇÃO DA EFICIÊNCIA E PRODUTIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DA EFICIENCIA E PRODUTIVIDADE",
+          "ch": "60"
         },
         {
           "codigo": "ADM0015",
           "nome": "ESTADO, GOVERNO E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0016",
-          "nome": "ORGANIZAÇÃO E GESTÃO DE SERVIÇOS PÚBLICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO E GESTAO DE SERVICOS PUBLICOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0017",
-          "nome": "GESTÃO DE COMPRAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE COMPRAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0018",
-          "nome": "AVALIAÇÃO E MONITORAMENTO DA ESTRATÉGIA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO E MONITORAMENTO DA ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0025",
           "nome": "ORGANIZACAO E SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0068",
           "nome": "MERCADO FINANCEIRO E DE CAPITAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0070",
           "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0087",
-          "nome": "GESTÃO DE FINANÇAS PESSOAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE FINANCAS PESSOAIS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0107",
-          "nome": "ORÇAMENTO EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORCAMENTO EMPRESARIAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0150",
           "nome": "CRIACAO DE NEGOCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0162",
-          "nome": "GESTÃO DA INOVAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DA INOVACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0219",
-          "nome": "ANÁLISE DECISÓRIA EM PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DECISORIA EM PROJETOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0226",
-          "nome": "GESTÃO DE PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE PROJETOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0228",
           "nome": "ANALISE INSTITUCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0241",
           "nome": "PESQUISA DE MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0244",
-          "nome": "GESTÃO DE VENDAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE VENDAS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0253",
-          "nome": "TREINAMENTO, DESENVOLVIMENTO E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TREINAMENTO, DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0258",
-          "nome": "GESTÃO DE DESEMPENHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE DESEMPENHO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0261",
           "nome": "MARKETING DE ESPECIALIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0270",
           "nome": "OFICINA DE PRODUTOS E PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0299",
-          "nome": "ANÁLISE DE DECISÕES 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DE DECISOES 2",
+          "ch": "60"
         },
         {
           "codigo": "ADM0300",
           "nome": "COMPORTAMENTO DO CONSUMIDOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0301",
-          "nome": "FINANÇAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FINANCAS 2",
+          "ch": "60"
         },
         {
           "codigo": "ADM0302",
-          "nome": "GESTÃO DE MUDANÇA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE MUDANCA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0303",
-          "nome": "GESTÃO DE PROCESSOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE PROCESSOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0304",
-          "nome": "GESTÃO DE RESPONSABILIDADE SOCIOAMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE RESPONSABILIDADE SOCIOAMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0305",
-          "nome": "GESTÃO POR COMPETÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO POR COMPETENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0306",
           "nome": "MARKETING DE RELACIONAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0307",
-          "nome": "MÉTODOS E MODELOS QUANTITATIVOS DE DECISÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 2",
+          "ch": "60"
         },
         {
           "codigo": "ADM0308",
-          "nome": "NEGOCIAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NEGOCIACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0309",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ADMINISTRAÇÃO PÚBLICA E GESTÃO SOCIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO PUBLICA E GESTAO SOCIAL",
+          "ch": "30"
         },
         {
           "codigo": "ADM0310",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ESTRATÉGIA E INOVAÇÃO EM ORGANIZAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ESTRATEGIA E INOVACAO EM ORGANIZACAO",
+          "ch": "30"
         },
         {
           "codigo": "ADM0311",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM FINANÇAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM FINANCAS",
+          "ch": "30"
         },
         {
           "codigo": "ADM0312",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM GESTÃO DE PESSOAS E RELAÇÕES DE TRABALHO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE PESSOAS E RELACOES DE TRABALHO",
+          "ch": "30"
         },
         {
           "codigo": "ADM0313",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM PRODUÇÃO, LOGÍSTICA E GESTÃO DA INFORMAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0314",
-          "nome": "ADMINISTRAÇÃO DE RECURSOS MATERIAIS E PATRIMONIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM PRODUCAO, LOGISTICA E GESTAO DA INFORMACAO",
+          "ch": "30"
         },
         {
           "codigo": "ADM0317",
-          "nome": "ADMINISTRAÇÃO DA QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO DA QUALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "ADM0318",
-          "nome": "INTERNACIONALIZAÇÃO DE EMPRESAS E GESTÃO DE NEGÓCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERNACIONALIZACAO DE EMPRESAS E GESTAO DE NEGOCIOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0322",
-          "nome": "CRIATIVIDADE E INOVAÇÃO NAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CRIATIVIDADE E INOVACAO NAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "ADM0323",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM MARKETING",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM MARKETING",
+          "ch": "30"
         },
         {
           "codigo": "ADM0364",
-          "nome": "POLITICAS PÚBLICAS DE TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0366",
-          "nome": "GESTÃO DE TELETRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE TELETRABALHO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0367",
-          "nome": "LGBT NAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LGBT NAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "CCA0015",
           "nome": "CONTABILIDADE GERAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0018",
           "nome": "CUSTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0021",
-          "nome": "ANÁLISE ECONÔMICO-FINANCEIRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "ch": "60"
         },
         {
           "codigo": "CCA0029",
           "nome": "CONTABILIDADE COMERCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0031",
           "nome": "ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0040",
           "nome": "CONTABILIDADE GERAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0044",
           "nome": "CONTROLADORIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0056",
-          "nome": "AVALIAÇÃO DE PROJETOS DE INVESTIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE PROJETOS DE INVESTIMENTO",
+          "ch": "60"
         },
         {
           "codigo": "CCA0067",
           "nome": "PROGRAMACAO FISCAL E FINANCEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0074",
-          "nome": "ANÁLISE ECONÔMICO-FINANCEIRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 2",
+          "ch": "60"
         },
         {
           "codigo": "CCA0079",
           "nome": "CONTABILIDADE GERAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0089",
           "nome": "ANALISE DA LIQUIDEZ",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CCA0091",
           "nome": "EXECUCAO DA GESTAO PUBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0008",
           "nome": "PROGRAMACAO SISTEMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0088",
           "nome": "COMPUTACAO BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CIC0090",
           "nome": "ESTRUTURAS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0092",
-          "nome": "ORGANIZAÇÃO DE ARQUIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO DE ARQUIVOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0097",
           "nome": "BANCOS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0101",
           "nome": "SISTEMAS DE INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0174",
           "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0175",
           "nome": "PROGRAMACAO AVANCADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ECO0050",
           "nome": "CONTABILIDADE NACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0072",
           "nome": "ECONOMIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0128",
           "nome": "INTRODUCAO A ECONOMETRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0197",
           "nome": "ECONOMIA ESTATISTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0218",
           "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EPR0066",
           "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "EST0028",
-          "nome": "ESTATÍSTICA APLICADA À PSICOLOGIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA A PSICOLOGIA 1",
+          "ch": "90"
         },
         {
           "codigo": "EST0054",
           "nome": "PESQUISA OPERACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "EST0060",
-          "nome": "MATEMATICA FINANCEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0061",
           "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0069",
           "nome": "INTRODUCAO A PROBABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0034",
-          "nome": "GERÊNCIA DE SISTEMAS DE INFORMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GERENCIA DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0051",
-          "nome": "PLANEJAMENTO DE SISTEMAS DE INFORMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0006",
-          "nome": "INTRODUÇÃO AO DIREITO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
         },
         {
           "codigo": "FDD0015",
-          "nome": "LEGISLAÇÃO SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "FDD0062",
           "nome": "TEORIA GERAL DO DIREITO PRIVADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FDD0141",
-          "nome": "LEGISLAÇÃO TRIBUTÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
         },
         {
           "codigo": "FDD0172",
-          "nome": "LEGISLAÇÃO ADMINISTRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0064",
-          "nome": "ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FTD0008",
           "nome": "EMPRESA JUNIOR 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FTD0009",
           "nome": "EMPRESA JUNIOR 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GPP0031",
-          "nome": "ECONOMIA PARA  POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "GPP0032",
-          "nome": "FINANÇAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FINANCAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "GPP0033",
           "nome": "PLANEJAMENTO GOVERNAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GPP0035",
           "nome": "ADMINISTRACAO PUBLICA COMPARADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GPP0036",
           "nome": "ORCAMENTO PUBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GPP0037",
-          "nome": "FUNDAMENTOS DA ADMINISTRAÇÃO PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "GPP0040",
-          "nome": "INOVAÇÃO NO SETOR PÚBLICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INOVACAO NO SETOR PUBLICO",
+          "ch": "60"
         },
         {
           "codigo": "IFD0353",
-          "nome": "PROGRAMAÇÃO PARA SISTEMAS FÍSICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0013",
-          "nome": "INTRODUÇÃO AO ESTUDO DAS RELAÇÕES INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0015",
-          "nome": "TEORIA DAS RELAÇÕES INTERNACIONAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
         },
         {
           "codigo": "IRI0053",
-          "nome": "COMÉRCIO INTERNACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "IRI0065",
-          "nome": "RELAÇÕES ECONÔMICAS INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0168",
-          "nome": "ECONOMIA POLÍTICA INTERNACIONAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
         },
         {
           "codigo": "IRI0169",
-          "nome": "ECONOMIA POLÍTICA INTERNACIONAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0337",
           "nome": "LINGUA ITALIANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0037",
-          "nome": "LÍNGUA PORTUGUESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA PORTUGUESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 2",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0039",
           "nome": "ALGEBRA LINEAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0137",
-          "nome": "CÁLCULO 1 - SEMIPRESENCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
         },
         {
           "codigo": "POL0005",
-          "nome": "PRÁTICA DE ENSINO EM INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0012",
-          "nome": "TEORIA POLÍTICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
         },
         {
           "codigo": "POL0040",
-          "nome": "AVALIAÇÃO DE POLÍTICAS GOVERNAMENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE POLITICAS GOVERNAMENTAIS",
+          "ch": "60"
         },
         {
           "codigo": "POL0055",
-          "nome": "FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0020",
-          "nome": "ANÁLISE ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "PST0034",
           "nome": "ERGONOMIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0039",
           "nome": "MEDIDAS EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0050",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "PST0051",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "PST0054",
-          "nome": "AVALIAÇÃO DE TREINAMENTO E DE DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE TREINAMENTO E DE DESENVOLVIMENTO",
+          "ch": "60"
         },
         {
           "codigo": "PST0066",
           "nome": "ERGONOMIA APLICADA A INFORMATICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0077",
-          "nome": "DIVERSIDADE NAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIVERSIDADE NAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "ADM0315",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ADMINISTRAÇÃO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 1",
+          "ch": "30"
         },
         {
           "codigo": "ADM0316",
-          "nome": "TÓPICOS CONTEMPORÂNEOS EM ADMINISTRAÇÃO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
         },
         {
           "codigo": "ADM0321",
-          "nome": "ABORDAGENS CRÍTICAS AO ESTUDO DE ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0315",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0316",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0014",
+          "nome": "ADMINISTRACAO PUBLICA E GESTAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0041",
+          "nome": "GESTAO DE PESSOAS EM ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0187",
+          "nome": "MICROECONOMIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0192",
+          "nome": "CALCULO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0198",
+          "nome": "METODOLOGIA CIENTIFICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0321",
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0052",
+          "nome": "FINANCAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0064",
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0190",
+          "nome": "MACROECONOMIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0021",
+          "nome": "SOCIOLOGIA APLICADA A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0035",
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0092",
+          "nome": "ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0047",
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0061",
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0157",
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0298",
+          "nome": "ADMINISTRACAO DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0273",
+          "nome": "PROJETO DE PESQUISA EM ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0297",
+          "nome": "ELABORACAO DE TRABALHO DE CURSO",
+          "ch": "60"
         }
       ]
     }

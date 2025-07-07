@@ -3,1462 +3,1092 @@
   "periodo_letivo_vigor": "2024.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "LET0312",
-          "nome": "INTRODUÇÃO À MORFOSSINTAXE DO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A MORFOSSINTAXE DO INGLES",
+          "ch": "60"
         },
         {
           "codigo": "LET0408",
-          "nome": "LINGÜÍSTICA APLICADA NA FORMAÇÃO DO PROFESSOR DE LÍNGUA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUISTICA APLICADA NA FORMACAO DO PROFESSOR DE LINGUA",
+          "ch": "60"
         },
         {
           "codigo": "LET0763",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0045",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0014",
           "nome": "INTRODUCAO A TEORIA DA LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "LET0041",
           "nome": "MORFOSSINTAXE DO INGLES 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "LET0311",
           "nome": "FONETICA E FONOLOGIA DO INGLES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "LET0764",
-          "nome": "LÍNGUA INGLESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "LET0308",
           "nome": "MORFOSSINTAXE DO INGLES 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "LET0765",
-          "nome": "LÍNGUA INGLESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "LET0481",
-          "nome": "INGLÊS: ATIVIDADE DE EXTENSÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0766",
-          "nome": "LÍNGUA INGLESA 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA INGLESA 4",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "LET0482",
-          "nome": "INGLÊS: ATIVIDADE DE EXTENSÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0767",
-          "nome": "LÍNGUA INGLESA 5",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA INGLESA 5",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "LET0483",
-          "nome": "INGLÊS: ATIVIDADE DE EXTENSÃO 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 3",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "LET0479",
-          "nome": "INGLÊS: PROJETO FINAL DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: PROJETO FINAL DE CURSO",
+          "ch": "60"
         },
         {
           "codigo": "LET0484",
-          "nome": "INGLÊS: ATIVIDADE DE EXTENSÃO 4",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 4",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "LET0480",
-          "nome": "INGLÊS: TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         },
         {
           "codigo": "LET0485",
-          "nome": "INGLÊS: ATIVIDADE DE EXTENSÃO 5",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 5",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "TEL0136",
-          "nome": "CONTEXTOS DE LITERATURAS DE EXPRESSÃO INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0177",
-          "nome": "ENSINO DE LITERATURAS DE LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0041",
-          "nome": "LITERATURA INGLESA II - IDADE MÉDIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0042",
-          "nome": "LITERATURA INGLESA III - SÉCULO XIX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0040",
-          "nome": "LITERATURA INGLESA I - SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0043",
-          "nome": "LITERATURA INGLESA IV - DRAMA ISABELINO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0084",
-          "nome": "LITERATURA INGLESA IX - JOHN MILTON",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0073",
-          "nome": "LITERATURA INGLESA VIII - TEATRO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0072",
-          "nome": "LITERATURA INGLESA VII - POESIA SÉCULO XVI - XVII",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0071",
-          "nome": "LITERATURA INGLESA VI - ROMANCE SÉCULO XVIII - XX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0044",
-          "nome": "LITERATURA INGLESA V - TRAGÉDIA SHAKESPEARIANA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0087",
-          "nome": "LITERATURA INGLESA XII - TÓPICOS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0086",
-          "nome": "LITERATURA INGLESA XI - LITERATURA IRLANDESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0085",
-          "nome": "LITERATURA INGLESA X - PROSA E POESIA  SÉC. XVIII",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0047",
-          "nome": "LITERATURA NORTE-AMERICANA III - NARRATIVA SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0046",
-          "nome": "LITERATURA NORTE-AMERICANA II - SÉCULO XIX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0045",
-          "nome": "LITERATURA NORTE-AMERICANA I - SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0081",
-          "nome": "LITERATURA NORTE AMERICANA IV - TÓPICOS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0178",
-          "nome": "LITERATURAS ANGLÓFONAS - ESTUDOS CULTURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0179",
-          "nome": "LITERATURAS DE EXPRESSÃO EM LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LET0921",
-          "nome": "GEOLINGUÍSTICA APLICADA À LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LET0310",
-          "nome": "HISTORIA DA LINGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LET0932",
-          "nome": "HISTORIOGRAFIA LINGUÍSTICA - GRAMÁTICAS E DICIONÁRIOS EM LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LET0536",
-          "nome": "LEXICOLOGIA DO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LET0537",
-          "nome": "SEMÂNTICA E PRAGMÁTICA DO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LET0538",
-          "nome": "SOCIOLINGUÍSTICA APLICADA AO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0099",
-          "nome": "CERVANTES E O QUIXOTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0016",
-          "nome": "CRITICA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0031",
-          "nome": "ESTETICA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0018",
-          "nome": "ESTILISTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0029",
-          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0104",
-          "nome": "GERACAO DO 27",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0001",
-          "nome": "LABORATÓRIO DE ESTUDOS DE LITERATURA ARTES E HUMANIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0056",
-          "nome": "LITERATURA AFRICANA EM LINGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0020",
-          "nome": "LITERATURA COMPARADA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0058",
-          "nome": "LITERATURA COMPARADA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0077",
-          "nome": "LITERATURA ESTRANGEIRA EM LINGUA VERNACULA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0005",
-          "nome": "OFICINA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0097",
-          "nome": "TEORIA DA LINGUAGEM POETICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0060",
-          "nome": "TEORIA DA NARRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0093",
-          "nome": "TEORIA E PRÁTICA DA ANÁLISE DO TEXTO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0090",
-          "nome": "TÓPICOS ESPECIAIS EM LITERATURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0003",
-          "nome": "TÓPICOS ESPECIAIS EM LITERATURA INFANTIL E JUVENIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "TEL0004",
-          "nome": "TRAGÉDIA GREGA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CDS0007",
-          "nome": "INTRODUÇÃO AO DESENVOLVIMENTO SUSTENTÁVEL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CDS0008",
-          "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "VEL",
+          "nome": "60H OPTATIVA CDS0008 - MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "CDS0016",
-          "nome": "EDUCAÇÃO E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO E MEIO AMBIENTE",
+          "ch": "60"
         },
         {
           "codigo": "CEM0007",
-          "nome": "SAÚDE DIREITOS HUMANOS E ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE DIREITOS HUMANOS E ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "CEM0008",
           "nome": "DIREITOS HUMANOS LGBT",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEM0043",
-          "nome": "CULTURA PODER E RELAÇÕES RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CULTURA PODER E RELACOES RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "CEM0054",
-          "nome": "INTRODUÇÃO A GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "CEM0058",
           "nome": "DIREITOS DA CRIANCA E DO ADOLESCENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEM0067",
           "nome": "MULTICULTURALISMO E BUDISMO NA CONTEMPORANEIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEM0077",
           "nome": "DISCURSO, GENERO, SOCIAL E LETRAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEM0097",
           "nome": "DIREITOS HUMANOS E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CID0031",
           "nome": "PALEOGRAFIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0100",
-          "nome": "COMUNICAÇÃO E GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E GENERO",
+          "ch": "60"
         },
         {
           "codigo": "DEX1102",
-          "nome": "PENSAMENTO NEGRO CONTEMPORÂNEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO NEGRO CONTEMPORANEO",
+          "ch": "60"
         },
         {
           "codigo": "DEX1108",
-          "nome": "CONSTRUÇÃO DE PROJETOS SOCIAIS MULTIDISCIPLINARES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONSTRUCAO DE PROJETOS SOCIAIS MULTIDISCIPLINARES",
+          "ch": "60"
         },
         {
           "codigo": "ECL0036",
-          "nome": "EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ECO0273",
           "nome": "ECONOMIA DO SETOR EXTERNO E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0024",
           "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0183",
-          "nome": "EDUCAÇÃO DAS RELAÇÕES ÉTNICO-RACIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0505",
-          "nome": "PRÁTICA DESPORTIVA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
         },
         {
           "codigo": "FIL0014",
           "nome": "FILOSOFIA AFRICANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0136",
-          "nome": "FILOSOFIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA RELIGIAO",
+          "ch": "60"
         },
         {
           "codigo": "FMD0014",
-          "nome": "SAÚDE, AMBIENTE E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE, AMBIENTE E SOCIEDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0240",
-          "nome": "TEORIA, CONCEITOS E METODOLOGIAS EM EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TEORIA, CONCEITOS E METODOLOGIAS EM EDUCACAO AMBIENTAL",
+          "ch": "30"
         },
         {
           "codigo": "FUP0267",
-          "nome": "ESTADO POLÍTICA AMBIENTE E SUSTENTABILIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTADO POLITICA AMBIENTE E SUSTENTABILIDADE",
+          "ch": "60"
         },
         {
           "codigo": "FUP0353",
-          "nome": "EDUCAÇÃO AMBIENTAL E ENSINO DE CIÊNCIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO AMBIENTAL E ENSINO DE CIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0361",
           "nome": "MEIO AMBIENTE E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0443",
-          "nome": "INTRODUÇÃO À SAÚDE PÚBLICA E AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SAUDE PUBLICA E AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0545",
           "nome": "AGRICULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0558",
-          "nome": "POLUIÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLUICAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0565",
           "nome": "MEIO AMBIENTE E DIREITOS HUMANOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0003",
           "nome": "GEOGRAFIA AFRICANA E AFROBRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0004",
-          "nome": "URBANIZAÇÃO NA AMÉRICA LATINA E CARIBE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
         },
         {
           "codigo": "GEA0068",
           "nome": "POLITICA PUBLICA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0022",
-          "nome": "LABORATÓRIO DE ENSINO DE HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA DA AFRICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0140",
           "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0186",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0211",
-          "nome": "LABORATÓRIO DE ENSINO DE HISTÓRIA INDÍGENA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA INDIGENA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0250",
-          "nome": "HISTÓRIA ANTIGA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0252",
-          "nome": "HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0253",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "IFD0385",
           "nome": "O USO DO AMBIENTE VIRTUAL DE APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0019",
-          "nome": "LÍNGUA NEERLANDESA (HOLANDÊS) 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0032",
-          "nome": "GÊNERO, LÍNGUA E PODER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GENERO, LINGUA E PODER",
+          "ch": "60"
         },
         {
           "codigo": "LET0035",
-          "nome": "LÍNGUA COREANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA COREANA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0106",
           "nome": "LINGUA JAPONESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0243",
           "nome": "CULTURA JAPONESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0305",
-          "nome": "TEORIA E PRÁTICA DO ESPANHOL ORAL E ESCRITO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 1",
+          "ch": "90"
         },
         {
           "codigo": "LET0309",
           "nome": "MORFOSSITAXE DO INGLES 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0310",
           "nome": "HISTORIA DA LINGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0326",
           "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "LET0337",
           "nome": "LINGUA ITALIANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0407",
-          "nome": "FUNDAMENTOS DA LÍNGUÍSTICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA LINGUISTICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "LET0410",
-          "nome": "PESQUISA EM LINGÜÍSTICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM LINGUISTICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "LET0414",
-          "nome": "INTRODUÇÃO A TRADUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A TRADUCAO",
+          "ch": "60"
         },
         {
           "codigo": "LET0419",
           "nome": "EXPERIENCIA DE ENSINO DE LINGUA INGLESA",
-          "carga_horaria": "0h",
-          "natureza": "Optativa"
+          "ch": "0"
         },
         {
           "codigo": "LET0440",
-          "nome": "LÍNGUA E PROGRAMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA E PROGRAMACAO",
+          "ch": "60"
         },
         {
           "codigo": "LET0444",
-          "nome": "LINGUÍSTICA DE CORPUS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUISTICA DE CORPUS",
+          "ch": "60"
         },
         {
           "codigo": "LET0515",
-          "nome": "ATIVIDADES COMPLEMENTARES - 15H",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "15"
         },
         {
           "codigo": "LET0516",
-          "nome": "ATIVIDADES COMPLEMENTARES - 30H",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "30"
         },
         {
           "codigo": "LET0517",
-          "nome": "ATIVIDADES COMPLEMENTARES - 45H",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "45"
         },
         {
           "codigo": "LET0518",
-          "nome": "ATIVIDADES COMPLEMENTARES - 60H",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "60"
         },
         {
           "codigo": "LET0519",
-          "nome": "ATIVIDADES COMPLEMENTARES - 90H",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "90"
         },
         {
           "codigo": "LET0520",
-          "nome": "ATIVIDADES COMPLEMENTARES - 120H",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "120"
         },
         {
           "codigo": "LET0521",
-          "nome": "ATIVIDADES COMPLEMENTARES - 150H",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "150"
         },
         {
           "codigo": "LET0522",
-          "nome": "ATIVIDADES COMPLEMENTARES - 180H",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "180"
         },
         {
           "codigo": "LET0523",
-          "nome": "ATIVIDADES COMPLEMENTARES - 210H",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "210"
         },
         {
           "codigo": "LET0536",
-          "nome": "LEXICOLOGIA DO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEXICOLOGIA DO INGLES",
+          "ch": "60"
         },
         {
           "codigo": "LET0537",
-          "nome": "SEMÂNTICA E PRAGMÁTICA DO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMANTICA E PRAGMATICA DO INGLES",
+          "ch": "60"
         },
         {
           "codigo": "LET0538",
-          "nome": "SOCIOLINGUÍSTICA APLICADA AO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLINGUISTICA APLICADA AO INGLES",
+          "ch": "60"
         },
         {
           "codigo": "LET0921",
-          "nome": "GEOLINGUÍSTICA APLICADA À LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOLINGUISTICA APLICADA A LINGUA INGLESA",
+          "ch": "60"
         },
         {
           "codigo": "LET0932",
-          "nome": "HISTORIOGRAFIA LINGUÍSTICA - GRAMÁTICAS E DICIONÁRIOS EM LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIOGRAFIA LINGUISTICA - GRAMATICAS E DICIONARIOS EM LINGUA INGLESA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0025",
           "nome": "INTRODUCAO A SEMANTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0061",
           "nome": "LATIM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0082",
-          "nome": "TÓPICOS ATUAIS EM LINGÜÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ATUAIS EM LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0085",
           "nome": "OFICINA DE PRODUCAO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0086",
           "nome": "REDACAO OFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0088",
           "nome": "LEXICOLOGIA E LEXICOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0092",
           "nome": "SEMINARIO DE PORTUGUES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0095",
           "nome": "INTRODUCAO A ANALISE DO DISCURSO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0098",
-          "nome": "ESTUDO DAS GRAMÁTICAS DO PORTUGUÊS CONTEMPORÂNEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDO DAS GRAMATICAS DO PORTUGUES CONTEMPORANEO",
+          "ch": "60"
         },
         {
           "codigo": "LIP0099",
           "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0100",
           "nome": "MORFOLOGIA DO PORTUGUES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0101",
           "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0106",
           "nome": "PROCESSOS DE LEITURA E ESCRITA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0113",
           "nome": "GREGO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0118",
-          "nome": "FONÉTICA E FONOLOGIA DO PORTUGUÊS COMO SEGUNDA LÍNGUA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES COMO SEGUNDA LINGUA",
+          "ch": "30"
         },
         {
           "codigo": "LIP0131",
           "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0155",
           "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0159",
-          "nome": "LINGUÍSTICA APLICADA AO ENSINO DE PSL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUISTICA APLICADA AO ENSINO DE PSL",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "LIP0175",
-          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
         },
         {
           "codigo": "LIP0176",
-          "nome": "ESTUDOS HELÊNICOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS HELENICOS 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0177",
-          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - AVANÇADO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - AVANCADO 1",
+          "ch": "60"
         },
         {
           "codigo": "PCL0005",
           "nome": "PSICOLOGIA DAS HABILIDADES SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0007",
-          "nome": "DESENVOLVIMENTO, APRENDIZAGEM E INTERAÇÕES VIRTUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO, APRENDIZAGEM E INTERACOES VIRTUAIS",
+          "ch": "60"
         },
         {
           "codigo": "PED0032",
           "nome": "PSICOLOGIA DA CRIATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0073",
-          "nome": "PSICOLOGIA DO GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DO GENERO",
+          "ch": "60"
         },
         {
           "codigo": "SER0007",
-          "nome": "GÊNERO, RAÇA/ETNIA E POLÍTICA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SER0033",
           "nome": "MOVIMENTOS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "TEL0001",
-          "nome": "LABORATÓRIO DE ESTUDOS DE LITERATURA ARTES E HUMANIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE ESTUDOS DE LITERATURA ARTES E HUMANIDADES",
+          "ch": "60"
         },
         {
           "codigo": "TEL0003",
-          "nome": "TÓPICOS ESPECIAIS EM LITERATURA INFANTIL E JUVENIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM LITERATURA INFANTIL E JUVENIL",
+          "ch": "60"
         },
         {
           "codigo": "TEL0004",
-          "nome": "TRAGÉDIA GREGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TRAGEDIA GREGA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0005",
-          "nome": "OFICINA LITERÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINA LITERARIA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0006",
           "nome": "LITERATURA PORTUGUESA - MODERNISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0007",
           "nome": "LITERATURA PORTUGUESA - REALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0008",
           "nome": "LITERATURA PORTUGUESA - RENASCIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0009",
           "nome": "LITERATURA PORTUGUESA - MEDIEVALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0010",
           "nome": "LITERATURA PORTUGUESA - BARROCO E ARCADISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0011",
           "nome": "LITERATURA PORTUGUESA - ROMANTISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0012",
           "nome": "LITERATURA PORTUGUESA - PARNASIANISMO E SIMBOLISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0016",
           "nome": "CRITICA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0018",
           "nome": "ESTILISTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0020",
           "nome": "LITERATURA COMPARADA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0021",
           "nome": "LITERATURA BRASILEIRA - ROMANTISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0022",
           "nome": "LITERATURA BRASILEIRA - REALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0023",
           "nome": "LITERATURA BRASILEIRA - MODERNISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0024",
           "nome": "LITERATURA BRASILEIRA - BARROCO E ARCADISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0025",
           "nome": "LITERATURA BRASILEIRA - PARNASIANISMO E SIMBOLISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0026",
-          "nome": "LITERATURA BRASILEIRA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0027",
           "nome": "LITERATURA BRASILEIRA - TEATRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0028",
           "nome": "HISTORIOGRAFIA DA LITERATURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0029",
           "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0031",
           "nome": "ESTETICA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0040",
-          "nome": "LITERATURA INGLESA I - SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA I - SECULO XX",
+          "ch": "60"
         },
         {
           "codigo": "TEL0041",
-          "nome": "LITERATURA INGLESA II - IDADE MÉDIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA II - IDADE MEDIA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0042",
-          "nome": "LITERATURA INGLESA III - SÉCULO XIX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA III - SECULO XIX",
+          "ch": "60"
         },
         {
           "codigo": "TEL0043",
           "nome": "LITERATURA INGLESA IV - DRAMA ISABELINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0044",
-          "nome": "LITERATURA INGLESA V - TRAGÉDIA SHAKESPEARIANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA V - TRAGEDIA SHAKESPEARIANA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0045",
-          "nome": "LITERATURA NORTE-AMERICANA I - SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA NORTE-AMERICANA I - SECULO XX",
+          "ch": "60"
         },
         {
           "codigo": "TEL0046",
-          "nome": "LITERATURA NORTE-AMERICANA II - SÉCULO XIX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA NORTE-AMERICANA II - SECULO XIX",
+          "ch": "60"
         },
         {
           "codigo": "TEL0047",
-          "nome": "LITERATURA NORTE-AMERICANA III - NARRATIVA SÉCULO XX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA NORTE-AMERICANA III - NARRATIVA SECULO XX",
+          "ch": "60"
         },
         {
           "codigo": "TEL0056",
           "nome": "LITERATURA AFRICANA EM LINGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0058",
           "nome": "LITERATURA COMPARADA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0060",
           "nome": "TEORIA DA NARRATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0071",
-          "nome": "LITERATURA INGLESA VI - ROMANCE SÉCULO XVIII - XX",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA VI - ROMANCE SECULO XVIII - XX",
+          "ch": "60"
         },
         {
           "codigo": "TEL0072",
-          "nome": "LITERATURA INGLESA VII - POESIA SÉCULO XVI - XVII",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA VII - POESIA SECULO XVI - XVII",
+          "ch": "60"
         },
         {
           "codigo": "TEL0073",
-          "nome": "LITERATURA INGLESA VIII - TEATRO INGLÊS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA VIII - TEATRO INGLES",
+          "ch": "60"
         },
         {
           "codigo": "TEL0077",
           "nome": "LITERATURA ESTRANGEIRA EM LINGUA VERNACULA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0081",
-          "nome": "LITERATURA NORTE AMERICANA IV - TÓPICOS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA NORTE AMERICANA IV - TOPICOS ESPECIAIS",
+          "ch": "60"
         },
         {
           "codigo": "TEL0084",
           "nome": "LITERATURA INGLESA IX - JOHN MILTON",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0085",
-          "nome": "LITERATURA INGLESA X - PROSA E POESIA  SÉC. XVIII",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA X - PROSA E POESIA  SEC. XVIII",
+          "ch": "60"
         },
         {
           "codigo": "TEL0086",
           "nome": "LITERATURA INGLESA XI - LITERATURA IRLANDESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0087",
-          "nome": "LITERATURA INGLESA XII - TÓPICOS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA INGLESA XII - TOPICOS ESPECIAIS",
+          "ch": "60"
         },
         {
           "codigo": "TEL0090",
-          "nome": "TÓPICOS ESPECIAIS EM LITERATURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM LITERATURA BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0091",
           "nome": "LITERATURA BRASILEIRA - PRE-MODERNISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0093",
-          "nome": "TEORIA E PRÁTICA DA ANÁLISE DO TEXTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E PRATICA DA ANALISE DO TEXTO",
+          "ch": "60"
         },
         {
           "codigo": "TEL0097",
           "nome": "TEORIA DA LINGUAGEM POETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0098",
           "nome": "LABORATORIO DE LITERATURA PARA O ENSINO FUNDAMENTAL E MEDIO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "TEL0099",
           "nome": "CERVANTES E O QUIXOTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0104",
           "nome": "GERACAO DO 27",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0108",
           "nome": "LITERATURA ESPANHOLA 1 - IDADE MEDIA E SIGLO DE ORO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0109",
           "nome": "FUNDAMENTOS DA LITERATURA BRASILEIRA CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0110",
           "nome": "CULTURA CLASSICA 1 - GRECIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0111",
           "nome": "CULTURA CLASSICA 2 - ROMA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0112",
           "nome": "PANORAMA DA LITERATURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0136",
-          "nome": "CONTEXTOS DE LITERATURAS DE EXPRESSÃO INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONTEXTOS DE LITERATURAS DE EXPRESSAO INGLESA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0177",
-          "nome": "ENSINO DE LITERATURAS DE LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE LITERATURAS DE LINGUA INGLESA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0178",
-          "nome": "LITERATURAS ANGLÓFONAS - ESTUDOS CULTURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURAS ANGLOFONAS - ESTUDOS CULTURAIS",
+          "ch": "60"
         },
         {
           "codigo": "TEL0179",
-          "nome": "LITERATURAS DE EXPRESSÃO EM LÍNGUA INGLESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURAS DE EXPRESSAO EM LINGUA INGLESA",
+          "ch": "60"
         },
         {
           "codigo": "VIS0269",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ARTE-EDUCAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ARTE-EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0312",
+          "nome": "INTRODUCAO A MORFOSSINTAXE DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0408",
+          "nome": "LINGUISTICA APLICADA NA FORMACAO DO PROFESSOR DE LINGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0763",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0014",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0041",
+          "nome": "MORFOSSINTAXE DO INGLES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0311",
+          "nome": "FONETICA E FONOLOGIA DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0764",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0308",
+          "nome": "MORFOSSINTAXE DO INGLES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0765",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0481",
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0766",
+          "nome": "LINGUA INGLESA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0482",
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0767",
+          "nome": "LINGUA INGLESA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0483",
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0479",
+          "nome": "INGLES: PROJETO FINAL DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0484",
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0480",
+          "nome": "INGLES: TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0485",
+          "nome": "INGLES: ATIVIDADE DE EXTENSAO 5",
+          "ch": "30"
         }
       ]
     }

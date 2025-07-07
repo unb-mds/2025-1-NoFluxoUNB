@@ -3,2000 +3,1872 @@
   "periodo_letivo_vigor": "2016.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0234",
           "nome": "INTRODUCAO A MEDICINA VETERINARIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FAV0236",
           "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "ch": "120"
         },
         {
           "codigo": "GEM0014",
           "nome": "GENETICA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FAV0052",
           "nome": "FISIOLOGIA VETERINARIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FAV0066",
           "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "ch": "120"
         },
         {
           "codigo": "GEM0042",
           "nome": "HISTOLOGIA VETERINARIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "GEM0043",
           "nome": "EMBRIOLOGIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "CEL0025",
           "nome": "IMUNOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0178",
           "nome": "FISIOLOGIA VETERINARIA 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FAV0206",
           "nome": "MICROBIOLOGIA VETERINARIA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "ch": "120"
         },
         {
           "codigo": "FAV0303",
-          "nome": "PATOLOGIA GERAL VETERINÁRIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PATOLOGIA GERAL VETERINARIA",
+          "ch": "90"
         },
         {
           "codigo": "FAV0016",
-          "nome": "MÉTODOS QUANTITATIVOS EM MEDICINA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FAV0018",
-          "nome": "PARASITOLOGIA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PARASITOLOGIA VETERINARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0158",
-          "nome": "PATOLOGIA VETERINÁRIA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "PATOLOGIA VETERINARIA",
+          "ch": "120"
         },
         {
           "codigo": "FAV0179",
           "nome": "FARMACOLOGIA VETERINARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0180",
           "nome": "NUTRICAO ANIMAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FAV0006",
-          "nome": "SEMIOLOGIA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SEMIOLOGIA VETERINARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0160",
           "nome": "EPIDEMIOLOGIA VETERINARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0181",
           "nome": "BOVINOCULTURA DE CORTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0182",
           "nome": "BOVINOCULTURA DE LEITE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0248",
           "nome": "AVICULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0249",
           "nome": "SUINOCULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FAV0015",
-          "nome": "DOENÇAS PARASITÁRIAS DOS ANIMAIS DOMÉSTICOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "DOENCAS PARASITARIAS DOS ANIMAIS DOMESTICOS",
+          "ch": "90"
         },
         {
           "codigo": "FAV0088",
           "nome": "EXTENSAO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0161",
           "nome": "FISIOPATOLOGIA DA REPRODUCAO DA FEMEA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "FAV0166",
-          "nome": "PATOLOGIA CLÍNICA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PATOLOGIA CLINICA VETERINARIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0167",
           "nome": "FISIOPATOLOGIA DA REPRODUCAO DO MACHO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0297",
-          "nome": "DOENÇAS INFECCIOSAS DOS ANIMAIS DOMÉSTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DOENCAS INFECCIOSAS DOS ANIMAIS DOMESTICOS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FAV0165",
           "nome": "TECNICA CIRURGICA VETERINARIA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "ch": "120"
         },
         {
           "codigo": "FAV0169",
           "nome": "TECNOLOGIA DE LEITE E DERIVADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0207",
           "nome": "ANESTESIOLOGIA VETERINARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0243",
           "nome": "DIAGNOSTICO POR IMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0328",
-          "nome": "SAÚDE PÚBLICA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SAUDE PUBLICA VETERINARIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FAV0003",
-          "nome": "CLÍNICA MÉDICA DE ANIMAIS DE COMPANHIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 1",
+          "ch": "90"
         },
         {
           "codigo": "FAV0005",
-          "nome": "CLÍNICA E CIRURGIA DE RUMINANTES E EQUINOS 1",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 1",
+          "ch": "150"
         },
         {
           "codigo": "FAV0168",
           "nome": "TECNOLOGIA DE CARNES E DERIVADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0199",
           "nome": "CLINICA CIRURGICA DE PEQUENOS ANIMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "FAV0004",
-          "nome": "CLÍNICA MÉDICA DE ANIMAIS DE COMPANHIA 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 2",
+          "ch": "90"
         },
         {
           "codigo": "FAV0007",
-          "nome": "CLÍNICA E CIRURGIA DE RUMINANTES E EQUINOS 2",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 2",
+          "ch": "150"
         },
         {
           "codigo": "FAV0084",
-          "nome": "POLÍTICAS PÚBLICAS DE SAÚDE ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS PUBLICAS DE SAUDE ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0186",
           "nome": "INSPECAO DE LEITE E DERIVADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FAV0208",
           "nome": "INSPECAO DE CARNES E DERIVADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "FAV0184",
           "nome": "ESTAGIO SUPERVISIONADO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "11º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "EST0027",
-          "nome": "BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FAV0016",
-          "nome": "MÉTODOS QUANTITATIVOS EM MEDICINA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEL0077",
-          "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "CEL0054",
-          "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "BOT0004",
-          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "BOT0008",
-          "nome": "FISIOLOGIA VEGETAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "VEGETAL",
+          "nome": "60H OPTATIVA BOT0008 - FISIOLOGIA VEGETAL",
+          "ch": "90"
         },
         {
           "codigo": "BOT0020",
           "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "BOT0021",
           "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "BOT0042",
           "nome": "ANATOMIA VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "BOT0044",
-          "nome": "ORGANOGRAFIA E SISTEMÁTICA FANEROFÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
         },
         {
           "codigo": "BOT0049",
           "nome": "MORFOLOGIA VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0019",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "135h",
-          "natureza": "Optativa"
+          "ch": "135"
         },
         {
           "codigo": "CEL0021",
           "nome": "BIOQUIMICA E BIOFISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0023",
           "nome": "BIOFISICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0026",
           "nome": "BIOLOGIA MOLECULAR 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0027",
           "nome": "BIOLOGIA MOLECULAR 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0033",
           "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA MOLECULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0035",
           "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0040",
-          "nome": "INTRODUÇÃO A BIOQUÍMICA EXPERIMENTAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A BIOQUIMICA EXPERIMENTAL",
+          "ch": "120"
         },
         {
           "codigo": "CEL0042",
           "nome": "TOPICOS EM BIOQUIMICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0062",
           "nome": "METABOLISMO CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0072",
           "nome": "PESQUISA EM BIOLOGIA MOLECULAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0074",
           "nome": "PESQUISA EM BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0093",
-          "nome": "ESTÁGIO SUPERVISIONADO EM BIOQUÍMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOQUIMICA",
+          "ch": "60"
         },
         {
           "codigo": "CEL0094",
           "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0095",
           "nome": "BIOLOGIA MOLECULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0098",
           "nome": "PESQUISA EM IMUNOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CFS0002",
-          "nome": "PESQUISA EM REPRODUÇÃO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM REPRODUCAO ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "CFS0010",
           "nome": "FISIOLOGIA DOS SISTEMAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CFS0013",
           "nome": "VENENOS ANIMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0031",
           "nome": "NEUROFISIOLOGIA MEDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0037",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0041",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0044",
           "nome": "SISTEMAS SENSORIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0045",
           "nome": "EXPERIMENTACAO EM FISIOLOGIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0048",
           "nome": "FISIOLOGIA ANIMAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0049",
           "nome": "FISIOLOGIA ANIMAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0050",
           "nome": "NEUROETOLOGIA DO ESTRESSE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0052",
-          "nome": "BASES BIOLÓGICAS DA REPRODUÇÃO EM MAMÍFEROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES BIOLOGICAS DA REPRODUCAO EM MAMIFEROS",
+          "ch": "60"
         },
         {
           "codigo": "CFS0055",
           "nome": "FISIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0086",
-          "nome": "TÓPICOS EM NEUROCIÊNCIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM NEUROCIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "CIC0152",
           "nome": "INTRODUCAO A MICROINFORMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "DSC0045",
           "nome": "VIGILANCIA SANITARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0002",
           "nome": "ECOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "ECL0013",
           "nome": "LIMNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0014",
           "nome": "CIENCIAS DO AMBIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ECL0024",
           "nome": "ETOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "ECL0033",
           "nome": "ECOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ECL0042",
-          "nome": "MEIO AMBIENTE FÍSICO E ECOSSISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "ECL0043",
-          "nome": "ECOLOGIA DE POPULAÇÕES E COMUNIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
         },
         {
           "codigo": "ECL0049",
           "nome": "BIOLOGIA E ECOLOGIA DE PEIXES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ECO0108",
           "nome": "ECONOMIA RURAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0004",
           "nome": "ECOLOGIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EST0027",
-          "nome": "BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0031",
           "nome": "FARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0032",
           "nome": "FUNDAMENTOS EM FARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAR0041",
-          "nome": "TÓPICOS EM TOXICOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM TOXICOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "FAR0125",
-          "nome": "FARMACODINÂMICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FARMACODINAMICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FAR0146",
           "nome": "FARMACOLOGIA MOLECULAR EXPERIMENTAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAR0167",
-          "nome": "ANÁLISE ORGÂNICA DOS FÁRMACOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ORGANICA DOS FARMACOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0001",
-          "nome": "BIOCOMBUSTÍVEIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOCOMBUSTIVEIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0017",
-          "nome": "PRODUÇÃO E MANEJO DE ANIMAIS SILVESTRES E EXÓTICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRODUCAO E MANEJO DE ANIMAIS SILVESTRES E EXOTICOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0026",
           "nome": "BIOCLIMATOLOGIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0038",
-          "nome": "ESTATÍSTICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA EXPERIMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0051",
-          "nome": "OFTALMOLOGIA VETERINÁRIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OFTALMOLOGIA VETERINARIA",
+          "ch": "30"
         },
         {
           "codigo": "FAV0055",
-          "nome": "PRÁTICA HOSPITALAR VETERINÁRIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA HOSPITALAR VETERINARIA 2",
+          "ch": "60"
         },
         {
           "codigo": "FAV0056",
-          "nome": "PRÁTICA HOSPITALAR VETERINÁRIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA HOSPITALAR VETERINARIA 3",
+          "ch": "60"
         },
         {
           "codigo": "FAV0057",
-          "nome": "PRÁTICA HOSPITALAR VETERINÁRIA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA HOSPITALAR VETERINARIA 4",
+          "ch": "60"
         },
         {
           "codigo": "FAV0058",
-          "nome": "ESTÁGIO NÃO OBRIGATÓRIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO NAO OBRIGATORIO 2",
+          "ch": "60"
         },
         {
           "codigo": "FAV0060",
-          "nome": "ESTÁGIO NÃO OBRIGATÓRIO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO NAO OBRIGATORIO 3",
+          "ch": "60"
         },
         {
           "codigo": "FAV0062",
-          "nome": "ESTÁGIO NÃO OBRIGATÓRIO 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO NAO OBRIGATORIO 4",
+          "ch": "60"
         },
         {
           "codigo": "FAV0069",
-          "nome": "FERTILIDADE DO SOLO E ADUBAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FERTILIDADE DO SOLO E ADUBACAO",
+          "ch": "60"
         },
         {
           "codigo": "FAV0105",
           "nome": "PLANTAS FORRAGEIRAS E PASTAGENS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0109",
-          "nome": "ALIMENTOS E ALIMENTAÇÃO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ALIMENTOS E ALIMENTACAO ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0110",
           "nome": "GENETICA QUANTITATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0113",
-          "nome": "ANATOMIA E FISIOLOGIA DOS ANIMAIS DE PRODUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANATOMIA E FISIOLOGIA DOS ANIMAIS DE PRODUCAO",
+          "ch": "60"
         },
         {
           "codigo": "FAV0117",
           "nome": "PRODUCAO E CONTROLE DE PRODUTOS BIOLOGICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0143",
           "nome": "PATOLOGIA CLINICA CIRURGICA VETERINARIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAV0144",
           "nome": "SAUDE E CLINICA DAS AVES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0145",
           "nome": "CLINICA CIRURGICA DE GRANDES ANIMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0146",
           "nome": "BIOTECNICAS AVANCADAS NA REPRODUCAO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0150",
           "nome": "ZOOTECNIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAV0159",
           "nome": "PARASITOLOGIA E DOENCAS PARASITARIAS",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0164",
           "nome": "PLANEJAMENTO EM SAUDE ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0175",
           "nome": "COOPERATIVISMO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0177",
           "nome": "MICROINFORMATICA APLICADA A AGRICULTURA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0183",
           "nome": "DEONTOLOGIA VETERINARIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0185",
           "nome": "PRATICA HOSPITALAR VETERINARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0187",
           "nome": "SANEAMENTO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0196",
           "nome": "SAUDE E CLINICA DOS RUMINANTES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAV0205",
           "nome": "SAUDE E CLINICA DOS EQUINOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0213",
           "nome": "ADMINISTRACAO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0229",
-          "nome": "ELABORAÇÃO DE PROJETOS AGROPECUÁRIOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ELABORACAO DE PROJETOS AGROPECUARIOS",
+          "ch": "30"
         },
         {
           "codigo": "FAV0230",
-          "nome": "INTRODUÇÃO À PROJETOS AGROPECUÁRIOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PROJETOS AGROPECUARIOS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0237",
           "nome": "EQUINOCULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0239",
           "nome": "CAPRINOCULTURA E OVINOCULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0240",
           "nome": "SAUDE E CLINICA DOS SUINOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0241",
           "nome": "SAUDE E CLINICA DOS ANIMAIS DE COMPANHIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAV0242",
           "nome": "OBSTETRICIA VETERINARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0245",
           "nome": "BEM-ESTAR ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0246",
-          "nome": "NUTRIÇÃO DE RUMINANTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NUTRICAO DE RUMINANTES",
+          "ch": "60"
         },
         {
           "codigo": "FAV0247",
           "nome": "NUTRICAO DE MONOGASTRICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0259",
           "nome": "POLITICA AGRICOLA E DESENVOLVIMENTO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0261",
           "nome": "DIAGNOSTICO RURAL PARTICIPATIVO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0263",
           "nome": "MELHORAMENTO GENETICO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0268",
           "nome": "DIAGNOSTICO RURAL PARTICIPATIVO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0271",
           "nome": "FARMACOVIGILANCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0273",
           "nome": "BIOLOGIA DO SOLO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0274",
-          "nome": "FUNDAMENTOS DE CIÊNCIA DO SOLO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE CIENCIA DO SOLO",
+          "ch": "90"
         },
         {
           "codigo": "FAV0275",
-          "nome": "ADMINISTRAÇÃO RURAL E COMERCIALIZAÇÃO AGRÍCOLA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO RURAL E COMERCIALIZACAO AGRICOLA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0276",
           "nome": "ZOOTECNIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0293",
-          "nome": "TÓPICOS ESPECIAIS EM ZOOTECNIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ZOOTECNIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0295",
-          "nome": "AGRONEGÓCIO E SISTEMAS AGROINDUSTRIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AGRONEGOCIO E SISTEMAS AGROINDUSTRIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0299",
-          "nome": "UTILIZAÇÃO DE PLANTAS FORRAGEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "UTILIZACAO DE PLANTAS FORRAGEIRAS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0300",
-          "nome": "GERÊNCIA DA PROPRIEDADE RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "GERENCIA DA PROPRIEDADE RURAL",
+          "ch": "30"
         },
         {
           "codigo": "FAV0301",
           "nome": "PESQUISA PARTICIPANTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0302",
-          "nome": "MÉTODOS DE EXPERIMENTAÇÃO  COM ANIMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS DE EXPERIMENTACAO  COM ANIMAIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0305",
-          "nome": "TÓPICOS AVANÇADOS EM FARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM FARMACOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0306",
-          "nome": "TERAPÊUTICA APLICADA AOS ANIMAIS DE COMPANHIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TERAPEUTICA APLICADA AOS ANIMAIS DE COMPANHIA",
+          "ch": "60"
         },
         {
           "codigo": "FAV0309",
           "nome": "AGRICULTURA FAMILIAR E DESENVOLVIMENTO RURAL NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0314",
-          "nome": "NUTRIÇÃO DE EQUINOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "NUTRICAO DE EQUINOS",
+          "ch": "30"
         },
         {
           "codigo": "FAV0315",
-          "nome": "SAÚDE E CLÍNICA DE ANIMAIS SILVESTRES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E CLINICA DE ANIMAIS SILVESTRES",
+          "ch": "60"
         },
         {
           "codigo": "FAV0324",
-          "nome": "ESTAGIO NÃO OBRIGATORIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO NAO OBRIGATORIO",
+          "ch": "60"
         },
         {
           "codigo": "FAV0326",
-          "nome": "TECNOLOGIA E INSPEÇÃO DE PESCADO OVOS E MEL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA E INSPECAO DE PESCADO OVOS E MEL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0329",
           "nome": "AQUICULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0330",
-          "nome": "AVALIAÇÃO DE CARCAÇAS E QUALIDADE DA CARNE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE CARCACAS E QUALIDADE DA CARNE",
+          "ch": "60"
         },
         {
           "codigo": "FAV0331",
-          "nome": "DIAGNÓSTICO HISTOPATOLÓGICO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DIAGNOSTICO HISTOPATOLOGICO",
+          "ch": "30"
         },
         {
           "codigo": "FAV0332",
-          "nome": "MEDICINA VETERINÁRIA LEGAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "MEDICINA VETERINARIA LEGAL",
+          "ch": "30"
         },
         {
           "codigo": "FAV0333",
-          "nome": "TOXICOLOGIA VETERINÁRIA E PLANTAS TOXICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOXICOLOGIA VETERINARIA E PLANTAS TOXICAS",
+          "ch": "30"
         },
         {
           "codigo": "FAV0335",
-          "nome": "TERAPIA GÊNICA 1 - FUNDAMENTOS E TÉCNICAS DE RNAI",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TERAPIA GENICA 1 - FUNDAMENTOS E TECNICAS DE RNAI",
+          "ch": "60"
         },
         {
           "codigo": "FAV0336",
           "nome": "ZOONOSES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0337",
           "nome": "BIOTERISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0338",
-          "nome": "PRÁTICAS CIRÚRGICAS EM PEQUENOS ANIMAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS CIRURGICAS EM PEQUENOS ANIMAIS",
+          "ch": "60"
         },
         {
           "codigo": "FAV0340",
           "nome": "CUNICULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0341",
-          "nome": "ESTATÍSTICA APLICADA A EXPERIMENTAÇÃO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA A EXPERIMENTACAO ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0344",
           "nome": "MARKETING AGROINDUSTRIAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0370",
-          "nome": "DESENVOLVIMENTO RURAL SUSTENTÁVEL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO RURAL SUSTENTAVEL",
+          "ch": "30"
         },
         {
           "codigo": "FAV0512",
-          "nome": "NEUROLOGIA VETERINÁRIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "NEUROLOGIA VETERINARIA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0070",
           "nome": "NEUROANATOMIA FUNCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0105",
-          "nome": "PRÁTICA DESPORTIVA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0143",
           "nome": "FISIOLOGIA DO EXERCICIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0409",
-          "nome": "ANATOMIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FMD0013",
           "nome": "MORFOFUNCIONAL 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "FMD0091",
           "nome": "ANATOMIA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0093",
-          "nome": "PROCESSOS PATOLÓGICOS GERAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROCESSOS PATOLOGICOS GERAIS",
+          "ch": "90"
         },
         {
           "codigo": "FMD0095",
           "nome": "PATOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0512",
           "nome": "HISTOLOGIA MEDICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FUP0200",
-          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULAÇÕES E COMUNIDADES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
         },
         {
           "codigo": "FUP0265",
-          "nome": "BIOLOGIA GERAL APLICADA A GESTÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BIOLOGIA GERAL APLICADA A GESTAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FUP0302",
-          "nome": "SISTEMAS ECOLÓGICOS",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
         },
         {
           "codigo": "FUP0313",
-          "nome": "QUÍMICA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0316",
           "nome": "UNIVERSO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0318",
           "nome": "SERES VIVOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0326",
           "nome": "TERRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0328",
           "nome": "SERES VIVOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0329",
-          "nome": "COMPOSTOS ORGÂNICOS E VIDA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPOSTOS ORGANICOS E VIDA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0355",
-          "nome": "CÉLULA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CELULA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0523",
           "nome": "ECOSSISTEMAS TERRESTRES AQUATICOS E INTERFACES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FUP0528",
           "nome": "ZOOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0010",
           "nome": "FUNDAMENTOS DE TECNICAS HISTOLOGICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0011",
           "nome": "EMBRIOLOGIA GERAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0021",
           "nome": "TERATOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0023",
           "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0026",
           "nome": "CITOGENETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0040",
           "nome": "FUNDAMENTOS DE EMBRIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0053",
           "nome": "PRATICAS DE EMBRIOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEM0054",
           "nome": "HISTOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0055",
-          "nome": "GENÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GENETICA",
+          "ch": "60"
         },
         {
           "codigo": "GEM0059",
           "nome": "BIOLOGIA ESTRUTURAL DOS SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0063",
           "nome": "EMBRIOLOGIA HUMANA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ICB0075",
-          "nome": "SEGURANÇA EM CAMPO E LABORATÓRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEGURANCA EM CAMPO E LABORATORIO",
+          "ch": "60"
         },
         {
           "codigo": "ICB0098",
           "nome": "MORFOLOGIA E TAXONOMIA VEGETAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "ICB0143",
           "nome": "HISTOLOGIA ANIMAL 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "ch": "75"
         },
         {
           "codigo": "ICB0250",
-          "nome": "DESENVOLVIMENTO EMBRIONÁRIO E EVOLUÇÃO EM ANIMAIS E VEGETAIS 1",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 1",
+          "ch": "75"
         },
         {
           "codigo": "ICB0251",
-          "nome": "DESENVOLVIMENTO EMBRIONÁRIO E EVOLUÇÃO EM ANIMAIS E VEGETAIS 2",
-          "carga_horaria": "75h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 2",
+          "ch": "75"
         },
         {
           "codigo": "IFD0005",
-          "nome": "FÍSICA TEÓRICA PARA CIÊNCIAS AGRÁRIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FISICA TEORICA PARA CIENCIAS AGRARIAS",
+          "ch": "60"
         },
         {
           "codigo": "IFD0006",
-          "nome": "FÍSICA EXPERIMENTAL PARA CIÊNCIAS AGRÁRIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISICA EXPERIMENTAL PARA CIENCIAS AGRARIAS",
+          "ch": "30"
         },
         {
           "codigo": "IFD0192",
           "nome": "FISICA PARA CIENCIAS AGRARIAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0340",
-          "nome": "FUNDAMENTOS DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0120",
           "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0124",
           "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0133",
           "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0120",
-          "nome": "LÍNGUA ESPANHOLA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0326",
           "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0432",
-          "nome": "FRANCÊS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 2",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0137",
-          "nome": "CÁLCULO 1 - SEMIPRESENCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
         },
         {
           "codigo": "NUT0020",
           "nome": "HIGIENE DOS ALIMENTOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "NUT0049",
           "nome": "FUNDAMENTOS DE ANALISE DE ALIMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "NUT0062",
           "nome": "HIGIENE DOS ALIMENTOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "NUT0092",
-          "nome": "FUNDAMENTOS DE CIÊNCIAS DOS ALIMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE CIENCIAS DOS ALIMENTOS",
+          "ch": "60"
         },
         {
           "codigo": "PPB0034",
-          "nome": "FUNDAMENTOS DE NEUROCIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE NEUROCIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "PPB0052",
           "nome": "COMPORTAMENTO ANIMAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "SOL0087",
           "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0013",
           "nome": "ZOOLOGIA INVERTEBRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0017",
           "nome": "ZOOLOGIA VERTEBRADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0028",
           "nome": "COMPORTAMENTO ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "FAV0016",
-          "nome": "MÉTODOS QUANTITATIVOS EM MEDICINA VETERINÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0234",
+          "nome": "INTRODUCAO A MEDICINA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0236",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0052",
+          "nome": "FISIOLOGIA VETERINARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0066",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0043",
+          "nome": "EMBRIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0178",
+          "nome": "FISIOLOGIA VETERINARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0206",
+          "nome": "MICROBIOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0303",
+          "nome": "PATOLOGIA GERAL VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0016",
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0018",
+          "nome": "PARASITOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0158",
+          "nome": "PATOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0179",
+          "nome": "FARMACOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0180",
+          "nome": "NUTRICAO ANIMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0006",
+          "nome": "SEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0160",
+          "nome": "EPIDEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0181",
+          "nome": "BOVINOCULTURA DE CORTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0182",
+          "nome": "BOVINOCULTURA DE LEITE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0248",
+          "nome": "AVICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0249",
+          "nome": "SUINOCULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0015",
+          "nome": "DOENCAS PARASITARIAS DOS ANIMAIS DOMESTICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0088",
+          "nome": "EXTENSAO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0161",
+          "nome": "FISIOPATOLOGIA DA REPRODUCAO DA FEMEA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0166",
+          "nome": "PATOLOGIA CLINICA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0167",
+          "nome": "FISIOPATOLOGIA DA REPRODUCAO DO MACHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0297",
+          "nome": "DOENCAS INFECCIOSAS DOS ANIMAIS DOMESTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0165",
+          "nome": "TECNICA CIRURGICA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0169",
+          "nome": "TECNOLOGIA DE LEITE E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0207",
+          "nome": "ANESTESIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0243",
+          "nome": "DIAGNOSTICO POR IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0328",
+          "nome": "SAUDE PUBLICA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0003",
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0005",
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FAV0168",
+          "nome": "TECNOLOGIA DE CARNES E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0199",
+          "nome": "CLINICA CIRURGICA DE PEQUENOS ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0004",
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0007",
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "FAV0084",
+          "nome": "POLITICAS PUBLICAS DE SAUDE ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0186",
+          "nome": "INSPECAO DE LEITE E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0208",
+          "nome": "INSPECAO DE CARNES E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0184",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "90"
         }
       ]
     }

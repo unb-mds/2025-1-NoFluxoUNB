@@ -3,2094 +3,1807 @@
   "periodo_letivo_vigor": "2016.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FEF0232",
-          "nome": "FUNDAMENTOS HISTÓRICO FILOSÓFICO DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS HISTORICO FILOSOFICO DA EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0408",
-          "nome": "CIÊNCIA E PESQUISA EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0409",
-          "nome": "ANATOMIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0410",
-          "nome": "EDUCAÇÃO FÍSICA E PRÁTICAS CORPORAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO FISICA E PRATICAS CORPORAIS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0411",
-          "nome": "FUNDAMENTOS TEÓRICOS - METODOLÓGICOS DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS TEORICOS - METODOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0412",
-          "nome": "SEMINÁRIO DE PESQUISA EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIO DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0065",
-          "nome": "EDUCAÇÃO TUTORIAL: O CURRÍCULO DE FORMAÇÃO EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO TUTORIAL: O CURRICULO DE FORMACAO EM EDUCACAO FISICA",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FEF0003",
-          "nome": "EDUCAÇÃO FÍSICA: LEIS, NORMAS E POLÍTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO FISICA: LEIS, NORMAS E POLITICAS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0005",
-          "nome": "EDUCAÇÃO FÍSICA NA EDUCAÇÃO INFANTIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO FISICA NA EDUCACAO INFANTIL",
+          "ch": "60"
         },
         {
           "codigo": "FEF0006",
           "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS A EDF INFANTIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0143",
           "nome": "FISIOLOGIA DO EXERCICIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0151",
-          "nome": "CINESIOLOGIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CINESIOLOGIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0288",
-          "nome": "POLÍTICAS PÚBLICAS EM EDUCAÇÃO FÍSICA, ESPORTE, SAUDE E LAZER",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
         },
         {
           "codigo": "FEF0380",
-          "nome": "FUNDAMENTOS SÓCIO - ANTROPOLÓGICOS DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS SOCIO - ANTROPOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FEF0001",
-          "nome": "ESTATÍSTICA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0004",
-          "nome": "EDUCAÇÃO FÍSICA NO ENSINO FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO FISICA NO ENSINO FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "FEF0007",
           "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS A EDF ENS FUND",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0145",
           "nome": "FISIOLOGIA DO EXERCICIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0204",
-          "nome": "MEDIDAS E AVALIAÇÃO EM EDUCAÇÃO FÍSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MEDIDAS E AVALIACAO EM EDUCACAO FISICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FEF0300",
-          "nome": "MÉTODOS E TÉCNICAS DE PESQUISA EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS E TECNICAS DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FEF0010",
           "nome": "FUNDAMENTOS DO DESENVOLVIMENTO  APRENDIZAGEM APLICADOS  A EDF EM E EJA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "FEF0011",
-          "nome": "ESTUDOS E PESQUISA EM EDUCAÇÃO FÍSICA ESCOLAR",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS E PESQUISA EM EDUCACAO FISICA ESCOLAR",
+          "ch": "30"
         },
         {
           "codigo": "FEF0012",
-          "nome": "EDUCAÇÃO FÍSICA NO ENS MÉDIO E EDUCAÇÃO DE JOVENS E ADULTOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EDUCACAO FISICA NO ENS MEDIO E EDUCACAO DE JOVENS E ADULTOS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0055",
-          "nome": "ELABORAÇÃO DO PROJETO DE TRABALHO DE CONCLUSÃO DO CURSO - LICENCIATURA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ELABORACAO DO PROJETO DE TRABALHO DE CONCLUSAO DO CURSO - LICENCIATURA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0172",
-          "nome": "PREVENÇÃO DE ACIDENTES E PRIMEIROS SOCORROS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PREVENCAO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0348",
-          "nome": "ADMINISTRAÇÃO EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ADMINISTRACAO EM EDUCACAO FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FEF0014",
-          "nome": "ASPECTOS PSICOLÓGICOS DA APRENDIZAGEM A EDF",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ASPECTOS PSICOLOGICOS DA APRENDIZAGEM A EDF",
+          "ch": "30"
         },
         {
           "codigo": "FEF0056",
-          "nome": "EXECUÇÃO DO PROJETO DE TRABALHO DE CONCLUSÃO DO CURSO LICENCIATURA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "EXECUCAO DO PROJETO DE TRABALHO DE CONCLUSAO DO CURSO LICENCIATURA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0229",
-          "nome": "DIDATICA DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA DA EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0352",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA EM EDUCAÇÃO FÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FEF0057",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO - LICENCIATURA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO - LICENCIATURA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0356",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA EM EDUCAÇÃO FÍSICA 2",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 2",
+          "ch": "120"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FEF0336",
-          "nome": "METODOLOGIA DA CANOAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0359",
-          "nome": "METODOLOGIA DA CAPOEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0184",
-          "nome": "METODOLOGIA DA DANÇA E EXPRESSÃO CORPORAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0210",
-          "nome": "METODOLOGIA DA GINASTICA RITMICA DESPORTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0338",
-          "nome": "METODOLOGIA DA PRANCHA A VELA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0317",
-          "nome": "METODOLOGIA DAS ATIVIDADES FISICAS ALTERNATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0291",
-          "nome": "METODOLOGIA DAS ATIVIDADES GÍMNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0002",
-          "nome": "METODOLOGIA DAS LUTAS E ARTES MARCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0013",
-          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0357",
-          "nome": "METODOLOGIA DE SALTOS ORNAMENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0297",
-          "nome": "METODOLOGIA DO ATLETISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0186",
-          "nome": "METODOLOGIA DO FUTEBOL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0381",
-          "nome": "METODOLOGIA DO JIU JITSU",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0239",
-          "nome": "METODOLOGIA DO POLO AQUATICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0124",
-          "nome": "METODOLOGIA DOS DESPORTOS NACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0345",
-          "nome": "METODOLOGIA DOS JOGOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0370",
-          "nome": "METODOLOGIA DO TENIS DE CAMPO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0358",
-          "nome": "METODOLOGIA DO TENIS DE MESA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0165",
-          "nome": "NATAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FEF0218",
-          "nome": "PRINCÍPIOS DO TREINAMENTO RESISTIDO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEL0042",
-          "nome": "TOPICOS EM BIOQUIMICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA CEL0042 - TOPICOS EM BIOQUIMICA 1",
+          "ch": "60"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0074",
           "nome": "PESQUISA EM BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0088",
           "nome": "BIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0031",
           "nome": "OFICINA BASICA DE ARTES CENICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0038",
           "nome": "CORPO E MOVIMENTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0052",
           "nome": "TECNICAS DE DANCA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEN0066",
           "nome": "CORPO E MOVIMENTO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0007",
           "nome": "FISIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0031",
           "nome": "NEUROFISIOLOGIA MEDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0037",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0041",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0042",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0048",
           "nome": "FISIOLOGIA ANIMAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0050",
           "nome": "NEUROETOLOGIA DO ESTRESSE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "DSC0007",
           "nome": "INTRODUCAO A BIOETICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DSC0010",
-          "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0011",
           "nome": "SAUDE E SOCIEDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0037",
           "nome": "PRATICAS DE SAUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DSC0046",
-          "nome": "TÓPICOS ESPECIAIS EM ANTROPOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "ECL0036",
-          "nome": "EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ENF0050",
           "nome": "PLANEJAMENTO FAMILIAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ENF0055",
-          "nome": "TÓPICOS AVANÇADOS EM PROMOÇÃO DA SAÚDE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS AVANCADOS EM PROMOCAO DA SAUDE 1",
+          "ch": "60"
         },
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "EST0020",
-          "nome": "ESTATÍSTICA APLICADA À EDUCAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA A EDUCACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "FAV0052",
           "nome": "FISIOLOGIA VETERINARIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0062",
           "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FED0133",
-          "nome": "SEMINÁRIO INTERDISCIPLINAR EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0002",
           "nome": "METODOLOGIA DAS LUTAS E ARTES MARCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0008",
-          "nome": "CRESCIMENTO MATURAÇÃO E DESEMPENHO MOTOR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CRESCIMENTO MATURACAO E DESEMPENHO MOTOR",
+          "ch": "30"
         },
         {
           "codigo": "FEF0009",
-          "nome": "JOGO, LÚDICO E EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "JOGO, LUDICO E EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0013",
           "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0015",
           "nome": "ANATOMIA DOS SISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0016",
-          "nome": "CORPO E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CORPO E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0053",
-          "nome": "PROJETO DE TRABALHO DE CONCLUSÃO DE CURSO - BACHARELADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO - BACHARELADO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0058",
-          "nome": "EDUCAÇÃO FÍSICA E CINEMA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA E CINEMA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0059",
-          "nome": "EDUCAÇÃO FÍSICA E VIVÊNCIAS CORPORAIS ALTERNATIVAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA E VIVENCIAS CORPORAIS ALTERNATIVAS",
+          "ch": "30"
         },
         {
           "codigo": "FEF0060",
-          "nome": "EDUCAÇÃO FÍSICA E LITERATURA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA E LITERATURA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0061",
-          "nome": "EDUCAÇÃO FÍSICA, MÚSICA E ARTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA, MUSICA E ARTE",
+          "ch": "30"
         },
         {
           "codigo": "FEF0062",
           "nome": "JOGOS E BRINCADEIRAS POPULARES",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FEF0063",
-          "nome": "DANÇAS E BRINCADEIRAS CANTADAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "DANCAS E BRINCADEIRAS CANTADAS",
+          "ch": "30"
         },
         {
           "codigo": "FEF0066",
-          "nome": "EDUCAÇÃO TUTORIAL: MUNDO DO TRABALHO EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO TUTORIAL: MUNDO DO TRABALHO EM EDUCACAO FISICA",
+          "ch": "15"
         },
         {
           "codigo": "FEF0068",
-          "nome": "PRÁTICAS CORPORAIS ALTERNATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS CORPORAIS ALTERNATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0069",
-          "nome": "PROMOÇÃO DA ATIVIDADE FÍSICA PARA A SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROMOCAO DA ATIVIDADE FISICA PARA A SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FEF0070",
           "nome": "NEUROANATOMIA FUNCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0097",
           "nome": "METODOLOGIA DO ULTIMATE FRISBEE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0098",
-          "nome": "PROJETO DE PESQUISA EM EDUCAÇÃO FÍSICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO FISICA 3",
+          "ch": "60"
         },
         {
           "codigo": "FEF0099",
-          "nome": "PROJETO DE PESQUISA EM EDUCAÇÃO FÍSICA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO FISICA 4",
+          "ch": "60"
         },
         {
           "codigo": "FEF0100",
           "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0101",
-          "nome": "MARKETING NA EDUCAÇÃO FÍSICA - ESPORTE, SAÚDE E LAZER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MARKETING NA EDUCACAO FISICA - ESPORTE, SAUDE E LAZER",
+          "ch": "60"
         },
         {
           "codigo": "FEF0102",
-          "nome": "METODOLOGIA DA GINÁSTICA LABORAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DA GINASTICA LABORAL",
+          "ch": "60"
         },
         {
           "codigo": "FEF0105",
-          "nome": "PRÁTICA DESPORTIVA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0109",
           "nome": "GINASTICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FEF0118",
           "nome": "ATLETISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0120",
           "nome": "ATLETISMO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0124",
           "nome": "METODOLOGIA DOS DESPORTOS NACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0126",
           "nome": "NATACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0128",
           "nome": "NATACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0133",
-          "nome": "METODOLOGIA DA GINÁSTICA ARTÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DA GINASTICA ARTISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0148",
           "nome": "DANCAS FOLCLORICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0154",
-          "nome": "ATIVIDADE FÍSICA PARA GRUPOS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE FISICA PARA GRUPOS ESPECIAIS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0162",
           "nome": "MUSCULACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0165",
-          "nome": "NATAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NATACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0167",
           "nome": "METODOLOGIA DO VOLEIBOL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0184",
-          "nome": "METODOLOGIA DA DANÇA E EXPRESSÃO CORPORAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DA DANCA E EXPRESSAO CORPORAL",
+          "ch": "60"
         },
         {
           "codigo": "FEF0186",
           "nome": "METODOLOGIA DO FUTEBOL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0188",
           "nome": "FUTEBOL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0190",
           "nome": "FUTEBOL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0194",
           "nome": "JUDO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0197",
           "nome": "PRATICA DE INTERACAO DA EDUCACAO FISICA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FEF0199",
           "nome": "VOLIBOL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0201",
           "nome": "VOLIBOL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0206",
           "nome": "BASQUETEBOL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0208",
           "nome": "BASQUETEBOL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0210",
           "nome": "METODOLOGIA DA GINASTICA RITMICA DESPORTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0212",
           "nome": "HANDEBOL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0214",
           "nome": "HANDEBOL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0216",
           "nome": "TENIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0218",
-          "nome": "PRINCÍPIOS DO TREINAMENTO RESISTIDO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DO TREINAMENTO RESISTIDO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0220",
           "nome": "EDUCACAO FISICA COMPARADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0222",
           "nome": "POLO AQUATICO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0224",
           "nome": "FUNDAMENTOS DA EDUCACAO FISICA E DO DESPORTO NA AMERICA LATINA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0226",
           "nome": "INFORMACAO DESPORTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0235",
           "nome": "GINASTICA ARTISTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0237",
           "nome": "GINASTICA ARTISTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FEF0239",
           "nome": "METODOLOGIA DO POLO AQUATICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0241",
           "nome": "GINASTICA RITMICA DESPORTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0243",
           "nome": "DANCA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0250",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHARELADO EM EDF 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHARELADO EM EDF 1",
+          "ch": "120"
         },
         {
           "codigo": "FEF0253",
-          "nome": "BASES CIENTÍFICAS DO TREINAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BASES CIENTIFICAS DO TREINAMENTO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0260",
-          "nome": "PROJETO DE PESQUISA EM EDUCAÇÃO FÍSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO FISICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FEF0263",
           "nome": "FISIOLOGIA DO EXERCICIO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0265",
-          "nome": "FUNDAMENTOS DE DIREITO E LEGISLAÇÃO EM EDUCAÇÃO FÍSICA E ESPORTES",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE DIREITO E LEGISLACAO EM EDUCACAO FISICA E ESPORTES",
+          "ch": "30"
         },
         {
           "codigo": "FEF0266",
-          "nome": "PROJETO DE PESQUISA EM EDUCAÇÃO FÍSICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO FISICA 2",
+          "ch": "60"
         },
         {
           "codigo": "FEF0268",
-          "nome": "PROJETO DE EXTENSÃO EM EDUCAÇÃO FÍSICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE EXTENSAO EM EDUCACAO FISICA 2",
+          "ch": "60"
         },
         {
           "codigo": "FEF0271",
           "nome": "PROGRAMAS PREVENTIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0272",
           "nome": "CONTROLE MOTOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0275",
           "nome": "BIOMECANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0279",
           "nome": "APRENDIZAGEM E DESENVOLVIMENTO MOTOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0282",
           "nome": "TEORIAS DO LAZER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0285",
-          "nome": "PRÁTICA DE INTERAÇÃO DO CONTEXTO DE EDUCAÇÃO FÍSICA E DESPORTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE INTERACAO DO CONTEXTO DE EDUCACAO FISICA E DESPORTO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0291",
-          "nome": "METODOLOGIA DAS ATIVIDADES GÍMNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DAS ATIVIDADES GIMNICAS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0295",
           "nome": "METODOLOGIA DO HANDEBOL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0297",
           "nome": "METODOLOGIA DO ATLETISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0304",
-          "nome": "GESTÃO DE EVENTOS EM ESPORTE, SAÚDE E LAZER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE EVENTOS EM ESPORTE, SAUDE E LAZER",
+          "ch": "60"
         },
         {
           "codigo": "FEF0306",
           "nome": "TEORIA DO DESPORTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0315",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHARELADO EM EDF 2",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHARELADO EM EDF 2",
+          "ch": "120"
         },
         {
           "codigo": "FEF0317",
           "nome": "METODOLOGIA DAS ATIVIDADES FISICAS ALTERNATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0319",
           "nome": "INFORMATICA NA EDUCACAO FISICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0321",
           "nome": "METODOLOGIA DO BASQUETEBOL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0324",
           "nome": "PRATICA DE INTERACAO DA EDUCACAO FISICA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FEF0327",
           "nome": "TEORIA E PRATICA DA RECREACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FEF0331",
-          "nome": "EDUCAÇÃO FÍSICA ADAPTADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA ADAPTADA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0332",
-          "nome": "EDUCAÇÃO FÍSICA E EDUCAÇÃO ESTÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA E EDUCACAO ESTETICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0334",
           "nome": "FUNDAMENTOS DA ADMINISTRACAO NO DESPORTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0336",
           "nome": "METODOLOGIA DA CANOAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0338",
           "nome": "METODOLOGIA DA PRANCHA A VELA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0340",
           "nome": "FUNDAMENTOS SOCIO POLITICOS DO ESPORTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0345",
           "nome": "METODOLOGIA DOS JOGOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0357",
           "nome": "METODOLOGIA DE SALTOS ORNAMENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0358",
           "nome": "METODOLOGIA DO TENIS DE MESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0359",
           "nome": "METODOLOGIA DA CAPOEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0360",
           "nome": "BASQUETEBOL BASICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0361",
           "nome": "BASQUETEBOL TREINAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0363",
-          "nome": "PROJETO DE EXTENSÃO EM EDUCAÇÃO FÍSICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE EXTENSAO EM EDUCACAO FISICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FEF0367",
-          "nome": "INTRODUÇÃO À PSICOLOGIA DO ESPORTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA DO ESPORTE",
+          "ch": "60"
         },
         {
           "codigo": "FEF0368",
           "nome": "ATLETISMO BASICO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0369",
           "nome": "ATLETISMO BASICO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0370",
           "nome": "METODOLOGIA DO TENIS DE CAMPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0371",
           "nome": "GINASTICA OLIMPICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FEF0373",
           "nome": "MASSAGEM DESPORTIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0374",
           "nome": "PRINCIPIOS DA ATIVIDADE FISICA PARA A TERCEIRA IDADE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FEF0375",
           "nome": "CORPOREIDADE, EXPRESSAO E EDUCACAO FISICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0376",
-          "nome": "EXERCÍCIOS FÍSICOS TERAPÊUTICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EXERCICIOS FISICOS TERAPEUTICOS",
+          "ch": "30"
         },
         {
           "codigo": "FEF0377",
-          "nome": "INTRODUÇÃO À EQUOTERAPIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A EQUOTERAPIA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0378",
-          "nome": "CURRICULOS E PROGRAMAS EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULOS E PROGRAMAS EM EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0381",
           "nome": "METODOLOGIA DO JIU JITSU",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0405",
-          "nome": "PROCESSAMENTO DIGITAL DE SINAIS BIOLÓGICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PROCESSAMENTO DIGITAL DE SINAIS BIOLOGICOS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0407",
-          "nome": "EPIDEMIOLOGIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EPIDEMIOLOGIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0413",
-          "nome": "PRINCÍPIOS NUTRICIONAIS APLICADOS À ATIVIDADE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS NUTRICIONAIS APLICADOS A ATIVIDADE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0415",
-          "nome": "SAÚDE COLETIVA E EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE COLETIVA E EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0416",
-          "nome": "GESTÃO ESTRATÉGICA DE INSTALAÇÕES ESPORTIVAS E DE LAZER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO ESTRATEGICA DE INSTALACOES ESPORTIVAS E DE LAZER",
+          "ch": "60"
         },
         {
           "codigo": "FEF0417",
           "nome": "TENIS DE MESA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FIL0077",
-          "nome": "INICIAÇÃO À METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "FMD0091",
           "nome": "ANATOMIA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0023",
           "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "ICB0077",
-          "nome": "EDUCAÇÃO  AMBIENTAL SUSTENTÁVEL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO  AMBIENTAL SUSTENTAVEL",
+          "ch": "120"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "JOR0045",
-          "nome": "TEORIAS DA COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0078",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "LET0076",
           "nome": "FRANCES INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0106",
           "nome": "LINGUA JAPONESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0107",
-          "nome": "LÍNGUA JAPONESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA JAPONESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0108",
-          "nome": "LÍNGUA JAPONESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA JAPONESA 3",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "MTC0013",
-          "nome": "DIDÁTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MTC0017",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0018",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0021",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0022",
           "nome": "CURRICULOS E PROGRAMAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0027",
           "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0028",
           "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0035",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "MTC0038",
-          "nome": "EDUCAÇÃO INFANTIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
         },
         {
           "codigo": "MTC0067",
-          "nome": "ENSINO DE CIÊNCIA E TECNOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA 1",
+          "ch": "60"
         },
         {
           "codigo": "MTC0102",
           "nome": "LABORATORIO E PRATICA DE INPLEMENTACAO DO ENSINO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0103",
-          "nome": "DIDÁTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "MTC0143",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "NUT0054",
           "nome": "NUTRICAO HUMANA 1",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "ODT0144",
-          "nome": "METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "PAD0011",
           "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0017",
           "nome": "LEGISLACAO DO ENSINO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0018",
           "nome": "LEGISLACAO DO ENSINO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0019",
           "nome": "HIGIENE ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0022",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "PAD0031",
-          "nome": "POLITICAS PÚBLICAS DE EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0034",
-          "nome": "FUNDAMENTOS DE NEUROCIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE NEUROCIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "PPB0067",
           "nome": "APRENDIZAGEM NO ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0010",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0034",
           "nome": "ERGONOMIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0049",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0085",
           "nome": "SOCIOLOGIA DO ESPORTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0012",
           "nome": "PSICOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0014",
           "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0016",
           "nome": "HISTORIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0019",
-          "nome": "POLÍTICAS DE EDUCAÇÃO COMPARADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0020",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0022",
           "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0025",
-          "nome": "MÉTODOS E TÉCNICAS DE PESQUISA EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS E TECNICAS DE PESQUISA EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0027",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0041",
           "nome": "ANTROPOLOGIA E EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0045",
           "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0065",
-          "nome": "DINÂMICA PSICOSSOCIAL DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0069",
           "nome": "ORIENTACAO VOCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0082",
-          "nome": "FUNDAMENTOS DA EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0085",
           "nome": "MEDIDAS EDUCACIONAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0094",
           "nome": "INCONSCIENTE E EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0118",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0127",
           "nome": "PENSAMENTO EDUCACIONAL BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0129",
           "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FEF0065",
-          "nome": "EDUCAÇÃO TUTORIAL: O CURRÍCULO DE FORMAÇÃO EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO TUTORIAL: O CURRICULO DE FORMACAO EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0232",
+          "nome": "FUNDAMENTOS HISTORICO FILOSOFICO DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0408",
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0409",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0410",
+          "nome": "EDUCACAO FISICA E PRATICAS CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0411",
+          "nome": "FUNDAMENTOS TEORICOS - METODOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0412",
+          "nome": "SEMINARIO DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0065",
+          "nome": "EDUCACAO TUTORIAL: O CURRICULO DE FORMACAO EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0003",
+          "nome": "EDUCACAO FISICA: LEIS, NORMAS E POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0005",
+          "nome": "EDUCACAO FISICA NA EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0006",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS A EDF INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0143",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0151",
+          "nome": "CINESIOLOGIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0288",
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0380",
+          "nome": "FUNDAMENTOS SOCIO - ANTROPOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0001",
+          "nome": "ESTATISTICA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0004",
+          "nome": "EDUCACAO FISICA NO ENSINO FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0007",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS A EDF ENS FUND",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0145",
+          "nome": "FISIOLOGIA DO EXERCICIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0204",
+          "nome": "MEDIDAS E AVALIACAO EM EDUCACAO FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0300",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0010",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO  APRENDIZAGEM APLICADOS  A EDF EM E EJA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0011",
+          "nome": "ESTUDOS E PESQUISA EM EDUCACAO FISICA ESCOLAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0012",
+          "nome": "EDUCACAO FISICA NO ENS MEDIO E EDUCACAO DE JOVENS E ADULTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0055",
+          "nome": "ELABORACAO DO PROJETO DE TRABALHO DE CONCLUSAO DO CURSO - LICENCIATURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0172",
+          "nome": "PREVENCAO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0348",
+          "nome": "ADMINISTRACAO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0014",
+          "nome": "ASPECTOS PSICOLOGICOS DA APRENDIZAGEM A EDF",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0056",
+          "nome": "EXECUCAO DO PROJETO DE TRABALHO DE CONCLUSAO DO CURSO LICENCIATURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0229",
+          "nome": "DIDATICA DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0352",
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0057",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO - LICENCIATURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0356",
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 2",
+          "ch": "120"
         }
       ]
     }

@@ -3,827 +3,917 @@
   "periodo_letivo_vigor": "2017.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CET0038",
           "nome": "ESTUDO DO TURISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0039",
-          "nome": "SUSTENTABILIDADE ÉTICA E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SUSTENTABILIDADE ETICA E TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0041",
-          "nome": "CONSTRUÇÃO DO CONHECIMENTO CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CONSTRUCAO DO CONHECIMENTO CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "GEA0078",
           "nome": "GEOGRAFIA E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "HIS0197",
-          "nome": "HISTÓRIA: NATUREZA E CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
         },
         {
           "codigo": "CET0040",
           "nome": "ESTUDO DO TURISMO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0042",
           "nome": "PROJETO INTEGRADOR EM TURISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ECL0050",
           "nome": "ECOLOGIA E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "CET0048",
-          "nome": "HISTÓRIA DA ARTE E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA ARTE E TURISMO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "ADM0156",
           "nome": "ESTRATEGIA EMPRESARIAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0043",
           "nome": "ESTUDO DO TURISMO 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0044",
-          "nome": "COMUNICAÇÃO NO TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "COMUNICACAO NO TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0045",
           "nome": "ESTRUTURAS DE SUPORTE AO TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "HIS0140",
           "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0030",
-          "nome": "TURISMO E INTERPRETAÇÃO DE PATRIMÔNIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TURISMO E INTERPRETACAO DE PATRIMONIO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "CET0050",
-          "nome": "EQUIPAMENTOS E SERVIÇOS TURÍSTICOS - HOSPEDAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - HOSPEDAGEM",
+          "ch": "60"
         },
         {
           "codigo": "CET0051",
-          "nome": "EQUIPAMENTOS E SERVIÇOS TURÍSTICOS - LAZER",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - LAZER",
+          "ch": "30"
         },
         {
           "codigo": "CET0052",
-          "nome": "EQUIPAMENTOS E SERVIÇOS TURISTICOS-AGENCIAMENTO OPERAÇÃO E TRANSPORTE",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS-AGENCIAMENTO OPERACAO E TRANSPORTE",
+          "ch": "30"
         },
         {
           "codigo": "CET0053",
-          "nome": "EQUIPAMENTOS E SERVIÇOS TURÍSTICOS - EVENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - EVENTOS",
+          "ch": "60"
         },
         {
           "codigo": "CET0054",
-          "nome": "EQUIPAMENTOS E SERVIÇOS TURÍSTICOS - ALIMENTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - ALIMENTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CET0055",
           "nome": "PROJETO INTEGRADOR EM TURISMO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "ADM0364",
-          "nome": "POLITICAS PÚBLICAS DE TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0034",
-          "nome": "TÓPICOS ESPECIAIS EM GASTRONOMIA 4 - COZINHAS BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 4 - COZINHAS BRASILEIRAS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "CET0001",
-          "nome": "PLANEJAMENTO E GESTÃO EM TURISMO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 1",
+          "ch": "60"
         },
         {
           "codigo": "CET0002",
-          "nome": "LEGISLAÇÃO TURÍSTICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LEGISLACAO TURISTICA",
+          "ch": "30"
         },
         {
           "codigo": "CET0004",
-          "nome": "ESTÁGIO SUPERVISIONADO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
         },
         {
           "codigo": "CET0046",
-          "nome": "SEMINÁRIOS EM TURISMO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 1",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "CET0005",
-          "nome": "PLANEJAMENTO E GESTÃO EM TURISMO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 2",
+          "ch": "60"
         },
         {
           "codigo": "CET0006",
-          "nome": "FUNDAMENTOS DE ESTATÍSTICA APLICADO AO TURISMO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DE ESTATISTICA APLICADO AO TURISMO",
+          "ch": "30"
         },
         {
           "codigo": "CET0009",
-          "nome": "ESTÁGIO SUPERVISIONADO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
         },
         {
           "codigo": "CET0013",
           "nome": "PESQUISA EM TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0010",
-          "nome": "SEMINÁRIOS EM TURISMO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 2",
+          "ch": "30"
         },
         {
           "codigo": "CET0012",
           "nome": "ENOTURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "CET0007",
           "nome": "PROJETO INTEGRADOR EM TURISMO 3",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "CET0014",
-          "nome": "ESTRUTURAÇÃO E PROMOÇÃO DE DESTINOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTRUTURACAO E PROMOCAO DE DESTINOS",
+          "ch": "60"
         },
         {
           "codigo": "CET0015",
-          "nome": "SEMINÁRIOS EM TURISMO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 3",
+          "ch": "30"
         },
         {
           "codigo": "CET0016",
-          "nome": "POÉTICAS DA VIAGEM: ARTE CINEMA LITERATURA E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POETICAS DA VIAGEM: ARTE CINEMA LITERATURA E TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0017",
-          "nome": "PLANEJAMENTO E ORGANIZAÇÃO DE EVENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO E ORGANIZACAO DE EVENTOS",
+          "ch": "60"
         },
         {
           "codigo": "CET0018",
           "nome": "TURISMO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CET0019",
-          "nome": "TÓPICOS ESPECIAIS EM GASTRONOMIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "CET0021",
           "nome": "PROJETO INTEGRADOR EM TURISMO 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CET0022",
-          "nome": "ELABORAÇAO DE PROJETOS EM TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ELABORACAO DE PROJETOS EM TURISMO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0064",
-          "nome": "ADMINISTRAÇÃO DE MARKETING",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ADM0092",
-          "nome": "ADMINISTRAÇÃO DA PRODUÇÃO E OPERAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "MARKETING",
+          "nome": "60H OPTATIVA ADM0092 - ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
         },
         {
           "codigo": "ADM0150",
           "nome": "CRIACAO DE NEGOCIOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0157",
-          "nome": "ESTRATÉGIA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0162",
-          "nome": "GESTÃO DA INOVAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DA INOVACAO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0214",
-          "nome": "INTRODUÇÃO A TEORIAS ORGANIZACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0226",
-          "nome": "GESTÃO DE PROJETOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE PROJETOS",
+          "ch": "60"
         },
         {
           "codigo": "ADM0231",
           "nome": "COMPORTAMENTO ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0264",
           "nome": "MARKETING SOCIAL E DE SERVICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0300",
           "nome": "COMPORTAMENTO DO CONSUMIDOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0304",
-          "nome": "GESTÃO DE RESPONSABILIDADE SOCIOAMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GESTAO DE RESPONSABILIDADE SOCIOAMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ADM0306",
           "nome": "MARKETING DE RELACIONAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ADM0317",
-          "nome": "ADMINISTRAÇÃO DA QUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ADMINISTRACAO DA QUALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "ADM0320",
-          "nome": "ANÁLISE ORGANIZACIONAL, SISTEMAS E MÉTODOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
         },
         {
           "codigo": "CET0020",
-          "nome": "MEMÓRIAS GASTRONÔMICAS E GUSTATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MEMORIAS GASTRONOMICAS E GUSTATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "CET0023",
-          "nome": "TÓPICOS ESPECIAIS EM GASTRONOMIA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 2",
+          "ch": "30"
         },
         {
           "codigo": "CET0024",
-          "nome": "INOVAÇÃO EMPRESARIAL EM HOSPITALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INOVACAO EMPRESARIAL EM HOSPITALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "CET0025",
-          "nome": "INTRODUÇÃO À HOTELARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A HOTELARIA",
+          "ch": "60"
         },
         {
           "codigo": "CET0026",
           "nome": "FUNDAMENTOS DE ENOGASTRONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CET0027",
-          "nome": "RECREAÇÃO E ANIMAÇÃO TURÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RECREACAO E ANIMACAO TURISTICA",
+          "ch": "60"
         },
         {
           "codigo": "CET0028",
-          "nome": "TÉCNICAS E PRÁTICAS DE OPERAÇÃO E AGENCIAMENTO TURÍSTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS E PRATICAS DE OPERACAO E AGENCIAMENTO TURISTICO",
+          "ch": "60"
         },
         {
           "codigo": "CET0029",
-          "nome": "PLANEJAMENTO E OPERAÇÃO DE TRILHAS INTERPRETATIVAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO E OPERACAO DE TRILHAS INTERPRETATIVAS",
+          "ch": "60"
         },
         {
           "codigo": "CET0031",
           "nome": "FUNDAMENTOS DE  ECONOMETRIA  APLICADA AO TURISMO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CET0032",
-          "nome": "SEMINÁRIOS EM TURISMO 4",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 4",
+          "ch": "30"
         },
         {
           "codigo": "CET0033",
-          "nome": "TÓPICOS ESPECIAIS EM GASTRONOMIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 3",
+          "ch": "60"
         },
         {
           "codigo": "CET0035",
-          "nome": "SEMINÁRIOS EM TURISMO 5",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 5",
+          "ch": "30"
         },
         {
           "codigo": "CET0036",
-          "nome": "SEMINÁRIOS EM TURISMO 6",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 6",
+          "ch": "30"
         },
         {
           "codigo": "CET0037",
-          "nome": "SEMINÁRIOS EM TURISMO 7",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 7",
+          "ch": "30"
         },
         {
           "codigo": "CET0049",
-          "nome": "INOVAÇÃO EM SERVIÇOS TURÍSTICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INOVACAO EM SERVICOS TURISTICOS",
+          "ch": "30"
         },
         {
           "codigo": "CET0090",
           "nome": "TRABALHO E EMPREGO NO TURISMO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CET0091",
           "nome": "ESCRIVIVENDO PELO E COM O TURISMO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "ECO0003",
           "nome": "CONTABILIDADE NACIONAL APLICADA AO TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0041",
-          "nome": "MUSEOLOGIA PATRIMONIO MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA PATRIMONIO MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "GEA0004",
-          "nome": "URBANIZAÇÃO NA AMÉRICA LATINA E CARIBE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
         },
         {
           "codigo": "GEA0050",
           "nome": "GEOGRAFIA HUMANA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0066",
           "nome": "TEORIA GEOGRAFICA E DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GPP0037",
-          "nome": "FUNDAMENTOS DA ADMINISTRAÇÃO PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0110",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0132",
-          "nome": "HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0141",
           "nome": "CULTURA BRASILEIRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0143",
           "nome": "CULTURA BRASILEIRA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0150",
-          "nome": "HISTÓRIA REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0152",
-          "nome": "HISTÓRIA DA AMAZÔNIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AMAZONIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0172",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0202",
-          "nome": "HISTÓRIA DAS IDEIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DAS IDEIAS",
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "LIP0175",
-          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0059",
-          "nome": "ENSINO DE HISTÓRIA, IDENTIDADE E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "MTC0061",
-          "nome": "EDUCAÇÃO EM GEOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "MTC0156",
-          "nome": "OFICINAS DE ENSINO DE HISTÓRIA - LUGARES DE MEMÓRIA DO DF",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OFICINAS DE ENSINO DE HISTORIA - LUGARES DE MEMORIA DO DF",
+          "ch": "60"
         },
         {
           "codigo": "CET0048",
-          "nome": "HISTÓRIA DA ARTE E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA ARTE E TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0030",
-          "nome": "TURISMO E INTERPRETAÇÃO DE PATRIMÔNIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TURISMO E INTERPRETACAO DE PATRIMONIO",
+          "ch": "60"
         },
         {
           "codigo": "ADM0364",
-          "nome": "POLITICAS PÚBLICAS DE TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0034",
-          "nome": "TÓPICOS ESPECIAIS EM GASTRONOMIA 4 - COZINHAS BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 4 - COZINHAS BRASILEIRAS",
+          "ch": "60"
         },
         {
           "codigo": "CET0046",
-          "nome": "SEMINÁRIOS EM TURISMO 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 1",
+          "ch": "30"
         },
         {
           "codigo": "CET0010",
-          "nome": "SEMINÁRIOS EM TURISMO 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 2",
+          "ch": "30"
         },
         {
           "codigo": "CET0012",
           "nome": "ENOTURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CET0015",
-          "nome": "SEMINÁRIOS EM TURISMO 3",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS EM TURISMO 3",
+          "ch": "30"
         },
         {
           "codigo": "CET0016",
-          "nome": "POÉTICAS DA VIAGEM: ARTE CINEMA LITERATURA E TURISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POETICAS DA VIAGEM: ARTE CINEMA LITERATURA E TURISMO",
+          "ch": "60"
         },
         {
           "codigo": "CET0017",
-          "nome": "PLANEJAMENTO E ORGANIZAÇÃO DE EVENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO E ORGANIZACAO DE EVENTOS",
+          "ch": "60"
         },
         {
           "codigo": "CET0018",
           "nome": "TURISMO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "CET0019",
-          "nome": "TÓPICOS ESPECIAIS EM GASTRONOMIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0038",
+          "nome": "ESTUDO DO TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0039",
+          "nome": "SUSTENTABILIDADE ETICA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0041",
+          "nome": "CONSTRUCAO DO CONHECIMENTO CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0078",
+          "nome": "GEOGRAFIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0197",
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0040",
+          "nome": "ESTUDO DO TURISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0042",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0050",
+          "nome": "ECOLOGIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0048",
+          "nome": "HISTORIA DA ARTE E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0156",
+          "nome": "ESTRATEGIA EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0043",
+          "nome": "ESTUDO DO TURISMO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0044",
+          "nome": "COMUNICACAO NO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0045",
+          "nome": "ESTRUTURAS DE SUPORTE AO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0030",
+          "nome": "TURISMO E INTERPRETACAO DE PATRIMONIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0050",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - HOSPEDAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0051",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - LAZER",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0052",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS-AGENCIAMENTO OPERACAO E TRANSPORTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0053",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - EVENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0054",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - ALIMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0055",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0364",
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0034",
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 4 - COZINHAS BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0001",
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0002",
+          "nome": "LEGISLACAO TURISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0004",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0046",
+          "nome": "SEMINARIOS EM TURISMO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0005",
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0006",
+          "nome": "FUNDAMENTOS DE ESTATISTICA APLICADO AO TURISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0009",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0013",
+          "nome": "PESQUISA EM TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0010",
+          "nome": "SEMINARIOS EM TURISMO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0012",
+          "nome": "ENOTURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0007",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0014",
+          "nome": "ESTRUTURACAO E PROMOCAO DE DESTINOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0015",
+          "nome": "SEMINARIOS EM TURISMO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0016",
+          "nome": "POETICAS DA VIAGEM: ARTE CINEMA LITERATURA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0017",
+          "nome": "PLANEJAMENTO E ORGANIZACAO DE EVENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0018",
+          "nome": "TURISMO RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0019",
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0021",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0022",
+          "nome": "ELABORACAO DE PROJETOS EM TURISMO",
+          "ch": "60"
         }
       ]
     }

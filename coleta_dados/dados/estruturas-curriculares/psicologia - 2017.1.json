@@ -3,2524 +3,2167 @@
   "periodo_letivo_vigor": "2017.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "PED0001",
           "nome": "PROCESSOS DE DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PED0071",
-          "nome": "PSICOLOGIA: CURSO E PROFISSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PSICOLOGIA: CURSO E PROFISSAO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0001",
-          "nome": "FUNDAMENTOS DE ANÁLISE DO COMPORTAMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DE ANALISE DO COMPORTAMENTO",
+          "ch": "90"
         },
         {
           "codigo": "PPB0021",
           "nome": "HISTORIA  DA PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "PCL0061",
           "nome": "FUNDAMENTOS DA PSICOLOGIA CLINICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "PED0049",
-          "nome": "METODOLOGIA DE OBSERVAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DE OBSERVACAO",
+          "ch": "90"
         },
         {
           "codigo": "PPB0034",
-          "nome": "FUNDAMENTOS DE NEUROCIÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DE NEUROCIENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "PST0010",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PST0036",
-          "nome": "MÉTODOS DE PESQUISA EM PSICOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS DE PESQUISA EM PSICOLOGIA",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "PCL0020",
           "nome": "ETICA PROFISSIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "PED0052",
           "nome": "PSICOLOGIA ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PPB0046",
           "nome": "PSICOLOGIA COGNITIVA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "PPB0006",
           "nome": "PSICOLOGIA EVOLUCIONISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0049",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "PCL0021",
           "nome": "PSICOPATOLOGIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PCL0071",
           "nome": "PSICOLOGIA DA SAUDE",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PPB0054",
           "nome": "PERCEPCAO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "PCL0025",
           "nome": "FUNDAMENTOS DA PSICOTERAPIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PED0095",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCÍCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0016",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0038",
           "nome": "MEDIDAS EM PSICOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "PED0035",
           "nome": "DESENVOLVIMENTO E NECESSIDADES ESPECIAIS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "PCL0003",
-          "nome": "INTERVENÇÕES PSICOSSOCIAIS EM CONTEXTOS DE VIOLÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0024",
-          "nome": "ANÁLISE DO COMPORTAMENTO HUMANO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "PST0034",
           "nome": "ERGONOMIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0009",
-          "nome": "PERCEPÇÃO E COGNIÇÃO: CIÊNCIA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PERCEPCAO E COGNICAO: CIENCIA E TECNOLOGIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "PED0006",
-          "nome": "DESENVOLVIMENTO, APRENDIZAGEM E INTERAÇÕES VIRTUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PST0022",
-          "nome": "TREINAMENTO E DESENVOLVIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PST0039",
-          "nome": "MEDIDAS EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PST0040",
-          "nome": "PSICOMETRIA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PST0053",
-          "nome": "AVALIAÇÃO DE TREINAMENTO E DE DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PCL0030",
-          "nome": "AVALIAÇÃO E PSICODIAGNÓSTICO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PPB0036",
-          "nome": "AVALIAÇÃO E REABILITAÇÃO NEUROPSICOLÓGICA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PED0003",
-          "nome": "DESENVOLVIMENTO HUMANO E COMPETÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PCL0074",
-          "nome": "METODO DE RORSCHACH",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PCL0085",
-          "nome": "MÉTODO DE RORSCHACH AVANÇADO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PCL0107",
-          "nome": "OBSERVAÇÃO DE BEBÊS NA CLÍNICA PSICANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PST0041",
-          "nome": "TECNICAS DE ENTREVISTA",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PST0013",
-          "nome": "TECNICAS DO EXAME PSICOLOGICO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PCL0048",
-          "nome": "TÉCNICAS PROJETIVAS NARRATIVAS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PED0021",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA - ÁREA PSICOLOGIA ESCOLAR 1",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PED0045",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA - ÁREA PSICOLOGIA ESCOLAR 2",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PPB0010",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA - ÁREA CIÊNCIAS DO COMPORTAMENTO 1",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CEL0023",
-          "nome": "BIOFISICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEL0035",
-          "nome": "BIOLOGIA CELULAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "BIOFISICA",
+          "nome": "60H OPTATIVA CEL0035 - BIOLOGIA CELULAR",
+          "ch": "90"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0063",
-          "nome": "BIOQUÍMICA E BIOFÍSICA 1",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
         },
         {
           "codigo": "CEL0067",
-          "nome": "BIOQUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "BIOQUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "CEL0077",
           "nome": "BIOQUIMICA ANIMAL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEL0082",
           "nome": "BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CEL0083",
           "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0088",
           "nome": "BIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0089",
           "nome": "CITOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEL0094",
           "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "CEN0038",
           "nome": "CORPO E MOVIMENTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0007",
           "nome": "FISIOLOGIA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0010",
           "nome": "FISIOLOGIA DOS SISTEMAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CFS0021",
           "nome": "ANATOMIA ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0030",
           "nome": "PESQUISA EM NEUROBIOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CFS0031",
           "nome": "NEUROFISIOLOGIA MEDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0035",
           "nome": "NEUROPSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0037",
           "nome": "ELEMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0041",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0044",
           "nome": "SISTEMAS SENSORIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0048",
           "nome": "FISIOLOGIA ANIMAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CFS0050",
           "nome": "NEUROETOLOGIA DO ESTRESSE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "DSC0010",
-          "nome": "INFORMAÇÃO E INFORMÁTICA EM SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "DSC0043",
           "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "ECL0024",
           "nome": "ETOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ENE0066",
-          "nome": "INTRODUÇÃO AOS CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
         },
         {
           "codigo": "EST0028",
-          "nome": "ESTATÍSTICA APLICADA À PSICOLOGIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA A PSICOLOGIA 1",
+          "ch": "90"
         },
         {
           "codigo": "EST0029",
-          "nome": "ESTATÍSTICA APLICADA À PSICOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA A PSICOLOGIA 2",
+          "ch": "60"
         },
         {
           "codigo": "FAR0075",
           "nome": "EMBRIOLOGIA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0052",
           "nome": "FISIOLOGIA VETERINARIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FED0133",
-          "nome": "SEMINÁRIO INTERDISCIPLINAR EM EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0070",
           "nome": "NEUROANATOMIA FUNCIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0105",
-          "nome": "PRÁTICA DESPORTIVA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
         },
         {
           "codigo": "FEF0143",
           "nome": "FISIOLOGIA DO EXERCICIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0193",
           "nome": "PSICOMOTRICIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0279",
           "nome": "APRENDIZAGEM E DESENVOLVIMENTO MOTOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FEF0367",
-          "nome": "INTRODUÇÃO À PSICOLOGIA DO ESPORTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA DO ESPORTE",
+          "ch": "60"
         },
         {
           "codigo": "FEF0409",
-          "nome": "ANATOMIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0029",
-          "nome": "EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0053",
           "nome": "TEORIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0056",
-          "nome": "LÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "FIL0063",
-          "nome": "ANTROPOLOGIA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0077",
-          "nome": "INICIAÇÃO À METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0105",
-          "nome": "INICIAÇÃO À PRÁTICA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0166",
-          "nome": "INTRODUÇÃO A PRÁTICA FILOSÓFICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
         },
         {
           "codigo": "FMD0091",
           "nome": "ANATOMIA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0165",
           "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0167",
           "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FMD0445",
           "nome": "FUNDAMENTOS DE PSICOPATOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FMD0447",
-          "nome": "PSICOLOGIA MÉDICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA MEDICA",
+          "ch": "30"
         },
         {
           "codigo": "FMD0496",
           "nome": "ANATOMIA MEDICA",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "FMD0510",
           "nome": "ELEMENTOS DE ANATOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0014",
           "nome": "GENETICA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0023",
           "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "GEM0041",
           "nome": "HISTOLOGIA BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEM0062",
           "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IFD0340",
-          "nome": "FUNDAMENTOS DE FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
         },
         {
           "codigo": "IPD0034",
-          "nome": "PESQUISA EM PSICOLOGIA CLÍNICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA CLINICA 2",
+          "ch": "60"
         },
         {
           "codigo": "IPD0067",
           "nome": "PESQUISA EM PSICOLOGIA CLINICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0087",
-          "nome": "PESQUISA EM PSICOLOGIA CLÍNICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA CLINICA 3",
+          "ch": "60"
         },
         {
           "codigo": "IPD0092",
-          "nome": "PESQUISA EM PSICOLOGIA CLÍNICA E SAÚDE MENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA CLINICA E SAUDE MENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "IPD0153",
-          "nome": "PESQUISA EM PSICOLOGIA CLÍNICA E SAÚDE MENTAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA CLINICA E SAUDE MENTAL 3",
+          "ch": "60"
         },
         {
           "codigo": "IPD0154",
-          "nome": "PESQUISA EM PSICANÁLISE E PROCESSOS DE SUBJETIVAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICANALISE E PROCESSOS DE SUBJETIVACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "IPD0155",
-          "nome": "PESQUISA EM PSICANÁLISE E PROCESSOS DE SUBJETIVAÇÃO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICANALISE E PROCESSOS DE SUBJETIVACAO 3",
+          "ch": "60"
         },
         {
           "codigo": "IPD0156",
-          "nome": "PESQUISA EM PSICOLOGIA DA SAÚDE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA DA SAUDE 2",
+          "ch": "60"
         },
         {
           "codigo": "IPD0157",
-          "nome": "PESQUISA EM PSICOLOGIA DA SAÚDE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA DA SAUDE 3",
+          "ch": "60"
         },
         {
           "codigo": "IPD0158",
           "nome": "PESQUISA EM PSICOLOGIA DO DESENVOLVIMENTO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0159",
           "nome": "PESQUISA EM PSICOLOGIA DO DESENVOLVIMENTO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0160",
           "nome": "PESQUISA EM PSICOLOGIA ESCOLAR 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0161",
           "nome": "PESQUISA EM PSICOLOGIA ESCOLAR 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0162",
           "nome": "PESQUISA EM PSICOLOGIA EVOLUCIONISTA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0163",
           "nome": "PESQUISA EM PSICOLOGIA EVOLUCIONISTA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0164",
           "nome": "PESQUISA EM PROCESSOS COGNITIVOS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IPD0165",
           "nome": "PESQUISA EM PROCESSOS COGNITIVOS 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0051",
-          "nome": "QUÍMICA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
         },
         {
           "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUÍMICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0061",
-          "nome": "LABORATÓRIO DE QUÍMICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0092",
-          "nome": "QUÍMICA INORGÂNICA BÁSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0095",
           "nome": "QUIMICA ORGANICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0120",
           "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0124",
           "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "IQD0131",
           "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0133",
           "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IQD0153",
-          "nome": "QUÍMICA GERAL E INORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0209",
-          "nome": "QUÍMICA GERAL E ORGÂNICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
         },
         {
           "codigo": "IQD0245",
-          "nome": "QUÍMICA ORGÂNICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "IQD0252",
-          "nome": "QUÍMICA GERAL E ORGÂNICA TEÓRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
         },
         {
           "codigo": "IQD0259",
-          "nome": "PRINCÍPIOS DE EQUILÍBRIOS QUÍMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0260",
-          "nome": "CÁLCULOS BÁSICOS DE QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATÔMICA E LIGAÇÕES QUÍMICAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
         },
         {
           "codigo": "IQD0263",
-          "nome": "PRINCÍPIOS DA TERMODINÂMICA E CINÉTICA QUÍMICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
         },
         {
           "codigo": "LET0044",
           "nome": "LINGUA ALEMA INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0116",
           "nome": "LINGUA ALEMA INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0045",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0046",
-          "nome": "FONÉTICA E FONOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FONETICA E FONOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0175",
-          "nome": "LÍNGUAS DE SINAIS BRASILEIRA - INTERMEDIÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 2",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MAT0137",
-          "nome": "CÁLCULO 1 - SEMIPRESENCIAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
         },
         {
           "codigo": "PCL0001",
-          "nome": "EPISTEMOLOGIA E MÉTODOS CLÍNICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EPISTEMOLOGIA E METODOS CLINICOS",
+          "ch": "60"
         },
         {
           "codigo": "PCL0004",
-          "nome": "PSICOLOGIA COMUNITÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA COMUNITARIA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0005",
           "nome": "PSICOLOGIA DAS HABILIDADES SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0007",
           "nome": "PSICOTERAPIA ERICKSONIANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0009",
-          "nome": "PSICOTERAPIAS HUMANISTAS E FENOMENOLÓGICO-EXISTENCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOTERAPIAS HUMANISTAS E FENOMENOLOGICO-EXISTENCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "PCL0010",
-          "nome": "TÓPICOS EM PSICANÁLISE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICANALISE",
+          "ch": "60"
         },
         {
           "codigo": "PCL0011",
-          "nome": "TÓPICOS EM PSICOLOGIA CLÍNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0012",
-          "nome": "TÓPICOS EM TERAPIA CONJUGAL E FAMILIAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM TERAPIA CONJUGAL E FAMILIAR",
+          "ch": "60"
         },
         {
           "codigo": "PCL0013",
-          "nome": "PSICOLOGIA E SAÚDE PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA E SAUDE PUBLICA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0014",
           "nome": "TERAPIA COGNITIVO - COMPORTAMENTAL EM GRUPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0015",
           "nome": "PSICOLOGIA DA PERSONALIDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0016",
           "nome": "PSICOLOGIA DA PERSONALIDADE 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0019",
-          "nome": "TÓPICOS EM PSICOLOGIA DA PERSONALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOLOGIA DA PERSONALIDADE",
+          "ch": "60"
         },
         {
           "codigo": "PCL0023",
           "nome": "PSICOPATOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0027",
-          "nome": "TEORIAS PSICANALÍTICAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS PSICANALITICAS 1",
+          "ch": "60"
         },
         {
           "codigo": "PCL0028",
           "nome": "CLINICA EXPERIMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0030",
-          "nome": "AVALIAÇÃO E PSICODIAGNÓSTICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO E PSICODIAGNOSTICO",
+          "ch": "90"
         },
         {
           "codigo": "PCL0031",
           "nome": "ACONSELHAMENTO PSICOLOGICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0035",
           "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "PCL0039",
-          "nome": "FUNDAMENTOS E TÉCNICAS DE DINÂMICA DE GRUPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS E TECNICAS DE DINAMICA DE GRUPO",
+          "ch": "60"
         },
         {
           "codigo": "PCL0040",
-          "nome": "TEORIAS PSICANALÍTICAS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS PSICANALITICAS 2",
+          "ch": "60"
         },
         {
           "codigo": "PCL0041",
           "nome": "TEORIAS E TECNICAS PSICOTERAPICAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0042",
           "nome": "PSICOTERAPIA NAO DIRETIVA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0043",
           "nome": "PSICODRAMA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0044",
           "nome": "MODIFICACAO DO COMPORTAMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0046",
           "nome": "PSICOLOGIA PREVENTIVA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0048",
-          "nome": "TÉCNICAS PROJETIVAS NARRATIVAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS PROJETIVAS NARRATIVAS",
+          "ch": "90"
         },
         {
           "codigo": "PCL0051",
-          "nome": "TÓPICOS EM PSICOTERAPIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOTERAPIA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0053",
           "nome": "TERAPIA CONJUGAL E FAMILIAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0054",
           "nome": "PSICOLOGIA DA SEXUALIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0056",
           "nome": "PSICOTERAPIA DE GRUPO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0058",
-          "nome": "PSICANÁLISE COM CRIANÇAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICANALISE COM CRIANCAS",
+          "ch": "60"
         },
         {
           "codigo": "PCL0060",
-          "nome": "PSICOLOGIA E RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA E RELIGIAO",
+          "ch": "60"
         },
         {
           "codigo": "PCL0064",
-          "nome": "TÓPICOS EM PSICOPATOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOPATOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0068",
           "nome": "PESQUISA EM PSICOLOGIA CLINICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0070",
           "nome": "PESQUISA EM PSICOLOGIA CLINICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0072",
           "nome": "PSICOLOGIA APLICADA A SAUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0073",
           "nome": "TOPICOS EM PSICOLOGIA DA SAUDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0074",
           "nome": "METODO DE RORSCHACH",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0075",
-          "nome": "INTERVENÇÃO EM CRISE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERVENCAO EM CRISE",
+          "ch": "60"
         },
         {
           "codigo": "PCL0076",
-          "nome": "PSICOLOGIA JURÍDICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA JURIDICA",
+          "ch": "90"
         },
         {
           "codigo": "PCL0079",
-          "nome": "PESQUISA EM PSICOLOGIA CLÍNICA E SAÚDE MENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA CLINICA E SAUDE MENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PCL0083",
-          "nome": "PESQUISA EM PSICANÁLISE E PROCESSOS DE SUBJETIVAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICANALISE E PROCESSOS DE SUBJETIVACAO",
+          "ch": "60"
         },
         {
           "codigo": "PCL0085",
-          "nome": "MÉTODO DE RORSCHACH AVANÇADO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODO DE RORSCHACH AVANCADO",
+          "ch": "90"
         },
         {
           "codigo": "PCL0086",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO-ÁREA INTERVENÇÕES PSICOTERAPÊUTICAS 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO-AREA INTERVENCOES PSICOTERAPEUTICAS 1",
+          "ch": "180"
         },
         {
           "codigo": "PCL0087",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO-ÁREA INTERVENÇÕES PSICOTERAPÊUTICAS 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO-AREA INTERVENCOES PSICOTERAPEUTICAS 2",
+          "ch": "180"
         },
         {
           "codigo": "PCL0088",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO-ÁREA INTERVENÇÕES PSICOTERAPÊUTICAS 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO-AREA INTERVENCOES PSICOTERAPEUTICAS 3",
+          "ch": "180"
         },
         {
           "codigo": "PCL0089",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA INTERVENÇÕES PSICOSSOCIAIS 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA INTERVENCOES PSICOSSOCIAIS 1",
+          "ch": "180"
         },
         {
           "codigo": "PCL0090",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA INTERVENÇÕES PSICOSSOCIAIS 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA INTERVENCOES PSICOSSOCIAIS 2",
+          "ch": "180"
         },
         {
           "codigo": "PCL0091",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA INTERVENÇÕES PSICOSSOCIAIS 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA INTERVENCOES PSICOSSOCIAIS 3",
+          "ch": "180"
         },
         {
           "codigo": "PCL0092",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA PSICOLOGIA DA SAÚDE 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA PSICOLOGIA DA SAUDE 1",
+          "ch": "180"
         },
         {
           "codigo": "PCL0093",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA PSICOLOGIA DA SAÚDE 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA PSICOLOGIA DA SAUDE 2",
+          "ch": "180"
         },
         {
           "codigo": "PCL0094",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA PSICOLOGIA DA SAÚDE 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA PSICOLOGIA DA SAUDE 3",
+          "ch": "180"
         },
         {
           "codigo": "PCL0096",
-          "nome": "ESTÁGIO SUPERVIONADO BACHAREL-ÁREA PSICOLOGIA CLÍNICA E CULTURAL",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVIONADO BACHAREL-AREA PSICOLOGIA CLINICA E CULTURAL",
+          "ch": "150"
         },
         {
           "codigo": "PCL0098",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHAREL - ÁREA PSICOLOGIA DA SAÚDE",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA PSICOLOGIA DA SAUDE",
+          "ch": "150"
         },
         {
           "codigo": "PCL0099",
           "nome": "PSICO-ONCOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0101",
           "nome": "PSICOLOGIA APLICADA A ODONTOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0102",
           "nome": "PSICOLOGIA E ENFERMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PCL0103",
-          "nome": "PSICOLOGIA PEDIÁTRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA PEDIATRICA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0104",
-          "nome": "PSICOLOGIA DA REABILITAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DA REABILITACAO",
+          "ch": "60"
         },
         {
           "codigo": "PCL0105",
-          "nome": "PESQUISA EM PSICOLOGIA DA SAÚDE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM PSICOLOGIA DA SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "PCL0107",
-          "nome": "OBSERVAÇÃO DE BEBÊS NA CLÍNICA PSICANALÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "OBSERVACAO DE BEBES NA CLINICA PSICANALITICA",
+          "ch": "60"
         },
         {
           "codigo": "PCL0109",
-          "nome": "SAÚDE MENTAL, CLÍNICA E CULTURA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SAUDE MENTAL, CLINICA E CULTURA",
+          "ch": "90"
         },
         {
           "codigo": "PCL0111",
-          "nome": "SAÚDE MENTAL E POLÍTICAS PÚBLICAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "SAUDE MENTAL E POLITICAS PUBLICAS",
+          "ch": "90"
         },
         {
           "codigo": "PCL0113",
-          "nome": "SAÚDE MENTAL, CLÍNICA E CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE MENTAL, CLINICA E CULTURA",
+          "ch": "60"
         },
         {
           "codigo": "PED0002",
           "nome": "PROCESSOS DE DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0003",
-          "nome": "DESENVOLVIMENTO HUMANO E COMPETÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO HUMANO E COMPETENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "PED0004",
           "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: VELHICE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0006",
-          "nome": "DESENVOLVIMENTO, APRENDIZAGEM E INTERAÇÕES VIRTUAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO, APRENDIZAGEM E INTERACOES VIRTUAIS",
+          "ch": "60"
         },
         {
           "codigo": "PED0009",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHAREL - ÁREA PSICOLOGIA DO DESENVOLVIMENTO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA PSICOLOGIA DO DESENVOLVIMENTO",
+          "ch": "150"
         },
         {
           "codigo": "PED0010",
           "nome": "FILOSOFIA E EPISTEMOLOGIA DA PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0012",
-          "nome": "MÉTODOS DE PESQUISA EM DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODOS DE PESQUISA EM DESENVOLVIMENTO HUMANO",
+          "ch": "90"
         },
         {
           "codigo": "PED0015",
-          "nome": "PSICOLOGIA ESCOLAR E FORMAÇÃO PROFISSIONAL CONTINUADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA ESCOLAR E FORMACAO PROFISSIONAL CONTINUADA",
+          "ch": "60"
         },
         {
           "codigo": "PED0017",
-          "nome": "PSICOLOGIA ESCOLAR: PESQUISA E INTERVENÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA ESCOLAR: PESQUISA E INTERVENCAO",
+          "ch": "60"
         },
         {
           "codigo": "PED0019",
-          "nome": "PSICOLOGIA, CIDADANIA E ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA, CIDADANIA E ETICA",
+          "ch": "60"
         },
         {
           "codigo": "PED0020",
-          "nome": "TÓPICOS EM PSICOLOGIA ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOLOGIA ESCOLAR",
+          "ch": "60"
         },
         {
           "codigo": "PED0021",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA - ÁREA PSICOLOGIA ESCOLAR 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA PSICOLOGIA ESCOLAR 1",
+          "ch": "150"
         },
         {
           "codigo": "PED0024",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0025",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFÂNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0027",
-          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0030",
           "nome": "DESENVOLVIMENTO NO CURSO DA VIDA ADULTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0032",
           "nome": "PSICOLOGIA DA CRIATIVIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0036",
           "nome": "DESENVOLVIMENTO E NECESSIDADES ESPECIAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0039",
           "nome": "PEDAGOGIA TERAPEUTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0045",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA - ÁREA PSICOLOGIA ESCOLAR 2",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA PSICOLOGIA ESCOLAR 2",
+          "ch": "150"
         },
         {
           "codigo": "PED0050",
-          "nome": "METODOLOGIA DE OBSERVAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DE OBSERVACAO",
+          "ch": "90"
         },
         {
           "codigo": "PED0053",
           "nome": "PSICOLOGIA ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0057",
           "nome": "TOPICOS EM PSICOLOGIA DO DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         },
         {
           "codigo": "PED0066",
           "nome": "PESQUISA EM PSICOLOGIA DO DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0068",
           "nome": "PESQUISA EM PSICOLOGIA ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PED0072",
-          "nome": "PSICOLOGIA DO GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DO GENERO",
+          "ch": "60"
         },
         {
           "codigo": "PED0074",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA PSICOLOGIA ESCOLAR 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA PSICOLOGIA ESCOLAR 1",
+          "ch": "180"
         },
         {
           "codigo": "PED0075",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA PSICOLOGIA ESCOLAR 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA PSICOLOGIA ESCOLAR 2",
+          "ch": "180"
         },
         {
           "codigo": "PED0076",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA PSICOLOGIA ESCOLAR 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA PSICOLOGIA ESCOLAR 3",
+          "ch": "180"
         },
         {
           "codigo": "PED0082",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHAREL - ÁREA PSICOLOGIA ESCOLAR 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA PSICOLOGIA ESCOLAR 1",
+          "ch": "150"
         },
         {
           "codigo": "PED0087",
-          "nome": "SAÚDE E ADOLESCÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SAUDE E ADOLESCENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0096",
-          "nome": "SUPERDOTAÇÃO, TALENTO E DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SUPERDOTACAO, TALENTO E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0002",
-          "nome": "FUNDAMENTOS DE ANÁLISE DO COMPORTAMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE ANALISE DO COMPORTAMENTO",
+          "ch": "90"
         },
         {
           "codigo": "PPB0003",
           "nome": "TERAPIA COGNITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0005",
-          "nome": "TERAPIA ANALÍTICA - COMPORTAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TERAPIA ANALITICA - COMPORTAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PPB0007",
-          "nome": "TÓPICOS EM COGNIÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM COGNICAO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0008",
           "nome": "PESQUISA EM PSICOLOGIA EVOLUCIONISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0010",
-          "nome": "ESTÁGIO SUPERVISIONADO LICENCIATURA - ÁREA CIÊNCIAS DO COMPORTAMENTO 1",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA CIENCIAS DO COMPORTAMENTO 1",
+          "ch": "150"
         },
         {
           "codigo": "PPB0012",
-          "nome": "ESTÁGIO BACHAREL 2",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO BACHAREL 2",
+          "ch": "150"
         },
         {
           "codigo": "PPB0013",
-          "nome": "TÓPICOS EM TERAPIA COGNITIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM TERAPIA COGNITIVA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0017",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0018",
           "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0019",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0022",
           "nome": "HISTORIA E SISTEMAS DA PSICOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0026",
           "nome": "PSICOLOGIA EXPERIMENTAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0028",
           "nome": "PSICOLOGIA EXPERIMENTAL 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0030",
           "nome": "TOPICOS EM HISTORIA E SISTEMAS DA PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0032",
           "nome": "TOPICOS EM ANALISE COMPORTAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0036",
-          "nome": "AVALIAÇÃO E REABILITAÇÃO NEUROPSICOLÓGICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO E REABILITACAO NEUROPSICOLOGICA",
+          "ch": "90"
         },
         {
           "codigo": "PPB0037",
           "nome": "PSICOFISIOLOGIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0039",
-          "nome": "PSICOFÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOFISICA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0040",
           "nome": "PSICOFISICA 2",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "PPB0041",
           "nome": "FILOSOFIA DA PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0043",
           "nome": "GENETICA DO COMPORTAMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0048",
           "nome": "PSICOFARMACOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0049",
           "nome": "PSICOFARMACOLOGIA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0050",
           "nome": "PSICOLOGIA COGNITIVA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0052",
           "nome": "COMPORTAMENTO ANIMAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PPB0053",
           "nome": "TECNICAS DE LABORATORIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0056",
           "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO-BACHAREL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "PPB0057",
           "nome": "PSICOLOGIA DA MOTIVACAO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0059",
           "nome": "TOPICOS EM MOTIVACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0060",
           "nome": "PSICOLOGIA DA MOTIVACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0062",
           "nome": "TOPICOS EM APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0064",
           "nome": "TOPICOS EM PERCEPCAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0066",
           "nome": "TOPICOS EM PSICOBIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0067",
           "nome": "APRENDIZAGEM NO ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0069",
           "nome": "PESQUISA EM PROCESSOS COGNITIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0072",
-          "nome": "PESQUISA EM ANÁLISE COMPORTAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM ANALISE COMPORTAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PPB0075",
           "nome": "PESQUISA EM PSICOBIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0077",
           "nome": "ANALISE CONCEITUAL EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0078",
-          "nome": "TERAPIA ANALÍTICO COMPORTAMENTAL INFANTIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TERAPIA ANALITICO COMPORTAMENTAL INFANTIL",
+          "ch": "60"
         },
         {
           "codigo": "PPB0079",
-          "nome": "GENÉTICA E INTERVENÇÃO PSICOLÓGICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "GENETICA E INTERVENCAO PSICOLOGICA",
+          "ch": "90"
         },
         {
           "codigo": "PPB0080",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA ANÁLISE DO COMPORTAMENTO APLICADA 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA ANALISE DO COMPORTAMENTO APLICADA 1",
+          "ch": "180"
         },
         {
           "codigo": "PPB0081",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA ANÁLISE DO COMPORTAMENTO APLICADA 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA ANALISE DO COMPORTAMENTO APLICADA 2",
+          "ch": "180"
         },
         {
           "codigo": "PPB0082",
-          "nome": "ESTÁGIO SUP PSICÓLOGO - ÁREA ANÁLISE DO COMPORTAMENTO APLICADA 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUP PSICOLOGO - AREA ANALISE DO COMPORTAMENTO APLICADA 3",
+          "ch": "180"
         },
         {
           "codigo": "PPB0083",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA NEUROPSICOLOGIA E COGNIÇÃO 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA NEUROPSICOLOGIA E COGNICAO 1",
+          "ch": "180"
         },
         {
           "codigo": "PPB0084",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA NEUROPSICOLOGIA E COGNIÇÃO 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA NEUROPSICOLOGIA E COGNICAO 2",
+          "ch": "180"
         },
         {
           "codigo": "PPB0085",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA NEUROPSICOLOGIA E COGNIÇÃO 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA NEUROPSICOLOGIA E COGNICAO 3",
+          "ch": "180"
         },
         {
           "codigo": "PPB0087",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHAREL - ÁREA CIÊNCIAS DO COMPORTAMENTO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA CIENCIAS DO COMPORTAMENTO",
+          "ch": "150"
         },
         {
           "codigo": "PPB0089",
-          "nome": "ESTÁGIO SUPERVISIONADO BACHAREL - ÁREA CIÊNCIAS DO COMPORTAMENTO 2",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA CIENCIAS DO COMPORTAMENTO 2",
+          "ch": "150"
         },
         {
           "codigo": "PST0001",
           "nome": "PSICOLOGIA DO TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0002",
-          "nome": "TÓPICOS EM PSICOLOGIA AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOLOGIA AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PST0004",
           "nome": "PESQUISA EM PSICOLOGIA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0005",
           "nome": "PESQUISA EM PSICOLOGIA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0006",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA SOC. TRAB. E ORG. 4",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA SOC. TRAB. E ORG. 4",
+          "ch": "180"
         },
         {
           "codigo": "PST0007",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO - ÁREA SOC. TRAB. E ORG. 5",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO - AREA SOC. TRAB. E ORG. 5",
+          "ch": "180"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0012",
           "nome": "PSICOLOGIA SOCIAL 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0013",
           "nome": "TECNICAS DO EXAME PSICOLOGICO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0016",
-          "nome": "RECRUTAMENTO E SELEÇÃO PROFISSIONAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "RECRUTAMENTO E SELECAO PROFISSIONAL",
+          "ch": "90"
         },
         {
           "codigo": "PST0020",
-          "nome": "ANÁLISE ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE ORGANIZACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "PST0022",
           "nome": "TREINAMENTO E DESENVOLVIMENTO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0027",
           "nome": "COMPORTAMENTO HUMANO E TRABALHO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0032",
           "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO 2",
-          "carga_horaria": "165h",
-          "natureza": "Optativa"
+          "ch": "165"
         },
         {
           "codigo": "PST0039",
           "nome": "MEDIDAS EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0040",
           "nome": "PSICOMETRIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0041",
           "nome": "TECNICAS DE ENTREVISTA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0045",
-          "nome": "TÓPICOS EM PSICOLOGIA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM PSICOLOGIA SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "PST0047",
           "nome": "TOPICOS EM PSICOLOGIA ORGANIZACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0051",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "PST0053",
-          "nome": "AVALIAÇÃO DE TREINAMENTO E DE DESENVOLVIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE TREINAMENTO E DE DESENVOLVIMENTO",
+          "ch": "60"
         },
         {
           "codigo": "PST0056",
           "nome": "ERGONOMIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0057",
           "nome": "PSICOLOGIA DA COMUNICACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0058",
           "nome": "PSICOLOGIA AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0060",
           "nome": "USO DO COMPUTADOR EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0063",
-          "nome": "AVALIAÇÃO DE DESEMPENHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO DE DESEMPENHO",
+          "ch": "60"
         },
         {
           "codigo": "PST0065",
           "nome": "INFORMATICA EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0066",
           "nome": "ERGONOMIA APLICADA A INFORMATICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PST0069",
           "nome": "PESQUISA EM AVALIACAO E MEDIDAS EM PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0070",
-          "nome": "PESQUISA EM AVALIAÇAO E MEDIDAS EM PSICOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PESQUISA EM AVALIACAO E MEDIDAS EM PSICOLOGIA 2",
+          "ch": "60"
         },
         {
           "codigo": "PST0071",
           "nome": "PESQUISA EM PSICOLOGIA DAS ORGANIZACOES 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0074",
           "nome": "PESQUISA EM ERGONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0077",
-          "nome": "DIVERSIDADE NAS ORGANIZAÇÕES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIVERSIDADE NAS ORGANIZACOES",
+          "ch": "60"
         },
         {
           "codigo": "PST0080",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO-ÁREA SOCIAL, TRABALHO E ORGANIZAÇÕES 1",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO-AREA SOCIAL, TRABALHO E ORGANIZACOES 1",
+          "ch": "180"
         },
         {
           "codigo": "PST0082",
-          "nome": "ESTÁGIO SUPERVISIONADO PSICÓLOGO-ÁREA SOCIAL, TRABALHO E ORGNIZAÇÕES 2",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVISIONADO PSICOLOGO-AREA SOCIAL, TRABALHO E ORGNIZACOES 2",
+          "ch": "180"
         },
         {
           "codigo": "PST0084",
-          "nome": "ESTÁGIO SUPERVIS PSICÓLOGO - ÁREA SOCIAL, TRABALHO E ORGNIZAÇÕES 3",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVIS PSICOLOGO - AREA SOCIAL, TRABALHO E ORGNIZACOES 3",
+          "ch": "180"
         },
         {
           "codigo": "PST0086",
-          "nome": "ESTÁGIO SUPERVIS BACHAREL - ÁREA SOCIAL, TRABALHO E ORGANIZAÇÕES",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERVIS BACHAREL - AREA SOCIAL, TRABALHO E ORGANIZACOES",
+          "ch": "150"
         },
         {
           "codigo": "PST0088",
           "nome": "PESQUISA EM PSICOLOGIA DAS ORGANIZACOES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0090",
           "nome": "PESQUISA EM PSICOLOGIA DO TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0091",
           "nome": "PESQUISA EM PSICOLOGIA DO TRABALHO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0094",
           "nome": "PESQUISA EM PSICOLOGIA AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0095",
           "nome": "PESQUISA EM PSICOLOGIA AMBIENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0096",
-          "nome": "ESTÁGIO SUPERV. BACHAREL -  ÁREA: SOCIAL, TRABALHO E ORGANIZAÇÕES 2",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ESTAGIO SUPERV. BACHAREL -  AREA: SOCIAL, TRABALHO E ORGANIZACOES 2",
+          "ch": "150"
         },
         {
           "codigo": "PST0097",
           "nome": "PESQUISA EM PSICOLOGIA SOCIAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0020",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0065",
-          "nome": "DINÂMICA PSICOSSOCIAL DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0118",
           "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0006",
           "nome": "PSICOLOGIA EVOLUCIONISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0049",
-          "nome": "PSICOLOGIA DAS ORGANIZAÇÕES",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
         },
         {
           "codigo": "PED0095",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCÍCIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
+          "ch": "60"
         },
         {
           "codigo": "PPB0016",
           "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0038",
           "nome": "MEDIDAS EM PSICOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PCL0003",
-          "nome": "INTERVENÇÕES PSICOSSOCIAIS EM CONTEXTOS DE VIOLÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0024",
-          "nome": "ANÁLISE DO COMPORTAMENTO HUMANO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
+          "ch": "90"
         },
         {
           "codigo": "PST0034",
           "nome": "ERGONOMIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0009",
-          "nome": "PERCEPÇÃO E COGNIÇÃO: CIÊNCIA E TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PERCEPCAO E COGNICAO: CIENCIA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0001",
+          "nome": "PROCESSOS DE DESENVOLVIMENTO HUMANO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0071",
+          "nome": "PSICOLOGIA: CURSO E PROFISSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0001",
+          "nome": "FUNDAMENTOS DE ANALISE DO COMPORTAMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0021",
+          "nome": "HISTORIA  DA PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0061",
+          "nome": "FUNDAMENTOS DA PSICOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0049",
+          "nome": "METODOLOGIA DE OBSERVACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0034",
+          "nome": "FUNDAMENTOS DE NEUROCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0010",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0036",
+          "nome": "METODOS DE PESQUISA EM PSICOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0020",
+          "nome": "ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0052",
+          "nome": "PSICOLOGIA ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0046",
+          "nome": "PSICOLOGIA COGNITIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0006",
+          "nome": "PSICOLOGIA EVOLUCIONISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0049",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0071",
+          "nome": "PSICOLOGIA DA SAUDE",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0054",
+          "nome": "PERCEPCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0025",
+          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0095",
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0038",
+          "nome": "MEDIDAS EM PSICOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0035",
+          "nome": "DESENVOLVIMENTO E NECESSIDADES ESPECIAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0003",
+          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0024",
+          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0009",
+          "nome": "PERCEPCAO E COGNICAO: CIENCIA E TECNOLOGIA",
+          "ch": "60"
         }
       ]
     }

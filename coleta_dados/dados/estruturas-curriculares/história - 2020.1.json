@@ -3,2272 +3,2852 @@
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZAÇÃO DA EDUCAÇÃO BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
-          "codigo": "HIS0205",
-          "nome": "LABORATÓRIO DE ENSINO DE HISTÓRIA",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
-        },
-        {
           "codigo": "HIS0250",
-          "nome": "HISTÓRIA ANTIGA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0252",
-          "nome": "HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "MTC0012",
-          "nome": "DIDÁTICA FUNDAMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "HIS0090",
-          "nome": "HISTÓRIA ANTIGA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA ANTIGA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0091",
-          "nome": "HISTÓRIA MEDIEVAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA MEDIEVAL 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0097",
-          "nome": "HISTÓRIA DA AMÉRICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0100",
-          "nome": "HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "HIS0093",
-          "nome": "HISTÓRIA MODERNA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0099",
-          "nome": "HISTÓRIA DA AMÉRICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA AMERICA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0102",
-          "nome": "HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0138",
-          "nome": "HISTÓRIA MEDIEVAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA MEDIEVAL 2",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "HIS0095",
-          "nome": "HISTÓRIA MODERNA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0104",
-          "nome": "HISTÓRIA DO BRASIL 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
         },
         {
           "codigo": "HIS0106",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0251",
-          "nome": "TEORIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "HIS0107",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0115",
-          "nome": "METODOLOGIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "HIS0129",
-          "nome": "HISTÓRIA DO BRASIL 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "7º Semestre",
-      "materias": [
-        {
-          "codigo": "HIS0033",
-          "nome": "PROJETO DE TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "HIS0210",
-          "nome": "PRÁTICA DE ENSINO DE HISTÓRIA 1",
-          "carga_horaria": "120h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "8º Semestre",
-      "materias": [
-        {
-          "codigo": "HIS0007",
-          "nome": "PRÁTICA DE ENSINO DE HISTÓRIA 2",
-          "carga_horaria": "165h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "HIS0034",
-          "nome": "PESQUISA DE TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "9º Semestre",
-      "materias": [
-        {
-          "codigo": "HIS0035",
-          "nome": "ESCRITA DE TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CEM0025",
-          "nome": "IMAGEM E PESQUISA HISTÓRICA-HISTÓRIA ORAL E FOTOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0094",
-          "nome": "IMAGEM PESQUISA HISTÓRICA-VÍDEO E HISTÓRIA ORAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0096",
-          "nome": "IMAGEM, ORALIDADE E PATRIMÔNIO HISTÓRICO-CULTURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0097",
-          "nome": "DIREITOS HUMANOS E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0102",
-          "nome": "IDENTIDADE DE GÊNERO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0103",
-          "nome": "DISCURSO E MULHER",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0106",
-          "nome": "ORGANIZACAO DO ESPACO E CIDADANIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0111",
-          "nome": "ESTUDOS E PESQUISAS PARA A PAZ",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEM0112",
-          "nome": "LITERATURA HISPANO-AMERICANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEN0036",
-          "nome": "HISTORIA DO TEATRO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CEN0049",
-          "nome": "HISTORIA DO TEATRO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0064",
-          "nome": "INTRODUCAO A SISTEMAS DE INFORMACOES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0088",
-          "nome": "COMPUTACAO BASICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0036",
-          "nome": "SOCIEDADES COMPLEXAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0041",
-          "nome": "TEORIA ANTROPOLÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0042",
-          "nome": "TEORIA ANTROPOLÓGICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0043",
-          "nome": "ANTROPOLOGIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0046",
-          "nome": "ANTROPOLOGIA ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0047",
-          "nome": "ANTROPOLOGIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0050",
-          "nome": "ORGANIZAÇÃO SOCIAL E PARENTESCO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0052",
-          "nome": "CULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0056",
-          "nome": "ANTROPOLOGIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0058",
-          "nome": "IDENTIDADE E RELAÇÕES INTERÉTNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0060",
-          "nome": "TRADIÇÕES CULTURAIS BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0062",
-          "nome": "SOCIEDADES CAMPONESAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0063",
-          "nome": "SOCIEDADES INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0077",
-          "nome": "PENSAMENTO ANTROPOLÓGICO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAN0078",
-          "nome": "ANTROPOLOGIA URBANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAP0002",
-          "nome": "HISTORIA DA PUBLICIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAP0015",
-          "nome": "CINEMA E LITERATURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAP0022",
-          "nome": "TENDENCIAS DO CINEMA E DA TELEVISAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAP0067",
-          "nome": "HISTORIA DO CINEMA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DAP0083",
-          "nome": "ANALISE DA IMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0201",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0202",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0203",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0205",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0206",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0207",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0208",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0209",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0210",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0211",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0212",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0213",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0214",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0215",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0216",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0217",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0218",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEG0219",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "DIN0020",
-          "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECL0002",
-          "nome": "ECOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECL0024",
-          "nome": "ETOLOGIA",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECO0021",
-          "nome": "HISTÓRIA ECONÔMICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECO0023",
-          "nome": "FORMAÇÃO ECONÔMICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECO0032",
-          "nome": "ANALISE MACROECONOMICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FAC0019",
-          "nome": "POLITICAS CULTURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FAC0020",
-          "nome": "SOCIOLOGIA DA COMUNICACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FCI0024",
-          "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FCI0049",
-          "nome": "BIBLIOTECONOMIA E SOCIEDADE BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FCI0062",
-          "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FCI0071",
-          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FDD0242",
-          "nome": "HISTÓRIA DO DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0034",
-          "nome": "HISTÓRIA DA FILOSOFIA ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0044",
-          "nome": "HISTÓRIA DA FILOSOFIA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0049",
-          "nome": "HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0050",
-          "nome": "HISTÓRIA DA FILOSOFIA NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0053",
-          "nome": "TEORIA DO CONHECIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0059",
-          "nome": "TEORIA DA CIÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0062",
-          "nome": "FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0063",
-          "nome": "ANTROPOLOGIA FILOSÓFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0064",
-          "nome": "ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0065",
-          "nome": "FILOSOFIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0077",
-          "nome": "INICIAÇÃO À METODOLOGIA CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0082",
-          "nome": "FILOSOFIA SOCIAL E POLITICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0087",
-          "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0088",
-          "nome": "HERMENEUTICA FILOSOFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0107",
-          "nome": "HISTORIA DA CIENCIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0114",
-          "nome": "HISTORIA DA FILOSOFIA ANTIGA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0115",
-          "nome": "HISTORIA DA FILOSOFIA MEDIEVAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0116",
-          "nome": "HISTORIA DA FILOSOFIA MODERNA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0117",
-          "nome": "HISTÓRIA DA FILOSOFIA CONTEMPORÂNEA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0124",
-          "nome": "FILOSOFIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0127",
-          "nome": "FILOSOFIA MARXISTA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0129",
-          "nome": "DIALETICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0134",
-          "nome": "MITO E FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0136",
-          "nome": "FILOSOFIA DA RELIGIÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0156",
-          "nome": "HISTORIA DA CIENCIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0175",
-          "nome": "EPISTEMOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0176",
-          "nome": "FILOSOFIA POLÍTICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0177",
-          "nome": "FILOSOFIA MEDIEVAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0180",
-          "nome": "FILOSOFIA ANTIGA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0181",
-          "nome": "FILOSOFIA MODERNA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0182",
-          "nome": "ESTÉTICA E FILOSOFIA DA ARTE",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FIL0183",
-          "nome": "FILOSOFIA DA CIÊNCIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0004",
-          "nome": "URBANIZAÇÃO NA AMÉRICA LATINA E CARIBE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0012",
-          "nome": "GEOGRAFIA AGRARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0014",
-          "nome": "REGIONALIZAÇÃO DO ESPAÇO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0018",
-          "nome": "GEOGRAFIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0032",
-          "nome": "GEOGRAFIA URBANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0039",
-          "nome": "GEOGRAFIA HUMANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0041",
-          "nome": "GEOGRAFIA HUMANA E ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0042",
-          "nome": "CARTOGRAFIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0044",
-          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEA0051",
-          "nome": "INTRODUCAO A CIENCIA GEOGRAFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEM0014",
-          "nome": "GENETICA BASICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "GEM0015",
-          "nome": "GENETICA HUMANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0012",
-          "nome": "TÓPICO ESPECIAL EM TEORIA DA HISTÓRIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0013",
-          "nome": "TÓPICO ESPECIAL EM METODOLOGIA DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0015",
-          "nome": "HISTÓRIA E HISTORIOGRAFIA ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0020",
-          "nome": "HISTÓRIA E HISTORIOGRAFIA DA ESCRAVIDÃO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0022",
-          "nome": "LABORATÓRIO DE ENSINO DE HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0024",
-          "nome": "HISTÓRIA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0025",
-          "nome": "HISTÓRIA ECONÔMICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0028",
-          "nome": "PRÁTICA DE PESQUISA HISTÓRICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0029",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0030",
-          "nome": "PALEOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0031",
-          "nome": "TÓPICOS ESPECIAIS EM TEORIA DA HISTÓRIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0032",
-          "nome": "TÓPICOS ESPECIAIS EM TEORIA DA HISTÓRIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0036",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA ÁFRICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0037",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA ÁFRICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0038",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA AMÉRICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0039",
-          "nome": "HISTÓRIA E ARQUEOLOGIA DOS VASOS GREGOS ANTIGOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0040",
-          "nome": "HISTÓRIA E HISTORIOGRAFIA ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0041",
-          "nome": "TÓPICOS ESPECIAIS EM ANTIGUIDADE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0042",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0043",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0044",
-          "nome": "HISTÓRIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0045",
-          "nome": "HISTÓRIA CULTURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0046",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0047",
-          "nome": "DIVULGAÇÃO CIENTÍFICA & HISTÓRIA PÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0048",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA CONTEMPORÂNEA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0049",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA CONTEMPORÂNEA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0050",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA CONTEMPORÂNEA 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0051",
-          "nome": "TÓPICO ESPECIAL EM HISTÓRIA MEDIEVAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0052",
-          "nome": "TÓPICO ESPECIAL EM HISTÓRIA MEDIEVAL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0053",
-          "nome": "LEITURA E INTERPRETAÇÃO DE DOCUMENTOS DA ÉPOCA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0061",
-          "nome": "TÓPICOS ESPECIAIS EM ANTIGUIDADE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0063",
-          "nome": "TÓPICOS ESPECIAIS EM ANTIGUIDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0070",
-          "nome": "TÓPICO ESPECIAL EM HISTÓRIA MODERNA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0072",
-          "nome": "TÓPICO ESPECIAL EM HISTÓRIA MODERNA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0079",
-          "nome": "TÓPICO ESPECIAL EM HISTÓRIA DAS IDEIAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0110",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA GERAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0121",
-          "nome": "HISTÓRIA DOS PARTIDOS POLÍTICOS NA REPÚBLICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0123",
-          "nome": "HISTÓRIA DO EXTREMO ORIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0126",
-          "nome": "HISTÓRIA DA AMÉRICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AMERICA 3",
+          "ch": "60"
         },
         {
-          "codigo": "HIS0140",
-          "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "HIS0129",
+          "nome": "HISTORIA DO BRASIL 4",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0028",
+          "nome": "PRATICA DE PESQUISA HISTORICA",
+          "ch": "90"
         },
         {
-          "codigo": "HIS0150",
-          "nome": "HISTÓRIA REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0152",
-          "nome": "HISTÓRIA DA AMAZÔNIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0157",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA AMÉRICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0158",
-          "nome": "HISTÓRIA DA AMÉRICA NÃO IBÉRICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0159",
-          "nome": "HISTÓRIA DA ÁFRICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0167",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA MODERNA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0172",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0174",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA CONTEMPORÂNEA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0176",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA CONTEMPORÂNEA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0179",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA MEDIEVAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0186",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0188",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA AMÉRICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0190",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DA AMÉRICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0196",
-          "nome": "HISTÓRIA E HISTORIOGRAFIA DAS MULHERES NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0197",
-          "nome": "HISTÓRIA: NATUREZA E CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0199",
-          "nome": "TÓPICO ESPECIAL EM ENSINO DE HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0202",
-          "nome": "HISTÓRIA DAS IDEIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0203",
-          "nome": "HISTÓRIA E HISTORIOGRAFIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0207",
-          "nome": "HISTÓRIA E HISTORIOGRAFIA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "HIS0211",
-          "nome": "LABORATÓRIO DE ENSINO DE HISTÓRIA INDÍGENA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "HIS0033",
+          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "120"
         },
         {
           "codigo": "HIS0212",
           "nome": "HISTORIOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0034",
+          "nome": "PESQUISA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0035",
+          "nome": "ESCRITA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "BRASIL",
+          "nome": "60H OPTATIVA CEM0025 - IMAGEM E PESQUISA HISTORICA-HISTORIA ORAL E FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0094",
+          "nome": "IMAGEM PESQUISA HISTORICA-VIDEO E HISTORIA ORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0096",
+          "nome": "IMAGEM, ORALIDADE E PATRIMONIO HISTORICO-CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0102",
+          "nome": "IDENTIDADE DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0103",
+          "nome": "DISCURSO E MULHER",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0106",
+          "nome": "ORGANIZACAO DO ESPACO E CIDADANIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0111",
+          "nome": "ESTUDOS E PESQUISAS PARA A PAZ",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0112",
+          "nome": "LITERATURA HISPANO-AMERICANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0036",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0049",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0132",
+          "nome": "ELEMENTO DE LINGUAGEM, ARTE E CULTURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0138",
+          "nome": "TEATRO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0064",
+          "nome": "INTRODUCAO A SISTEMAS DE INFORMACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0092",
+          "nome": "ORGANIZACAO DE ARQUIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0097",
+          "nome": "BANCOS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0142",
+          "nome": "INFORMATICA E SOCIEDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAN0024",
+          "nome": "MULHER, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0036",
+          "nome": "SOCIEDADES COMPLEXAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0042",
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0043",
+          "nome": "ANTROPOLOGIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0046",
+          "nome": "ANTROPOLOGIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0047",
+          "nome": "ANTROPOLOGIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0049",
+          "nome": "INDIVIDUO, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0050",
+          "nome": "ORGANIZACAO SOCIAL E PARENTESCO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0052",
+          "nome": "CULTURA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0056",
+          "nome": "ANTROPOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0058",
+          "nome": "IDENTIDADE E RELACOES INTERETNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0060",
+          "nome": "TRADICOES CULTURAIS BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0062",
+          "nome": "SOCIEDADES CAMPONESAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0063",
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0077",
+          "nome": "PENSAMENTO ANTROPOLOGICO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0078",
+          "nome": "ANTROPOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0002",
+          "nome": "HISTORIA DA PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0015",
+          "nome": "CINEMA E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0022",
+          "nome": "TENDENCIAS DO CINEMA E DA TELEVISAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0083",
+          "nome": "ANALISE DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0020",
+          "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0024",
+          "nome": "ETOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "ECL0030",
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0025",
+          "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0027",
+          "nome": "ANALISE MICROECONOMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0032",
+          "nome": "ANALISE MACROECONOMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0124",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0147",
+          "nome": "CONJUNTURA ECONOMICA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0150",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA ECONOMICA DO BRASIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0159",
+          "nome": "ECONOMIA DO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0030",
+          "nome": "ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0033",
+          "nome": "ESTATISTICA EXPLORATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0034",
+          "nome": "ANALISE ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0036",
+          "nome": "TECNICAS DE AMOSTRAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0046",
+          "nome": "DEMOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0070",
+          "nome": "METODOS ESTATISTICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0019",
+          "nome": "POLITICAS CULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0020",
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0075",
+          "nome": "EMBRIOLOGIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0024",
+          "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0049",
+          "nome": "BIBLIOTECONOMIA E SOCIEDADE BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0053",
+          "nome": "CONTROLE BIBLIOGRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0071",
+          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0002",
+          "nome": "HISTORIA DO DIREITO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0013",
+          "nome": "SOCIOLOGIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0021",
+          "nome": "DIREITO CONSTITUCIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0131",
+          "nome": "DIREITO ROMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0153",
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0205",
+          "nome": "INTRODUCAO AO ESTUDO DO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0207",
+          "nome": "DIREITO ROMANO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0210",
+          "nome": "TEORIA GERAL DO ESTADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0212",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0214",
+          "nome": "SOCIOLOGIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0216",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0218",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0242",
+          "nome": "HISTORIA DO DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0249",
+          "nome": "TEORIA GERAL DO ESTADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0271",
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0003",
+          "nome": "FILOSOFIA CONTEMPORANEA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0007",
+          "nome": "FILOSOFIA GERAL E METAFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0034",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0039",
+          "nome": "HISTORIA DA FILOSOFIA MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0044",
+          "nome": "HISTORIA DA FILOSOFIA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0049",
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0050",
+          "nome": "HISTORIA DA FILOSOFIA NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0062",
+          "nome": "FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0063",
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0065",
+          "nome": "FILOSOFIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0082",
+          "nome": "FILOSOFIA SOCIAL E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0087",
+          "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0088",
+          "nome": "HERMENEUTICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0107",
+          "nome": "HISTORIA DA CIENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0114",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0115",
+          "nome": "HISTORIA DA FILOSOFIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0116",
+          "nome": "HISTORIA DA FILOSOFIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0117",
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0124",
+          "nome": "FILOSOFIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0127",
+          "nome": "FILOSOFIA MARXISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0129",
+          "nome": "DIALETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0134",
+          "nome": "MITO E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0136",
+          "nome": "FILOSOFIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0156",
+          "nome": "HISTORIA DA CIENCIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0175",
+          "nome": "EPISTEMOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0176",
+          "nome": "FILOSOFIA POLITICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0177",
+          "nome": "FILOSOFIA MEDIEVAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0180",
+          "nome": "FILOSOFIA ANTIGA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0181",
+          "nome": "FILOSOFIA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0182",
+          "nome": "ESTETICA E FILOSOFIA DA ARTE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0183",
+          "nome": "FILOSOFIA DA CIENCIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0445",
+          "nome": "FUNDAMENTOS DE PSICOPATOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0447",
+          "nome": "PSICOLOGIA MEDICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FUP0285",
+          "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0357",
+          "nome": "CIENCIAS AMBIENTAIS E SUA MULTIDISCIPLINARIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0358",
+          "nome": "SOCIEDADE E NATUREZA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0359",
+          "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0004",
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0010",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0012",
+          "nome": "GEOGRAFIA AGRARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0014",
+          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0017",
+          "nome": "GEOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0018",
+          "nome": "GEOGRAFIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0032",
+          "nome": "GEOGRAFIA URBANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0043",
+          "nome": "CARTOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0051",
+          "nome": "INTRODUCAO A CIENCIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0089",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0007",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
+          "ch": "165"
+        },
+        {
+          "codigo": "HIS0012",
+          "nome": "TOPICO ESPECIAL EM TEORIA DA HISTORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0013",
+          "nome": "TOPICO ESPECIAL EM METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0015",
+          "nome": "HISTORIA E HISTORIOGRAFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0020",
+          "nome": "HISTORIA E HISTORIOGRAFIA DA ESCRAVIDAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0022",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0024",
+          "nome": "HISTORIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0025",
+          "nome": "HISTORIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0029",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0030",
+          "nome": "PALEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0031",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DA HISTORIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0032",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DA HISTORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0036",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0037",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0038",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0039",
+          "nome": "HISTORIA E ARQUEOLOGIA DOS VASOS GREGOS ANTIGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0040",
+          "nome": "HISTORIA E HISTORIOGRAFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0041",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0042",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0043",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0044",
+          "nome": "HISTORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0045",
+          "nome": "HISTORIA CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0046",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0047",
+          "nome": "DIVULGACAO CIENTIFICA & HISTORIA PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0048",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0049",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0050",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0051",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0052",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MEDIEVAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0053",
+          "nome": "LEITURA E INTERPRETACAO DE DOCUMENTOS DA EPOCA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0061",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0063",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0070",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0072",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MODERNA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0121",
+          "nome": "HISTORIA DOS PARTIDOS POLITICOS NA REPUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0152",
+          "nome": "HISTORIA DA AMAZONIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0157",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0172",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0174",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0176",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0179",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0186",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0188",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0190",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0196",
+          "nome": "HISTORIA E HISTORIOGRAFIA DAS MULHERES NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0197",
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0199",
+          "nome": "TOPICO ESPECIAL EM ENSINO DE HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0201",
+          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0202",
+          "nome": "HISTORIA DAS IDEIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0203",
+          "nome": "HISTORIA E HISTORIOGRAFIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0205",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "HIS0207",
+          "nome": "HISTORIA E HISTORIOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0210",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "HIS0211",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA INDIGENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0248",
+          "nome": "LEITURA E ANALISE DE DOCUMENTOS MEDIEVAIS 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0249",
-          "nome": "TÓPICO ESPECIAL EM TEORIA DA HISTÓRIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICO ESPECIAL EM TEORIA DA HISTORIA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0253",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0008",
+          "nome": "PREPARACAO TRABALHO FINAL - GEOFISICA",
+          "ch": "30"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0024",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0036",
+          "nome": "PETROLOGIA IGNEA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0041",
+          "nome": "GEOLOGIA ECONOMICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0047",
+          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
+          "ch": "90"
         },
         {
           "codigo": "IGD0049",
           "nome": "PALEONTOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0142",
+          "nome": "GEOQUIMICA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0147",
+          "nome": "MAPEAMENTO GEOLOGICO 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0151",
+          "nome": "MINERAIS E ROCHAS INDUSTRIAIS E RECURSOS MINERAIS ENERGETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0162",
+          "nome": "GEOQUIMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUCAO A MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0192",
+          "nome": "INTRODUCAO A FISICA DA TERRA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0195",
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0200",
+          "nome": "PETROLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0210",
+          "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0211",
+          "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0268",
+          "nome": "GEOLOGIA ESTRUTURAL 2 TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0272",
+          "nome": "PETROLOGIA IGNEA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0276",
+          "nome": "PETROLOGIA METAMORFICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0278",
+          "nome": "PETROLOGIA SEDIMENTAR TEORICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0011",
+          "nome": "HISTORIA DA POLITICA EXTERIOR DO BRASIL",
+          "ch": "90"
         },
         {
           "codigo": "IRI0012",
-          "nome": "HISTÓRIA DAS RELAÇÕES INTERNACIONAIS CONTEMPORÂNEAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS CONTEMPORANEAS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0013",
-          "nome": "INTRODUÇÃO AO ESTUDO DAS RELAÇÕES INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0015",
-          "nome": "TEORIA DAS RELAÇÕES INTERNACIONAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
         },
         {
           "codigo": "IRI0023",
-          "nome": "POLÍTICA EXTERNA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA EXTERNA BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "IRI0045",
-          "nome": "POLÍTICA EXTERNA DAS GRANDES POTÊNCIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA EXTERNA DAS GRANDES POTENCIAS",
+          "ch": "60"
         },
         {
           "codigo": "IRI0047",
-          "nome": "GEOPOLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "GEOPOLITICA",
+          "ch": "60"
         },
         {
           "codigo": "IRI0065",
-          "nome": "RELAÇÕES ECONÔMICAS INTERNACIONAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0066",
+          "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0168",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0169",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
         },
         {
           "codigo": "JOR0045",
-          "nome": "TEORIAS DA COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0050",
           "nome": "HISTORIA DA IMPRENSA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0078",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "LET0044",
           "nome": "LINGUA ALEMA INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0046",
+          "nome": "LABORATORIO DE TEXTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0048",
+          "nome": "LABORATORIO DE TEXTO 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0059",
           "nome": "CULTURA E INSTITUICOES INGLESAS 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "LET0060",
           "nome": "CIVILIZACAO DE PAISES FRANCOFONOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "LET0064",
           "nome": "CULTURA E INSTITUICOES NORTE AMERICANAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0067",
           "nome": "CULTURA ALEMA 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "LET0068",
           "nome": "CULTURA ALEMA 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "LET0069",
           "nome": "CULTURA DOS PAISES DE LINGUA ALEMA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0072",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0073",
+          "nome": "JAPONES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0074",
+          "nome": "JAPONES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0075",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0077",
           "nome": "LINGUA FRANCESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0084",
-          "nome": "LÍNGUA INGLESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0085",
-          "nome": "LÍNGUA INGLESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0101",
-          "nome": "LÍNGUA ALEMÃ 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0102",
           "nome": "LINGUA ALEMA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0103",
           "nome": "LINGUA ALEMA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0104",
+          "nome": "LINGUA ALEMA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0107",
+          "nome": "LINGUA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0108",
+          "nome": "LINGUA JAPONESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0109",
+          "nome": "LINGUA JAPONESA 4",
+          "ch": "60"
         },
         {
           "codigo": "LET0116",
           "nome": "LINGUA ALEMA INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0118",
-          "nome": "LÍNGUA ESPANHOLA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0120",
-          "nome": "LÍNGUA ESPANHOLA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0243",
           "nome": "CULTURA JAPONESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0307",
+          "nome": "CIVILIZACAO ESPANHOLA",
+          "ch": "60"
         },
         {
           "codigo": "LET0323",
           "nome": "PRATICA DO FRANCES ORAL E ESCRITO 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "LET0324",
-          "nome": "PRÁTICA DO FRANCÊS ORAL E ESCRITO 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
+          "ch": "90"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0332",
           "nome": "CULTURA JAPONESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0338",
+          "nome": "LINGUA ITALIANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0340",
+          "nome": "CIVILIZACAO HISPANO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0360",
+          "nome": "JAPONES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0361",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0363",
+          "nome": "JAPONES 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0365",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 4",
+          "ch": "60"
         },
         {
           "codigo": "LET0376",
           "nome": "LINGUA CHINESA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LET0377",
-          "nome": "LÍNGUA CHINESA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0379",
+          "nome": "LINGUA ITALIANA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0380",
+          "nome": "LINGUA ITALIANA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0381",
+          "nome": "JAPONES - EXPRESSAO ORAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0384",
+          "nome": "JAPONES - EXPRESSAO ESCRITA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0388",
+          "nome": "PERSA 1 - FARSI  1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0389",
+          "nome": "GREGO MODERNO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0391",
+          "nome": "PERSA 2 - FARSI 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0392",
+          "nome": "GREGO MODERNO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0393",
+          "nome": "IRANOLOGIA - CULTURA IRANIANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0400",
+          "nome": "LINGUA ARABE 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0431",
-          "nome": "FRANCÊS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 1",
+          "ch": "60"
         },
         {
           "codigo": "LET0432",
-          "nome": "FRANCÊS 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0433",
-          "nome": "FRANCÊS 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FRANCES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0001",
+          "nome": "ESTUDOS DE TRADUCAO DE PROSA GREGA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0002",
+          "nome": "ESTUDOS DE TRADUCAO DA POESIA GREGA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0037",
+          "nome": "LINGUA PORTUGUESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0038",
+          "nome": "LINGUA PORTUGUESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0039",
+          "nome": "LINGUA PORTUGUESA 3",
+          "ch": "60"
         },
         {
           "codigo": "LIP0045",
-          "nome": "INTRODUÇÃO À LINGUÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
         },
         {
           "codigo": "LIP0061",
           "nome": "LATIM 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0063",
           "nome": "LATIM 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0065",
           "nome": "LATIM 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0067",
+          "nome": "LATIM 3",
+          "ch": "60"
         },
         {
           "codigo": "LIP0069",
           "nome": "LATIM 5",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0071",
+          "nome": "LATIM 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0078",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0083",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 2",
+          "ch": "60"
         },
         {
           "codigo": "LIP0085",
           "nome": "OFICINA DE PRODUCAO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0094",
+          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0095",
+          "nome": "INTRODUCAO A ANALISE DO DISCURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0099",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
+          "ch": "60"
         },
         {
           "codigo": "LIP0107",
           "nome": "GREGO 6",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0109",
           "nome": "GREGO 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0110",
           "nome": "GREGO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "LIP0113",
           "nome": "GREGO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0131",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0135",
+          "nome": "HISTORIA DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0152",
+          "nome": "PORTUGUES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0154",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
         },
         {
           "codigo": "MTC0013",
-          "nome": "DIDÁTICA 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "DIDATICA 2",
+          "ch": "90"
         },
         {
           "codigo": "MTC0017",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0018",
           "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0021",
-          "nome": "CURRÍCULO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CURRICULO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0022",
           "nome": "CURRICULOS E PROGRAMAS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0027",
           "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0028",
           "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MTC0029",
           "nome": "ENSINO SUPLETIVO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "MTC0030",
-          "nome": "ENSINO SUPLETIVO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0035",
-          "nome": "AVALIAÇÃO ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0039",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
         },
         {
           "codigo": "MTC0059",
-          "nome": "ENSINO DE HISTÓRIA, IDENTIDADE E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "MTC0073",
           "nome": "PRODUCAO E LEITURA DA IMAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0076",
+          "nome": "EDUCACAO A DISTANCIA",
+          "ch": "60"
         },
         {
           "codigo": "MTC0077",
           "nome": "EDUCACAO COMUNITARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0089",
+          "nome": "OFICINA DE AUDIOVISUAIS NA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0101",
-          "nome": "LITERATURA E EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0136",
+          "nome": "PESQUISA EM EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0138",
+          "nome": "EDUCACAO E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0143",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0147",
+          "nome": "PRATICA DOCENTE E LINGUAGENS CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0156",
+          "nome": "OFICINAS DE ENSINO DE HISTORIA - LUGARES DE MEMORIA DO DF",
+          "ch": "60"
         },
         {
           "codigo": "MUS0236",
-          "nome": "MÚSICA E SOCIEDADE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSICA E SOCIEDADE 1",
+          "ch": "60"
         },
         {
           "codigo": "PAD0011",
           "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PAD0017",
           "nome": "LEGISLACAO DO ENSINO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0018",
           "nome": "LEGISLACAO DO ENSINO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "PAD0019",
-          "nome": "HIGIENE ESCOLAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PAD0022",
           "nome": "PLANEJAMENTO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0074",
+          "nome": "ORGANIZACAO DA EDUCACAO NO DISTRITO FEDERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0020",
+          "nome": "ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0025",
+          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0027",
+          "nome": "TEORIAS PSICANALITICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0043",
+          "nome": "PSICODRAMA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0061",
+          "nome": "FUNDAMENTOS DA PSICOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0025",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0027",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
         },
         {
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PED0071",
-          "nome": "PSICOLOGIA: CURSO E PROFISSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA: CURSO E PROFISSAO",
+          "ch": "60"
         },
         {
           "codigo": "POL0010",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA LATINO-AMERICANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA LATINO-AMERICANA",
+          "ch": "60"
         },
         {
           "codigo": "POL0011",
-          "nome": "INTRODUÇÃO À CIÊNCIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0012",
-          "nome": "TEORIA POLÍTICA MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
         },
         {
           "codigo": "POL0013",
-          "nome": "TEORIA POLÍTICA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "POL0015",
-          "nome": "ELITES POLÍTICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
         },
         {
           "codigo": "POL0017",
-          "nome": "POLÍTICA BRASILEIRA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
         },
         {
           "codigo": "POL0019",
-          "nome": "POLÍTICA E SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "POL0021",
-          "nome": "TÓPICOS ESPECIAIS EM CIÊNCIA POLÍTICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 1",
+          "ch": "60"
         },
         {
           "codigo": "POL0022",
-          "nome": "COMPORTAMENTO POLÍTICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPORTAMENTO POLITICO",
+          "ch": "60"
         },
         {
           "codigo": "POL0030",
-          "nome": "ANÁLISE POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ANALISE POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0032",
-          "nome": "POLÍTICA BRASILEIRA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA BRASILEIRA 2",
+          "ch": "60"
         },
         {
           "codigo": "POL0033",
-          "nome": "TEORIA POLÍTICA CLÁSSICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA POLITICA CLASSICA",
+          "ch": "60"
         },
         {
           "codigo": "POL0035",
-          "nome": "POLÍTICA REGIONAL AFRICANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA REGIONAL AFRICANA",
+          "ch": "60"
         },
         {
           "codigo": "POL0036",
-          "nome": "PENSAMENTO POLÍTICO LATINO-AMERICANO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO POLITICO LATINO-AMERICANO",
+          "ch": "60"
         },
         {
           "codigo": "POL0037",
-          "nome": "PARTIDOS POLÍTICOS E SISTEMAS ELEITORAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PARTIDOS POLITICOS E SISTEMAS ELEITORAIS",
+          "ch": "60"
         },
         {
           "codigo": "POL0042",
-          "nome": "POLÍTICA E MOVIMENTOS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E MOVIMENTOS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "POL0046",
-          "nome": "PENSAMENTO POLÍTICO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO POLITICO NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "POL0047",
           "nome": "ESTRUTURA DO PODER NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "POL0048",
-          "nome": "POLÍTICA E ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA E ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "POL0049",
-          "nome": "MUDANÇA POLÍTICA NA AMÉRICA DO SUL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUDANCA POLITICA NA AMERICA DO SUL",
+          "ch": "60"
         },
         {
           "codigo": "POL0050",
-          "nome": "MUDANÇA POLÍTICA NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUDANCA POLITICA NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "POL0051",
           "nome": "ESTADO E DESENVOLVIMENTO NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "POL0055",
-          "nome": "FUNDAMENTOS DE POLÍTICAS PÚBLICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
         },
         {
           "codigo": "POL0059",
-          "nome": "TEORIA E MÉTODOS MARXISTAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA E METODOS MARXISTAS",
+          "ch": "60"
         },
         {
           "codigo": "POL0060",
-          "nome": "POLÍTICAS PÚBLICAS E TEORIA POLÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS PUBLICAS E TEORIA POLITICA",
+          "ch": "60"
         },
         {
           "codigo": "PPB0014",
-          "nome": "INTRODUÇÃO À PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
         },
         {
           "codigo": "PPB0021",
           "nome": "HISTORIA  DA PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PPB0041",
           "nome": "FILOSOFIA DA PSICOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "PST0011",
           "nome": "PSICOLOGIA SOCIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0015",
-          "nome": "POLÍTICA SOCIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
         },
         {
           "codigo": "SER0031",
           "nome": "ANALISE DE POLITICAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0033",
           "nome": "MOVIMENTOS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SER0068",
-          "nome": "INFÂNCIA, ADOLESCÊNCIA E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "SER0071",
-          "nome": "POLÍTICA SOCIAL - EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
         },
         {
           "codigo": "SER0074",
-          "nome": "POLÍTICA SOCIAL - TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICA SOCIAL - TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0037",
+          "nome": "SOCIOLOGIA BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0045",
+          "nome": "TEORIA SOCIOLOGICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0053",
+          "nome": "TEORIAS DA SOCIALIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0058",
+          "nome": "SOCIOLOGIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0063",
+          "nome": "ESTRUTURA DE CLASSES E ESTRATIFICACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0080",
+          "nome": "SOCIOLOGIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0089",
+          "nome": "SOCIOLOGIA DA CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0092",
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0094",
+          "nome": "SOCIOLOGIA DA IDEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0097",
-          "nome": "MÉTODOS SOCIOLÓGICOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0099",
+          "nome": "DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0100",
+          "nome": "SOCIOLOGIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0101",
+          "nome": "SOCIOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0103",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
         },
         {
           "codigo": "SOL0105",
-          "nome": "TEORIAS SOCIOLÓGICAS MARXISTAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
         },
         {
           "codigo": "SOL0301",
-          "nome": "TEORIAS SOCIOLÓGICAS CLÁSSICAS I",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS I",
+          "ch": "60"
         },
         {
           "codigo": "TEF0009",
           "nome": "INTRODUCAO A EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0014",
           "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0016",
+          "nome": "HISTORIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0019",
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0021",
-          "nome": "FILOSOFIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0022",
           "nome": "FILOSOFIA DA EDUCACAO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0027",
-          "nome": "ORIENTAÇÃO EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "TEF0038",
           "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0041",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0046",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0092",
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0093",
+          "nome": "EDUCACAO DO CAMPO",
+          "ch": "60"
         },
         {
           "codigo": "TEF0095",
           "nome": "PRATICA EDUCACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0098",
+          "nome": "EDUCACAO/GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0136",
+          "nome": "PSICOLOGIA SOCIAL NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0145",
+          "nome": "GENERO E EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "TEL0004",
-          "nome": "TRAGÉDIA GREGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TRAGEDIA GREGA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0008",
           "nome": "LITERATURA PORTUGUESA - RENASCIMENTO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0009",
           "nome": "LITERATURA PORTUGUESA - MEDIEVALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0021",
           "nome": "LITERATURA BRASILEIRA - ROMANTISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0022",
           "nome": "LITERATURA BRASILEIRA - REALISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0023",
           "nome": "LITERATURA BRASILEIRA - MODERNISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0024",
           "nome": "LITERATURA BRASILEIRA - BARROCO E ARCADISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0026",
-          "nome": "LITERATURA BRASILEIRA CONTEMPORÂNEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0029",
           "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0037",
+          "nome": "LITERATURA DE LINGUA FRANCESA 1",
+          "ch": "60"
         },
         {
           "codigo": "TEL0051",
           "nome": "LITERATURA GREGA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0056",
           "nome": "LITERATURA AFRICANA EM LINGUA PORTUGUESA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0060",
+          "nome": "TEORIA DA NARRATIVA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0067",
           "nome": "LITERATURA HISPANO-AMERICANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0068",
           "nome": "LITERATURA HISPANO-AMERICANA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0069",
           "nome": "LITERATURA HISPANO-AMERICANA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0070",
           "nome": "LITERATURA HISPANO - AMERICANA 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0109",
+          "nome": "FUNDAMENTOS DA LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
         },
         {
           "codigo": "TEL0110",
           "nome": "CULTURA CLASSICA 1 - GRECIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "TEL0111",
           "nome": "CULTURA CLASSICA 2 - ROMA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0114",
+          "nome": "LITERATURA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0115",
+          "nome": "LITERATURA JAPONESA 2",
+          "ch": "60"
         },
         {
           "codigo": "VIS0060",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
         },
         {
           "codigo": "VIS0061",
           "nome": "HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0114",
           "nome": "HISTORIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0141",
+          "nome": "HISTORIA DA ARTE ANTIGA",
+          "ch": "60"
         },
         {
           "codigo": "VIS0189",
           "nome": "HISTORIA DA ARTE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0190",
           "nome": "HISTORIA DA ARTE 4",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0253",
+          "nome": "HISTORIA DA ARTE MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0254",
+          "nome": "HISTORIA DA ARTE MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0255",
+          "nome": "HISTORIA DA ARTE CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0256",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0250",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0252",
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0090",
+          "nome": "HISTORIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0091",
+          "nome": "HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0099",
+          "nome": "HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0138",
+          "nome": "HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0095",
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0251",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0107",
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0126",
+          "nome": "HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0129",
+          "nome": "HISTORIA DO BRASIL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0028",
+          "nome": "PRATICA DE PESQUISA HISTORICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0033",
+          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "120"
+        },
+        {
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0034",
+          "nome": "PESQUISA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0035",
+          "nome": "ESCRITA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "90"
         }
       ]
     }

@@ -3,1456 +3,1317 @@
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FCI0013",
-          "nome": "INTRODUÇÃO À MUSEOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0023",
           "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "HIS0084",
-          "nome": "INTRODUÇÃO AO ESTUDO DA HISTÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
         },
         {
           "codigo": "VIS0129",
           "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FCI0014",
           "nome": "MUSEOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "VIS0256",
-          "nome": "HISTÓRIA DA ARTE NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FCI0015",
           "nome": "MUSEOLOGIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCI0017",
-          "nome": "MUSEOLOGIA E COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA E COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0140",
           "nome": "CULTURA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "DAN0052",
           "nome": "CULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FCI0016",
           "nome": "MUSEOLOGIA 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FCI0018",
-          "nome": "MUSEOLOGIA E COMUNICAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA E COMUNICACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "FCI0046",
           "nome": "ANALISE DA INFORMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "HIS0150",
-          "nome": "HISTÓRIA REGIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "FCI0019",
-          "nome": "MUSEOLOGIA E COMUNICAÇÃO 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA E COMUNICACAO 3",
+          "ch": "60"
         },
         {
           "codigo": "FCI0035",
-          "nome": "INFORMAÇÃO E DOCUMENTAÇÃO MUSEOLÓGICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INFORMACAO E DOCUMENTACAO MUSEOLOGICA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0041",
-          "nome": "MUSEOLOGIA PATRIMONIO MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA PATRIMONIO MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0071",
           "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "DAN0063",
-          "nome": "SOCIEDADES INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "FCI0020",
-          "nome": "MUSEOLOGIA E COMUNICAÇÃO 4",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA E COMUNICACAO 4",
+          "ch": "60"
         },
         {
           "codigo": "FCI0037",
-          "nome": "ESTÁGIO SUPERVISIONADO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
         },
         {
           "codigo": "FCI0042",
-          "nome": "MUSEOLOGIA E PRESERVAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA E PRESERVACAO 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "FCI0022",
-          "nome": "MUSEOLOGIA E PRESERVAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MUSEOLOGIA E PRESERVACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "FCI0036",
-          "nome": "GESTÃO DE MUSEUS E POLÍTICAS DE ACERVOS MUSEOLÓGICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE MUSEUS E POLITICAS DE ACERVOS MUSEOLOGICOS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0038",
-          "nome": "ESTÁGIO SUPERVISIONADO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
         },
         {
           "codigo": "FCI0039",
-          "nome": "INTRODUÇÃO AO TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AO TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "FCI0040",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "DAN0043",
-          "nome": "ANTROPOLOGIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0052",
-          "nome": "CULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0061",
-          "nome": "ESTUDOS AFRO-BRASILEIROS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0077",
-          "nome": "PENSAMENTO ANTROPOLÓGICO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0062",
-          "nome": "SOCIEDADES CAMPONESAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0063",
-          "nome": "SOCIEDADES INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "DAN0060",
-          "nome": "TRADIÇÕES CULTURAIS BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "BOT0056",
-          "nome": "ETNOBOTÂNICA DO CERRADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA BOT0056 - ETNOBOTANICA DO CERRADO",
+          "ch": "60"
         },
         {
           "codigo": "BOT0066",
-          "nome": "BOTÂNICA DOS BIOMAS BRASILEIROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "BOTANICA DOS BIOMAS BRASILEIROS",
+          "ch": "60"
         },
         {
           "codigo": "CEL0113",
-          "nome": "COMPUTAÇÃO GRÁFICA APLICADA A ILUSTRAÇÃO CIENTÍFICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPUTACAO GRAFICA APLICADA A ILUSTRACAO CIENTIFICA 1",
+          "ch": "60"
         },
         {
           "codigo": "CEL0114",
-          "nome": "COMPUTAÇÃO GRÁFICA APLICADA A ILUSTRAÇÃO CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPUTACAO GRAFICA APLICADA A ILUSTRACAO CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "CEM0097",
           "nome": "DIREITOS HUMANOS E CIDADANIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CEN0030",
-          "nome": "ELEMENTOS DE LINGUAGEM, ESTÉTICA E HISTÓRIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
         },
         {
           "codigo": "CEN0031",
           "nome": "OFICINA BASICA DE ARTES CENICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
         },
         {
           "codigo": "CIC0069",
           "nome": "INTRODUCAO AO PROCESSAMENTO DE DADOS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "CIC0152",
           "nome": "INTRODUCAO A MICROINFORMATICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0041",
-          "nome": "TEORIA ANTROPOLÓGICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
         },
         {
           "codigo": "DAN0043",
           "nome": "ANTROPOLOGIA DA ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0060",
-          "nome": "TRADIÇÕES CULTURAIS BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TRADICOES CULTURAIS BRASILEIRAS",
+          "ch": "60"
         },
         {
           "codigo": "DAN0061",
           "nome": "ESTUDOS AFRO-BRASILEIROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0062",
           "nome": "SOCIEDADES CAMPONESAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0077",
-          "nome": "PENSAMENTO ANTROPOLÓGICO BRASILEIRO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PENSAMENTO ANTROPOLOGICO BRASILEIRO",
+          "ch": "60"
         },
         {
           "codigo": "DAP0042",
-          "nome": "DOCUMENTÁRIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "DOCUMENTARIO 2",
+          "ch": "60"
         },
         {
           "codigo": "DAP0079",
-          "nome": "INTRODUÇÃO A FOTOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "DAP0096",
-          "nome": "OFICINA BÁSICA DE AUDIOVISUAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
         },
         {
           "codigo": "DAP0097",
-          "nome": "LEITURA DOS MEIOS DE COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "LEITURA DOS MEIOS DE COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "DAP0098",
-          "nome": "INTRODUÇÃO A PUBLICIDADE E PROPAGANDA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A PUBLICIDADE E PROPAGANDA",
+          "ch": "30"
         },
         {
           "codigo": "DAP0101",
-          "nome": "FUNDAMENTOS DE COMUNICAÇÃO VISUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
         },
         {
           "codigo": "DAP0119",
-          "nome": "SEMINÁRIOS AVANÇADOS EM AUDIOVISUAL 2",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS AVANCADOS EM AUDIOVISUAL 2",
+          "ch": "30"
         },
         {
           "codigo": "DAP0129",
-          "nome": "SEMINÁRIOS AVANÇADOS EM ÁUDIOVISUAL 1",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIOS AVANCADOS EM AUDIOVISUAL 1",
+          "ch": "30"
         },
         {
           "codigo": "DEG0200",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "ch": "15"
         },
         {
           "codigo": "DEG0201",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "DEG0202",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "DEG0203",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DEG0205",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DEG0206",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "ch": "120"
         },
         {
           "codigo": "DEG0207",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "ch": "150"
         },
         {
           "codigo": "DEG0208",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "ch": "180"
         },
         {
           "codigo": "DEG0209",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "210h",
-          "natureza": "Optativa"
+          "ch": "210"
         },
         {
           "codigo": "DEG0210",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "ch": "240"
         },
         {
           "codigo": "DEG0211",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "ch": "270"
         },
         {
           "codigo": "DEG0212",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "ch": "300"
         },
         {
           "codigo": "DEG0213",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "ch": "330"
         },
         {
           "codigo": "DEG0214",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "ch": "360"
         },
         {
           "codigo": "DEG0215",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "ch": "390"
         },
         {
           "codigo": "DEG0216",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "ch": "420"
         },
         {
           "codigo": "DEG0217",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "ch": "450"
         },
         {
           "codigo": "DEG0218",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "ch": "480"
         },
         {
           "codigo": "DEG0219",
           "nome": "ATIVIDADE COMPLEMENTAR",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "ch": "510"
         },
         {
           "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "15h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
         },
         {
           "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
         },
         {
           "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
         },
         {
           "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
         },
         {
           "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
         },
         {
           "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
         },
         {
           "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "150h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
         },
         {
           "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "180h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
         },
         {
           "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "240h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
         },
         {
           "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "270h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
         },
         {
           "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "300h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
         },
         {
           "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "330h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
         },
         {
           "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "360h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
         },
         {
           "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "390h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
         },
         {
           "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "420h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
         },
         {
           "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "450h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
         },
         {
           "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "480h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
         },
         {
           "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSÃO",
-          "carga_horaria": "510h",
-          "natureza": "Optativa"
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
         },
         {
           "codigo": "DIN0020",
           "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DIN0037",
           "nome": "DESENHO APLICADO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "DIN0046",
           "nome": "OFICINA DE MODELOS E MAQUETE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DIN0047",
           "nome": "FOTOGRAFIA E VIDEO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DIN0049",
           "nome": "INTRODUCAO AO DESIGN",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0014",
           "nome": "CIENCIAS DO AMBIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ECL0030",
-          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
         },
         {
           "codigo": "ECL0036",
-          "nome": "EDUCAÇÃO AMBIENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "ECL0042",
-          "nome": "MEIO AMBIENTE FÍSICO E ECOSSISTEMAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
         },
         {
           "codigo": "ECL0044",
-          "nome": "MÉTODOS EM ECOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "METODOS EM ECOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "EFL0076",
           "nome": "BIOLOGIA DA CONSERVACAO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ELA0013",
-          "nome": "INTRODUÇÃO À METODOLOGIA DAS CIÊNCIAS SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
         },
         {
           "codigo": "EST0019",
-          "nome": "ESTATÍSTICA APLICADA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
         },
         {
           "codigo": "FAC0016",
-          "nome": "ESTÉTICA E CULTURA DE MASSA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0003",
-          "nome": "ESTUDOS E PESQUISAS MUSEOLÓGICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ESTUDOS E PESQUISAS MUSEOLOGICAS",
+          "ch": "60"
         },
         {
           "codigo": "FCI0005",
-          "nome": "TÓPICOS ESPECIAIS EM MUSEOLOGIA APLICADA A ACERVOS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM MUSEOLOGIA APLICADA A ACERVOS 1",
+          "ch": "60"
         },
         {
           "codigo": "FCI0007",
-          "nome": "SEMINÁRIO EM MUSEOLOGIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SEMINARIO EM MUSEOLOGIA 1",
+          "ch": "60"
         },
         {
           "codigo": "FCI0009",
-          "nome": "AGENTES E AGÊNCIAS DO PATRIMÔNIO CULTURAL NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AGENTES E AGENCIAS DO PATRIMONIO CULTURAL NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "FCI0011",
-          "nome": "EDITORAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDITORACAO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0024",
           "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0025",
           "nome": "BIBLIOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0029",
           "nome": "CATALOGACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0030",
           "nome": "ORGANIZACAO E TRATAMENTO DE MATERIAIS ESPECIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0031",
           "nome": "CLASSIFICACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0043",
           "nome": "BIBLIOGRAFIA BRASILEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0045",
           "nome": "DOCUMENTACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0047",
           "nome": "REPROGRAFIA",
-          "carga_horaria": "45h",
-          "natureza": "Optativa"
+          "ch": "45"
         },
         {
           "codigo": "FCI0048",
           "nome": "ORGANIZACAO DO TRABALHO INTELECTUAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0052",
           "nome": "ESTUDO DE USUARIOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0053",
           "nome": "CONTROLE BIBLIOGRAFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0054",
           "nome": "LINGUAGENS DOCUMENTARIAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0056",
           "nome": "FORMACAO E DESENVOLVIMENTO DE ACERVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0059",
           "nome": "INDEXACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0061",
           "nome": "ELABORACAO E MANUTENCAO DE TESAUROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0062",
           "nome": "INTRODUCAO A ARQUIVOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0072",
           "nome": "NOTARIADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0079",
           "nome": "REDES DE INFORMACAO E TRANSFERENCIA DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0080",
           "nome": "PLANEJAMENTO E ELABORACAO DE BASES DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0082",
-          "nome": "USABILIDADE NA INTERAÇÃO HUMANO - COMPUTADOR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "USABILIDADE NA INTERACAO HUMANO - COMPUTADOR",
+          "ch": "60"
         },
         {
           "codigo": "FCI0083",
-          "nome": "ARQUIVO, CINEMA, INFORMAÇÃO E MEMÓRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ARQUIVO, CINEMA, INFORMACAO E MEMORIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0084",
-          "nome": "POLÍTICAS E PRÁTICAS DO PATRIMONIO CULTURAL NO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "POLITICAS E PRATICAS DO PATRIMONIO CULTURAL NO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "FCI0086",
           "nome": "MUSEU, MUSEOLOGIA E PESQUISA NA CONTEMPORANEIDADE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0087",
-          "nome": "EDUCAÇÃO PATRIMONIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO PATRIMONIAL",
+          "ch": "60"
         },
         {
           "codigo": "FCI0090",
-          "nome": "MUSEOLOGIA APLICADA A ACERVOS: NUMISMÁTICA E FILATELIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA APLICADA A ACERVOS: NUMISMATICA E FILATELIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0091",
-          "nome": "MUSEOLOGIA APLICADA A ACERVOS: MOBILIÁRIO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA APLICADA A ACERVOS: MOBILIARIO",
+          "ch": "60"
         },
         {
           "codigo": "FCI0092",
-          "nome": "MUSEOLOGIA APLICADA A ACERVOS: INDUMENTÁRIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA APLICADA A ACERVOS: INDUMENTARIA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0093",
-          "nome": "MUSEOLOGIA APLICADA A ACERVOS: HERÁLDICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA APLICADA A ACERVOS: HERALDICA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0095",
-          "nome": "MUSEOLOGIA APLICADA A ACERVOS: ORDENS HONORÍFICAS E MEDALHÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MUSEOLOGIA APLICADA A ACERVOS: ORDENS HONORIFICAS E MEDALHISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FCI0096",
           "nome": "ANTROPOLOGIA DOS MUSEUS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0097",
-          "nome": "EDUCAÇÃO MUSEAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO MUSEAL",
+          "ch": "60"
         },
         {
           "codigo": "FCI0099",
           "nome": "MUSEOLOGIA APLICADA A ACERVOS: ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0105",
           "nome": "MUSEOLOGIA APLICADA A ACERVOS: PORCELANA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FCI0131",
-          "nome": "TÓPICOS ESPECIAIS EM MUSEOLOGIA APLICADA A ACERVOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM MUSEOLOGIA APLICADA A ACERVOS",
+          "ch": "60"
         },
         {
           "codigo": "FED0077",
           "nome": "APRENDIZAGEM, TECNOLOGIA E EAD",
-          "carga_horaria": "135h",
-          "natureza": "Optativa"
+          "ch": "135"
         },
         {
           "codigo": "FIL0029",
-          "nome": "EVOLUÇÃO DO PENSAMENTO FILOSÓFICO E CIENTÍFICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
         },
         {
           "codigo": "FIL0064",
-          "nome": "ÉTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ETICA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0069",
-          "nome": "INTRODUÇÃO À FILOSOFIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
         },
         {
           "codigo": "FIL0087",
           "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0107",
           "nome": "HISTORIA DA CIENCIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FIL0156",
           "nome": "HISTORIA DA CIENCIA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0030",
           "nome": "FOTOINTERPRETACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEA0038",
           "nome": "GEOMORFOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0039",
           "nome": "GEOGRAFIA HUMANA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "GEA0042",
           "nome": "CARTOGRAFIA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "GEA0068",
           "nome": "POLITICA PUBLICA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "HIS0080",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA CONTEMPORANEA 3",
+          "ch": "60"
         },
         {
           "codigo": "HIS0093",
-          "nome": "HISTÓRIA MODERNA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0095",
-          "nome": "HISTÓRIA MODERNA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0100",
-          "nome": "HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0102",
-          "nome": "HISTÓRIA DO BRASIL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0104",
-          "nome": "HISTÓRIA DO BRASIL 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
         },
         {
           "codigo": "HIS0106",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
         },
         {
           "codigo": "HIS0107",
-          "nome": "HISTÓRIA CONTEMPORÂNEA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0132",
-          "nome": "HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0159",
-          "nome": "HISTÓRIA DA ÁFRICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AFRICA 2",
+          "ch": "60"
         },
         {
           "codigo": "HIS0172",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "HIS0252",
-          "nome": "HISTÓRIA DA ÁFRICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0253",
-          "nome": "TÓPICOS ESPECIAIS EM HISTÓRIA DO BRASIL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 1",
+          "ch": "60"
         },
         {
           "codigo": "ICB0077",
-          "nome": "EDUCAÇÃO  AMBIENTAL SUSTENTÁVEL",
-          "carga_horaria": "120h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO  AMBIENTAL SUSTENTAVEL",
+          "ch": "120"
         },
         {
           "codigo": "ICB0205",
-          "nome": "ILUSTRAÇÃO CIENTÍFICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ILUSTRACAO CIENTIFICA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IGD0049",
           "nome": "PALEONTOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "IGD0167",
-          "nome": "FUNDAMENTOS DA HISTÓRIA DA TERRA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS DA HISTORIA DA TERRA",
+          "ch": "60"
         },
         {
           "codigo": "IGD0247",
-          "nome": "INTRODUÇÃO AOS MUSEUS DE CIÊNCIAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AOS MUSEUS DE CIENCIAS",
+          "ch": "90"
         },
         {
           "codigo": "JOR0001",
-          "nome": "COMUNICAÇÃO, INFORMAÇÃO E COMPUTAÇÃO : FUNDAMENTOS E APLICAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO, INFORMACAO E COMPUTACAO : FUNDAMENTOS E APLICACAO",
+          "ch": "90"
         },
         {
           "codigo": "JOR0045",
-          "nome": "TEORIAS DA COMUNICAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "JOR0058",
           "nome": "OFICINA DE TEXTO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "JOR0078",
-          "nome": "INTRODUÇÃO A COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "JOR0079",
-          "nome": "COMUNICAÇÃO E UNIVERSIDADE",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "COMUNICACAO E UNIVERSIDADE",
+          "ch": "30"
         },
         {
           "codigo": "JOR0089",
-          "nome": "TECNOLOGIA DE COMUNICAÇÃO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIA DE COMUNICACAO",
+          "ch": "30"
         },
         {
           "codigo": "LET0162",
-          "nome": "INGLÊS INSTRUMENTAL 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
         },
         {
           "codigo": "LET0331",
-          "nome": "INGLÊS INSTRUMENTAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
         },
         {
           "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "MTC0006",
           "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "MTC0027",
           "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "PRO0035",
           "nome": "VEGETACAO APLICADA AO PAISAGISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLÓGICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
         },
         {
           "codigo": "SOL0089",
           "nome": "SOCIOLOGIA DA CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0092",
-          "nome": "SOCIOLOGIA DA COMUNICAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
         },
         {
           "codigo": "TAU0002",
           "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0059",
           "nome": "INFOESTETICA 1 - ESTETICA DAS IMAGENS INFORMATICAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0061",
           "nome": "HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0063",
           "nome": "DESENHO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0065",
           "nome": "DESENHO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0067",
           "nome": "ESCULTURA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0080",
           "nome": "INTRODUCAO AS TECNICAS ARTESANAIS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0085",
           "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0088",
           "nome": "OFICINA DE FOTOGRAFIA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0113",
-          "nome": "PRÁTICAS DE ENSINO: MATERIAIS EM ARTES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS DE ENSINO: MATERIAIS EM ARTES",
+          "ch": "60"
         },
         {
           "codigo": "VIS0114",
           "nome": "HISTORIA DA ARTE 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0122",
           "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0124",
           "nome": "TECNICAS DE GRAVURA 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0125",
           "nome": "TECNICAS DE GRAVURA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0126",
           "nome": "TECNICAS DE GRAVURA 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0137",
           "nome": "OFICINA BASICA DE CINEMA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0141",
           "nome": "HISTORIA DA ARTE ANTIGA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0185",
           "nome": "ARTE ELETRONICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0187",
           "nome": "PINTURA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0188",
           "nome": "INTRODUCAO A GRAVURA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0189",
           "nome": "HISTORIA DA ARTE 3",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0230",
           "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "VIS0231",
           "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0244",
-          "nome": "ANIMAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ANIMACAO",
+          "ch": "90"
         },
         {
           "codigo": "VIS0253",
           "nome": "HISTORIA DA ARTE MEDIEVAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0254",
           "nome": "HISTORIA DA ARTE MODERNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0255",
           "nome": "HISTORIA DA ARTE CONTEMPORANEA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "VIS0269",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ARTE-EDUCAÇÃO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ARTE-EDUCACAO",
+          "ch": "90"
         },
         {
           "codigo": "ZOO0039",
-          "nome": "CONSERVAÇÃO DA FAUNA SILVESTRE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "CONSERVACAO DA FAUNA SILVESTRE",
+          "ch": "60"
         },
         {
           "codigo": "DAN0022",
-          "nome": "INTRODUÇÃO À ANTROPOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "DAN0052",
           "nome": "CULTURA E MEIO AMBIENTE",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "DAN0063",
-          "nome": "SOCIEDADES INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0256",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0015",
+          "nome": "MUSEOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0017",
+          "nome": "MUSEOLOGIA E COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0052",
+          "nome": "CULTURA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0016",
+          "nome": "MUSEOLOGIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0018",
+          "nome": "MUSEOLOGIA E COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0046",
+          "nome": "ANALISE DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0019",
+          "nome": "MUSEOLOGIA E COMUNICACAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0035",
+          "nome": "INFORMACAO E DOCUMENTACAO MUSEOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0041",
+          "nome": "MUSEOLOGIA PATRIMONIO MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0071",
+          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0063",
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0020",
+          "nome": "MUSEOLOGIA E COMUNICACAO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0037",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0042",
+          "nome": "MUSEOLOGIA E PRESERVACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0022",
+          "nome": "MUSEOLOGIA E PRESERVACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0036",
+          "nome": "GESTAO DE MUSEUS E POLITICAS DE ACERVOS MUSEOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0038",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0039",
+          "nome": "INTRODUCAO AO TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0040",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     }

@@ -3,377 +3,507 @@
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "IDA0401",
-          "nome": "HISTÓRIA DO ENSINO DAS ARTES VISUAIS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DO ENSINO DAS ARTES VISUAIS",
+          "ch": "90"
         },
         {
           "codigo": "IDA0402",
-          "nome": "INTRODUÇÃO ÀS TEORIAS DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AS TEORIAS DA EDUCACAO",
+          "ch": "60"
         },
         {
           "codigo": "IDA0403",
-          "nome": "HISTÓRIA DA ARTE NO BRASIL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "90"
         },
         {
           "codigo": "IDA0404",
-          "nome": "PRÁTICA DE ENSINO EM DESENHO",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO EM DESENHO",
+          "ch": "90"
         },
         {
           "codigo": "IDA0405",
-          "nome": "INTRODUÇÃO À APRENDIZAGEM EAD",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A APRENDIZAGEM EAD",
+          "ch": "30"
         },
         {
           "codigo": "IDA0406",
           "nome": "PROJETO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "IDA0407",
-          "nome": "LEITURA E PRODUÇÃO DE TEXTO",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "45"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "IDA0400",
-          "nome": "DIDÁTICA NAS ARTES VISUAIS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA NAS ARTES VISUAIS",
+          "ch": "90"
         },
         {
           "codigo": "IDA0408",
-          "nome": "ESTUDO DAS VISUALIDADES INDÍGENAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDO DAS VISUALIDADES INDIGENAS",
+          "ch": "60"
         },
         {
           "codigo": "IDA0409",
           "nome": "PRATICAS DE ENSINO EM LINGUAGENS DE ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IDA0410",
-          "nome": "PRÁTICAS DE ARTES VISUAIS - MATERIAIS EM ARTE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE ARTES VISUAIS - MATERIAIS EM ARTE",
+          "ch": "60"
         },
         {
           "codigo": "IDA0411",
-          "nome": "DESENVOLVIMENTO PSICOLÓGICO E ENSINO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         },
         {
           "codigo": "IDA0412",
-          "nome": "PRÁTICAS DE AUDIOVISUAL",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE AUDIOVISUAL",
+          "ch": "45"
         },
         {
           "codigo": "IDA0413",
           "nome": "PROJETO 2",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "IDA0414",
           "nome": "METODOLOGIAS DE ENSINO E DE PESQUISA EM ARTES VISUAIS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "IDA0415",
           "nome": "ESTUDO DAS VISUALIDADES AFRO-BRASILEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IDA0416",
-          "nome": "PRÁTICAS DE ENSINO - OBJETOS DE APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE ENSINO - OBJETOS DE APRENDIZAGEM",
+          "ch": "60"
         },
         {
           "codigo": "IDA0417",
-          "nome": "PRÁTICAS DE ARTES VISUAIS - TRÂNSITOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE ARTES VISUAIS - TRANSITOS",
+          "ch": "90"
         },
         {
           "codigo": "IDA0418",
           "nome": "PROJETO 3",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "ILD0001",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "IDA0419",
           "nome": "IMAGEM, CULTURA E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IDA0420",
-          "nome": "PRÁTICA DE ENSINO NA FORMAÇÃO DE PROFESSORES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO NA FORMACAO DE PROFESSORES",
+          "ch": "60"
         },
         {
           "codigo": "IDA0421",
-          "nome": "PRÁTICAS DE ARTES VISUAIS - EXPERIMENTAÇÕES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE ARTES VISUAIS - EXPERIMENTACOES",
+          "ch": "90"
         },
         {
           "codigo": "IDA0422",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 1",
-          "carga_horaria": "105h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "ch": "105"
         },
         {
           "codigo": "IDA0423",
           "nome": "PROJETO 4",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "IDA0424",
-          "nome": "ESTUDOS VISUAIS DA EDUCAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "IDA0425",
           "nome": "TEORIA EM ARTES VISUAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IDA0426",
-          "nome": "PRÁTICA DE ENSINO EM ESPAÇOS CULTURAIS OU MUSEUS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO EM ESPACOS CULTURAIS OU MUSEUS",
+          "ch": "60"
         },
         {
           "codigo": "IDA0427",
-          "nome": "PRÁTICAS DE ARTES VISUAIS - ANÁLISES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE ARTES VISUAIS - ANALISES",
+          "ch": "90"
         },
         {
           "codigo": "IDA0428",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 2",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "ch": "150"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "IDA0429",
-          "nome": "ESTUDOS VISUAIS DA EDUCAÇÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 2",
+          "ch": "60"
         },
         {
           "codigo": "IDA0430",
           "nome": "TEORIA EM ARTES VISUAIS 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IDA0431",
-          "nome": "PRÁTICAS DE ARTES VISUAIS - PROPOSTAS",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICAS DE ARTES VISUAIS - PROPOSTAS",
+          "ch": "75"
         },
         {
           "codigo": "IDA0432",
-          "nome": "ESTÁGIO SUPERVISIONADO EM ARTES VISUAIS 3",
-          "carga_horaria": "150h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 3",
+          "ch": "150"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "IDA0433",
-          "nome": "PRÁTICA DE ENSINO EM AMBIENTES VIRTUAIS DE APRENDIZAGEM",
-          "carga_horaria": "75h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA DE ENSINO EM AMBIENTES VIRTUAIS DE APRENDIZAGEM",
+          "ch": "75"
         },
         {
           "codigo": "IDA0434",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "IDA0435",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
         },
         {
           "codigo": "IDA0436",
-          "nome": "SEMINÁRIO PRESENCIAL DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "IDA0007",
-          "nome": "HISTÓRIA DO TEATRO 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "IDA0331",
-          "nome": "LABORATÓRIO DE ARTE E TECNOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "codigo": "1",
+          "nome": "90H OPTATIVA IDA0331 - LABORATORIO DE ARTE E TECNOLOGIA",
+          "ch": "90"
         },
         {
           "codigo": "IDA0340",
-          "nome": "ATELIER DE PRODUÇÃO INTERDISCIPLINAR",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "ATELIER DE PRODUCAO INTERDISCIPLINAR",
+          "ch": "90"
         },
         {
           "codigo": "IDA0343",
-          "nome": "LABORATÓTIO DE POÉTICAS CONTEMPORÂNEAS",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "LABORATOTIO DE POETICAS CONTEMPORANEAS",
+          "ch": "90"
         },
         {
           "codigo": "IDA0344",
           "nome": "ATELIER DE ARTES VISUAIS 4",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0348",
           "nome": "ATELIER DE ARTES VISUAIS 3",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0359",
-          "nome": "TECNOLOGIAS CONTEMPORÂNEAS NA ESCOLA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0361",
           "nome": "ANTROPOLOGIA CULTURAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0363",
           "nome": "ATELIER DE ARTES VISUAIS 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0374",
           "nome": "ATELIER DE ARTES VISUAIS 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IDA0378",
-          "nome": "HISTÓRIA DO TEATRO 2",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "90"
         },
         {
           "codigo": "IDA0437",
-          "nome": "PRÁTICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 1",
+          "ch": "90"
         },
         {
           "codigo": "IDA0440",
-          "nome": "PROJETO DE EXTENSÃO EM MÚSICA 1",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROJETO DE EXTENSAO EM MUSICA 1",
+          "ch": "90"
         },
         {
           "codigo": "MUS0824",
-          "nome": "PRÁTICAS MUSICAIS COLETIVAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRATICAS MUSICAIS COLETIVAS 1",
+          "ch": "60"
         },
         {
           "codigo": "MUS0838",
-          "nome": "PROJETO EM MÚSICA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "PROJETO EM MUSICA",
+          "ch": "90"
         },
         {
           "codigo": "MUS0840",
-          "nome": "TEORIAS DA EDUCAÇÃO MUSICAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "nome": "TEORIAS DA EDUCACAO MUSICAL",
+          "ch": "90"
         },
         {
           "codigo": "MUS0849",
           "nome": "FUNDAMENTOS DA ARTE MUSICAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0401",
+          "nome": "HISTORIA DO ENSINO DAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0402",
+          "nome": "INTRODUCAO AS TEORIAS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0403",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0404",
+          "nome": "PRATICA DE ENSINO EM DESENHO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0405",
+          "nome": "INTRODUCAO A APRENDIZAGEM EAD",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0406",
+          "nome": "PROJETO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0407",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0400",
+          "nome": "DIDATICA NAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0408",
+          "nome": "ESTUDO DAS VISUALIDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0409",
+          "nome": "PRATICAS DE ENSINO EM LINGUAGENS DE ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0410",
+          "nome": "PRATICAS DE ARTES VISUAIS - MATERIAIS EM ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0411",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0412",
+          "nome": "PRATICAS DE AUDIOVISUAL",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0413",
+          "nome": "PROJETO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0414",
+          "nome": "METODOLOGIAS DE ENSINO E DE PESQUISA EM ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0415",
+          "nome": "ESTUDO DAS VISUALIDADES AFRO-BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0416",
+          "nome": "PRATICAS DE ENSINO - OBJETOS DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0417",
+          "nome": "PRATICAS DE ARTES VISUAIS - TRANSITOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0418",
+          "nome": "PROJETO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0419",
+          "nome": "IMAGEM, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0420",
+          "nome": "PRATICA DE ENSINO NA FORMACAO DE PROFESSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0421",
+          "nome": "PRATICAS DE ARTES VISUAIS - EXPERIMENTACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0422",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "IDA0423",
+          "nome": "PROJETO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0424",
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0425",
+          "nome": "TEORIA EM ARTES VISUAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0426",
+          "nome": "PRATICA DE ENSINO EM ESPACOS CULTURAIS OU MUSEUS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0427",
+          "nome": "PRATICAS DE ARTES VISUAIS - ANALISES",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0428",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "IDA0429",
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0430",
+          "nome": "TEORIA EM ARTES VISUAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0431",
+          "nome": "PRATICAS DE ARTES VISUAIS - PROPOSTAS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IDA0432",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 3",
+          "ch": "150"
+        },
+        {
+          "codigo": "IDA0433",
+          "nome": "PRATICA DE ENSINO EM AMBIENTES VIRTUAIS DE APRENDIZAGEM",
+          "ch": "75"
+        },
+        {
+          "codigo": "IDA0434",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0435",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0436",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DE CURSO",
+          "ch": "60"
         }
       ]
     }

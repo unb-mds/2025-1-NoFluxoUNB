@@ -3,656 +3,817 @@
   "periodo_letivo_vigor": "2024.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "BOT0044",
-          "nome": "ORGANOGRAFIA E SISTEMÁTICA FANEROFÍTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
         },
         {
           "codigo": "EFL0160",
-          "nome": "ENGENHARIA FLORESTAL - ATUAÇÃO E ÉTICA",
-          "carga_horaria": "15h",
-          "natureza": "Obrigatória"
+          "nome": "ENGENHARIA FLORESTAL - ATUACAO E ETICA",
+          "ch": "15"
         },
         {
           "codigo": "IFD0005",
-          "nome": "FÍSICA TEÓRICA PARA CIÊNCIAS AGRÁRIAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FISICA TEORICA PARA CIENCIAS AGRARIAS",
+          "ch": "60"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "BOT0004",
           "nome": "INTRODUCAO A ANATOMIA VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0040",
           "nome": "DENDROLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENC0053",
           "nome": "DESENHO TECNICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EST0027",
-          "nome": "BIOESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "GEA0011",
           "nome": "GEOGRAFIA FISICA 2: METEOROLOGIA E CLIMATOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IQD0072",
           "nome": "INTRODUCAO A QUIMICA ORGANICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "BOT0006",
           "nome": "ANATOMIA DAS MADEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CEL0054",
           "nome": "BIOQUIMICA FUNDAMENTAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "ECL0039",
-          "nome": "ECOLOGIA BÁSICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
         },
         {
           "codigo": "EFL0150",
-          "nome": "MÉTODOS ESTATÍSTICOS APLICADOS A CIÊNCIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOS ESTATISTICOS APLICADOS A CIENCIA FLORESTAL",
+          "ch": "60"
         },
         {
           "codigo": "FAV0152",
           "nome": "MECANICA DOS MOTORES E MAQUINAS AGRICOLAS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0183",
           "nome": "TOPOGRAFIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IQD0118",
           "nome": "QUIMICA ANALITICA QUALITATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "BOT0008",
           "nome": "FISIOLOGIA VEGETAL",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         },
         {
           "codigo": "EFL0004",
           "nome": "ECOLOGIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0049",
           "nome": "TECNOLOGIA DA MADEIRA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0147",
-          "nome": "FUNDAMENTOS DE CIÊNCIA DO SOLO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DE CIENCIA DO SOLO",
+          "ch": "60"
         },
         {
           "codigo": "EFL0158",
           "nome": "ATIVIDADE EXTENSIONISTA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IGD0207",
-          "nome": "FUNDAMENTOS DE SENSORIAMENTO REMOTO E INTERPRETAÇÃO DE IMAGENS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DE SENSORIAMENTO REMOTO E INTERPRETACAO DE IMAGENS",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "EFL0021",
           "nome": "SEMENTES E VIVEIROS FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0026",
           "nome": "SECAGEM E PRESERVACAO DE MADEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0089",
-          "nome": "FERTILIDADE DO SOLO E NUTRIÇÃO DE PLANTAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FERTILIDADE DO SOLO E NUTRICAO DE PLANTAS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0100",
-          "nome": "SISTEMA DE INFORMAÇÃO GEOGRÁFICA APLICADO À CIÊNCIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMA DE INFORMACAO GEOGRAFICA APLICADO A CIENCIA FLORESTAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0144",
-          "nome": "GENÉTICA E MELHORAMENTOS FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GENETICA E MELHORAMENTOS FLORESTAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0159",
           "nome": "ATIVIDADE EXTENSIONISTA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FIT0003",
-          "nome": "INTRODUÇÃO A PATOLOGIA VEGETAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A PATOLOGIA VEGETAL",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "EFL0033",
           "nome": "DENDROMETRIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0034",
           "nome": "ECONOMIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0044",
           "nome": "TECNOLOGIA DE PRODUTOS FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0137",
-          "nome": "MANEJO DE BACIAS HIDROGRÁFICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MANEJO DE BACIAS HIDROGRAFICAS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0151",
-          "nome": "ATIVIDADE EXTENSIONISTA EM CONSERVAÇÃO DA NATUREZA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE EXTENSIONISTA EM CONSERVACAO DA NATUREZA",
+          "ch": "60"
         },
         {
           "codigo": "FIT0034",
           "nome": "PATOLOGIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ZOO0045",
           "nome": "ENTOMOLOGIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "EFL0020",
           "nome": "ESTRUTURAS DE MADEIRAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0050",
           "nome": "INVENTARIO FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0095",
-          "nome": "SISTEMAS E PRÁTICAS SILVICULTURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SISTEMAS E PRATICAS SILVICULTURAIS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0142",
           "nome": "BIOMASSA COMO FONTE DE ENERGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0155",
           "nome": "ATIVIDADE EXTENSIONISTA EM TECNOLOGIA DE PRODUTOS FLORESTAIS",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "ch": "45"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "EFL0013",
           "nome": "COLHEITA E TRANSPORTE FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0055",
           "nome": "MANEJO FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "EFL0139",
-          "nome": "RECUPERAÇÃO DE ECOSSISTEMAS FLORESTAIS DEGRADADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "RECUPERACAO DE ECOSSISTEMAS FLORESTAIS DEGRADADOS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0140",
-          "nome": "GESTÃO DE EMPREENDIMENTOS FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO DE EMPREENDIMENTOS FLORESTAIS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0153",
           "nome": "ATIVIDADE EXTENSIONISTA EM SILVICULTURA TROPICAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "EFL0014",
           "nome": "INCENDIOS FLORESTAIS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "EFL0143",
           "nome": "SISTEMAS AGROFLORESTAIS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "EFL0145",
-          "nome": "LEGISLAÇÃO, PERÍCIA E AVALIAÇÃO DE IMPACTOS AMBIENTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "LEGISLACAO, PERICIA E AVALIACAO DE IMPACTOS AMBIENTAIS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0154",
           "nome": "ATIVIDADE EXTENSIONISTA EM MANEJO FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "EFL0156",
-          "nome": "ATIVIDADE EXTENSIONISTA EM ADMINISTRAÇÃO E ECOMOMIA FLORESTAL",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE EXTENSIONISTA EM ADMINISTRACAO E ECOMOMIA FLORESTAL",
+          "ch": "45"
         },
         {
           "codigo": "EFL0168",
-          "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "30"
         },
         {
           "codigo": "EFL0169",
-          "nome": "ESTÁGIO EM ENGENHARIA FLORESTAL",
-          "carga_horaria": "165h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO EM ENGENHARIA FLORESTAL",
+          "ch": "165"
         }
       ]
     },
     {
-      "nivel": "11º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "EFL0025",
-          "nome": "MANEJO DE FAUNA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "EFL0047",
-          "nome": "MANEJO E ADMINISTRACAO DE AREAS SILVESTRES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "CIC0007",
-          "nome": "INTRODUÇÃO À CIÊNCIA DA COMPUTAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "ECL0010",
-          "nome": "CONSERVAÇÃO DE RECURSOS NATURAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "O",
+          "nome": "60H OPTATIVA ECL0010 - CONSERVACAO DE RECURSOS NATURAIS",
+          "ch": "60"
         },
         {
           "codigo": "ECL0015",
           "nome": "MEIO AMBIENTE FISICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ECL0046",
-          "nome": "SOLOS E VEGETAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SOLOS E VEGETACAO",
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "EFL0001",
-          "nome": "MANEJO DE VEGETAÇÃO NATIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "MANEJO DE VEGETACAO NATIVA",
+          "ch": "60"
         },
         {
           "codigo": "EFL0003",
-          "nome": "PLANEJAMENTO DE INVENTÁRIO FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PLANEJAMENTO DE INVENTARIO FLORESTAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0019",
           "nome": "DENDROLOGIA DO CERRADO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0025",
           "nome": "MANEJO DE FAUNA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0030",
           "nome": "CELULOSE E PAPEL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0047",
           "nome": "MANEJO E ADMINISTRACAO DE AREAS SILVESTRES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0057",
           "nome": "ARBORIZACAO E PAISAGISMO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0063",
           "nome": "PROJETO PARA TRABALHO FINAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0065",
-          "nome": "COMERCIALIZAÇÃO DE PRODUTOS FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMERCIALIZACAO DE PRODUTOS FLORESTAIS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0070",
-          "nome": "PROCESSAMENTO MECÂNICO DA MADEIRA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PROCESSAMENTO MECANICO DA MADEIRA",
+          "ch": "30"
         },
         {
           "codigo": "EFL0071",
           "nome": "SENSORIAMENTO REMOTO APLICADO A CIENCIA FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0076",
           "nome": "BIOLOGIA DA CONSERVACAO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "EFL0078",
           "nome": "DISPERSAO E GERMINACAO DE SEMENTES FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0085",
-          "nome": "COMPÓSITOS LIGNOCELUSÓSICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "COMPOSITOS LIGNOCELUSOSICOS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0090",
-          "nome": "MÓVEIS, DESIGN E EQUIPAMENTOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "MOVEIS, DESIGN E EQUIPAMENTOS",
+          "ch": "30"
         },
         {
           "codigo": "EFL0092",
-          "nome": "INTERAÇÃO PLANTA-ANIMAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTERACAO PLANTA-ANIMAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0093",
-          "nome": "PRODUTOS FLORESTAIS NÃO MADEREIROS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "PRODUTOS FLORESTAIS NAO MADEREIROS",
+          "ch": "30"
         },
         {
           "codigo": "EFL0096",
-          "nome": "AVALIAÇÃO ECONÔMICA DE PROJETOS FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "AVALIACAO ECONOMICA DE PROJETOS FLORESTAIS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0099",
           "nome": "SILVICULTURA CLONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "EFL0146",
-          "nome": "MÉTODOS QUANTITATIVOS EM HIDROLOGIA DE PEQUENAS BACIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "METODOS QUANTITATIVOS EM HIDROLOGIA DE PEQUENAS BACIAS",
+          "ch": "30"
         },
         {
           "codigo": "EFL0162",
-          "nome": "TÓPICOS EM SILVICULTURA TROPICAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM SILVICULTURA TROPICAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0164",
-          "nome": "TÓPICOS EM MANEJO FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM MANEJO FLORESTAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0165",
-          "nome": "TÓPICOS EM CONSERVAÇÃO DA NATUREZA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM CONSERVACAO DA NATUREZA",
+          "ch": "60"
         },
         {
           "codigo": "EFL0166",
-          "nome": "TÓPICOS EM TECNOLOGIA DE PRODUTOS FLORESTAIS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM TECNOLOGIA DE PRODUTOS FLORESTAIS",
+          "ch": "60"
         },
         {
           "codigo": "EFL0167",
-          "nome": "TÓPICOS EM ECONOMIA E ADMINISTRAÇÃO FLORESTAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS EM ECONOMIA E ADMINISTRACAO FLORESTAL",
+          "ch": "60"
         },
         {
           "codigo": "EFL0187",
-          "nome": "COMPÓSITOS LIGNOCELULÓSICOS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "COMPOSITOS LIGNOCELULOSICOS",
+          "ch": "30"
         },
         {
           "codigo": "EFL0190",
           "nome": "PRODUTOS ENGENHEIRADOS DE MADEIRA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "FAV0088",
           "nome": "EXTENSAO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0148",
           "nome": "EDAFOLOGIA",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "FAV0222",
           "nome": "MANEJO DE PLANTAS DANINHAS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "FAV0259",
           "nome": "POLITICA AGRICOLA E DESENVOLVIMENTO RURAL",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "GEA0030",
           "nome": "FOTOINTERPRETACAO",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "IFD0006",
-          "nome": "FÍSICA EXPERIMENTAL PARA CIÊNCIAS AGRÁRIAS",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "nome": "FISICA EXPERIMENTAL PARA CIENCIAS AGRARIAS",
+          "ch": "30"
         },
         {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
-          "carga_horaria": "90h",
-          "natureza": "Optativa"
+          "ch": "90"
         },
         {
           "codigo": "MAT0023",
           "nome": "MATEMATICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "SOL0087",
           "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0160",
+          "nome": "ENGENHARIA FLORESTAL - ATUACAO E ETICA",
+          "ch": "15"
+        },
+        {
+          "codigo": "IFD0005",
+          "nome": "FISICA TEORICA PARA CIENCIAS AGRARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0004",
+          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0040",
+          "nome": "DENDROLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0011",
+          "nome": "GEOGRAFIA FISICA 2: METEOROLOGIA E CLIMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0006",
+          "nome": "ANATOMIA DAS MADEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0150",
+          "nome": "METODOS ESTATISTICOS APLICADOS A CIENCIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0152",
+          "nome": "MECANICA DOS MOTORES E MAQUINAS AGRICOLAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0008",
+          "nome": "FISIOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "EFL0004",
+          "nome": "ECOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0049",
+          "nome": "TECNOLOGIA DA MADEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0147",
+          "nome": "FUNDAMENTOS DE CIENCIA DO SOLO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0158",
+          "nome": "ATIVIDADE EXTENSIONISTA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0207",
+          "nome": "FUNDAMENTOS DE SENSORIAMENTO REMOTO E INTERPRETACAO DE IMAGENS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0021",
+          "nome": "SEMENTES E VIVEIROS FLORESTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0026",
+          "nome": "SECAGEM E PRESERVACAO DE MADEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0089",
+          "nome": "FERTILIDADE DO SOLO E NUTRICAO DE PLANTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0100",
+          "nome": "SISTEMA DE INFORMACAO GEOGRAFICA APLICADO A CIENCIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0144",
+          "nome": "GENETICA E MELHORAMENTOS FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0159",
+          "nome": "ATIVIDADE EXTENSIONISTA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0003",
+          "nome": "INTRODUCAO A PATOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0033",
+          "nome": "DENDROMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0034",
+          "nome": "ECONOMIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0044",
+          "nome": "TECNOLOGIA DE PRODUTOS FLORESTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0137",
+          "nome": "MANEJO DE BACIAS HIDROGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0151",
+          "nome": "ATIVIDADE EXTENSIONISTA EM CONSERVACAO DA NATUREZA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0034",
+          "nome": "PATOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0045",
+          "nome": "ENTOMOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0020",
+          "nome": "ESTRUTURAS DE MADEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0050",
+          "nome": "INVENTARIO FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0095",
+          "nome": "SISTEMAS E PRATICAS SILVICULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0142",
+          "nome": "BIOMASSA COMO FONTE DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0155",
+          "nome": "ATIVIDADE EXTENSIONISTA EM TECNOLOGIA DE PRODUTOS FLORESTAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "EFL0013",
+          "nome": "COLHEITA E TRANSPORTE FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0055",
+          "nome": "MANEJO FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0139",
+          "nome": "RECUPERACAO DE ECOSSISTEMAS FLORESTAIS DEGRADADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0140",
+          "nome": "GESTAO DE EMPREENDIMENTOS FLORESTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0153",
+          "nome": "ATIVIDADE EXTENSIONISTA EM SILVICULTURA TROPICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0014",
+          "nome": "INCENDIOS FLORESTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0143",
+          "nome": "SISTEMAS AGROFLORESTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0145",
+          "nome": "LEGISLACAO, PERICIA E AVALIACAO DE IMPACTOS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0154",
+          "nome": "ATIVIDADE EXTENSIONISTA EM MANEJO FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0156",
+          "nome": "ATIVIDADE EXTENSIONISTA EM ADMINISTRACAO E ECOMOMIA FLORESTAL",
+          "ch": "45"
+        },
+        {
+          "codigo": "EFL0168",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0169",
+          "nome": "ESTAGIO EM ENGENHARIA FLORESTAL",
+          "ch": "165"
         }
       ]
     }

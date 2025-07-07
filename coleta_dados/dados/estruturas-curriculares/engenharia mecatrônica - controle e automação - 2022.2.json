@@ -3,560 +3,717 @@
   "periodo_letivo_vigor": "2022.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "CIC0004",
-          "nome": "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
         },
         {
           "codigo": "FTD0021",
-          "nome": "INTRODUÇÃO À ENGENHARIA MECATRÔNICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A ENGENHARIA MECATRONICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0025",
-          "nome": "CÁLCULO 1",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 1",
+          "ch": "90"
         },
         {
           "codigo": "MAT0031",
           "nome": "INTRODUCAO A ALGEBRA LINEAR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "CIC0090",
           "nome": "ESTRUTURAS DE DADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENM0190",
-          "nome": "DESENHO MECÂNICO PARA ENGENHARIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
         },
         {
           "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "FTD0018",
           "nome": "IMPACTOS SOCIAIS DA TECNOLOGIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0173",
           "nome": "FISICA 1 EXPERIMENTAL",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "MAT0026",
-          "nome": "CÁLCULO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 2",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "ENE0066",
-          "nome": "INTRODUÇÃO AOS CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0067",
-          "nome": "SINAIS E SISTEMAS EM TEMPO CONTÍNUO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
         },
         {
           "codigo": "ENM0126",
-          "nome": "INTRODUÇÃO À CIÊNCIA DOS MATERIAIS",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
         },
         {
           "codigo": "ENM0203",
-          "nome": "ESTÁTICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0175",
           "nome": "FISICA 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "IFD0177",
           "nome": "FISICA 2 EXPERIMENTAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0027",
-          "nome": "CÁLCULO 3",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "CALCULO 3",
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "ENE0068",
           "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENE0282",
-          "nome": "LABORATÓRIO DE CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0304",
-          "nome": "CIRCUITOS ELÉTRICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
         },
         {
           "codigo": "ENM0164",
           "nome": "MECANICA DOS MATERIAIS 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENM0217",
-          "nome": "DINÂMICA APLICADA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DINAMICA APLICADA",
+          "ch": "60"
         },
         {
           "codigo": "IFD0179",
           "nome": "FISICA 3",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "MAT0053",
           "nome": "CALCULO NUMERICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "5º Semestre",
+      "nivel": "5° NIVEL",
       "materias": [
         {
           "codigo": "CIC0229",
-          "nome": "CIRCUITOS LÓGICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CIRCUITOS LOGICOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0231",
-          "nome": "LABORATÓRIO DE CIRCUITOS LÓGICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE CIRCUITOS LOGICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0045",
-          "nome": "ELETRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ELETRONICA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0046",
-          "nome": "LABORATÓRIO DE ELETRÔNICA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
         },
         {
           "codigo": "ENE0047",
-          "nome": "CONVERSÃO ELETROMECÂNICA DE ENERGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "60"
         },
         {
           "codigo": "ENM0127",
           "nome": "TECNOLOGIA DE FABRICACAO 1",
-          "carga_horaria": "45h",
-          "natureza": "Obrigatória"
+          "ch": "45"
         },
         {
           "codigo": "ENM0128",
           "nome": "TRANSPORTE DE CALOR E MASSA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "6º Semestre",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "CIC0099",
-          "nome": "ORGANIZAÇÃO E ARQUITETURA DE COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
         },
         {
           "codigo": "ENE0048",
-          "nome": "LABORATÓRIO DE CONVERSÃO ELETROMECÂNICA DE ENERGIA",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "30"
         },
         {
           "codigo": "ENE0077",
-          "nome": "CONTROLE DE SISTEMAS DINÂMICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "60"
         },
         {
           "codigo": "ENM0027",
           "nome": "TECNOLOGIAS DE COMANDO NUMERICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENM0084",
           "nome": "SISTEMAS HIDRAULICOS E PNEUMATICOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FTD0019",
-          "nome": "ATIVIDADE DE EXTENSÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "7º Semestre",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "CIC0124",
           "nome": "REDES DE COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CIC0256",
-          "nome": "PRÁTICA EXTENSIONISTA EM COMPUTAÇÃO A",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO A",
+          "ch": "60"
         },
         {
           "codigo": "ENE0078",
-          "nome": "LABORATÓRIO DE CONTROLE DE SISTEMAS DINÂMICOS",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "nome": "LABORATORIO DE CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "30"
         },
         {
           "codigo": "ENE0079",
-          "nome": "CONTROLE NO ESPAÇO DE ESTADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CONTROLE NO ESPACO DE ESTADOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0438",
           "nome": "PROJETO INTEGRADOR DE TECNOLOGIAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENM0134",
           "nome": "SISTEMAS INTEGRADOS DE MANUFATURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "8º Semestre",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "CIC0248",
           "nome": "SISTEMAS DE TEMPO REAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ECL0014",
           "nome": "CIENCIAS DO AMBIENTE",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         },
         {
           "codigo": "ENE0167",
           "nome": "CONTROLE DIGITAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "ENE0355",
-          "nome": "INSTRUMENTAÇÃO ELETRÔNICA E SENSORES",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "INSTRUMENTACAO ELETRONICA E SENSORES",
+          "ch": "60"
         },
         {
           "codigo": "ENM0195",
-          "nome": "MODELAGEM E IMPLEMENTAÇÃO DE SISTEMAS A EVENTOS DISCRETOS",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "nome": "MODELAGEM E IMPLEMENTACAO DE SISTEMAS A EVENTOS DISCRETOS",
+          "ch": "90"
         },
         {
           "codigo": "ENM0289",
-          "nome": "PROJETO DE MÁQUINAS CONTROLADAS POR COMPUTADOR",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "PROJETO DE MAQUINAS CONTROLADAS POR COMPUTADOR",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9º Semestre",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "FTD0015",
-          "nome": "ESTÁGIO CURRICULAR EM ENGENHARIA MECATRÔNICA",
-          "carga_horaria": "180h",
-          "natureza": "Obrigatória"
+          "nome": "ESTAGIO CURRICULAR EM ENGENHARIA MECATRONICA",
+          "ch": "180"
         },
         {
           "codigo": "FTD0020",
-          "nome": "ATIVIDADE DE EXTENSÃO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
         },
         {
           "codigo": "FTD0022",
           "nome": "PROJETO FINAL DE CURSO 1",
-          "carga_horaria": "30h",
-          "natureza": "Obrigatória"
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "10º Semestre",
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "FTD0023",
           "nome": "PROJETO FINAL DE CURSO 2",
-          "carga_horaria": "90h",
-          "natureza": "Obrigatória"
+          "ch": "90"
         }
       ]
     },
     {
-      "nivel": "11º Semestre",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "FDD0155",
-          "nome": "NOÇÕES DE DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        },
-        {
-          "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "codigo": "O",
+          "nome": "60H OPTATIVA CIC0087 - TOPICOS AVANCADOS EM COMPUTADORES",
+          "ch": "60"
         },
         {
           "codigo": "CIC0104",
           "nome": "SOFTWARE BASICO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "CIC0130",
-          "nome": "INTRODUÇÃO AOS SISTEMAS EMBARCADOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
-        }
-      ]
-    },
-    {
-      "nivel": "Optativas",
-      "materias": [
-        {
-          "codigo": "ADM0023",
-          "nome": "INTRODUÇÃO À ADMINISTRAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0087",
-          "nome": "TOPICOS AVANCADOS EM COMPUTADORES",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0104",
-          "nome": "SOFTWARE BASICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "CIC0130",
-          "nome": "INTRODUÇÃO AOS SISTEMAS EMBARCADOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO AOS SISTEMAS EMBARCADOS",
+          "ch": "60"
         },
         {
           "codigo": "CIC0135",
           "nome": "INTRODUCAO A INTELIGENCIA ARTIFICIAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "CIC0195",
-          "nome": "PRINCÍPIOS DE VISÃO COMPUTACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE VISAO COMPUTACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "CIC0197",
-          "nome": "TECNICAS DE PROGRAMAÇÃO 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
         },
         {
           "codigo": "CIC0233",
-          "nome": "FUNDAMENTOS COMPUTACIONAIS DE ROBÓTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "FUNDAMENTOS COMPUTACIONAIS DE ROBOTICA",
+          "ch": "60"
         },
         {
           "codigo": "ECO0019",
-          "nome": "INTRODUÇÃO À ECONOMIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0154",
-          "nome": "INTELIGÊNCIA COMPUTACIONAL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTELIGENCIA COMPUTACIONAL",
+          "ch": "60"
         },
         {
           "codigo": "ENE0260",
-          "nome": "IDENTIFICAÇÃO DE SISTEMAS DINÂMICOS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "IDENTIFICACAO DE SISTEMAS DINAMICOS",
+          "ch": "60"
         },
         {
           "codigo": "ENE0326",
-          "nome": "ELETRÔNICA DE POTÊNCIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "ELETRONICA DE POTENCIA",
+          "ch": "60"
         },
         {
           "codigo": "ENE0328",
           "nome": "TOPICOS EM CONTROLE E AUTOMACAO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENE0345",
-          "nome": "PRINCÍPIOS DE CONTROLE DE ROBÔS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PRINCIPIOS DE CONTROLE DE ROBOS",
+          "ch": "60"
         },
         {
           "codigo": "ENM0066",
-          "nome": "TÓPICOS ESPECIAIS EM ENGENHARIA MECATRÔNICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA MECATRONICA",
+          "ch": "60"
         },
         {
           "codigo": "ENM0119",
           "nome": "SEGURANCA EM SISTEMAS DE CONTROLE E AUTOMACAO",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
+          "ch": "30"
         },
         {
           "codigo": "ENM0168",
           "nome": "ROBOTICA INDUSTRIAL 1",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "ch": "60"
         },
         {
           "codigo": "ENM0178",
-          "nome": "SISTEMAS RECONFIGURÁVEIS PARA AUTOMAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "SISTEMAS RECONFIGURAVEIS PARA AUTOMACAO",
+          "ch": "60"
         },
         {
           "codigo": "FDD0155",
-          "nome": "NOÇÕES DE DIREITO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
         },
         {
           "codigo": "LIP0174",
-          "nome": "LÍNGUA DE SINAIS BRASILEIRA - BÁSICO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0021",
+          "nome": "INTRODUCAO A ENGENHARIA MECATRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0018",
+          "nome": "IMPACTOS SOCIAIS DA TECNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0203",
+          "nome": "ESTATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0068",
+          "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0282",
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0164",
+          "nome": "MECANICA DOS MATERIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0217",
+          "nome": "DINAMICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0229",
+          "nome": "CIRCUITOS LOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0231",
+          "nome": "LABORATORIO DE CIRCUITOS LOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0045",
+          "nome": "ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0046",
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0047",
+          "nome": "CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0127",
+          "nome": "TECNOLOGIA DE FABRICACAO 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0128",
+          "nome": "TRANSPORTE DE CALOR E MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0099",
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0048",
+          "nome": "LABORATORIO DE CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0077",
+          "nome": "CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0027",
+          "nome": "TECNOLOGIAS DE COMANDO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0084",
+          "nome": "SISTEMAS HIDRAULICOS E PNEUMATICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0019",
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0124",
+          "nome": "REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0256",
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO A",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0078",
+          "nome": "LABORATORIO DE CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0079",
+          "nome": "CONTROLE NO ESPACO DE ESTADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0438",
+          "nome": "PROJETO INTEGRADOR DE TECNOLOGIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0134",
+          "nome": "SISTEMAS INTEGRADOS DE MANUFATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0248",
+          "nome": "SISTEMAS DE TEMPO REAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0167",
+          "nome": "CONTROLE DIGITAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0355",
+          "nome": "INSTRUMENTACAO ELETRONICA E SENSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0195",
+          "nome": "MODELAGEM E IMPLEMENTACAO DE SISTEMAS A EVENTOS DISCRETOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0289",
+          "nome": "PROJETO DE MAQUINAS CONTROLADAS POR COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0015",
+          "nome": "ESTAGIO CURRICULAR EM ENGENHARIA MECATRONICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FTD0020",
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0022",
+          "nome": "PROJETO FINAL DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FTD0023",
+          "nome": "PROJETO FINAL DE CURSO 2",
+          "ch": "90"
         }
       ]
     }

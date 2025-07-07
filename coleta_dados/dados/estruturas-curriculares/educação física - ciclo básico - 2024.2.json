@@ -3,219 +3,302 @@
   "periodo_letivo_vigor": "2024.2",
   "niveis": [
     {
-      "nivel": "1º Semestre",
+      "nivel": "1° NIVEL",
       "materias": [
         {
           "codigo": "FEF0409",
-          "nome": "ANATOMIA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0458",
-          "nome": "FUNDAMENTOS HISTÓRICO FILOSÓFICO DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS HISTORICO FILOSOFICO DA EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0460",
           "nome": "METODOLOGIA DO ATLETISMO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0461",
           "nome": "METODOLOGIA DO JOGO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0462",
-          "nome": "RELAÇÕES HUMANAS, EDUCAÇÃO FÍSICA E MUNDO DO TRABALHO",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "RELACOES HUMANAS, EDUCACAO FISICA E MUNDO DO TRABALHO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "2º Semestre",
+      "nivel": "2° NIVEL",
       "materias": [
         {
           "codigo": "FEF0463",
-          "nome": "FUNDAMENTOS DA BIOMECÂNICA APLICADA À EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS DA BIOMECANICA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0464",
           "nome": "CORPO E CULTURA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0465",
           "nome": "CRESCIMENTO, DESENVOLVIMENTO E APRENDIZAGEM MOTORA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0466",
           "nome": "METODOLOGIA DOS ESPORTES COLETIVOS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0467",
-          "nome": "METODOLOGIA DAS ATIVIDADES GÍMNICAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DAS ATIVIDADES GIMNICAS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0468",
-          "nome": "CIÊNCIA E PESQUISA EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "3º Semestre",
+      "nivel": "3° NIVEL",
       "materias": [
         {
           "codigo": "FEF0143",
           "nome": "FISIOLOGIA DO EXERCICIO 1",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0469",
-          "nome": "FUNDAMENTOS SOCIOLÓGICOS DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "FUNDAMENTOS SOCIOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0470",
           "nome": "LAZER, TRABALHO E SOCIEDADE",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0471",
           "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0472",
-          "nome": "METODOLOGIA DA DANÇA E EXPRESSÃO CORPORAL",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "METODOLOGIA DA DANCA E EXPRESSAO CORPORAL",
+          "ch": "60"
         },
         {
           "codigo": "FEF0473",
-          "nome": "ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "ESTATISTICA",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "4º Semestre",
+      "nivel": "4° NIVEL",
       "materias": [
         {
           "codigo": "FEF0145",
           "nome": "FISIOLOGIA DO EXERCICIO 2",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         },
         {
           "codigo": "FEF0474",
-          "nome": "EPIDEMIOLOGIA E SAÚDE EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "EPIDEMIOLOGIA E SAUDE EM EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0475",
-          "nome": "MEDIDAS E AVALIAÇÃO EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "MEDIDAS E AVALIACAO EM EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0476",
-          "nome": "POLÍTICAS PÚBLICAS DE SAÚDE, ESPORTE E LAZER",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "POLITICAS PUBLICAS DE SAUDE, ESPORTE E LAZER",
+          "ch": "60"
         },
         {
           "codigo": "FEF0477",
-          "nome": "GESTÃO EM EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "GESTAO EM EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0478",
-          "nome": "DIDÁTICA DA EDUCAÇÃO FÍSICA",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "nome": "DIDATICA DA EDUCACAO FISICA",
+          "ch": "60"
         },
         {
           "codigo": "FEF0479",
           "nome": "METODOLOGIA DAS LUTAS",
-          "carga_horaria": "60h",
-          "natureza": "Obrigatória"
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "Optativas",
+      "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "FCE0193",
-          "nome": "FUNDAMENTOS DE FISIOTERAPIA",
-          "carga_horaria": "30h",
-          "natureza": "Optativa"
-        },
-        {
-          "codigo": "FEF0457",
-          "nome": "PREVENÇÃO ACIDENTES E PRIMEIROS SOCORROS",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "codigo": "FISIOTERAPIA",
+          "nome": "30H OPTATIVA FEF0457 - PREVENCAO ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
         },
         {
           "codigo": "FEF0459",
-          "nome": "EDUCAÇÃO FÍSICA E ATIVIDADE MOTORA ADAPTADA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO FISICA E ATIVIDADE MOTORA ADAPTADA",
+          "ch": "60"
         },
         {
           "codigo": "FUP0288",
-          "nome": "INTRODUÇÃO À ESTATÍSTICA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A ESTATISTICA",
+          "ch": "60"
         },
         {
           "codigo": "HIS0111",
-          "nome": "HISTÓRIA SOCIAL E POLÍTICA DO BRASIL",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
         },
         {
           "codigo": "SOL0042",
-          "nome": "INTRODUÇÃO À SOCIOLOGIA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0003",
-          "nome": "EDUCAÇÃO INCLUSIVA",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
         },
         {
           "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCAÇÃO",
-          "carga_horaria": "60h",
-          "natureza": "Optativa"
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0409",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0458",
+          "nome": "FUNDAMENTOS HISTORICO FILOSOFICO DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0460",
+          "nome": "METODOLOGIA DO ATLETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0461",
+          "nome": "METODOLOGIA DO JOGO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0462",
+          "nome": "RELACOES HUMANAS, EDUCACAO FISICA E MUNDO DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0463",
+          "nome": "FUNDAMENTOS DA BIOMECANICA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0464",
+          "nome": "CORPO E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0465",
+          "nome": "CRESCIMENTO, DESENVOLVIMENTO E APRENDIZAGEM MOTORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0466",
+          "nome": "METODOLOGIA DOS ESPORTES COLETIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0467",
+          "nome": "METODOLOGIA DAS ATIVIDADES GIMNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0468",
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0143",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0469",
+          "nome": "FUNDAMENTOS SOCIOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0470",
+          "nome": "LAZER, TRABALHO E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0471",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0472",
+          "nome": "METODOLOGIA DA DANCA E EXPRESSAO CORPORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0473",
+          "nome": "ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0145",
+          "nome": "FISIOLOGIA DO EXERCICIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0474",
+          "nome": "EPIDEMIOLOGIA E SAUDE EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0475",
+          "nome": "MEDIDAS E AVALIACAO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0476",
+          "nome": "POLITICAS PUBLICAS DE SAUDE, ESPORTE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0477",
+          "nome": "GESTAO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0478",
+          "nome": "DIDATICA DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0479",
+          "nome": "METODOLOGIA DAS LUTAS",
+          "ch": "60"
         }
       ]
     }

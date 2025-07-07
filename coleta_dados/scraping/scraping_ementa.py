@@ -4,6 +4,7 @@ import json
 import time
 import os
 import re
+import unicodedata
 
 
 def get_viewstate(soup):
@@ -15,79 +16,55 @@ def normalize(text):
     return ' '.join(text.strip().lower().split())
 
 
+def remover_acentos(texto):
+    return unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
+
+
 def extract_dados_por_nivel(relatorio_html):
     soup = BeautifulSoup(relatorio_html, 'html.parser')
+    texto = soup.get_text(separator=' ', strip=True).lower()
+
+    # Divide o texto em blocos por nível
+    blocos = re.split(r'(\d+º nível)', texto, flags=re.IGNORECASE)
     niveis = []
-    materias = []
-    optativas = []
-    semestre_atual = 1
-    modo_optativa = False
+    for i in range(1, len(blocos), 2):
+        nome_nivel = remover_acentos(blocos[i]).upper()
+        nome_nivel = re.sub(r'(\d+)O NIVEL', r'\1° NIVEL', nome_nivel)
+        conteudo = blocos[i+1]
+        # Remove tudo após CADEIA ou GRUPO DE COMPONENTES, mas NÃO corta por CH TOTAL/CH MINIMA
+        conteudo = re.split(r'cadeia|grupo de componentes', conteudo, flags=re.IGNORECASE)[0]
+        # Extrai matérias do bloco, ignorando linhas de CH TOTAL/CH MINIMA
+        materias = []
+        for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo, flags=re.IGNORECASE):
+            nome_materia = remover_acentos(m[1]).upper()
+            if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
+                continue
+            materias.append({
+                'codigo': remover_acentos(m[0]).upper(),
+                'nome': nome_materia,
+                'ch': m[2]
+            })
+        if materias:
+            niveis.append({'nivel': nome_nivel, 'materias': materias})
 
-    tabela = soup.find('table')
-    if not tabela:
-        print("Tabela principal não encontrada!")
-        return niveis
+    # Extrai bloco de optativas após o último nível
+    match_optativas = re.search(r'(optativas[\w\s]*)(.*)', texto, flags=re.IGNORECASE)
+    if match_optativas:
+        conteudo_opt = match_optativas.group(2)
+        conteudo_opt = re.split(r'cadeia|grupo de componentes', conteudo_opt, flags=re.IGNORECASE)[0]
+        materias_opt = []
+        for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo_opt, flags=re.IGNORECASE):
+            nome_materia = remover_acentos(m[1]).upper()
+            if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
+                continue
+            materias_opt.append({
+                'codigo': remover_acentos(m[0]).upper(),
+                'nome': nome_materia,
+                'ch': m[2]
+            })
+        if materias_opt:
+            niveis.append({'nivel': 'OPTATIVAS', 'materias': materias_opt})
 
-    for tr in tabela.find_all('tr'):
-        td_colspan = tr.find('td', colspan="2")
-        if td_colspan:
-            # Salva matérias acumuladas no local correto
-            if materias and not modo_optativa:
-                niveis.append({
-                    'nivel': f"{semestre_atual}º Semestre",
-                    'materias': materias
-                })
-                materias = []
-                semestre_atual += 1
-            elif materias and modo_optativa:
-                optativas.extend(materias)
-                materias = []
-
-            texto_divisor = td_colspan.get_text(strip=True).lower()
-            if "optativa" in texto_divisor:
-                modo_optativa = True
-            else:
-                modo_optativa = False
-            continue
-
-        if 'componentes' in (tr.get('class') or []):
-            tds = tr.find_all('td')
-            if tds and tds[0].text.strip():
-                texto = tds[0].get_text(strip=True)
-                match = re.match(r'([A-Z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', texto)
-                if match:
-                    codigo, nome, carga = match.groups()
-                    # Natureza: tenta pegar do segundo <td>, senão usa o padrão
-                    natureza = "Optativa" if modo_optativa else "Obrigatória"
-                    if len(tds) > 1 and tds[1].text.strip():
-                        natureza = tds[1].get_text(strip=True)
-                    materia = {
-                        'codigo': codigo,
-                        'nome': nome.strip(),
-                        'carga_horaria': f"{carga}h",
-                        'natureza': natureza
-                    }
-                    materias.append(materia)
-                else:
-                    print("Regex não bateu para:", texto)
-
-    # Salva o último grupo de matérias
-    if materias and not modo_optativa:
-        niveis.append({
-            'nivel': f"{semestre_atual}º Semestre",
-            'materias': materias
-        })
-    elif materias and modo_optativa:
-        optativas.extend(materias)
-
-    # Adiciona optativas como um nível separado, se houver
-    if optativas:
-        niveis.append({
-            'nivel': "Optativas",
-            'materias': optativas
-        })
-
-    print(f"=== FIM DO PARSER: {len(niveis)} níveis extraídos (incluindo optativas) ===")
     return niveis
 
 
