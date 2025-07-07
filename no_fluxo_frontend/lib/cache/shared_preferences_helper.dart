@@ -31,7 +31,10 @@ class SharedPreferencesHelper {
 
   static set currentUser(UserModel? user) {
     if (user != null) {
-      _prefs?.setString(keyUser, jsonEncode(user.toJson(includeToken: true)));
+      _prefs?.setString(
+          keyUser,
+          jsonEncode(
+              user.toJson(includeToken: true, includeDadosFluxograma: true)));
     } else {
       _prefs?.remove(keyUser);
     }

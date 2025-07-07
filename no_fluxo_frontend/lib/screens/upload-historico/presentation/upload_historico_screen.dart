@@ -226,6 +226,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
       dadosFluxograma.ira = _dadosExtraidos!["media_ponderada"];
 
+      dadosFluxograma.semestreAtual = _dadosExtraidos!["numero_semestre"];
+
       dadosFluxograma.dadosFluxograma = List.generate(20, (index) => []);
 
       for (var materiaCasada in _disciplinasCasadas!) {

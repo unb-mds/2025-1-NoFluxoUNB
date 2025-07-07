@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class DadosMateria {
   String codigoMateria;
   String mencao;
@@ -50,7 +52,9 @@ class DadosFluxogramaUser {
       matricula: json['matricula'],
       semestreAtual: json['semestre_atual'],
       matrizCurricular: json['matriz_curricular'],
-      dadosFluxograma: json['dados_fluxograma'],
+      dadosFluxograma: List<List<DadosMateria>>.from(json['dados_fluxograma']
+          .map((e) =>
+              List<DadosMateria>.from(e.map((e) => DadosMateria.fromJson(e))))),
     );
   }
 
@@ -72,7 +76,7 @@ class UserModel {
   final int idUser;
   final String email;
   final String nomeCompleto;
-  final DadosFluxogramaUser? dadosFluxograma;
+  DadosFluxogramaUser? dadosFluxograma;
   String? token;
 
   UserModel(
@@ -83,23 +87,39 @@ class UserModel {
       this.token});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
+    var user = UserModel(
         idUser: json['id_user'],
         email: json['email'],
         nomeCompleto: json['nome_completo'],
-        dadosFluxograma:
-            json['dados_users'] != null && json['dados_users'].length > 0
-                ? DadosFluxogramaUser.fromJson(
-                    json['dados_users'][0]["fluxograma_atual"])
-                : null);
+        dadosFluxograma: null);
+
+    if (json['dados_users'] != null &&
+        json['dados_users'].length > 0 &&
+        json['dados_users'][0] != null &&
+        json['dados_users'][0] is Map<String, dynamic> &&
+        json['dados_users'][0]["fluxograma_atual"] != null) {
+      user.dadosFluxograma = DadosFluxogramaUser.fromJson(
+          jsonDecode(json['dados_users'][0]["fluxograma_atual"]));
+    }
+
+    return user;
   }
 
-  Map<String, dynamic> toJson({bool includeToken = false}) {
+  Map<String, dynamic> toJson(
+      {bool includeToken = false, bool includeDadosFluxograma = false}) {
     return {
       'id_user': idUser,
       'email': email,
       'nome_completo': nomeCompleto,
       if (includeToken) 'token': token,
+      if (includeDadosFluxograma && dadosFluxograma != null)
+        'dados_users': [
+          Map<String, dynamic>.from(
+            {
+              "fluxograma_atual": jsonEncode(dadosFluxograma!.toJson()),
+            },
+          )
+        ],
     };
   }
 

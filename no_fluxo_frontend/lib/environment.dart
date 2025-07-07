@@ -26,9 +26,10 @@ class Environment {
     }
   }
 
-  static Map<String, String> getHeadersForAuthorizedRequest() {
+  static Future<Map<String, String>> getHeadersForAuthorizedRequest() async {
+    final session = await Supabase.instance.client.auth.refreshSession();
     return {
-      "Authorization": SharedPreferencesHelper.currentUser?.token ?? "",
+      "Authorization": session.session?.accessToken ?? "",
       "User-ID": SharedPreferencesHelper.currentUser?.idUser.toString() ?? "",
       "Content-Type": "application/json"
     };

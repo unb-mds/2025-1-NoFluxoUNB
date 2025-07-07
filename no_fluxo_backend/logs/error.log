@@ -2938,41 +2938,164 @@ Port 3001 is in use by another program. Either identify and stop that program, o
 Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
 
 [2025-07-06 16:44:22:4422][[31mERROR[39m] [PDF Parser] process exited with code 1
-[2025-07-06 16:48:39:4839][[31mERROR[39m] [PDF Parser] [2025-07-06 16:48:39][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+[2025-07-07 18:14:04:144][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:04][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
-[2025-07-06 16:48:39:4839][[31mERROR[39m] [PDF Parser] [2025-07-06 16:48:39][INFO][PDF Parser] Starting PDF parser service on port 3001
+[2025-07-07 18:14:04:144][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:04][INFO][PDF Parser] Starting PDF parser service on port 3001
 
-[2025-07-06 16:48:39:4839][[31mERROR[39m] [PDF Parser] Address already in use
+[2025-07-07 18:14:04:144][[31mERROR[39m] [PDF Parser] Address already in use
 Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
 
-[2025-07-06 16:48:39:4839][[31mERROR[39m] [PDF Parser] process exited with code 1
-[2025-07-06 16:49:11:4911][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:11][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+[2025-07-07 18:14:04:144][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-07 18:14:06:146][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:06][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
-[2025-07-06 16:49:11:4911][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:11][INFO][PDF Parser] Starting PDF parser service on port 3001
+[2025-07-07 18:14:06:146][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:06][INFO][PDF Parser] Starting PDF parser service on port 3001
 
-[2025-07-06 16:49:11:4911][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:11][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2025-07-07 18:14:06:146][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-07 18:14:06:146][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-07 18:14:06:146][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:3001
-[2025-07-06 16:49:11][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
 
-[2025-07-06 16:49:11:4911][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:11][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
 
-[2025-07-06 16:49:12:4912][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:12][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
 
-[2025-07-06 16:49:12:4912][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:12][INFO][PDF Parser] Starting PDF parser service on port 3001
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
 
-[2025-07-06 16:49:12:4912][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:12][WARNING][PDF Parser]  * Debugger is active!
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser] Starting PDF parser service on port 3001
 
-[2025-07-06 16:49:12:4912][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:12][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][WARNING][PDF Parser]  * Debugger is active!
 
-[2025-07-06 16:49:15:4915][[31mERROR[39m] [FluxogramaController][upload-dados-fluxograma] Erro ao salvar fluxograma: new row for relation "dados_users" violates check constraint "dados_users_semestre_atual_check"
-[2025-07-06 16:49:38:4938][[31mERROR[39m] [FluxogramaController][upload-dados-fluxograma] Erro ao salvar fluxograma: new row for relation "dados_users" violates check constraint "dados_users_semestre_atual_check"
-[2025-07-06 16:49:56:4956][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:56][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+[2025-07-07 18:14:35:1435][[31mERROR[39m] [PDF Parser] [2025-07-07 18:14:35][INFO][PDF Parser]  * Debugger PIN: 114-293-037
 
-[2025-07-06 16:49:56:4956][[31mERROR[39m] [PDF Parser] [2025-07-06 16:49:56][INFO][PDF Parser] Starting PDF parser service on port 3001
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] ==================================================
+[2025-07-07 18:15:11][INFO][PDF Parser] Request Method: POST
 
-[2025-07-06 16:49:56:4956][[31mERROR[39m] [PDF Parser] Address already in use
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Request URL: http://127.0.0.1:3001/upload-pdf
+[2025-07-07 18:15:11][INFO][PDF Parser] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------894244383212324257059389', 'User-Agent': 'axios/1.10.0', 'Content-Length': '208969', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Request Files: dict_keys(['pdf'])
+[2025-07-07 18:15:11][INFO][PDF Parser] ==================================================
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Received PDF upload request
+[2025-07-07 18:15:11][INFO][PDF Parser] Processing file: historico_222037700.pdf
+[2025-07-07 18:15:11][INFO][PDF Parser] File content type: application/pdf
+[2025-07-07 18:15:11][INFO][PDF Parser] File size: 208744 bytes
+[2025-07-07 18:15:11][INFO][PDF Parser] Extracted matricula: 222037700
+[2025-07-07 18:15:11][INFO][PDF Parser] Attempting text extraction with PyPDF2
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] PDF has 4 pages
+[2025-07-07 18:15:11][INFO][PDF Parser] Processing page 1
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Extracted 3677 characters from page 1
+[2025-07-07 18:15:11][INFO][PDF Parser] Processing page 2
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Extracted 4325 characters from page 2
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Processing page 3
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Extracted 2900 characters from page 3
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Processing page 4
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Extracted 1021 characters from page 4
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] Successfully extracted text using PyPDF2
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] PDF processing completed successfully
+[2025-07-07 18:15:11][INFO][PDF Parser] Sending response with 48 extracted items
+
+[2025-07-07 18:15:11:1511][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:11][INFO][PDF Parser] 127.0.0.1 - - [07/Jul/2025 18:15:11] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] ==================================================
+[2025-07-07 18:15:33][INFO][PDF Parser] Request Method: POST
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Request URL: http://127.0.0.1:3001/upload-pdf
+[2025-07-07 18:15:33][INFO][PDF Parser] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------755150214254335987877383', 'User-Agent': 'axios/1.10.0', 'Content-Length': '26405', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Request Files: dict_keys(['pdf'])
+[2025-07-07 18:15:33][INFO][PDF Parser] ==================================================
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Received PDF upload request
+[2025-07-07 18:15:33][INFO][PDF Parser] Processing file: historico_211029503-5.pdf
+[2025-07-07 18:15:33][INFO][PDF Parser] File content type: application/pdf
+[2025-07-07 18:15:33][INFO][PDF Parser] File size: 26178 bytes
+[2025-07-07 18:15:33][INFO][PDF Parser] Extracted matricula: 211029503-5
+[2025-07-07 18:15:33][INFO][PDF Parser] Attempting text extraction with PyPDF2
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] PDF has 3 pages
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Processing page 1
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Extracted 3337 characters from page 1
+[2025-07-07 18:15:33][INFO][PDF Parser] Processing page 2
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Extracted 3666 characters from page 2
+[2025-07-07 18:15:33][INFO][PDF Parser] Processing page 3
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] Extracted 2686 characters from page 3
+[2025-07-07 18:15:33][INFO][PDF Parser] Successfully extracted text using PyPDF2
+
+[2025-07-07 18:15:33:1533][[31mERROR[39m] [PDF Parser] [2025-07-07 18:15:33][INFO][PDF Parser] PDF processing completed successfully
+[2025-07-07 18:15:33][INFO][PDF Parser] Sending response with 44 extracted items
+[2025-07-07 18:15:33][INFO][PDF Parser] 127.0.0.1 - - [07/Jul/2025 18:15:33] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-07 18:16:39:1639][[31mERROR[39m] [PDF Parser] [2025-07-07 18:16:39][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-07 18:16:39:1639][[31mERROR[39m] [PDF Parser] [2025-07-07 18:16:39][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-07 18:16:39:1639][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-07 18:16:39:1639][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-07 18:16:39:1639][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-07 18:23:36:2336][[31mERROR[39m] [PDF Parser] [2025-07-07 18:23:36][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-07 18:23:36:2336][[31mERROR[39m] [PDF Parser] [2025-07-07 18:23:36][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-07 18:23:36:2336][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-07 18:23:36:2336][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-07 18:23:36:2336][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-07 18:24:46:2446][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: read ECONNRESET
+[2025-07-07 18:25:29:2529][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: timeout of 30000ms exceeded
+[2025-07-07 18:26:26:2626][[31mERROR[39m] [FluxogramaController][casar_disciplinas] Erro ao casar disciplinas: dadosValidacao.pendencias.join is not a function
+[2025-07-07 18:31:04:314][[31mERROR[39m] [FluxogramaController][casar_disciplinas] Erro ao casar disciplinas: dadosValidacao.pendencias.join is not a function
+[2025-07-07 18:35:12:3512][[31mERROR[39m] [PDF Parser] [2025-07-07 18:35:12][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-07 18:35:12:3512][[31mERROR[39m] [PDF Parser] [2025-07-07 18:35:12][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-07 18:35:12:3512][[31mERROR[39m] [PDF Parser] Address already in use
 Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
 
-[2025-07-06 16:49:57:4957][[31mERROR[39m] [PDF Parser] process exited with code 1
-[2025-07-06 16:50:30:5030][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: timeout of 30000ms exceeded
-[2025-07-06 16:52:49:5249][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: timeout of 30000ms exceeded
+[2025-07-07 18:35:12:3512][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-07 18:42:00:420][[31mERROR[39m] [FluxogramaController][read_pdf] Erro ao processar PDF: timeout of 30000ms exceeded
+[2025-07-07 18:46:18:4618][[31mERROR[39m] [FluxogramaController][casar_disciplinas] Curso não encontrado: ENGENHARIA DE SOFTWARE
+[2025-07-07 18:51:30:5130][[31mERROR[39m] [Utils][Utils] Erro ao verificar autorização: invalid JWT: unable to parse or verify signature, token has invalid claims: token is expired
+[2025-07-07 18:52:22:5222][[31mERROR[39m] [Utils][Utils] Erro ao verificar autorização: invalid JWT: unable to parse or verify signature, token has invalid claims: token is expired
+[2025-07-07 18:54:31:5431][[31mERROR[39m] [FluxogramaController][upload-dados-fluxograma] Erro ao salvar fluxograma: new row for relation "dados_users" violates check constraint "dados_users_semestre_atual_check"
+[2025-07-07 18:55:49:5549][[31mERROR[39m] [FluxogramaController][upload-dados-fluxograma] Erro ao salvar fluxograma: new row for relation "dados_users" violates check constraint "dados_users_semestre_atual_check"
+[2025-07-07 18:55:49:5549][[31mERROR[39m] [PDF Parser] [2025-07-07 18:55:49][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-07 18:55:49:5549][[31mERROR[39m] [PDF Parser] [2025-07-07 18:55:49][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-07 18:55:49:5549][[31mERROR[39m] [PDF Parser] Address already in use
+Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-07 18:55:49:5549][[31mERROR[39m] [PDF Parser] process exited with code 1
+[2025-07-07 20:12:07:127][[31mERROR[39m] [PDF Parser] [2025-07-07 20:12:07][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-07 20:12:07:127][[31mERROR[39m] [PDF Parser] [2025-07-07 20:12:07][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-07 20:12:07:127][[31mERROR[39m] [PDF Parser] Address already in use
+
+[2025-07-07 20:12:07:127][[31mERROR[39m] [PDF Parser] Port 3001 is in use by another program. Either identify and stop that program, or start the server with a different port.
+
+[2025-07-07 20:12:07:127][[31mERROR[39m] [PDF Parser] process exited with code 1

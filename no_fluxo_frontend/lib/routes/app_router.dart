@@ -116,7 +116,7 @@ class AppRouter {
                 log.severe(error);
               },
               (userFromDb) {
-                SharedPreferencesHelper.currentUser ??= userFromDb;
+                SharedPreferencesHelper.currentUser = userFromDb;
               },
             );
 
@@ -133,7 +133,7 @@ class AppRouter {
         },
         (userFromDb) async {
           /// 3. Grava em SharedPreferences com segurança de nulos
-          SharedPreferencesHelper.currentUser ??= userFromDb;
+          SharedPreferencesHelper.currentUser = userFromDb;
 
           onFoundUser?.call();
 

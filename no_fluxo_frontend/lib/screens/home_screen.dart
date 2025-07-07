@@ -163,7 +163,12 @@ class _AnimatedAcesseButtonState extends State<_AnimatedAcesseButton> {
         child: ElevatedButton(
           onPressed: () {
             if (SharedPreferencesHelper.currentUser != null) {
-              context.go('/upload-historico');
+              if (SharedPreferencesHelper.currentUser!.dadosFluxograma ==
+                  null) {
+                context.go('/upload-historico');
+              } else {
+                context.go('/meu-fluxograma');
+              }
             } else {
               context.go('/login');
             }
