@@ -79,7 +79,7 @@ def get_or_create_curso(nome_curso, matriz_json, periodo_letivo):
 
 def get_or_create_materia(materia):
     codigo = materia['codigo']
-    # Verifica se já existe matéria com esse código
+    # Sempre verifica no banco antes de tentar inserir
     result = executar_operacao(supabase.table('materias').select('id_materia', 'ementa').eq('codigo_materia', codigo).execute)
     if result.data:
         id_materia = result.data[0]['id_materia']
@@ -91,7 +91,7 @@ def get_or_create_materia(materia):
     insert_data = {
         'nome_materia': materia['nome'],
         'codigo_materia': codigo,
-        'carga_horaria': to_int(materia.get('carga_horaria', materia.get('ch', 0))),
+        'carga_horaria': materia.get('carga_horaria', None),
         'ementa': materia.get('ementa', '')
     }
     res = executar_operacao(supabase.table('materias').insert(insert_data).execute)
