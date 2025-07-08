@@ -33,6 +33,11 @@ jobs:
           - name: Execute Script
             run:
               python coleta_dados/scraping/scraping_ementa.py
+              python coleta_dados/scraping/extrair_turmas_sigaa.py
+              python coleta_dados/scraping/executar_fluxo_dados_RAGFLOW.py
+              python coleta_dados/scraping/formatar_para_ragflow.py
+              
+              
 
           - name: Commit Changes
             uses: stefanzweifel/git-auto-commit-action@v4
