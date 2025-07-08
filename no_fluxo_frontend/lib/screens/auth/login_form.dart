@@ -193,7 +193,7 @@ class _LoginFormState extends State<LoginForm> {
                 // TODO: Implementar autenticação Google
               },
               icon: Image.asset(
-                'assets/icons/google.png',
+                'assets/icons/Google__G__logo.svg',
                 height: 24,
                 width: 24,
                 errorBuilder: (context, error, stackTrace) =>

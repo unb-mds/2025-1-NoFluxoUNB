@@ -8,6 +8,7 @@ from flask_cors import CORS
 from PIL import Image # Importar a biblioteca Pillow (PIL)
 from pdf2image import convert_from_bytes # Para converter PDF para imagem
 import pytesseract # Para o OCR
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 CORS(app)
@@ -30,6 +31,10 @@ padrao_curriculo = r'(\d+/\d+(?:\s*-\s*\d{4}\.\d)?)'
 padrao_pend = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_natureza = re.compile(r'(\*|e|&|#|@|§|%)')
 
+# --- Extração de Curso ---
+padrao_curso = re.compile(r'(?:CURSO|GRADUAÇÃO|BACHARELADO|LICENCIATURA)[:\s]+([A-ZÀ-Ÿ\s]+?)(?:\n|$)', re.IGNORECASE)
+padrao_curso_alternativo = re.compile(r'(?:ENGENHARIA|CIÊNCIA|ADMINISTRAÇÃO|DIREITO|MEDICINA|PEDAGOGIA|LETRAS|HISTÓRIA|GEOGRAFIA|MATEMÁTICA|FÍSICA|QUÍMICA|BIOLOGIA|PSICOLOGIA|SOCIOLOGIA|FILOSOFIA|ECONOMIA|CONTABILIDADE|SISTEMAS|COMPUTAÇÃO|INFORMÁTICA|TECNOLOGIA)[\s\wÀ-Ÿ]+', re.IGNORECASE)
+
 # --- Disciplinas Padrão (com professor) ---
 padrao_status = re.compile(r"\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b")
 padrao_mencao = re.compile(r"\b(SS|MS|MM|MI|II|SR)\b")
@@ -41,6 +46,54 @@ padrao_cump = re.compile(r"--\s+CUMP\b")
 # Regex para extrair carga horária de matérias CUMP (o número antes de "100,0")
 padrao_horas_cump = re.compile(r"\b\w+\d+\s+(\d+)\s+\d{1,3},\d\b") # Ex: LET0331 60 100,0
 
+def extrair_curso(texto):
+    """
+    Extrai o nome do curso do texto do PDF
+    """
+    # Tentar padrão específico primeiro
+    match_curso = padrao_curso.search(texto)
+    if match_curso:
+        curso = match_curso.group(1).strip()
+        print(f"🎓 Curso extraído: {curso}")
+        return curso
+    
+    # Tentar padrão alternativo
+    match_curso_alt = padrao_curso_alternativo.search(texto)
+    if match_curso_alt:
+        curso = match_curso_alt.group(0).strip()
+        print(f"🎓 Curso extraído (padrão alternativo): {curso}")
+        return curso
+    
+    print("⚠️ Curso não encontrado no PDF")
+    return None
+
+def limpar_nome_disciplina(nome):
+    """
+    Remove períodos e outros elementos desnecessários do nome da disciplina
+    """
+    if not nome:
+        return nome
+    
+    nome_original = nome
+    
+    # Remove padrões de período como "2023.1", "2024.2", etc.
+    nome_limpo = re.sub(r'^\d{4}\.\d\s*', '', nome)
+    
+    # Remove outros padrões comuns que podem aparecer no início
+    nome_limpo = re.sub(r'^--\s*', '', nome_limpo)
+    nome_limpo = re.sub(r'^—\s*', '', nome_limpo)
+    
+    # Remove apenas caracteres especiais do início e fim, preservando letras, números e espaços
+    nome_limpo = re.sub(r'^[^\w\s]+|[^\w\s]+$', '', nome_limpo)
+    
+    # Remove espaços extras
+    nome_limpo = re.sub(r'\s+', ' ', nome_limpo).strip()
+    
+    # Debug: mostrar quando o nome foi alterado
+    if nome_original != nome_limpo:
+        print(f"🔧 Limpeza: '{nome_original}' → '{nome_limpo}'")
+    
+    return nome_limpo
 
 @app.route('/upload-pdf', methods=['POST'])
 def upload_pdf():
@@ -100,6 +153,9 @@ def upload_pdf():
         print(texto_total[:500] + "..." if len(texto_total) > 500 else texto_total)
         print("----------------------------------------------------\n")
 
+        # Extrair curso do texto
+        curso_extraido = extrair_curso(texto_total)
+
         disciplinas = [] # Lista para armazenar os dados extraídos das disciplinas
         lines = texto_total.splitlines()
 
@@ -158,21 +214,24 @@ def upload_pdf():
                     nome_disciplina = "Nome da Disciplina N/A"
                     if i - 1 >= 0:
                         prev_line = lines[i - 1].strip()
-                        # Nova regex para capturar o nome da disciplina, lidando com formatos variados
-                        # Tenta capturar tudo que pareça um nome, antes de números ou status no final da linha.
-                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-]+?)(?:\s+\d+\s*(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—)?)?$', prev_line, re.IGNORECASE)
+                        # Regex melhorada para capturar o nome da disciplina incluindo números
+                        # Captura tudo até encontrar status no final da linha
+                        name_match = re.search(r'^(?:\d{4}\.\d\s+)?([\wÀ-Ÿ\s.&,()\-\d]+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
                         if name_match:
                             nome_disciplina = name_match.group(1).strip()
-                            # Limpa potenciais caracteres não-alfabéticos que sobraram no início/fim do nome
-                            nome_disciplina = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_disciplina).strip()
+                            # Aplica a função de limpeza para remover períodos e outros elementos
+                            nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                         else:
                             # Fallback se o padrão mais específico não funcionar
-                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+\d+)?(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
+                            fallback_name_match = re.search(r'^(?:\d{4}\.\d\s+)?(.+?)(?:\s+(?:APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP|--|—))?$', prev_line, re.IGNORECASE)
                             if fallback_name_match:
                                 nome_disciplina = fallback_name_match.group(1).strip()
-                                nome_disciplina = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_disciplina).strip()
+                                # Aplica a função de limpeza para remover períodos e outros elementos
+                                nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                             else:
                                 nome_disciplina = prev_line # Último recurso: usa a linha anterior inteira
+                                # Aplica a função de limpeza mesmo no fallback
+                                nome_disciplina = limpar_nome_disciplina(nome_disciplina)
                     
                     disciplinas.append({
                         "tipo_dado": "Disciplina Regular",
@@ -185,6 +244,10 @@ def upload_pdf():
                         "natureza": natureza
                     })
                     print(f"  -> Disciplina Regular encontrada: '{nome_disciplina}' (Status: {status})")
+                    
+                    # Debug: verificar se a disciplina contém números
+                    if re.search(r'\d', nome_disciplina):
+                        print(f"    📊 Disciplina com números: '{nome_disciplina}'")
                 # else:
                     # print(f"  -> Linha de professor, mas dados insuficientes para disciplina regular. Status: {match_status}, Codigo: {match_codigo}, Horas: {match_horas}")
 
@@ -203,8 +266,8 @@ def upload_pdf():
                 cump_name_match = re.search(r"^(?:--\s*|\d{4}\.\d\s*)(.*?)(?:\s+--|\s+—)\s*CUMP", linha, re.IGNORECASE)
                 if cump_name_match:
                     nome_materia_cump = cump_name_match.group(1).strip()
-                    # Limpa potenciais caracteres não-alfabéticos que sobraram no início/fim do nome
-                    nome_materia_cump = re.sub(r'^\s*[^A-ZÀ-Ÿ\w]+|\s*[^A-ZÀ-Ÿ\w]+$', '', nome_materia_cump).strip()
+                    # Aplica a função de limpeza para remover períodos e outros elementos
+                    nome_materia_cump = limpar_nome_disciplina(nome_materia_cump)
 
 
                 if match_padrao_horas_cump:
@@ -239,6 +302,7 @@ def upload_pdf():
             'message': 'PDF processado com sucesso!',
             'filename': filename,
             'matricula': matricula,
+            'curso_extraido': curso_extraido,
             'full_text': texto_total,
             'extracted_data': disciplinas
         })

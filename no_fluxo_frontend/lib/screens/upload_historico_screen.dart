@@ -8,6 +8,7 @@ import 'package:http_parser/http_parser.dart';
 import 'dart:typed_data';
 import 'package:go_router/go_router.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'dart:convert';
 
 enum UploadState { initial, uploading, success }
 
@@ -34,6 +35,10 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   late Animation<double> _hoverAnimation;
   late Animation<double> _pulseAnimation;
   late Animation<double> _progressGradientAnimation;
+  Map<String, dynamic>? _dadosExtraidos;
+  List<Map<String, dynamic>>? _disciplinasCasadas;
+  Map<String, dynamic>? _dadosValidacao;
+  List<Map<String, dynamic>>? _materiasOptativas;
 
   @override
   void initState() {
@@ -103,19 +108,24 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     try {
       FilePickerResult? result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
-        allowedExtensions: ['pdf', 'doc', 'docx', 'txt', 'html'],
+        allowedExtensions: ['pdf'],
       );
 
       if (result != null && result.files.single.bytes != null) {
         setState(() {
           _fileName = result.files.single.name;
         });
-        await uploadPdfBytes(
+        final dados = await uploadPdfBytes(
             result.files.single.bytes!, result.files.single.name);
+        if (dados != null) {
+          setState(() {
+            _dadosExtraidos = dados;
+          });
+          await _casarDisciplinasComBanco();
+        }
         await _simulateUpload();
       }
     } catch (e) {
-      // Debugger e mensagem de erro
       debugPrint('Erro ao selecionar o arquivo: ' + e.toString());
       assert(false, 'Erro ao selecionar o arquivo: ' + e.toString());
     }
@@ -319,6 +329,61 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                     child: _buildHelpButton(),
                   ),
                 const Spacer(),
+                if (_disciplinasCasadas != null) ...[
+                  const SizedBox(height: 24),
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.1),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('📊 Resultado do Processamento:',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18)),
+                        const SizedBox(height: 12),
+                        Text(
+                            '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
+                            style: TextStyle(color: Colors.white)),
+                        Text(
+                            '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true || d['encontrada_no_banco'] == 'true').length}',
+                            style: TextStyle(color: Colors.green)),
+                        Text(
+                            '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false || d['encontrada_no_banco'] == 'false').length}',
+                            style: TextStyle(color: Colors.orange)),
+                        if (_materiasOptativas != null) ...[
+                          const SizedBox(height: 8),
+                          Text(
+                              '🎯 Matérias optativas: ${_materiasOptativas!.length}',
+                              style: TextStyle(color: Colors.purple)),
+                        ],
+                        if (_dadosValidacao != null) ...[
+                          const SizedBox(height: 8),
+                          Text(
+                              '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
+                              style: TextStyle(color: Colors.blue)),
+                          Text(
+                              '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
+                              style: TextStyle(color: Colors.blue)),
+                          if (_dadosValidacao!['pendencias'] != null &&
+                              _dadosValidacao!['pendencias'] is List &&
+                              _dadosValidacao!['pendencias'].isNotEmpty)
+                            Text(
+                                '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
+                                style: TextStyle(color: Colors.orange)),
+                        ],
+                        const SizedBox(height: 8),
+                        Text('💡 Dica: Verifique o console para mais detalhes',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12)),
+                      ],
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -888,6 +953,88 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       },
     );
   }
+
+  Future<void> _casarDisciplinasComBanco() async {
+    if (_dadosExtraidos == null) return;
+
+    try {
+      print('🔄 Enviando dados para casamento...');
+      print(
+          '📊 Dados extraídos: ${_dadosExtraidos?['extracted_data']?.length} disciplinas');
+
+      final response = await http.post(
+        Uri.parse('http://localhost:3000/fluxograma/casar_disciplinas'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'dados_extraidos': _dadosExtraidos,
+          'nome_curso': 'ENGENHARIA DE SOFTWARE'
+        }),
+      );
+
+      print('📡 Status da resposta: ${response.statusCode}');
+
+      if (response.statusCode == 200) {
+        final resultado = jsonDecode(response.body);
+        print('✅ Resposta do backend: $resultado');
+
+        setState(() {
+          _disciplinasCasadas =
+              List<Map<String, dynamic>>.from(resultado['disciplinas_casadas']);
+          _dadosValidacao = resultado['dados_validacao'] != null
+              ? Map<String, dynamic>.from(resultado['dados_validacao'])
+              : null;
+          _materiasOptativas = resultado['materias_optativas'] != null
+              ? List<Map<String, dynamic>>.from(resultado['materias_optativas'])
+              : null;
+        });
+
+        // Logs detalhados
+        print(
+            '📋 Total disciplinas casadas: ${resultado['disciplinas_casadas']?.length}');
+        print(
+            '✅ Matérias obrigatórias concluídas: ${resultado['materias_concluidas']?.length}');
+        print(
+            '❌ Matérias obrigatórias pendentes: ${resultado['materias_pendentes']?.length}');
+        print(
+            '🎯 Matérias optativas: ${resultado['materias_optativas']?.length ?? 0}');
+        print(
+            '📊 Percentual de conclusão obrigatórias: ${resultado['resumo']?['percentual_conclusao_obrigatorias']?.toStringAsFixed(1)}%');
+
+        // Logs de validação
+        if (resultado['dados_validacao']) {
+          print('📊 DADOS DE VALIDAÇÃO:');
+          print('   IRA: ${resultado['dados_validacao']['ira']}');
+          print(
+              '   Horas integralizadas: ${resultado['dados_validacao']['horas_integralizadas']}h');
+          print(
+              '   Pendências: ${resultado['dados_validacao']['pendencias'].join(', ')}');
+        }
+
+        // Debug detalhado das disciplinas não encontradas
+        if (resultado['disciplinas_casadas'] != null) {
+          print('\n🔍 DEBUG DETALHADO:');
+          for (var i = 0; i < resultado['disciplinas_casadas'].length; i++) {
+            var disc = resultado['disciplinas_casadas'][i];
+            bool encontrada = disc['encontrada_no_banco'] == true ||
+                disc['encontrada_no_banco'] == 'true';
+            if (!encontrada) {
+              print(
+                  '❌ NÃO ENCONTRADA: "${disc['nome']}" (Código: ${disc['codigo'] ?? 'N/A'})');
+            } else {
+              print(
+                  '✅ ENCONTRADA: "${disc['nome']}" (ID: ${disc['id_materia']})');
+            }
+          }
+        }
+      } else {
+        print('❌ Erro na resposta: ${response.statusCode}');
+        final errorBody = response.body;
+        print('❌ Detalhes do erro: $errorBody');
+      }
+    } catch (e) {
+      print('💥 Erro ao casar disciplinas: $e');
+    }
+  }
 }
 
 class _PassoHistorico extends StatelessWidget {
@@ -978,31 +1125,31 @@ Future<void> uploadPdf(File file) async {
   }
 }
 
-Future<void> uploadPdfBytes(Uint8List bytes, String fileName) async {
+Future<Map<String, dynamic>?> uploadPdfBytes(
+    Uint8List bytes, String fileName) async {
   try {
     var uri = Uri.parse('http://localhost:3000/fluxograma/read_pdf');
     var request = http.MultipartRequest('POST', uri);
-
-    // Adiciona o arquivo como bytes
     request.files.add(
       http.MultipartFile.fromBytes(
-        'pdf', // nome do campo esperado pelo backend
+        'pdf',
         bytes,
         filename: fileName,
-        contentType: MediaType('application',
-            'pdf'), // precisa importar 'package:http_parser/http_parser.dart'
+        contentType: MediaType('application', 'pdf'),
       ),
     );
-
     var response = await request.send();
 
     if (response.statusCode == 200) {
-      print('PDF enviado e processado com sucesso!');
-      // Trate a resposta aqui
+      final respStr = await response.stream.bytesToString();
+      final data = jsonDecode(respStr);
+      return data;
     } else {
-      print('Erro ao enviar PDF: ${response.statusCode}');
+      print('Erro ao enviar PDF: [31m${response.statusCode}[0m');
+      return null;
     }
   } catch (e) {
     print('Erro ao enviar PDF: $e');
+    return null;
   }
 }

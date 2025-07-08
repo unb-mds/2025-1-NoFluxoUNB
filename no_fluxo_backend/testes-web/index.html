@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Testes - NoFluxo Backend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .test-section {
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .test-header {
+            background: #f9fafb;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .test-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .test-button {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .test-button:hover {
+            background: #3730a3;
+        }
+
+        .test-button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .test-form {
+            padding: 20px;
+            background: #fafafa;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            min-height: 120px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .test-result {
+            padding: 20px;
+            background: #f8fafc;
+            border-top: 1px solid #e5e7eb;
+            display: none;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .result-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-loading {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .result-content {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4f46e5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .quick-button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .quick-button:hover {
+            background: #059669;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .success-message {
+            background: #dcfce7;
+            color: #166534;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #16a34a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 API de Testes</h1>
+            <p>NoFluxo Backend - Interface para Testes</p>
+        </div>
+
+        <div class="content">
+            <div class="quick-actions">
+                <button class="quick-button" onclick="runAllTests()">🚀 Executar Todos os Testes</button>
+                <button class="quick-button" onclick="clearAllResults()">🗑️ Limpar Resultados</button>
+                <button class="quick-button" onclick="loadSampleData()">📝 Carregar Dados de Exemplo</button>
+            </div>
+
+            <!-- Teste de Banco -->
+            <div class="test-section">
+                <div class="test-header">
+                    <div class="test-title">1️⃣ Teste de Conexão com Banco</div>
+                    <button class="test-button" onclick="testBanco()">Executar Teste</button>
+                </div>
+                <div class="test-result" id="result-banco">
+                    <div class="result-header">
+                        <span>Resultado do Teste</span>
+                        <span class="result-status status-loading">Carregando...</span>
+                    </div>
+                    <div class="result-content" id="content-banco"></div>
+                </div>
+            </div>
+
+            <!-- Teste de Curso -->
+            <div class="test-section">
+                <div class="test-header">
+                    <div class="test-title">2️⃣ Teste de Busca de Curso</div>
+                    <button class="test-button" onclick="testCurso()">Executar Teste</button>
+                </div>
+                <div class="test-form">
+                    <div class="form-group">
+                        <label class="form-label">Nome do Curso:</label>
+                        <input type="text" class="form-input" id="curso-nome" placeholder="Ex: Engenharia de Software" value="Engenharia de Software">
+                    </div>
+                </div>
+                <div class="test-result" id="result-curso">
+                    <div class="result-header">
+                        <span>Resultado do Teste</span>
+                        <span class="result-status status-loading">Carregando...</span>
+                    </div>
+                    <div class="result-content" id="content-curso"></div>
+                </div>
+            </div>
+
+            <!-- Teste de Casamento -->
+            <div class="test-section">
+                <div class="test-header">
+                    <div class="test-title">3️⃣ Teste de Casamento de Disciplinas</div>
+                    <button class="test-button" onclick="testCasamento()">Executar Teste</button>
+                </div>
+                <div class="test-form">
+                    <div class="form-group">
+                        <label class="form-label">Nome do Curso:</label>
+                        <input type="text" class="form-input" id="casamento-curso" placeholder="Ex: Engenharia de Software" value="Engenharia de Software">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Dados Extraídos (JSON):</label>
+                        <textarea class="form-textarea" id="casamento-dados" placeholder="Cole aqui os dados extraídos do PDF..."></textarea>
+                    </div>
+                </div>
+                <div class="test-result" id="result-casamento">
+                    <div class="result-header">
+                        <span>Resultado do Teste</span>
+                        <span class="result-status status-loading">Carregando...</span>
+                    </div>
+                    <div class="result-content" id="content-casamento"></div>
+                </div>
+            </div>
+
+            <!-- Teste Completo -->
+            <div class="test-section">
+                <div class="test-header">
+                    <div class="test-title">4️⃣ Teste Completo</div>
+                    <button class="test-button" onclick="testCompleto()">Executar Teste</button>
+                </div>
+                <div class="test-form">
+                    <div class="form-group">
+                        <label class="form-label">Nome do Curso:</label>
+                        <input type="text" class="form-input" id="completo-curso" placeholder="Ex: Engenharia de Software" value="Engenharia de Software">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Dados Extraídos (JSON):</label>
+                        <textarea class="form-textarea" id="completo-dados" placeholder="Cole aqui os dados extraídos do PDF..."></textarea>
+                    </div>
+                </div>
+                <div class="test-result" id="result-completo">
+                    <div class="result-header">
+                        <span>Resultado do Teste</span>
+                        <span class="result-status status-loading">Carregando...</span>
+                    </div>
+                    <div class="result-content" id="content-completo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3000/testes';
+
+        // Função para mostrar resultado
+        function showResult(testId, data, status = 'success') {
+            const resultDiv = document.getElementById(`result-${testId}`);
+            const contentDiv = document.getElementById(`content-${testId}`);
+            const statusSpan = resultDiv.querySelector('.result-status');
+            
+            resultDiv.style.display = 'block';
+            contentDiv.textContent = JSON.stringify(data, null, 2);
+            
+            statusSpan.className = `result-status status-${status}`;
+            statusSpan.textContent = status === 'success' ? 'Sucesso' : 
+                                   status === 'error' ? 'Erro' : 'Carregando...';
+        }
+
+        // Função para mostrar loading
+        function showLoading(testId) {
+            const resultDiv = document.getElementById(`result-${testId}`);
+            const statusSpan = resultDiv.querySelector('.result-status');
+            
+            resultDiv.style.display = 'block';
+            statusSpan.className = 'result-status status-loading';
+            statusSpan.innerHTML = '<span class="loading"></span> Carregando...';
+        }
+
+        // Teste de Banco
+        async function testBanco() {
+            showLoading('banco');
+            
+            try {
+                const response = await fetch(`${API_BASE}/banco`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult('banco', data, 'success');
+                } else {
+                    showResult('banco', data, 'error');
+                }
+            } catch (error) {
+                showResult('banco', { error: error.message }, 'error');
+            }
+        }
+
+        // Teste de Curso
+        async function testCurso() {
+            const nomeCurso = document.getElementById('curso-nome').value;
+            if (!nomeCurso) {
+                alert('Por favor, informe o nome do curso');
+                return;
+            }
+
+            showLoading('curso');
+            
+            try {
+                const response = await fetch(`${API_BASE}/curso?nome_curso=${encodeURIComponent(nomeCurso)}`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult('curso', data, 'success');
+                } else {
+                    showResult('curso', data, 'error');
+                }
+            } catch (error) {
+                showResult('curso', { error: error.message }, 'error');
+            }
+        }
+
+        // Teste de Casamento
+        async function testCasamento() {
+            const nomeCurso = document.getElementById('casamento-curso').value;
+            const dadosText = document.getElementById('casamento-dados').value;
+            
+            if (!nomeCurso || !dadosText) {
+                alert('Por favor, preencha todos os campos');
+                return;
+            }
+
+            let dadosExtraidos;
+            try {
+                dadosExtraidos = JSON.parse(dadosText);
+            } catch (error) {
+                alert('JSON inválido nos dados extraídos');
+                return;
+            }
+
+            showLoading('casamento');
+            
+            try {
+                const response = await fetch(`${API_BASE}/casamento`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome_curso: nomeCurso,
+                        dados_extraidos: dadosExtraidos
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult('casamento', data, 'success');
+                } else {
+                    showResult('casamento', data, 'error');
+                }
+            } catch (error) {
+                showResult('casamento', { error: error.message }, 'error');
+            }
+        }
+
+        // Teste Completo
+        async function testCompleto() {
+            const nomeCurso = document.getElementById('completo-curso').value;
+            const dadosText = document.getElementById('completo-dados').value;
+            
+            if (!nomeCurso || !dadosText) {
+                alert('Por favor, preencha todos os campos');
+                return;
+            }
+
+            let dadosExtraidos;
+            try {
+                dadosExtraidos = JSON.parse(dadosText);
+            } catch (error) {
+                alert('JSON inválido nos dados extraídos');
+                return;
+            }
+
+            showLoading('completo');
+            
+            try {
+                const response = await fetch(`${API_BASE}/completo`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome_curso: nomeCurso,
+                        dados_extraidos: dadosExtraidos
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult('completo', data, 'success');
+                } else {
+                    showResult('completo', data, 'error');
+                }
+            } catch (error) {
+                showResult('completo', { error: error.message }, 'error');
+            }
+        }
+
+        // Executar todos os testes
+        async function runAllTests() {
+            await testBanco();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await testCurso();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Para os testes que precisam de dados, usar dados de exemplo
+            const dadosExemplo = {
+                extracted_data: [
+                    {
+                        tipo_dado: "Disciplina Regular",
+                        nome: "Cálculo I",
+                        codigo: "MAT001",
+                        status: "APR",
+                        carga_horaria: 60
+                    },
+                    {
+                        tipo_dado: "Disciplina Regular",
+                        nome: "Programação I",
+                        codigo: "INF001",
+                        status: "APR",
+                        carga_horaria: 60
+                    }
+                ]
+            };
+
+            document.getElementById('casamento-dados').value = JSON.stringify(dadosExemplo, null, 2);
+            document.getElementById('completo-dados').value = JSON.stringify(dadosExemplo, null, 2);
+            
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await testCasamento();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            await testCompleto();
+        }
+
+        // Limpar todos os resultados
+        function clearAllResults() {
+            ['banco', 'curso', 'casamento', 'completo'].forEach(testId => {
+                const resultDiv = document.getElementById(`result-${testId}`);
+                resultDiv.style.display = 'none';
+            });
+        }
+
+        // Carregar dados de exemplo
+        function loadSampleData() {
+            const dadosExemplo = {
+                extracted_data: [
+                    {
+                        tipo_dado: "Disciplina Regular",
+                        nome: "Cálculo I",
+                        codigo: "MAT001",
+                        status: "APR",
+                        carga_horaria: 60
+                    },
+                    {
+                        tipo_dado: "Disciplina Regular",
+                        nome: "Programação I",
+                        codigo: "INF001",
+                        status: "APR",
+                        carga_horaria: 60
+                    },
+                    {
+                        tipo_dado: "Disciplina Regular",
+                        nome: "Física I",
+                        codigo: "FIS001",
+                        status: "REP",
+                        carga_horaria: 60
+                    },
+                    {
+                        tipo_dado: "Disciplina Regular",
+                        nome: "Álgebra Linear",
+                        codigo: "MAT002",
+                        status: "APR",
+                        carga_horaria: 60
+                    }
+                ]
+            };
+
+            document.getElementById('casamento-dados').value = JSON.stringify(dadosExemplo, null, 2);
+            document.getElementById('completo-dados').value = JSON.stringify(dadosExemplo, null, 2);
+        }
+
+        // Carregar dados de exemplo ao abrir a página
+        window.onload = function() {
+            loadSampleData();
+        };
+    </script>
+</body>
+</html> 
