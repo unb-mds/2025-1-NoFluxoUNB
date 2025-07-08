@@ -36,3 +36,6 @@ pnpm-debug.log*
 .env.test
 .env.production
 venv
+
+# dados do scraping (debug)
+debug_html/
