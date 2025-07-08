@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../widgets/animated_background.dart';
 import '../../widgets/app_navbar.dart';
 import 'dart:async';
-import '../fluxogramas/fluxos_screen.dart';
+import '../fluxogramas/presentation/widgets/fluxos_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class AnonymousLoginScreen extends StatelessWidget {

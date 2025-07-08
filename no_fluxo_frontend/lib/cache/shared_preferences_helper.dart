@@ -7,10 +7,12 @@ import '../models/user_model.dart';
 class SharedPreferencesHelper {
   static SharedPreferences? _prefs;
   static const String keyUser = "user";
+  static const String keyAnonimo = "anonimo";
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }
+  
 
   static UserModel? get currentUser {
     final userJson = _prefs?.getString(keyUser);
@@ -38,5 +40,13 @@ class SharedPreferencesHelper {
     } else {
       _prefs?.remove(keyUser);
     }
+  }
+
+  static bool get isAnonimo {
+    return _prefs?.getBool(keyAnonimo) ?? false;
+  }
+
+  static set isAnonimo(bool value) {
+    _prefs?.setBool(keyAnonimo, value);
   }
 }

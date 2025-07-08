@@ -156,11 +156,22 @@ export const FluxogramaController: EndpointController = {
                 return res.status(400).json({ error: "Nome do curso não informado" });
             }
 
-            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
+            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
+
+
 
             if (error) {
                 logger.error(`Erro ao buscar fluxograma: ${error.message}`);
                 return res.status(500).json({ error: error.message });
+            }
+
+            for (const curso of data) {
+                // get equivalencias
+                const { data: equivalencias,error: errorEquivalencias } = await SupabaseWrapper.get()
+                    .from("equivalencias")
+                    .select("id_equivalencia,id_materia,expressao")
+                    .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
+
             }
 
             logger.info(`Fluxograma encontrado: ${JSON.stringify(data)}`);
@@ -466,7 +477,7 @@ export const FluxogramaController: EndpointController = {
                         }
                     }
                 }
-
+                
                 // FIND MANDATORY SUBJECTS NOT IN TRANSCRIPT
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) => disc.id_materia === materiaBanco.id_materia);
@@ -498,9 +509,20 @@ export const FluxogramaController: EndpointController = {
                     );
 
                     if (cumpridaPorEquivalencia) {
+                        // Encontrar a disciplina do histórico usada como equivalência
+                        let encontrada = null;
+                        for (const eq of equivalenciasParaMateria) {
+                            const codigosEquivalentes = extractSubjectCodes(eq.expressao);
+                            encontrada = disciplinasCasadas.find(
+                                d => codigosEquivalentes.includes(d.codigo) && (d.status === 'APR' || d.status === 'CUMP')
+                            );
+                            if (encontrada) break;
+                        }
                         materiasConcluidasPorEquivalencia.push({
                             ...materiaObrigatoria,
-                            status_fluxograma: 'concluida_equivalencia'
+                            status_fluxograma: 'concluida_equivalencia',
+                            codigo_equivalente: encontrada ? encontrada.codigo : undefined,
+                            nome_equivalente: encontrada ? encontrada.nome : undefined
                         });
                     } else {
                         materiasPendentesFinais.push(materiaObrigatoria);
@@ -530,7 +552,9 @@ export const FluxogramaController: EndpointController = {
                                 materiasConcluidasPorEquivalencia.push({
                                     ...obrigatoria,
                                     status_fluxograma: 'concluida_equivalencia',
-                                    equivalencia: disciplinaOptativa.nome
+                                    equivalencia: disciplinaOptativa.nome,
+                                    codigo_equivalente: disciplinaOptativa.codigo,
+                                    nome_equivalente: disciplinaOptativa.nome
                                 });
                                 logger.info(`Elective '${disciplinaOptativa.nome}' marked as equivalency for mandatory '${obrigatoria.nome}'`);
                                 marcadaComoEquivalencia = true;

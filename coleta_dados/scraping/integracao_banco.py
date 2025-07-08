@@ -167,19 +167,28 @@ for m in res.data:
 
 def processar_matrizes():
     print("Processando matrizes curriculares...")
-    for arquivo in os.listdir(PASTA_MATRIZES):
+    for i, arquivo in enumerate(os.listdir(PASTA_MATRIZES), 1):
+        print(f"\n[{i}/{len(os.listdir(PASTA_MATRIZES))}] Processando: {arquivo}")
         if not arquivo.endswith('.json'):
             continue
         with open(os.path.join(PASTA_MATRIZES, arquivo), 'r', encoding='utf-8') as f:
             matriz = json.load(f)
-            nome_curso = matriz['curso']
+            nome_curso = remover_acentos(matriz['curso']).replace('Ç', 'C').upper().strip()
             periodo_letivo = matriz.get('periodo_letivo_vigor', None)
-            if (nome_curso, periodo_letivo) in cursos_existentes:
-                print(f"[PULAR] Curso já existe: {nome_curso} - {periodo_letivo}")
+            key_curso = (nome_curso, periodo_letivo)
+            if key_curso not in cursos_existentes:
+                print(f"  ❌ Curso não encontrado: {nome_curso} - {periodo_letivo}")
                 continue
+            curso_info = {
+                'nome_curso': nome_curso,
+                'matriz_curricular': periodo_letivo,
+                'data_inicio_matriz': periodo_to_date(periodo_letivo)
+            }
             id_curso = get_or_create_curso(nome_curso, matriz, periodo_letivo)
             print(f"Curso inserido/atualizado: {nome_curso} - {periodo_letivo} (id: {id_curso})")
-            matriz_curricular = periodo_letivo
+            relacoes_curso = 0
+            relacoes_criadas_curso = 0
+            encontrou_materias = False
             for nivel in matriz['niveis']:
                 nivel_nome = nivel.get('nivel', '')
                 nivel_num = 0
@@ -187,6 +196,7 @@ def processar_matrizes():
                 if match:
                     nivel_num = int(match.group(1))
                 for materia in nivel['materias']:
+                    encontrou_materias = True
                     codigo = materia['codigo']
                     if codigo in materias_existentes:
                         # Pular matéria já existente
@@ -231,9 +241,9 @@ def processar_matrizes():
                             res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', cod).execute)
                             if res.data:
                                 id_eq = res.data[0]['id_materia']
-                                result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao', cod).eq('id_curso', id_curso).eq('matriz_curricular', matriz_curricular).eq('curriculo', matriz_curricular).execute)
+                                result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao', cod).eq('id_curso', id_curso).eq('matriz_curricular', periodo_letivo).eq('curriculo', periodo_letivo).execute)
                                 if not result.data:
-                                    get_or_create_equivalencia(id_materia, id_eq, id_curso, matriz_curricular, cod)
+                                    get_or_create_equivalencia(id_materia, id_eq, id_curso, periodo_letivo, cod)
                     # Equivalências específicas
                     equiv_esp = mat_det.get('equivalencias_especificas', None)
                     if equiv_esp and isinstance(equiv_esp, list):
@@ -290,10 +300,20 @@ def processar_matrizes():
                                             'fim_vigencia': fim_vigencia_eq if fim_vigencia_eq else None
                                         }).execute
                                     )
+                    relacoes_curso += 1
+            if curso_info['id_curso'] > 261:
+                print(f"[DEBUG] id_curso={curso_info['id_curso']} - Relações criadas: {relacoes_criadas_curso} - Matérias encontradas: {encontrou_materias}")
+            if not encontrou_materias and curso_info['id_curso'] > 261:
+                print(f"[DEBUG] id_curso={curso_info['id_curso']} - Nenhuma matéria encontrada para este curso!")
     print("Matrizes curriculares processadas!")
 
 def processar_materias():
     print("Processando matérias...")
+    # Carregar todos os códigos de matérias já existentes no banco
+    materias_existentes = set()
+    res = executar_operacao(supabase.table('materias').select('codigo_materia').execute)
+    for m in res.data:
+        materias_existentes.add(m['codigo_materia'])
     for arquivo in sorted(os.listdir(PASTA_MATERIAS)):
         if not arquivo.endswith('.json'):
             continue
@@ -301,13 +321,18 @@ def processar_materias():
         with open(os.path.join(PASTA_MATERIAS, arquivo), 'r', encoding='utf-8') as f:
             materias = json.load(f)
             for materia in materias:
-                print(f"[DEBUG MAT] Processando matéria: {materia.get('codigo')} - {materia.get('nome')}")
+                codigo = materia['codigo']
+                if codigo in materias_existentes:
+                    print(f"[DEBUG] Matéria já existe no banco: {codigo}")
+                    continue
+                print(f"[DEBUG MAT] Processando matéria: {codigo} - {materia.get('nome')}")
                 id_materia = get_or_create_materia({
                     'nome': materia['nome'],
-                    'codigo': materia['codigo'],
+                    'codigo': codigo,
                     'carga_horaria': to_int(materia.get('carga_horaria', materia.get('ch', 0))),
                     'ementa': materia.get('ementa', '')
                 })
+                materias_existentes.add(codigo)
                 # Pré-requisitos
                 pre = materia.get('pre_requisitos', '')
                 if pre and pre != '-':

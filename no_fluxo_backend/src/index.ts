@@ -19,6 +19,25 @@ dotenv.config();
 SupabaseWrapper.init();
 logger.info('Supabase client initialized');
 
+// start the ragflow agent server
+const ragflowAgentProcess = spawn('python', ['AI-agent/app.py', "--port", "4652"], {
+    cwd: path.join(__dirname, '..')
+});
+
+ragflowAgentProcess.stdout.on('data', (data) => {
+    logger.info(`\b[RAGFlow Agent] ${data}`);
+});
+
+ragflowAgentProcess.stderr.on('data', (data) => {
+    logger.error(`\b[RAGFlow Agent] ${data}`);
+});
+
+ragflowAgentProcess.on('close', (code) => {
+    if (code !== 0) {
+        logger.error(`\b[RAGFlow Agent] process exited with code ${code}`);
+    }
+});
+
 // Start the Python PDF parser server
 const pythonProcess = spawn('python', ['parse-pdf/pdf_parser_final.py'], {
     cwd: path.join(__dirname, '..')
@@ -42,6 +61,7 @@ pythonProcess.on('close', (code) => {
 const cleanup = () => {
     logger.info('[PDF Parser] Terminating Python process...');
     pythonProcess.kill();
+    ragflowAgentProcess.kill();
 };
 
 // Handle normal exit
