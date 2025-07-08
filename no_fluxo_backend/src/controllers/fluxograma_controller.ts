@@ -158,9 +158,20 @@ export const FluxogramaController: EndpointController = {
 
             const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
 
+
+
             if (error) {
                 logger.error(`Erro ao buscar fluxograma: ${error.message}`);
                 return res.status(500).json({ error: error.message });
+            }
+
+            for (const curso of data) {
+                // get equivalencias
+                const { data: equivalencias,error: errorEquivalencias } = await SupabaseWrapper.get()
+                    .from("equivalencias")
+                    .select("id_equivalencia,id_materia,expressao")
+                    .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
+
             }
 
             logger.info(`Fluxograma encontrado: ${JSON.stringify(data)}`);

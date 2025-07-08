@@ -3553,3 +3553,534 @@ Port 3001 is in use by another program. Either identify and stop that program, o
 
 [2025-07-07 21:53:52:5352][[31mERROR[39m] [PDF Parser] [2025-07-07 21:53:52][INFO][PDF Parser]  * Debugger PIN: 114-293-037
 
+[2025-07-08 12:01:14:114][[31mERROR[39m] [UsersController][get-user-by-email] Erro ao buscar usuário: {"message":"TypeError: fetch failed","details":"TypeError: fetch failed\n    at Object.fetch (node:internal/deps/undici/undici:11457:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.UsersController.routes.get-user-by-email (/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/src/controllers/users_controller.ts:57:58)\n    at async /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/src/index.ts:92:25","hint":"","code":""}
+[2025-07-08 12:01:14:114][[31mERROR[39m] [FluxogramaController][fluxograma] Erro ao buscar fluxograma: TypeError: fetch failed
+[2025-07-08 12:01:18:118][[31mERROR[39m] [UsersController][get-user-by-email] Erro ao buscar usuário: {"message":"TypeError: fetch failed","details":"TypeError: fetch failed\n    at Object.fetch (node:internal/deps/undici/undici:11457:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async exports.UsersController.routes.get-user-by-email (/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/src/controllers/users_controller.ts:57:58)\n    at async /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/src/index.ts:92:25","hint":"","code":""}
+[2025-07-08 12:01:18:118][[31mERROR[39m] [FluxogramaController][fluxograma] Erro ao buscar fluxograma: TypeError: fetch failed
+[2025-07-08 15:50:54:5054][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:54][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 15:50:54:5054][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:54][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 15:50:55:5055][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:55][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 15:50:55][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 15:50:55:5055][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:55][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 15:50:55:5055][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:55][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 15:50:55:5055][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:55][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 15:50:55:5055][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:55][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 15:50:55:5055][[31mERROR[39m] [PDF Parser] [2025-07-08 15:50:55][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] ==================================================
+[2025-07-08 16:00:38][INFO][PDF Parser] Request Method: POST
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Request URL: http://127.0.0.1:3001/upload-pdf
+[2025-07-08 16:00:38][INFO][PDF Parser] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------148908861448706608368572', 'User-Agent': 'axios/1.10.0', 'Content-Length': '26405', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Request Files: dict_keys(['pdf'])
+[2025-07-08 16:00:38][INFO][PDF Parser] ==================================================
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Received PDF upload request
+[2025-07-08 16:00:38][INFO][PDF Parser] Processing file: historico_211029503-5.pdf
+[2025-07-08 16:00:38][INFO][PDF Parser] File content type: application/pdf
+[2025-07-08 16:00:38][INFO][PDF Parser] File size: 26178 bytes
+[2025-07-08 16:00:38][INFO][PDF Parser] Extracted matricula: 211029503-5
+[2025-07-08 16:00:38][INFO][PDF Parser] Attempting text extraction with PyPDF2
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] PDF has 3 pages
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Processing page 1
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Extracted 3337 characters from page 1
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Processing page 2
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Extracted 3666 characters from page 2
+[2025-07-08 16:00:38][INFO][PDF Parser] Processing page 3
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] Extracted 2686 characters from page 3
+[2025-07-08 16:00:38][INFO][PDF Parser] Successfully extracted text using PyPDF2
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] PDF processing completed successfully
+[2025-07-08 16:00:38][INFO][PDF Parser] Sending response with 35 extracted items
+
+[2025-07-08 16:00:38:038][[31mERROR[39m] [PDF Parser] [2025-07-08 16:00:38][INFO][PDF Parser] 127.0.0.1 - - [08/Jul/2025 16:00:38] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] ==================================================
+[2025-07-08 16:13:12][INFO][PDF Parser] Request Method: POST
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Request URL: http://127.0.0.1:3001/upload-pdf
+[2025-07-08 16:13:12][INFO][PDF Parser] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------024908391650934665339184', 'User-Agent': 'axios/1.10.0', 'Content-Length': '26405', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Request Files: dict_keys(['pdf'])
+[2025-07-08 16:13:12][INFO][PDF Parser] ==================================================
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Received PDF upload request
+[2025-07-08 16:13:12][INFO][PDF Parser] Processing file: historico_211029503-5.pdf
+[2025-07-08 16:13:12][INFO][PDF Parser] File content type: application/pdf
+[2025-07-08 16:13:12][INFO][PDF Parser] File size: 26178 bytes
+[2025-07-08 16:13:12][INFO][PDF Parser] Extracted matricula: 211029503-5
+[2025-07-08 16:13:12][INFO][PDF Parser] Attempting text extraction with PyPDF2
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] PDF has 3 pages
+[2025-07-08 16:13:12][INFO][PDF Parser] Processing page 1
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Extracted 3337 characters from page 1
+[2025-07-08 16:13:12][INFO][PDF Parser] Processing page 2
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Extracted 3666 characters from page 2
+[2025-07-08 16:13:12][INFO][PDF Parser] Processing page 3
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Extracted 2686 characters from page 3
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Successfully extracted text using PyPDF2
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] PDF processing completed successfully
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] Sending response with 35 extracted items
+
+[2025-07-08 16:13:12:1312][[31mERROR[39m] [PDF Parser] [2025-07-08 16:13:12][INFO][PDF Parser] 127.0.0.1 - - [08/Jul/2025 16:13:12] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:18:37:1837][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:37][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:18:51][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:18:51:1851][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:51][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:18:55:1855][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:55][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:55:1855][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:55][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:55:1855][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:55][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:18:55:1855][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:55][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:18:55:1855][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:55][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:18:56:1856][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:56][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:56:1856][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:56][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:56:1856][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:56][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:18:56:1856][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:56][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:18:58:1858][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:58][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:58:1858][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:58][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:58:1858][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:58][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:18:58][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:18:58:1858][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:58][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:18:59:1859][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:59][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:18:59:1859][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:59][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:18:59:1859][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:59][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:18:59:1859][[31mERROR[39m] [PDF Parser] [2025-07-08 16:18:59][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:19:07:197][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:07][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:07:197][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:07][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:07:197][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:07][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:19:07][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:19:07:197][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:07][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:19:08:198][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:08][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:08:198][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:08][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:08:198][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:08][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:19:08:198][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:08][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:19:13:1913][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:13][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:13:1913][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:13][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:13:1913][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:13][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:19:13][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:19:13:1913][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:13][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:19:14:1914][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:14][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:14:1914][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:14][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:14:1914][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:14][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:19:14:1914][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:14][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:19:16:1916][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:16][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:16:1916][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:16][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:16:1916][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:16][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:19:16][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:19:16:1916][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:16][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:19:17:1917][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:17][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:17:1917][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:17][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:17:1917][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:17][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:19:17:1917][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:17][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:19:21:1921][[31mERROR[39m] [PDF Parser] [2025-07-08 16:19:21][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:26:36:2636][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:36][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:26:47:2647][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:47][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:26:49:2649][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:49][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:49:2649][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:49][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:49:2649][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:49][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:26:49][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:26:49:2649][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:49][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:26:50:2650][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:50][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:50:2650][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:50][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:50:2650][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:50][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:26:50:2650][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:50][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:26:51:2651][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:51][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:51:2651][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:51][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:51:2651][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:51][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:26:51][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:26:51:2651][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:51][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [RAGFlow Agent] Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -> General -> AirDrop & Handoff.
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:26:53:2653][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:53][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [RAGFlow Agent] Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -> General -> AirDrop & Handoff.
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:26:56][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:26:56:2656][[31mERROR[39m] [PDF Parser] [2025-07-08 16:26:56][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:27:03:273][[31mERROR[39m] [RAGFlow Agent] Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -> General -> AirDrop & Handoff.
+
+[2025-07-08 16:27:03:273][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 16:27:03:273][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:03][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:27:03:273][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:03][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:27:05:275][[31mERROR[39m] [RAGFlow Agent] Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -> General -> AirDrop & Handoff.
+
+[2025-07-08 16:27:05:275][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 16:27:05:275][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:05][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:27:05:275][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:05][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:27:05:275][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:05][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:27:05:275][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:05][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:27:05:275][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:05][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:27:06:276][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:06][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:27:06:276][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:06][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:27:06:276][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:06][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:27:06:276][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:06][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [RAGFlow Agent] Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -> General -> AirDrop & Handoff.
+
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:38][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:38][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:38][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:38][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:27:38:2738][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:38][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:27:39:2739][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:39][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:27:39:2739][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:39][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:27:39:2739][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:39][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:27:39:2739][[31mERROR[39m] [PDF Parser] [2025-07-08 16:27:39][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [RAGFlow Agent] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [RAGFlow Agent] Press CTRL+C to quit
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [RAGFlow Agent]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [RAGFlow Agent]  * Debugger is active!
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [RAGFlow Agent]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:33:29][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:33:29:3329][[31mERROR[39m] [PDF Parser] [2025-07-08 16:33:29][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:35:04:354][[31mERROR[39m] [RAGFlow Agent] 127.0.0.1 - - [08/Jul/2025 16:35:04] "OPTIONS /assistente HTTP/1.1" 200 -
+
+[2025-07-08 16:35:34:3534][[31mERROR[39m] [RAGFlow Agent] 127.0.0.1 - - [08/Jul/2025 16:35:34] "POST /assistente HTTP/1.1" 200 -
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py', reloading
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py', reloading
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:36:31,414 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:36:31,414 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:36:31,415 - __main__ - INFO - ==================================================
+2025-07-08 16:36:31,415 - __main__ - INFO - AI AGENT SERVER STARTUP
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:36:31,416 - __main__ - INFO - ==================================================
+2025-07-08 16:36:31,416 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 16:36:31,416 - __main__ - INFO - Port: 4652
+2025-07-08 16:36:31,416 - __main__ - INFO - Debug mode: True
+2025-07-08 16:36:31,416 - __main__ - INFO - Log level: 10
+2025-07-08 16:36:31,416 - __main__ - INFO - Environment: development
+2025-07-08 16:36:31,416 - __main__ - INFO - ==================================================
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:36:31,439 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 16:36:31:3631][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:36:31,447 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,006 - fsevents - DEBUG - NativeEvent(path="/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/config.py", inode=51153347, flags=11400, id=38833578): is_file, is_inode_meta_mod, is_modified
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,007 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/config.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,008 - werkzeug - INFO -  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/config.py', reloading
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] .env file not found at: ../.env
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,929 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,930 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,931 - __main__ - INFO - ==================================================
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,931 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 16:37:04,931 - __main__ - INFO - ==================================================
+2025-07-08 16:37:04,931 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 16:37:04,931 - __main__ - INFO - Port: 4652
+2025-07-08 16:37:04,931 - __main__ - INFO - Debug mode: True
+2025-07-08 16:37:04,931 - __main__ - INFO - Log level: 10
+2025-07-08 16:37:04,931 - __main__ - INFO - Environment: development
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,931 - __main__ - INFO - ==================================================
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,966 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 16:37:04:374][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:04,983 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,021 - fsevents - DEBUG - NativeEvent(path="/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/ragflow_agent_client.py", inode=49251838, flags=10400, id=38846192): is_file, is_inode_meta_mod
+2025-07-08 16:37:37,021 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/ragflow_agent_client.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,024 - werkzeug - INFO -  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/ragflow_agent_client.py', reloading
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,035 - fsevents - DEBUG - NativeEvent(path="/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/ragflow_agent_client.py", inode=49251838, flags=11400, id=38846201): is_file, is_inode_meta_mod, is_modified
+2025-07-08 16:37:37,035 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/ragflow_agent_client.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,037 - werkzeug - INFO -  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/ragflow_agent_client.py', reloading
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] .env file not found at: ../.env
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,393 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,394 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,395 - __main__ - INFO - ==================================================
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,395 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 16:37:37,395 - __main__ - INFO - ==================================================
+2025-07-08 16:37:37,395 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 16:37:37,395 - __main__ - INFO - Port: 4652
+2025-07-08 16:37:37,395 - __main__ - INFO - Debug mode: True
+2025-07-08 16:37:37,395 - __main__ - INFO - Log level: 10
+2025-07-08 16:37:37,395 - __main__ - INFO - Environment: development
+2025-07-08 16:37:37,395 - __main__ - INFO - ==================================================
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,422 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,430 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+

@@ -407,84 +407,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                   SizedBox(height: 32),
                   if (_disciplinasCasadas != null) ...[
                     const SizedBox(height: 24),
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.1),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('📊 Resultado do Processamento:',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18)),
-                          const SizedBox(height: 12),
-                          Text(
-                              '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
-                              style: TextStyle(color: Colors.white)),
-                          Text(
-                              '✅ Disciplinas encontradas no banco: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == true || d['encontrada_no_banco'] == 'true').length}',
-                              style: TextStyle(color: Colors.green)),
-                          Text(
-                              '❌ Disciplinas não encontradas: ${_disciplinasCasadas!.where((d) => d['encontrada_no_banco'] == false || d['encontrada_no_banco'] == 'false').length}',
-                              style: TextStyle(color: Colors.orange)),
-                          if (_materiasOptativas != null) ...[
-                            const SizedBox(height: 8),
-                            Text(
-                                '🎯 Matérias optativas: ${_materiasOptativas!.length}',
-                                style: TextStyle(color: Colors.purple)),
-                          ],
-                          if (_disciplinasCasadas != null) ...[
-                            const SizedBox(height: 8),
-                            Text(
-                                '👨‍🏫 Disciplinas com professor: ${_disciplinasCasadas!.where((d) => d['professor'] != null && d['professor'].toString().isNotEmpty).length}',
-                                style: TextStyle(color: Colors.indigo)),
-                          ],
-                          if (_dadosValidacao != null) ...[
-                            const SizedBox(height: 8),
-                            Text(
-                                '🎓 Curso: ${_dadosValidacao!['curso_extraido'] ?? 'N/A'}',
-                                style: TextStyle(color: Colors.cyan)),
-                            Text(
-                                '📋 Matriz: ${_dadosValidacao!['matriz_curricular'] ?? 'N/A'}',
-                                style: TextStyle(color: Colors.cyan)),
-                            Text(
-                                '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
-                                style: TextStyle(color: Colors.blue)),
-                            Text(
-                                '📈 Média ponderada: ${_dadosValidacao!['media_ponderada']?.toStringAsFixed(2) ?? 'N/A'}',
-                                style: TextStyle(color: Colors.blue)),
-                            Text(
-                                '📊 Frequência: ${_dadosValidacao!['frequencia_geral']?.toStringAsFixed(2) ?? 'N/A'}%',
-                                style: TextStyle(color: Colors.blue)),
-                            Text(
-                                '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
-                                style: TextStyle(color: Colors.blue)),
-                            if (_dadosValidacao!['pendencias'] != null &&
-                                _dadosValidacao!['pendencias'] is List &&
-                                _dadosValidacao!['pendencias'].isNotEmpty)
-                              Text(
-                                  '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
-                                  style: TextStyle(color: Colors.orange)),
-                          ],
-                          const SizedBox(height: 8),
-                          Text(
-                              '💡 Dica: Verifique o console para mais detalhes',
-                              style: TextStyle(
-                                  color: Colors.white70, fontSize: 12)),
-                          const SizedBox(height: 4),
-                          Text(
-                              '🎯 Processamento automático: Curso e matriz extraídos do PDF',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500)),
-                        ],
-                      ),
-                    ),
+                    _buildResultadoProcessamento(),
                   ],
                 ],
               ),
@@ -1176,6 +1099,289 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       // Tentar casar disciplinas novamente com o curso selecionado
       await _casarDisciplinasComBanco();
     }
+  }
+
+  Widget _buildResultadoProcessamento() {
+    final disciplinasEncontradas = _disciplinasCasadas!
+        .where((d) =>
+            d['encontrada_no_banco'] == true ||
+            d['encontrada_no_banco'] == 'true')
+        .toList();
+
+    final disciplinasNaoEncontradas = _disciplinasCasadas!
+        .where((d) =>
+            d['encontrada_no_banco'] == false ||
+            d['encontrada_no_banco'] == 'false')
+        .toList();
+
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '📊 Resultado do Processamento:',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+          const SizedBox(height: 12),
+
+          // Resumo geral
+          Text(
+            '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
+            style: TextStyle(color: Colors.white),
+          ),
+          Text(
+            '✅ Disciplinas encontradas no banco: ${disciplinasEncontradas.length}',
+            style: TextStyle(color: Colors.green),
+          ),
+          Text(
+            '❌ Disciplinas não encontradas: ${disciplinasNaoEncontradas.length}',
+            style: TextStyle(color: Colors.orange),
+          ),
+
+          if (_materiasOptativas != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              '🎯 Matérias optativas: ${_materiasOptativas!.length}',
+              style: TextStyle(color: Colors.purple),
+            ),
+          ],
+
+          Text(
+            '👨‍🏫 Disciplinas com professor: ${_disciplinasCasadas!.where((d) => d['professor'] != null && d['professor'].toString().isNotEmpty).length}',
+            style: TextStyle(color: Colors.indigo),
+          ),
+
+          if (_dadosValidacao != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              '🎓 Curso: ${_dadosValidacao!['curso_extraido'] ?? 'N/A'}',
+              style: TextStyle(color: Colors.cyan),
+            ),
+            Text(
+              '📋 Matriz: ${_dadosValidacao!['matriz_curricular'] ?? 'N/A'}',
+              style: TextStyle(color: Colors.cyan),
+            ),
+            Text(
+              '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
+              style: TextStyle(color: Colors.blue),
+            ),
+            Text(
+              '📈 Média ponderada: ${_dadosValidacao!['media_ponderada']?.toStringAsFixed(2) ?? 'N/A'}',
+              style: TextStyle(color: Colors.blue),
+            ),
+            Text(
+              '📊 Frequência: ${_dadosValidacao!['frequencia_geral']?.toStringAsFixed(2) ?? 'N/A'}%',
+              style: TextStyle(color: Colors.blue),
+            ),
+            Text(
+              '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
+              style: TextStyle(color: Colors.blue),
+            ),
+            if (_dadosValidacao!['pendencias'] != null &&
+                _dadosValidacao!['pendencias'] is List &&
+                _dadosValidacao!['pendencias'].isNotEmpty)
+              Text(
+                '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
+                style: TextStyle(color: Colors.orange),
+              ),
+          ],
+
+          const SizedBox(height: 16),
+
+          // Lista de disciplinas encontradas
+          if (disciplinasEncontradas.isNotEmpty) ...[
+            _buildDisciplinasList(
+              titulo:
+                  '✅ Disciplinas Encontradas (${disciplinasEncontradas.length})',
+              disciplinas: disciplinasEncontradas,
+              cor: Colors.green,
+              isFound: true,
+            ),
+            const SizedBox(height: 12),
+          ],
+
+          // Lista de disciplinas não encontradas
+          if (disciplinasNaoEncontradas.isNotEmpty) ...[
+            _buildDisciplinasList(
+              titulo:
+                  '❌ Disciplinas Não Encontradas (${disciplinasNaoEncontradas.length})',
+              disciplinas: disciplinasNaoEncontradas,
+              cor: Colors.orange,
+              isFound: false,
+            ),
+            const SizedBox(height: 12),
+          ],
+
+          const SizedBox(height: 8),
+          Text(
+            '💡 Dica: Verifique o console para mais detalhes',
+            style: TextStyle(color: Colors.white70, fontSize: 12),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            '🎯 Processamento automático: Curso e matriz extraídos do PDF',
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDisciplinasList({
+    required String titulo,
+    required List<Map<String, dynamic>> disciplinas,
+    required Color cor,
+    required bool isFound,
+  }) {
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        title: Text(
+          titulo,
+          style: TextStyle(
+            color: cor,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+        iconColor: cor,
+        collapsedIconColor: cor,
+        backgroundColor: Colors.white.withValues(alpha: 0.05),
+        collapsedBackgroundColor: Colors.white.withValues(alpha: 0.05),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        collapsedShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        children: [
+          Container(
+            constraints: BoxConstraints(maxHeight: 300),
+            child: Scrollbar(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: disciplinas.length,
+                itemBuilder: (context, index) {
+                  final disciplina = disciplinas[index];
+                  return Container(
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.08),
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '${disciplina['codigo'] ?? 'S/CÓDIGO'} - ${disciplina['nome'] ?? 'Nome não disponível'}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                        ),
+                        if (disciplina['situacao'] != null) ...[
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              Text(
+                                'Situação: ',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Text(
+                                disciplina['situacao'].toString(),
+                                style: TextStyle(
+                                  color: disciplina['situacao']
+                                          .toString()
+                                          .toLowerCase()
+                                          .contains('aprovado')
+                                      ? Colors.green
+                                      : Colors.orange,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                        if (disciplina['creditos'] != null ||
+                            disciplina['nivel'] != null) ...[
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              if (disciplina['creditos'] != null) ...[
+                                Text(
+                                  'Créditos: ${disciplina['creditos']}',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                const SizedBox(width: 16),
+                              ],
+                              if (disciplina['nivel'] != null)
+                                Text(
+                                  'Nível: ${disciplina['nivel']}',
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: 12,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ],
+                        if (disciplina['professor'] != null &&
+                            disciplina['professor'].toString().isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Professor: ${disciplina['professor']}',
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                        if (!isFound &&
+                            disciplina['motivo_nao_encontrada'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Motivo: ${disciplina['motivo_nao_encontrada']}',
+                            style: TextStyle(
+                              color: Colors.red.shade300,
+                              fontSize: 12,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

@@ -1,0 +1,18 @@
+similarity trhesh hold = 0.4
+keyword similarity = 0.7    
+resultado: retorna otimos resultados com similaridade alta
+
+----------
+
+similarity trhesh hold = 0.4
+keyword similarity = 0.55    
+resultado: retorna otimos resultados com similaridade alta
+obs: NOTA-SE a diferença de no máximo 5 pontos entre os resultados da config anterior
+
+---------
+similarity trhesh hold = 0.3
+keyword similarity = 0.55    
+resultado: retorna otimos resultados com similaridade alta, e também resultados mais amplos(bem mais amplos)
+obs: observa-se que essa configuração é boa para retornar não apenas termos com similaridade alta, como...
+também retornar os que nao tenham grande similaridade, mas estão no caminho mais ou menos do conteudo fornecido.
+
