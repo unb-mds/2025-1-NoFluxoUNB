@@ -57,13 +57,13 @@ source venv/bin/activate
 Com o ambiente virtual ativado, navegue até a pasta do seu backend (ex: `backend/`) e instale todas as dependências listadas no `requirements.txt`:
 
 ```bash
-cd backend
+cd no_fluxo_backend
 pip install -r requirements.txt
 ```
 
 #### 2.3. Configuração de Variáveis de Ambiente
 
-Crie um arquivo `.env` na raiz da pasta do backend (ou na raiz do projeto, se centralizado) e adicione as variáveis de ambiente necessárias:
+Crie um arquivo `.env` na raiz da pasta do backend e adicione as variáveis de ambiente necessárias:
 
 ```ini
 # Exemplo de variáveis para Supabase/Banco de Dados
@@ -73,19 +73,18 @@ SUPABASE_KEY=sua_chave_anon_do_supabase
 ```
 
 > 💡 Para conseguir acesso às chaves do `.env`, entre em contato com os desenvolvedores do projeto.
-> 🧹 É recomendável que o projeto contenha um arquivo `.env.example` como referência.
 
 #### 2.4. Instalar Dependências e Iniciar o Backend (Node.js)
 
 Se o seu backend também usa Node.js, navegue até a pasta do backend e execute:
 
 ```bash
-cd backend
+cd no_fluxo_backend
 npm install
 npm start
 ```
 
-Certifique-se de que a pasta `backend` realmente é onde estão os arquivos `Node.js` e o `package.json`.
+Certifique-se de que a pasta `no_fluxo_backend` realmente é onde estão os arquivos `Node.js` e o `package.json`.
 
 ---
 
@@ -93,10 +92,10 @@ Certifique-se de que a pasta `backend` realmente é onde estão os arquivos `Nod
 
 #### 3.1. Navegar para a Pasta do Frontend
 
-Navegue até a pasta que contém os arquivos do seu aplicativo Flutter (ex: `frontend/` ou `flutter_app/`):
+Navegue até a pasta que contém os arquivos do seu aplicativo Flutter:
 
 ```bash
-cd frontend # Ajuste para o nome real da sua pasta frontend
+cd no_fluxo_frontend 
 ```
 
 #### 3.2. Obter Dependências do Flutter e Rodar o Aplicativo
@@ -112,14 +111,17 @@ flutter run
 
 ### 4. Executando o Parser de PDF
 
-Se você precisa rodar o script de parser de PDF separadamente:
+Você precisa rodar o script de parser de PDF separadamente:
 
 #### 4.1. Navegar para a Pasta de Coleta de Dados
 
 Navegue até a pasta onde o arquivo `parser_pdf.py` está localizado:
 
 ```bash
-cd coleta_de_dados # Ajuste para o nome real da sua pasta
+
+cd coleta_de_dados
+python3 parser_pdf.py
+
 ```
 
 #### 4.2. Executar o Parser
@@ -127,18 +129,20 @@ cd coleta_de_dados # Ajuste para o nome real da sua pasta
 Com o ambiente virtual ativado (se aplicável ao parser), execute o arquivo Python:
 
 ```bash
+
 python3 parser_pdf.py
+
 ```
 
 ---
 
 ## Observações Finais
 
-* **Caminho do ********`cd`******** após ********`git clone`********:** Incluímos o `cd 2025-1-NoFluxoUNB` como passo explícito.
-* **Separando Configurações do Backend:** Se o backend for apenas Python, remova a seção 2.4.
-* **Ajuste de Caminhos:** Foram adicionados comentários do tipo `# Ajuste para o nome real da sua pasta` em locais críticos.
-* **Ambiente Virtual para o Parser:** É necessário ativar o ambiente virtual se o parser depender das bibliotecas do `requirements.txt`.
+
+* **Ambiente Virtual para o Parser:** É necessário ativar o ambiente virtual, depende das bibliotecas do `requirements.txt`.
 
 ---
 
 Agradecemos novamente pelo seu interesse em contribuir com o projeto 🚀
+
+Dai em diante, crie sua própria branch e faça pull request de sua contribuição pra avaliação da equipe de desenvolvedores.
