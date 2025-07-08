@@ -160,16 +160,6 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           SafeArea(
             child: Column(
               children: [
-                // Botão de teste para navegar para MeuFluxogramaScreen
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.go('/meu-fluxograma/Engenharia de Software');
-                    },
-                    child: const Text('Ver Fluxograma Individual (teste)'),
-                  ),
-                ),
                 AppNavbar(isFluxogramasPage: true),
                 Expanded(
                   child: SingleChildScrollView(

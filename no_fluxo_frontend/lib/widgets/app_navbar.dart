@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/cache/shared_preferences_helper.dart';
+import 'package:mobile_app/routes/app_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../constants/app_colors.dart';
 import '../screens/home_screen.dart';
@@ -24,9 +25,11 @@ class _AppNavbarState extends State<AppNavbar> {
   bool _isHoveringHome = false;
   bool _isHoveringAbout = false;
   bool _isHoveringAcesso = false;
+  bool _isHoveringAcesseNossoSistema = false;
   bool _isHoveringLogout = false;
   bool _isHoveringFluxogramas = false;
   bool _isHoveringAssistente = false;
+  bool _isHoveringMeusFluxogramas = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,121 +66,82 @@ class _AppNavbarState extends State<AppNavbar> {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  MouseRegion(
-                    onEnter: (_) => setState(() => _isHoveringHome = true),
-                    onExit: (_) => setState(() => _isHoveringHome = false),
-                    child: AnimatedScale(
-                      scale: _isHoveringHome ? 1.05 : 1.0,
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.easeInOut,
-                      child: TextButton(
-                        onPressed: () {
-                          context.go('/');
-                        },
-                        child: Text(
-                          'HOME',
-                          style: GoogleFonts.permanentMarker(
-                            fontSize: 19,
-                            color: _isHoveringHome
-                                ? AppColors.primary
-                                : AppColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                  NavItem(
+                    isHovered: _isHoveringHome,
+                    onPressed: () {
+                      context.go('/');
+                    },
+                    text: 'HOME',
+                    onEnter: () => setState(() => _isHoveringHome = true),
+                    onExit: () => setState(() => _isHoveringHome = false),
                   ),
                   const SizedBox(width: 16),
-                  MouseRegion(
-                    onEnter: (_) => setState(() => _isHoveringAbout = true),
-                    onExit: (_) => setState(() => _isHoveringAbout = false),
-                    child: AnimatedScale(
-                      scale: _isHoveringAbout ? 1.05 : 1.0,
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.easeInOut,
-                      child: TextButton(
-                        onPressed: () {
-                          // TODO: Implementar navegação para a tela Sobre Nós
-                        },
-                        child: Text(
-                          'SOBRE NÓS',
-                          style: GoogleFonts.permanentMarker(
-                            fontSize: 19,
-                            color: _isHoveringAbout
-                                ? AppColors.primary
-                                : AppColors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                  NavItem(
+                    isHovered: _isHoveringAbout,
+                    onPressed: () {
+                      // TODO: Implementar navegação para a tela Sobre Nós
+                    },
+                    text: 'SOBRE NÓS',
+                    onEnter: () => setState(() => _isHoveringAbout = true),
+                    onExit: () => setState(() => _isHoveringAbout = false),
                   ),
-                  if (widget.isFluxogramasPage) ...[
+                  // Botão "MEUS FLUXOGRAMAS" só aparece quando:
+                  // 1. Usuário está logado
+                  // 2. Usuário já fez upload do fluxograma (dadosFluxograma != null)
+                  if (SharedPreferencesHelper.currentUser != null &&
+                      SharedPreferencesHelper.currentUser!.dadosFluxograma !=
+                          null) ...[
                     const SizedBox(width: 16),
-                    MouseRegion(
-                      onEnter: (_) =>
+                    NavItem(
+                      isHovered: _isHoveringMeusFluxogramas,
+                      onPressed: () {
+                        context.go('/meu-fluxograma');
+                      },
+                      text: 'MEUS FLUXOGRAMAS',
+                      onEnter: () =>
+                          setState(() => _isHoveringMeusFluxogramas = true),
+                      onExit: () =>
+                          setState(() => _isHoveringMeusFluxogramas = false),
+                    ),
+                  ],
+                  // Botões FLUXOGRAMAS e ASSISTENTE aparecem quando não está nas rotas de login/cadastro
+                  if (!AppRouter.routesThatNeedNoLogin
+                      .contains(GoRouterState.of(context).uri.path)) ...[
+                    const SizedBox(width: 16),
+                    NavItem(
+                      isHovered: _isHoveringFluxogramas,
+                      onPressed: () {
+                        context.go('/fluxogramas');
+                      },
+                      text: 'FLUXOGRAMAS',
+                      onEnter: () =>
                           setState(() => _isHoveringFluxogramas = true),
-                      onExit: (_) =>
+                      onExit: () =>
                           setState(() => _isHoveringFluxogramas = false),
-                      child: AnimatedScale(
-                        scale: _isHoveringFluxogramas ? 1.05 : 1.0,
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        child: TextButton(
-                          onPressed: () {
-                            context.go('/fluxogramas');
-                          },
-                          child: Text(
-                            'FLUXOGRAMAS',
-                            style: GoogleFonts.permanentMarker(
-                              fontSize: 19,
-                              color: _isHoveringFluxogramas
-                                  ? AppColors.primary
-                                  : AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
                     ),
                     const SizedBox(width: 16),
-                    MouseRegion(
-                      onEnter: (_) =>
+                    NavItem(
+                      isHovered: _isHoveringAssistente,
+                      onPressed: () {
+                        context.go('/assistente');
+                      },
+                      text: 'ASSISTENTE',
+                      onEnter: () =>
                           setState(() => _isHoveringAssistente = true),
-                      onExit: (_) =>
+                      onExit: () =>
                           setState(() => _isHoveringAssistente = false),
-                      child: AnimatedScale(
-                        scale: _isHoveringAssistente ? 1.05 : 1.0,
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        child: TextButton(
-                          onPressed: () {
-                            context.go('/assistente');
-                          },
-                          child: Text(
-                            'ASSISTENTE',
-                            style: GoogleFonts.permanentMarker(
-                              fontSize: 19,
-                              color: _isHoveringAssistente
-                                  ? AppColors.primary
-                                  : AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
                     ),
                   ],
                   if (GoRouterState.of(context).uri.path == "/" ||
                       GoRouterState.of(context).uri.path == "/home") ...[
                     const SizedBox(width: 24),
                     MouseRegion(
-                        onEnter: (_) =>
-                            setState(() => _isHoveringFluxogramas = true),
-                        onExit: (_) =>
-                            setState(() => _isHoveringFluxogramas = false),
+                        onEnter: (_) => setState(
+                            () => _isHoveringAcesseNossoSistema = true),
+                        onExit: (_) => setState(
+                            () => _isHoveringAcesseNossoSistema = false),
                         child: AnimatedScale(
-                            scale: _isHoveringFluxogramas ? 1.05 : 1.0,
+                            scale: _isHoveringAcesseNossoSistema ? 1.05 : 1.0,
                             duration: const Duration(milliseconds: 200),
                             curve: Curves.easeInOut,
                             child: TextButton(
@@ -232,38 +196,110 @@ class _AppNavbarState extends State<AppNavbar> {
                       GoRouterState.of(context).uri.path != "/home" &&
                       GoRouterState.of(context).uri.path != "/") ...[
                     const SizedBox(width: 16),
-                    MouseRegion(
-                        onEnter: (_) =>
-                            setState(() => _isHoveringLogout = true),
-                        onExit: (_) =>
-                            setState(() => _isHoveringLogout = false),
-                        child: AnimatedScale(
-                          scale: _isHoveringLogout ? 1.05 : 1.0,
-                          duration: const Duration(milliseconds: 200),
-                          curve: Curves.easeInOut,
-                          child: TextButton(
-                            onPressed: () {
-                              SharedPreferencesHelper.currentUser = null;
-                              Supabase.instance.client.auth.signOut();
-                              context.go('/login');
-                            },
-                            child: Text(
-                              'SAIR',
-                              style: GoogleFonts.permanentMarker(
-                                fontSize: 19,
-                                color: _isHoveringLogout
-                                    ? AppColors.primary
-                                    : AppColors.white,
-                              ),
-                            ),
-                          ),
-                        ))
+                    NavItem(
+                      isHovered: _isHoveringLogout,
+                      onPressed: () {
+                        SharedPreferencesHelper.currentUser = null;
+                        Supabase.instance.client.auth.signOut();
+                        context.go('/login');
+                      },
+                      text: 'SAIR',
+                      onEnter: () => setState(() => _isHoveringLogout = true),
+                      onExit: () => setState(() => _isHoveringLogout = false),
+                    )
                   ]
                 ],
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class NavItem extends StatefulWidget {
+  final bool isHovered;
+  final VoidCallback onPressed;
+  final String text;
+  final VoidCallback onEnter;
+  final VoidCallback onExit;
+
+  const NavItem({
+    Key? key,
+    required this.isHovered,
+    required this.onPressed,
+    required this.text,
+    required this.onEnter,
+    required this.onExit,
+  }) : super(key: key);
+
+  @override
+  State<NavItem> createState() => _NavItemState();
+}
+
+class _NavItemState extends State<NavItem> {
+  final GlobalKey _textKey = GlobalKey();
+  double _textWidth = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _updateTextWidth();
+    });
+  }
+
+  void _updateTextWidth() {
+    final RenderBox? renderBox =
+        _textKey.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null) {
+      setState(() {
+        _textWidth = renderBox.size.width;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => widget.onEnter(),
+      onExit: (_) => widget.onExit(),
+      child: Stack(
+        children: [
+          TextButton(
+            key: _textKey,
+            onPressed: widget.onPressed,
+            child: Text(
+              widget.text,
+              style: GoogleFonts.permanentMarker(
+                fontSize: 19,
+                color: AppColors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+              height: 2,
+              width: widget.isHovered ? _textWidth : 0.0,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.purple,
+                    AppColors.pink,
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

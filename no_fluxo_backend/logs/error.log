@@ -4084,3 +4084,171 @@ On macOS, try disabling the 'AirPlay Receiver' service from System Preferences -
 
 [2025-07-08 16:37:37:3737][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 16:37:37,430 - werkzeug - INFO -  * Debugger PIN: 114-293-037
 
+[2025-07-08 16:50:45:5045][[31mERROR[39m] [RAGFlow Agent] .env file not found at: ../.env
+
+[2025-07-08 16:50:46:5046][[31mERROR[39m] [RAGFlow Agent] Traceback (most recent call last):
+
+[2025-07-08 16:50:46:5046][[31mERROR[39m] [RAGFlow Agent]   File "C:\Users\vmta0\OneDrive\Documentos\UNB\UNB\6� Semestre(2025.1)\Mds\2025-1-Squad03\no_fluxo_backend\AI-agent\app.py", line 10, in <module>
+    from visualizaJsonMateriasAssociadas import gerar_texto_ranking
+  File "C:\Users\vmta0\OneDrive\Documentos\UNB\UNB\6� Semestre(2025.1)\Mds\2025-1-Squad03\no_fluxo_backend\AI-agent\visualizaJsonMateriasAssociadas.py", line 165, in <module>
+    print(texto_formatado)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\vmta0\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f3c6' in position 2: character maps to <undefined>
+
+[2025-07-08 16:50:46:5046][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 16:50:49:5049][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:49][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:50:50:5050][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:50][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:50:50:5050][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:50][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 1
+
+[2025-07-08 16:50:50:5050][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:50][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 4
+[2025-07-08 16:50:50][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 8
+
+[2025-07-08 16:50:50:5050][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:50][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:50:50][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:50:50:5050][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:50][INFO][PDF Parser]  * Restarting with watchdog (windowsapi)
+
+[2025-07-08 16:50:51:5051][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:51][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:50:51:5051][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:51][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:50:51:5051][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:51][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 1
+
+[2025-07-08 16:50:51:5051][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:51][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 4
+[2025-07-08 16:50:51][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 8
+
+[2025-07-08 16:50:51:5051][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:51][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:50:51:5051][[31mERROR[39m] [PDF Parser] [2025-07-08 16:50:51][INFO][PDF Parser]  * Debugger PIN: 145-188-129
+
+[2025-07-08 16:52:29:5229][[31mERROR[39m] Uncaught Exception: kill EPERM
+[2025-07-08 16:52:38:5238][[31mERROR[39m] [RAGFlow Agent] .env file not found at: ../.env
+
+[2025-07-08 16:52:38:5238][[31mERROR[39m] [RAGFlow Agent] Traceback (most recent call last):
+
+[2025-07-08 16:52:38:5238][[31mERROR[39m] [RAGFlow Agent]   File "C:\Users\vmta0\OneDrive\Documentos\UNB\UNB\6� Semestre(2025.1)\Mds\2025-1-Squad03\no_fluxo_backend\AI-agent\app.py", line 10, in <module>
+    from visualizaJsonMateriasAssociadas import gerar_texto_ranking
+  File "C:\Users\vmta0\OneDrive\Documentos\UNB\UNB\6� Semestre(2025.1)\Mds\2025-1-Squad03\no_fluxo_backend\AI-agent\visualizaJsonMateriasAssociadas.py", line 165, in <module>
+    print(texto_formatado)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\vmta0\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f3c6' in position 2: character maps to <undefined>
+
+[2025-07-08 16:52:38:5238][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 16:52:39:5239][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:39][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:52:39:5239][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:39][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:52:39:5239][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:39][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 1
+
+[2025-07-08 16:52:39:5239][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:39][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 4
+[2025-07-08 16:52:39][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 8
+
+[2025-07-08 16:52:39:5239][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:39][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 16:52:39][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 16:52:39:5239][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:39][INFO][PDF Parser]  * Restarting with watchdog (windowsapi)
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 1
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 4
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 8
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 16:52:40:5240][[31mERROR[39m] [PDF Parser] [2025-07-08 16:52:40][INFO][PDF Parser]  * Debugger PIN: 145-188-129
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] ==================================================
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] Request Method: POST
+[2025-07-08 16:56:54][INFO][PDF Parser] Request URL: http://127.0.0.1:3001/upload-pdf
+[2025-07-08 16:56:54][INFO][PDF Parser] Request Headers: {'Accept': 'application/json, text/plain, */*', 'Content-Type': 'multipart/form-data; boundary=--------------------------758469364705824058839067', 'User-Agent': 'axios/1.10.0', 'Content-Length': '27420', 'Accept-Encoding': 'gzip, compress, deflate, br', 'Host': '127.0.0.1:3001', 'Connection': 'keep-alive'}
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] Request Files: dict_keys(['pdf'])
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] ==================================================
+[2025-07-08 16:56:54][INFO][PDF Parser] Received PDF upload request
+[2025-07-08 16:56:54][INFO][PDF Parser] Processing file: historico_222006202 (1).pdf
+[2025-07-08 16:56:54][INFO][PDF Parser] File content type: application/pdf
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] File size: 27191 bytes
+[2025-07-08 16:56:54][INFO][PDF Parser] Extracted matricula: 222006202 (1)
+[2025-07-08 16:56:54][INFO][PDF Parser] Attempting text extraction with PyPDF2
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] PDF has 3 pages
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] Processing page 1
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] Extracted 3312 characters from page 1
+
+[2025-07-08 16:56:54:5654][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:54][INFO][PDF Parser] Processing page 2
+
+[2025-07-08 16:56:55:5655][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:55][INFO][PDF Parser] Extracted 3699 characters from page 2
+
+[2025-07-08 16:56:55:5655][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:55][INFO][PDF Parser] Processing page 3
+
+[2025-07-08 16:56:55:5655][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:55][INFO][PDF Parser] Extracted 2856 characters from page 3
+
+[2025-07-08 16:56:55:5655][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:55][INFO][PDF Parser] Successfully extracted text using PyPDF2
+
+[2025-07-08 16:56:55:5655][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:55][INFO][PDF Parser] PDF processing completed successfully
+[2025-07-08 16:56:55][INFO][PDF Parser] Sending response with 32 extracted items
+
+[2025-07-08 16:56:55:5655][[31mERROR[39m] [PDF Parser] [2025-07-08 16:56:55][INFO][PDF Parser] 127.0.0.1 - - [08/Jul/2025 16:56:55] "POST /upload-pdf HTTP/1.1" 200 -
+
+[2025-07-08 17:00:15:015][[31mERROR[39m] [RAGFlow Agent] .env file not found at: ../.env
+
+[2025-07-08 17:00:15:015][[31mERROR[39m] [RAGFlow Agent] Traceback (most recent call last):
+
+[2025-07-08 17:00:15:015][[31mERROR[39m] [RAGFlow Agent]   File "C:\Users\vmta0\OneDrive\Documentos\UNB\UNB\6� Semestre(2025.1)\Mds\2025-1-Squad03\no_fluxo_backend\AI-agent\app.py", line 10, in <module>
+    from visualizaJsonMateriasAssociadas import gerar_texto_ranking
+  File "C:\Users\vmta0\OneDrive\Documentos\UNB\UNB\6� Semestre(2025.1)\Mds\2025-1-Squad03\no_fluxo_backend\AI-agent\visualizaJsonMateriasAssociadas.py", line 165, in <module>
+    print(texto_formatado)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\vmta0\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f3c6' in position 2: character maps to <undefined>
+
+[2025-07-08 17:00:15:015][[31mERROR[39m] [RAGFlow Agent] process exited with code 1
+[2025-07-08 17:00:17:017][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:17][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 17:00:17:017][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:17][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 17:00:17:017][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:17][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 1
+[2025-07-08 17:00:17][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 4
+[2025-07-08 17:00:17][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 8
+
+[2025-07-08 17:00:17:017][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:17][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 17:00:17][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 17:00:17:017][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:17][INFO][PDF Parser]  * Restarting with watchdog (windowsapi)
+
+[2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 1
+
+[2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 4
+[2025-07-08 17:00:20][WARNING][PDF Parser] Python-dotenv could not parse statement starting at line 8
+
+[2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][INFO][PDF Parser]  * Debugger PIN: 145-188-129
+
