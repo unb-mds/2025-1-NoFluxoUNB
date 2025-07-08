@@ -91,3 +91,7 @@ Squad 03 – MDS 2025/1 – FGA/UnB
    </tr>
  </table>
 
+## 4. Como Rodar o Projeto Localmente
+
+Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md).
+
