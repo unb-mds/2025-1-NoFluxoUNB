@@ -173,14 +173,19 @@ class AuthService {
         final error = await result.fold(
           (error) async => error,
           (userFromDb) async {
+            print(
+                '[DEBUG] Salvando usuário em SharedPreferencesHelper.currentUser:');
+            print(userFromDb);
             SharedPreferencesHelper.currentUser = userFromDb;
+            print('[DEBUG] Usuário salvo com sucesso!');
             return null;
           },
         );
 
         if (error != null) {
-          await supabase.auth.signOut();
-          return error;
+          // NÃO faz signOut automático, apenas retorna erro
+          // await supabase.auth.signOut(); // Removido
+          return 'Usuário autenticado, mas não encontrado no banco de dados interno. Contate o suporte.';
         }
         return null; // Login successful
       }
