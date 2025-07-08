@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_app/service/auth_service.dart';
-import '../../constants/app_colors.dart';
+import '../../config/app_colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:brasil_fields/brasil_fields.dart';

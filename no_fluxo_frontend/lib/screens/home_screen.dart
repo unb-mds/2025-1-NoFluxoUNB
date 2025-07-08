@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_app/config/size_config.dart';
 import '../cache/shared_preferences_helper.dart';
-import '../constants/app_colors.dart';
+import '../config/app_colors.dart';
 import '../widgets/graffiti_background.dart';
 import '../widgets/app_navbar.dart';
 import '../widgets/como_funciona_section.dart';

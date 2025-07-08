@@ -12,7 +12,7 @@ import '../screens/auth/login_form.dart';
 import '../screens/auth/signup_form.dart';
 import '../screens/auth/password_recovery_screen.dart';
 import '../screens/upload-historico/presentation/upload_historico_screen.dart';
-import '../screens/fluxogramas/presentation/widgets/fluxos_screen.dart';
+import '../screens/fluxogramas/presentation/pages/fluxogramas_index_screen.dart';
 import '../screens/fluxogramas/presentation/pages/meu_fluxograma_screen.dart';
 import '../service/auth_service.dart';
 

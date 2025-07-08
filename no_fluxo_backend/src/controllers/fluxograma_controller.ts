@@ -167,11 +167,18 @@ export const FluxogramaController: EndpointController = {
 
             for (const curso of data) {
                 // get equivalencias
-                const { data: equivalencias,error: errorEquivalencias } = await SupabaseWrapper.get()
+                const { data: equivalencias, error: errorEquivalencias } = await SupabaseWrapper.get()
                     .from("equivalencias")
-                    .select("id_equivalencia,id_materia,expressao")
-                    .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
+                    .select("id_equivalencia,id_materia,expressao,materias(*)")
+                    .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`)
+                    .or(`matriz_curricular.is.null,matriz_curricular.eq.${curso.matriz_curricular}`);
 
+                if (errorEquivalencias) {
+                    logger.error(`Erro ao buscar equivalencias: ${errorEquivalencias.message}`);
+                    return res.status(500).json({ error: errorEquivalencias.message });
+                }
+
+                curso.equivalencias = equivalencias;
             }
 
             logger.info(`Fluxograma encontrado: ${JSON.stringify(data)}`);
@@ -477,7 +484,7 @@ export const FluxogramaController: EndpointController = {
                         }
                     }
                 }
-                
+
                 // FIND MANDATORY SUBJECTS NOT IN TRANSCRIPT
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) => disc.id_materia === materiaBanco.id_materia);

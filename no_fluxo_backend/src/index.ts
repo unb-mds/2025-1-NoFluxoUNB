@@ -13,6 +13,7 @@ import logger from './logger';
 import { UsersController } from './controllers/users_controller';
 import { spawn } from 'child_process';
 import path from 'path';
+import { CursosController } from './controllers/cursos_controller';
 
 dotenv.config();
 
@@ -92,7 +93,8 @@ const router = express.Router();
 const controllers: EndpointController[] = [
     FluxogramaController,
     TestesController,
-    UsersController
+    UsersController,
+    CursosController
 ];
 
 controllers.forEach(controller => {

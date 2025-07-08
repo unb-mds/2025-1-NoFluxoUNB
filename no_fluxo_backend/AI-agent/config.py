@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 logger.info("Loading environment variables from .env file")
-dotenv_path = '../.env'
+dotenv_path = '.env'
 
 if os.path.exists(dotenv_path):
     logger.info(f"Found .env file at: {dotenv_path}")

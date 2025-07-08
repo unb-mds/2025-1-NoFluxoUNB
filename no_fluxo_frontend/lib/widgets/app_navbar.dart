@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mobile_app/cache/shared_preferences_helper.dart';
 import 'package:mobile_app/routes/app_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../constants/app_colors.dart';
+import 'package:mobile_app/config/app_colors.dart';
 import '../screens/home_screen.dart';
 import '../screens/auth/auth_page.dart';
 import 'dart:ui';

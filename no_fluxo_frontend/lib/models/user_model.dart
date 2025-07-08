@@ -4,11 +4,13 @@ class DadosMateria {
   String codigoMateria;
   String mencao;
   String professor;
+  String status;
 
   DadosMateria({
     required this.codigoMateria,
     required this.mencao,
     required this.professor,
+    required this.status,
   });
 
   factory DadosMateria.fromJson(Map<String, dynamic> json) {
@@ -16,6 +18,7 @@ class DadosMateria {
       codigoMateria: json['codigo'],
       mencao: json['mencao'],
       professor: json['professor'],
+      status: json['status'] ?? '-',
     );
   }
 
@@ -24,6 +27,7 @@ class DadosMateria {
       'codigo': codigoMateria,
       'mencao': mencao,
       'professor': professor,
+      'status': status,
     };
   }
 }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:dartz/dartz.dart' show Left;
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart';
+import '../../../../utils/utils.dart';
 import '../../../../widgets/app_navbar.dart';
 import '../../../../widgets/graffiti_background.dart';
 import '../../../../cache/shared_preferences_helper.dart';
@@ -13,8 +14,13 @@ import '../../data/course_data.dart';
 import '../../data/course_subject.dart';
 import '../../data/materia_model.dart';
 import '../../services/meu_fluxograma_service.dart';
+import '../widgets/course_card_widget.dart';
 import 'dart:ui';
 import 'package:go_router/go_router.dart';
+
+import '../widgets/materia_data_dialog_content.dart';
+
+var log = Environment.getLogger("MeuFluxogramaScreen");
 
 class MeuFluxogramaScreen extends StatefulWidget {
   final String? courseName;
@@ -72,6 +78,32 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                       .map((e) => MapEntry(e.codigoMateria, e)) ??
                   []);
 
+          var listMaterias = SharedPreferencesHelper
+                  .currentUser?.dadosFluxograma?.dadosFluxograma
+                  .expand((e) => e)
+                  .toList() ??
+              List<DadosMateria>.from([]);
+
+          var materiasAprovadas = listMaterias
+              .where((e) =>
+                  e.mencao == 'SS' || e.mencao == 'MS' || e.mencao == 'MM')
+              .toList();
+
+          var materiasCurrent =
+              listMaterias.where((e) => e.status == "MATR").toList();
+
+          var materiasEquivalentesAprovadas = currentCourseData?.equivalencias
+                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
+                      materiasAprovadas.map((e) => e.codigoMateria))))
+                  .toList() ??
+              [];
+
+          var materiasEquivalentesCurrent = currentCourseData?.equivalencias
+                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
+                      materiasCurrent.map((e) => e.codigoMateria))))
+                  .toList() ??
+              [];
+
           for (var materia in SharedPreferencesHelper
                   .currentUser?.dadosFluxograma?.dadosFluxograma
                   .expand((e) => e) ??
@@ -80,7 +112,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
               var isCompleted = materia.mencao == 'SS' ||
                   materia.mencao == 'MS' ||
                   materia.mencao == 'MM';
-              var isCurrent = materia.mencao == '-';
+              var isCurrent = materia.status == "MATR";
               materiasPorCodigo[materia.codigoMateria]?.status = isCompleted
                   ? 'completed'
                   : isCurrent
@@ -91,11 +123,22 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   materia.professor;
             }
           }
+
+          for (var materia in materiasEquivalentesAprovadas) {
+            materiasPorCodigo[materia.materia.codigoMateria]?.status =
+                'completed';
+          }
+
+          for (var materia in materiasEquivalentesCurrent) {
+            materiasPorCodigo[materia.materia.codigoMateria]?.status =
+                'current';
+          }
         },
       );
 
       return true;
-    } catch (e) {
+    } catch (e, stackTrace) {
+      log.severe(e, stackTrace);
       errorMessage = e.toString();
       return false;
     }
@@ -564,135 +607,22 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   }
 
   List<Widget> _getCoursesForSemester(int semester) {
-    final semesterKey = semester.toString();
     final subjects = currentCourseData?.materias
             .where((materia) => materia.nivel == semester)
             .toList() ??
         [];
 
-    return subjects.map((subject) => _buildCourseCard(subject)).toList();
-  }
-
-  Widget _buildCourseCard(MateriaModel subject) {
-    Color startColor;
-    Color endColor;
-
-    switch (subject.status) {
-      case 'completed':
-        startColor = const Color(0xFF4ADE80);
-        endColor = const Color(0xFF22C55E);
-        break;
-      case 'current':
-        startColor = const Color(0xFFA78BFA);
-        endColor = const Color(0xFF8B5CF6);
-        break;
-      case 'selected':
-        startColor = const Color(0xFFFB7185);
-        endColor = const Color(0xFFE11D48);
-        break;
-      case 'optative':
-        startColor = const Color(0xFF3B82F6);
-        endColor = const Color(0xFF1D4ED8);
-        break;
-      default: // future
-        startColor = Colors.white.withOpacity(0.1);
-        endColor = Colors.white.withOpacity(0.1);
-    }
-
-    return Container(
-      width: 192,
-      margin: const EdgeInsets.only(bottom: 16),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [startColor, endColor],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Material(
-        color: subject.status == 'completed'
-            ? Colors.green.withOpacity(0.1)
-            : subject.status == 'current'
-                ? Colors.blue.withOpacity(0.1)
-                : Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(8),
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  subject.codigoMateria,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  subject.nomeMateria,
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 12,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Text(
-                        '${subject.creditos} créditos',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 10,
-                        ),
-                      ),
-                    ),
-                    if (subject.mencao != null && subject.mencao != '-') ...[
-                      Spacer(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          subject.mencao ?? 'Sem Mencao',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ]
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+    return subjects
+        .map((subject) => CourseCardWidget(
+              subject: subject,
+              onTap: () {
+                Utils.showCustomizedDialog(
+                  context: context,
+                  child: MateriaDataDialogContent(materia: subject),
+                );
+              },
+            ))
+        .toList();
   }
 
   Widget _buildProgressSummary() {

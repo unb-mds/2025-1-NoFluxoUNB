@@ -4252,3 +4252,622 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f3c6' in posit
 
 [2025-07-08 17:00:20:020][[31mERROR[39m] [PDF Parser] [2025-07-08 17:00:20][INFO][PDF Parser]  * Debugger PIN: 145-188-129
 
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,097 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,098 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,098 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,098 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:54:51,099 - __main__ - INFO - ==================================================
+2025-07-08 19:54:51,099 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:54:51,099 - __main__ - INFO - Port: 4652
+2025-07-08 19:54:51,099 - __main__ - INFO - Debug mode: True
+2025-07-08 19:54:51,099 - __main__ - INFO - Log level: 10
+2025-07-08 19:54:51,099 - __main__ - INFO - Environment: development
+2025-07-08 19:54:51,099 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,154 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,154 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,163 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,308 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,309 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,310 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,310 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:54:51,310 - __main__ - INFO - ==================================================
+2025-07-08 19:54:51,310 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:54:51,310 - __main__ - INFO - Port: 4652
+2025-07-08 19:54:51,310 - __main__ - INFO - Debug mode: True
+2025-07-08 19:54:51,310 - __main__ - INFO - Log level: 10
+2025-07-08 19:54:51,310 - __main__ - INFO - Environment: development
+2025-07-08 19:54:51,310 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,328 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:54:51:5451][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:51,335 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:54:52][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:54:52:5452][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:52][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,653 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,653 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,654 - __main__ - INFO - ==================================================
+2025-07-08 19:54:54,654 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:54:54,654 - __main__ - INFO - ==================================================
+2025-07-08 19:54:54,654 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:54:54,654 - __main__ - INFO - Port: 4652
+2025-07-08 19:54:54,654 - __main__ - INFO - Debug mode: True
+2025-07-08 19:54:54,654 - __main__ - INFO - Log level: 10
+2025-07-08 19:54:54,654 - __main__ - INFO - Environment: development
+2025-07-08 19:54:54,654 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,683 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,683 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,687 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:54][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,828 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:54][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,829 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,830 - __main__ - INFO - ==================================================
+2025-07-08 19:54:54,830 - __main__ - INFO - AI AGENT SERVER STARTUP
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,830 - __main__ - INFO - ==================================================
+2025-07-08 19:54:54,830 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:54:54,830 - __main__ - INFO - Port: 4652
+2025-07-08 19:54:54,830 - __main__ - INFO - Debug mode: True
+2025-07-08 19:54:54,830 - __main__ - INFO - Log level: 10
+2025-07-08 19:54:54,830 - __main__ - INFO - Environment: development
+2025-07-08 19:54:54,830 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,853 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:54][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:54:54][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:54:54,861 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:54:54:5454][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:54][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:54:55:5455][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:55][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:54:55:5455][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:55][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:54:55:5455][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:55][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:54:55:5455][[31mERROR[39m] [PDF Parser] [2025-07-08 19:54:55][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,875 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,875 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,876 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,876 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:02,876 - __main__ - INFO - ==================================================
+2025-07-08 19:55:02,876 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:02,876 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:02,876 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:02,876 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:02,876 - __main__ - INFO - Environment: development
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,876 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,903 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,903 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:02:552][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:02,906 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:03,037 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:03,038 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:03,039 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:03,039 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:03,039 - __main__ - INFO - ==================================================
+2025-07-08 19:55:03,039 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:03,039 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:03,039 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:03,039 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:03,039 - __main__ - INFO - Environment: development
+2025-07-08 19:55:03,039 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:03,062 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:55:03][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:03,068 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:03:553][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:03][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,233 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,233 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,234 - __main__ - INFO - ==================================================
+2025-07-08 19:55:06,234 - __main__ - INFO - AI AGENT SERVER STARTUP
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,234 - __main__ - INFO - ==================================================
+2025-07-08 19:55:06,234 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:06,234 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:06,234 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:06,234 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:06,234 - __main__ - INFO - Environment: development
+2025-07-08 19:55:06,234 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,261 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,261 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,264 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,388 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,389 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,390 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,390 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:06,390 - __main__ - INFO - ==================================================
+2025-07-08 19:55:06,390 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:06,390 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:06,390 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:06,390 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:06,390 - __main__ - INFO - Environment: development
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,390 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,408 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:06,413 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:06:556][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:06][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,247 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,247 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,248 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,248 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:11,248 - __main__ - INFO - ==================================================
+2025-07-08 19:55:11,248 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:11,248 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:11,248 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:11,248 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:11,248 - __main__ - INFO - Environment: development
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,248 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,278 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+2025-07-08 19:55:11,278 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,281 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,411 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,411 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,412 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,413 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:11,413 - __main__ - INFO - ==================================================
+2025-07-08 19:55:11,413 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:11,413 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:11,413 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:11,413 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:11,413 - __main__ - INFO - Environment: development
+2025-07-08 19:55:11,413 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,431 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:55:11][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:11,442 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:11:5511][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:11][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,872 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,872 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,873 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,873 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:13,873 - __main__ - INFO - ==================================================
+2025-07-08 19:55:13,873 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:13,873 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:13,873 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:13,873 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:13,873 - __main__ - INFO - Environment: development
+2025-07-08 19:55:13,873 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,898 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,898 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:13:5513][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:13,901 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:14,031 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:14,032 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:14,033 - __main__ - INFO - ==================================================
+2025-07-08 19:55:14,033 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:14,033 - __main__ - INFO - ==================================================
+2025-07-08 19:55:14,033 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:14,033 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:14,033 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:14,033 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:14,033 - __main__ - INFO - Environment: development
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:14,034 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:14,054 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:55:14][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:14,070 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:14:5514][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:14][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:16:5516][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:16,851 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:16:5516][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:16,852 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:16:5516][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:16,853 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:16:5516][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:16,853 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:16,853 - __main__ - INFO - ==================================================
+2025-07-08 19:55:16,853 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:16,853 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:16,853 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:16,853 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:16,853 - __main__ - INFO - Environment: development
+2025-07-08 19:55:16,853 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:16:5516][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:16,877 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+2025-07-08 19:55:16,877 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:16:5516][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:16,880 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,004 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,005 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,006 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,006 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:17,006 - __main__ - INFO - ==================================================
+2025-07-08 19:55:17,006 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:17,006 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:17,006 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:17,006 - __main__ - INFO - Log level: 10
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,006 - __main__ - INFO - Environment: development
+2025-07-08 19:55:17,006 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,023 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:17,033 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:17:5517][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:17][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,002 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,003 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,004 - __main__ - INFO - ==================================================
+2025-07-08 19:55:19,004 - __main__ - INFO - AI AGENT SERVER STARTUP
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,004 - __main__ - INFO - ==================================================
+2025-07-08 19:55:19,004 - __main__ - INFO - Host: 0.0.0.0
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,004 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:19,004 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:19,004 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:19,004 - __main__ - INFO - Environment: development
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,004 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,028 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+2025-07-08 19:55:19,029 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,032 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,182 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,183 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,184 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,184 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:19,184 - __main__ - INFO - ==================================================
+2025-07-08 19:55:19,184 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:19,184 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:19,184 - __main__ - INFO - Debug mode: True
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,184 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:19,184 - __main__ - INFO - Environment: development
+2025-07-08 19:55:19,184 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,204 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:55:19][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:19,210 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:19:5519][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:19][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,748 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,749 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,750 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,750 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:35,750 - __main__ - INFO - ==================================================
+2025-07-08 19:55:35,751 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:35,751 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:35,751 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:35,751 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:35,751 - __main__ - INFO - Environment: development
+2025-07-08 19:55:35,751 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,801 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,801 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,805 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:35][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:35][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,938 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,939 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,939 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,939 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:35,939 - __main__ - INFO - ==================================================
+2025-07-08 19:55:35,939 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:35,939 - __main__ - INFO - Port: 4652
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,939 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:35,939 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:35,939 - __main__ - INFO - Environment: development
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,939 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:35][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:35][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:35][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,958 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:35:5535][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:35,963 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:36:5536][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:36][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:36:5536][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:36][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:36:5536][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:36][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:36:5536][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:36][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,809 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,810 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,810 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,810 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:49,810 - __main__ - INFO - ==================================================
+2025-07-08 19:55:49,811 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:49,811 - __main__ - INFO - Port: 4652
+2025-07-08 19:55:49,811 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:49,811 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:49,811 - __main__ - INFO - Environment: development
+2025-07-08 19:55:49,811 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,837 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.100:4652
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,837 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,840 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:49][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,966 - __main__ - INFO - Logging initialized successfully
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,966 - __main__ - INFO - Flask application and CORS initialized
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,967 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,967 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-08 19:55:49,967 - __main__ - INFO - ==================================================
+2025-07-08 19:55:49,967 - __main__ - INFO - Host: 0.0.0.0
+2025-07-08 19:55:49,967 - __main__ - INFO - Port: 4652
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,967 - __main__ - INFO - Debug mode: True
+2025-07-08 19:55:49,967 - __main__ - INFO - Log level: 10
+2025-07-08 19:55:49,967 - __main__ - INFO - Environment: development
+2025-07-08 19:55:49,967 - __main__ - INFO - ==================================================
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:49][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,988 - werkzeug - WARNING -  * Debugger is active!
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:49][INFO][PDF Parser] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3001
+[2025-07-08 19:55:49][INFO][PDF Parser] [33mPress CTRL+C to quit[0m
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [RAGFlow Agent] 2025-07-08 19:55:49,994 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+
+[2025-07-08 19:55:49:5549][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:49][INFO][PDF Parser]  * Restarting with watchdog (fsevents)
+
+[2025-07-08 19:55:50:5550][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:50][INFO][PDF Parser] Using Tesseract path: C:\Program Files\Tesseract-OCR\tesseract.exe
+
+[2025-07-08 19:55:50:5550][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:50][INFO][PDF Parser] Starting PDF parser service on port 3001
+
+[2025-07-08 19:55:50:5550][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:50][WARNING][PDF Parser]  * Debugger is active!
+
+[2025-07-08 19:55:50:5550][[31mERROR[39m] [PDF Parser] [2025-07-08 19:55:50][INFO][PDF Parser]  * Debugger PIN: 114-293-037
+

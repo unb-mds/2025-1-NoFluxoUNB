@@ -5,6 +5,9 @@ import 'package:http/http.dart' as http;
 import 'package:mobile_app/environment.dart';
 
 import '../data/curso_model.dart';
+import '../data/materia_model.dart';
+
+var log = Environment.getLogger("MeuFluxogramaService");
 
 class MeuFluxogramaService {
   static Future<Either<String, Map<String, String>>> getNameOfMateriasByCode(
@@ -43,8 +46,28 @@ class MeuFluxogramaService {
       } else {
         return Left(response.body);
       }
+    } catch (e, stackTrace) {
+      log.severe(e, stackTrace);
+      return Left(e.toString());
+    }
+  }
+
+  static Future<Either<String, MateriaModel>> getMateriaData(
+      int idMateria) async {
+    try {
+      final response = await http
+          .get(Uri.parse('${Environment.apiUrl}/materias/$idMateria'));
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(response.body);
+        return Right(MateriaModel.fromJson(json));
+      } else {
+        return Left(response.body);
+      }
     } catch (e) {
       return Left(e.toString());
     }
   }
+
+  static Future<Either<String, List<
 }
