@@ -123,8 +123,9 @@ class CursoModel {
       nomeCurso: json["nome_curso"],
       matrizCurricular: json["matriz_curricular"],
       totalCreditos: json["creditos_por_curso"],
-      
-
+      materias: [],
+      semestres: 0,
+      equivalencias: [],
     );
   }
 

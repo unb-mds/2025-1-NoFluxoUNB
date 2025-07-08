@@ -69,5 +69,20 @@ class MeuFluxogramaService {
     }
   }
 
-  static Future<Either<String, List<
+  static Future<Either<String, List<CursoModel>>> getAllCursosMinimal() async {
+    try {
+      final response =
+          await http.get(Uri.parse('${Environment.apiUrl}/cursos/all-cursos'));
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(response.body);
+        return Right(List<CursoModel>.from(
+            json.map((curso) => CursoModel.fromMinimalJson(curso))));
+      } else {
+        return Left(response.body);
+      }
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
 }
