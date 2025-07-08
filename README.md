@@ -46,7 +46,7 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
 - 📑 [Requisitos](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/documentacao/requisitos.md)
 - 🏗️ [Arquitetura](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626773503994&cot=14)
 - 🧾 [Backlog](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626757911762&cot=14)
-- 🧾 [PBB](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/documentacao/PBB.md)
+- 🧾 [PBB](https://miro.com/app/board/uXjVIhMvxAo=/?moveToWidget=3458764633740818264&cot=14)
  
 ## 3. Como Rodar o Projeto Localmente
 
