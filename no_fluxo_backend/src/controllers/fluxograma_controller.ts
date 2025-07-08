@@ -156,7 +156,7 @@ export const FluxogramaController: EndpointController = {
                 return res.status(400).json({ error: "Nome do curso não informado" });
             }
 
-            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
+            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
 
             if (error) {
                 logger.error(`Erro ao buscar fluxograma: ${error.message}`);
