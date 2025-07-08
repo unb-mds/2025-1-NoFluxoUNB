@@ -47,8 +47,12 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
 - 🏗️ [Arquitetura](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626773503994&cot=14)
 - 🧾 [Backlog](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626757911762&cot=14)
  
+ 
+## 3. Como Rodar o Projeto Localmente
 
- ## 3. 👥 Equipe
+Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+ ## 4. 👥 Equipe
 
 Squad 03 – MDS 2025/1 – FGA/UnB
 
@@ -90,8 +94,3 @@ Squad 03 – MDS 2025/1 – FGA/UnB
      </td>
    </tr>
  </table>
-
-## 4. Como Rodar o Projeto Localmente
-
-Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md).
-
