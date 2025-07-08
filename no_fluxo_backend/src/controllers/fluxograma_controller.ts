@@ -477,7 +477,7 @@ export const FluxogramaController: EndpointController = {
                         }
                     }
                 }
-
+                
                 // FIND MANDATORY SUBJECTS NOT IN TRANSCRIPT
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) => disc.id_materia === materiaBanco.id_materia);
@@ -509,9 +509,20 @@ export const FluxogramaController: EndpointController = {
                     );
 
                     if (cumpridaPorEquivalencia) {
+                        // Encontrar a disciplina do histórico usada como equivalência
+                        let encontrada = null;
+                        for (const eq of equivalenciasParaMateria) {
+                            const codigosEquivalentes = extractSubjectCodes(eq.expressao);
+                            encontrada = disciplinasCasadas.find(
+                                d => codigosEquivalentes.includes(d.codigo) && (d.status === 'APR' || d.status === 'CUMP')
+                            );
+                            if (encontrada) break;
+                        }
                         materiasConcluidasPorEquivalencia.push({
                             ...materiaObrigatoria,
-                            status_fluxograma: 'concluida_equivalencia'
+                            status_fluxograma: 'concluida_equivalencia',
+                            codigo_equivalente: encontrada ? encontrada.codigo : undefined,
+                            nome_equivalente: encontrada ? encontrada.nome : undefined
                         });
                     } else {
                         materiasPendentesFinais.push(materiaObrigatoria);
@@ -541,7 +552,9 @@ export const FluxogramaController: EndpointController = {
                                 materiasConcluidasPorEquivalencia.push({
                                     ...obrigatoria,
                                     status_fluxograma: 'concluida_equivalencia',
-                                    equivalencia: disciplinaOptativa.nome
+                                    equivalencia: disciplinaOptativa.nome,
+                                    codigo_equivalente: disciplinaOptativa.codigo,
+                                    nome_equivalente: disciplinaOptativa.nome
                                 });
                                 logger.info(`Elective '${disciplinaOptativa.nome}' marked as equivalency for mandatory '${obrigatoria.nome}'`);
                                 marcadaComoEquivalencia = true;
