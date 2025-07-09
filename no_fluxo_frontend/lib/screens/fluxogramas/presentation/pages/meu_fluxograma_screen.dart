@@ -10,6 +10,7 @@ import '../../../../widgets/app_navbar.dart';
 import '../../../../widgets/graffiti_background.dart';
 import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../models/user_model.dart';
+import '../../../../widgets/splash_widget.dart';
 import '../../data/course_data.dart';
 import '../../data/course_subject.dart';
 import '../../data/materia_model.dart';
@@ -151,7 +152,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           future: loadCourseData(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
+              return const SplashWidget();
             }
 
             if (errorMessage != null) {
