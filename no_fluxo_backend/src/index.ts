@@ -65,6 +65,7 @@ const cleanup = () => {
     ragflowAgentProcess.kill();
 };
 
+
 // Handle normal exit
 process.on('exit', cleanup);
 
