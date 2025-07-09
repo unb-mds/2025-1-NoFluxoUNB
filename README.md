@@ -19,6 +19,8 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 ![Vercel](https://img.shields.io/badge/vercel-deploy-black)
 ![GitHub](https://img.shields.io/badge/github-repository-blue)
 ![GitHub Actions](https://img.shields.io/badge/github_actions-v2.0.0-2088FF)
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![HTML](https://img.shields.io/badge/html-5-orange)
 
 ![GitHub Projects](https://img.shields.io/badge/github-projects-90a1b2)
 
@@ -38,15 +40,19 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
 
 ## 2. 🧩 Links Importantes
 
-- 🧩 [Protótipo de alta fidelidade](https://www.figma.com/design/lXozhMhSHrSuxNraqQje2Z/Prototipo-de-alta-fidelidade?node-id=0-1&t=qnwI1PGFwv2C22v2-1)  
+- 🧩 [Protótipo de alta fidelidade](https://www.figma.com/design/uy5ZwJGkuzjRaeREouMSlI/-arquivado--Prototipo-e-IDV-No-FLX-UnB?node-id=0-1&p=f&t=wMKM19zNX9jK3v7F-0)  
 - 🗺️ [Story Map Público](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764599792494680&cot=14)  
 - 📋 [Board do Projeto no GitHub](https://github.com/orgs/unb-mds/projects/29)
-- 📑 [Requisitos](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/requisitos.md)
+- 📑 [Requisitos](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/documentacao/requisitos.md)
 - 🏗️ [Arquitetura](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626773503994&cot=14)
 - 🧾 [Backlog](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626757911762&cot=14)
+- 🧾 [PBB](https://miro.com/app/board/uXjVIhMvxAo=/?moveToWidget=3458764633740818264&cot=14)
  
+## 3. Como Rodar o Projeto Localmente
 
- ## 3. 👥 Equipe
+Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+ ## 4. 👥 Equipe
 
 Squad 03 – MDS 2025/1 – FGA/UnB
 
@@ -88,4 +94,3 @@ Squad 03 – MDS 2025/1 – FGA/UnB
      </td>
    </tr>
  </table>
-
