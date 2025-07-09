@@ -65,8 +65,7 @@ class _AssistenteScreenState extends State<AssistenteScreen>
   // Função para enviar mensagem ao backend da IA
   Future<String> _enviarMensagemParaIA(String mensagem) async {
     // Troque o IP abaixo pelo IP do seu backend se necessário
-    final url =
-        Uri.parse('${Environment.agentUrl}/assistente');
+    final url = Uri.parse('${Environment.agentUrl}/assistente');
     try {
       final response = await http.post(
         url,
@@ -287,6 +286,7 @@ class _AssistenteScreenState extends State<AssistenteScreen>
                 ),
               ),
               child: MarkdownBody(
+                styleSheetTheme: MarkdownStyleSheetBaseTheme.cupertino,
                 data: msg['text'],
                 styleSheet: MarkdownStyleSheet(
                   p: GoogleFonts.poppins(
@@ -298,6 +298,99 @@ class _AssistenteScreenState extends State<AssistenteScreen>
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
+                  em: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  a: GoogleFonts.poppins(
+                    color: const Color(0xFF60A5FA),
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                  ),
+                  h1: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h2: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h3: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h4: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h5: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h6: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  code: GoogleFonts.jetBrainsMono(
+                    color: const Color(0xFF22C55E),
+                    fontSize: 14,
+                    backgroundColor: Colors.black.withOpacity(0.3),
+                  ),
+                  blockquote: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  del: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 16,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                  listBullet: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  tableHead: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  tableBody: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  tableCellsDecoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                  ),
+                  tableBorder: TableBorder.all(
+                    color: Colors.white.withOpacity(0.2),
+                    width: 1,
+                  ),
+                  tableCellsPadding: const EdgeInsets.all(8),
+                  codeblockDecoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  blockquoteDecoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(
+                        color: const Color(0xFF8B5CF6),
+                        width: 4,
+                      ),
+                    ),
+                  ),
+                  blockquotePadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  codeblockPadding: const EdgeInsets.all(12),
                 ),
               ),
             ),

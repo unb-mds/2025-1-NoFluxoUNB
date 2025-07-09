@@ -41,6 +41,10 @@ class CourseCardWidget extends StatelessWidget {
           endColor = AppColors.selectedEnd;
         }
         break;
+      case 'current':
+        startColor = AppColors.currentStart;
+        endColor = AppColors.currentEnd;
+        break;
       case 'optative':
         startColor = AppColors.optativeStart;
         endColor = AppColors.optativeEnd;

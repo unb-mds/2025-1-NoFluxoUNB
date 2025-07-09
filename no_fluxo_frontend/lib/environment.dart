@@ -42,8 +42,6 @@ class Environment {
     logger
         .info('🌍 Initializing environment - isProd: $isProd, isWeb: $kIsWeb');
 
-    
-
     if (isProd) {
       setEnvironmentType(EnvironmentType.production);
       logger.info('🏭 Production environment configured');
@@ -104,8 +102,6 @@ class Environment {
     hierarchicalLoggingEnabled = true;
     _loggingInitialized = true;
   }
-
-  
 
   /// Get a logger instance with the specified name.
   /// The name should be in the format 'component_name' without brackets.

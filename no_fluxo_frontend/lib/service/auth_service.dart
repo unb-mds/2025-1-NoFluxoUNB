@@ -132,6 +132,7 @@ class AuthService {
         await supabase.auth.signInWithOAuth(OAuthProvider.google,
             redirectTo: Environment.redirectToUrl,
             queryParams: {
+              "redirect_to": Environment.redirectToUrl,
               "prompt": "consent",
             });
 
