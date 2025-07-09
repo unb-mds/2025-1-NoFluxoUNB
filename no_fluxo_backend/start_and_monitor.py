@@ -72,6 +72,9 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         log_message(f"Python: Fork path {fork_path} does not exist. Skipping fork update.")
         return
     
+    # Set up authentication if provided
+    git_env = setup_git_auth(git_username, git_token)
+    
     try:
         # Save current directory and its state
         original_dir = os.getcwd()
@@ -92,14 +95,51 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         os.chdir(fork_path)
         log_message(f"Python: Updating fork repository at {fork_path}")
         
-        # Fetch latest changes from fork's origin
-        subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Get fork's origin URL and update it with authentication if needed
+        try:
+            fork_origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"], stderr=subprocess.PIPE).decode().strip()
+            if git_username and git_token:
+                authenticated_fork_url = get_authenticated_url(fork_origin_url, git_username, git_token)
+                subprocess.run(["git", "remote", "set-url", "origin", authenticated_fork_url], check=True)
+                log_message("Python: Updated fork's origin URL with authentication")
+        except subprocess.CalledProcessError as e:
+            log_message(f"Python: Warning - Could not get/set fork's origin URL: {e.stderr.decode().strip()}")
+            # If origin doesn't exist, try to add it
+            if git_username and git_token:
+                fork_url = f"https://github.com/{git_username}/2025-1-NoFluxoUNB.git"
+                authenticated_fork_url = get_authenticated_url(fork_url, git_username, git_token)
+                subprocess.run(["git", "remote", "add", "origin", authenticated_fork_url], check=True)
+                log_message("Python: Added fork's origin remote")
+            else:
+                raise Exception("No authentication provided and origin remote doesn't exist")
+
+        # Fetch latest changes from fork's origin with full error output
+        try:
+            fetch_result = subprocess.run(["git", "fetch", "origin"], 
+                                        env=git_env,
+                                        capture_output=True,
+                                        text=True,
+                                        check=True)
+            log_message("Python: Successfully fetched from fork's origin")
+        except subprocess.CalledProcessError as e:
+            log_message(f"Python: Error fetching from fork's origin: {e.stderr}")
         
         # Switch to main branch in fork
         log_message("Python: Switching to main branch in fork repository")
-        subprocess.run(["git", "checkout", "main"], check=True)
-        subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
-        subprocess.run(["git", "pull", "origin", "main"], check=True)
+        try:
+            # Try to checkout main branch
+            subprocess.run(["git", "checkout", "main"], check=True, capture_output=True, text=True)
+        except subprocess.CalledProcessError as e:
+            # If main branch doesn't exist, create it
+            log_message("Python: Main branch not found, creating it")
+            subprocess.run(["git", "checkout", "-b", "main"], check=True)
+        
+        try:
+            subprocess.run(["git", "reset", "--hard", "origin/main"], check=True, env=git_env)
+            subprocess.run(["git", "pull", "origin", "main"], check=True, env=git_env)
+        except subprocess.CalledProcessError as e:
+            log_message(f"Python: Warning - Could not reset/pull main branch: {e.stderr if hasattr(e, 'stderr') else str(e)}")
+            # If we can't reset/pull, we'll just push our changes later
         
         # Add or update the original repo as a remote
         log_message("Python: Setting up upstream remote with original repository")
