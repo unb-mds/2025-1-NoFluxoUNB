@@ -37,40 +37,72 @@ def pull_updates(repo_dir, branch):
     subprocess.run(["git", "pull", "origin", branch], check=True)
 
 def update_fork_repo(fork_path, branch):
-    """Update the fork repository with the latest changes."""
+    """Update the fork repository with the latest changes from current branch to main."""
     if not fork_path or not os.path.exists(fork_path):
         log_message(f"Python: Fork path {fork_path} does not exist. Skipping fork update.")
         return
     
     try:
-        # Save current directory
+        # Save current directory and its state
         original_dir = os.getcwd()
+        original_branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode().strip()
+        
+        # First update the current repo to make sure we have latest changes
+        subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
+        subprocess.run(["git", "pull", "origin", branch], check=True)
+        
+        # Get the latest commit hash from current branch
+        current_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode().strip()
         
         # Change to fork directory
         os.chdir(fork_path)
         log_message(f"Python: Updating fork repository at {fork_path}")
         
-        # Fetch latest changes from upstream/origin
+        # Fetch latest changes from fork's origin
         subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
-        # Reset and pull latest changes
-        log_message(f"Python: Performing a hard reset and pull on fork from {branch}.")
-        subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
-        subprocess.run(["git", "pull", "origin", branch], check=True)
+        # Switch to main branch in fork
+        log_message("Python: Switching to main branch in fork repository")
+        subprocess.run(["git", "checkout", "main"], check=True)
+        subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
+        subprocess.run(["git", "pull", "origin", "main"], check=True)
         
-        log_message(f"Python: Fork repository updated successfully.")
+        # Add the original repo as a remote if it doesn't exist
+        remotes = subprocess.check_output(["git", "remote"]).decode().split('\n')
+        if "upstream" not in remotes:
+            subprocess.run(["git", "remote", "add", "upstream", original_dir], check=True)
         
-        # Return to original directory
+        # Fetch from upstream (original repo)
+        subprocess.run(["git", "fetch", "upstream"], check=True)
+        
+        # Force update main branch with the content from upstream's current branch
+        log_message(f"Python: Updating fork's main branch with content from upstream's {branch} branch")
+        subprocess.run(["git", "reset", "--hard", current_commit], check=True)
+        
+        # Push to fork's origin/main
+        log_message("Python: Pushing changes to fork's main branch")
+        subprocess.run(["git", "push", "-f", "origin", "main"], check=True)
+        
+        log_message(f"Python: Fork repository main branch updated successfully with content from {branch}")
+        
+        # Return to original directory and branch
         os.chdir(original_dir)
+        if original_branch != branch:
+            subprocess.run(["git", "checkout", original_branch], check=True)
         
     except subprocess.CalledProcessError as e:
         log_message(f"Python: Error updating fork repository: {e}")
         # Return to original directory even if there was an error
         os.chdir(original_dir)
+        if original_branch != branch:
+            subprocess.run(["git", "checkout", original_branch], check=True)
     except Exception as e:
         log_message(f"Python: Unexpected error updating fork repository: {e}")
         # Return to original directory even if there was an error
         os.chdir(original_dir)
+        if original_branch != branch:
+            subprocess.run(["git", "checkout", original_branch], check=True)
 
 def start_process(command):
     """Start a subprocess with the given command and print logs in real time."""
