@@ -24,16 +24,13 @@ def extract_dados_por_nivel(relatorio_html):
     soup = BeautifulSoup(relatorio_html, 'html.parser')
     texto = soup.get_text(separator=' ', strip=True).lower()
 
-    # Divide o texto em blocos por nível
     blocos = re.split(r'(\d+º nível)', texto, flags=re.IGNORECASE)
     niveis = []
     for i in range(1, len(blocos), 2):
         nome_nivel = remover_acentos(blocos[i]).upper()
         nome_nivel = re.sub(r'(\d+)O NIVEL', r'\1° NIVEL', nome_nivel)
-        conteudo = blocos[i+1]
-        # Remove tudo após CADEIA ou GRUPO DE COMPONENTES, mas NÃO corta por CH TOTAL/CH MINIMA
+        conteudo = blocos[i + 1]
         conteudo = re.split(r'cadeia|grupo de componentes', conteudo, flags=re.IGNORECASE)[0]
-        # Extrai matérias do bloco, ignorando linhas de CH TOTAL/CH MINIMA
         materias = []
         for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo, flags=re.IGNORECASE):
             nome_materia = remover_acentos(m[1]).upper()
@@ -47,7 +44,6 @@ def extract_dados_por_nivel(relatorio_html):
         if materias:
             niveis.append({'nivel': nome_nivel, 'materias': materias})
 
-    # Extrai bloco de optativas após o último nível
     match_optativas = re.search(r'(optativas[\w\s]*)(.*)', texto, flags=re.IGNORECASE)
     if match_optativas:
         conteudo_opt = match_optativas.group(2)
@@ -91,7 +87,6 @@ def acessar_relatorio(session, soup, btn_name, btn_value, estrutura_id, estrutur
 
 
 def scrape_estruturas():
-    # Caminho absoluto para o arquivo JSON
     script_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(script_dir, '..', 'dados', 'cursos-de-graduacao.json')
     output_dir = os.path.join(script_dir, '..', 'dados', 'estruturas-curriculares')
@@ -102,18 +97,16 @@ def scrape_estruturas():
 
     base_url = "https://sigaa.unb.br/sigaa/public/curso/lista.jsf?nivel=G&aba=p-graduacao"
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0'
     }
 
     session = requests.Session()
     session.headers.update(headers)
 
-    # 1. Acessar página inicial para pegar cookies e viewstate
     resp = session.get(base_url)
     soup = BeautifulSoup(resp.text, 'html.parser')
     viewstate = get_viewstate(soup)
 
-    # 2. Iterar sobre os cursos na página inicial
     tabela = soup.find('table', {'class': 'listagem'})
     if not tabela:
         print("Erro: Tabela de cursos não encontrada.")
@@ -130,6 +123,8 @@ def scrape_estruturas():
             continue
 
         nome_curso = cols[0].get_text(strip=True)
+        tipo_curso = cols[1].get_text(strip=True)  # <<<<<< ADICIONADO
+
         link_tag = tr.find('a', href=True, title="Visualizar Página do Curso")
         if not link_tag:
             print(f"Erro: Link não encontrado para o curso {nome_curso}.")
@@ -139,11 +134,9 @@ def scrape_estruturas():
         print(f"Processando curso: {nome_curso}")
         print(f"DEBUG: Link do curso: {curso_url}")
 
-        # 3. Acessar página do curso
         resp = session.get(curso_url)
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        # 4. Procurar o sub-menu 'Estruturas Curriculares' dentro da aba 'Ensino'
         estrutura_link = None
         for a in soup.find_all('a', href=True):
             if 'estruturaCurricular.jsf' in a['href'] or 'curriculo.jsf' in a['href']:
@@ -157,11 +150,9 @@ def scrape_estruturas():
         estrutura_url = requests.compat.urljoin(curso_url, estrutura_link)
         print(f"DEBUG: Link de estrutura curricular encontrado: {estrutura_url}")
 
-        # 5. Acessar página de estruturas curriculares
         resp = session.get(estrutura_url)
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        # 6. Encontrar as duas primeiras estruturas curriculares (independente do status)
         linhas = soup.find_all('tr', class_=['linha_impar', 'linha_par'])
         relatorios = []
         for tr in linhas:
@@ -189,14 +180,11 @@ def scrape_estruturas():
                         relatorios.append((btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo))
                         break
 
-        # Para cada uma das duas primeiras matrizes, simular o clique, extrair e salvar
         for idx, (btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo) in enumerate(relatorios):
             relatorio_html = acessar_relatorio(session, soup, btn_name, btn_value, estrutura_id, estrutura_url)
             print(f"Relatório encontrado e baixado para: {nome_curso} - {id_arquivo if id_arquivo else f'estructura{idx+1}'}")
-            # Extrair dados por nível
             dados_por_nivel = extract_dados_por_nivel(relatorio_html)
 
-            # NOVO: Extrair período letivo de entrada em vigor do relatório
             periodo_letivo_vigor = ''
             relatorio_soup = BeautifulSoup(relatorio_html, 'html.parser')
             th = relatorio_soup.find('th', string=lambda s: s and 'Período Letivo de Entrada em Vigor' in s)
@@ -205,17 +193,16 @@ def scrape_estruturas():
                 if td:
                     periodo_letivo_vigor = td.get_text(strip=True)
 
-            # Salvar dados organizados em JSON
             nome_arquivo = periodo_letivo_vigor if periodo_letivo_vigor else (id_arquivo if id_arquivo else f'estructura{idx+1}')
             output_path = os.path.join(output_dir, f"{normalize(nome_curso)} - {nome_arquivo}.json")
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     'curso': nome_curso,
+                    'tipo_curso': tipo_curso,  # <<<<< ADICIONADO
                     'periodo_letivo_vigor': periodo_letivo_vigor,
                     'niveis': dados_por_nivel
                 }, f, ensure_ascii=False, indent=2)
             print(f"Dados organizados por nível salvos em: {output_path}")
-
 
     print("Scraping concluído!")
 

@@ -1,5 +1,6 @@
 {
   "curso": "FARMÁCIA",
+  "tipo_curso": "Bacharelado",
   "periodo_letivo_vigor": "2015.1",
   "niveis": [
     {
@@ -11,23 +12,18 @@
           "ch": "60"
         },
         {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
           "ch": "30"
         },
         {
-          "codigo": "DSC0037",
-          "nome": "PRATICAS DE SAUDE",
-          "ch": "60"
-        },
-        {
           "codigo": "FAR0016",
           "nome": "INTRODUCAO A CIENCIAS FARMACEUTICAS",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEM0062",
-          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
           "ch": "60"
         },
         {
@@ -46,14 +42,9 @@
           "ch": "30"
         },
         {
-          "codigo": "FCE0220",
-          "nome": "FARMACOBOTANICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IQD0280",
-          "nome": "ANALISE ORGANICA DOS FARMACOS",
-          "ch": "60"
+          "codigo": "IQD0281",
+          "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FARMACOS",
+          "ch": "90"
         },
         {
           "codigo": "MAT0021",
@@ -61,9 +52,9 @@
           "ch": "60"
         },
         {
-          "codigo": "DSC0011",
-          "nome": "SAUDE E SOCIEDADE 1",
-          "ch": "60"
+          "codigo": "ICB0245",
+          "nome": "SEMINARIOS EM BIOLOGIA",
+          "ch": "30"
         }
       ]
     },
@@ -76,23 +67,13 @@
           "ch": "90"
         },
         {
-          "codigo": "FAR0173",
-          "nome": "ASSISTENCIA FARMACEUTICA 2",
-          "ch": "30"
-        },
-        {
-          "codigo": "IQD0281",
-          "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FARMACOS",
-          "ch": "90"
-        },
-        {
-          "codigo": "IQD0296",
-          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTANICA",
           "ch": "60"
         },
         {
-          "codigo": "EST0027",
-          "nome": "BIOESTATISTICA",
+          "codigo": "IQD0280",
+          "nome": "ANALISE ORGANICA DOS FARMACOS",
           "ch": "60"
         }
       ]
@@ -111,19 +92,19 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0050",
-          "nome": "BROMATOLOGIA",
-          "ch": "60"
-        },
-        {
           "codigo": "FAR0124",
           "nome": "GENETICA BASICA E MOLECULAR",
           "ch": "60"
         },
         {
-          "codigo": "FAR0126",
-          "nome": "QUIMICA FARMACEUTICA",
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
           "ch": "60"
+        },
+        {
+          "codigo": "FAR0010",
+          "nome": "TECNICA INSTRUMENTAL FARMACEUTICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0033",
@@ -146,19 +127,14 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0134",
-          "nome": "ECONOMIA E GESTAO DE EMPRESAS FARMACEUTICAS",
-          "ch": "30"
+          "codigo": "FAR0126",
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0174",
           "nome": "PATOLOGIA CLINICA",
           "ch": "60"
-        },
-        {
-          "codigo": "FAR0176",
-          "nome": "FARMACOTECNICA",
-          "ch": "90"
         },
         {
           "codigo": "FAR0172",
@@ -171,34 +147,19 @@
       "nivel": "6° NIVEL",
       "materias": [
         {
-          "codigo": "FAR0007",
-          "nome": "FISICA INDUSTRIAL FARMACEUTICA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FAR0009",
-          "nome": "FARMACOTECNICA COM ASPECTOS TECNOLOGICOS",
-          "ch": "60"
-        },
-        {
           "codigo": "FAR0127",
           "nome": "FARMACOGNOSIA",
           "ch": "90"
         },
         {
-          "codigo": "FAR0135",
-          "nome": "EPIDEMIOLOGIA DO MEDICAMENTO",
-          "ch": "30"
+          "codigo": "FAR0176",
+          "nome": "FARMACOTECNICA",
+          "ch": "90"
         },
         {
           "codigo": "FAR0182",
           "nome": "FUNDAMENTOS DE PARASITOLOGIA",
           "ch": "30"
-        },
-        {
-          "codigo": "FCE0367",
-          "nome": "BIOQUIMICA CLINICA",
-          "ch": "60"
         },
         {
           "codigo": "FAR0177",
@@ -211,38 +172,58 @@
       "nivel": "7° NIVEL",
       "materias": [
         {
+          "codigo": "FAR0007",
+          "nome": "FISICA INDUSTRIAL FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0009",
+          "nome": "FARMACOTECNICA COM ASPECTOS TECNOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0134",
+          "nome": "ECONOMIA E GESTAO DE EMPRESAS FARMACEUTICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0173",
+          "nome": "ASSISTENCIA FARMACEUTICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0367",
+          "nome": "BIOQUIMICA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0004",
+          "nome": "FARMACOLOGIA 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
           "codigo": "FAR0002",
           "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO",
           "ch": "60"
         },
         {
-          "codigo": "FAR0021",
-          "nome": "DIAGNOSTICO LABORATORIAL EM IMUNOLOGIA CLINICA",
+          "codigo": "FAR0050",
+          "nome": "BROMATOLOGIA",
           "ch": "60"
         },
         {
-          "codigo": "FAR0141",
-          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTACAO",
-          "ch": "60"
+          "codigo": "FAR0135",
+          "nome": "EPIDEMIOLOGIA DO MEDICAMENTO",
+          "ch": "30"
         },
         {
           "codigo": "FAR0143",
           "nome": "TOXICOLOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FAR0169",
-          "nome": "VIGILANCIA SANITARIA APLICADA A FARMACIA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FCE0255",
-          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FAR0004",
-          "nome": "FARMACOLOGIA 3",
           "ch": "60"
         },
         {
@@ -253,12 +234,47 @@
       ]
     },
     {
-      "nivel": "8° NIVEL",
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAR0141",
+          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0169",
+          "nome": "VIGILANCIA SANITARIA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0006",
+          "nome": "HEMATOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0255",
+          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0003",
+          "nome": "CONTROLE DE QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
       "materias": [
         {
           "codigo": "FAR0006",
           "nome": "ESTAGIO SUPERVISIONADO 1",
           "ch": "120"
+        },
+        {
+          "codigo": "FAR0021",
+          "nome": "DIAGNOSTICO LABORATORIAL EM IMUNOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0023",
@@ -271,24 +287,14 @@
           "ch": "60"
         },
         {
-          "codigo": "FCE0006",
-          "nome": "HEMATOLOGIA CLINICA",
-          "ch": "60"
-        },
-        {
           "codigo": "DSC0044",
           "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
           "ch": "45"
-        },
-        {
-          "codigo": "FCE0373",
-          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
-          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9° NIVEL",
+      "nivel": "11° NIVEL",
       "materias": [
         {
           "codigo": "FAR0017",
@@ -308,7 +314,7 @@
       ]
     },
     {
-      "nivel": "10° NIVEL",
+      "nivel": "12° NIVEL",
       "materias": [
         {
           "codigo": "FAR0019",
@@ -321,18 +327,8 @@
       "nivel": "OPTATIVAS",
       "materias": [
         {
-          "codigo": "NCIAS",
-          "nome": "60H OPTATIVA CEL0021 - BIOQUIMICA E BIOFISICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEL0026",
-          "nome": "BIOLOGIA MOLECULAR 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "CEL0028",
-          "nome": "METODOS EM BIOPOLIMEROS",
+          "codigo": "2",
+          "nome": "60H OPTATIVA CEL0026 - BIOLOGIA MOLECULAR 1",
           "ch": "90"
         },
         {
@@ -416,19 +412,9 @@
           "ch": "90"
         },
         {
-          "codigo": "CFS0050",
-          "nome": "NEUROETOLOGIA DO ESTRESSE",
-          "ch": "60"
-        },
-        {
           "codigo": "CFS0086",
           "nome": "TOPICOS EM NEUROCIENCIAS",
           "ch": "30"
-        },
-        {
-          "codigo": "CIC0152",
-          "nome": "INTRODUCAO A MICROINFORMATICA",
-          "ch": "60"
         },
         {
           "codigo": "DEG0200",
@@ -526,101 +512,6 @@
           "ch": "510"
         },
         {
-          "codigo": "DEX0196",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "15"
-        },
-        {
-          "codigo": "DEX0197",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "30"
-        },
-        {
-          "codigo": "DEX0198",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "45"
-        },
-        {
-          "codigo": "DEX0199",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "90"
-        },
-        {
-          "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "120"
-        },
-        {
-          "codigo": "DEX0202",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "150"
-        },
-        {
-          "codigo": "DEX0203",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "180"
-        },
-        {
-          "codigo": "DEX0204",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "240"
-        },
-        {
-          "codigo": "DEX0205",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "240"
-        },
-        {
-          "codigo": "DEX0206",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "270"
-        },
-        {
-          "codigo": "DEX0207",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "300"
-        },
-        {
-          "codigo": "DEX0208",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "330"
-        },
-        {
-          "codigo": "DEX0209",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "360"
-        },
-        {
-          "codigo": "DEX0210",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "390"
-        },
-        {
-          "codigo": "DEX0211",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "420"
-        },
-        {
-          "codigo": "DEX0212",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "450"
-        },
-        {
-          "codigo": "DEX0213",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "480"
-        },
-        {
-          "codigo": "DEX0214",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "510"
-        },
-        {
           "codigo": "DSC0007",
           "nome": "INTRODUCAO A BIOETICA",
           "ch": "30"
@@ -628,6 +519,11 @@
         {
           "codigo": "DSC0010",
           "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0011",
+          "nome": "SAUDE E SOCIEDADE 1",
           "ch": "60"
         },
         {
@@ -641,6 +537,11 @@
           "ch": "60"
         },
         {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
           "codigo": "DSC0040",
           "nome": "INTRODUCAO AO METODOS QUANTITATIVOS EM SAUDE",
           "ch": "30"
@@ -651,23 +552,8 @@
           "ch": "45"
         },
         {
-          "codigo": "DSC0045",
-          "nome": "VIGILANCIA SANITARIA",
-          "ch": "60"
-        },
-        {
           "codigo": "DSC0049",
           "nome": "LABORATORIO DA ANTROPOLOGIA DA SAUDE E DA DOENCA",
-          "ch": "60"
-        },
-        {
-          "codigo": "DSC0055",
-          "nome": "SAUDE MENTAL E BEM-ESTAR NO TRABALHO",
-          "ch": "60"
-        },
-        {
-          "codigo": "DSC0056",
-          "nome": "COMUNICACAO EM SAUDE",
           "ch": "60"
         },
         {
@@ -691,8 +577,8 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0003",
-          "nome": "CONTROLE DE QUALIDADE MICROBIOLOGICO",
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
           "ch": "60"
         },
         {
@@ -706,9 +592,29 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0010",
-          "nome": "TECNICA INSTRUMENTAL FARMACEUTICA",
-          "ch": "30"
+          "codigo": "FAR0011",
+          "nome": "ESTAGIO SUPERVISIONADO: AMBULATORIO",
+          "ch": "0"
+        },
+        {
+          "codigo": "FAR0012",
+          "nome": "ESTAGIO SUPERVISIONADO: DROGARIA",
+          "ch": "0"
+        },
+        {
+          "codigo": "FAR0013",
+          "nome": "ESTAGIO SUPERVISIONADO: HOSPITALAR",
+          "ch": "0"
+        },
+        {
+          "codigo": "FAR0014",
+          "nome": "ESTAGIO SUPERVISIONADO: LIVRE 1",
+          "ch": "0"
+        },
+        {
+          "codigo": "FAR0015",
+          "nome": "ESTAGIO SUPERVISIONADO: LIVRE 2",
+          "ch": "0"
         },
         {
           "codigo": "FAR0022",
@@ -741,11 +647,6 @@
           "ch": "30"
         },
         {
-          "codigo": "FAR0030",
-          "nome": "BOTANICA APLICADA A FARMACIA",
-          "ch": "90"
-        },
-        {
           "codigo": "FAR0036",
           "nome": "INTERACAO FARMACO-NUTRIENTE",
           "ch": "30"
@@ -754,11 +655,6 @@
           "codigo": "FAR0037",
           "nome": "RECONHECIMENTO MOLECULAR DE FARMACOS",
           "ch": "60"
-        },
-        {
-          "codigo": "FAR0038",
-          "nome": "FISIOPATOLOGIA DO COMPORTAMENTO",
-          "ch": "30"
         },
         {
           "codigo": "FAR0039",
@@ -1001,11 +897,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0253",
-          "nome": "NEUROBIOLOGIA MOLECULAR",
-          "ch": "90"
-        },
-        {
           "codigo": "FAV0092",
           "nome": "TECNOLOGIA DOS PRODUTOS AGROPECUARIOS",
           "ch": "90"
@@ -1031,6 +922,11 @@
           "ch": "90"
         },
         {
+          "codigo": "FCE0214",
+          "nome": "BIOSSEGURANCA E BIOPROTECAO",
+          "ch": "30"
+        },
+        {
           "codigo": "FCE0225",
           "nome": "FISICO-QUIMICA APLICADA A FARMACIA",
           "ch": "30"
@@ -1041,14 +937,19 @@
           "ch": "60"
         },
         {
-          "codigo": "FCE0368",
-          "nome": "FARMACIA HOSPITALAR",
+          "codigo": "FCE0373",
+          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
           "ch": "60"
         },
         {
           "codigo": "FCS0001",
           "nome": "PRATICAS EM VIROLOGIA MOLECULAR",
           "ch": "90"
+        },
+        {
+          "codigo": "FCS0004",
+          "nome": "TECNICAS INTRUMENTAIS DE ANALISE",
+          "ch": "30"
         },
         {
           "codigo": "FCS0012",
@@ -1161,16 +1062,6 @@
           "ch": "60"
         },
         {
-          "codigo": "GEM0021",
-          "nome": "TERATOLOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEM0025",
-          "nome": "EMBRIOLOGIA DOS SISTEMAS",
-          "ch": "60"
-        },
-        {
           "codigo": "GEM0029",
           "nome": "ESTAGIO EM GENETICA",
           "ch": "60"
@@ -1179,16 +1070,6 @@
           "codigo": "GEM0033",
           "nome": "ESTAGIO EM MORFOLOGIA E MORFOGENESE",
           "ch": "60"
-        },
-        {
-          "codigo": "GEM0040",
-          "nome": "FUNDAMENTOS DE EMBRIOLOGIA",
-          "ch": "30"
-        },
-        {
-          "codigo": "GEM0041",
-          "nome": "HISTOLOGIA BASICA",
-          "ch": "90"
         },
         {
           "codigo": "GEM0047",
@@ -1216,11 +1097,6 @@
           "ch": "60"
         },
         {
-          "codigo": "ICB0245",
-          "nome": "SEMINARIOS EM BIOLOGIA",
-          "ch": "30"
-        },
-        {
           "codigo": "IFD0189",
           "nome": "FISICA PARA CIENCIAS BIOLOGICAS",
           "ch": "90"
@@ -1243,16 +1119,6 @@
         {
           "codigo": "IQD0065",
           "nome": "QUIMICA ANALITICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "IQD0066",
-          "nome": "ANALISE INSTRUMENTAL 1",
-          "ch": "120"
-        },
-        {
-          "codigo": "IQD0072",
-          "nome": "INTRODUCAO A QUIMICA ORGANICA",
           "ch": "60"
         },
         {
@@ -1326,6 +1192,11 @@
           "ch": "60"
         },
         {
+          "codigo": "IQD0139",
+          "nome": "QUIMICA DOS ELEMENTOS DE TRANSICAO",
+          "ch": "60"
+        },
+        {
           "codigo": "IQD0184",
           "nome": "ELEMENTOS DE ESPECTROSCOPIA MOLECULAR",
           "ch": "60"
@@ -1351,18 +1222,8 @@
           "ch": "60"
         },
         {
-          "codigo": "LET0376",
-          "nome": "LINGUA CHINESA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0377",
-          "nome": "LINGUA CHINESA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0378",
-          "nome": "LINGUA CHINESA 3",
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
           "ch": "60"
         },
         {
@@ -1384,6 +1245,11 @@
           "codigo": "NUT0050",
           "nome": "FUNDAMENTOS DE CIENCIA DE ALIMENTOS",
           "ch": "90"
+        },
+        {
+          "codigo": "ODT0150",
+          "nome": "RESPONSABILIDADE CIVIL DO PROFISSIONAL DE SAUDE",
+          "ch": "30"
         },
         {
           "codigo": "PCL0072",
@@ -1411,23 +1277,8 @@
           "ch": "60"
         },
         {
-          "codigo": "SOL0042",
-          "nome": "INTRODUCAO A SOCIOLOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "DSC0037",
-          "nome": "PRATICAS DE SAUDE",
-          "ch": "60"
-        },
-        {
           "codigo": "FAR0016",
           "nome": "INTRODUCAO A CIENCIAS FARMACEUTICAS",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEM0062",
-          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
           "ch": "60"
         },
         {
@@ -1436,14 +1287,14 @@
           "ch": "90"
         },
         {
-          "codigo": "DSC0011",
-          "nome": "SAUDE E SOCIEDADE 1",
-          "ch": "60"
+          "codigo": "ICB0245",
+          "nome": "SEMINARIOS EM BIOLOGIA",
+          "ch": "30"
         },
         {
-          "codigo": "EST0027",
-          "nome": "BIOESTATISTICA",
-          "ch": "60"
+          "codigo": "FAR0010",
+          "nome": "TECNICA INSTRUMENTAL FARMACEUTICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0033",
@@ -1471,18 +1322,23 @@
           "ch": "30"
         },
         {
+          "codigo": "FAR0003",
+          "nome": "CONTROLE DE QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
+        },
+        {
           "codigo": "DSC0044",
           "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
           "ch": "45"
         },
         {
-          "codigo": "FCE0373",
-          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
           "ch": "60"
         },
         {
-          "codigo": "FMD0510",
-          "nome": "ELEMENTOS DE ANATOMIA",
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
           "ch": "60"
         },
         {
@@ -1491,18 +1347,8 @@
           "ch": "30"
         },
         {
-          "codigo": "DSC0037",
-          "nome": "PRATICAS DE SAUDE",
-          "ch": "60"
-        },
-        {
           "codigo": "FAR0016",
           "nome": "INTRODUCAO A CIENCIAS FARMACEUTICAS",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEM0062",
-          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
           "ch": "60"
         },
         {
@@ -1516,14 +1362,9 @@
           "ch": "30"
         },
         {
-          "codigo": "FCE0220",
-          "nome": "FARMACOBOTANICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IQD0280",
-          "nome": "ANALISE ORGANICA DOS FARMACOS",
-          "ch": "60"
+          "codigo": "IQD0281",
+          "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FARMACOS",
+          "ch": "90"
         },
         {
           "codigo": "MAT0021",
@@ -1531,9 +1372,9 @@
           "ch": "60"
         },
         {
-          "codigo": "DSC0011",
-          "nome": "SAUDE E SOCIEDADE 1",
-          "ch": "60"
+          "codigo": "ICB0245",
+          "nome": "SEMINARIOS EM BIOLOGIA",
+          "ch": "30"
         },
         {
           "codigo": "CEL0054",
@@ -1541,23 +1382,13 @@
           "ch": "90"
         },
         {
-          "codigo": "FAR0173",
-          "nome": "ASSISTENCIA FARMACEUTICA 2",
-          "ch": "30"
-        },
-        {
-          "codigo": "IQD0281",
-          "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FARMACOS",
-          "ch": "90"
-        },
-        {
-          "codigo": "IQD0296",
-          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTANICA",
           "ch": "60"
         },
         {
-          "codigo": "EST0027",
-          "nome": "BIOESTATISTICA",
+          "codigo": "IQD0280",
+          "nome": "ANALISE ORGANICA DOS FARMACOS",
           "ch": "60"
         },
         {
@@ -1571,19 +1402,19 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0050",
-          "nome": "BROMATOLOGIA",
-          "ch": "60"
-        },
-        {
           "codigo": "FAR0124",
           "nome": "GENETICA BASICA E MOLECULAR",
           "ch": "60"
         },
         {
-          "codigo": "FAR0126",
-          "nome": "QUIMICA FARMACEUTICA",
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
           "ch": "60"
+        },
+        {
+          "codigo": "FAR0010",
+          "nome": "TECNICA INSTRUMENTAL FARMACEUTICA",
+          "ch": "30"
         },
         {
           "codigo": "IQD0033",
@@ -1601,9 +1432,9 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0134",
-          "nome": "ECONOMIA E GESTAO DE EMPRESAS FARMACEUTICAS",
-          "ch": "30"
+          "codigo": "FAR0126",
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0174",
@@ -1611,13 +1442,28 @@
           "ch": "60"
         },
         {
+          "codigo": "FAR0172",
+          "nome": "FARMACOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0127",
+          "nome": "FARMACOGNOSIA",
+          "ch": "90"
+        },
+        {
           "codigo": "FAR0176",
           "nome": "FARMACOTECNICA",
           "ch": "90"
         },
         {
-          "codigo": "FAR0172",
-          "nome": "FARMACOLOGIA 1",
+          "codigo": "FAR0182",
+          "nome": "FUNDAMENTOS DE PARASITOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0177",
+          "nome": "FARMACOLOGIA 2",
           "ch": "60"
         },
         {
@@ -1631,18 +1477,13 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0127",
-          "nome": "FARMACOGNOSIA",
-          "ch": "90"
-        },
-        {
-          "codigo": "FAR0135",
-          "nome": "EPIDEMIOLOGIA DO MEDICAMENTO",
+          "codigo": "FAR0134",
+          "nome": "ECONOMIA E GESTAO DE EMPRESAS FARMACEUTICAS",
           "ch": "30"
         },
         {
-          "codigo": "FAR0182",
-          "nome": "FUNDAMENTOS DE PARASITOLOGIA",
+          "codigo": "FAR0173",
+          "nome": "ASSISTENCIA FARMACEUTICA 2",
           "ch": "30"
         },
         {
@@ -1651,8 +1492,8 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0177",
-          "nome": "FARMACOLOGIA 2",
+          "codigo": "FAR0004",
+          "nome": "FARMACOLOGIA 3",
           "ch": "60"
         },
         {
@@ -1661,33 +1502,18 @@
           "ch": "60"
         },
         {
-          "codigo": "FAR0021",
-          "nome": "DIAGNOSTICO LABORATORIAL EM IMUNOLOGIA CLINICA",
+          "codigo": "FAR0050",
+          "nome": "BROMATOLOGIA",
           "ch": "60"
         },
         {
-          "codigo": "FAR0141",
-          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTACAO",
-          "ch": "60"
+          "codigo": "FAR0135",
+          "nome": "EPIDEMIOLOGIA DO MEDICAMENTO",
+          "ch": "30"
         },
         {
           "codigo": "FAR0143",
           "nome": "TOXICOLOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FAR0169",
-          "nome": "VIGILANCIA SANITARIA APLICADA A FARMACIA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FCE0255",
-          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FAR0004",
-          "nome": "FARMACOLOGIA 3",
           "ch": "60"
         },
         {
@@ -1696,9 +1522,39 @@
           "ch": "30"
         },
         {
+          "codigo": "FAR0141",
+          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0169",
+          "nome": "VIGILANCIA SANITARIA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0006",
+          "nome": "HEMATOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0255",
+          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0003",
+          "nome": "CONTROLE DE QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
+        },
+        {
           "codigo": "FAR0006",
           "nome": "ESTAGIO SUPERVISIONADO 1",
           "ch": "120"
+        },
+        {
+          "codigo": "FAR0021",
+          "nome": "DIAGNOSTICO LABORATORIAL EM IMUNOLOGIA CLINICA",
+          "ch": "60"
         },
         {
           "codigo": "FAR0023",
@@ -1711,19 +1567,9 @@
           "ch": "60"
         },
         {
-          "codigo": "FCE0006",
-          "nome": "HEMATOLOGIA CLINICA",
-          "ch": "60"
-        },
-        {
           "codigo": "DSC0044",
           "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
           "ch": "45"
-        },
-        {
-          "codigo": "FCE0373",
-          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
-          "ch": "60"
         },
         {
           "codigo": "FAR0017",

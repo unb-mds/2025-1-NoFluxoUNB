@@ -1,5 +1,6 @@
 {
   "curso": "CIÊNCIAS NATURAIS",
+  "tipo_curso": "Licenciatura",
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
@@ -111,11 +112,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
-          "ch": "60"
-        },
-        {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
           "ch": "60"
@@ -144,11 +140,6 @@
           "codigo": "FUP0527",
           "nome": "BOTANICA",
           "ch": "60"
-        },
-        {
-          "codigo": "FUP0537",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
-          "ch": "105"
         }
       ]
     },
@@ -166,14 +157,14 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0408",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
-          "ch": "30"
+          "codigo": "FUP0537",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
+          "ch": "105"
         },
         {
-          "codigo": "FUP0541",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 2",
-          "ch": "105"
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
@@ -191,8 +182,13 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0542",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
+          "codigo": "FUP0408",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0541",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 2",
           "ch": "105"
         }
       ]
@@ -205,6 +201,16 @@
           "nome": "SISTEMAS ECOLOGICOS",
           "ch": "120"
         },
+        {
+          "codigo": "FUP0542",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
+          "ch": "105"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
         {
           "codigo": "FUP0473",
           "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
@@ -671,11 +677,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0443",
-          "nome": "INTRODUCAO A SAUDE PUBLICA E AMBIENTAL",
-          "ch": "60"
-        },
-        {
           "codigo": "FUP0520",
           "nome": "GEOPROCESSAMENTO",
           "ch": "60"
@@ -856,11 +857,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
-          "ch": "60"
-        },
-        {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
           "ch": "60"
@@ -886,11 +882,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0537",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
-          "ch": "105"
-        },
-        {
           "codigo": "FUP0320",
           "nome": "SAUDE E AMBIENTE 1",
           "ch": "60"
@@ -898,6 +889,26 @@
         {
           "codigo": "FUP0363",
           "nome": "ELETROMAGNETISMO EM CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0537",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0199",
+          "nome": "GENETICA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0350",
+          "nome": "ENSINO DE GEOCIENCIAS",
           "ch": "60"
         },
         {
@@ -911,24 +922,14 @@
           "ch": "105"
         },
         {
-          "codigo": "FUP0199",
-          "nome": "GENETICA E EVOLUCAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FUP0350",
-          "nome": "ENSINO DE GEOCIENCIAS",
-          "ch": "60"
+          "codigo": "FUP0302",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
         },
         {
           "codigo": "FUP0542",
           "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
           "ch": "105"
-        },
-        {
-          "codigo": "FUP0302",
-          "nome": "SISTEMAS ECOLOGICOS",
-          "ch": "120"
         },
         {
           "codigo": "FUP0473",

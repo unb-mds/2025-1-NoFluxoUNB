@@ -1,5 +1,6 @@
 {
   "curso": "PSICOLOGIA",
+  "tipo_curso": "Bacharelado",
   "periodo_letivo_vigor": "2017.2",
   "niveis": [
     {
@@ -81,13 +82,13 @@
           "ch": "60"
         },
         {
-          "codigo": "PPB0006",
-          "nome": "PSICOLOGIA EVOLUCIONISTA",
+          "codigo": "PST0051",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
           "ch": "60"
         },
         {
-          "codigo": "PST0050",
-          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "codigo": "PPB0006",
+          "nome": "PSICOLOGIA EVOLUCIONISTA",
           "ch": "60"
         }
       ]
@@ -101,11 +102,6 @@
           "ch": "150"
         },
         {
-          "codigo": "PCL0021",
-          "nome": "PSICOPATOLOGIA 1",
-          "ch": "90"
-        },
-        {
           "codigo": "PCL0071",
           "nome": "PSICOLOGIA DA SAUDE",
           "ch": "90"
@@ -114,6 +110,16 @@
           "codigo": "PPB0054",
           "nome": "PERCEPCAO",
           "ch": "90"
+        },
+        {
+          "codigo": "PST0001",
+          "nome": "PSICOLOGIA DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
         }
       ]
     },
@@ -121,13 +127,13 @@
       "nivel": "5° NIVEL",
       "materias": [
         {
-          "codigo": "PED0095",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
-          "ch": "60"
+          "codigo": "PCL0025",
+          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "ch": "90"
         },
         {
-          "codigo": "PPB0016",
-          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "codigo": "PPB0048",
+          "nome": "PSICOFARMACOLOGIA",
           "ch": "60"
         },
         {
@@ -146,14 +152,19 @@
           "ch": "90"
         },
         {
-          "codigo": "PCL0003",
-          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
+          "codigo": "PCL0027",
+          "nome": "TEORIAS PSICANALITICAS 1",
           "ch": "60"
         },
         {
-          "codigo": "PPB0024",
-          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
-          "ch": "90"
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0063",
+          "nome": "AVALIACAO DE DESEMPENHO",
+          "ch": "60"
         }
       ]
     },
@@ -161,14 +172,9 @@
       "nivel": "7° NIVEL",
       "materias": [
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "codigo": "PST0017",
+          "nome": "RECRUTAMENTO E SELECAO PROFISSIONAL",
           "ch": "60"
-        },
-        {
-          "codigo": "PST0034",
-          "nome": "ERGONOMIA",
-          "ch": "90"
         }
       ]
     },
@@ -176,28 +182,13 @@
       "nivel": "8° NIVEL",
       "materias": [
         {
-          "codigo": "MTC0012",
-          "nome": "DIDATICA FUNDAMENTAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
-          "ch": "60"
-        },
-        {
           "codigo": "PPB0009",
           "nome": "PERCEPCAO E COGNICAO: CIENCIA E TECNOLOGIA",
           "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "9° NIVEL",
-      "materias": [
+        },
         {
-          "codigo": "PCL0025",
-          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
           "ch": "90"
         }
       ]
@@ -213,11 +204,6 @@
         {
           "codigo": "CEL0088",
           "nome": "BIOLOGIA GERAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEL0089",
-          "nome": "CITOLOGIA",
           "ch": "60"
         },
         {
@@ -258,6 +244,46 @@
         {
           "codigo": "DAN0022",
           "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0024",
+          "nome": "MULHER, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0036",
+          "nome": "SOCIEDADES COMPLEXAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0047",
+          "nome": "ANTROPOLOGIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0049",
+          "nome": "INDIVIDUO, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0053",
+          "nome": "ANTROPOLOGIA DO GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0061",
+          "nome": "ESTUDOS AFRO-BRASILEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0078",
+          "nome": "ANTROPOLOGIA URBANA",
           "ch": "60"
         },
         {
@@ -451,14 +477,34 @@
           "ch": "510"
         },
         {
+          "codigo": "DPG0990",
+          "nome": "PSICOLOGIA SOCIAL AVANCADA",
+          "ch": "60"
+        },
+        {
           "codigo": "DSC0010",
           "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
           "ch": "60"
         },
         {
           "codigo": "DSC0043",
           "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
           "ch": "45"
+        },
+        {
+          "codigo": "DSC0045",
+          "nome": "VIGILANCIA SANITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0055",
+          "nome": "SAUDE MENTAL E BEM-ESTAR NO TRABALHO",
+          "ch": "60"
         },
         {
           "codigo": "ECL0024",
@@ -468,6 +514,11 @@
         {
           "codigo": "ECL0039",
           "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
           "ch": "30"
         },
         {
@@ -481,14 +532,19 @@
           "ch": "60"
         },
         {
-          "codigo": "FED0133",
-          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "codigo": "FEF0070",
+          "nome": "NEUROANATOMIA FUNCIONAL",
           "ch": "60"
         },
         {
           "codigo": "FEF0105",
           "nome": "PRATICA DESPORTIVA",
           "ch": "30"
+        },
+        {
+          "codigo": "FEF0143",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
         },
         {
           "codigo": "FEF0193",
@@ -501,8 +557,18 @@
           "ch": "60"
         },
         {
+          "codigo": "FEF0331",
+          "nome": "EDUCACAO FISICA ADAPTADA",
+          "ch": "60"
+        },
+        {
           "codigo": "FEF0367",
           "nome": "INTRODUCAO A PSICOLOGIA DO ESPORTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0409",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
           "ch": "60"
         },
         {
@@ -541,6 +607,11 @@
           "ch": "60"
         },
         {
+          "codigo": "GEA0067",
+          "nome": "GEOGRAFIA CULTURAL",
+          "ch": "60"
+        },
+        {
           "codigo": "GEM0014",
           "nome": "GENETICA BASICA",
           "ch": "60"
@@ -549,6 +620,11 @@
           "codigo": "GEM0022",
           "nome": "FUNDAMENTOS DE HISTOLOGIA",
           "ch": "120"
+        },
+        {
+          "codigo": "GEM0024",
+          "nome": "FUNDAMENTOS DE GENETICA E EVOLUCAO",
+          "ch": "60"
         },
         {
           "codigo": "IPD0001",
@@ -579,16 +655,6 @@
           "codigo": "IPD0006",
           "nome": "TOPICOS EM PSICOLOGIA SOCIAL APLICADA",
           "ch": "60"
-        },
-        {
-          "codigo": "IPD0008",
-          "nome": "ANALISE COMPORTAMENTAL APLICADA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IPD0009",
-          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA CIENCIAS DO COMPORTAMENTO 2",
-          "ch": "150"
         },
         {
           "codigo": "IPD0034",
@@ -676,6 +742,11 @@
           "ch": "60"
         },
         {
+          "codigo": "IPD0166",
+          "nome": "PSICOLOGIA E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
           "codigo": "LET0044",
           "nome": "LINGUA ALEMA INSTRUMENTAL 1",
           "ch": "60"
@@ -726,13 +797,48 @@
           "ch": "60"
         },
         {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
           "codigo": "LIP0175",
           "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
           "ch": "60"
         },
         {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
           "codigo": "PCL0001",
           "nome": "EPISTEMOLOGIA E METODOS CLINICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0003",
+          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
           "ch": "60"
         },
         {
@@ -798,11 +904,6 @@
         {
           "codigo": "PCL0023",
           "nome": "PSICOPATOLOGIA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "PCL0027",
-          "nome": "TEORIAS PSICANALITICAS 1",
           "ch": "60"
         },
         {
@@ -1046,6 +1147,11 @@
           "ch": "90"
         },
         {
+          "codigo": "PCL0112",
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA PSICOLOGIA CLINICA E CULTURAL 2",
+          "ch": "150"
+        },
+        {
           "codigo": "PCL0113",
           "nome": "SAUDE MENTAL, CLINICA E CULTURA",
           "ch": "60"
@@ -1103,6 +1209,11 @@
         {
           "codigo": "PED0021",
           "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA PSICOLOGIA ESCOLAR 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "PED0022",
+          "nome": "ESTAGIO SUPERVISIONADO BACHAREL - AREA PSICOLOGIA ESCOLAR 2",
           "ch": "150"
         },
         {
@@ -1176,6 +1287,11 @@
           "ch": "60"
         },
         {
+          "codigo": "PED0095",
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
+          "ch": "60"
+        },
+        {
           "codigo": "PED0096",
           "nome": "SUPERDOTACAO, TALENTO E DESENVOLVIMENTO HUMANO",
           "ch": "60"
@@ -1201,16 +1317,6 @@
           "ch": "60"
         },
         {
-          "codigo": "PPB0010",
-          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA CIENCIAS DO COMPORTAMENTO 1",
-          "ch": "150"
-        },
-        {
-          "codigo": "PPB0011",
-          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA - AREA CIENCIAS DO COMPORTAMENTO 1",
-          "ch": "150"
-        },
-        {
           "codigo": "PPB0012",
           "nome": "ESTAGIO BACHAREL 2",
           "ch": "150"
@@ -1234,6 +1340,11 @@
           "codigo": "PPB0022",
           "nome": "HISTORIA E SISTEMAS DA PSICOLOGIA 2",
           "ch": "60"
+        },
+        {
+          "codigo": "PPB0024",
+          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
+          "ch": "90"
         },
         {
           "codigo": "PPB0026",
@@ -1283,11 +1394,6 @@
         {
           "codigo": "PPB0043",
           "nome": "GENETICA DO COMPORTAMENTO",
-          "ch": "60"
-        },
-        {
-          "codigo": "PPB0048",
-          "nome": "PSICOFARMACOLOGIA",
           "ch": "60"
         },
         {
@@ -1416,6 +1522,11 @@
           "ch": "150"
         },
         {
+          "codigo": "PPB0090",
+          "nome": "TOPICOS EM PSICOLOGIA EVOLUCIONISTA",
+          "ch": "60"
+        },
+        {
           "codigo": "PPB0091",
           "nome": "NEUROCIENCIAS DO COMPORTAMENTO",
           "ch": "60"
@@ -1426,17 +1537,17 @@
           "ch": "60"
         },
         {
-          "codigo": "PST0001",
-          "nome": "PSICOLOGIA DO TRABALHO",
-          "ch": "60"
-        },
-        {
           "codigo": "PST0002",
           "nome": "TOPICOS EM PSICOLOGIA AMBIENTAL",
           "ch": "60"
         },
         {
           "codigo": "PST0004",
+          "nome": "PESQUISA EM PSICOLOGIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0005",
           "nome": "PESQUISA EM PSICOLOGIA SOCIAL",
           "ch": "60"
         },
@@ -1458,11 +1569,6 @@
         {
           "codigo": "PST0014",
           "nome": "TECNICAS DO EXAME PSICOLOGICO",
-          "ch": "60"
-        },
-        {
-          "codigo": "PST0017",
-          "nome": "RECRUTAMENTO E SELECAO PROFISSIONAL",
           "ch": "60"
         },
         {
@@ -1528,11 +1634,6 @@
         {
           "codigo": "PST0060",
           "nome": "USO DO COMPUTADOR EM PSICOLOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "PST0063",
-          "nome": "AVALIACAO DE DESEMPENHO",
           "ch": "60"
         },
         {
@@ -1661,18 +1762,13 @@
           "ch": "60"
         },
         {
-          "codigo": "PST0050",
-          "nome": "PSICOLOGIA DAS ORGANIZACOES",
-          "ch": "60"
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
         },
         {
-          "codigo": "PED0095",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
-          "ch": "60"
-        },
-        {
-          "codigo": "PPB0016",
-          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "codigo": "PPB0048",
+          "nome": "PSICOFARMACOLOGIA",
           "ch": "60"
         },
         {
@@ -1681,24 +1777,34 @@
           "ch": "60"
         },
         {
-          "codigo": "PCL0003",
-          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
+          "codigo": "PCL0027",
+          "nome": "TEORIAS PSICANALITICAS 1",
           "ch": "60"
         },
         {
-          "codigo": "PPB0024",
-          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
-          "ch": "90"
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
         },
         {
-          "codigo": "PST0034",
-          "nome": "ERGONOMIA",
-          "ch": "90"
+          "codigo": "PST0063",
+          "nome": "AVALIACAO DE DESEMPENHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0017",
+          "nome": "RECRUTAMENTO E SELECAO PROFISSIONAL",
+          "ch": "60"
         },
         {
           "codigo": "PPB0009",
           "nome": "PERCEPCAO E COGNICAO: CIENCIA E TECNOLOGIA",
           "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
         },
         {
           "codigo": "EST0019",
@@ -1766,24 +1872,19 @@
           "ch": "60"
         },
         {
-          "codigo": "PPB0006",
-          "nome": "PSICOLOGIA EVOLUCIONISTA",
+          "codigo": "PST0051",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
           "ch": "60"
         },
         {
-          "codigo": "PST0050",
-          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "codigo": "PPB0006",
+          "nome": "PSICOLOGIA EVOLUCIONISTA",
           "ch": "60"
         },
         {
           "codigo": "IPD0010",
           "nome": "ESTAGIO SUPERVISONADO BASICO EM PSICOLOGIA",
           "ch": "150"
-        },
-        {
-          "codigo": "PCL0021",
-          "nome": "PSICOPATOLOGIA 1",
-          "ch": "90"
         },
         {
           "codigo": "PCL0071",
@@ -1796,13 +1897,23 @@
           "ch": "90"
         },
         {
-          "codigo": "PED0095",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
+          "codigo": "PST0001",
+          "nome": "PSICOLOGIA DO TRABALHO",
           "ch": "60"
         },
         {
-          "codigo": "PPB0016",
-          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0025",
+          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0048",
+          "nome": "PSICOFARMACOLOGIA",
           "ch": "60"
         },
         {
@@ -1816,33 +1927,23 @@
           "ch": "90"
         },
         {
-          "codigo": "PCL0003",
-          "nome": "INTERVENCOES PSICOSSOCIAIS EM CONTEXTOS DE VIOLENCIA",
+          "codigo": "PCL0027",
+          "nome": "TEORIAS PSICANALITICAS 1",
           "ch": "60"
         },
         {
-          "codigo": "PPB0024",
-          "nome": "ANALISE DO COMPORTAMENTO HUMANO",
-          "ch": "90"
-        },
-        {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
           "ch": "60"
         },
         {
-          "codigo": "PST0034",
-          "nome": "ERGONOMIA",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0012",
-          "nome": "DIDATICA FUNDAMENTAL",
+          "codigo": "PST0063",
+          "nome": "AVALIACAO DE DESEMPENHO",
           "ch": "60"
         },
         {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "codigo": "PST0017",
+          "nome": "RECRUTAMENTO E SELECAO PROFISSIONAL",
           "ch": "60"
         },
         {
@@ -1851,8 +1952,8 @@
           "ch": "60"
         },
         {
-          "codigo": "PCL0025",
-          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
           "ch": "90"
         }
       ]

@@ -1,5 +1,6 @@
 {
   "curso": "ARQUITETURA E URBANISMO",
+  "tipo_curso": "Arquiteto e Urbanista",
   "periodo_letivo_vigor": "2016.1",
   "niveis": [
     {
@@ -9,11 +10,6 @@
           "codigo": "PRO0011",
           "nome": "PROJETO ARQUITETONICO 1",
           "ch": "120"
-        },
-        {
-          "codigo": "PRO0023",
-          "nome": "DESENHO ARQUITETONICO",
-          "ch": "60"
         },
         {
           "codigo": "PRO0025",
@@ -41,14 +37,14 @@
       "nivel": "2° NIVEL",
       "materias": [
         {
-          "codigo": "IGD0183",
-          "nome": "TOPOGRAFIA",
-          "ch": "60"
-        },
-        {
           "codigo": "PRO0013",
           "nome": "PROJETO DE ARQUITETURA - LINGUAGEM E EXPRESSAO",
           "ch": "120"
+        },
+        {
+          "codigo": "PRO0023",
+          "nome": "DESENHO ARQUITETONICO",
+          "ch": "60"
         },
         {
           "codigo": "PRO0063",
@@ -66,15 +62,20 @@
           "ch": "30"
         },
         {
-          "codigo": "TEC0018",
-          "nome": "SISTEMAS ESTRUTURAIS NA ARQUITETURA",
-          "ch": "120"
+          "codigo": "TEC0038",
+          "nome": "SISTEMAS ESTRUTURAIS 1",
+          "ch": "60"
         }
       ]
     },
     {
       "nivel": "3° NIVEL",
       "materias": [
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
         {
           "codigo": "PRO0015",
           "nome": "PROJETO DE ARQUITETURA - HABITACAO",
@@ -86,24 +87,14 @@
           "ch": "60"
         },
         {
-          "codigo": "PRO0065",
-          "nome": "MODELAGEM DA INFORMACAO DA CONSTRUCAO - BIM",
-          "ch": "30"
-        },
-        {
           "codigo": "TAU0006",
           "nome": "HISTORIA DA ARQUITETURA E DA ARTE 2",
           "ch": "60"
         },
         {
-          "codigo": "TEC0017",
-          "nome": "CONFORTO TERMICO AMBIENTAL",
+          "codigo": "TEC0039",
+          "nome": "SISTEMAS ESTRUTURAIS 2",
           "ch": "60"
-        },
-        {
-          "codigo": "TEC0019",
-          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO",
-          "ch": "120"
         }
       ]
     },
@@ -111,14 +102,119 @@
       "nivel": "4° NIVEL",
       "materias": [
         {
-          "codigo": "PRO0016",
-          "nome": "PROJETO DE ARQUITETURA DE GRANDES VAOS",
+          "codigo": "ENC0271",
+          "nome": "MATERIAIS PARA CONSTRUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0020",
+          "nome": "PROJETO DE URBANISMO 1",
           "ch": "120"
+        },
+        {
+          "codigo": "PRO0060",
+          "nome": "PROJETO DE PAISAGISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0065",
+          "nome": "MODELAGEM DA INFORMACAO DA CONSTRUCAO - BIM",
+          "ch": "30"
         },
         {
           "codigo": "TAU0007",
           "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
           "ch": "60"
+        },
+        {
+          "codigo": "TEC0027",
+          "nome": "INFRA-ESTRUTURA URBANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0042",
+          "nome": "CONFORTO TERMICO AMBIENTAL 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0276",
+          "nome": "MATERIAIS PARA CONSTRUCAO EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0277",
+          "nome": "MATERIAIS PARA CONSTRUCAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0016",
+          "nome": "PROJETO DE ARQUITETURA DE GRANDES VAOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0064",
+          "nome": "CONFORTO TERMICO AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0041",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0002",
+          "nome": "PROJETO DE PAISAGISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0009",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0013",
+          "nome": "PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0001",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0029",
+          "nome": "CONFORTO AMBIENTAL LUMINOSO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0017",
+          "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0008",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0002",
+          "nome": "INSTALACOES E EQUIPAMENTOS 1",
+          "ch": "30"
         },
         {
           "codigo": "TEC0022",
@@ -129,51 +225,11 @@
           "codigo": "TEC0028",
           "nome": "CONFORTO SONORO",
           "ch": "30"
-        },
-        {
-          "codigo": "TEC0029",
-          "nome": "CONFORTO AMBIENTAL LUMINOSO",
-          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "5° NIVEL",
-      "materias": [
-        {
-          "codigo": "ENC0229",
-          "nome": "MATERIAIS DE CONSTRUCAO - TEORIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "ENC0230",
-          "nome": "MATERIAIS DE CONSTRUCAO - EXPERIMENTAL",
-          "ch": "30"
-        },
-        {
-          "codigo": "PRO0017",
-          "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
-          "ch": "120"
-        },
-        {
-          "codigo": "TAU0009",
-          "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0007",
-          "nome": "INSTALACOES E EQUIPAMENTOS 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0023",
-          "nome": "SISTEMAS ESTRUTURAIS EM MADEIRA",
-          "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "6° NIVEL",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "PRO0018",
@@ -181,33 +237,33 @@
           "ch": "120"
         },
         {
-          "codigo": "PRO0022",
-          "nome": "PROJETO PAISAGISTICO 1",
-          "ch": "120"
-        },
-        {
-          "codigo": "TAU0008",
-          "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+          "codigo": "TAU0025",
+          "nome": "ESTETICA E HISTORIA DA ARTE",
           "ch": "60"
         },
         {
-          "codigo": "TEC0013",
-          "nome": "TECNICAS DE CONSTRUCAO",
+          "codigo": "TEC0003",
+          "nome": "INSTALACOES E EQUIPAMENTOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0023",
+          "nome": "SISTEMAS ESTRUTURAIS EM MADEIRA",
           "ch": "60"
         },
         {
-          "codigo": "TEC0027",
-          "nome": "INFRA-ESTRUTURA URBANA",
+          "codigo": "TEC0043",
+          "nome": "TECNICAS DE CONSTRUCAO 1",
           "ch": "30"
         }
       ]
     },
     {
-      "nivel": "7° NIVEL",
+      "nivel": "9° NIVEL",
       "materias": [
         {
-          "codigo": "PRO0020",
-          "nome": "PROJETO DE URBANISMO 1",
+          "codigo": "PRO0021",
+          "nome": "PROJETO DE URBANISMO 2",
           "ch": "120"
         },
         {
@@ -216,34 +272,29 @@
           "ch": "60"
         },
         {
-          "codigo": "TAU0013",
-          "nome": "PLANEJAMENTO URBANO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TAU0025",
-          "nome": "ESTETICA E HISTORIA DA ARTE",
-          "ch": "60"
+          "codigo": "TEC0044",
+          "nome": "TECNICAS DE CONSTRUCAO 2",
+          "ch": "30"
         }
       ]
     },
     {
-      "nivel": "8° NIVEL",
+      "nivel": "10° NIVEL",
       "materias": [
-        {
-          "codigo": "PRO0021",
-          "nome": "PROJETO DE URBANISMO 2",
-          "ch": "120"
-        },
         {
           "codigo": "PRO0047",
           "nome": "PROJETO DE ARQUITETURA E URBANISMO 8 - TECNICAS RETROSPECTIVAS",
           "ch": "120"
+        },
+        {
+          "codigo": "TAU0012",
+          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "9° NIVEL",
+      "nivel": "11° NIVEL",
       "materias": [
         {
           "codigo": "PRO0039",
@@ -254,16 +305,11 @@
           "codigo": "PRO0009",
           "nome": "PRATICA PROFISSIONAL",
           "ch": "30"
-        },
-        {
-          "codigo": "TAU0012",
-          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
-          "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10° NIVEL",
+      "nivel": "12° NIVEL",
       "materias": [
         {
           "codigo": "PRO0001",
@@ -273,7 +319,7 @@
       ]
     },
     {
-      "nivel": "11° NIVEL",
+      "nivel": "13° NIVEL",
       "materias": [
         {
           "codigo": "PRO0007",
@@ -611,6 +657,16 @@
           "ch": "90"
         },
         {
+          "codigo": "ENC0229",
+          "nome": "MATERIAIS DE CONSTRUCAO - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0230",
+          "nome": "MATERIAIS DE CONSTRUCAO - EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
           "codigo": "ENC0255",
           "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1 - EXPERIMENTAL",
           "ch": "30"
@@ -619,21 +675,6 @@
           "codigo": "ENC0268",
           "nome": "CIENCIA DOS MATERIAIS",
           "ch": "60"
-        },
-        {
-          "codigo": "ENC0271",
-          "nome": "MATERIAIS PARA CONSTRUCAO 1",
-          "ch": "30"
-        },
-        {
-          "codigo": "ENC0276",
-          "nome": "MATERIAIS PARA CONSTRUCAO EXPERIMENTAL",
-          "ch": "30"
-        },
-        {
-          "codigo": "ENC0277",
-          "nome": "MATERIAIS PARA CONSTRUCAO 2",
-          "ch": "30"
         },
         {
           "codigo": "EST0019",
@@ -686,11 +727,6 @@
           "ch": "120"
         },
         {
-          "codigo": "FAU0177",
-          "nome": "CONFORTO AMBIENTAL LUMINOSO E ACUSTICO",
-          "ch": "60"
-        },
-        {
           "codigo": "FAU0216",
           "nome": "PROJETO DE EDIFICACAO E URBANISMO 4",
           "ch": "120"
@@ -704,16 +740,6 @@
           "codigo": "FAU0225",
           "nome": "TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 2",
           "ch": "60"
-        },
-        {
-          "codigo": "FAV0148",
-          "nome": "EDAFOLOGIA",
-          "ch": "90"
-        },
-        {
-          "codigo": "FAV0274",
-          "nome": "FUNDAMENTOS DE CIENCIA DO SOLO",
-          "ch": "90"
         },
         {
           "codigo": "FCI0013",
@@ -743,11 +769,6 @@
         {
           "codigo": "FEF0105",
           "nome": "PRATICA DESPORTIVA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FEF0107",
-          "nome": "PRATICA DESPORTIVA 2",
           "ch": "30"
         },
         {
@@ -791,11 +812,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FIL0124",
-          "nome": "FILOSOFIA DA ARTE",
-          "ch": "60"
-        },
-        {
           "codigo": "FIL0166",
           "nome": "INTRODUCAO A PRATICA FILOSOFICA",
           "ch": "90"
@@ -803,21 +819,6 @@
         {
           "codigo": "GEA0004",
           "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEA0014",
-          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEA0030",
-          "nome": "FOTOINTERPRETACAO",
-          "ch": "90"
-        },
-        {
-          "codigo": "GEA0032",
-          "nome": "GEOGRAFIA URBANA 1",
           "ch": "60"
         },
         {
@@ -906,26 +907,6 @@
           "ch": "90"
         },
         {
-          "codigo": "IQD0058",
-          "nome": "FUNDAMENTOS DE QUIMICA",
-          "ch": "90"
-        },
-        {
-          "codigo": "IQD0061",
-          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "IQD0063",
-          "nome": "QUIMICA ANALITICA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "IQD0118",
-          "nome": "QUIMICA ANALITICA QUALITATIVA",
-          "ch": "60"
-        },
-        {
           "codigo": "IQD0125",
           "nome": "QUIMICA GERAL TEORICA",
           "ch": "60"
@@ -933,31 +914,6 @@
         {
           "codigo": "IQD0126",
           "nome": "QUIMICA GERAL EXPERIMENTAL",
-          "ch": "30"
-        },
-        {
-          "codigo": "IQD0209",
-          "nome": "QUIMICA GERAL E ORGANICA",
-          "ch": "90"
-        },
-        {
-          "codigo": "IQD0252",
-          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IQD0259",
-          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
-          "ch": "30"
-        },
-        {
-          "codigo": "IQD0262",
-          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
-          "ch": "30"
-        },
-        {
-          "codigo": "IQD0263",
-          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
           "ch": "30"
         },
         {
@@ -1111,11 +1067,6 @@
           "ch": "60"
         },
         {
-          "codigo": "PRO0002",
-          "nome": "PROJETO DE PAISAGISMO 2",
-          "ch": "60"
-        },
-        {
           "codigo": "PRO0003",
           "nome": "ERGONOMIA APLICADA A ARQUITETURA DE INTERIORES",
           "ch": "60"
@@ -1138,6 +1089,11 @@
         {
           "codigo": "PRO0019",
           "nome": "PROJETO DE ARQUITETURA INDUSTRIALIZADA",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0022",
+          "nome": "PROJETO PAISAGISTICO 1",
           "ch": "120"
         },
         {
@@ -1261,11 +1217,6 @@
           "ch": "180"
         },
         {
-          "codigo": "PRO0060",
-          "nome": "PROJETO DE PAISAGISMO 1",
-          "ch": "60"
-        },
-        {
           "codigo": "PRO0061",
           "nome": "DESENHO DE ARQUITETURA",
           "ch": "30"
@@ -1274,11 +1225,6 @@
           "codigo": "PRO0062",
           "nome": "INVENCOES E PATENTES EM ARQUITETURA E URBANISMO",
           "ch": "60"
-        },
-        {
-          "codigo": "PRO0064",
-          "nome": "CONFORTO TERMICO AMBIENTAL 2",
-          "ch": "30"
         },
         {
           "codigo": "PRO0066",
@@ -1361,6 +1307,11 @@
           "ch": "60"
         },
         {
+          "codigo": "TAU0017",
+          "nome": "INTRODUCAO A PESQUISA E A EXTENSAO EM ARQUITETURA E URBANISMO",
+          "ch": "30"
+        },
+        {
           "codigo": "TAU0018",
           "nome": "MORFOLOGIA URBANA",
           "ch": "60"
@@ -1421,21 +1372,6 @@
           "ch": "60"
         },
         {
-          "codigo": "TEC0001",
-          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0002",
-          "nome": "INSTALACOES E EQUIPAMENTOS 1",
-          "ch": "30"
-        },
-        {
-          "codigo": "TEC0003",
-          "nome": "INSTALACOES E EQUIPAMENTOS 2",
-          "ch": "30"
-        },
-        {
           "codigo": "TEC0004",
           "nome": "PRATICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 1",
           "ch": "60"
@@ -1443,6 +1379,11 @@
         {
           "codigo": "TEC0005",
           "nome": "PRATICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0007",
+          "nome": "INSTALACOES E EQUIPAMENTOS 1",
           "ch": "60"
         },
         {
@@ -1464,6 +1405,26 @@
           "codigo": "TEC0012",
           "nome": "SISTEMAS CONSTRUTIVOS 1",
           "ch": "60"
+        },
+        {
+          "codigo": "TEC0013",
+          "nome": "TECNICAS DE CONSTRUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0017",
+          "nome": "CONFORTO TERMICO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0018",
+          "nome": "SISTEMAS ESTRUTURAIS NA ARQUITETURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEC0019",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO",
+          "ch": "120"
         },
         {
           "codigo": "TEC0024",
@@ -1504,36 +1465,6 @@
           "codigo": "TEC0037",
           "nome": "ACO E ARQUITETURA",
           "ch": "60"
-        },
-        {
-          "codigo": "TEC0038",
-          "nome": "SISTEMAS ESTRUTURAIS 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0039",
-          "nome": "SISTEMAS ESTRUTURAIS 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0041",
-          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0042",
-          "nome": "CONFORTO TERMICO AMBIENTAL 1",
-          "ch": "30"
-        },
-        {
-          "codigo": "TEC0043",
-          "nome": "TECNICAS DE CONSTRUCAO 1",
-          "ch": "30"
-        },
-        {
-          "codigo": "TEC0044",
-          "nome": "TECNICAS DE CONSTRUCAO 2",
-          "ch": "30"
         },
         {
           "codigo": "TEF0009",
@@ -1631,24 +1562,19 @@
           "ch": "90"
         },
         {
-          "codigo": "PRO0009",
-          "nome": "PRATICA PROFISSIONAL",
-          "ch": "30"
-        },
-        {
           "codigo": "TAU0012",
           "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
           "ch": "60"
         },
         {
+          "codigo": "PRO0009",
+          "nome": "PRATICA PROFISSIONAL",
+          "ch": "30"
+        },
+        {
           "codigo": "PRO0011",
           "nome": "PROJETO ARQUITETONICO 1",
           "ch": "120"
-        },
-        {
-          "codigo": "PRO0023",
-          "nome": "DESENHO ARQUITETONICO",
-          "ch": "60"
         },
         {
           "codigo": "PRO0025",
@@ -1671,14 +1597,14 @@
           "ch": "60"
         },
         {
-          "codigo": "IGD0183",
-          "nome": "TOPOGRAFIA",
-          "ch": "60"
-        },
-        {
           "codigo": "PRO0013",
           "nome": "PROJETO DE ARQUITETURA - LINGUAGEM E EXPRESSAO",
           "ch": "120"
+        },
+        {
+          "codigo": "PRO0023",
+          "nome": "DESENHO ARQUITETONICO",
+          "ch": "60"
         },
         {
           "codigo": "PRO0063",
@@ -1696,9 +1622,14 @@
           "ch": "30"
         },
         {
-          "codigo": "TEC0018",
-          "nome": "SISTEMAS ESTRUTURAIS NA ARQUITETURA",
-          "ch": "120"
+          "codigo": "TEC0038",
+          "nome": "SISTEMAS ESTRUTURAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "PRO0015",
@@ -1711,24 +1642,59 @@
           "ch": "60"
         },
         {
-          "codigo": "PRO0065",
-          "nome": "MODELAGEM DA INFORMACAO DA CONSTRUCAO - BIM",
-          "ch": "30"
-        },
-        {
           "codigo": "TAU0006",
           "nome": "HISTORIA DA ARQUITETURA E DA ARTE 2",
           "ch": "60"
         },
         {
-          "codigo": "TEC0017",
-          "nome": "CONFORTO TERMICO AMBIENTAL",
+          "codigo": "TEC0039",
+          "nome": "SISTEMAS ESTRUTURAIS 2",
           "ch": "60"
         },
         {
-          "codigo": "TEC0019",
-          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO",
+          "codigo": "ENC0271",
+          "nome": "MATERIAIS PARA CONSTRUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0020",
+          "nome": "PROJETO DE URBANISMO 1",
           "ch": "120"
+        },
+        {
+          "codigo": "PRO0060",
+          "nome": "PROJETO DE PAISAGISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0065",
+          "nome": "MODELAGEM DA INFORMACAO DA CONSTRUCAO - BIM",
+          "ch": "30"
+        },
+        {
+          "codigo": "TAU0007",
+          "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0027",
+          "nome": "INFRA-ESTRUTURA URBANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0042",
+          "nome": "CONFORTO TERMICO AMBIENTAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0276",
+          "nome": "MATERIAIS PARA CONSTRUCAO EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0277",
+          "nome": "MATERIAIS PARA CONSTRUCAO 2",
+          "ch": "30"
         },
         {
           "codigo": "PRO0016",
@@ -1736,9 +1702,54 @@
           "ch": "120"
         },
         {
-          "codigo": "TAU0007",
-          "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+          "codigo": "PRO0064",
+          "nome": "CONFORTO TERMICO AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0041",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
           "ch": "60"
+        },
+        {
+          "codigo": "PRO0002",
+          "nome": "PROJETO DE PAISAGISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0009",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0013",
+          "nome": "PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0001",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0029",
+          "nome": "CONFORTO AMBIENTAL LUMINOSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0017",
+          "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0008",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0002",
+          "nome": "INSTALACOES E EQUIPAMENTOS 1",
+          "ch": "30"
         },
         {
           "codigo": "TEC0022",
@@ -1751,34 +1762,19 @@
           "ch": "30"
         },
         {
-          "codigo": "TEC0029",
-          "nome": "CONFORTO AMBIENTAL LUMINOSO",
-          "ch": "30"
-        },
-        {
-          "codigo": "ENC0229",
-          "nome": "MATERIAIS DE CONSTRUCAO - TEORIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "ENC0230",
-          "nome": "MATERIAIS DE CONSTRUCAO - EXPERIMENTAL",
-          "ch": "30"
-        },
-        {
-          "codigo": "PRO0017",
-          "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+          "codigo": "PRO0018",
+          "nome": "PROJETO DE ARQUITETURA DE FUNCOES COMPLEXAS",
           "ch": "120"
         },
         {
-          "codigo": "TAU0009",
-          "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+          "codigo": "TAU0025",
+          "nome": "ESTETICA E HISTORIA DA ARTE",
           "ch": "60"
         },
         {
-          "codigo": "TEC0007",
-          "nome": "INSTALACOES E EQUIPAMENTOS 1",
-          "ch": "60"
+          "codigo": "TEC0003",
+          "nome": "INSTALACOES E EQUIPAMENTOS 2",
+          "ch": "30"
         },
         {
           "codigo": "TEC0023",
@@ -1786,33 +1782,13 @@
           "ch": "60"
         },
         {
-          "codigo": "PRO0018",
-          "nome": "PROJETO DE ARQUITETURA DE FUNCOES COMPLEXAS",
-          "ch": "120"
-        },
-        {
-          "codigo": "PRO0022",
-          "nome": "PROJETO PAISAGISTICO 1",
-          "ch": "120"
-        },
-        {
-          "codigo": "TAU0008",
-          "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0013",
-          "nome": "TECNICAS DE CONSTRUCAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEC0027",
-          "nome": "INFRA-ESTRUTURA URBANA",
+          "codigo": "TEC0043",
+          "nome": "TECNICAS DE CONSTRUCAO 1",
           "ch": "30"
         },
         {
-          "codigo": "PRO0020",
-          "nome": "PROJETO DE URBANISMO 1",
+          "codigo": "PRO0021",
+          "nome": "PROJETO DE URBANISMO 2",
           "ch": "120"
         },
         {
@@ -1821,24 +1797,19 @@
           "ch": "60"
         },
         {
-          "codigo": "TAU0013",
-          "nome": "PLANEJAMENTO URBANO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TAU0025",
-          "nome": "ESTETICA E HISTORIA DA ARTE",
-          "ch": "60"
-        },
-        {
-          "codigo": "PRO0021",
-          "nome": "PROJETO DE URBANISMO 2",
-          "ch": "120"
+          "codigo": "TEC0044",
+          "nome": "TECNICAS DE CONSTRUCAO 2",
+          "ch": "30"
         },
         {
           "codigo": "PRO0047",
           "nome": "PROJETO DE ARQUITETURA E URBANISMO 8 - TECNICAS RETROSPECTIVAS",
           "ch": "120"
+        },
+        {
+          "codigo": "TAU0012",
+          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+          "ch": "60"
         },
         {
           "codigo": "PRO0039",
@@ -1849,11 +1820,6 @@
           "codigo": "PRO0009",
           "nome": "PRATICA PROFISSIONAL",
           "ch": "30"
-        },
-        {
-          "codigo": "TAU0012",
-          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
-          "ch": "60"
         },
         {
           "codigo": "PRO0001",

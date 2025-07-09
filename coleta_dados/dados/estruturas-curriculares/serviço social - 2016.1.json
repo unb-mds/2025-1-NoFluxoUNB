@@ -1,5 +1,6 @@
 {
   "curso": "SERVIÇO SOCIAL",
+  "tipo_curso": "Bacharelado",
   "periodo_letivo_vigor": "2016.1",
   "niveis": [
     {
@@ -76,6 +77,11 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0048",
+          "nome": "PESQUISA SOCIAL 1",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0103",
           "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 2",
           "ch": "60"
@@ -101,13 +107,13 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0048",
-          "nome": "PESQUISA SOCIAL 1",
+          "codigo": "SER0076",
+          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
           "ch": "60"
         },
         {
-          "codigo": "SER0076",
-          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
+          "codigo": "SER0096",
+          "nome": "PESQUISA SOCIAL 2",
           "ch": "60"
         },
         {
@@ -118,6 +124,11 @@
         {
           "codigo": "SER0112",
           "nome": "PROCESSOS DE TRABALHO E SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
           "ch": "60"
         }
       ]
@@ -131,8 +142,8 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0096",
-          "nome": "PESQUISA SOCIAL 2",
+          "codigo": "SER0052",
+          "nome": "PLANEJAMENTO, ADMINISTRACAO E GESTAO SOCIAL",
           "ch": "60"
         },
         {
@@ -156,13 +167,13 @@
           "ch": "240"
         },
         {
-          "codigo": "SER0068",
-          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "codigo": "SER0062",
+          "nome": "TOPICOS ESPECIAIS EM SERVICO SOCIAL",
           "ch": "60"
         },
         {
-          "codigo": "SER0074",
-          "nome": "POLITICA SOCIAL - TRABALHO",
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
           "ch": "60"
         }
       ]
@@ -171,8 +182,13 @@
       "nivel": "7° NIVEL",
       "materias": [
         {
-          "codigo": "SER0052",
-          "nome": "PLANEJAMENTO, ADMINISTRACAO E GESTAO SOCIAL",
+          "codigo": "SER0079",
+          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0002",
+          "nome": "RELACOES SOCIAIS, FAMILIA E SERVICO SOCIAL",
           "ch": "60"
         },
         {
@@ -181,13 +197,13 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0062",
-          "nome": "TOPICOS ESPECIAIS EM SERVICO SOCIAL",
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
           "ch": "60"
         },
         {
-          "codigo": "SER0065",
-          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "codigo": "SER0099",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
           "ch": "60"
         },
         {
@@ -201,36 +217,6 @@
       "nivel": "8° NIVEL",
       "materias": [
         {
-          "codigo": "SER0079",
-          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0002",
-          "nome": "RELACOES SOCIAIS, FAMILIA E SERVICO SOCIAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0007",
-          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0071",
-          "nome": "POLITICA SOCIAL - EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0099",
-          "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
-          "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "9° NIVEL",
-      "materias": [
-        {
           "codigo": "SER0038",
           "nome": "TRABALHO DE CONCLUSAO DE CURSO",
           "ch": "90"
@@ -241,8 +227,18 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0060",
           "nome": "TOPICOS ESPECIAIS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
           "ch": "60"
         },
         {
@@ -816,11 +812,6 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0199",
-          "nome": "TOPICO ESPECIAL EM ENSINO DE HISTORIA",
-          "ch": "60"
-        },
-        {
           "codigo": "IGD0021",
           "nome": "GEOLOGIA GERAL",
           "ch": "90"
@@ -1001,6 +992,16 @@
           "ch": "60"
         },
         {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
           "codigo": "LET0431",
           "nome": "FRANCES 1",
           "ch": "60"
@@ -1086,6 +1087,11 @@
           "ch": "90"
         },
         {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
           "codigo": "POL0004",
           "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
           "ch": "60"
@@ -1126,6 +1132,101 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0023",
+          "nome": "DESENVOLVIMENTO DE COMUNIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0030",
+          "nome": "OFICINA DE INSTRUMENTAL TECNICO-OPERATIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0043",
+          "nome": "METODOLOGIA DO SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0045",
+          "nome": "METODOLOGIA DO SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0053",
+          "nome": "TEORIA GERAL DO SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0055",
+          "nome": "TEORIA GERAL DO SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0056",
+          "nome": "TEORIA GERAL DO SERVICO SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0057",
+          "nome": "POLITICA SOCIAL ESPECIAL 8 - POLITICA DISTRIBUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0066",
+          "nome": "POLITICA SOCIAL ESPECIAL 2 - AGRARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0077",
+          "nome": "POLITICA SOCIAL ESPECIAL 7 - PREVIDENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0080",
+          "nome": "ANALISE E INTERVENCAO NA REALIDADE SOCIAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "SER0084",
+          "nome": "METODOLOGIA DO SERVICO SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0085",
+          "nome": "PARTICIPACAO SOCIO-POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0087",
+          "nome": "INSTITUICOES E PRATICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0088",
+          "nome": "O COTIDIANO POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0111",
+          "nome": "OFICINA DE TEORIA SOCIAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "SER0114",
+          "nome": "FUNDAMENTOS DE METODOLOGIA DA PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0116",
+          "nome": "OFICINA DE TEORIA SOCIAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "SER0117",
+          "nome": "OFICINA DE TEORIA SOCIAL 2",
+          "ch": "30"
+        },
+        {
           "codigo": "SER0118",
           "nome": "PRATICA DE PESQUISA SOCIAL 1",
           "ch": "60"
@@ -1148,6 +1249,16 @@
         {
           "codigo": "SER0125",
           "nome": "QUESTAO URBANA E RURAL NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0128",
+          "nome": "ADMINISTRACAO E SUPERVISAO EM SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0129",
+          "nome": "PLANEJAMENTO SOCIAL",
           "ch": "60"
         },
         {
@@ -1241,6 +1352,11 @@
           "ch": "60"
         },
         {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
           "codigo": "TEF0025",
           "nome": "METODOS E TECNICAS DE PESQUISA EDUCACIONAL",
           "ch": "60"
@@ -1256,18 +1372,8 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0068",
-          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
-          "ch": "60"
-        },
-        {
           "codigo": "SER0074",
           "nome": "POLITICA SOCIAL - TRABALHO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0031",
-          "nome": "ANALISE DE POLITICAS SOCIAIS",
           "ch": "60"
         },
         {
@@ -1276,13 +1382,8 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0065",
-          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0131",
-          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
           "ch": "60"
         },
         {
@@ -1291,13 +1392,13 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0007",
-          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
           "ch": "60"
         },
         {
-          "codigo": "SER0071",
-          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
           "ch": "60"
         },
         {
@@ -1306,13 +1407,28 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0131",
+          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0003",
           "nome": "ENVELHECIMENTO E POLITICA SOCIAL",
           "ch": "60"
         },
         {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0060",
           "nome": "TOPICOS ESPECIAIS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
           "ch": "60"
         },
         {
@@ -1381,6 +1497,11 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0048",
+          "nome": "PESQUISA SOCIAL 1",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0103",
           "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 2",
           "ch": "60"
@@ -1401,13 +1522,13 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0048",
-          "nome": "PESQUISA SOCIAL 1",
+          "codigo": "SER0076",
+          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
           "ch": "60"
         },
         {
-          "codigo": "SER0076",
-          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
+          "codigo": "SER0096",
+          "nome": "PESQUISA SOCIAL 2",
           "ch": "60"
         },
         {
@@ -1421,13 +1542,18 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0001",
           "nome": "SEGURIDADE SOCIAL 3 - ASSISTENCIA SOCIAL",
           "ch": "60"
         },
         {
-          "codigo": "SER0096",
-          "nome": "PESQUISA SOCIAL 2",
+          "codigo": "SER0052",
+          "nome": "PLANEJAMENTO, ADMINISTRACAO E GESTAO SOCIAL",
           "ch": "60"
         },
         {
@@ -1446,38 +1572,13 @@
           "ch": "240"
         },
         {
-          "codigo": "SER0068",
-          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0074",
-          "nome": "POLITICA SOCIAL - TRABALHO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0052",
-          "nome": "PLANEJAMENTO, ADMINISTRACAO E GESTAO SOCIAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0031",
-          "nome": "ANALISE DE POLITICAS SOCIAIS",
-          "ch": "60"
-        },
-        {
           "codigo": "SER0062",
           "nome": "TOPICOS ESPECIAIS EM SERVICO SOCIAL",
           "ch": "60"
         },
         {
-          "codigo": "SER0065",
-          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SER0131",
-          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
           "ch": "60"
         },
         {
@@ -1491,18 +1592,23 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0007",
-          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
           "ch": "60"
         },
         {
-          "codigo": "SER0071",
-          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
           "ch": "60"
         },
         {
           "codigo": "SER0099",
           "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0131",
+          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
           "ch": "60"
         },
         {
@@ -1516,8 +1622,18 @@
           "ch": "60"
         },
         {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
           "codigo": "SER0060",
           "nome": "TOPICOS ESPECIAIS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
           "ch": "60"
         },
         {

@@ -1,5 +1,6 @@
 {
   "curso": "EDUCAÇÃO FÍSICA",
+  "tipo_curso": "Licenciatura",
   "periodo_letivo_vigor": "2024.2",
   "niveis": [
     {
@@ -156,8 +157,13 @@
           "ch": "60"
         },
         {
-          "codigo": "FEF0482",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICO FISICO",
+          "codigo": "FEF0495",
+          "nome": "TEORIAS DA EDUCACAO E DA EDUCACAO FISICA ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0496",
+          "nome": "EDUCACAO FISICA NA EDUCACAO BASICA",
           "ch": "60"
         }
       ]
@@ -166,9 +172,89 @@
       "nivel": "6° NIVEL",
       "materias": [
         {
-          "codigo": "FEF0483",
-          "nome": "ESTAGIO SUPERVISIONADO BACHARELADO EM EDUCACAO FISICA 2",
+          "codigo": "FEF0497",
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 2",
           "ch": "150"
+        },
+        {
+          "codigo": "FEF0498",
+          "nome": "PESQUISA EM EDUCACAO FISICA ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0499",
+          "nome": "POLITICAS EDUCACIONAIS E CURRICULO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0489",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0500",
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 3",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0501",
+          "nome": "EDUCACAO FISICA, ESCOLA E PROMOCAO DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0588",
+          "nome": "ATIVIDADE AUTONOMA 1 - LICENCIATURA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0502",
+          "nome": "ESTAGIO SUPERVISIONADO INTEGRADO EM EDUCACAO FISICA - LICENCIATURA",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0503",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2 - LICENCIATURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0587",
+          "nome": "ATIVIDADE AUTONOMA 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "FISIOTERAPIA",
+          "nome": "30H OPTATIVA FEF0457 - PREVENCAO ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0459",
+          "nome": "EDUCACAO FISICA E ATIVIDADE MOTORA ADAPTADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0482",
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICO FISICO",
+          "ch": "60"
         },
         {
           "codigo": "FEF0484",
@@ -189,21 +275,6 @@
           "codigo": "FEF0487",
           "nome": "METODOLOGIA DA MUSCULACAO",
           "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "7° NIVEL",
-      "materias": [
-        {
-          "codigo": "FEF0488",
-          "nome": "ESTAGIO SUPERVISIONADO BACHARELADO EM EDUCACAO FISICA 3",
-          "ch": "150"
-        },
-        {
-          "codigo": "FEF0489",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
-          "ch": "30"
         },
         {
           "codigo": "FEF0490",
@@ -216,66 +287,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FEF0494",
-          "nome": "ATIVIDADE AUTONOMA 1 - BACHARELADO",
-          "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "8° NIVEL",
-      "materias": [
-        {
-          "codigo": "FEF0492",
-          "nome": "ESTAGIO SUPERVISIONADO INTEGRADO EM EDUCACAO FISICA - BACHAREL",
-          "ch": "150"
-        },
-        {
-          "codigo": "FEF0493",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2 - BACHARELADO",
-          "ch": "30"
-        }
-      ]
-    },
-    {
-      "nivel": "OPTATIVAS",
-      "materias": [
-        {
-          "codigo": "FISIOTERAPIA",
-          "nome": "30H OPTATIVA FEF0457 - PREVENCAO ACIDENTES E PRIMEIROS SOCORROS",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0459",
-          "nome": "EDUCACAO FISICA E ATIVIDADE MOTORA ADAPTADA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0495",
-          "nome": "TEORIAS DA EDUCACAO E DA EDUCACAO FISICA ESCOLAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0496",
-          "nome": "EDUCACAO FISICA NA EDUCACAO BASICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0498",
-          "nome": "PESQUISA EM EDUCACAO FISICA ESCOLAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0499",
-          "nome": "POLITICAS EDUCACIONAIS E CURRICULO EM EDUCACAO FISICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0501",
-          "nome": "EDUCACAO FISICA, ESCOLA E PROMOCAO DA SAUDE",
-          "ch": "60"
-        },
-        {
           "codigo": "FUP0288",
           "nome": "INTRODUCAO A ESTATISTICA",
           "ch": "60"
@@ -283,11 +294,6 @@
         {
           "codigo": "HIS0111",
           "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
         },
         {
@@ -436,39 +442,34 @@
           "ch": "60"
         },
         {
-          "codigo": "FEF0482",
-          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICO FISICO",
+          "codigo": "FEF0495",
+          "nome": "TEORIAS DA EDUCACAO E DA EDUCACAO FISICA ESCOLAR",
           "ch": "60"
         },
         {
-          "codigo": "FEF0483",
-          "nome": "ESTAGIO SUPERVISIONADO BACHARELADO EM EDUCACAO FISICA 2",
+          "codigo": "FEF0496",
+          "nome": "EDUCACAO FISICA NA EDUCACAO BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0497",
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 2",
           "ch": "150"
         },
         {
-          "codigo": "FEF0484",
-          "nome": "PESQUISA EM EDUCACAO FISICA",
+          "codigo": "FEF0498",
+          "nome": "PESQUISA EM EDUCACAO FISICA ESCOLAR",
           "ch": "60"
         },
         {
-          "codigo": "FEF0485",
-          "nome": "FUNDAMENTOS DO TREINAMENTO FISICO E ESPORTIVO",
+          "codigo": "FEF0499",
+          "nome": "POLITICAS EDUCACIONAIS E CURRICULO EM EDUCACAO FISICA",
           "ch": "60"
         },
         {
-          "codigo": "FEF0486",
-          "nome": "BIOMECANICA DO TREINAMENTO FISICO E ESPORTIVO",
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
-        },
-        {
-          "codigo": "FEF0487",
-          "nome": "METODOLOGIA DA MUSCULACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0488",
-          "nome": "ESTAGIO SUPERVISIONADO BACHARELADO EM EDUCACAO FISICA 3",
-          "ch": "150"
         },
         {
           "codigo": "FEF0489",
@@ -476,29 +477,34 @@
           "ch": "30"
         },
         {
-          "codigo": "FEF0490",
-          "nome": "EDUCACAO FISICA PARA GRUPOS ESPECIAIS",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0491",
-          "nome": "EDUCACAO FISICA, INTERVENCAO MULTIPROFISSIONAL E SAUDE PUBLICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0494",
-          "nome": "ATIVIDADE AUTONOMA 1 - BACHARELADO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0492",
-          "nome": "ESTAGIO SUPERVISIONADO INTEGRADO EM EDUCACAO FISICA - BACHAREL",
+          "codigo": "FEF0500",
+          "nome": "ESTAGIO SUPERVISIONADO LICENCIATURA EM EDUCACAO FISICA 3",
           "ch": "150"
         },
         {
-          "codigo": "FEF0493",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2 - BACHARELADO",
+          "codigo": "FEF0501",
+          "nome": "EDUCACAO FISICA, ESCOLA E PROMOCAO DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0588",
+          "nome": "ATIVIDADE AUTONOMA 1 - LICENCIATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0502",
+          "nome": "ESTAGIO SUPERVISIONADO INTEGRADO EM EDUCACAO FISICA - LICENCIATURA",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0503",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2 - LICENCIATURA",
           "ch": "30"
+        },
+        {
+          "codigo": "FEF0587",
+          "nome": "ATIVIDADE AUTONOMA 2",
+          "ch": "60"
         }
       ]
     }
