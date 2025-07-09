@@ -101,6 +101,8 @@ const controllers: EndpointController[] = [
 ];
 
 router.get('/', (req: Request, res: Response) => {
+    logger.info(`\b[GET][/]`);
+
     res.json({
         status: 'online',
         timestamp: new Date().toISOString(),
