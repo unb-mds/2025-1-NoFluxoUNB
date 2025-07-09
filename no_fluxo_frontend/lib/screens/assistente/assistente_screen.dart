@@ -66,7 +66,7 @@ class _AssistenteScreenState extends State<AssistenteScreen>
   Future<String> _enviarMensagemParaIA(String mensagem) async {
     // Troque o IP abaixo pelo IP do seu backend se necessário
     final url =
-        Uri.parse('${Environment.apiUrl.split(":")[0]}:4652/assistente');
+        Uri.parse('${Environment.agentUrl}/assistente');
     try {
       final response = await http.post(
         url,

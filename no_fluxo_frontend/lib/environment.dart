@@ -15,6 +15,7 @@ enum EnvironmentType {
 class Environment {
   static String apiUrl = "http://localhost:3000";
   static String redirectToUrl = "http://localhost:5000";
+  static String agentUrl = "http://localhost:4652";
 
   static EnvironmentType environmentType = EnvironmentType.development;
   static bool _initialized = false;
@@ -104,6 +105,8 @@ class Environment {
     _loggingInitialized = true;
   }
 
+  
+
   /// Get a logger instance with the specified name.
   /// The name should be in the format 'component_name' without brackets.
   static Logger getLogger(String name) {
@@ -141,9 +144,11 @@ class Environment {
     if (environmentType == EnvironmentType.development) {
       apiUrl = "http://localhost:3000";
       redirectToUrl = "http://localhost:5000";
+      agentUrl = "http://localhost:4652";
     } else {
       apiUrl = "https://srv892492.hstgr.cloud:3325";
       redirectToUrl = "https://no-fluxo.com";
+      agentUrl = "https://srv892492.hstgr.cloud:4652";
     }
   }
 
