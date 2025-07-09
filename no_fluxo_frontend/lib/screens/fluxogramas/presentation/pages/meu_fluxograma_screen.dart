@@ -1,8 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:dartz/dartz.dart' show Left;
+
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart';
 import '../../../../utils/utils.dart';
@@ -11,12 +10,11 @@ import '../../../../widgets/graffiti_background.dart';
 import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../models/user_model.dart';
 import '../../../../widgets/splash_widget.dart';
-import '../../data/course_data.dart';
-import '../../data/course_subject.dart';
+
 import '../../data/materia_model.dart';
 import '../../data/prerequisite_tree_model.dart';
 import '../../services/meu_fluxograma_service.dart';
-import '../widgets/course_card_widget.dart';
+
 import '../widgets/fluxograma_header.dart';
 import '../widgets/fluxograma_legend_controls.dart';
 import '../widgets/progress_summary_section.dart';
@@ -25,15 +23,11 @@ import '../widgets/fluxogram_container.dart';
 import '../widgets/prerequisite_chain_dialog.dart';
 import '../widgets/prerequisite_indicator_widget.dart';
 import '../widgets/tool_modals.dart';
-import 'dart:ui';
-import 'dart:typed_data';
-import 'package:go_router/go_router.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:universal_html/html.dart' as html;
 
 import '../widgets/materia_data_dialog_content.dart';
 
@@ -174,8 +168,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     }
   }
 
-  Future<void> saveFluxogramAsPdf() async {
-    bool closed = false;
+  Future<void> saveFluxogramAsImage() async {
+    bool dialogClosed = false;
     try {
       // Show loading indicator
       showDialog(
@@ -198,84 +192,85 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         throw Exception('Erro ao capturar imagem do fluxograma');
       }
 
-      // Create PDF document
-      final pdf = pw.Document();
+      // Create filename with timestamp
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final courseName =
+          currentCourseData?.nomeCurso?.replaceAll(' ', '_') ?? 'curso';
+      final fileName = 'fluxograma_${courseName}_$timestamp.png';
 
-      // Convert image to PDF format
-      final image = pw.MemoryImage(imageBytes);
+      if (kIsWeb) {
+        // Web platform - use browser download
+        final blob = html.Blob([imageBytes]);
+        final url = html.Url.createObjectUrlFromBlob(blob);
+        html.AnchorElement(href: url)
+          ..setAttribute('download', fileName)
+          ..click();
+        html.Url.revokeObjectUrl(url);
 
-      pdf.addPage(
-        pw.Page(
-          pageFormat: PdfPageFormat.a4.landscape,
-          margin: const pw.EdgeInsets.all(32),
-          build: (pw.Context context) {
-            return pw.Center(
-              child: pw.Column(
-                children: [
-                  pw.Text(
-                    'Fluxograma - ${currentCourseData?.nomeCurso ?? 'Curso'}',
-                    style: pw.TextStyle(
-                      fontSize: 18,
-                      fontWeight: pw.FontWeight.bold,
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Expanded(
-                    child: pw.Image(
-                      image,
-                      fit: pw.BoxFit.contain,
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Text(
-                    'Gerado em: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                    style: const pw.TextStyle(
-                      fontSize: 12,
-                      color: PdfColors.grey700,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      );
+        // Close loading dialog
+        dialogClosed = true;
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
 
-      // Close loading dialog
-      if (context.mounted) {
-        Navigator.of(context).pop();
-      }
+        // Show success message
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Fluxograma baixado: $fileName'),
+              backgroundColor: Colors.green,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
+      } else {
+        // Mobile platforms - save to device storage
+        Directory? directory;
+        if (Platform.isAndroid) {
+          directory = await getExternalStorageDirectory();
+        } else {
+          directory = await getApplicationDocumentsDirectory();
+        }
 
-      // Save or share the PDF
-      await Printing.layoutPdf(
-        onLayout: (PdfPageFormat format) async => pdf.save(),
-        name:
-            'fluxograma_${currentCourseData?.nomeCurso?.replaceAll(' ', '_') ?? 'curso'}.pdf',
-      );
+        if (directory == null) {
+          throw Exception('Não foi possível acessar o diretório de downloads');
+        }
 
-      // Show success message
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Fluxograma salvo como PDF com sucesso!'),
-            backgroundColor: Colors.green,
-          ),
-        );
+        final filePath = '${directory.path}/$fileName';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        // Close loading dialog
+        dialogClosed = true;
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
+
+        // Show success message
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Fluxograma salvo em: $fileName'),
+              backgroundColor: Colors.green,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
       }
     } catch (e) {
-      if (!closed) {
+      if (!dialogClosed) {
         if (context.mounted) {
           Navigator.of(context).pop();
         }
       }
 
-      log.severe('Erro ao salvar PDF: $e');
+      log.severe('Erro ao salvar imagem: $e');
 
       // Show error message
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao salvar PDF: $e'),
+            content: Text('Erro ao salvar imagem: $e'),
             backgroundColor: Colors.red,
           ),
         );
@@ -321,7 +316,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     isAnonymous:
                                         SharedPreferencesHelper.isAnonimo,
                                     courseData: currentCourseData,
-                                    onSaveFluxograma: saveFluxogramAsPdf,
+                                    onSaveFluxograma: saveFluxogramAsImage,
                                     onAddMateria: () {},
                                     onAddOptativa: () {},
                                   ),
