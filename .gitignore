@@ -41,3 +41,39 @@ venv
 *.log
 logs/
 *.log.*
+ai_agent.log
+debug.log
+error.log
+
+# AI Agent
+AI-agent/logs/
+prompts/logs/
+
+# Dados temporários
+dados_finais_*/
+dados_temporarios/
+tmp/
+temp/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS específicos
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+desktop.ini
+
+# Backup files
+*.bak
+*.backup
+
+# Arquivos de teste
+test_*.pdf
+test_*.json
+debug_*
