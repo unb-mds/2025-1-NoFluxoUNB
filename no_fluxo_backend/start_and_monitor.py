@@ -39,8 +39,11 @@ def get_authenticated_url(url, username, token):
     if url.startswith('https://'):
         # Parse the URL
         parsed = urllib.parse.urlparse(url)
+        # Quote username and token separately, ensuring special characters are properly encoded
+        quoted_username = urllib.parse.quote(username, safe='')
+        quoted_token = urllib.parse.quote(token, safe='')
         # Reconstruct with credentials
-        authenticated_url = f"https://{urllib.parse.quote(username)}:{urllib.parse.quote(token)}@{parsed.netloc}{parsed.path}"
+        authenticated_url = f"https://{quoted_username}:{quoted_token}@{parsed.netloc}{parsed.path}"
         return authenticated_url
     
     # Return original URL if not HTTPS
