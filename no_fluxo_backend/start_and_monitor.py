@@ -6,6 +6,10 @@ import logging
 import argparse
 from pathlib import Path
 import urllib.parse
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Set up logging at the same place as the script with name process.log
 log_file = Path(__file__).parent / "process.log"
@@ -267,8 +271,8 @@ def main():
     parser = argparse.ArgumentParser(description='Monitor and auto-update a git repository.')
     parser.add_argument('--branch', default='main', help='Git branch to monitor (default: main)')
     parser.add_argument('--fork-location', help='Path to fork repository that should be updated when origin changes')
-    parser.add_argument('--git-username', help='Git username for authentication (can also use GIT_USERNAME env var)')
-    parser.add_argument('--git-token', help='Git token/password for authentication (can also use GIT_TOKEN env var)')
+    parser.add_argument('--git-username', help='Git username for authentication (can also use GIT_USERNAME in .env)')
+    parser.add_argument('--git-token', help='Git token/password for authentication (can also use GIT_TOKEN in .env)')
     args = parser.parse_args()
 
     REPO_DIR = "./"  # Replace with the path to your repository
@@ -277,9 +281,14 @@ def main():
     BRANCH = args.branch
     FORK_LOCATION = args.fork_location
     
-    # Get authentication credentials from args or environment variables
+    # Get authentication credentials from args, environment variables, or .env file
     GIT_USERNAME = args.git_username or os.getenv('GIT_USERNAME')
     GIT_TOKEN = args.git_token or os.getenv('GIT_TOKEN')
+    
+    if not GIT_USERNAME and FORK_LOCATION:
+        log_message("Python: Warning - No git username provided. Set GIT_USERNAME in .env file or use --git-username")
+    if not GIT_TOKEN and FORK_LOCATION:
+        log_message("Python: Warning - No git token provided. Set GIT_TOKEN in .env file or use --git-token")
 
     dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(dir)
