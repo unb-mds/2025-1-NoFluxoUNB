@@ -13,6 +13,7 @@ class FluxogramContainer extends StatefulWidget {
   final double zoomLevel;
   final bool showPrereqChains;
   final bool showConnections;
+  final bool isAnonymous;
   final Function(String, String) onShowPrerequisiteChain;
   final Function(MateriaModel) onBuildPrerequisiteIndicator;
   final Function(BuildContext, MateriaModel) onShowMateriaDialog;
@@ -26,6 +27,7 @@ class FluxogramContainer extends StatefulWidget {
     required this.onShowPrerequisiteChain,
     required this.onBuildPrerequisiteIndicator,
     required this.onShowMateriaDialog,
+    this.isAnonymous = false,
   });
 
   @override
@@ -67,6 +69,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                   courseData: widget.courseData,
                   zoomLevel: widget.zoomLevel,
                   selectedSubjectCode: selectedSubjectCode,
+                  isAnonymous: widget.isAnonymous,
                   onSubjectSelectionChanged: (subjectCode) {
                     setState(() {
                       selectedSubjectCode = subjectCode;
@@ -141,7 +144,9 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
             ),
             const SizedBox(height: 8),
             Text(
-              'Faça upload do seu histórico acadêmico para visualizar seu fluxograma personalizado.',
+              widget.isAnonymous
+                  ? 'Explore os fluxogramas disponíveis ou faça login para personalizar.'
+                  : 'Faça upload do seu histórico acadêmico para visualizar seu fluxograma personalizado.',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 color: Colors.white.withOpacity(0.7),
@@ -149,25 +154,26 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
               ),
             ),
             const SizedBox(height: 24),
-            ElevatedButton.icon(
-              onPressed: () => context.go('/upload-historico'),
-              icon: const Icon(Icons.upload_file, color: Colors.white),
-              label: Text(
-                'FAZER UPLOAD DO HISTÓRICO',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+            if (!widget.isAnonymous)
+              ElevatedButton.icon(
+                onPressed: () => context.go('/upload-historico'),
+                icon: const Icon(Icons.upload_file, color: Colors.white),
+                label: Text(
+                  'FAZER UPLOAD DO HISTÓRICO',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF8B5CF6),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF8B5CF6),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-            ),
           ],
         ),
       ),
@@ -216,7 +222,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                 onTap: () {
                   widget.onShowMateriaDialog(context, subject);
                 },
-                onLongPress: widget.showPrereqChains
+                onLongPress: widget.showPrereqChains && !widget.isAnonymous
                     ? () {
                         widget.onShowPrerequisiteChain(
                             subject.codigoMateria, subject.nomeMateria);
@@ -226,11 +232,12 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                   children: [
                     CourseCardWidget(
                       subject: subject,
+                      isAnonymous: widget.isAnonymous,
                       onTap: () {
                         widget.onShowMateriaDialog(context, subject);
                       },
                     ),
-                    if (widget.showPrereqChains)
+                    if (widget.showPrereqChains && !widget.isAnonymous)
                       widget.onBuildPrerequisiteIndicator(subject) as Widget,
                   ],
                 ),

@@ -6,11 +6,13 @@ import '../../../../config/app_colors.dart';
 class CourseCardWidget extends StatelessWidget {
   final MateriaModel subject;
   final VoidCallback? onTap;
+  final bool isAnonymous;
 
   const CourseCardWidget({
     super.key,
     required this.subject,
     this.onTap,
+    this.isAnonymous = false,
   });
 
   @override
@@ -18,24 +20,32 @@ class CourseCardWidget extends StatelessWidget {
     Color startColor;
     Color endColor;
 
-    switch (subject.status) {
+    // For anonymous users, only show completed, optative, and future statuses
+    String displayStatus = subject.status ?? 'future';
+    if (isAnonymous && subject.status == 'current') {
+      displayStatus = 'future';
+    }
+
+    switch (displayStatus) {
       case 'completed':
         startColor = AppColors.completedStart;
         endColor = AppColors.completedEnd;
         break;
-      case 'current':
-        startColor = AppColors.currentStart;
-        endColor = AppColors.currentEnd;
-        break;
       case 'selected':
-        startColor = AppColors.selectedStart;
-        endColor = AppColors.selectedEnd;
+        if (isAnonymous) {
+          // For anonymous users, treat selected as future
+          startColor = AppColors.futureStart;
+          endColor = AppColors.futureEnd;
+        } else {
+          startColor = AppColors.selectedStart;
+          endColor = AppColors.selectedEnd;
+        }
         break;
       case 'optative':
         startColor = AppColors.optativeStart;
         endColor = AppColors.optativeEnd;
         break;
-      default: // future
+      default: // future or current (treated as future for anonymous)
         startColor = AppColors.futureStart;
         endColor = AppColors.futureEnd;
     }
@@ -59,11 +69,9 @@ class CourseCardWidget extends StatelessWidget {
         ],
       ),
       child: Material(
-        color: subject.status == 'completed'
+        color: displayStatus == 'completed'
             ? AppColors.completedBackground
-            : subject.status == 'current'
-                ? AppColors.currentBackground
-                : Colors.transparent,
+            : Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(8),
           onTap: onTap,
@@ -108,7 +116,10 @@ class CourseCardWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (subject.mencao != null && subject.mencao != '-') ...[
+                    // Only show mencao for non-anonymous users and when mencao exists
+                    if (!isAnonymous &&
+                        subject.mencao != null &&
+                        subject.mencao != '-') ...[
                       const Spacer(),
                       Container(
                         padding: const EdgeInsets.symmetric(

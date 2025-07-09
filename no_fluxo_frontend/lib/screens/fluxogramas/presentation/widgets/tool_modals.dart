@@ -2,7 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ToolModals {
-  static void showToolModal(BuildContext context, {required String title}) {
+  static void showToolModal(
+    BuildContext context, {
+    required String title,
+    bool isAnonymous = false,
+  }) {
+    // Don't show tool modals for anonymous users since they require user data
+    if (isAnonymous) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Faça login para acessar esta funcionalidade"),
+          backgroundColor: Color(0xFFEF4444),
+        ),
+      );
+      return;
+    }
+
     switch (title) {
       case 'Calculadora de IRA':
         _showIRACalculatorModal(context);

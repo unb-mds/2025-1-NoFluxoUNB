@@ -4,9 +4,14 @@ import 'package:mobile_app/config/app_colors.dart';
 import 'package:mobile_app/screens/fluxogramas/data/materia_model.dart';
 
 class MateriaDataDialogContent extends StatefulWidget {
-  const MateriaDataDialogContent({super.key, required this.materia});
+  const MateriaDataDialogContent({
+    super.key,
+    required this.materia,
+    this.isAnonymous = false,
+  });
 
   final MateriaModel materia;
+  final bool isAnonymous;
 
   @override
   State<MateriaDataDialogContent> createState() =>
@@ -38,28 +43,52 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
   }
 
   Color _getStatusColor() {
-    switch (widget.materia.status?.toLowerCase()) {
+    // For anonymous users, don't show current/selected status
+    String status = widget.materia.status?.toLowerCase() ?? '';
+    if (widget.isAnonymous &&
+        (status == 'em_curso' || status == 'selecionada')) {
+      return Colors.white.withOpacity(0.1);
+    }
+
+    switch (status) {
       case 'concluida':
+      case 'completed':
         return const Color(0xFF22C55E);
       case 'em_curso':
-        return const Color(0xFF8B5CF6);
+      case 'current':
+        return widget.isAnonymous
+            ? Colors.white.withOpacity(0.1)
+            : const Color(0xFF8B5CF6);
       case 'selecionada':
-        return const Color(0xFFE11D48);
+      case 'selected':
+        return widget.isAnonymous
+            ? Colors.white.withOpacity(0.1)
+            : const Color(0xFFE11D48);
       default:
         return Colors.white.withOpacity(0.1);
     }
   }
 
   String _getStatusText() {
-    switch (widget.materia.status?.toLowerCase()) {
+    // For anonymous users, don't show current/selected status
+    String status = widget.materia.status?.toLowerCase() ?? '';
+    if (widget.isAnonymous &&
+        (status == 'em_curso' || status == 'selecionada')) {
+      return 'Disponível';
+    }
+
+    switch (status) {
       case 'concluida':
+      case 'completed':
         return 'Concluída';
       case 'em_curso':
-        return 'Em Curso';
+      case 'current':
+        return widget.isAnonymous ? 'Disponível' : 'Em Curso';
       case 'selecionada':
-        return 'Selecionada';
+      case 'selected':
+        return widget.isAnonymous ? 'Disponível' : 'Selecionada';
       default:
-        return 'Futura';
+        return 'Disponível';
     }
   }
 
@@ -239,47 +268,50 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF8B5CF6), Color(0xFFE11D48)],
+                // Only show "Add to next semester" button for logged-in users
+                if (!widget.isAnonymous) ...[
+                  const SizedBox(width: 12),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF8B5CF6), Color(0xFFE11D48)],
+                      ),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // Implementar ação de adicionar ao próximo semestre
-                      Navigator.of(context).pop();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content:
-                              Text("Matéria adicionada ao próximo semestre!"),
-                          backgroundColor: Color(0xFF22C55E),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Implementar ação de adicionar ao próximo semestre
+                        Navigator.of(context).pop();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content:
+                                Text("Matéria adicionada ao próximo semestre!"),
+                            backgroundColor: Color(0xFF22C55E),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 12,
                         ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 12,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: Text(
-                      "ADICIONAR AO PRÓXIMO SEMESTRE",
-                      style: TextStyle(
-                        fontSize: getProportionateFontSize(14),
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      child: Text(
+                        "ADICIONAR AO PRÓXIMO SEMESTRE",
+                        style: TextStyle(
+                          fontSize: getProportionateFontSize(14),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ],
             ),
           ),
@@ -360,8 +392,8 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
             const SizedBox(height: 16),
           ],
 
-          // Menção (se disponível)
-          if (widget.materia.mencao != null) ...[
+          // Menção (se disponível) - only for logged-in users
+          if (!widget.isAnonymous && widget.materia.mencao != null) ...[
             _buildInfoCard(
               title: "Menção Obtida",
               child: Container(

@@ -4,16 +4,23 @@ import '../../data/materia_model.dart';
 
 class PrerequisiteIndicatorWidget extends StatelessWidget {
   final MateriaModel subject;
+  final bool isAnonymous;
   final Function(String subjectCode) getPrerequisiteChainData;
 
   const PrerequisiteIndicatorWidget({
     super.key,
     required this.subject,
     required this.getPrerequisiteChainData,
+    this.isAnonymous = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    // Don't show prerequisite indicators for anonymous users
+    if (isAnonymous) {
+      return const SizedBox.shrink();
+    }
+
     var chainData = getPrerequisiteChainData(subject.codigoMateria);
     if (chainData == null) return const SizedBox.shrink();
 

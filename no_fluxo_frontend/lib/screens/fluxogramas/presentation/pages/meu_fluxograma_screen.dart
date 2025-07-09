@@ -199,12 +199,16 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   FluxogramaHeader(
+                                    isAnonymous:
+                                        SharedPreferencesHelper.isAnonimo,
                                     courseData: currentCourseData,
                                     onSaveFluxograma: () {},
                                     onAddMateria: () {},
                                     onAddOptativa: () {},
                                   ),
                                   FluxogramaLegendControls(
+                                    isAnonymous:
+                                        SharedPreferencesHelper.isAnonimo,
                                     zoomLevel: zoomLevel,
                                     showPrereqChains: showPrereqChains,
                                     showConnections: showConnections,
@@ -227,6 +231,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                   FluxogramContainer(
                                     courseData: currentCourseData,
                                     zoomLevel: zoomLevel,
+                                    isAnonymous:
+                                        SharedPreferencesHelper.isAnonimo,
                                     showPrereqChains: showPrereqChains,
                                     showConnections: showConnections,
                                     onShowPrerequisiteChain:
@@ -236,9 +242,13 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     onShowMateriaDialog: _showMateriaDataDialog,
                                   ),
                                   ProgressSummarySection(
+                                    isAnonymous:
+                                        SharedPreferencesHelper.isAnonimo,
                                     courseData: currentCourseData,
                                   ),
                                   ProgressToolsSection(
+                                    isAnonymous:
+                                        SharedPreferencesHelper.isAnonimo,
                                     onShowToolModal: (title) =>
                                         _showToolModal(context, title: title),
                                   ),

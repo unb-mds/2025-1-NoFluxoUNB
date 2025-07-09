@@ -9,6 +9,7 @@ class PrerequisiteConnectionsWidget extends StatefulWidget {
   final CursoModel? courseData;
   final double zoomLevel;
   final String? selectedSubjectCode;
+  final bool isAnonymous;
   final Function(String?) onSubjectSelectionChanged;
   final Function(BuildContext, MateriaModel) onShowMateriaDialog;
 
@@ -19,6 +20,7 @@ class PrerequisiteConnectionsWidget extends StatefulWidget {
     required this.selectedSubjectCode,
     required this.onSubjectSelectionChanged,
     required this.onShowMateriaDialog,
+    this.isAnonymous = false,
   });
 
   @override
@@ -284,6 +286,7 @@ class _PrerequisiteConnectionsWidgetState
                   onTap: () {
                     widget.onShowMateriaDialog(context, subject);
                   },
+                  isAnonymous: widget.isAnonymous,
                 ),
               ),
             ),
@@ -556,6 +559,7 @@ class EnhancedCourseCardWidget extends StatelessWidget {
   final bool isHighlighted;
   final bool isSelected;
   final VoidCallback? onTap;
+  final bool isAnonymous;
 
   const EnhancedCourseCardWidget({
     super.key,
@@ -563,6 +567,7 @@ class EnhancedCourseCardWidget extends StatelessWidget {
     this.isHighlighted = false,
     this.isSelected = false,
     this.onTap,
+    this.isAnonymous = false,
   });
 
   @override
@@ -580,6 +585,7 @@ class EnhancedCourseCardWidget extends StatelessWidget {
       child: CourseCardWidget(
         subject: subject,
         onTap: onTap,
+        isAnonymous: isAnonymous,
       ),
     );
   }

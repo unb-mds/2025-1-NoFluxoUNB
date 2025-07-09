@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/app_navbar.dart';
 import '../../../../widgets/graffiti_background.dart';
@@ -226,7 +227,7 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                           constraints: const BoxConstraints(
                                               maxWidth: 700),
                                           child: Text(
-                                            'Escolha o curso para visualizar seu fluxograma completo. Você poderá personalizar adicionando matérias optativas e acompanhar seu progresso.',
+                                            'Escolha o curso para visualizar seu fluxograma completo. Você poderá personalizar adicionando matérias optativas e acompanhar seu progresso. ${SharedPreferencesHelper.isAnonimo ? '(é necessário fazer login)' : ''}',
                                             textAlign: TextAlign.center,
                                             style: GoogleFonts.poppins(
                                               fontSize: 18,
@@ -235,38 +236,43 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(height: 24),
-                                        ElevatedButton.icon(
-                                          onPressed: () {
-                                            context.go('/assistente');
-                                          },
-                                          icon: const Icon(
-                                              Icons.lightbulb_outline,
-                                              color: Colors.white,
-                                              size: 22),
-                                          label: Text(
-                                            'FALE COM O ASSISTENTE',
-                                            style: GoogleFonts.poppins(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
+                                        if (!SharedPreferencesHelper
+                                            .isAnonimo) ...[
+                                          const SizedBox(height: 24),
+                                          ElevatedButton.icon(
+                                            onPressed: () {
+                                              context.go('/assistente');
+                                            },
+                                            icon: const Icon(
+                                                Icons.lightbulb_outline,
+                                                color: Colors.white,
+                                                size: 22),
+                                            label: Text(
+                                              'FALE COM O ASSISTENTE',
+                                              style: GoogleFonts.poppins(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            style: ElevatedButton.styleFrom(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 36,
+                                                      vertical: 18),
+                                              backgroundColor:
+                                                  const Color(0xFF6366F1),
+                                              foregroundColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
+                                              ),
+                                              elevation: 8,
+                                              shadowColor:
+                                                  Colors.black.withOpacity(0.3),
                                             ),
                                           ),
-                                          style: ElevatedButton.styleFrom(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 36, vertical: 18),
-                                            backgroundColor:
-                                                const Color(0xFF6366F1),
-                                            foregroundColor: Colors.white,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                            ),
-                                            elevation: 8,
-                                            shadowColor:
-                                                Colors.black.withOpacity(0.3),
-                                          ),
-                                        ),
+                                        ]
                                       ],
                                     ),
                                   ),
@@ -713,7 +719,9 @@ class CourseCard extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.go('/meu-fluxograma/$title');
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white.withOpacity(0.12),
                 foregroundColor: Colors.white,

@@ -71,7 +71,8 @@ class _AppNavbarState extends State<AppNavbar> {
                   ),
                 ],
                 // Botões FLUXOGRAMAS e ASSISTENTE aparecem quando não está nas rotas de login/cadastro
-                if (!Utils.isPublicRoute(context)) ...[
+                if (!Utils.isPublicRoute(context) &&
+                    !Utils.routeStartsWith(context, '/fluxogramas')) ...[
                   const SizedBox(width: 16),
                   GradientUnderlineButton(
                     onPressed: () {
@@ -79,17 +80,20 @@ class _AppNavbarState extends State<AppNavbar> {
                     },
                     text: 'FLUXOGRAMAS',
                   ),
-                  const SizedBox(width: 16),
-                  GradientUnderlineButton(
-                    onPressed: () {
-                      context.go('/assistente');
-                    },
-                    text: 'ASSISTENTE',
-                  ),
+                  if (!SharedPreferencesHelper.isAnonimo) ...[
+                    const SizedBox(width: 16),
+                    GradientUnderlineButton(
+                      onPressed: () {
+                        context.go('/assistente');
+                      },
+                      text: 'ASSISTENTE',
+                    ),
+                  ]
                 ],
                 // Botão "ACESSE NOSSO SISTEMA" aparece apenas na home quando não está logado
-                if (Utils.isHomeRoute(context) &&
-                    SharedPreferencesHelper.currentUser == null) ...[
+                if ((Utils.isHomeRoute(context) &&
+                        SharedPreferencesHelper.currentUser == null) ||
+                    SharedPreferencesHelper.isAnonimo) ...[
                   const SizedBox(width: 24),
                   GradientCTAButton(
                     onPressed: () {

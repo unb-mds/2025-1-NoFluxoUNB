@@ -4,6 +4,7 @@ import '../../data/curso_model.dart';
 
 class FluxogramaHeader extends StatelessWidget {
   final CursoModel? courseData;
+  final bool isAnonymous;
   final VoidCallback onSaveFluxograma;
   final VoidCallback onAddMateria;
   final VoidCallback onAddOptativa;
@@ -14,6 +15,7 @@ class FluxogramaHeader extends StatelessWidget {
     required this.onSaveFluxograma,
     required this.onAddMateria,
     required this.onAddOptativa,
+    this.isAnonymous = false,
   });
 
   @override
@@ -71,6 +73,7 @@ class FluxogramaHeader extends StatelessWidget {
                   ],
                 ),
               ),
+              // Only show action buttons for logged-in users
               Column(
                 children: [
                   Row(
@@ -82,22 +85,24 @@ class FluxogramaHeader extends StatelessWidget {
                         const Color(0xFF16A34A),
                         onSaveFluxograma,
                       ),
-                      const SizedBox(width: 12),
-                      _buildActionButton(
-                        'ADICIONAR MATÉRIA',
-                        Icons.add,
-                        const Color(0xFF8B5CF6),
-                        const Color(0xFF7C3AED),
-                        onAddMateria,
-                      ),
-                      const SizedBox(width: 12),
-                      _buildActionButton(
-                        'ADICIONAR OPTATIVA',
-                        Icons.add_circle_outline,
-                        const Color(0xFF3B82F6),
-                        const Color(0xFF1D4ED8),
-                        onAddOptativa,
-                      ),
+                      if (!isAnonymous) ...[
+                        const SizedBox(width: 12),
+                        _buildActionButton(
+                          'ADICIONAR MATÉRIA',
+                          Icons.add,
+                          const Color(0xFF8B5CF6),
+                          const Color(0xFF7C3AED),
+                          onAddMateria,
+                        ),
+                        const SizedBox(width: 12),
+                        _buildActionButton(
+                          'ADICIONAR OPTATIVA',
+                          Icons.add_circle_outline,
+                          const Color(0xFF3B82F6),
+                          const Color(0xFF1D4ED8),
+                          onAddOptativa,
+                        ),
+                      ]
                     ],
                   ),
                 ],

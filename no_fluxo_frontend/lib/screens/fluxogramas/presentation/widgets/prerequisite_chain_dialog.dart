@@ -18,7 +18,13 @@ class PrerequisiteChainDialog extends StatelessWidget {
     required String subjectCode,
     required String subjectName,
     required Map<String, dynamic> chainData,
+    bool isAnonymous = false,
   }) {
+    // Don't show prerequisite chain dialog for anonymous users
+    if (isAnonymous) {
+      return;
+    }
+
     showDialog(
       context: context,
       builder: (context) => PrerequisiteChainDialog(

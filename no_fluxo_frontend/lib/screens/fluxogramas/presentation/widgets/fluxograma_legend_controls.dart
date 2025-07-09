@@ -5,6 +5,7 @@ class FluxogramaLegendControls extends StatelessWidget {
   final double zoomLevel;
   final bool showPrereqChains;
   final bool showConnections;
+  final bool isAnonymous;
   final ValueChanged<double> onZoomChanged;
   final ValueChanged<bool> onShowPrereqChainsChanged;
   final ValueChanged<bool> onShowConnectionsChanged;
@@ -17,6 +18,7 @@ class FluxogramaLegendControls extends StatelessWidget {
     required this.onZoomChanged,
     required this.onShowPrereqChainsChanged,
     required this.onShowConnectionsChanged,
+    this.isAnonymous = false,
   });
 
   @override
@@ -41,42 +43,47 @@ class FluxogramaLegendControls extends StatelessWidget {
                   const Color(0xFF22C55E),
                   'Concluídas',
                 ),
-                _buildLegendItem(
-                  const Color(0xFFA78BFA),
-                  const Color(0xFF8B5CF6),
-                  'Em Curso',
-                ),
-                _buildLegendItem(
-                  const Color(0xFFFB7185),
-                  const Color(0xFFE11D48),
-                  'Selecionadas',
-                ),
+                // Only show current/selected status for logged-in users
+                if (!isAnonymous) ...[
+                  _buildLegendItem(
+                    const Color(0xFFA78BFA),
+                    const Color(0xFF8B5CF6),
+                    'Em Curso',
+                  ),
+                  _buildLegendItem(
+                    const Color(0xFFFB7185),
+                    const Color(0xFFE11D48),
+                    'Selecionadas',
+                  ),
+                ],
                 _buildLegendItem(
                   Colors.white.withOpacity(0.1),
                   Colors.white.withOpacity(0.1),
-                  'Futuras',
+                  isAnonymous ? 'Disponíveis' : 'Futuras',
                   isDashed: true,
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Checkbox(
-                      value: showPrereqChains,
-                      onChanged: (value) =>
-                          onShowPrereqChainsChanged(value ?? false),
-                      fillColor: MaterialStateProperty.all(
-                          Colors.white.withOpacity(0.2)),
-                      checkColor: Colors.white,
-                    ),
-                    Text(
-                      'Cadeias de Pré-requisito',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 14,
+                // Only show prerequisite chains for logged-in users
+                if (!isAnonymous)
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Checkbox(
+                        value: showPrereqChains,
+                        onChanged: (value) =>
+                            onShowPrereqChainsChanged(value ?? false),
+                        fillColor: MaterialStateProperty.all(
+                            Colors.white.withOpacity(0.2)),
+                        checkColor: Colors.white,
                       ),
-                    ),
-                  ],
-                ),
+                      Text(
+                        'Cadeias de Pré-requisito',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [

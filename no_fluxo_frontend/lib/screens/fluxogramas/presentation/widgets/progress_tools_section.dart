@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProgressToolsSection extends StatelessWidget {
+  final bool isAnonymous;
   final Function(String) onShowToolModal;
 
   const ProgressToolsSection({
     super.key,
     required this.onShowToolModal,
+    this.isAnonymous = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    // Don't show progress tools for anonymous users
+    if (isAnonymous) {
+      return const SizedBox.shrink();
+    }
+
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(

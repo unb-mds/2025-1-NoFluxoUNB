@@ -6,14 +6,21 @@ import '../../../../cache/shared_preferences_helper.dart';
 
 class ProgressSummarySection extends StatelessWidget {
   final CursoModel? courseData;
+  final bool isAnonymous;
 
   const ProgressSummarySection({
     super.key,
     required this.courseData,
+    this.isAnonymous = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    // Don't show progress summary for anonymous users
+    if (isAnonymous) {
+      return const SizedBox.shrink();
+    }
+
     return Container(
       margin: const EdgeInsets.only(bottom: 32),
       child: Row(
