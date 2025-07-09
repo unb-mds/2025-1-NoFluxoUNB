@@ -65,6 +65,7 @@ const cleanup = () => {
     ragflowAgentProcess.kill();
 };
 
+
 // Handle normal exit
 process.on('exit', cleanup);
 
@@ -164,6 +165,7 @@ app.use(cors({
 app.use(fileUpload())
 app.use(bodyParser.json({ limit: 500 * 1024 * 1024, }));
 app.use(bodyParser.urlencoded({ extended: true, limit: 500 * 1024 * 1024 }));
+
 
 app.use(router);
 
