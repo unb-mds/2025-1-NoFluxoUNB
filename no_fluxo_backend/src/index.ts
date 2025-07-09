@@ -89,6 +89,8 @@ process.on('unhandledRejection', (reason, promise) => {
     process.exit(1);
 });
 
+
+
 const router = express.Router();
 
 const controllers: EndpointController[] = [
@@ -97,6 +99,21 @@ const controllers: EndpointController[] = [
     UsersController,
     CursosController
 ];
+
+router.get('/', (req: Request, res: Response) => {
+    res.json({
+        status: 'online',
+        timestamp: new Date().toISOString(),
+        version: '1.0.0',
+        endpoints: controllers.map(controller => ({
+            name: controller.name,
+            routes: Object.keys(controller.routes).map(route => ({
+                path: `/${controller.name}/${route}`,
+                method: controller.routes[route].key
+            }))
+        }))
+    });
+});
 
 controllers.forEach(controller => {
     Object.keys(controller.routes).forEach(route_name => {

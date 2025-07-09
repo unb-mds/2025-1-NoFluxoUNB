@@ -2565,3 +2565,183 @@
 2025-07-09 09:52:44,397 - werkzeug - INFO -  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/visualizaJsonMateriasAssociadas.py', reloading
 2025-07-09 09:52:44,397 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/visualizaJsonMateriasAssociadas.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
 2025-07-09 09:52:44,397 - werkzeug - INFO -  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/visualizaJsonMateriasAssociadas.py', reloading
+2025-07-09 10:32:07,264 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:32:07,265 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:32:07,266 - __main__ - INFO - ==================================================
+2025-07-09 10:32:07,266 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:32:07,266 - __main__ - INFO - ==================================================
+2025-07-09 10:32:07,266 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:32:07,266 - __main__ - INFO - Port: 4652
+2025-07-09 10:32:07,266 - __main__ - INFO - Debug mode: True
+2025-07-09 10:32:07,266 - __main__ - INFO - Log level: 10
+2025-07-09 10:32:07,266 - __main__ - INFO - Environment: development
+2025-07-09 10:32:07,266 - __main__ - INFO - ==================================================
+2025-07-09 10:32:07,311 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://15.0.89.103:4652
+2025-07-09 10:32:07,311 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 10:32:07,318 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 10:32:07,482 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:32:07,483 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:32:07,484 - __main__ - INFO - ==================================================
+2025-07-09 10:32:07,484 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:32:07,484 - __main__ - INFO - ==================================================
+2025-07-09 10:32:07,484 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:32:07,484 - __main__ - INFO - Port: 4652
+2025-07-09 10:32:07,484 - __main__ - INFO - Debug mode: True
+2025-07-09 10:32:07,484 - __main__ - INFO - Log level: 10
+2025-07-09 10:32:07,484 - __main__ - INFO - Environment: development
+2025-07-09 10:32:07,484 - __main__ - INFO - ==================================================
+2025-07-09 10:32:07,505 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 10:32:07,514 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 10:44:20,848 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:20,849 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:20,850 - __main__ - INFO - ==================================================
+2025-07-09 10:44:20,850 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:20,850 - __main__ - INFO - ==================================================
+2025-07-09 10:44:20,850 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:20,850 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:20,850 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:20,850 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:20,850 - __main__ - INFO - Environment: development
+2025-07-09 10:44:20,850 - __main__ - INFO - ==================================================
+2025-07-09 10:44:20,888 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://15.0.89.103:4652
+2025-07-09 10:44:20,888 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 10:44:20,891 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 10:44:21,049 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:21,050 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:21,051 - __main__ - INFO - ==================================================
+2025-07-09 10:44:21,051 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:21,051 - __main__ - INFO - ==================================================
+2025-07-09 10:44:21,051 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:21,051 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:21,051 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:21,051 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:21,051 - __main__ - INFO - Environment: development
+2025-07-09 10:44:21,051 - __main__ - INFO - ==================================================
+2025-07-09 10:44:21,072 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 10:44:21,080 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 10:44:22,754 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:22,755 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:22,755 - __main__ - INFO - ==================================================
+2025-07-09 10:44:22,755 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:22,756 - __main__ - INFO - ==================================================
+2025-07-09 10:44:22,756 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:22,756 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:22,756 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:22,756 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:22,756 - __main__ - INFO - Environment: development
+2025-07-09 10:44:22,756 - __main__ - INFO - ==================================================
+2025-07-09 10:44:22,797 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://15.0.89.103:4652
+2025-07-09 10:44:22,797 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 10:44:22,803 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 10:44:22,987 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:22,988 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:22,988 - __main__ - INFO - ==================================================
+2025-07-09 10:44:22,988 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:22,988 - __main__ - INFO - ==================================================
+2025-07-09 10:44:22,988 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:22,989 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:22,989 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:22,989 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:22,989 - __main__ - INFO - Environment: development
+2025-07-09 10:44:22,989 - __main__ - INFO - ==================================================
+2025-07-09 10:44:23,010 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 10:44:23,017 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 10:44:26,188 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:26,189 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:26,190 - __main__ - INFO - ==================================================
+2025-07-09 10:44:26,190 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:26,190 - __main__ - INFO - ==================================================
+2025-07-09 10:44:26,190 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:26,190 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:26,190 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:26,190 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:26,190 - __main__ - INFO - Environment: development
+2025-07-09 10:44:26,190 - __main__ - INFO - ==================================================
+2025-07-09 10:44:26,221 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://15.0.89.103:4652
+2025-07-09 10:44:26,221 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 10:44:26,226 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 10:44:26,383 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:26,384 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:26,385 - __main__ - INFO - ==================================================
+2025-07-09 10:44:26,385 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:26,385 - __main__ - INFO - ==================================================
+2025-07-09 10:44:26,385 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:26,385 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:26,385 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:26,385 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:26,385 - __main__ - INFO - Environment: development
+2025-07-09 10:44:26,385 - __main__ - INFO - ==================================================
+2025-07-09 10:44:26,407 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 10:44:26,413 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 10:44:28,071 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:28,072 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:28,073 - __main__ - INFO - ==================================================
+2025-07-09 10:44:28,073 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:28,073 - __main__ - INFO - ==================================================
+2025-07-09 10:44:28,073 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:28,073 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:28,073 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:28,073 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:28,073 - __main__ - INFO - Environment: development
+2025-07-09 10:44:28,073 - __main__ - INFO - ==================================================
+2025-07-09 10:44:28,103 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://15.0.89.103:4652
+2025-07-09 10:44:28,103 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 10:44:28,106 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 10:44:28,262 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:28,263 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:28,264 - __main__ - INFO - ==================================================
+2025-07-09 10:44:28,264 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:28,264 - __main__ - INFO - ==================================================
+2025-07-09 10:44:28,264 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:28,264 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:28,264 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:28,264 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:28,264 - __main__ - INFO - Environment: development
+2025-07-09 10:44:28,264 - __main__ - INFO - ==================================================
+2025-07-09 10:44:28,284 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 10:44:28,290 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 10:44:36,610 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:36,611 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:36,612 - __main__ - INFO - ==================================================
+2025-07-09 10:44:36,612 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:36,612 - __main__ - INFO - ==================================================
+2025-07-09 10:44:36,612 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:36,612 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:36,612 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:36,612 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:36,612 - __main__ - INFO - Environment: development
+2025-07-09 10:44:36,612 - __main__ - INFO - ==================================================
+2025-07-09 10:44:36,641 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://15.0.89.103:4652
+2025-07-09 10:44:36,641 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 10:44:36,645 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 10:44:36,803 - __main__ - INFO - Logging initialized successfully
+2025-07-09 10:44:36,804 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 10:44:36,805 - __main__ - INFO - ==================================================
+2025-07-09 10:44:36,805 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 10:44:36,805 - __main__ - INFO - ==================================================
+2025-07-09 10:44:36,805 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 10:44:36,805 - __main__ - INFO - Port: 4652
+2025-07-09 10:44:36,805 - __main__ - INFO - Debug mode: True
+2025-07-09 10:44:36,805 - __main__ - INFO - Log level: 10
+2025-07-09 10:44:36,805 - __main__ - INFO - Environment: development
+2025-07-09 10:44:36,806 - __main__ - INFO - ==================================================
+2025-07-09 10:44:36,833 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 10:44:36,840 - werkzeug - INFO -  * Debugger PIN: 114-293-037

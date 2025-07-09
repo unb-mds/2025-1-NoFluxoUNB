@@ -41,8 +41,7 @@ class Environment {
     logger
         .info('🌍 Initializing environment - isProd: $isProd, isWeb: $kIsWeb');
 
-    logger.info('🔗 API URL: $apiUrl');
-    logger.info('🔄 Redirect URL: $redirectToUrl');
+    
 
     if (isProd) {
       setEnvironmentType(EnvironmentType.production);
