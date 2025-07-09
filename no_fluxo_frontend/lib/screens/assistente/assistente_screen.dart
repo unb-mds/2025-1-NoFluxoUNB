@@ -246,7 +246,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(width: 32),
+                        const SizedBox(width: 8),
                         // Painel lateral (1/3)
                       Expanded(
                         flex: 1,
@@ -257,7 +257,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                             children: [
                                 // Matérias Selecionadas
                                 Container(
-                                  width: 400,
+                                  width: 500,
                                   padding: const EdgeInsets.all(20),
                                   margin: const EdgeInsets.only(bottom: 24),
                                   decoration: BoxDecoration(
@@ -374,7 +374,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                                 ),
                                 // Seu Fluxograma
                                 Container(
-                                  width: 400,
+                                  width: 500,
                                   padding: const EdgeInsets.all(20),
                                   decoration: BoxDecoration(
                                     color: Colors.black.withOpacity(0.3),
@@ -401,10 +401,13 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                                           color: Colors.black.withOpacity(0.5),
                                           borderRadius: BorderRadius.circular(8),
                                         ),
-                                        child: SizedBox(
-                                          width: 360,
-                                          height: 300,
-                                          child: _buildFluxogramPreview(),
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: SizedBox(
+                                            width: 460,
+                                            height: 300,
+                                            child: _buildFluxogramPreview(),
+                                          ),
                                         ),
                                       ),
                                     ],
