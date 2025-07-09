@@ -3,21 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NoFluxoUNB - Erro</title>
     <link rel="stylesheet" href="erro.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="graffiti-wall"></div>
     <div class="gradient-overlay"></div>
     <div class="cracks-overlay"></div>
-    <div class="erro-container">
-        <div class="erro-x-glow"></div>
-        <div class="erro-x">
-            <div class="erro-x-bar erro-x-bar1"></div>
-            <div class="erro-x-bar erro-x-bar2"></div>
-        </div>
-        <span class="erro-text glitch">Ocorreu um erro!</span>
-        <button class="erro-btn" onclick="window.location.reload()">Tentar novamente</button>
+    <div class="controls">
+        <button class="control-btn active" onclick="showError()">Erro</button>
     </div>
+    <div class="screen error-screen active" id="errorScreen">
+        <div class="error-card">
+            <div class="error-icon">
+                <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:auto;">
+                    <circle cx="28" cy="28" r="26" fill="#ff5e62" stroke="#fff" stroke-width="4"/>
+                    <line x1="18" y1="18" x2="38" y2="38" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="38" y1="18" x2="18" y2="38" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 class="error-title">Oops!</h1>
+            <p class="error-message">
+                Algo deu errado ao carregar o NoFluxoUNB.<br>
+                Verifique sua conexão e tente novamente.
+            </p>
+            <div class="error-code">Erro: CONN_TIMEOUT_001</div>
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="retryConnection()">🔄 Tentar Novamente</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showError() {
+            document.getElementById('errorScreen').classList.add('active');
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        function retryConnection() {
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '⏳ Conectando...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                alert('Tentativa de reconexão realizada!');
+            }, 2000);
+        }
+        function goOffline() {
+            alert('Modo offline ativado! Algumas funcionalidades podem estar limitadas.');
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            showError();
+        });
+    </script>
 </body>
 </html> 
