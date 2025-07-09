@@ -38,12 +38,9 @@ pnpm-debug.log*
 venv
 
 # Log files
-*.log
-logs/
-*.log.*
-ai_agent.log
-debug.log
-error.log
+**/*.log
+
+
 
 # AI Agent
 AI-agent/logs/
