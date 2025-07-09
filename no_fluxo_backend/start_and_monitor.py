@@ -164,6 +164,8 @@ def get_authenticated_url(url, username, token):
         authenticated_url = f"https://{quoted_username}:{quoted_token}@{netloc}{parsed.path}"
         return authenticated_url
     
+    
+    
     # Return original URL if not HTTPS
     return url
 
