@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../cache/shared_preferences_helper.dart';
+
 class FluxogramaLegendControls extends StatelessWidget {
   final double zoomLevel;
   final bool showPrereqChains;
@@ -44,12 +46,14 @@ class FluxogramaLegendControls extends StatelessWidget {
                   'Concluídas',
                 ),
                 // Only show current/selected status for logged-in users
-                if (!isAnonymous) ...[
+                if (!isAnonymous || !SharedPreferencesHelper.isAnonimo) ...[
                   _buildLegendItem(
                     const Color(0xFFA78BFA),
                     const Color(0xFF8B5CF6),
                     'Em Curso',
                   ),
+                ],
+                if (!isAnonymous) ...[
                   _buildLegendItem(
                     const Color(0xFFFB7185),
                     const Color(0xFFE11D48),

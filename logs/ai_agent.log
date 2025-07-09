@@ -3071,3 +3071,32 @@
 2025-07-09 11:15:27,730 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 29.63 seconds
 2025-07-09 11:15:27,730 - __main__ - DEBUG - Response: 200 for POST http://localhost:4652/assistente
 2025-07-09 11:15:27,730 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 11:15:27] "POST /assistente HTTP/1.1" 200 -
+2025-07-09 11:33:09,958 - __main__ - DEBUG - Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+2025-07-09 11:33:09,958 - __main__ - DEBUG - Response: 200 for OPTIONS http://localhost:4652/assistente
+2025-07-09 11:33:09,958 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 11:33:09] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 11:33:09,959 - __main__ - DEBUG - Request: POST http://localhost:4652/assistente from 127.0.0.1
+2025-07-09 11:33:09,959 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 11:33:09,960 - __main__ - DEBUG - Extracting data from request
+2025-07-09 11:33:09,960 - __main__ - INFO - Received materia: 'mkmkm'
+2025-07-09 11:33:09,960 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 11:33:09,960 - __main__ - DEBUG - Removing accents from text: 'mkmkm'
+2025-07-09 11:33:09,960 - __main__ - DEBUG - Text after accent removal: 'mkmkm'
+2025-07-09 11:33:09,960 - __main__ - INFO - Materia processed: 'mkmkm' -> 'MKMKM'
+2025-07-09 11:33:09,960 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 11:33:09,960 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 11:33:09,960 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 11:33:09,960 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 11:33:09,960 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 11:33:09,960 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 11:33:09,960 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 11:33:09,960 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 11:33:09,960 - ragflow_agent_client - INFO - Starting new session for materia: 'MKMKM'
+2025-07-09 11:33:09,960 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "MKMKM",
+  "stream": false
+}
+2025-07-09 11:33:09,961 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 11:33:09,962 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443

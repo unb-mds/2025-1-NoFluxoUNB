@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../cache/shared_preferences_helper.dart';
 import '../../data/materia_model.dart';
 import '../../../../config/app_colors.dart';
 
@@ -22,7 +23,9 @@ class CourseCardWidget extends StatelessWidget {
 
     // For anonymous users, only show completed, optative, and future statuses
     String displayStatus = subject.status ?? 'future';
-    if (isAnonymous && subject.status == 'current') {
+    if (isAnonymous &&
+        subject.status == 'current' &&
+        SharedPreferencesHelper.isAnonimo) {
       displayStatus = 'future';
     }
 
@@ -32,7 +35,7 @@ class CourseCardWidget extends StatelessWidget {
         endColor = AppColors.completedEnd;
         break;
       case 'selected':
-        if (isAnonymous) {
+        if (isAnonymous && SharedPreferencesHelper.isAnonimo) {
           // For anonymous users, treat selected as future
           startColor = AppColors.futureStart;
           endColor = AppColors.futureEnd;
