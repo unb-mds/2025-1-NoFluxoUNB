@@ -49,10 +49,10 @@ class Environment {
       logger.info('🧪 Development environment configured');
     }
 
-    logger.info('🔗 API URL: ${getApiUrl()}');
-    logger.info('🔄 Redirect URL: ${getRedirectToUrl()}');
-
     _initialized = true;
+    
+    logger.info('🔗 API URL: $apiUrl');
+    logger.info('🔄 Redirect URL: $redirectToUrl');
   }
 
   /// Initialize logging configuration. This should be called once at app startup.
