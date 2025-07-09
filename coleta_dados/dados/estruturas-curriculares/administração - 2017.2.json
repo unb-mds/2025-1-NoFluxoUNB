@@ -1,0 +1,1287 @@
+{
+  "curso": "ADMINISTRAÇÃO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2017.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0315",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0316",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0041",
+          "nome": "GESTAO DE PESSOAS EM ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0187",
+          "nome": "MICROECONOMIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0192",
+          "nome": "CALCULO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0198",
+          "nome": "METODOLOGIA CIENTIFICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0321",
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0052",
+          "nome": "FINANCAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0064",
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0190",
+          "nome": "MACROECONOMIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0021",
+          "nome": "SOCIOLOGIA APLICADA A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0035",
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0092",
+          "nome": "ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0047",
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0060",
+          "nome": "LOGISTICA EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0156",
+          "nome": "ESTRATEGIA EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0298",
+          "nome": "ADMINISTRACAO DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0273",
+          "nome": "PROJETO DE PESQUISA EM ADMINISTRACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0297",
+          "nome": "ELABORACAO DE TRABALHO DE CURSO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "30H OPTATIVA ADM0003 - TOPICOS CONTEMPORANEOS EM ESTRATEGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0004",
+          "nome": "TOPICOS CONTEMPORANEOS EM INOVACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0005",
+          "nome": "INOVACAO EM SERVICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0006",
+          "nome": "GESTAO DE MARCAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0007",
+          "nome": "LOGISTICA INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0008",
+          "nome": "MARKETING SOCIALMENTE RESPONSAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0009",
+          "nome": "MARKETING DE SERVICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0010",
+          "nome": "MARKETING DIGITAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0011",
+          "nome": "ECONOMIA COMPORTAMENTAL APLICADA AO MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0012",
+          "nome": "ADMINISTRACAO DE CUSTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0013",
+          "nome": "AVALIACAO DA EFICIENCIA E PRODUTIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0014",
+          "nome": "ADMINISTRACAO PUBLICA E GESTAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0015",
+          "nome": "ESTADO, GOVERNO E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0016",
+          "nome": "ORGANIZACAO E GESTAO DE SERVICOS PUBLICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0017",
+          "nome": "GESTAO DE COMPRAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0018",
+          "nome": "AVALIACAO E MONITORAMENTO DA ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0025",
+          "nome": "ORGANIZACAO E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0061",
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0068",
+          "nome": "MERCADO FINANCEIRO E DE CAPITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0070",
+          "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0086",
+          "nome": "GESTAO DA REMUNERACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0107",
+          "nome": "ORCAMENTO EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0150",
+          "nome": "CRIACAO DE NEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0157",
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0162",
+          "nome": "GESTAO DA INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0218",
+          "nome": "ANALISE DE CONJUNTURA PARA DECISAO EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0226",
+          "nome": "GESTAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0228",
+          "nome": "ANALISE INSTITUCIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0241",
+          "nome": "PESQUISA DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0244",
+          "nome": "GESTAO DE VENDAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0253",
+          "nome": "TREINAMENTO, DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0258",
+          "nome": "GESTAO DE DESEMPENHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0261",
+          "nome": "MARKETING DE ESPECIALIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0269",
+          "nome": "GERENCIA DE PRODUTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0299",
+          "nome": "ANALISE DE DECISOES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0300",
+          "nome": "COMPORTAMENTO DO CONSUMIDOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0301",
+          "nome": "FINANCAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0302",
+          "nome": "GESTAO DE MUDANCA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0303",
+          "nome": "GESTAO DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0304",
+          "nome": "GESTAO DE RESPONSABILIDADE SOCIOAMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0305",
+          "nome": "GESTAO POR COMPETENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0306",
+          "nome": "MARKETING DE RELACIONAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0307",
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0308",
+          "nome": "NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0309",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO PUBLICA E GESTAO SOCIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0311",
+          "nome": "TOPICOS CONTEMPORANEOS EM FINANCAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0312",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE PESSOAS E RELACOES DE TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0313",
+          "nome": "TOPICOS CONTEMPORANEOS EM PRODUCAO, LOGISTICA E GESTAO DA INFORMACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0317",
+          "nome": "ADMINISTRACAO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0318",
+          "nome": "INTERNACIONALIZACAO DE EMPRESAS E GESTAO DE NEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0322",
+          "nome": "CRIATIVIDADE E INOVACAO NAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0323",
+          "nome": "TOPICOS CONTEMPORANEOS EM MARKETING",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0364",
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0366",
+          "nome": "GESTAO DE TELETRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0367",
+          "nome": "LGBT NAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0021",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0029",
+          "nome": "CONTABILIDADE COMERCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0031",
+          "nome": "ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0044",
+          "nome": "CONTROLADORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0056",
+          "nome": "AVALIACAO DE PROJETOS DE INVESTIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0067",
+          "nome": "PROGRAMACAO FISCAL E FINANCEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0074",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0079",
+          "nome": "CONTABILIDADE GERAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0089",
+          "nome": "ANALISE DA LIQUIDEZ",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0091",
+          "nome": "EXECUCAO DA GESTAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0008",
+          "nome": "PROGRAMACAO SISTEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0092",
+          "nome": "ORGANIZACAO DE ARQUIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0097",
+          "nome": "BANCOS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0101",
+          "nome": "SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0128",
+          "nome": "INTRODUCAO A ECONOMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0197",
+          "nome": "ECONOMIA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0066",
+          "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0028",
+          "nome": "ESTATISTICA APLICADA A PSICOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0054",
+          "nome": "PESQUISA OPERACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0061",
+          "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0034",
+          "nome": "GERENCIA DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0051",
+          "nome": "PLANEJAMENTO DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0062",
+          "nome": "TEORIA GERAL DO DIREITO PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0172",
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0008",
+          "nome": "EMPRESA JUNIOR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0009",
+          "nome": "EMPRESA JUNIOR 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "GPP0031",
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0032",
+          "nome": "FINANCAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0033",
+          "nome": "PLANEJAMENTO GOVERNAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0034",
+          "nome": "ADMINISTRACAO DE SERVICOS NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0035",
+          "nome": "ADMINISTRACAO PUBLICA COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0036",
+          "nome": "ORCAMENTO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0040",
+          "nome": "INOVACAO NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0053",
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0065",
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0168",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0169",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0037",
+          "nome": "LINGUA PORTUGUESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0005",
+          "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0040",
+          "nome": "AVALIACAO DE POLITICAS GOVERNAMENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0020",
+          "nome": "ANALISE ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0039",
+          "nome": "MEDIDAS EM PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0050",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0051",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0054",
+          "nome": "AVALIACAO DE TREINAMENTO E DE DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0066",
+          "nome": "ERGONOMIA APLICADA A INFORMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0077",
+          "nome": "DIVERSIDADE NAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0315",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0316",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0321",
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0315",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0316",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0041",
+          "nome": "GESTAO DE PESSOAS EM ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0187",
+          "nome": "MICROECONOMIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0192",
+          "nome": "CALCULO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0198",
+          "nome": "METODOLOGIA CIENTIFICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0321",
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0052",
+          "nome": "FINANCAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0064",
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0190",
+          "nome": "MACROECONOMIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0021",
+          "nome": "SOCIOLOGIA APLICADA A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0035",
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0092",
+          "nome": "ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0047",
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0060",
+          "nome": "LOGISTICA EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0156",
+          "nome": "ESTRATEGIA EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0298",
+          "nome": "ADMINISTRACAO DE SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0273",
+          "nome": "PROJETO DE PESQUISA EM ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0297",
+          "nome": "ELABORACAO DE TRABALHO DE CURSO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

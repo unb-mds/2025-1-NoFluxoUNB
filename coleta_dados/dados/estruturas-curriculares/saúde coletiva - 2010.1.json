@@ -1,0 +1,1897 @@
+{
+  "curso": "SAÚDE COLETIVA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2010.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0052",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0057",
+          "nome": "CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0044",
+          "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0051",
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0010",
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0058",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0060",
+          "nome": "SEMINARIOS INTEGRADOS EM SAUDE COLETIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0059",
+          "nome": "PESQUISA SOCIAL EM SAUDE COLETIVA",
+          "ch": "45"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0016",
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0038",
+          "nome": "SAUDE FAMILIAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0062",
+          "nome": "PRATICAS INTEGRADAS EM SAUDE COLETIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0063",
+          "nome": "DIREITO SANITARIO E LEGISLACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0075",
+          "nome": "GESTAO E PROMOCAO DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0064",
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0056",
+          "nome": "COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0065",
+          "nome": "GESTAO ESTRATEGICA PARTICIPACAO E CONTROLE SOCIAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0076",
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0326",
+          "nome": "PLANEJAMENTO E PROGRAMACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0066",
+          "nome": "ETICA, CIENCIA E TECNOLOGIA EM SAUDE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0061",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0067",
+          "nome": "PRATICAS INTEGRADAS EM SAUDE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0070",
+          "nome": "MONITORAMENTO E AVALIACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0079",
+          "nome": "GESTAO DE SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0025",
+          "nome": "AMBIENTE SAUDE E TRABALHO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0069",
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO 3 VIGILANCIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0072",
+          "nome": "GESTAO DO TRABALHO E EDUCACAO PERMANENTE NA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0006",
+          "nome": "INTRODUCAO A GESTAO HOSPITALAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0073",
+          "nome": "TECNOLOGIAS PARA INFORMACAO COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0086",
+          "nome": "SAUDE INTERNACIONAL - TOPICOS ESPECIAIS EM SAUDE COLETIVA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0078",
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 3",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0084",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "ADM0225",
+          "nome": "ELABORACAO E AVALIACAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0083",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DSC0085",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "DSC0087",
+          "nome": "ELABORACAO DO TRABALHO CIENTIFICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "DSC0004",
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "SOCIAL",
+          "nome": "60H OPTATIVA ADM0030 - TEORIA ADMINISTRATIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0040",
+          "nome": "ADMINISTRACAO DE RECURSOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0059",
+          "nome": "ADMINISTRACAO DE RECURSOS MATERIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0157",
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0168",
+          "nome": "ADMINISTRACAO DE SERVICOS PUBLICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0174",
+          "nome": "ORCAMENTO PUBLICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0213",
+          "nome": "TEORIA E ANALISE DAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0308",
+          "nome": "NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0316",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0008",
+          "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0011",
+          "nome": "SISTEMAS SOCIOAMBIENTAIS E COMPLEXIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEM0051",
+          "nome": "PROMOCAO DA SAUDE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0036",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0019",
+          "nome": "ANTROPOLOGIA DO CORPO E DA PESSOA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0055",
+          "nome": "ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0083",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 10",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0101",
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0204",
+          "nome": "VIGILANCIA EPIDEMIOLOGICA COMUNITARIA E PARTICIPATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX1108",
+          "nome": "CONSTRUCAO DE PROJETOS SOCIAIS MULTIDISCIPLINARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0001",
+          "nome": "COMUNICACAO EM SAUDE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0003",
+          "nome": "SAUDE INDIGENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0005",
+          "nome": "POLITICAS DE SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0011",
+          "nome": "SAUDE E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0020",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0045",
+          "nome": "VIGILANCIA SANITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0046",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0048",
+          "nome": "LABORATORIO DA ANTROPOLOGIA DA SAUDE E DA DOENCA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DSC0068",
+          "nome": "SAUDE DO TRABALHADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0082",
+          "nome": "GESTAO DE INSUMOS MATERIAL E PATRIMONIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0089",
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0090",
+          "nome": "EXTENSAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0091",
+          "nome": "PESQUISA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0259",
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0008",
+          "nome": "PENSAMENTO SOCIAL E POLITICO NA AMERICA LATINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0057",
+          "nome": "GESTAO EM POLITICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0060",
+          "nome": "TECNOLOGIA DA EDUCACAO EM SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0026",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0029",
+          "nome": "INTRODUCAO AO MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0031",
+          "nome": "INTRODUCAO AS TEORIAS DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0119",
+          "nome": "ASSISTENCIA FARMACEUTICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0169",
+          "nome": "VIGILANCIA SANITARIA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0173",
+          "nome": "ASSISTENCIA FARMACEUTICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0016",
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0018",
+          "nome": "PARASITOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0066",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0158",
+          "nome": "PATOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0159",
+          "nome": "PARASITOLOGIA E DOENCAS PARASITARIAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0160",
+          "nome": "EPIDEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0206",
+          "nome": "MICROBIOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0234",
+          "nome": "INTRODUCAO A MEDICINA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0236",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0303",
+          "nome": "PATOLOGIA GERAL VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0017",
+          "nome": "PRINCIPAIS VETORES DE IMPORTANCIA EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0021",
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0044",
+          "nome": "ANTROPOLOGIA DA SAUDE E ADOECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0045",
+          "nome": "METODO DA ERGONOMIA DA ATIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0051",
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0073",
+          "nome": "PESQUISA EM ONCOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0108",
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0110",
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0140",
+          "nome": "SEGURANCA DO PACIENTE NA ATENCAO A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0152",
+          "nome": "PESQUISA EM TERAPIA OCUPACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0159",
+          "nome": "PESQUISA EM TERAPIA OCUPACIONAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0178",
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0208",
+          "nome": "SAUDE E SOCIEDADE 2: A CONSTRUCAO SOCIAL DO PROCESSO SAUDE E DOENCA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0216",
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0217",
+          "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0219",
+          "nome": "INTRODUCAO A PSICOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0234",
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0243",
+          "nome": "PRATICAS DE SAUDE BASEADAS EM EVIDENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0273",
+          "nome": "SAUDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0274",
+          "nome": "ANALISE DO DISCURSO DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0275",
+          "nome": "SOCIOLOGIA DO CORPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0278",
+          "nome": "TEORIAS E MODELOS DE ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0313",
+          "nome": "IMUNOBIOLOGIA DA RELACAO PATOGENO - HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0324",
+          "nome": "DIREITO SANITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0330",
+          "nome": "PENSAMENTO SOCIAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0335",
+          "nome": "PROMOCAO DA SAUDE CONCEITOS E CONTEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0336",
+          "nome": "ECONOMIA E FINANCIAMENTO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0339",
+          "nome": "SEMINARIO INTEGRATIVO 7",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0343",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0344",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0345",
+          "nome": "PRATICAS INTEGRADAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0349",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0350",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0382",
+          "nome": "PESQUISA EM GERONTOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0390",
+          "nome": "FARMACOEPIDEMIOLOGIA E FARMACOVIGILANCIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0397",
+          "nome": "PROCESSO DE CUIDAR EM ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0401",
+          "nome": "SEMINARIO INTEGRATIVO 8",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCI0012",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCS0047",
+          "nome": "INTRODUCAO A ASSISTENCIA FARMACEUTICA",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0153",
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0167",
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0172",
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0249",
+          "nome": "TEORIA GERAL DO ESTADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0270",
+          "nome": "INTRODUCAO A FILOSOFIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0271",
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0274",
+          "nome": "ARBITRAGEM, MEDIACAO E NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0277",
+          "nome": "DIREITO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0039",
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0165",
+          "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0183",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0104",
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0120",
+          "nome": "TOPICOS ESPECIAIS DE ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0167",
+          "nome": "ETICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0169",
+          "nome": "ESTAGIO PEDAGOGICO SUPERVISIONADO 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "FMD0095",
+          "nome": "PATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0165",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0167",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0512",
+          "nome": "HISTOLOGIA MEDICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FMD0570",
+          "nome": "EPIDEMIOLOGIA DOS ACIDENTES DE TRANSITO",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0022",
+          "nome": "FUNDAMENTOS DE HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0054",
+          "nome": "HISTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0021",
+          "nome": "INTRODUCAO A GESTAO DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0040",
+          "nome": "INOVACAO NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0143",
+          "nome": "HISTOLOGIA ANIMAL 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0244",
+          "nome": "FILOSOFIA E HISTORIA DAS CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ILD0037",
+          "nome": "ESPANHOL INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0137",
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0213",
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0021",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0017",
+          "nome": "NUTRICAO NORMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "NUT0054",
+          "nome": "NUTRICAO HUMANA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "PAD0011",
+          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0019",
+          "nome": "HIGIENE ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0072",
+          "nome": "PSICOLOGIA DO GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0009",
+          "nome": "PSICOLOGIA SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0025",
+          "nome": "PSICOLOGIA APLICADA A ADMINISTRACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0033",
+          "nome": "ERGONOMIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0048",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "SER0014",
+          "nome": "POLITICA SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0050",
+          "nome": "PLANEJAMENTO E ADMINISTRACAO EM SERVICO SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0036",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0043",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0003",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0004",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL E INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0044",
+          "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0051",
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0059",
+          "nome": "PESQUISA SOCIAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0064",
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0066",
+          "nome": "ETICA, CIENCIA E TECNOLOGIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0025",
+          "nome": "AMBIENTE SAUDE E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0006",
+          "nome": "INTRODUCAO A GESTAO HOSPITALAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0073",
+          "nome": "TECNOLOGIAS PARA INFORMACAO COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0086",
+          "nome": "SAUDE INTERNACIONAL - TOPICOS ESPECIAIS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0225",
+          "nome": "ELABORACAO E AVALIACAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0087",
+          "nome": "ELABORACAO DO TRABALHO CIENTIFICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0004",
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0052",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0057",
+          "nome": "CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0044",
+          "nome": "ELABORACAO DE TRABALHO CIENTIFICO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0051",
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0010",
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0058",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0060",
+          "nome": "SEMINARIOS INTEGRADOS EM SAUDE COLETIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0059",
+          "nome": "PESQUISA SOCIAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0016",
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0038",
+          "nome": "SAUDE FAMILIAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0062",
+          "nome": "PRATICAS INTEGRADAS EM SAUDE COLETIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0063",
+          "nome": "DIREITO SANITARIO E LEGISLACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0075",
+          "nome": "GESTAO E PROMOCAO DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0064",
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0056",
+          "nome": "COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0065",
+          "nome": "GESTAO ESTRATEGICA PARTICIPACAO E CONTROLE SOCIAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0076",
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0326",
+          "nome": "PLANEJAMENTO E PROGRAMACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0066",
+          "nome": "ETICA, CIENCIA E TECNOLOGIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0061",
+          "nome": "FUNDAMENTOS BIOLOGICOS EM SAUDE COLETIVA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0067",
+          "nome": "PRATICAS INTEGRADAS EM SAUDE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0070",
+          "nome": "MONITORAMENTO E AVALIACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0079",
+          "nome": "GESTAO DE SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0025",
+          "nome": "AMBIENTE SAUDE E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0069",
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO 3 VIGILANCIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0072",
+          "nome": "GESTAO DO TRABALHO E EDUCACAO PERMANENTE NA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0006",
+          "nome": "INTRODUCAO A GESTAO HOSPITALAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0073",
+          "nome": "TECNOLOGIAS PARA INFORMACAO COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0086",
+          "nome": "SAUDE INTERNACIONAL - TOPICOS ESPECIAIS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0078",
+          "nome": "SEMINARIO INTEGRADOR EM SAUDE COLETIVA 3",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0084",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "ADM0225",
+          "nome": "ELABORACAO E AVALIACAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0083",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DSC0085",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "DSC0087",
+          "nome": "ELABORACAO DO TRABALHO CIENTIFICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0004",
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

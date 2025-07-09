@@ -1,0 +1,1431 @@
+[
+    {
+        "nome": "AÇO E ARQUITETURA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0022 E PRO0017 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0037"
+    },
+    {
+        "nome": "CONFORTO AMBIENTAL LUMINOSO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0017 OU PRO0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0251 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0177 ) ) OU ( FAU0251 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0177 ) ) OU ( FAU0251 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0177 ) ) OU ( FAU0251 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estudo do controle da luz no urbanismo e na arquitetura, com ênfase no estudo da luz natural. Suas características físicas e unidades. Fisiologia da percepção. Planejamento para a luz e métodos de projeto visando o conforto luminoso e a conservação de energia.",
+        "codigo": "TEC0029"
+    },
+    {
+        "nome": "CONFORTO SONORO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0017 OU PRO0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0250 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0177 ) ) OU ( FAU0250 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0177 ) ) OU ( FAU0250 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0177 ) ) OU ( FAU0250 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aspectos físicos do som. Aspectos psico-fisiológicos da percepção sonora. Geração e propagação do som (geometria do som). Meios de controle do som: planejamento e disposição dos elementos urbanos e arquitetônicos isolamento acústico (enfraquecimento e absorção do som) tempo ótimo de reverberação. Projeto acústico de ambientes.",
+        "codigo": "TEC0028"
+    },
+    {
+        "nome": "CONFORTO TERMICO AMBIENTAL",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0042 E PRO0064 ) OU ( FAU0176 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0119 OU FAU0120 ) ) OU ( FAU0176 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0119 OU FAU0120 ) ) OU ( FAU0176 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0119 OU FAU0120 ) ) OU ( FAU0176 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Física aplicada à arquitetura e urbanismo. Bbioclimatologia humana: clima e exigências humanas quanto ao conforto térmico. Propriedades termofísicas dos materiais e componentes da cosntrução. Princípios bioclimáticos da arquitetura e do urbanismo.",
+        "codigo": "TEC0017"
+    },
+    {
+        "nome": "CONFORTO TÉRMICO AMBIENTAL 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0017 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0042"
+    },
+    {
+        "nome": "ENSAIO EM TECNOLOGIA  DA ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0013 E TEC0022 E TEC0028 E TEC0029 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0033"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM OBRA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( PRO0020 ) OU ( PRO0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0164 ) OU ( FAU0165 ) OU ( FAU0166 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0220 OU ENC0221 ) ) OU ( FAU0164 OU FAU0165 OU FAU0166 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0220 OU ENC0221 ) ) OU ( FAU0164 OU FAU0165 OU FAU0166 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0220 OU ENC0221 ) ) OU ( FAU0164 OU FAU0165 OU FAU0166 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0220 OU ENC0221 ) ) OU ( FAU0164 OU FAU0165 OU FAU0166 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0220 OU ENC0221 ) ) OU ( FAU0164 OU FAU0165 OU FAU0166 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Exercício prático levado a efeito junto a obra(s) em construção nas empresas públicas ou privadas. O aluno deve participar efetivamente desta experiência profissional colaborando na realização de trabalhos executados sob a responsabilidade de profissionais legalmente habilitados.",
+        "codigo": "TEC0014"
+    },
+    {
+        "nome": "ESTRUTURAS ARQUITETONICAS 3",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( FAU0147 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0148 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0180 OU TEC0020 OU TEC0021 OU TEC0022 ) ) OU ( FAU0148 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0180 OU TEC0020 OU TEC0021 OU TEC0022 ) ) OU ( FAU0148 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0180 OU TEC0020 OU TEC0021 OU TEC0022 ) ) OU ( FAU0148 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTRUTURAS DE  ALVENARIA. ESTRUTURAS DE  ACO. ESTRUTURAS  DE MADEIRA.ESTRUTURAS DE CONCRETO ARMADO E PROTENDIDO, ESTUDO DOS MATERIAIS  EMPRE-GADOS,  TECNICAS  CONSTRUTIVAS,  MORFOLOGIAS  ESTRUTURAIS, EQUIPAMENTOS,MONTAGENS.",
+        "codigo": "TEC0010"
+    },
+    {
+        "nome": "ESTRUTURAS ARQUITETÔNICAS E O AMBIENTE CONSTRUÍDO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0036"
+    },
+    {
+        "nome": "ESTRUTURAS ESPECIAIS EM ARQUITETURA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0023 ) OU ( TEC0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0206 ) OU ( FAU0207 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudos de assuntos estruturais especializados de interesse na arquitetura com auxílio de computador. Estruturas de casa de concreto armado. Estruturas em cabo. Estruturas espaciais . Programação de métodos computacionais para soluçaõ de sistemas estruturais.",
+        "codigo": "TEC0024"
+    },
+    {
+        "nome": "ESTUDOS AMBIENTAIS-BIOCLIMATISMO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TAU0002 ) OU ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0175 ) OU ( TEC0015 )",
+        "equivalencias_especificas": [],
+        "ementa": "Conhecimento da base natural do sítio no qual se pretende projetar. Levantamento, análise e sistematização dos fators ambientais que o caracterizam: geologia, relevo, solos, hidrografia, vegetação, clima e dos processos naturais de modificação da paisagem.",
+        "codigo": "TEC0016"
+    },
+    {
+        "nome": "ESTUDOS ESPECIAIS EM TECNOLOGIA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0017 E TEC0018 ) OU ( TEC0042 E PRO0064 E TEC0038 E TEC0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => ABORDAGEM  DE  TEMAS  ESPECIAIS EM TECNOLOGIA DA ARQUITETURAE DO URBANISMO A SEREM DEFINIDOS EM PLANOS DE CURSOS   ESPECÍFICOS APRESENTADOS E APROVADOS NO DEPARTAMENTO DE TECNOLOGIA EM AR-QUITETURA E URBANISMO.",
+        "codigo": "TEC0031"
+    },
+    {
+        "nome": "GESTÃO AMBIENTAL URBANA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0027 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0032"
+    },
+    {
+        "nome": "INDUSTRIALIZACAO DA CONSTRUCAO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( PRO0015 ) OU ( FAU0111 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0132 )",
+        "equivalencias_especificas": [],
+        "ementa": "Métodos e técnicas de industrialização da construção por meio de racionalização, padronização e coordenação modular na pré-moldagem e na industrialização. Análise e crítica de sistemas realizados. Processos de produção, transporte e montagem de sistemas de construçãoindustrializada. Desenvolvimento de sistemas de elementos coordenáveis para construção e suas características técnicas, espaciais e formais. Aspéctos sócioeconômicos da produção de edificações no local dele. Produção de massa e automação na construção. Avaliação da qualidade do produto e as limitações do projeto.",
+        "codigo": "TEC0008"
+    },
+    {
+        "nome": "INFRA-ESTRUTURA URBANA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0249 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0169 ) E ( ENC0208 ) ) OU ( FAU0249 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0169 ) E ( ENC0208 ) ) OU ( FAU0249 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0169 ) E ( ENC0208 ) ) OU ( FAU0249 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0169 ) E ( ENC0208 ) ) OU ( FAU0249 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0169 ) E ( ENC0208 ) ) OU ( FAU0249 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Distribuição e  condicionantes dos Desenho Urbano. Infra-Estrutura de abastecimento de água, esgotamento sanitário, drenagem urbana, limpeza pública e de serviços de eletricidade. Sistemas convencionais e alternativos: avaliação dos custos de instalação e manutenção.",
+        "codigo": "TEC0027"
+    },
+    {
+        "nome": "INSTALAÇÕES E EQUIPAMENTOS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0002 E TEC0003 ) OU ( FAU0117 ) OU ( FAU0118 ) OU ( TEC0006 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0173 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0173 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0170 ) E ( ENC0215 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0173 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0173 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0173 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0173 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0170 ) E ( ENC0215 ) ) OU ( FAU0117 OU FAU0118 OU TEC0006 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estudo das instalações prediais: elétricas, telefônicas, hidráulicas e de esgotamento sanitário e suas implicações na construção e manutenção de edifícios.",
+        "codigo": "TEC0007"
+    },
+    {
+        "nome": "INSTALAÇÕES E EQUIPAMENTOS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0007 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0002"
+    },
+    {
+        "nome": "INSTALAÇÕES E EQUIPAMENTOS 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0002 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0007 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0003"
+    },
+    {
+        "nome": "INTRODUÇÃO À TECNOLOGIA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( TEC0025 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0130 OU ENC0131 OU ENC0132 ) E ( ENC0133 ) ) OU ( TEC0025 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0149 OU FAU0150 OU TEC0011 OU TEC0012 ) ) OU ( TEC0025 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0130 OU ENC0131 OU ENC0132 ) E ( ENC0133 ) ) OU ( TEC0025 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0130 OU ENC0131 OU ENC0132 ) E ( ENC0133 ) ) OU ( TEC0025 ) OU ( TEC0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0149 OU FAU0150 OU TEC0011 OU TEC0012 ) ) OU ( TEC0025 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conhecimento básico e compreensão crítica das implicações sócio-econômicas, culturais e ambientais no uso dos materiais de construção; dos princípios e sistemas estruturais; das técnicas e processos construtivos; e dos princípios, conceitos e relações entre fatores do clima, arquitetura, urbanismo e os seres vivos; bem como suas relações com o projeto arquitetônico e urbanístico.",
+        "codigo": "TEC0026"
+    },
+    {
+        "nome": "MONITORIA EM AÇO E ARQUITETURA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0097"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO AMBIENTAL LUMINOSO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0061"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO SONORO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0054"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO TERMICO AMBIENTAL",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0047"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO TÉRMICO AMBIENTAL 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0064"
+    },
+    {
+        "nome": "MONITORIA EM ENSAIO EM TECNOLOGIA  DA ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0093"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM OBRA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0060"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURAS ARQUITETONICAS 3",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0075"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURAS ARQUITETÔNICAS E O AMBIENTE CONSTRUÍDO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0096"
+    },
+    {
+        "nome": "MONITORIA EM ESTRUTURAS ESPECIAIS EM ARQUITETURA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0085"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS AMBIENTAIS-BIOCLIMATISMO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0046"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS ESPECIAIS EM TECNOLOGIA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0091"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO AMBIENTAL URBANA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0092"
+    },
+    {
+        "nome": "MONITORIA EM INDUSTRIALIZACAO DA CONSTRUCAO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0073"
+    },
+    {
+        "nome": "MONITORIA EM INFRA-ESTRUTURA URBANA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0053"
+    },
+    {
+        "nome": "MONITORIA EM INSTALAÇÕES E EQUIPAMENTOS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0057"
+    },
+    {
+        "nome": "MONITORIA EM INSTALAÇÕES E EQUIPAMENTOS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0045"
+    },
+    {
+        "nome": "MONITORIA EM INSTALAÇÕES E EQUIPAMENTOS 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0058"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A TECNOLOGIA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0052"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0070"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0071"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO E CONTROLE DE PROJETO E OBRA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0074"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO AMBIENTAL INTEGRADO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0095"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO AMBIENTAL INTEGRADO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0094"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS CONSTRUTIVOS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0076"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS CONSTRUTIVOS 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0090"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0038 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0062"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0063"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS EM AÇO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0050"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0049"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0055"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0056"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS EM MADEIRA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0051"
+    },
+    {
+        "nome": "MONITORIA EM SISTEMAS ESTRUTURAIS NA ARQUITETURA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0048"
+    },
+    {
+        "nome": "MONITORIA EM TECNICAS DE CONSTRUCAO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0059"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICAS DE CONSTRUÇÃO 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0065"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICAS DE CONSTRUÇÃO 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "TEC0066"
+    },
+    {
+        "nome": "PRÁTICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0026 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0004"
+    },
+    {
+        "nome": "PRÁTICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0026 E TEC0004 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0005"
+    },
+    {
+        "nome": "PROGRAMACAO E CONTROLE DE PROJETO E OBRA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( PRO0015 E TEC0013 ) OU ( PRO0015 E TEC0043 E TEC0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0143 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0145 ) ) OU ( FAU0143 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0145 ) ) OU ( FAU0143 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0145 ) ) OU ( FAU0143 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0145 ) ) OU ( FAU0143 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0145 ) ) OU ( FAU0143 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Organização e controle de projetos para execução. Componentes do projeto e suas interações com mão de obra, meios técnicos e financiamento. Elaboração, controle, revisão, acompanhamento de especificações, orçamentos, cronogramas físico e financeiro. Fiscalização de obras. Sistemas de gestão e informação para o desenvolvimento de projetos e programação de obras. Dispositivos legais e legislação e normas de construção civil. Organização física e operacional de canteiros de obras.",
+        "codigo": "TEC0009"
+    },
+    {
+        "nome": "PROJETO AMBIENTAL INTEGRADO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0016 E PRO0028 E PRO0023 E TEC0017 E TEC0029 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( TEC0034 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0035"
+    },
+    {
+        "nome": "PROJETO AMBIENTAL INTEGRADO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( TEC0035 )",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "TEC0034"
+    },
+    {
+        "nome": "SISTEMAS CONSTRUTIVOS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0149 ) OU ( FAU0150 ) OU ( TEC0011 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) E ( ENC0145 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) E ( ENC0145 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( TEC0025 OU TEC0026 ) ) OU ( FAU0149 OU FAU0150 OU TEC0011 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conhecimento básico de materiais, componentes, equipamentos técnicos e processos construtivos, suas relações com o projeto arquitetônico, suas implicações sócio-econômicas e culturais.",
+        "codigo": "TEC0012"
+    },
+    {
+        "nome": "SISTEMAS CONSTRUTIVOS 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0012 ) OU ( TEC0026 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conhecimentos dos diversos sistemas de produção de edificações segundo a forma de obtenção dos elementos do edifício: sistemas tradicionais, convencionais industrializados. Características destes sistemas construtivos, interação com projeto, identificaçãos de mecanismo de transferência que garantam sua efetiva apropriação por parte da sociedade.",
+        "codigo": "TEC0030"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0026 ) OU ( TEC0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0035 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0035 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0035 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0035 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0035 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A estrutura na história da tecnologia das construções: morfologia, tipologia e interação com os espaços\narquitetônicos.\nCarregamento e estática das estruturas isostáticas: conceitos de estabilidade.\nEstruturas hiperestáticas: conceituação.\nLançamento estrutural.\nTreliças planas: determinação de reações, esforços e pré-dimensionamento.\nVigas: determinação de reações, esforços e pré-dimensionamento.\nPórticos planos: determinação de reações, esforços e pré-dimensionamento.\nEstruturas especiais: noções básicas.",
+        "codigo": "TEC0038"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0178 OU TEC0018 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Propriedades geométricas das seções.\nDeterminação das tensões em esforços de tração, compressão e flexão.\nEstudo dos campos de deslocamentos em barras submetidas a esforços normais e de flexão.",
+        "codigo": "TEC0039"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS EM AÇO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0019 OU TEC0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0180 ) OU ( TEC0020 ) OU ( TEC0021 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0148 OU TEC0010 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0148 OU TEC0010 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0148 OU TEC0010 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0148 OU TEC0010 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0148 OU TEC0010 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0148 OU TEC0010 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0180 OU TEC0020 OU TEC0021 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Ferro e aço. Perfis estruturais. Flechas em vigas. Projeto de vigas, projeto de pisos, pilares e coberturas. Dimensionamento de perfis de chapa dobrada a frio. Conexões soldadas. Projeto de pórticos. Projetos arquitetônicos utilizando o aço como material estrutural.",
+        "codigo": "TEC0022"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0018 ) OU ( TEC0038 E TEC0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0001 E TEC0041 ) OU ( ENC0146 E ENC0147 ) OU ( FAU0179 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0147 ) ) OU ( FAU0179 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0147 ) ) OU ( FAU0179 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0147 ) ) OU ( FAU0179 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O material concreto armado. Traços de concreto. Vigas hiperestáticas. Lajes. Dimensionamento de vigas. Dimensionamento de pilares. Fundações. Projeto e detalhamento de pavimentos de edifícios. Projetos arquitetônicos utilizando o concreto como material estrutural.",
+        "codigo": "TEC0019"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( TEC0039 OU TEC0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0019 ) OU ( TEC0040 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Noções gerais de estruturação de edifícios de concreto.\n\n Conciliação do projeto arquitetônico com o projeto estrutural em concreto armado.\n\nLançamento estrutural e pré-dimensionamento de lajes, vigas e pilares.\n\nCarregamento das estruturas de edifícios de concreto.\n\nPropriedades dos materiais: concreto e do aço.\n\nPrescrições normativas.\n\nAnálise, dimensionamento e detalhamento de lajes em concreto armado.\n\nAnálise, dimensionamento e detalhamento de vigas em concreto armado.",
+        "codigo": "TEC0041"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0041 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0019 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Enfatizar os conceitos referentes à flambagem e torção.\n\nDimensionamento e detalhamento de elementos estruturais em concreto armado: pilares, marquises, escadas, consolos, vigas paredes, reservatórios elevados e enterrados. Análise do funcionamento de estruturas especiais como cascas e peças protendidas.\n\n Abordar os tipos de fundações usualmente utilizadas em obras de concreto armado.",
+        "codigo": "TEC0001"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS EM MADEIRA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0022 ) OU ( TEC0010 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0181 ) OU ( FAU0182 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0181 OU FAU0182 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0181 OU FAU0182 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0181 OU FAU0182 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0181 OU FAU0182 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0148 ) ) OU ( FAU0181 OU FAU0182 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Apresentar os procedimentos de direcionamento de elementos estruturais em madeira. Apresentar os principais sistemas estruturais em madeira. Elaborar projeto arquitetônico utilizando a madeira como materiasl estrutural.",
+        "codigo": "TEC0023"
+    },
+    {
+        "nome": "SISTEMAS ESTRUTURAIS NA ARQUITETURA",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0178 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0135 ) E ( ENC0137 ) ) OU ( ( FAU0178 ) ) OU ( ( TEC0038 E TEC0039 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0135 ) E ( ENC0137 ) ) OU ( ( FAU0178 ) ) OU ( ( TEC0038 E TEC0039 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0135 ) E ( ENC0137 ) ) OU ( ( FAU0178 ) ) OU ( ( TEC0038 E TEC0039 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0135 ) E ( ENC0137 ) ) OU ( ( FAU0178 ) ) OU ( ( TEC0038 E TEC0039 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0135 ) E ( ENC0137 ) ) OU ( ( FAU0178 ) ) OU ( ( TEC0038 E TEC0039 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aspectos qualitativos e quantitativos dos sistemas estruturais. O espaço estrututral como espaço arquitetônico possível. A estrutura na história da tecnologia das edificações. aA conciliação dos espaços arquitetônicos e estruturais: materiais estruturais. Morfologia das estruturas. Treliças planas isostáticas. Lei de Hooke. Vigas isostáticas. Fórmula da flexão.Propriedades geométricas das seções. Estruturas de alvenaria. Projetos arquitetônicos. Materiais pétreos.",
+        "codigo": "TEC0018"
+    },
+    {
+        "nome": "TECNICAS DE CONSTRUCAO",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( ENC0055 ) OU ( ENC0229 E ENC0230 ) OU ( ENC0276 E ENC0277 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0043 E TEC0044 ) OU ( FAU0151 ) OU ( FAU0152 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1979.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1979.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1979.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1979.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1979.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0140 ) ) OU ( FAU0151 OU FAU0152 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estudos a aplicações práticas referents às diferentes etapas de materialização das edificações e as interações entre a obra e o projeto arquitetônico. Noções de topografia, sondagens, movimento de terra, canteiro de obras, locação, fundações, estruturas, alvenaria, revestimentos, esquadrias, vidros, instalações, cobertura, impermeabilizações, forros, pintura, pisos e elementos complementares.",
+        "codigo": "TEC0013"
+    },
+    {
+        "nome": "TÉCNICAS DE CONSTRUÇÃO 1",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0013 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0043"
+    },
+    {
+        "nome": "TÉCNICAS DE CONSTRUÇÃO 2",
+        "unidade_responsavel": "DEPTO TECNOLOGIA ARQUITETURA URBANISMO ",
+        "pre_requisitos": "( ( TEC0043 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0013 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "TEC0044"
+    }
+]

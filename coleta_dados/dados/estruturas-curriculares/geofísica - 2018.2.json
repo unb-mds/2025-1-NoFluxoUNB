@@ -1,0 +1,762 @@
+{
+  "curso": "GEOFÍSICA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2018.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0187",
+          "nome": "PROGRAMACAO EM GEOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0138",
+          "nome": "METODOS QUANTITATIVOS EM GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0213",
+          "nome": "ANALISE DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0214",
+          "nome": "PROPRIEDADES FISICAS DAS ROCHAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0226",
+          "nome": "INTRODUCAO A FOTOGEOLOGIA E AO SENSORIAMENTO REMOTO",
+          "ch": "75"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0217",
+          "nome": "METODOS POTENCIAIS",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0220",
+          "nome": "METODOS ELETRICOS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0223",
+          "nome": "SISMICA DE REFRACAO",
+          "ch": "75"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0228",
+          "nome": "SISMICA DE REFLEXAO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0230",
+          "nome": "GEOFISICA NUCLEAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "IGD0250",
+          "nome": "METODOS ELETROMAGNETICOS",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0008",
+          "nome": "PREPARACAO TRABALHO FINAL - GEOFISICA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0231",
+          "nome": "TRABALHO FINAL - GEOFISICA",
+          "ch": "150"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "MICROINFORMATICA",
+          "nome": "60H OPTATIVA DEG0200 - ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0011",
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0012",
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0017",
+          "nome": "FISICA MATEMATICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0198",
+          "nome": "FISICA MATEMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0003",
+          "nome": "INTRODUCAO A VULCANOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0004",
+          "nome": "INTRODUCAO A METEOROLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0005",
+          "nome": "SISMOLOGIA AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0006",
+          "nome": "METODOS AEROELETROMAGNETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0007",
+          "nome": "PROCESSAMENTOS DE DADOS SISMOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0024",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0057",
+          "nome": "GEOLOGIA DO PETROLEO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0085",
+          "nome": "GEOLOGIA HISTORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0088",
+          "nome": "GEOLOGIA DO BRASIL",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0126",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOCIENCIAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0142",
+          "nome": "GEOQUIMICA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0159",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0164",
+          "nome": "INTROD AO PROCESSAMENTO E INTERPRETACAO DADOS EM GEOFISICA AEREA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0166",
+          "nome": "ESTAGIO SUPERVISIONADO AVANCADO EM GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0169",
+          "nome": "INTRODUCAO A GEOLOGIA DO PETROLEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0184",
+          "nome": "SISMOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUCAO A MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0192",
+          "nome": "INTRODUCAO A FISICA DA TERRA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0195",
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0208",
+          "nome": "PALEOCEANOGRAFIA E PALEOCLIMA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0209",
+          "nome": "RADAR DE PENETRACAO NO SOLO (GPR)",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0210",
+          "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0232",
+          "nome": "PROCESSAMENTO E INTERPRETACAO GEOFISICA AEREA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0233",
+          "nome": "INTEGRACAO DE DADOS GEOLOGICOS E GEOFISICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0234",
+          "nome": "METODOS DE INVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0235",
+          "nome": "METODOS GEOFISICOS EM HIDROGEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0236",
+          "nome": "OCEANOGRAFIA FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0237",
+          "nome": "GEOFISICA DE PETROLEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0238",
+          "nome": "GEOFISICA DE EXPLORACAO MINERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0239",
+          "nome": "PERFILAGEM GEOFISICA DE POCOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0240",
+          "nome": "GEOFISICA MARINHA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0241",
+          "nome": "GEOFISICA APLICADA A GEOTECNIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0242",
+          "nome": "METODOS MAGNETOTELURICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0243",
+          "nome": "GEOFISICA APLICADA AO MONITORAMENTO AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0262",
+          "nome": "EXPLORACAO GEOFISICA EM BACIAS SEDIMENTARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0187",
+          "nome": "PROGRAMACAO EM GEOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0138",
+          "nome": "METODOS QUANTITATIVOS EM GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0213",
+          "nome": "ANALISE DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0214",
+          "nome": "PROPRIEDADES FISICAS DAS ROCHAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0226",
+          "nome": "INTRODUCAO A FOTOGEOLOGIA E AO SENSORIAMENTO REMOTO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0217",
+          "nome": "METODOS POTENCIAIS",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0220",
+          "nome": "METODOS ELETRICOS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0223",
+          "nome": "SISMICA DE REFRACAO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0228",
+          "nome": "SISMICA DE REFLEXAO",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0230",
+          "nome": "GEOFISICA NUCLEAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "IGD0250",
+          "nome": "METODOS ELETROMAGNETICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0008",
+          "nome": "PREPARACAO TRABALHO FINAL - GEOFISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0231",
+          "nome": "TRABALHO FINAL - GEOFISICA",
+          "ch": "150"
+        }
+      ]
+    }
+  ]
+}

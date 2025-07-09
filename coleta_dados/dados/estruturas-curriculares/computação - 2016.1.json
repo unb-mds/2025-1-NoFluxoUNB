@@ -1,0 +1,1497 @@
+{
+  "curso": "COMPUTAÇÃO",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2016.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0005",
+          "nome": "FORMACAO DOCENTE EM COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0002",
+          "nome": "FUNDAMENTOS TEORICOS DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0182",
+          "nome": "LOGICA COMPUTACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0197",
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0092",
+          "nome": "ORGANIZACAO DE ARQUIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0093",
+          "nome": "LINGUAGENS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0177",
+          "nome": "ARQUITETURA DE PROCESSADORES DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0206",
+          "nome": "METODOS DE PESQUISA NA LICENCIATURA EM COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0097",
+          "nome": "BANCOS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0207",
+          "nome": "PROJETO INTERDISCIPLINAR DE LICENCIATURA EM COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0208",
+          "nome": "PRODUCAO DE MATERIAL DIDATICO",
+          "ch": "75"
+        },
+        {
+          "codigo": "CIC0209",
+          "nome": "SUPERVISAO DE PRODUCAO DE MATERIAL DIDATICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0225",
+          "nome": "INTRODUCAO A SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0189",
+          "nome": "PROJETO E ANALISE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0210",
+          "nome": "PRATICA PEDAGOGICA EM COMPUTACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0212",
+          "nome": "SUPERVISAO DE PRATICA PEDAGOGICA EM COMPUTACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0124",
+          "nome": "REDES DE COMPUTADORES",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0101",
+          "nome": "SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0105",
+          "nome": "ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0201",
+          "nome": "SEGURANCA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0211",
+          "nome": "PRATICA PEDAGOGICA EM COMPUTACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0213",
+          "nome": "SUPERVISAO DE PRATICA PEDAGOGICA EM COMPUTACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0224",
+          "nome": "PROJETO DE PESQUISA NA LICENCIATURA EM COMPUTACAO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0158",
+          "nome": "INFORMATICA APLICADA A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0214",
+          "nome": "ESTAGIO SUPERVISIONADO EM LICENCIATURA EM COMPUTACAO 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "CIC0217",
+          "nome": "SUPERVISAO DE ESTAGIO  EM LICENCIATURA EM COMPUTACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0223",
+          "nome": "PRODUCAO CIENTIFICA NA LICENCIATURA EM COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0095",
+          "nome": "TEORIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0038",
+          "nome": "ADMINISTRACAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0215",
+          "nome": "ESTAGIO SUPERVISIONADO EM LICENCIATURA EM COMPUTACAO 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "CIC0216",
+          "nome": "ESTAGIO SUPERVISIONADO EM LICENCIATURA EM COMPUTACAO 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "CIC0219",
+          "nome": "SUPERVISAO DE ESTAGIO  EM LICENCIATURA EM COMPUTACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0221",
+          "nome": "SUPERVISAO DE ESTAGIO  EM LICENCIATURA EM COMPUTACAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0087",
+          "nome": "TOPICOS AVANCADOS EM COMPUTADORES",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "CONTABILIDADE",
+          "nome": "60H OPTATIVA CIC0008 - PROGRAMACAO SISTEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0030",
+          "nome": "NOCOES DE SISTEMAS OPERACIONAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0094",
+          "nome": "CIRCUITOS DIGITAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0098",
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0103",
+          "nome": "TRANSMISSAO DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0104",
+          "nome": "SOFTWARE BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0106",
+          "nome": "TRADUTORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0108",
+          "nome": "SISTEMAS OPERACIONAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0111",
+          "nome": "PRINCIPIOS DE COMPUTACAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0112",
+          "nome": "INTRODUCAO A COMPUTACAO SONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0114",
+          "nome": "SINTESE DE AUDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0116",
+          "nome": "ESTUDOS EM COMPUTACAO MULTIMIDIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0117",
+          "nome": "SEGURANCA DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0118",
+          "nome": "TEORIA DA CODIFICACAO E CRIPTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0120",
+          "nome": "ESTUDOS EM CODIFICACAO E CRIPTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0125",
+          "nome": "PROJETO DE SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0126",
+          "nome": "PROCESSAMENTO EM TEMPO REAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0128",
+          "nome": "BANCO DE DADOS DISTRIBUIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0129",
+          "nome": "SISTEMAS A MICROPROCESSADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0132",
+          "nome": "ESTUDOS EM SISTEMAS DE COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0133",
+          "nome": "PROGRAMACAO FUNCIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0134",
+          "nome": "PROGRAMACAO EM LOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0135",
+          "nome": "INTRODUCAO A INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0136",
+          "nome": "ESTUDOS EM INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0137",
+          "nome": "LEVANTAMENTO DE DADOS EM PESQUISA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0140",
+          "nome": "GERENCIA DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0141",
+          "nome": "INFORMATICA NAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0142",
+          "nome": "INFORMATICA E SOCIEDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0143",
+          "nome": "ESTUDOS EM SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0151",
+          "nome": "PROGRAMACAO ORIENTADA A OBJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0153",
+          "nome": "O EMPREENDIMENTO EM INFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0154",
+          "nome": "LINGUAGENS PARA INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0155",
+          "nome": "TEORIA E PRATICA PEDAGOGICA EM INFORMATICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0156",
+          "nome": "TEORIA E PRATICA PEDAGOGICA EM INFORMATICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0159",
+          "nome": "TOPICOS ESPECIAIS EM INFORMATICA NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0160",
+          "nome": "MULTIMIDIA NA EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0161",
+          "nome": "AUTOMATOS E COMPUTABILIDADE",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0168",
+          "nome": "PROGRAMACAO MULTIMIDIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0169",
+          "nome": "PROGRAMACAO COMPETITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0170",
+          "nome": "ANALISE E PROJETO DE SISTEMAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0171",
+          "nome": "MODELAGEM ORIENTADA A OBJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0172",
+          "nome": "GERENCIA DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0176",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0178",
+          "nome": "CONSTRUCAO DE PECAS MULTIMIDIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0180",
+          "nome": "SUPERVISAO DE ESTAGIO DE LICENCIATURA - COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0181",
+          "nome": "ESTAGIO SUPERVISIONADO DE LICENCIATURA - COMPUTACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0183",
+          "nome": "LOGICA COMPUTACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0184",
+          "nome": "TOPICOS ESPECIAIS EM LOGICA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0186",
+          "nome": "SISTEMAS DIGITAIS INTEGRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0187",
+          "nome": "QUALIDADE DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0190",
+          "nome": "INTRODUCAO A SISTEMAS MULTIAGENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0191",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO DE JOGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0194",
+          "nome": "INTERACAO HUMANO COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0198",
+          "nome": "TECNICAS DE PROGRAMACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0199",
+          "nome": "TEORIA E APLICACAO DE GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0200",
+          "nome": "METODOLOGIA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0202",
+          "nome": "PROGRAMACAO CONCORRENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0203",
+          "nome": "COMPUTACAO EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0204",
+          "nome": "COMPILADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0226",
+          "nome": "DESENVOLVIMENTO DE APLICATIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0227",
+          "nome": "PRATICAS EM COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0228",
+          "nome": "CIRCUITOS LOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0230",
+          "nome": "LABORATORIO DE CIRCUITOS LOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0233",
+          "nome": "FUNDAMENTOS COMPUTACIONAIS DE ROBOTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0236",
+          "nome": "TELEINFORMATICA E REDES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0237",
+          "nome": "GERENCIA E SEGURANCA DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0238",
+          "nome": "COMPUTACAO MOVEL E REDES SEM FIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0239",
+          "nome": "AVALIACAO E DESEMPENHO DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0240",
+          "nome": "SISTEMAS DE REDES MULTIMIDIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0241",
+          "nome": "MODELAGEM DE SISTEMAS COMPUTACIONAIS E DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0247",
+          "nome": "INTRODUCAO AO AMBIENTE UNIVERSITARIO NA COMPUTACAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "CIC0256",
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO A",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0257",
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO B",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0258",
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO COMPETITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0269",
+          "nome": "PROCESSAMENTO DE LINGUAGEM NATURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DPG0094",
+          "nome": "PROJETO E COMPLEXIDADE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0359",
+          "nome": "SISTEMAS DISTRIBUIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0460",
+          "nome": "FUNDAMENTOS DE SISTEMAS COMPUTACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0685",
+          "nome": "INTELIGENCIA ARTIFICIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0759",
+          "nome": "TEORIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0781",
+          "nome": "SISTEMAS MULTIAGENTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0083",
+          "nome": "PROBABILIDADE E ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0050",
+          "nome": "INFORMATICA DOCUMENTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0063",
+          "nome": "ARQUIVO CORRENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0053",
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0001",
+          "nome": "COMUNICACAO, INFORMACAO E COMPUTACAO : FUNDAMENTOS E APLICACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0034",
+          "nome": "ALGEBRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0038",
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0078",
+          "nome": "ANALISE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0081",
+          "nome": "LINGUAGENS FORMAIS E AUTOMATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0118",
+          "nome": "TEORIA DOS NUMEROS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0119",
+          "nome": "LOGICA MATEMATICA E COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0051",
+          "nome": "PROCESSO DE ALFABETIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0053",
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0076",
+          "nome": "EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0118",
+          "nome": "LINGUAGEM 1 - MANIFESTACOES HUMANAS:LUDICO,ESTETICO E UTILITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0119",
+          "nome": "LINGUAGEM 2 - EDUCACAO E CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0120",
+          "nome": "LINGUAGEM 3 - HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0121",
+          "nome": "LINGUAGEM 4 - GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0123",
+          "nome": "LINGUAGEM 5 - LINGUA MATERNA TEXTO E CONTEXTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0129",
+          "nome": "LINGUAGEM 6 - EDUCACAO MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0136",
+          "nome": "PESQUISA EM EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0144",
+          "nome": "OFICINAS DE LINGUAGENS",
+          "ch": "150"
+        },
+        {
+          "codigo": "MTC0145",
+          "nome": "INTRODUCAO AO PROCESSO EDUCATIVO",
+          "ch": "120"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0074",
+          "nome": "ORGANIZACAO DA EDUCACAO NO DISTRITO FEDERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0076",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0018",
+          "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0046",
+          "nome": "PSICOLOGIA COGNITIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0054",
+          "nome": "PERCEPCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0010",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0027",
+          "nome": "COMPORTAMENTO HUMANO E TRABALHO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0049",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0025",
+          "nome": "METODOS E TECNICAS DE PESQUISA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0045",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0077",
+          "nome": "EDUCACAO AMBIENTAL E PRATICAS COMUNITARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0093",
+          "nome": "EDUCACAO DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0119",
+          "nome": "APRENDIZAGEM E DESENVOLVIMENTO DO PNEE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0225",
+          "nome": "INTRODUCAO A SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0124",
+          "nome": "REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0095",
+          "nome": "TEORIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0038",
+          "nome": "ADMINISTRACAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0087",
+          "nome": "TOPICOS AVANCADOS EM COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0005",
+          "nome": "FORMACAO DOCENTE EM COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0002",
+          "nome": "FUNDAMENTOS TEORICOS DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0182",
+          "nome": "LOGICA COMPUTACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0197",
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0092",
+          "nome": "ORGANIZACAO DE ARQUIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0093",
+          "nome": "LINGUAGENS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0177",
+          "nome": "ARQUITETURA DE PROCESSADORES DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0206",
+          "nome": "METODOS DE PESQUISA NA LICENCIATURA EM COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0097",
+          "nome": "BANCOS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0207",
+          "nome": "PROJETO INTERDISCIPLINAR DE LICENCIATURA EM COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0208",
+          "nome": "PRODUCAO DE MATERIAL DIDATICO",
+          "ch": "75"
+        },
+        {
+          "codigo": "CIC0209",
+          "nome": "SUPERVISAO DE PRODUCAO DE MATERIAL DIDATICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0225",
+          "nome": "INTRODUCAO A SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0189",
+          "nome": "PROJETO E ANALISE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0210",
+          "nome": "PRATICA PEDAGOGICA EM COMPUTACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0212",
+          "nome": "SUPERVISAO DE PRATICA PEDAGOGICA EM COMPUTACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0124",
+          "nome": "REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0101",
+          "nome": "SISTEMAS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0105",
+          "nome": "ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0201",
+          "nome": "SEGURANCA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0211",
+          "nome": "PRATICA PEDAGOGICA EM COMPUTACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0213",
+          "nome": "SUPERVISAO DE PRATICA PEDAGOGICA EM COMPUTACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0224",
+          "nome": "PROJETO DE PESQUISA NA LICENCIATURA EM COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0158",
+          "nome": "INFORMATICA APLICADA A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0214",
+          "nome": "ESTAGIO SUPERVISIONADO EM LICENCIATURA EM COMPUTACAO 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "CIC0217",
+          "nome": "SUPERVISAO DE ESTAGIO  EM LICENCIATURA EM COMPUTACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0223",
+          "nome": "PRODUCAO CIENTIFICA NA LICENCIATURA EM COMPUTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0095",
+          "nome": "TEORIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0038",
+          "nome": "ADMINISTRACAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0215",
+          "nome": "ESTAGIO SUPERVISIONADO EM LICENCIATURA EM COMPUTACAO 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "CIC0216",
+          "nome": "ESTAGIO SUPERVISIONADO EM LICENCIATURA EM COMPUTACAO 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "CIC0219",
+          "nome": "SUPERVISAO DE ESTAGIO  EM LICENCIATURA EM COMPUTACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0221",
+          "nome": "SUPERVISAO DE ESTAGIO  EM LICENCIATURA EM COMPUTACAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0087",
+          "nome": "TOPICOS AVANCADOS EM COMPUTADORES",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS SOCIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "ICS0002"
+    },
+    {
+        "nome": "ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS SOCIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "ICS0003"
+    },
+    {
+        "nome": "ESTUDOS AMERICANOS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS SOCIAIS ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina tomará as Américas como área de interesse para estudos e pesquisas de teor interdisciplinar e comparativo em Ciências Sociais e Humanas (Antropologia, Sociologia, Ciência Política, História, Literatura etc.).  Para tanto, a disciplina tem como objetivo apresentar as sociedades americanas a partir das pesquisas realizadas, em andamento e/ou a realizar-se pelo Centro de Pesquisa e Pós-Graduação sobre as Américas - CEPPAC da Universidade de Brasília. Com a leitura dos resultados e/ou projetos destas pesquisas se espera conhecer, reconhecer e problematizar temas e objetos de pesquisa pertinente à compreensão das sociedades americanas.",
+        "codigo": "ICS0001"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 1",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS SOCIAIS ",
+        "pre_requisitos": "( ICS0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ICS0005"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DE PROBLEMAS BRASILEIROS 2",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS SOCIAIS ",
+        "pre_requisitos": "( ICS0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ICS0006"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS AMERICANOS",
+        "unidade_responsavel": "INSTITUTO DE CIÊNCIAS SOCIAIS ",
+        "pre_requisitos": "( ICS0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "ICS0004"
+    }
+]

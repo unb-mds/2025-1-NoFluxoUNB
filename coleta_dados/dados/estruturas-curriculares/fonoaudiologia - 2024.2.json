@@ -1,0 +1,727 @@
+{
+  "curso": "FONOAUDIOLOGIA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2024.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0038",
+          "nome": "INTRODUCAO A FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0040",
+          "nome": "ESTUDOS LINGUISTICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0116",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0845",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0886",
+          "nome": "EXTENSAO UNIVERSITARIA NA FCE",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0042",
+          "nome": "ESTUDOS LINGUISTICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0043",
+          "nome": "FISICA ACUSTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0117",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0770",
+          "nome": "EXTENSAO NAS BASES BIOLOGICAS E DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0849",
+          "nome": "SISTEMAS E POLITICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0979",
+          "nome": "MORFOFISIOLOGIA DOS ORGAOS DA FALA E DA AUDICAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0069",
+          "nome": "FONOAUDIOLOGIA NA ATENCAO PRIMARIA A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0119",
+          "nome": "FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0122",
+          "nome": "FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0124",
+          "nome": "FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0977",
+          "nome": "FUNDAMENTOS DE AUDIOLOGIA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0113",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0114",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO SEGUNDO CICLO DE VIDA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0115",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0978",
+          "nome": "FUNDAMENTOS DE AUDIOLOGIA 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0092",
+          "nome": "FONOAUDIOLOGIA EDUCACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0120",
+          "nome": "EXERCICIO PROFISSIONAL E DEONTOLOGIA EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0121",
+          "nome": "VIVENCIAS EM SAUDE FONOAUDIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0123",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0128",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0132",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0973",
+          "nome": "EXTENSAO EM SAUDE E EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0974",
+          "nome": "EXTENSAO EM SAUDE E EDUCACAO 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0065",
+          "nome": "TECNOLOGIAS ASSISTIVAS EM AUDIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0080",
+          "nome": "SURDEZ: CULTURA, LINGUA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0105",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0130",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 1",
+          "ch": "210"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0127",
+          "nome": "SEMINARIOS INTEGRATIVOS EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0142",
+          "nome": "GESTAO DE SERVICOS E RECURSOS HUMANOS EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0982",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 2",
+          "ch": "270"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0131",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 3",
+          "ch": "240"
+        },
+        {
+          "codigo": "FCE0725",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0975",
+          "nome": "EXTENSAO EM FONOAUDIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0976",
+          "nome": "EXTENSAO EM FONOAUDIOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "TICA",
+          "nome": "30H OPTATIVA FCE0031 - INTRODUCAO A PSICOMOTRICIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0032",
+          "nome": "NEUROPSICOLOGIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0041",
+          "nome": "MORFOSIOLOGIA DE CABECA E PESCOCO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0046",
+          "nome": "INTRODUCAO A SAUDE DO TRABALHADOR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0048",
+          "nome": "TRABALHO DE CAMPO EM FONOAUDIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0049",
+          "nome": "LINGUAGEM E PENSAMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0051",
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0057",
+          "nome": "FONETICA ACUSTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0064",
+          "nome": "IMPOSTACAO DE VOZ",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0073",
+          "nome": "PESQUISA EM ONCOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0079",
+          "nome": "BASES DE FISIOLOGIA ENDOCRINA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0086",
+          "nome": "TOPICOS AVANCADOS EM AUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0090",
+          "nome": "FONOAUDIOLOGIA HOSPITALAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0096",
+          "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA HIPERTROFIA MUSCULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0102",
+          "nome": "TOPICOS AVANCADOS EM AUDIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0103",
+          "nome": "TOPICOS AVANCADOS EM AUDIOLOGIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0108",
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0109",
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECANICA OCUPACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0110",
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0135",
+          "nome": "BASES CIENTIFICAS DE NUTRICAO E ATIVIDADE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0145",
+          "nome": "SUPORTE E MOVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0146",
+          "nome": "DA CELULA AOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0147",
+          "nome": "PROCESSOS PATOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0149",
+          "nome": "PRATICA EM BIOQUIMICA E BIOLOGIA CELULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0161",
+          "nome": "ESTUDOS LINGUISTICOS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0163",
+          "nome": "ESTUDOS LINGUISTICOS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0165",
+          "nome": "TOPICOS AVANCADOS EM VOZ 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0197",
+          "nome": "FISIOLOGIA CLINICA DO EXERCICIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0233",
+          "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0432",
+          "nome": "TUTORIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0441",
+          "nome": "INTRODUCAO A NEUROPSICOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0734",
+          "nome": "PESQUISA EM MOTRICIDADE OROFACIAL E DISFAGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0735",
+          "nome": "PESQUISAS EM DISTURBIOS DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0736",
+          "nome": "PESQUISA EM NEUROCIENCIA COGNITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0095",
+          "nome": "INTRODUCAO A ANALISE DO DISCURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0038",
+          "nome": "INTRODUCAO A FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0040",
+          "nome": "ESTUDOS LINGUISTICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0116",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0845",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0886",
+          "nome": "EXTENSAO UNIVERSITARIA NA FCE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0042",
+          "nome": "ESTUDOS LINGUISTICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0043",
+          "nome": "FISICA ACUSTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0117",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0770",
+          "nome": "EXTENSAO NAS BASES BIOLOGICAS E DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0849",
+          "nome": "SISTEMAS E POLITICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0979",
+          "nome": "MORFOFISIOLOGIA DOS ORGAOS DA FALA E DA AUDICAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0069",
+          "nome": "FONOAUDIOLOGIA NA ATENCAO PRIMARIA A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0119",
+          "nome": "FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0122",
+          "nome": "FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0124",
+          "nome": "FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0977",
+          "nome": "FUNDAMENTOS DE AUDIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0113",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0114",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO SEGUNDO CICLO DE VIDA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0115",
+          "nome": "AVALIACAO E DIAGNOSTICO FONOAUDIOLOGICO NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0978",
+          "nome": "FUNDAMENTOS DE AUDIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0092",
+          "nome": "FONOAUDIOLOGIA EDUCACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0120",
+          "nome": "EXERCICIO PROFISSIONAL E DEONTOLOGIA EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0121",
+          "nome": "VIVENCIAS EM SAUDE FONOAUDIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0123",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO SEGUNDO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0128",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO PRIMEIRO CICLO DE VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0132",
+          "nome": "RECURSOS TERAPEUTICOS EM FONOAUDIOLOGIA NO TERCEIRO CICLO DE VIDA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0973",
+          "nome": "EXTENSAO EM SAUDE E EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0974",
+          "nome": "EXTENSAO EM SAUDE E EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0065",
+          "nome": "TECNOLOGIAS ASSISTIVAS EM AUDIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0080",
+          "nome": "SURDEZ: CULTURA, LINGUA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0105",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0130",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 1",
+          "ch": "210"
+        },
+        {
+          "codigo": "FCE0127",
+          "nome": "SEMINARIOS INTEGRATIVOS EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0142",
+          "nome": "GESTAO DE SERVICOS E RECURSOS HUMANOS EM FONOAUDIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0982",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 2",
+          "ch": "270"
+        },
+        {
+          "codigo": "FCE0131",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM FONOAUDIOLOGIA 3",
+          "ch": "240"
+        },
+        {
+          "codigo": "FCE0725",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FONOAUDIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0975",
+          "nome": "EXTENSAO EM FONOAUDIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0976",
+          "nome": "EXTENSAO EM FONOAUDIOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

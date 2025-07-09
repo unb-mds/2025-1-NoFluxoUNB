@@ -1,0 +1,512 @@
+{
+  "curso": "ARTES VISUAIS",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0401",
+          "nome": "HISTORIA DO ENSINO DAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0402",
+          "nome": "INTRODUCAO AS TEORIAS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0403",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0404",
+          "nome": "PRATICA DE ENSINO EM DESENHO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0405",
+          "nome": "INTRODUCAO A APRENDIZAGEM EAD",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0406",
+          "nome": "PROJETO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0407",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "45"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0400",
+          "nome": "DIDATICA NAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0408",
+          "nome": "ESTUDO DAS VISUALIDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0409",
+          "nome": "PRATICAS DE ENSINO EM LINGUAGENS DE ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0410",
+          "nome": "PRATICAS DE ARTES VISUAIS - MATERIAIS EM ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0411",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0412",
+          "nome": "PRATICAS DE AUDIOVISUAL",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0413",
+          "nome": "PROJETO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0414",
+          "nome": "METODOLOGIAS DE ENSINO E DE PESQUISA EM ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0415",
+          "nome": "ESTUDO DAS VISUALIDADES AFRO-BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0416",
+          "nome": "PRATICAS DE ENSINO - OBJETOS DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0417",
+          "nome": "PRATICAS DE ARTES VISUAIS - TRANSITOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0418",
+          "nome": "PROJETO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0419",
+          "nome": "IMAGEM, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0420",
+          "nome": "PRATICA DE ENSINO NA FORMACAO DE PROFESSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0421",
+          "nome": "PRATICAS DE ARTES VISUAIS - EXPERIMENTACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0422",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "IDA0423",
+          "nome": "PROJETO 4",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0424",
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0425",
+          "nome": "TEORIA EM ARTES VISUAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0426",
+          "nome": "PRATICA DE ENSINO EM ESPACOS CULTURAIS OU MUSEUS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0427",
+          "nome": "PRATICAS DE ARTES VISUAIS - ANALISES",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0428",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "ch": "150"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0429",
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0430",
+          "nome": "TEORIA EM ARTES VISUAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0431",
+          "nome": "PRATICAS DE ARTES VISUAIS - PROPOSTAS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IDA0432",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 3",
+          "ch": "150"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0433",
+          "nome": "PRATICA DE ENSINO EM AMBIENTES VIRTUAIS DE APRENDIZAGEM",
+          "ch": "75"
+        },
+        {
+          "codigo": "IDA0434",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0435",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0436",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "1",
+          "nome": "90H OPTATIVA IDA0331 - LABORATORIO DE ARTE E TECNOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUCAO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0343",
+          "nome": "LABORATOTIO DE POETICAS CONTEMPORANEAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0359",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0361",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0363",
+          "nome": "ATELIER DE ARTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0374",
+          "nome": "ATELIER DE ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0378",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0437",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM DA ARTE MUSICAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0440",
+          "nome": "PROJETO DE EXTENSAO EM MUSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0824",
+          "nome": "PRATICAS MUSICAIS COLETIVAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0838",
+          "nome": "PROJETO EM MUSICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0840",
+          "nome": "TEORIAS DA EDUCACAO MUSICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0849",
+          "nome": "FUNDAMENTOS DA ARTE MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0401",
+          "nome": "HISTORIA DO ENSINO DAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0402",
+          "nome": "INTRODUCAO AS TEORIAS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0403",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0404",
+          "nome": "PRATICA DE ENSINO EM DESENHO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0405",
+          "nome": "INTRODUCAO A APRENDIZAGEM EAD",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0406",
+          "nome": "PROJETO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0407",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0400",
+          "nome": "DIDATICA NAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0408",
+          "nome": "ESTUDO DAS VISUALIDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0409",
+          "nome": "PRATICAS DE ENSINO EM LINGUAGENS DE ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0410",
+          "nome": "PRATICAS DE ARTES VISUAIS - MATERIAIS EM ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0411",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0412",
+          "nome": "PRATICAS DE AUDIOVISUAL",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0413",
+          "nome": "PROJETO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0414",
+          "nome": "METODOLOGIAS DE ENSINO E DE PESQUISA EM ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0415",
+          "nome": "ESTUDO DAS VISUALIDADES AFRO-BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0416",
+          "nome": "PRATICAS DE ENSINO - OBJETOS DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0417",
+          "nome": "PRATICAS DE ARTES VISUAIS - TRANSITOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0418",
+          "nome": "PROJETO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0419",
+          "nome": "IMAGEM, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0420",
+          "nome": "PRATICA DE ENSINO NA FORMACAO DE PROFESSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0421",
+          "nome": "PRATICAS DE ARTES VISUAIS - EXPERIMENTACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0422",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "IDA0423",
+          "nome": "PROJETO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0424",
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0425",
+          "nome": "TEORIA EM ARTES VISUAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0426",
+          "nome": "PRATICA DE ENSINO EM ESPACOS CULTURAIS OU MUSEUS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0427",
+          "nome": "PRATICAS DE ARTES VISUAIS - ANALISES",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0428",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "IDA0429",
+          "nome": "ESTUDOS VISUAIS DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0430",
+          "nome": "TEORIA EM ARTES VISUAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0431",
+          "nome": "PRATICAS DE ARTES VISUAIS - PROPOSTAS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IDA0432",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 3",
+          "ch": "150"
+        },
+        {
+          "codigo": "IDA0433",
+          "nome": "PRATICA DE ENSINO EM AMBIENTES VIRTUAIS DE APRENDIZAGEM",
+          "ch": "75"
+        },
+        {
+          "codigo": "IDA0434",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0435",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0436",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,817 @@
+{
+  "curso": "CIÊNCIAS CONTÁBEIS",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2021.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0153",
+          "nome": "MATEMATICA FINANCEIRA APLICADA AS CIENCIAS CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0077",
+          "nome": "CONTABILIDADE GERAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0111",
+          "nome": "METODOLOGIA DA PESQUISA EM CIENCIAS CONTABEIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0081",
+          "nome": "TEORIA CONTABIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0183",
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS CIENCIAS CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0076",
+          "nome": "LEGISLACAO COMERCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0175",
+          "nome": "FINANCAS CORPORATIVAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0179",
+          "nome": "CONTABILIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0169",
+          "nome": "FINANCAS DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0176",
+          "nome": "FINANCAS CORPORATIVAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0178",
+          "nome": "CONTABILIDADE AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0024",
+          "nome": "AUDITORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0170",
+          "nome": "ORCAMENTO DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0177",
+          "nome": "FINANCAS CORPORATIVAS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0180",
+          "nome": "SISTEMAS DE CONTROLE GERENCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0181",
+          "nome": "CONTABILIDADE TRIBUTARIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0026",
+          "nome": "AUDITORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0069",
+          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0127",
+          "nome": "PERICIA CONTABIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0171",
+          "nome": "CONTABILIDADE DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0184",
+          "nome": "TEORIA DO LUCRO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0149",
+          "nome": "ATUARIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0182",
+          "nome": "FILOSOFIA E ETICA PROFISSIONAL EM CONTABILIDADE",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0172",
+          "nome": "PESQUISA EM CONTABILIDADE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0174",
+          "nome": "LABORATORIO CONTABIL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0173",
+          "nome": "PESQUISA EM CONTABILIDADE 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "FINANCEIROS",
+          "nome": "60H OPTATIVA ADM0064 - ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0002",
+          "nome": "CUSTOS APLICADOS AO SETOR PUBLICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0003",
+          "nome": "MANAGEMENT ACCOUNTING AND CONTROL SYSTEMS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0005",
+          "nome": "FINANCAS COMPORTAMENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0007",
+          "nome": "TOPICOS CONTEMPORANEOS EM CONTABILIDADE PUBLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0009",
+          "nome": "GOVERNANCA APLICADA AO SETOR PUBLICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0010",
+          "nome": "INSTRUMENTOS FINANCEIROS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0011",
+          "nome": "GESTAO E PRESTACAO DE CONTAS NO TERCEIRO SETOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0012",
+          "nome": "TEORIA DOS JOGOS APLICADA A GESTAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0031",
+          "nome": "ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0046",
+          "nome": "CONTABILIDADE DE INSTITUICOES FINANCEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0051",
+          "nome": "ESTAGIO EM CIENCIAS CONTABEIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CCA0058",
+          "nome": "CONTABILIDADE SECURITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0121",
+          "nome": "GOVERNANCA CORPORATIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0123",
+          "nome": "CONTABILIDADE INTERNACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0137",
+          "nome": "ANALISE DAS DEMONSTRACOES CONTABEIS GOVERNAMENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0143",
+          "nome": "PLANEJAMENTO TRIBUTARIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0145",
+          "nome": "CONTABILIDADE DO SETOR PREVIDENCIARIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0147",
+          "nome": "CONTABILIDADE DO AGRONEGOCIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0157",
+          "nome": "CONTABILIDADE DE MICRO E PEQUENOS EMPREENDIMENTOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0158",
+          "nome": "NORMAS INTERNACIONAIS DE CONTABILIDADE PARA O SETOR PUBLICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0159",
+          "nome": "PRATICA CONTABIL DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0160",
+          "nome": "CONTABILIDADE SOCIOAMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0161",
+          "nome": "HISTORIA DO PENSAMENTO CONTABIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0162",
+          "nome": "EPISTEMOLOGIA DA PESQUISA EM CIENCIAS CONTABEIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0163",
+          "nome": "METODOS QUALITATIVO EM CIENCIAS CONTABEIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0164",
+          "nome": "TOPICOS EM CONTABILIDADE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0165",
+          "nome": "TOPICOS EM CONTABILIDADE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0166",
+          "nome": "TOPICOS EM CONTABILIDADE 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0167",
+          "nome": "TOPICOS EM CONTABILIDADE 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0168",
+          "nome": "TOPICOS EM CONTABILIDADE 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0185",
+          "nome": "CONTABILIDADE DE INSTRUMENTOS FINANCEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0186",
+          "nome": "TOPICOS EM CONTABILIDADE 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0227",
+          "nome": "AUDITORIA SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0016",
+          "nome": "EDUCACAO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0061",
+          "nome": "ESTUDOS AFRO-BRASILEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0141",
+          "nome": "ECONOMIA DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0056",
+          "nome": "INTRODUCAO A ENGENHARIA DE PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0065",
+          "nome": "GESTAO ESTRATEGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0032",
+          "nome": "FINANCAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0023",
+          "nome": "POLITICA EXTERNA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0093",
+          "nome": "INDIVIDUO E GLOBALIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0051",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0153",
+          "nome": "MATEMATICA FINANCEIRA APLICADA AS CIENCIAS CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0077",
+          "nome": "CONTABILIDADE GERAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0111",
+          "nome": "METODOLOGIA DA PESQUISA EM CIENCIAS CONTABEIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0081",
+          "nome": "TEORIA CONTABIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0183",
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS CIENCIAS CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0076",
+          "nome": "LEGISLACAO COMERCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0175",
+          "nome": "FINANCAS CORPORATIVAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0179",
+          "nome": "CONTABILIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0169",
+          "nome": "FINANCAS DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0176",
+          "nome": "FINANCAS CORPORATIVAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0178",
+          "nome": "CONTABILIDADE AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0024",
+          "nome": "AUDITORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0170",
+          "nome": "ORCAMENTO DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0177",
+          "nome": "FINANCAS CORPORATIVAS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0180",
+          "nome": "SISTEMAS DE CONTROLE GERENCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0181",
+          "nome": "CONTABILIDADE TRIBUTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0026",
+          "nome": "AUDITORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0069",
+          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0127",
+          "nome": "PERICIA CONTABIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0171",
+          "nome": "CONTABILIDADE DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0184",
+          "nome": "TEORIA DO LUCRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0149",
+          "nome": "ATUARIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0182",
+          "nome": "FILOSOFIA E ETICA PROFISSIONAL EM CONTABILIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0172",
+          "nome": "PESQUISA EM CONTABILIDADE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0174",
+          "nome": "LABORATORIO CONTABIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0173",
+          "nome": "PESQUISA EM CONTABILIDADE 2",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

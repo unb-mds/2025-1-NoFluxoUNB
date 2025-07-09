@@ -1,0 +1,1777 @@
+{
+  "curso": "FARMÁCIA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2016.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0212",
+          "nome": "QUIMICA INORGANICA APLICADA A FARMACIA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0209",
+          "nome": "QUIMICA ORGANICA APLICADA A FARMACIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0213",
+          "nome": "ASSISTENCIA FARMACEUTICA E SISTEMAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0225",
+          "nome": "FISICO-QUIMICA APLICADA A FARMACIA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0238",
+          "nome": "QUIMICA ANALITICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0239",
+          "nome": "QUIMICA ORGANICA APLICADA  A FARMACIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0255",
+          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0258",
+          "nome": "FARMACOGNOSIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0259",
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0260",
+          "nome": "ANALISE INSTRUMENTAL FARMACEUTICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0256",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0277",
+          "nome": "MODELOS E PRATICAS DE ATENCAO A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0307",
+          "nome": "INTRODUCAO AS ANALISES CLINICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0308",
+          "nome": "FARMACOTECNICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0309",
+          "nome": "CONTROLE FISICO-QUIMICO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0329",
+          "nome": "MECANISMOS DE AGRESSAO E DEFESA 3 - PRATICA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0367",
+          "nome": "BIOQUIMICA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0368",
+          "nome": "FARMACIA HOSPITALAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0369",
+          "nome": "FARMACOTECNICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0370",
+          "nome": "FARMACOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0372",
+          "nome": "TOXICOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0373",
+          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAR0050",
+          "nome": "BROMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0381",
+          "nome": "FARMACIA CLINICA E ATENCAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0402",
+          "nome": "TECNOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0398",
+          "nome": "MICROBIOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0399",
+          "nome": "ECONOMIA E GESTAO FARMACEUTICA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0409",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "435"
+        },
+        {
+          "codigo": "FCE0410",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FARMACIA 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0412",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "450"
+        },
+        {
+          "codigo": "FCE0413",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "BIOFISICA",
+          "nome": "135H OPTATIVA CEL0021 - BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0076",
+          "nome": "PESQUISA EM MICROBIOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0095",
+          "nome": "BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0110",
+          "nome": "IMUNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0111",
+          "nome": "MICROBIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0002",
+          "nome": "PESQUISA EM REPRODUCAO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0007",
+          "nome": "FISIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0039",
+          "nome": "ELEMENTOS DE FISIOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0041",
+          "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0052",
+          "nome": "BASES BIOLOGICAS DA REPRODUCAO EM MAMIFEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0010",
+          "nome": "INICIACAO A ENGENHARIA FLORESTAL",
+          "ch": "15"
+        },
+        {
+          "codigo": "ENF0043",
+          "nome": "INTRODUCAO ENFERMAGEM E ESTAGIO",
+          "ch": "225"
+        },
+        {
+          "codigo": "ENF0047",
+          "nome": "CONTEXTUALIZACAO DA ENFERMAGEM NA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0051",
+          "nome": "SISTEMATIZACAO DA ASSISTENCIA EM ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0058",
+          "nome": "VIVENCIAS INTEGRADORAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0059",
+          "nome": "VIVENCIAS INTEGRADORAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0080",
+          "nome": "PRATICAS SAUDAVEIS E TERAPIAS INTEGRATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0086",
+          "nome": "SEMIOLOGIA E SEMIOTECNICA APLICADA A ENFERMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0002",
+          "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0024",
+          "nome": "ANALISE INSTRUMENTAL TEORICA E EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0031",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0048",
+          "nome": "BIOPROSPECCAO FARMACEUTICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAR0119",
+          "nome": "ASSISTENCIA FARMACEUTICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0124",
+          "nome": "GENETICA BASICA E MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0126",
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0136",
+          "nome": "FARMACOTECNICA E COSMETOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0137",
+          "nome": "IMUNOFARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0139",
+          "nome": "TECNOLOGIA FARMACEUTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0140",
+          "nome": "FISICA INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0141",
+          "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0142",
+          "nome": "FUNDAMENTOS DE BIOTECNOLOGIA DE MEDICAMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0155",
+          "nome": "ESTAGIO EM TECNOLOGIA FARMACEUTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0165",
+          "nome": "INTRODUCAO A GESTAO DA QUALIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0167",
+          "nome": "ANALISE ORGANICA DOS FARMACOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0168",
+          "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FARMACOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0174",
+          "nome": "PATOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0176",
+          "nome": "FARMACOTECNICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0001",
+          "nome": "FUNDAMENTOS DE CITOGENETICA HUMANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0005",
+          "nome": "PATOLOGIA MOLECULAR CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0006",
+          "nome": "HEMATOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0008",
+          "nome": "PROCESSOS COGNITIVOS: APLICACOES EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0010",
+          "nome": "TOPICOS AVANCADOS EM PATOLOGIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0016",
+          "nome": "HOMEOPATIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0017",
+          "nome": "PRINCIPAIS VETORES DE IMPORTANCIA EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0018",
+          "nome": "METODOLOGIAS QUALITATIVAS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0019",
+          "nome": "SAUDE, CUIDADO E RECONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0021",
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0028",
+          "nome": "FUNDAMENTOS DE CANCEROLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0029",
+          "nome": "CONTROLE DE QUALIDADE DE MEDICAMENTOS NATURAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0030",
+          "nome": "PESQUISAS EM FORMAS FARMACENTICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0039",
+          "nome": "VIROLOGIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0045",
+          "nome": "METODO DA ERGONOMIA DA ATIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0046",
+          "nome": "INTRODUCAO A SAUDE DO TRABALHADOR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0051",
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0052",
+          "nome": "ENFERMAGEM EM ONCOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0053",
+          "nome": "PROCESSOS COGNITIVOS: CINESIO-FISIOPATOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0054",
+          "nome": "ESTAGIO SUP EM ASSISTENCIA FARMACEUTICA NA ATENCAO PRIMARIA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0055",
+          "nome": "TOXICANTES DE INTERESSE EM ALIMENTOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0056",
+          "nome": "TOXICOLOGIA E ESSENCIALIDADE DE METAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0061",
+          "nome": "BASES CELULARES E MORFOLOGICAS DO DESENVOLVIMENTO REGENERACAO MUSCULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0062",
+          "nome": "INTRODUCAO A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0063",
+          "nome": "SERVICOS CLINICOS FARMACEUTICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0071",
+          "nome": "PESQUISA EM PROMOCAO DO USO RACIONAL DOS MEDICAMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0073",
+          "nome": "PESQUISA EM ONCOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0077",
+          "nome": "NEUROANATOMIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0081",
+          "nome": "VALIDACAO DE METODOS ANALITICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0084",
+          "nome": "TOPICOS DE TECNOLOGIA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0085",
+          "nome": "INFORMACAO SOBRE MEDICAMENTOS: BUSCA, RECUPERACAO E ANALISE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0093",
+          "nome": "COMPOSTOS BIOATIVOS EM ALIMENTACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0094",
+          "nome": "LABORATORIO DE ESCRITA ETNOGRAFICA EM SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0108",
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0109",
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECANICA OCUPACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0110",
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0112",
+          "nome": "ANALISES LABORATORIAIS DOS FLUIDOS BIOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0133",
+          "nome": "CUIDADOS FARMACEUTICOS EM PROBLEMAS DE SAUDE AUTOLIMITADOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0135",
+          "nome": "BASES CIENTIFICAS DE NUTRICAO E ATIVIDADE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0138",
+          "nome": "PROCESSO DE INOVACAO EM TECNOLOGIA ASSISTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0139",
+          "nome": "INFECCAO RELACIONADA A ASSISTENCIA A SAUDE: VIGILANCIA E CONTROLE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0140",
+          "nome": "SEGURANCA DO PACIENTE NA ATENCAO A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0141",
+          "nome": "PESQUISA EM EXERCICIO FISICO, REABILITACAO E DESEMPENHO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0145",
+          "nome": "SUPORTE E MOVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0146",
+          "nome": "DA CELULA AOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0147",
+          "nome": "PROCESSOS PATOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0148",
+          "nome": "PRATICA EM BIOQUIMICA CELULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0150",
+          "nome": "PARASITOSES HUMANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0151",
+          "nome": "ENFERMAGEM NO CONTEXTO DO ENVELHECIMENTO HUMANO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0152",
+          "nome": "PESQUISA EM TERAPIA OCUPACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0153",
+          "nome": "ESTATISTICA APLICADA AS CIENCIAS FARMACEUTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0155",
+          "nome": "TOPICOS ESPECIAIS EM INTERACOES PATOGENO - HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0157",
+          "nome": "RADIOFARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0159",
+          "nome": "PESQUISA EM TERAPIA OCUPACIONAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0168",
+          "nome": "PESQUISA EM ENFERMAGEM GERONTOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0178",
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0193",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0197",
+          "nome": "FISIOLOGIA CLINICA DO EXERCICIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0198",
+          "nome": "BIOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0199",
+          "nome": "PESQUISA SOCIAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0205",
+          "nome": "SEMINARIO INTEGRATIVO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0208",
+          "nome": "SAUDE E SOCIEDADE 2: A CONSTRUCAO SOCIAL DO PROCESSO SAUDE E DOENCA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0210",
+          "nome": "PESQUISA EM NOVOS COMPOSTOS APLICADOS A SAUDE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0211",
+          "nome": "PESQUISA EM BIONANOTECNOLOGIA APLICADO A SAUDE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0214",
+          "nome": "BIOSSEGURANCA E BIOPROTECAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0215",
+          "nome": "PESQUISA EM DESENVOLVIMENTO DE COSMETICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0216",
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0217",
+          "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0218",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FISICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0219",
+          "nome": "INTRODUCAO A PSICOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0226",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0227",
+          "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL: ATIVIDADE HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0228",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0233",
+          "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0234",
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0235",
+          "nome": "PROCESSO DE TRABALHO E RELACIONAMENTO INTERPESSOAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0236",
+          "nome": "PROMOCAO A SAUDE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0237",
+          "nome": "RACIONALIDADES MEDICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0240",
+          "nome": "SAUDE, AMBIENTE E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0241",
+          "nome": "SEMINARIO INTEGRATIVO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0244",
+          "nome": "FUNDAMENTOS DE TERAPIA OCUPACIONAL: MOVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0247",
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0248",
+          "nome": "SEMIOLOGIA E SEMIOTECNICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0249",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0250",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0257",
+          "nome": "INTRODUCAO A PROCESSOS FOTOQUIMICOS E FOTOBIOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0266",
+          "nome": "DA CELULA AOS SISTEMAS 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0267",
+          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDENCIAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0272",
+          "nome": "SEMINARIO INTEGRATIVO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0273",
+          "nome": "SAUDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0276",
+          "nome": "FUNDAMENTOS DA EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0279",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0283",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0288",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0292",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0305",
+          "nome": "TOPICOS ESPECIAIS EM MICROBIOLOGIA APLICADOS A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0306",
+          "nome": "VIGILANCIA SANITARIA APLICADA A PROFISSIONAIS DE SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0310",
+          "nome": "FARMACOLOGIA EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0311",
+          "nome": "DEPENDENCIA QUIMICA E SUA TERAPEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0312",
+          "nome": "NEUROBIOLOGIA DOS TRANSTORNOS MENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0313",
+          "nome": "IMUNOBIOLOGIA DA RELACAO PATOGENO - HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0314",
+          "nome": "NUTRICAO HUMANA EM SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0315",
+          "nome": "TOPICOS EM METABOLISMO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0318",
+          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDENCIAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0325",
+          "nome": "EPIDEMIOLOGIA PARA A GESTAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0351",
+          "nome": "INTRODUCAO A PROCESSOS FOTOQUIMICOS E FOTOBIOLOGICOS EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0352",
+          "nome": "FARMACOGNOSIA EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0353",
+          "nome": "QUIMICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0354",
+          "nome": "TERAPIA OCUPACIONAL BASEADA EM EVIDENCIAS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0362",
+          "nome": "CUIDADO INTEGRAL A SAUDE DO ADULTO E IDOSO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0364",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 4",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0371",
+          "nome": "IMUNOLOGIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0375",
+          "nome": "FITOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0385",
+          "nome": "FISIOPATOLOGIA E FARMACOLOGIA DO DIABETES",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0390",
+          "nome": "FARMACOEPIDEMIOLOGIA E FARMACOVIGILANCIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0397",
+          "nome": "PROCESSO DE CUIDAR EM ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0400",
+          "nome": "TECNOLOGIA DE ALIMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0403",
+          "nome": "CITOLOGIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0404",
+          "nome": "PARASITOLOGIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0405",
+          "nome": "ANALISES TOXICOLOGICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0406",
+          "nome": "TECNOLOGIA DE COSMETICOS APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0407",
+          "nome": "PROMOCAO A SAUDE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0414",
+          "nome": "SINALIZACAO REDOX NO SISTEMA BIOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0454",
+          "nome": "PESQUISA EM MECANISMOS DE INTERACAO PATOGENO-HOSPEDEIRO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0844",
+          "nome": "PESQUISA EM BASES BIOLOGICAS E DA SAUDE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCS0003",
+          "nome": "PATOLOGIA MOLECULAR CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCS0061",
+          "nome": "ESTAGIO EM BIOTECNOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCS0079",
+          "nome": "TOPICOS EM PATOLOGIA MOLECULAR CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0408",
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0409",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0071",
+          "nome": "PARASITOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0095",
+          "nome": "PATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0512",
+          "nome": "HISTOLOGIA MEDICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0313",
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0022",
+          "nome": "FUNDAMENTOS DE HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0029",
+          "nome": "ESTAGIO EM GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0047",
+          "nome": "PESQUISA EM GENETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0054",
+          "nome": "HISTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0143",
+          "nome": "HISTOLOGIA ANIMAL 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IFD0189",
+          "nome": "FISICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0063",
+          "nome": "QUIMICA ANALITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0137",
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0213",
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0243",
+          "nome": "QUIMICA ANALITICA QUANTITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0212",
+          "nome": "QUIMICA INORGANICA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0209",
+          "nome": "QUIMICA ORGANICA APLICADA A FARMACIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0213",
+          "nome": "ASSISTENCIA FARMACEUTICA E SISTEMAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0225",
+          "nome": "FISICO-QUIMICA APLICADA A FARMACIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0220",
+          "nome": "FARMACOBOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0238",
+          "nome": "QUIMICA ANALITICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0239",
+          "nome": "QUIMICA ORGANICA APLICADA  A FARMACIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0255",
+          "nome": "DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0258",
+          "nome": "FARMACOGNOSIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0259",
+          "nome": "QUIMICA FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0260",
+          "nome": "ANALISE INSTRUMENTAL FARMACEUTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0256",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0277",
+          "nome": "MODELOS E PRATICAS DE ATENCAO A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0307",
+          "nome": "INTRODUCAO AS ANALISES CLINICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0308",
+          "nome": "FARMACOTECNICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0309",
+          "nome": "CONTROLE FISICO-QUIMICO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0329",
+          "nome": "MECANISMOS DE AGRESSAO E DEFESA 3 - PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0367",
+          "nome": "BIOQUIMICA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0368",
+          "nome": "FARMACIA HOSPITALAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0369",
+          "nome": "FARMACOTECNICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0370",
+          "nome": "FARMACOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0372",
+          "nome": "TOXICOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0373",
+          "nome": "CONTROLE DA QUALIDADE MICROBIOLOGICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0050",
+          "nome": "BROMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0381",
+          "nome": "FARMACIA CLINICA E ATENCAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0402",
+          "nome": "TECNOLOGIA APLICADA A FARMACIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0398",
+          "nome": "MICROBIOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0399",
+          "nome": "ECONOMIA E GESTAO FARMACEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0409",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "435"
+        },
+        {
+          "codigo": "FCE0410",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FARMACIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0412",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "450"
+        },
+        {
+          "codigo": "FCE0413",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,722 @@
+{
+  "curso": "ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO",
+  "tipo_curso": "Engenheiro de Controle e Automação",
+  "periodo_letivo_vigor": "2022.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0021",
+          "nome": "INTRODUCAO A ENGENHARIA MECATRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0018",
+          "nome": "IMPACTOS SOCIAIS DA TECNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0203",
+          "nome": "ESTATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0068",
+          "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0282",
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0164",
+          "nome": "MECANICA DOS MATERIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0217",
+          "nome": "DINAMICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0229",
+          "nome": "CIRCUITOS LOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0231",
+          "nome": "LABORATORIO DE CIRCUITOS LOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0045",
+          "nome": "ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0046",
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0047",
+          "nome": "CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0127",
+          "nome": "TECNOLOGIA DE FABRICACAO 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0128",
+          "nome": "TRANSPORTE DE CALOR E MASSA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0099",
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0048",
+          "nome": "LABORATORIO DE CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0077",
+          "nome": "CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0027",
+          "nome": "TECNOLOGIAS DE COMANDO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0084",
+          "nome": "SISTEMAS HIDRAULICOS E PNEUMATICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0019",
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0124",
+          "nome": "REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0256",
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO A",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0078",
+          "nome": "LABORATORIO DE CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0079",
+          "nome": "CONTROLE NO ESPACO DE ESTADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0438",
+          "nome": "PROJETO INTEGRADOR DE TECNOLOGIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0134",
+          "nome": "SISTEMAS INTEGRADOS DE MANUFATURA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0248",
+          "nome": "SISTEMAS DE TEMPO REAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0167",
+          "nome": "CONTROLE DIGITAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0355",
+          "nome": "INSTRUMENTACAO ELETRONICA E SENSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0195",
+          "nome": "MODELAGEM E IMPLEMENTACAO DE SISTEMAS A EVENTOS DISCRETOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0289",
+          "nome": "PROJETO DE MAQUINAS CONTROLADAS POR COMPUTADOR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FTD0015",
+          "nome": "ESTAGIO CURRICULAR EM ENGENHARIA MECATRONICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FTD0020",
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0022",
+          "nome": "PROJETO FINAL DE CURSO 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FTD0023",
+          "nome": "PROJETO FINAL DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA CIC0087 - TOPICOS AVANCADOS EM COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0104",
+          "nome": "SOFTWARE BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0130",
+          "nome": "INTRODUCAO AOS SISTEMAS EMBARCADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0135",
+          "nome": "INTRODUCAO A INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0195",
+          "nome": "PRINCIPIOS DE VISAO COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0197",
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0233",
+          "nome": "FUNDAMENTOS COMPUTACIONAIS DE ROBOTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0154",
+          "nome": "INTELIGENCIA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0260",
+          "nome": "IDENTIFICACAO DE SISTEMAS DINAMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0326",
+          "nome": "ELETRONICA DE POTENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0328",
+          "nome": "TOPICOS EM CONTROLE E AUTOMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0345",
+          "nome": "PRINCIPIOS DE CONTROLE DE ROBOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0066",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA MECATRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0119",
+          "nome": "SEGURANCA EM SISTEMAS DE CONTROLE E AUTOMACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENM0168",
+          "nome": "ROBOTICA INDUSTRIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0178",
+          "nome": "SISTEMAS RECONFIGURAVEIS PARA AUTOMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0021",
+          "nome": "INTRODUCAO A ENGENHARIA MECATRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0018",
+          "nome": "IMPACTOS SOCIAIS DA TECNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0203",
+          "nome": "ESTATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0068",
+          "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0282",
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0164",
+          "nome": "MECANICA DOS MATERIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0217",
+          "nome": "DINAMICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0229",
+          "nome": "CIRCUITOS LOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0231",
+          "nome": "LABORATORIO DE CIRCUITOS LOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0045",
+          "nome": "ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0046",
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0047",
+          "nome": "CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0127",
+          "nome": "TECNOLOGIA DE FABRICACAO 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0128",
+          "nome": "TRANSPORTE DE CALOR E MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0099",
+          "nome": "ORGANIZACAO E ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0048",
+          "nome": "LABORATORIO DE CONVERSAO ELETROMECANICA DE ENERGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0077",
+          "nome": "CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0027",
+          "nome": "TECNOLOGIAS DE COMANDO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0084",
+          "nome": "SISTEMAS HIDRAULICOS E PNEUMATICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0019",
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0124",
+          "nome": "REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0256",
+          "nome": "PRATICA EXTENSIONISTA EM COMPUTACAO A",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0078",
+          "nome": "LABORATORIO DE CONTROLE DE SISTEMAS DINAMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0079",
+          "nome": "CONTROLE NO ESPACO DE ESTADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0438",
+          "nome": "PROJETO INTEGRADOR DE TECNOLOGIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0134",
+          "nome": "SISTEMAS INTEGRADOS DE MANUFATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0248",
+          "nome": "SISTEMAS DE TEMPO REAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0167",
+          "nome": "CONTROLE DIGITAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0355",
+          "nome": "INSTRUMENTACAO ELETRONICA E SENSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0195",
+          "nome": "MODELAGEM E IMPLEMENTACAO DE SISTEMAS A EVENTOS DISCRETOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0289",
+          "nome": "PROJETO DE MAQUINAS CONTROLADAS POR COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0015",
+          "nome": "ESTAGIO CURRICULAR EM ENGENHARIA MECATRONICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FTD0020",
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0022",
+          "nome": "PROJETO FINAL DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FTD0023",
+          "nome": "PROJETO FINAL DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

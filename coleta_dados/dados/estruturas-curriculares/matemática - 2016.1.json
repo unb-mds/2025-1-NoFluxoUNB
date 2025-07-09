@@ -1,0 +1,1322 @@
+{
+  "curso": "MATEMÁTICA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2016.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0111",
+          "nome": "GEOMETRIA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "MAT0034",
+          "nome": "ALGEBRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "MAT0040",
+          "nome": "ALGEBRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0038",
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "MAT0046",
+          "nome": "ANALISE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0107",
+          "nome": "ALGEBRA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0047",
+          "nome": "TOPOLOGIA DOS ESPACOS METRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "MAT0050",
+          "nome": "GEOMETRIA DIFERENCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0106",
+          "nome": "ANALISE 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA CCA0103 - INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0002",
+          "nome": "FUNDAMENTOS TEORICOS DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0008",
+          "nome": "PROGRAMACAO SISTEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0010",
+          "nome": "INTRODUCAO A COMPILACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0093",
+          "nome": "LINGUAGENS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0095",
+          "nome": "TEORIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0111",
+          "nome": "PRINCIPIOS DE COMPUTACAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0134",
+          "nome": "PROGRAMACAO EM LOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0182",
+          "nome": "LOGICA COMPUTACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0054",
+          "nome": "GEOMETRIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0177",
+          "nome": "ELETROMAGNETISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0024",
+          "nome": "ESTATISTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0025",
+          "nome": "ESTATISTICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0034",
+          "nome": "ANALISE ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0048",
+          "nome": "PROCESSOS ESTOCASTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0053",
+          "nome": "PESQUISA OPERACIONAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0054",
+          "nome": "PESQUISA OPERACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0056",
+          "nome": "PESQUISA OPERACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0147",
+          "nome": "ESTRUTURA DE DADOS E ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0011",
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0012",
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0013",
+          "nome": "ONDAS, OPTICA E TERMODINAMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0018",
+          "nome": "RELATIVIDADE E FISICA QUANTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0055",
+          "nome": "ELETROMAGNETISMO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0069",
+          "nome": "MECANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0071",
+          "nome": "MECANICA CLASSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0074",
+          "nome": "TEORIA ELETROMAGNETICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0078",
+          "nome": "TERMODINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0088",
+          "nome": "MECANICA CLASSICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0091",
+          "nome": "INTRODUCAO A CINEMATICA RELATIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0093",
+          "nome": "TEORIA DOS FLUIDOS CLASSICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0096",
+          "nome": "FISICA ONDULATORIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0098",
+          "nome": "FISICA QUANTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0122",
+          "nome": "FISICA NUCLEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0137",
+          "nome": "LABORATORIO ESPECIAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0183",
+          "nome": "FISICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0185",
+          "nome": "FISICA 4 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0198",
+          "nome": "FISICA MATEMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0210",
+          "nome": "FISICA GERAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0213",
+          "nome": "FISICA GERAL 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0217",
+          "nome": "FISICA GERAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0220",
+          "nome": "FISICA GERAL 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0224",
+          "nome": "FISICA GERAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0227",
+          "nome": "FISICA GERAL 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0236",
+          "nome": "FISICA GERAL 4 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0244",
+          "nome": "FISICA GERAL 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0250",
+          "nome": "MECANICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0252",
+          "nome": "FISICA MATEMATICA - NOTURNO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0256",
+          "nome": "FISICA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0296",
+          "nome": "METODOS MATEMATICOS DA FISICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0041",
+          "nome": "INTRODUCAO A OTIMIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0057",
+          "nome": "ANALISE NUMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0060",
+          "nome": "HISTORIA DA MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0061",
+          "nome": "ALGEBRA PARA ENSINO  1 E 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0062",
+          "nome": "GEOMETRIA PARA ENSINO DO 1 E 2 GRAUS",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0065",
+          "nome": "SEMINARIO DE TOPICOS EM ANALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0067",
+          "nome": "SEMINARIO DE TOPICOS EM ALGEBRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0069",
+          "nome": "SEMINARIO DE TOPICOS EM GEOMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0072",
+          "nome": "FUNDAMENTOS MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0076",
+          "nome": "CALCULO DE PROBABILIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0077",
+          "nome": "INTRODUCAO A AUTOMATOS PROBABILISTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0078",
+          "nome": "ANALISE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0081",
+          "nome": "LINGUAGENS FORMAIS E AUTOMATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0082",
+          "nome": "ANALISE COMBINATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0085",
+          "nome": "GEOMETRIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0087",
+          "nome": "SEMINARIO TOPICOS ESPECIAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0089",
+          "nome": "ESTAGIO EM LABORATORIO DE ENSINO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0091",
+          "nome": "ESTAGIO DE PESQUISA BIBLIOGRAFICA SOBRE ENSINO DE MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0094",
+          "nome": "ESTAGIO DE REDACAO SOBRE ENSINO DE MATEMATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0097",
+          "nome": "ESTAGIO SUPERVISIONADO DE REGENCIA EM MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0098",
+          "nome": "PROGRAMACAO INTEIRA E DINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0099",
+          "nome": "INTRODUCAO AS EQUACOES DIFERENCIAIS PARCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0100",
+          "nome": "PROGRAMACAO NAO LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0101",
+          "nome": "OTIMIZACAO DE SISTEMAS DE GRANDE PORTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0102",
+          "nome": "METODOS MATEMATICOS DA FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0103",
+          "nome": "FUNDAMENTOS GEOMETRICOS DA RELATIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0105",
+          "nome": "INTRODUCAO A COMPUTACAO ALGEBRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0108",
+          "nome": "ESTAGIO EM LABORATORIO DE ENSINO DE MATEMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0114",
+          "nome": "GEOMETRIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0115",
+          "nome": "ESTAGIO ESPECIAL DE ENSINO E REGENCIA EM MATEMATICA",
+          "ch": "150"
+        },
+        {
+          "codigo": "MAT0116",
+          "nome": "SEMINARIO DE TOPICOS EM MATEMATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0118",
+          "nome": "TEORIA DOS NUMEROS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0119",
+          "nome": "LOGICA MATEMATICA E COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0120",
+          "nome": "INTRODUCAO A TEORIA DE MEDIDA E INTEGRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0122",
+          "nome": "ALGEBRA PARA O ENSINO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0124",
+          "nome": "REGENCIA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "MAT0125",
+          "nome": "TRABALHO FINAL 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "MAT0126",
+          "nome": "TRABALHO FINAL 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "MAT0129",
+          "nome": "GEOMETRIA PARA O ENSINO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0131",
+          "nome": "GEOMETRIA PARA O ENSINO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0132",
+          "nome": "PROGRAMACAO MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0134",
+          "nome": "ALGEBRA PARA O ENSINO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0136",
+          "nome": "REGENCIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "MAT0139",
+          "nome": "PRATICAS DE EXTENSAO EM MATEMATICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0140",
+          "nome": "PRATICAS DE EXTENSAO EM MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0141",
+          "nome": "PRATICAS DE EXTENSAO EM MATEMATICA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0142",
+          "nome": "INICIACAO CIENTIFICA EM MATEMATICA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "MAT0143",
+          "nome": "INICIACAO CIENTIFICA EM MATEMATICA 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "MAT0144",
+          "nome": "INICIACAO CIENTIFICA EM MATEMATICA 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0055",
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0105",
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0024",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0041",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0074",
+          "nome": "DESENHO GEOMETRICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0111",
+          "nome": "GEOMETRIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0038",
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0047",
+          "nome": "TOPOLOGIA DOS ESPACOS METRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0111",
+          "nome": "GEOMETRIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0034",
+          "nome": "ALGEBRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0040",
+          "nome": "ALGEBRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0038",
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0046",
+          "nome": "ANALISE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0107",
+          "nome": "ALGEBRA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0047",
+          "nome": "TOPOLOGIA DOS ESPACOS METRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0050",
+          "nome": "GEOMETRIA DIFERENCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0106",
+          "nome": "ANALISE 3",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

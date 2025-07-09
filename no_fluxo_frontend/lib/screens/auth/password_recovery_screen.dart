@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../constants/app_colors.dart';
+import '../../config/app_colors.dart';
 import '../../widgets/animated_background.dart';
 import '../../widgets/app_navbar.dart';
 
@@ -44,33 +44,48 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
               children: [
                 const AppNavbar(),
                 Expanded(
-                  child: SingleChildScrollView(
-                    child: Center(
-                      child: Container(
-                        constraints: const BoxConstraints(maxWidth: 400),
-                        padding: const EdgeInsets.all(24.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            const SizedBox(height: 40),
-                            Text(
-                              'Recuperar Senha',
-                              style: GoogleFonts.poppins(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.white,
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 440),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 28),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.08),
+                                blurRadius: 16,
+                                offset: const Offset(0, 4),
                               ),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(height: 24),
-                            Container(
-                              padding: const EdgeInsets.all(24),
-                              decoration: BoxDecoration(
-                                color: AppColors.black.withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(16),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              const SizedBox(height: 18),
+                              Text(
+                                'Recuperar Senha',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              child: Form(
+                              const SizedBox(height: 8),
+                              Text(
+                                'Digite seu e-mail para receber um link de recuperação',
+                                style: GoogleFonts.poppins(
+                                  color: Colors.grey[600],
+                                  fontSize: 15,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 24),
+                              Form(
                                 key: _formKey,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -79,70 +94,74 @@ class _PasswordRecoveryScreenState extends State<PasswordRecoveryScreen> {
                                     TextFormField(
                                       controller: _emailController,
                                       decoration: InputDecoration(
-                                        labelText: 'Email',
-                                        labelStyle: const TextStyle(color: AppColors.white),
-                                        prefixIcon: const Icon(Icons.email, color: AppColors.white),
+                                        hintText: 'Seu e-mail',
+                                        hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius: BorderRadius.circular(14),
+                                          borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
                                         ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(8),
-                                          borderSide: const BorderSide(color: AppColors.white),
+                                          borderRadius: BorderRadius.circular(14),
+                                          borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(8),
-                                          borderSide: const BorderSide(color: AppColors.primary),
+                                          borderRadius: BorderRadius.circular(14),
+                                          borderSide: const BorderSide(color: Color(0xFF2563EB)),
                                         ),
                                       ),
-                                      style: const TextStyle(color: AppColors.white),
+                                      style: GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Por favor, insira seu email';
                                         }
-                                        // Adicionar validação de formato de e-mail se necessário
                                         return null;
                                       },
                                     ),
-                                    const SizedBox(height: 24),
-                                    ElevatedButton(
-                                      onPressed: _sendRecoveryEmail,
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: AppColors.primary,
-                                        foregroundColor: AppColors.white,
-                                        padding: const EdgeInsets.symmetric(vertical: 16),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(8),
+                                    const SizedBox(height: 22),
+                                    SizedBox(
+                                      height: 52,
+                                      child: ElevatedButton(
+                                        onPressed: _sendRecoveryEmail,
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: const Color(0xFF2563EB),
+                                          foregroundColor: Colors.white,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(14),
+                                          ),
+                                          textStyle: GoogleFonts.poppins(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                          elevation: 2,
                                         ),
-                                      ),
-                                      child: Text(
-                                        'Enviar link de recuperação',
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                        child: const Text('Enviar link de recuperação'),
                                       ),
                                     ),
-                                    const SizedBox(height: 16), // Espaço entre os botões
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context); // Volta para a tela anterior
-                                      },
-                                      style: TextButton.styleFrom(
-                                        overlayColor: Colors.transparent, // Remove o efeito de hover
-                                      ),
-                                      child: Text(
-                                        'Voltar para Login',
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 14,
-                                          color: AppColors.primary,
+                                    const SizedBox(height: 18),
+                                    Center(
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          foregroundColor: Colors.black87,
+                                          textStyle: GoogleFonts.poppins(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w500,
+                                            decoration: TextDecoration.underline,
+                                          ),
                                         ),
+                                        child: const Text('Voltar para o login'),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),

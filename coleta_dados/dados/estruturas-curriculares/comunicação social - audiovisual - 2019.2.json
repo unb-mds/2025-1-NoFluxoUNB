@@ -1,0 +1,2712 @@
+{
+  "curso": "COMUNICAÇÃO SOCIAL - AUDIOVISUAL",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2019.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0101",
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0058",
+          "nome": "OFICINA DE TEXTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0079",
+          "nome": "COMUNICACAO E UNIVERSIDADE",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0079",
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0103",
+          "nome": "LINGUAGENS CINEMATOGRAFICA E AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0062",
+          "nome": "ETICA NA COMUNICACAO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0021",
+          "nome": "CINEMA BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0104",
+          "nome": "TEORIA ESTETICA DO CINEMA E DO AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0117",
+          "nome": "INTRODUCAO A LINGUAGEM SONORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0063",
+          "nome": "METODOS E TECNICAS EM PESQUISA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0089",
+          "nome": "TECNOLOGIA DE COMUNICACAO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0008",
+          "nome": "ARGUMENTO E ROTEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0118",
+          "nome": "ROTEIRO, PRODUCAO E REALIZACAO EM AUDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0149",
+          "nome": "DIRECAO DE ATORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0154",
+          "nome": "DOCUMENTARIO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0064",
+          "nome": "ESTETICA DA COMUNICACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0042",
+          "nome": "DOCUMENTARIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0076",
+          "nome": "FOTOGRAFIA E ILUMINACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0105",
+          "nome": "OFICINA DE ARGUMENTO E ROTEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0107",
+          "nome": "DIRECAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0108",
+          "nome": "PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0110",
+          "nome": "SOM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0111",
+          "nome": "EDICAO E MONTAGEM",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0055",
+          "nome": "FOTOGRAFIA E ILUMINACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0093",
+          "nome": "PRODUCAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0174",
+          "nome": "SOM 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0175",
+          "nome": "DIRECAO EM AUDIOVISUAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0176",
+          "nome": "EDICAO E MONTAGEM 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0115",
+          "nome": "PRE-PROJETO EM AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0171",
+          "nome": "LEGISLACAO, DESENVOLVIMENTO E PRODUCAO DE PROJETOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0065",
+          "nome": "POLITICAS DE COMUNICACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAP0084",
+          "nome": "COMUNICACAO E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0116",
+          "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0025 - ORGANIZACAO E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0035",
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0061",
+          "nome": "LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0064",
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0031",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0032",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0036",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0038",
+          "nome": "CORPO E MOVIMENTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0039",
+          "nome": "ENCENACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0042",
+          "nome": "DIRECAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0045",
+          "nome": "CENOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0049",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0066",
+          "nome": "CORPO E MOVIMENTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0067",
+          "nome": "CORPO E MOVIMENTO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0068",
+          "nome": "EXPRESSAO CORPORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0069",
+          "nome": "EXPRESSAO CORPORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0072",
+          "nome": "VOZ E DICCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0076",
+          "nome": "VOZ E DICCAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0078",
+          "nome": "VOZ E MOVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0088",
+          "nome": "LITERATURA DRAMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0089",
+          "nome": "LITERATURA DRAMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0090",
+          "nome": "LITERATURA DRAMATICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0091",
+          "nome": "LITERATURA DRAMATICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0095",
+          "nome": "INTRODUCAO A INTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0107",
+          "nome": "INTRODUCAO AS TECNICAS TEATRAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0133",
+          "nome": "DINAMICA DA VOZ 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0134",
+          "nome": "DINAMICA DA VOZ 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0139",
+          "nome": "TECNICAS DE SUPORTE CENICO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0140",
+          "nome": "TECNICAS DE SUPORTE CENICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0164",
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0165",
+          "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0166",
+          "nome": "TEATRALIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0167",
+          "nome": "A VOZ EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0168",
+          "nome": "A PALAVRA EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0169",
+          "nome": "VOZ E PALAVRA NA PERFORMANCE TEATRAL CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0171",
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0172",
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0173",
+          "nome": "INTERPRETACAO TEATRAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0177",
+          "nome": "MOVIMENTO E LINGUAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0178",
+          "nome": "MOVIMENTO E LINGUAGEM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0179",
+          "nome": "MOVIMENTO E LINGUAGEM 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0038",
+          "nome": "ESTUDO DO TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0001",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0002",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0004",
+          "nome": "MIDIA, CULTURA E SUBJETIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0005",
+          "nome": "INTERNET E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0006",
+          "nome": "EXTENSAO EM COMUNICACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "COM0007",
+          "nome": "EXTENSAO EM COMUNICACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "COM0009",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0010",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0012",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0014",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0016",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 9",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0017",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 10",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0127",
+          "nome": "ETICA, LEGISLACAO E RESPONSABILIDADE SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0128",
+          "nome": "INTRODUCAO AO MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0129",
+          "nome": "LINGUAGENS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0130",
+          "nome": "INTRODUCAO AS TEORIAS DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0131",
+          "nome": "INTRODUCAO AO PLANEJAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0132",
+          "nome": "LINGUAGENS DA COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0133",
+          "nome": "METODOLOGIA DE PESQUISA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0134",
+          "nome": "PLANEJAMENTO EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0135",
+          "nome": "PRODUCAO E EDICAO DE IMAGEM E SOM",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0136",
+          "nome": "TEORIAS DA COMUNICACAO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0137",
+          "nome": "TECNICAS DE JORNALISMO IMPRESSO E ON LINE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0138",
+          "nome": "PLANEJAMENTO GRAFICO, VISUAL E WEB",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0139",
+          "nome": "GESTAO EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0140",
+          "nome": "POLITICAS DE COMUNICACAO, SOCIEDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0141",
+          "nome": "TECNICAS DE JORNALISMO EM RADIO E TV",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0142",
+          "nome": "INSTRUMENTO DA COMUNICACAO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0143",
+          "nome": "PLANEJAMENTO E GESTAO EM MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0144",
+          "nome": "CRIACAO EM COMUNICACAO E PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0145",
+          "nome": "ROTEIRO, PRODUCAO E DIRECAO PARA WEB, VIDEO E CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0146",
+          "nome": "PESQUISA EM OPINIAO E MERCADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0147",
+          "nome": "PLANEJAMENTO E GESTAO EM ORG PUBLICAS, PRIVADAS E DO TERCEIRO SETOR",
+          "ch": "120"
+        },
+        {
+          "codigo": "COM0148",
+          "nome": "FORMATACAO E GERENCIAMENTO DE PROJETOS EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0149",
+          "nome": "PLANEJAMENTO E GESTAO EM WEB",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0150",
+          "nome": "GESTAO ESTRATEGICA PARA A SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0151",
+          "nome": "AVALIACAO EM PROJETOS DE COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0152",
+          "nome": "ASSESSORIA E CONSULTORIA EM COMUNICACAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "COM0155",
+          "nome": "COMUNICACAO CULTURA E CONSUMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0156",
+          "nome": "LINGUAGEM E ESTETICA FOTOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0157",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0001",
+          "nome": "BRANDING: UMA VISAO PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0004",
+          "nome": "LINGUAGEM PUBLICITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0006",
+          "nome": "PRODUCAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0007",
+          "nome": "ANALISE DA PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0011",
+          "nome": "CRIATIVIDADE EM PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0012",
+          "nome": "DIRECAO DE ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0014",
+          "nome": "REDACAO PARA PUBLICIDADE AUDIO-VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0015",
+          "nome": "CINEMA E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0016",
+          "nome": "DIRECAO DO FILME 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0017",
+          "nome": "ANALISE DO FILME",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0022",
+          "nome": "TENDENCIAS DO CINEMA E DA TELEVISAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0024",
+          "nome": "TECNOLOGIA DO RADIO E TV",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0030",
+          "nome": "ADMINISTRACAO PUBLICITARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0031",
+          "nome": "PRODUCAO PUBLICITARIA PARA RADIO, TELEVISAO E CINEMA",
+          "ch": "120"
+        },
+        {
+          "codigo": "DAP0033",
+          "nome": "PROJETOS EXPERIMENTAIS - PUBLICIDADE",
+          "ch": "270"
+        },
+        {
+          "codigo": "DAP0035",
+          "nome": "PROJETOS EXPERIMENTAIS - CINEMA",
+          "ch": "270"
+        },
+        {
+          "codigo": "DAP0038",
+          "nome": "REDACAO PARA TV 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0044",
+          "nome": "PESQUISA PUBLICITARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0060",
+          "nome": "PUBLICIDADE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0061",
+          "nome": "INTRODUCAO AS HISTORIAS EM QUADRINHOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0064",
+          "nome": "MIDIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0068",
+          "nome": "REDACAO PARA RADIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0072",
+          "nome": "PRODUCAO E INTERPRETACAO PARA RADIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0078",
+          "nome": "DIRECAO DO FILME 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0083",
+          "nome": "ANALISE DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0085",
+          "nome": "INTRODUCAO AS COMUNICACOES MEDIADAS POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAP0087",
+          "nome": "LABORATORIO DE ROTEIRIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0088",
+          "nome": "LABORATORIO DE REALIZACAO CINEMATOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0089",
+          "nome": "INFORMATICA E CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0090",
+          "nome": "EDICAO DO FILME 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0091",
+          "nome": "SOM DO FILME 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0097",
+          "nome": "LEITURA DOS MEIOS DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0098",
+          "nome": "INTRODUCAO A PUBLICIDADE E PROPAGANDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0099",
+          "nome": "COMUNICACAO E MUSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0100",
+          "nome": "COMUNICACAO E GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0102",
+          "nome": "CRIATIVIDADE EM COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0112",
+          "nome": "LABORATORIO DE REALIZACAO EM TV E VIDEO",
+          "ch": "210"
+        },
+        {
+          "codigo": "DAP0113",
+          "nome": "LABORATORIO DE REALIZACAO EM CINEMA",
+          "ch": "210"
+        },
+        {
+          "codigo": "DAP0114",
+          "nome": "LABORATORIO DE REALIZACAO EM AUDIO",
+          "ch": "210"
+        },
+        {
+          "codigo": "DAP0119",
+          "nome": "SEMINARIOS AVANCADOS EM AUDIOVISUAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0120",
+          "nome": "FOTOGRAFIA PUBLICITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0123",
+          "nome": "MARKETING EM PUBLICIDADE E PROPAGANDA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAP0124",
+          "nome": "REDACAO PUBLICITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0125",
+          "nome": "DIRECAO DE ARTE EM ARTES GRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0126",
+          "nome": "PLANEJAMENTO PUBLICITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0127",
+          "nome": "GERENCIAMENTO DE CONTAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0128",
+          "nome": "LABORATORIO EM PUBLICIDADE E PROPAGANDA",
+          "ch": "240"
+        },
+        {
+          "codigo": "DAP0129",
+          "nome": "SEMINARIOS AVANCADOS EM AUDIOVISUAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0130",
+          "nome": "PRE-PROJETO EM PUBLICIDADE E PROPAGANDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0131",
+          "nome": "OFICINA DE INTERPRETACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0132",
+          "nome": "OFICINA DE PUBLICIDADE E PROPAGANDA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0133",
+          "nome": "OFICINA DE PUBLICIDADE E PROPAGANDA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0134",
+          "nome": "OFICINA DE PUBLICIDADE E PROPAGANDA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0139",
+          "nome": "ARTE E PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0140",
+          "nome": "ECONOMIA DO CINEMA E AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0141",
+          "nome": "FORMATACAO PROJETO  AUDIOVISUAL E CAPTACAO DE RECURSOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0143",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0145",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0147",
+          "nome": "DIRECAO DE ARTE PARA PRODUTO AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0150",
+          "nome": "OFICINA DE ANIMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0151",
+          "nome": "HISTORIA DO CINEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0155",
+          "nome": "CINEMA BRASILEIRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0156",
+          "nome": "REDACAO PRODUCAO E EDICAO EM TELEVISAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0157",
+          "nome": "NOVAS MIDIAS AUDIOVISUAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0158",
+          "nome": "PRODUCAO PUBLICITARIA AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0159",
+          "nome": "PROJETO FINAL EM PUBLICIDADE E PROPAGANDA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAP0160",
+          "nome": "OFICINA RADIOFONICA DE ADAPTACAO LITERARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAP0162",
+          "nome": "INTRODUCAO A COMUNICACAO NAO VERBAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0164",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 7",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0166",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 8",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0167",
+          "nome": "OFICINA DE PUBLICIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0168",
+          "nome": "OFICINA DE PUBLICIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0169",
+          "nome": "OFICINA DE HISTORIA EM QUADRINHOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0170",
+          "nome": "LEGISLACAO E REGULAMENTACAO DE PUBLICIDADE E PROPAGANDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0172",
+          "nome": "MIDIA E GERENCIAMENTO DE CONTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0177",
+          "nome": "INTRODUCAO AS REDES SOCIAIS VIRTUAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0108",
+          "nome": "ECONOMIA RURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0147",
+          "nome": "CONJUNTURA ECONOMICA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0002",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO ORGANIZACIONAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAC0007",
+          "nome": "ANALISE AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0008",
+          "nome": "SEMIOTICA E COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0010",
+          "nome": "COMUNICACAO INTERNA E CULTURA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0056",
+          "nome": "OFICINA DE PRODUCAO DE ARTIGOS CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0038",
+          "nome": "ESTATISTICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0052",
+          "nome": "FISIOLOGIA VETERINARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0066",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0088",
+          "nome": "EXTENSAO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0113",
+          "nome": "ANATOMIA E FISIOLOGIA DOS ANIMAIS DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0150",
+          "nome": "ZOOTECNIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0178",
+          "nome": "FISIOLOGIA VETERINARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0180",
+          "nome": "NUTRICAO ANIMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0236",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0248",
+          "nome": "AVICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0249",
+          "nome": "SUINOCULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0276",
+          "nome": "ZOOTECNIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0109",
+          "nome": "INTRODUCAO A LOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0134",
+          "nome": "MITO E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0158",
+          "nome": "IDEIAS FILOSOFICAS EM FORMA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0286",
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0314",
+          "nome": "BASES PSICOLOGICAS PARA O ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0141",
+          "nome": "CULTURA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0001",
+          "nome": "COMUNICACAO, INFORMACAO E COMPUTACAO : FUNDAMENTOS E APLICACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "JOR0002",
+          "nome": "HISTORIA DO JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0003",
+          "nome": "PROCESSOS GRAFICOS EM JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0004",
+          "nome": "ETICA E JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0005",
+          "nome": "APURACAO E TEXTO JORNALISTICO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0006",
+          "nome": "JORNALISMO EM RADIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0007",
+          "nome": "WEBDESIGN EM JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0008",
+          "nome": "APURACAO E TEXTO JORNALISTICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0009",
+          "nome": "WEBJORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0010",
+          "nome": "CAMPUS MULTIMIDIA",
+          "ch": "180"
+        },
+        {
+          "codigo": "JOR0012",
+          "nome": "EMPREENDEDORISMO E GESTAO EM COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0013",
+          "nome": "JORNALISMO CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0014",
+          "nome": "JORNALISMO EM RADIO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "JOR0015",
+          "nome": "JORNALISMO EM TV 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0016",
+          "nome": "JORNALISMO EM TV 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "JOR0017",
+          "nome": "JORNALISMO ESPORTIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0018",
+          "nome": "JORNALISMO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0019",
+          "nome": "JORNALISMO INVESTIGATIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0020",
+          "nome": "JORNALISMO LOCAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0021",
+          "nome": "JORNALISMO OPINATIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0022",
+          "nome": "TEORIA E PESQUISA DE OPINIAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0023",
+          "nome": "TEORIAS DO JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0024",
+          "nome": "ASSESSORIA DE COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0025",
+          "nome": "ASSESSORIA DE COMUNICACAO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "JOR0026",
+          "nome": "ESTAGIO OBRIGATORIO",
+          "ch": "210"
+        },
+        {
+          "codigo": "JOR0027",
+          "nome": "JORNAL CAMPUS",
+          "ch": "120"
+        },
+        {
+          "codigo": "JOR0030",
+          "nome": "TELEJORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0033",
+          "nome": "ANALISE E OPINIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0034",
+          "nome": "JORNALISMO ESPECIALIZADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0036",
+          "nome": "PROJETOS EXPERIMENTAIS - JORNALISMO",
+          "ch": "270"
+        },
+        {
+          "codigo": "JOR0037",
+          "nome": "JORNALISMO DE REVISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0039",
+          "nome": "FOTOJORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0041",
+          "nome": "IMPRENSA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0042",
+          "nome": "TECNICAS DE COMUNICACAO DIRIGIDA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "JOR0043",
+          "nome": "OFICINA DE TEXTO-JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0044",
+          "nome": "FOTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0046",
+          "nome": "REDACAO DE JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0047",
+          "nome": "EDICAO JORNALISTICA",
+          "ch": "150"
+        },
+        {
+          "codigo": "JOR0048",
+          "nome": "NOTICIA E MERCADOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0049",
+          "nome": "PLANEJAMENTO GRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0050",
+          "nome": "HISTORIA DA IMPRENSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0052",
+          "nome": "REDACAO PARA PUBLICIDADE IMPRESSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0054",
+          "nome": "RADIOJORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0056",
+          "nome": "ETICA E LEGISLACAO EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0057",
+          "nome": "REALIDADE BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0059",
+          "nome": "REALIDADE REGIONAL EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0061",
+          "nome": "OFICINA AVANCADA DE NARRATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0067",
+          "nome": "ASSESSORIA DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0070",
+          "nome": "TECNICAS DE JORNALISMO",
+          "ch": "90"
+        },
+        {
+          "codigo": "JOR0071",
+          "nome": "CAMPUS 2",
+          "ch": "240"
+        },
+        {
+          "codigo": "JOR0072",
+          "nome": "OFICINA DE TEXTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0073",
+          "nome": "COMUNICACAO E PROCESSOS DE INTERPRETACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0074",
+          "nome": "TOPICOS ESPECIAIS EM ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0075",
+          "nome": "REPORTAGEM FOTOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0076",
+          "nome": "ELABORACAO DE PROJETOS EM COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0080",
+          "nome": "INTRODUCAO AO JORNALISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0082",
+          "nome": "CAMPUS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "JOR0083",
+          "nome": "COMUNICACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0085",
+          "nome": "OFICINA DE JORNALISMO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0086",
+          "nome": "TELEJORNALISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0087",
+          "nome": "RADIOJORNALISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0088",
+          "nome": "PRE-PROJETO EXPERIMENTAL EM JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0092",
+          "nome": "LEGISLACAO E DIREITO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0093",
+          "nome": "COMUNICACAO INSTITUCIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0094",
+          "nome": "DIREITO DO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0095",
+          "nome": "COMUNICACAO E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0097",
+          "nome": "ANALISE DO JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0098",
+          "nome": "JORNALISMO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0100",
+          "nome": "JORNALISMO E PODER",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0101",
+          "nome": "JORNALISMO CORPORATIVO",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0102",
+          "nome": "PLANEJAMENTO GRAFICO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0103",
+          "nome": "OFICINA DE JORNALISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0104",
+          "nome": "OFICINA DE JORNALISMO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0105",
+          "nome": "ANALISE DO JORNALISMO AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0107",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0109",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0110",
+          "nome": "JORNALISMO POLITICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0111",
+          "nome": "SOCIOLOGIA DO JORNALISMO: ENSAIO DE COMPARACAO INTERNACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0112",
+          "nome": "PROJETO FINAL EM JORNALISMO",
+          "ch": "90"
+        },
+        {
+          "codigo": "JOR0114",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0116",
+          "nome": "TOPICOS ESPECIAIS EM COMUNICACAO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0117",
+          "nome": "OFICINA DE JORNALISMO DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0118",
+          "nome": "OFICINA DE JORNALISMO DIGITAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0119",
+          "nome": "OFICINA DE JORNALISMO DIGITAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0120",
+          "nome": "OFICINA DE JORNALISMO DIGITAL 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0121",
+          "nome": "OFICINA DE JORNALISMO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0122",
+          "nome": "OFICINA DE JORNALISMO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0124",
+          "nome": "OFICINA DE JORNALISMO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0125",
+          "nome": "OFICINA DE JORNALISMO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0126",
+          "nome": "EDICAO DE TEXTO EM REVISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0127",
+          "nome": "COMUNICACAO E POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0128",
+          "nome": "COMUNICACAO COMUNITARIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0130",
+          "nome": "HISTORIA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0131",
+          "nome": "CRITICA DA MIDIA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0132",
+          "nome": "OFICINA DE DIAGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0133",
+          "nome": "EDICAO DE IMAGEM EM REVISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0134",
+          "nome": "OFICINA DE TELEJORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0135",
+          "nome": "JORNALISMO LITERARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0136",
+          "nome": "LABORATORIO CAMPUS REPORTER 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "JOR0137",
+          "nome": "TECNICAS DE RADIO E TV",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0044",
+          "nome": "LINGUA ALEMA INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0078",
+          "nome": "LINGUA FRANCESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0079",
+          "nome": "LINGUA FRANCESA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0086",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0087",
+          "nome": "LINGUA INGLESA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0103",
+          "nome": "LINGUA ALEMA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0104",
+          "nome": "LINGUA ALEMA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0122",
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0058",
+          "nome": "SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0089",
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0025",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0027",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0017",
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0012",
+          "nome": "PSICOLOGIA SOCIAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0024",
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0047",
+          "nome": "SOCIOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0058",
+          "nome": "SOCIOLOGIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0069",
+          "nome": "PENSAMENTO SOCIOLOGICO LATINO-AMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0087",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "TAU0002",
+          "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0005",
+          "nome": "OFICINA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0014",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0022",
+          "nome": "LITERATURA BRASILEIRA - REALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0024",
+          "nome": "LITERATURA BRASILEIRA - BARROCO E ARCADISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0026",
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0060",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0065",
+          "nome": "DESENHO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0085",
+          "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0113",
+          "nome": "PRATICAS DE ENSINO: MATERIAIS EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0141",
+          "nome": "HISTORIA DA ARTE ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0230",
+          "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0231",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0233",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0236",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0238",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0242",
+          "nome": "VIDEO-ARTE",
+          "ch": "120"
+        },
+        {
+          "codigo": "VIS0244",
+          "nome": "ANIMACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0251",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0253",
+          "nome": "HISTORIA DA ARTE MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0254",
+          "nome": "HISTORIA DA ARTE MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0255",
+          "nome": "HISTORIA DA ARTE CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0256",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0101",
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0058",
+          "nome": "OFICINA DE TEXTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0079",
+          "nome": "COMUNICACAO E UNIVERSIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0079",
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0103",
+          "nome": "LINGUAGENS CINEMATOGRAFICA E AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0062",
+          "nome": "ETICA NA COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0021",
+          "nome": "CINEMA BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0104",
+          "nome": "TEORIA ESTETICA DO CINEMA E DO AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0117",
+          "nome": "INTRODUCAO A LINGUAGEM SONORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0063",
+          "nome": "METODOS E TECNICAS EM PESQUISA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0089",
+          "nome": "TECNOLOGIA DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0008",
+          "nome": "ARGUMENTO E ROTEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0118",
+          "nome": "ROTEIRO, PRODUCAO E REALIZACAO EM AUDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0149",
+          "nome": "DIRECAO DE ATORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0154",
+          "nome": "DOCUMENTARIO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0064",
+          "nome": "ESTETICA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0042",
+          "nome": "DOCUMENTARIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0076",
+          "nome": "FOTOGRAFIA E ILUMINACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0105",
+          "nome": "OFICINA DE ARGUMENTO E ROTEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0107",
+          "nome": "DIRECAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0108",
+          "nome": "PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0110",
+          "nome": "SOM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0111",
+          "nome": "EDICAO E MONTAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0055",
+          "nome": "FOTOGRAFIA E ILUMINACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0093",
+          "nome": "PRODUCAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0174",
+          "nome": "SOM 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0175",
+          "nome": "DIRECAO EM AUDIOVISUAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0176",
+          "nome": "EDICAO E MONTAGEM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0115",
+          "nome": "PRE-PROJETO EM AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0171",
+          "nome": "LEGISLACAO, DESENVOLVIMENTO E PRODUCAO DE PROJETOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0065",
+          "nome": "POLITICAS DE COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0084",
+          "nome": "COMUNICACAO E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0116",
+          "nome": "PROJETO EXPERIMENTAL EM AUDIOVISUAL",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

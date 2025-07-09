@@ -1,0 +1,977 @@
+{
+  "curso": "ENGENHARIA AMBIENTAL",
+  "tipo_curso": "Bacharelo",
+  "periodo_letivo_vigor": "2021.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0088",
+          "nome": "BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0263",
+          "nome": "INTRODUCAO A ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0240",
+          "nome": "LABORATORIO DE GEOTECNIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0241",
+          "nome": "GEOTECNIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0266",
+          "nome": "CLIMATOLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0267",
+          "nome": "CARTOGRAFIA E GEOPROCESSAMENTO APLICADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0268",
+          "nome": "CIENCIA DOS MATERIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0037",
+          "nome": "TRANSFERENCIA DE ENERGIA E MASSA",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENC0235",
+          "nome": "GEOTECNIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0269",
+          "nome": "MICROBIOLOGIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0270",
+          "nome": "MICROBIOLOGIA AMBIENTAL E EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0272",
+          "nome": "ASPECTOS QUIMICOS DE QUALIDADE DA AGUA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0273",
+          "nome": "ASPECTOS QUIMICOS DE QUALIDADE DE AGUA-EXPERIMENTAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0183",
+          "nome": "GEOTECNIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0251",
+          "nome": "HIDRAULICA - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0252",
+          "nome": "HIDRAULICA EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0274",
+          "nome": "ESTATISTICA APLICADA A ENGENHARIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0275",
+          "nome": "METODOS COMPUTACIONAIS EM ENGENHARIA AMBIENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0001",
+          "nome": "CINETICA, PROCESSOS E OPERACOES UNITARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0002",
+          "nome": "ASPECTOS ECONOMICOS DA ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0166",
+          "nome": "HIDROLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0004",
+          "nome": "SANEAMENTO, MEIO AMBIENTE E PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0007",
+          "nome": "TRATAMENTO DE AGUAS RESIDUARIAS URBANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0010",
+          "nome": "TRATAMENTO DE AGUA PARA CONSUMO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0052",
+          "nome": "RESIDUOS SOLIDOS URBANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0282",
+          "nome": "FUNDAMENTOS DO DIREITO AMBIENTAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0013",
+          "nome": "INTRODUCAO A ANALISE DE SISTEMAS AMBIENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0015",
+          "nome": "AVALIACAO E CONTROLE DE POLUICAO DA AGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0016",
+          "nome": "AVALIACAO E CONTROLE DE POLUICAO DO SOLO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0025",
+          "nome": "ESTAGIO CURRICULAR EM ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0026",
+          "nome": "AVALIACAO DE IMPACTOS E RISCOS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0028",
+          "nome": "PROJETO FINAL EM ENGENHARIA AMBIENTAL 1",
+          "ch": "15"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0030",
+          "nome": "PROJETO FINAL EM ENGENHARIA AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0031",
+          "nome": "PLANEJAMENTO E GESTAO AMBIENTAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "VEL",
+          "nome": "60H OPTATIVA CDS0008 - MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CET0039",
+          "nome": "SUSTENTABILIDADE ETICA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0063",
+          "nome": "DIREITO SANITARIO E LEGISLACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0030",
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0036",
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0010",
+          "nome": "INICIACAO A ENGENHARIA FLORESTAL",
+          "ch": "15"
+        },
+        {
+          "codigo": "ENC0003",
+          "nome": "SAUDE, SANEAMENTO E MEIO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0011",
+          "nome": "MODELOS E SIMULACAO DE SISTEMAS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0012",
+          "nome": "ESTUDOS DOS ECOSSISTEMAS AQUATICOS CONTINENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0014",
+          "nome": "AVALIACAO E CONTROLE DE POLUICAO DO AR E SONORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0017",
+          "nome": "SOLOS TROPICAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0018",
+          "nome": "BIOQUIMICA APLICADA  AOS PROCESSOS DA ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0019",
+          "nome": "TRATAMENTO AVANCADO DE AGUAS PARA CONSUMO HUMANO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0020",
+          "nome": "TRATAMENTO AVANCADO DE AGUAS RESIDUARIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0021",
+          "nome": "TOPICOS AVANCADOS EM TRANSPORTE DE CONTAMINANTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0022",
+          "nome": "MODELOS DE POLUICAO DIFUSA EM SISTEMAS HIDRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0023",
+          "nome": "AVALIACAO AMBIENTAL ESTRATEGICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0032",
+          "nome": "TOPICOS ESPECIAIS EM GESTAO DE RECURSOS HIDRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0033",
+          "nome": "RECUPERACAO E REABILITACAO DE AREAS DEGRADADAS POR MINERACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0034",
+          "nome": "INTRODUCAO A ENGENHARIA TERRITORIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0044",
+          "nome": "SISTEMAS DE INFORMACAO GEOGRAFICA APLICADA AOS TRANSPORTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0046",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0050",
+          "nome": "GEOSSINTETICOS EM ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0051",
+          "nome": "SISTEMAS DE ESGOTO SANITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0064",
+          "nome": "TOPICOS ESPECIAIS DE ENGENHARIA HIDRAULICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0162",
+          "nome": "TOPICOS ESPECIAIS EM HIDRAULICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0165",
+          "nome": "SISTEMAS DE IRRIGACAO E DRENAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0169",
+          "nome": "SISTEMAS HIDRAULICOS DE SANEAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0172",
+          "nome": "AGUAS SUBTERRANEAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0180",
+          "nome": "SISTEMAS DE DRENAGEM URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0182",
+          "nome": "SISTEMAS HIDROVIARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0187",
+          "nome": "SISTEMA DE ABASTECIMENTO DE AGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0188",
+          "nome": "INVESTIGACOES GEOTECNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0208",
+          "nome": "DESENVOLVIMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0237",
+          "nome": "TOPICOS ESPECIAIS EM GEOTECNIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0238",
+          "nome": "LABORATORIO DE GEOTECNIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0239",
+          "nome": "METODOS COMPUTACIONAIS EM GEOTECNIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0245",
+          "nome": "METODOS NUMERICOS EM HIDROLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0253",
+          "nome": "FUNDAMENTOS DA GESTAO DA AGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0256",
+          "nome": "INTRODUCAO A REALIDADE VIRTUAL E A TECNICAS INTERATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0261",
+          "nome": "GESTAO DE PROJETOS E EQUIPES MULTIDISCIPLINARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0264",
+          "nome": "TRANSPORTE E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0271",
+          "nome": "MATERIAIS PARA CONSTRUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0279",
+          "nome": "ESTACAS TROCADORAS DE CALOR PARA CLIMATIZACAO SUSTENTAVEL DE ESTRUTURAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0281",
+          "nome": "ANALISE DE CICLO DE VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0282",
+          "nome": "PLANEJAMENTO E GESTAO DE SISTEMAS HIDRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0002",
+          "nome": "LABORATORIO DE ELETRICIDADE BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0273",
+          "nome": "PLANEJAMENTO ENERGETICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0174",
+          "nome": "SISTEMAS ENERGETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0176",
+          "nome": "INTRODUCAO A ECOLOGIA INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0215",
+          "nome": "ENERGIA RENOVAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0107",
+          "nome": "LABORATORIO DE ONDULATORIA E FISICA TERMICA PARA A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0068",
+          "nome": "POLITICA PUBLICA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0075",
+          "nome": "GEOGRAFIA ECONOMICA DA ENERGIA E PLANEJAMENTO ENERGETICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0063",
+          "nome": "QUIMICA ANALITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0282",
+          "nome": "REACOES QUIMICAS E O AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0048",
+          "nome": "EQUACOES DIFERENCIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0013",
+          "nome": "PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0088",
+          "nome": "BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0263",
+          "nome": "INTRODUCAO A ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0240",
+          "nome": "LABORATORIO DE GEOTECNIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0241",
+          "nome": "GEOTECNIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0266",
+          "nome": "CLIMATOLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0267",
+          "nome": "CARTOGRAFIA E GEOPROCESSAMENTO APLICADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0268",
+          "nome": "CIENCIA DOS MATERIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENC0037",
+          "nome": "TRANSFERENCIA DE ENERGIA E MASSA",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENC0235",
+          "nome": "GEOTECNIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0269",
+          "nome": "MICROBIOLOGIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0270",
+          "nome": "MICROBIOLOGIA AMBIENTAL E EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0272",
+          "nome": "ASPECTOS QUIMICOS DE QUALIDADE DA AGUA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0273",
+          "nome": "ASPECTOS QUIMICOS DE QUALIDADE DE AGUA-EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0183",
+          "nome": "GEOTECNIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0251",
+          "nome": "HIDRAULICA - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0252",
+          "nome": "HIDRAULICA EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0274",
+          "nome": "ESTATISTICA APLICADA A ENGENHARIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0275",
+          "nome": "METODOS COMPUTACIONAIS EM ENGENHARIA AMBIENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0001",
+          "nome": "CINETICA, PROCESSOS E OPERACOES UNITARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0002",
+          "nome": "ASPECTOS ECONOMICOS DA ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0166",
+          "nome": "HIDROLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0004",
+          "nome": "SANEAMENTO, MEIO AMBIENTE E PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0007",
+          "nome": "TRATAMENTO DE AGUAS RESIDUARIAS URBANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0010",
+          "nome": "TRATAMENTO DE AGUA PARA CONSUMO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0052",
+          "nome": "RESIDUOS SOLIDOS URBANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0282",
+          "nome": "FUNDAMENTOS DO DIREITO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0013",
+          "nome": "INTRODUCAO A ANALISE DE SISTEMAS AMBIENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0015",
+          "nome": "AVALIACAO E CONTROLE DE POLUICAO DA AGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0016",
+          "nome": "AVALIACAO E CONTROLE DE POLUICAO DO SOLO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0025",
+          "nome": "ESTAGIO CURRICULAR EM ENGENHARIA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0026",
+          "nome": "AVALIACAO DE IMPACTOS E RISCOS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0028",
+          "nome": "PROJETO FINAL EM ENGENHARIA AMBIENTAL 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "ENC0030",
+          "nome": "PROJETO FINAL EM ENGENHARIA AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0031",
+          "nome": "PLANEJAMENTO E GESTAO AMBIENTAL",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

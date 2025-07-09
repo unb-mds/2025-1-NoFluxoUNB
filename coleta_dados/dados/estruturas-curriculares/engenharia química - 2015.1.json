@@ -1,0 +1,2047 @@
+{
+  "curso": "ENGENHARIA QUÍMICA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2015.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0297",
+          "nome": "INTRODUCAO A ENGENHARIA QUIMICA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0003",
+          "nome": "INTRODUCAO A COMPUTACAO APLICADA AOS PROCESSOS QUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0120",
+          "nome": "MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0022",
+          "nome": "PRINCIPIOS DE QUIMICA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0068",
+          "nome": "TERMODINAMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0021",
+          "nome": "QUIMICA ANALITICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0168",
+          "nome": "LABORATORIO DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0005",
+          "nome": "TRANSFERENCIA DE QUANTIDADE DE MOVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0032",
+          "nome": "CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0046",
+          "nome": "TERMODINAMICA APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0192",
+          "nome": "LABORATORIO DE FISICO-QUIMICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0071",
+          "nome": "TRANSFERENCIA DE CALOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0009",
+          "nome": "OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0010",
+          "nome": "TRANSFERENCIA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0048",
+          "nome": "ENGENHARIA DE REATORES QUIMICOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0010",
+          "nome": "TECNOLOGIA DE BIOPROCESSOS E FERMENTACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0004",
+          "nome": "CONTROLE DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0011",
+          "nome": "OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0013",
+          "nome": "LABORATORIO DE ENGENHARIA QUIMICA 1",
+          "ch": "45"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0005",
+          "nome": "INSTRUMENTACAO DE CONTROLE DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0006",
+          "nome": "LABORATORIO DE ENGENHARIA QUIMICA 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "IQD0012",
+          "nome": "OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0006",
+          "nome": "LABORATORIO DE CONTROLE DE PROCESSOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0015",
+          "nome": "PROJETO DE ENGENHARIA QUIMICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0016",
+          "nome": "MODELAGEM E SIMULACAO DE PROCESSOS QUIMICOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "IQD0017",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "IQD0019",
+          "nome": "PROJETO DE ENGENHARIA QUIMICA 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0092 - ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0150",
+          "nome": "CRIACAO DE NEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0303",
+          "nome": "GESTAO DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0317",
+          "nome": "ADMINISTRACAO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0002",
+          "nome": "TECNOLOGIA ENZIMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0003",
+          "nome": "MICROBIOLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0004",
+          "nome": "EMPREENDEDORISMO E ANALISE DE MERCADO EM BIOTECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0022",
+          "nome": "REGULACAO METABOLICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0023",
+          "nome": "BIOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0026",
+          "nome": "BIOLOGIA MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0027",
+          "nome": "BIOLOGIA MOLECULAR 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0028",
+          "nome": "METODOS EM BIOPOLIMEROS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0033",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0040",
+          "nome": "INTRODUCAO A BIOQUIMICA EXPERIMENTAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0042",
+          "nome": "TOPICOS EM BIOQUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0049",
+          "nome": "PROCESSOS MICROBIOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0062",
+          "nome": "METABOLISMO CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0064",
+          "nome": "BIOPOLIMEROS-ESTRUTURA E FUNCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0072",
+          "nome": "PESQUISA EM BIOLOGIA MOLECULAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0074",
+          "nome": "PESQUISA EM BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0087",
+          "nome": "ENOVELAMENTO DE PROTEINAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0088",
+          "nome": "BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0091",
+          "nome": "INTRODUCAO A BIOTECNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0093",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOQUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0111",
+          "nome": "MICROBIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0043",
+          "nome": "CULTURA PODER E RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0114",
+          "nome": "MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0008",
+          "nome": "PROGRAMACAO SISTEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0013",
+          "nome": "LABORATORIO DE PROGRAMACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0152",
+          "nome": "INTRODUCAO A MICROINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0061",
+          "nome": "ESTUDOS AFRO-BRASILEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0030",
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0036",
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0055",
+          "nome": "MATERIAIS DE CONSTRUCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0079",
+          "nome": "CONTROLE NO ESPACO DE ESTADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0167",
+          "nome": "CONTROLE DIGITAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0002",
+          "nome": "INTRODUCAO A EXPLORACAO DE PETROLEO EM ALTO MAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENM0069",
+          "nome": "TERMODINAMICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0070",
+          "nome": "MAQUINAS TERMICAS",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0072",
+          "nome": "INSTALACOES TERMOMECANICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0074",
+          "nome": "MOTORES DE COMBUSTAO INTERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0075",
+          "nome": "GERACAO E UTILIZACAO DE VAPOR D'AGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0076",
+          "nome": "TOPICOS ESPECIAIS EM SISTEMAS TERMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0077",
+          "nome": "PROJETO DE SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0078",
+          "nome": "TOPICOS ESPECIAIS EM TERMODINAMICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0079",
+          "nome": "CAPTACAO E UTILIZACAO DE ENERGIA SOLAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0082",
+          "nome": "MECANICA DOS FLUIDOS 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0086",
+          "nome": "TUBULACOES INDUSTRIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0088",
+          "nome": "SISTEMAS DE CONTROLE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0121",
+          "nome": "MECANICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0140",
+          "nome": "MECANICA DOS FLUIDOS 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0144",
+          "nome": "METODOS COMPUTACIONAIS EM ENGENHARIA MECANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0157",
+          "nome": "ESCOAMENTO COMPRESSIVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0159",
+          "nome": "INTRODUCAO A TURBULENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0160",
+          "nome": "METODOS NUMERICOS EM TERMOFLUIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0161",
+          "nome": "TRANSFERENCIA DE CALOR E TRANSFERENCIA DE MASSA APLICADAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0162",
+          "nome": "ANALISE EXERGETICA DE PROCESSOS INDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0176",
+          "nome": "INTRODUCAO A ECOLOGIA INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0184",
+          "nome": "AUTOMACAO DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0185",
+          "nome": "FUNDAMENTOS DE CONVECCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0014",
+          "nome": "CONTROLE ESTATISTICO DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0030",
+          "nome": "GESTAO DA QUALIDADE NA PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0057",
+          "nome": "INTRODUCAO A ENGENHARIA DE PRODUCAO E A QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0058",
+          "nome": "INSTALACOES INDUSTRIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0060",
+          "nome": "INSTALACOES INDUSTRIAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0064",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0066",
+          "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EPR0067",
+          "nome": "TOPICOS ESPECIAIS  EM ENGENHARIA ECONOMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0048",
+          "nome": "PROCESSOS ESTOCASTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0059",
+          "nome": "CONTROLE DE QUALIDADE NA PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0031",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0092",
+          "nome": "TECNOLOGIA DOS PRODUTOS AGROPECUARIOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0117",
+          "nome": "DIREITO INDUSTRIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0008",
+          "nome": "EMPRESA JUNIOR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0009",
+          "nome": "EMPRESA JUNIOR 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0010",
+          "nome": "EMPREENDEDORISMO E INOVACAO TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0011",
+          "nome": "PESQUISA EM EMPREENDEDORISMO E INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0410",
+          "nome": "TECNOLOGIAS DE PRODUTOS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0098",
+          "nome": "MORFOLOGIA E TAXONOMIA VEGETAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0015",
+          "nome": "MECANICA CLASSICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0017",
+          "nome": "FISICA MATEMATICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0024",
+          "nome": "MECANICA QUANTICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0071",
+          "nome": "MECANICA CLASSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0072",
+          "nome": "ELETRICIDADE MAGNETISMO",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0078",
+          "nome": "TERMODINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0082",
+          "nome": "FISICA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0084",
+          "nome": "MECANICA ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0086",
+          "nome": "TECNICAS EXPERIMENTAIS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0093",
+          "nome": "TEORIA DOS FLUIDOS CLASSICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0096",
+          "nome": "FISICA ONDULATORIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0098",
+          "nome": "FISICA QUANTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0100",
+          "nome": "MECANICA QUANTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0103",
+          "nome": "TEORIA QUANTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0107",
+          "nome": "FISICA ATOMICA E MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0109",
+          "nome": "FISICA ATOMICA E MOLECULAR 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0112",
+          "nome": "OPTICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0137",
+          "nome": "LABORATORIO ESPECIAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0140",
+          "nome": "INSTRUMENTACAO CIENTIFICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0142",
+          "nome": "INSTRUMENTACAO CIENTIFICA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0156",
+          "nome": "INSTRUMENTACAO CIENTIFICA 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0183",
+          "nome": "FISICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0185",
+          "nome": "FISICA 4 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0196",
+          "nome": "INTRODUCAO A ESPECTROSCOPIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0198",
+          "nome": "FISICA MATEMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0200",
+          "nome": "METODOS COMPUTACIONAIS EM FISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0258",
+          "nome": "EVOLUCAO HISTORICA DOS CONCEITOS DA FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0293",
+          "nome": "FISICA TERMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0296",
+          "nome": "METODOS MATEMATICOS DA FISICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0310",
+          "nome": "INSTRUMENTACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0312",
+          "nome": "INSTRUMENTACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0340",
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0024",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0026",
+          "nome": "MINERALOGIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0036",
+          "nome": "PETROLOGIA IGNEA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0038",
+          "nome": "GEOQUIMICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0047",
+          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0049",
+          "nome": "PALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0135",
+          "nome": "CRISTALOGRAFIA ESTRUTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0147",
+          "nome": "MAPEAMENTO GEOLOGICO 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0150",
+          "nome": "GEOLOGIA ESTRUTURAL 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0169",
+          "nome": "INTRODUCAO A GEOLOGIA DO PETROLEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUCAO A MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0192",
+          "nome": "INTRODUCAO A FISICA DA TERRA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0200",
+          "nome": "PETROLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0210",
+          "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0211",
+          "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0212",
+          "nome": "SEDIMENTOLOGIA 2 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0008",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0001",
+          "nome": "FISICO QUIMICA DE POLIMEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0002",
+          "nome": "SINTESE DE POLIMEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0004",
+          "nome": "FUNDAMENTOS DE PRODUCAO DE CERVEJA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0020",
+          "nome": "TECNOLOGIA DE CONVERSAO DE BIOMASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0023",
+          "nome": "TECNOLOGIA DO MEIO AMBIENTE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0025",
+          "nome": "RADIOQUIMICA: CONCEITOS E APLICACOES",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0028",
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0035",
+          "nome": "FUNDAMENTOS DE ENSINO DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0044",
+          "nome": "INTRODUCAO A ENGENHARIA DE MATERIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0045",
+          "nome": "MATERIAIS E MICROESTRUTURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0047",
+          "nome": "TOPICOS ESPECIAIS EM TECNOLOGIA E ENGENHARIA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0049",
+          "nome": "TOPICOS AVANCADOS EM REATORES QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0050",
+          "nome": "OTIMIZACAO DE PROCESSOS QUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0063",
+          "nome": "QUIMICA ANALITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0071",
+          "nome": "TECNOLOGIA DO VACUO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0084",
+          "nome": "INTRODUCAO A QUIMICA QUANTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0098",
+          "nome": "QUIMICA ORGANICA AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0101",
+          "nome": "TERMODINAMICA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0103",
+          "nome": "EQUILIBRIO E CINETICA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0105",
+          "nome": "QUIMICA QUANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0110",
+          "nome": "TECNICA DE PESQUISA EM QUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0115",
+          "nome": "TECNICA DE PESQUISA EM QUIMICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0137",
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0139",
+          "nome": "QUIMICA DOS ELEMENTOS DE TRANSICAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0148",
+          "nome": "METODOLOGIA DO ENSINO DE QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0152",
+          "nome": "INTRODUCAO A QUIMICA TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0155",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1 - LICENCIATURA EM QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0156",
+          "nome": "SEGURANCA EM LABORATORIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0158",
+          "nome": "ESPECTROCOPIA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0159",
+          "nome": "INTRODUCAO A QUIMICA DE ESTADO SOLIDO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0160",
+          "nome": "INTRODUCAO A MODELAGEM MOLECULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0164",
+          "nome": "SINTESE ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0165",
+          "nome": "A EXPERIMENTACAO NO ENSINO DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0167",
+          "nome": "INTRODUCAO A ESPECTROSCOPIA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0173",
+          "nome": "TOPICOS EM QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0180",
+          "nome": "METODOS MATEMATICOS PARA ENGENHARIA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0184",
+          "nome": "ELEMENTOS DE ESPECTROSCOPIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0187",
+          "nome": "FUNDAMENTOS DE ANALISE INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0189",
+          "nome": "TOPICOS DE ENSINO DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0191",
+          "nome": "INTRODUCAO A QUIMICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0193",
+          "nome": "SEMINARIOS DE QUIMICA ORGANICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0195",
+          "nome": "EVOLUCAO DOS CONCEITOS DA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0201",
+          "nome": "MATERIAIS DE ENSINO DE QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0203",
+          "nome": "TOPICOS DE QUIMICA AMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0206",
+          "nome": "PRATICA DE ENSINO DE QUIMICA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0211",
+          "nome": "QUIMICA MEDICINAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0212",
+          "nome": "LABORATORIO DE SINTESE ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0213",
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0214",
+          "nome": "METODOS MATEMATICOS PARA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0215",
+          "nome": "QUIMICA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0216",
+          "nome": "ESPECTROSCOPIA MOLECULAR E TERMODINAMICA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0218",
+          "nome": "METODOS FISICOS APLICADOS A QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0220",
+          "nome": "QUIMICA INORGANICA ESTRUTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0222",
+          "nome": "CATALISADORES E CATALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0223",
+          "nome": "LABORATORIO DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0224",
+          "nome": "METODOS ELETROQUIMICOS DE ANALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0225",
+          "nome": "METODOS ESPECTROSCOPICOS DE ANALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0226",
+          "nome": "LABORATORIO DE ANALISE INSTRUMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0228",
+          "nome": "LABORATORIO DE QUIMICA ANALITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0229",
+          "nome": "ESTAGIO EM QUIMICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0230",
+          "nome": "ESTAGIO EM QUIMICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0231",
+          "nome": "TECNOLOGIA DA AGUA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0232",
+          "nome": "TECNOLOGIA DAS EMULSOES E DISPERSOES",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0233",
+          "nome": "TECNOLOGIA DO PETROLEO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0234",
+          "nome": "TECNOLOGIA DOS COSMETICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0235",
+          "nome": "TECNOLOGIA DOS OLEOS E GORDURAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0236",
+          "nome": "TECNOLOGIA DOS POLIMEROS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0239",
+          "nome": "ESTAGIO EM ENSINO DE QUIMICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0241",
+          "nome": "ESTAGIO EM REGENCIA NO ENSINO DE QUIMICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0243",
+          "nome": "QUIMICA ANALITICA QUANTITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0247",
+          "nome": "METODOS DE SEPARACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0248",
+          "nome": "TEMPERATURA E CALOR: EVOLUCAO DOS CONCEITOS TERMODINAMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0249",
+          "nome": "PROCESSAMENTO DE DADOS EM QUIMICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0254",
+          "nome": "BIOINORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0267",
+          "nome": "PROCESSOS DA INDUSTRIA DE ALIMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0272",
+          "nome": "TECNOLOGIA DO MEIO AMBIENTE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0273",
+          "nome": "TECNOLOGIA DO MEIO AMBIENTE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0274",
+          "nome": "TECNOLOGIA DE PROCESSOS ELETROLITICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0277",
+          "nome": "TECNOLOGIA DOS PRODUTOS AGROINDUSTRIAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0278",
+          "nome": "TECNOLOGIA DE INDUSTRIA DE BASE INORGANICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0282",
+          "nome": "REACOES QUIMICAS E O AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0288",
+          "nome": "TOPICOS EM QUIMICA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0290",
+          "nome": "QUIMICA DA AGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0292",
+          "nome": "GERENCIAMENTO DE RESIDUOS E SOLOS CONTAMINADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0293",
+          "nome": "QUIMICA ATMOSFERICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0299",
+          "nome": "TECNOLOGIA DE RECICLAGEM DE MATERIAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0300",
+          "nome": "QUIMICA VERDE E SUSTENTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0060",
+          "nome": "HISTORIA DA MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0071",
+          "nome": "INTRODUCAO A MATEMATICA SUPERIOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0076",
+          "nome": "CALCULO DE PROBABILIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0085",
+          "nome": "GEOMETRIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0119",
+          "nome": "LOGICA MATEMATICA E COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0001",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0297",
+          "nome": "INTRODUCAO A ENGENHARIA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0297",
+          "nome": "INTRODUCAO A ENGENHARIA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0003",
+          "nome": "INTRODUCAO A COMPUTACAO APLICADA AOS PROCESSOS QUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0120",
+          "nome": "MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0022",
+          "nome": "PRINCIPIOS DE QUIMICA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0068",
+          "nome": "TERMODINAMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0021",
+          "nome": "QUIMICA ANALITICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0168",
+          "nome": "LABORATORIO DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0005",
+          "nome": "TRANSFERENCIA DE QUANTIDADE DE MOVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0032",
+          "nome": "CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0046",
+          "nome": "TERMODINAMICA APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0192",
+          "nome": "LABORATORIO DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0071",
+          "nome": "TRANSFERENCIA DE CALOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0009",
+          "nome": "OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0010",
+          "nome": "TRANSFERENCIA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0048",
+          "nome": "ENGENHARIA DE REATORES QUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0010",
+          "nome": "TECNOLOGIA DE BIOPROCESSOS E FERMENTACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0004",
+          "nome": "CONTROLE DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0011",
+          "nome": "OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0013",
+          "nome": "LABORATORIO DE ENGENHARIA QUIMICA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENE0005",
+          "nome": "INSTRUMENTACAO DE CONTROLE DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0006",
+          "nome": "LABORATORIO DE ENGENHARIA QUIMICA 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "IQD0012",
+          "nome": "OPERACOES UNITARIAS DA ENGENHARIA QUIMICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0006",
+          "nome": "LABORATORIO DE CONTROLE DE PROCESSOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0015",
+          "nome": "PROJETO DE ENGENHARIA QUIMICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0016",
+          "nome": "MODELAGEM E SIMULACAO DE PROCESSOS QUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0017",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "IQD0019",
+          "nome": "PROJETO DE ENGENHARIA QUIMICA 2",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

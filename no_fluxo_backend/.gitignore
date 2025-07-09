@@ -1,0 +1,21 @@
+# Tesseract
+/tesseract/
+
+# Node
+node_modules/
+dist/
+.env
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db 
+
+.log

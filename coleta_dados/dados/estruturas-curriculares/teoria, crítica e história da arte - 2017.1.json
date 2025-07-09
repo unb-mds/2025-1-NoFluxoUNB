@@ -1,0 +1,992 @@
+{
+  "curso": "TEORIA, CRÍTICA E HISTÓRIA DA ARTE",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2017.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0294",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0295",
+          "nome": "ARTE E LITERATURA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0001",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0114",
+          "nome": "HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0002",
+          "nome": "ARTE E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0005",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0189",
+          "nome": "HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0007",
+          "nome": "ARTE E PSICANALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0230",
+          "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0006",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0190",
+          "nome": "HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0025",
+          "nome": "HISTORIA DA ARTE NO BRASIL, MEMORIA E PATRIMONIO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0008",
+          "nome": "LABORATORIO DE TEORIA, CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0011",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0020",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0022",
+          "nome": "CRITICA E HISTORIA DA ARTE NO BRASIL 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0014",
+          "nome": "LABORATORIO DE CRITICA,TEORIA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0016",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0013",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0232",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0018",
+          "nome": "LABORATORIO DE TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0009",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0023",
+          "nome": "LABORATORIO DE TEORIA, CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "VIS0024",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM TEORIA, CRITICA E HISTORIA DA ARTE",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "1",
+          "nome": "90H OPTATIVA CEN0032 - OFICINA BASICA DE ARTES CENICAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0036",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0038",
+          "nome": "CORPO E MOVIMENTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0049",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0052",
+          "nome": "TECNICAS DE DANCA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0066",
+          "nome": "CORPO E MOVIMENTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0067",
+          "nome": "CORPO E MOVIMENTO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0068",
+          "nome": "EXPRESSAO CORPORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0109",
+          "nome": "CRITICA TEATRAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0164",
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0079",
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DIN0011",
+          "nome": "EXPRESSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0020",
+          "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0021",
+          "nome": "INTRODUCAO AO DESENHO INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0022",
+          "nome": "INTRODUCAO A PROGRAMACAO VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0034",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0039",
+          "nome": "HISTORIA DA FILOSOFIA MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0044",
+          "nome": "HISTORIA DA FILOSOFIA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0049",
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0124",
+          "nome": "FILOSOFIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0134",
+          "nome": "MITO E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0149",
+          "nome": "METAFILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0158",
+          "nome": "IDEIAS FILOSOFICAS EM FORMA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0088",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0091",
+          "nome": "HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0084",
+          "nome": "INTRODUCAO A SEMIOTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0206",
+          "nome": "INTRODUCAO A MUSICOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0236",
+          "nome": "MUSICA E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0244",
+          "nome": "EVOLUCAO DA MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0246",
+          "nome": "EVOLUCAO DA MUSICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0010",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "TAU0029",
+          "nome": "SEMIOTICA DA  CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0014",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0021",
+          "nome": "LITERATURA BRASILEIRA - ROMANTISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0003",
+          "nome": "ARTE E PENSAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0004",
+          "nome": "ARTE E CIENCIAS DA LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0010",
+          "nome": "CRITICA E HISTORIA DA ARTE NO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0012",
+          "nome": "ARTE E ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0015",
+          "nome": "CRITICA E HISTORIA DA ARTE NO BRASIL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0017",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0019",
+          "nome": "INTRODUCAO A CURADORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0021",
+          "nome": "CRITICA E HISTORIA DA ARTE NO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0026",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0027",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0060",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0065",
+          "nome": "DESENHO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0085",
+          "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0088",
+          "nome": "OFICINA DE FOTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0090",
+          "nome": "OFICINA DE FOTOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0104",
+          "nome": "ANALISE DO FILME 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0122",
+          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0141",
+          "nome": "HISTORIA DA ARTE ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0163",
+          "nome": "MATERIAIS EM ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0185",
+          "nome": "ARTE ELETRONICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0187",
+          "nome": "PINTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0188",
+          "nome": "INTRODUCAO A GRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0212",
+          "nome": "DESENHO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0231",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0235",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0237",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0239",
+          "nome": "SERIGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0240",
+          "nome": "PINTURA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0241",
+          "nome": "ESCULTURA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0244",
+          "nome": "ANIMACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0245",
+          "nome": "DESENHO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0246",
+          "nome": "ARTE ELETRONICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0247",
+          "nome": "XILOGRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0248",
+          "nome": "LITOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0249",
+          "nome": "CALCOGRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0253",
+          "nome": "HISTORIA DA ARTE MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0254",
+          "nome": "HISTORIA DA ARTE MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0255",
+          "nome": "HISTORIA DA ARTE CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0256",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0258",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0260",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0262",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0264",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 9",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0266",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 10",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0268",
+          "nome": "PRODUCAO CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0270",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 11",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0272",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 12",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0274",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 13",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0276",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 14",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0278",
+          "nome": "SEMINARIO EM TEORIA, CRITICA E HISTORIA DA ARTE 15",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0296",
+          "nome": "MATERIAIS EM ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0295",
+          "nome": "ARTE E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0002",
+          "nome": "ARTE E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0007",
+          "nome": "ARTE E PSICANALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0230",
+          "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0025",
+          "nome": "HISTORIA DA ARTE NO BRASIL, MEMORIA E PATRIMONIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0020",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0022",
+          "nome": "CRITICA E HISTORIA DA ARTE NO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0013",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0232",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0009",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0294",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0295",
+          "nome": "ARTE E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0001",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0114",
+          "nome": "HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0002",
+          "nome": "ARTE E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0005",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0189",
+          "nome": "HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0007",
+          "nome": "ARTE E PSICANALISE",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0230",
+          "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0006",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0190",
+          "nome": "HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0025",
+          "nome": "HISTORIA DA ARTE NO BRASIL, MEMORIA E PATRIMONIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0008",
+          "nome": "LABORATORIO DE TEORIA, CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0011",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0020",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0022",
+          "nome": "CRITICA E HISTORIA DA ARTE NO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0014",
+          "nome": "LABORATORIO DE CRITICA,TEORIA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0016",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0013",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0232",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0018",
+          "nome": "LABORATORIO DE TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0009",
+          "nome": "TEORIA E HISTORIA DA ARTE E DA IMAGEM NO ESPACO/TEMPO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0023",
+          "nome": "LABORATORIO DE TEORIA, CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0024",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM TEORIA, CRITICA E HISTORIA DA ARTE",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

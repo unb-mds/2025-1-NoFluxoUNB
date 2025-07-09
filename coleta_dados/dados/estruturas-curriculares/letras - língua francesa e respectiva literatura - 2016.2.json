@@ -1,0 +1,2632 @@
+{
+  "curso": "LETRAS - LÍNGUA FRANCESA E RESPECTIVA LITERATURA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2016.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0014",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0154",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0325",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0061",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0131",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0324",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0099",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0100",
+          "nome": "MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0323",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0050",
+          "nome": "FILOLOGIA ROMANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0080",
+          "nome": "CONTEXTOS CULTURAIS DA LITERATURA FRANCESA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0055",
+          "nome": "CIVILIZACAO FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0320",
+          "nome": "MORFOSSINTAXE DO FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0032",
+          "nome": "LITERATURA FRANCESA - PANORAMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0412",
+          "nome": "FRANCES: DA LEXICOLOGIA A LEXICOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0056",
+          "nome": "CIVILIZACAO DE EXPRESSAO FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0322",
+          "nome": "ANALISE E PRODUCAO DE TEXTOS EM FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0033",
+          "nome": "LITERATURA FRANCESA - ROMANCE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0093",
+          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0317",
+          "nome": "FONETICA E FONOLOGIA DO FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0034",
+          "nome": "LITERATURA FRANCESA - TEATRO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "LET0096",
+          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0315",
+          "nome": "HISTORIA DA LINGUA FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0035",
+          "nome": "LITERATURA FRANCESA - POESIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "PALEOGRAFIA",
+          "nome": "30H OPTATIVA DAN0022 - INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0036",
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0024",
+          "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0046",
+          "nome": "ANALISE DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0053",
+          "nome": "CONTROLE BIBLIOGRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0061",
+          "nome": "ELABORACAO E MANUTENCAO DE TESAUROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0063",
+          "nome": "ARQUIVO CORRENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0064",
+          "nome": "ARQUIVO CORRENTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0034",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0086",
+          "nome": "FILOSOFIA DA LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0137",
+          "nome": "TEXTOS FILOSOFICOS GREGOS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0138",
+          "nome": "TEXTOS FILOSOFICOS GREGOS 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0139",
+          "nome": "TEXTOS FILOSOFICOS GREGOS 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0142",
+          "nome": "TEXTOS FILOSOFICOS GREGOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0143",
+          "nome": "TEXTOS FILOSOFICOS GREGOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0144",
+          "nome": "TEXTOS FILOSOFICOS GREGOS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0145",
+          "nome": "TEXTOS FILOSOFICOS LATINOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0088",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0090",
+          "nome": "HISTORIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0141",
+          "nome": "CULTURA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0143",
+          "nome": "CULTURA BRASILEIRA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0046",
+          "nome": "REDACAO DE JORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0050",
+          "nome": "HISTORIA DA IMPRENSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0052",
+          "nome": "REDACAO PARA PUBLICIDADE IMPRESSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0001",
+          "nome": "GRAMATICA HISTORICA COMPARADA DAS LINGUAS MODERNAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0002",
+          "nome": "PESQUISA EM TRADUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0003",
+          "nome": "TRADUCAO DE TEXTOS LITERARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0004",
+          "nome": "VERSAO DE TEXTOS LITERARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0006",
+          "nome": "PRATICA DO ITALIANO ORAL E ESCRITO",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0007",
+          "nome": "POLONES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0019",
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0020",
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0021",
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0032",
+          "nome": "GENERO, LINGUA E PODER",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0033",
+          "nome": "EXPERIENCIA DE ENSINO EM LINGUA ESPANHOLA",
+          "ch": "0"
+        },
+        {
+          "codigo": "LET0035",
+          "nome": "LINGUA COREANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0036",
+          "nome": "LINGUA COREANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0040",
+          "nome": "ANALISE COMPARATIVA INGLES/PORTUGUES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0041",
+          "nome": "MORFOSSINTAXE DO INGLES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0043",
+          "nome": "ESTAGIO DE BACHAREL EM FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0044",
+          "nome": "LINGUA ALEMA INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0046",
+          "nome": "LABORATORIO DE TEXTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0048",
+          "nome": "LABORATORIO DE TEXTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0050",
+          "nome": "PROJETO FINAL DO CURSO DE TRADUCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0052",
+          "nome": "TEORIA DA TRADUCAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0054",
+          "nome": "TEORIA DA TRADUCAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0057",
+          "nome": "CULTURA E INSTITUICOES BRITANICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0059",
+          "nome": "CULTURA E INSTITUICOES INGLESAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0060",
+          "nome": "CIVILIZACAO DE PAISES FRANCOFONOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0063",
+          "nome": "CULTURA E INSTITUICOES NORTE AMERICANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0067",
+          "nome": "CULTURA ALEMA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0068",
+          "nome": "CULTURA ALEMA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0069",
+          "nome": "CULTURA DOS PAISES DE LINGUA ALEMA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0071",
+          "nome": "LEITURA CRITICA DE TEXTOS PARA TRADUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0078",
+          "nome": "LINGUA FRANCESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0086",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0087",
+          "nome": "LINGUA INGLESA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0088",
+          "nome": "LINGUA INGLESA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0103",
+          "nome": "LINGUA ALEMA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0104",
+          "nome": "LINGUA ALEMA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0107",
+          "nome": "LINGUA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0108",
+          "nome": "LINGUA JAPONESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0109",
+          "nome": "LINGUA JAPONESA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0110",
+          "nome": "TRADUCAO COMENTADA - INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0111",
+          "nome": "TRADUCAO COMENTADA - FRANCES",
+          "ch": "45"
+        },
+        {
+          "codigo": "LET0115",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-FRANCES: TEXTOS GERAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0116",
+          "nome": "LINGUA ALEMA INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0122",
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0124",
+          "nome": "LINGUA ESPANHOLA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0125",
+          "nome": "LINGUA ESPANHOLA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0126",
+          "nome": "LINGUA ESPANHOLA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0130",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-FRANCES: TEXTOS JURIDICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0134",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-FRANCES: TEXTOS ECONOMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0138",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-FRANCES: TEXTOS TECNICOS E CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0142",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-FRANCES: TEXTOS LITERARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0143",
+          "nome": "PRATICA DE TRADUCAO ALEMAO-PORTUGUES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0144",
+          "nome": "PRATICA DE TRADUCAO ALEMAO-PORTUGUES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0145",
+          "nome": "PRATICA DE TRADUCAO ALEMAO-PORTUGUES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0146",
+          "nome": "PRATICA DE TRADUCAO ALEMAO-PORTUGUES 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0147",
+          "nome": "PRATICA DE TRADUCAO ALEMAO-PORTUGUES 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0148",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-ALEMAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0149",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-ALEMAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0150",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-ALEMAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0151",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-ALEMAO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0152",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES-ALEMAO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0163",
+          "nome": "LINGUA ALEMA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0164",
+          "nome": "FRANCES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0165",
+          "nome": "LINGUA ESPANHOLA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0166",
+          "nome": "LINGUA ALEMA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0174",
+          "nome": "PRATICA DE TRADUCAO INGLES/PORTUGUES: TEXTOS GERAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0178",
+          "nome": "PRATICA DE TRADUCAO INGLES/PORTUGUES : TEXTOS JURIDICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0182",
+          "nome": "PRATICA DE TRADUCAO INGLES/PORTUGUES : TEXTOS ECONOMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0186",
+          "nome": "PRATICA DE TRADUCAO INGLES/PORTUGUES: TEXTOS TECNICOS E CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0190",
+          "nome": "PRATICA DE TRADUCAO INGLES/PORTUGUES : TEXTOS LITERARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0194",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES/INGLES : TEXTOS GERAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0198",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES/INGLES : TEXTOS JURIDICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0202",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES/INGLES : TEXTOS ECONOMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0206",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES/INGLES : TEXTOS TECNICOS E CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0210",
+          "nome": "PRATICA DE TRADUCAO PORTUGUES/INGLES : TEXTOS LITERARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0214",
+          "nome": "PRATICA DE TRADUCAO FRANCES-PORTUGUES: TEXTOS GERAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0218",
+          "nome": "PRATICA DE TRADUCAO FRANCES-PORTUGUES: TEXTOS JURIDICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0222",
+          "nome": "PRATICA DE TRADUCAO FRANCES-PORTUGUES: TEXTOS ECONOMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0226",
+          "nome": "PRATICA DE TRADUCAO FRANCES-PORTUGUES: TEXTOS TECNICOS E CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0230",
+          "nome": "PRATICA DE TRADUCAO FRANCES-PORTUGUES: TEXTOS LITERARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0239",
+          "nome": "PORTUGUES PARA ESTRANGEIROS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0242",
+          "nome": "PORTUGUES PARA ESTRANGEIROS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0243",
+          "nome": "CULTURA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0245",
+          "nome": "INGLES: EXPRESSAO ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0247",
+          "nome": "INGLES: EXPRESSAO ORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0249",
+          "nome": "INGLES: EXPRESSAO ORAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0250",
+          "nome": "INGLES: EXPRESSAO ORAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0252",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0254",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0256",
+          "nome": "INGLES: EXPRESSAO ESCRITA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0257",
+          "nome": "INGLES: EXPRESSAO ESCRITA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0258",
+          "nome": "ANALISE COMPARATIVA INGLES/PORTUGUES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0260",
+          "nome": "INGLES: EXPRESSAO ESCRITA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0262",
+          "nome": "INGLES: EXPRESSAO ESCRITA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0263",
+          "nome": "METODOLOGIA DO ENSINO DE LINGUA ESTRANGEIRA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0264",
+          "nome": "ESTAGIO SUPERVISIONADO EM INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0305",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0306",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0308",
+          "nome": "MORFOSSINTAXE DO INGLES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0309",
+          "nome": "MORFOSSITAXE DO INGLES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0310",
+          "nome": "HISTORIA DA LINGUA INGLESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0311",
+          "nome": "FONETICA E FONOLOGIA DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0312",
+          "nome": "INTRODUCAO A MORFOSSINTAXE DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0330",
+          "nome": "INGLES: COMPREENSAO DA LINGUA ORAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0332",
+          "nome": "CULTURA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0334",
+          "nome": "INGLES: COMPREENSAO DA LINGUA ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0338",
+          "nome": "LINGUA ITALIANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0345",
+          "nome": "GRAMATICA COMPARADA ESPANHOL-PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0348",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0355",
+          "nome": "METODOS DE ENSINO DO ESPANHOL COMO SEGUNDA LINGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0356",
+          "nome": "GRAMATICA DA LINGUA ESPANHOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0379",
+          "nome": "LINGUA ITALIANA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0380",
+          "nome": "LINGUA ITALIANA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0388",
+          "nome": "PERSA 1 - FARSI  1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0389",
+          "nome": "GREGO MODERNO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0390",
+          "nome": "ROMENO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0391",
+          "nome": "PERSA 2 - FARSI 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0392",
+          "nome": "GREGO MODERNO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0393",
+          "nome": "IRANOLOGIA - CULTURA IRANIANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0394",
+          "nome": "ROMENO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0395",
+          "nome": "GREGO MODERNO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0396",
+          "nome": "GREGO MODERNO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0397",
+          "nome": "ROMENO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0398",
+          "nome": "ROMENO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0399",
+          "nome": "CIVILIZACAO E CULTURA ROMENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0400",
+          "nome": "LINGUA ARABE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0401",
+          "nome": "PERSA 3 - FARSI 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0402",
+          "nome": "PERSA 4 - FARSI 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0403",
+          "nome": "LINGUA ARABE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0404",
+          "nome": "EXPRESSAO ESCRITA DA LINGUA ESPANHOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0405",
+          "nome": "EXPRESSAO ORAL DA LINGUA ESPANHOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0406",
+          "nome": "SEMINARIO DE TOPICOS DE ENSINO EM LINGUA ESPANHOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0407",
+          "nome": "FUNDAMENTOS DA LINGUISTICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0408",
+          "nome": "LINGUISTICA APLICADA NA FORMACAO DO PROFESSOR DE LINGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0409",
+          "nome": "POLONES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0410",
+          "nome": "PESQUISA EM LINGUISTICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0411",
+          "nome": "POLONES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0414",
+          "nome": "INTRODUCAO A TRADUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0416",
+          "nome": "TRADUCAO DE TEXTOS GERAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0419",
+          "nome": "EXPERIENCIA DE ENSINO DE LINGUA INGLESA",
+          "ch": "0"
+        },
+        {
+          "codigo": "LET0421",
+          "nome": "TRADUCAO DE TEXTOS GERAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0422",
+          "nome": "VERSAO DE TEXTOS GERAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0423",
+          "nome": "FUNDAMENTOS DA SOCIEDADE DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0426",
+          "nome": "TRADUCAO DE TEXTOS ECONOMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0427",
+          "nome": "VERSAO DE TEXTOS ECONOMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0429",
+          "nome": "TRADUCAO DE TEXTOS TECNICOS E CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0430",
+          "nome": "VERSAO DE TEXTOS TECNICOS E CIENTIFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0434",
+          "nome": "METODOS E TECNICAS APLICADAS AO MULTILINGUISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0438",
+          "nome": "LINGUA CHINESA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0442",
+          "nome": "MODALIDADES DE TRADUCAO AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0444",
+          "nome": "LINGUISTICA DE CORPUS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0001",
+          "nome": "ESTUDOS DE TRADUCAO DE PROSA GREGA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0002",
+          "nome": "ESTUDOS DE TRADUCAO DA POESIA GREGA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0010",
+          "nome": "LINGUISTICA DE LINGUAS DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0025",
+          "nome": "INTRODUCAO A SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0037",
+          "nome": "LINGUA PORTUGUESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0038",
+          "nome": "LINGUA PORTUGUESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0039",
+          "nome": "LINGUA PORTUGUESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0051",
+          "nome": "FILOLOGIA ROMANICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0054",
+          "nome": "ESTAGIO SUPERVISIONADO DE PORTUGUES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0056",
+          "nome": "ESTAGIO SUPERVISIONADO DE PORTUGUES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0063",
+          "nome": "LATIM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0065",
+          "nome": "LATIM 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0067",
+          "nome": "LATIM 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0069",
+          "nome": "LATIM 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0071",
+          "nome": "LATIM 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0078",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0081",
+          "nome": "TOPICOS ATUAIS EM LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0082",
+          "nome": "TOPICOS ATUAIS EM LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0083",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0084",
+          "nome": "INTRODUCAO A SEMIOTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0087",
+          "nome": "GREGO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0088",
+          "nome": "LEXICOLOGIA E LEXICOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0089",
+          "nome": "ESTILISTICA DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0092",
+          "nome": "SEMINARIO DE PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0093",
+          "nome": "SEMINARIO EM LATIM",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0094",
+          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0095",
+          "nome": "INTRODUCAO A ANALISE DO DISCURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0098",
+          "nome": "ESTUDO DAS GRAMATICAS DO PORTUGUES CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0101",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0105",
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0106",
+          "nome": "PROCESSOS DE LEITURA E ESCRITA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0107",
+          "nome": "GREGO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0108",
+          "nome": "GREGO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0109",
+          "nome": "GREGO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0110",
+          "nome": "GREGO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0111",
+          "nome": "ESTAGIO:2 PRATICA DE VERSAO EM LATIM",
+          "ch": "75"
+        },
+        {
+          "codigo": "LIP0112",
+          "nome": "ESTAGIO:1 PRATICA DE TRADUCAO EM LATIM",
+          "ch": "75"
+        },
+        {
+          "codigo": "LIP0113",
+          "nome": "GREGO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0117",
+          "nome": "ESTAGIO SUPERVISIONADO - BACHARELADO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0118",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES COMO SEGUNDA LINGUA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0119",
+          "nome": "FONETICA E FONOLOGIA COMPARADAS DE LINGUAS MODERNAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0120",
+          "nome": "ABORDAGENS, METODOS E TECNICAS DO ENSINO DE PBSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0121",
+          "nome": "FUNDAMENTOS DE AQUISICAO DE PRIMEIRA E DE SEGUNDA LINGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0122",
+          "nome": "POLITICA DO IDIOMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0123",
+          "nome": "SINTAXE DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0124",
+          "nome": "INTRODUCAO AOS MULTIMEIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0128",
+          "nome": "VARIACAO LINGUISTICA NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0129",
+          "nome": "LEXICOLOGIA, SEMANTICA E PRAGMATICA CONTRASTIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0133",
+          "nome": "SINTAXE DO PORTUGUES CLASSICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0135",
+          "nome": "HISTORIA DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0140",
+          "nome": "ESTAGIO SUPERVISIONADO EM PORTUGUES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0142",
+          "nome": "MORFOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0145",
+          "nome": "MORFOSSINTAXE DA LINGUA PORTUGUESA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0147",
+          "nome": "SINTAXE DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0149",
+          "nome": "PORTUGUES DIACRONICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0155",
+          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0159",
+          "nome": "LINGUISTICA APLICADA AO ENSINO DE PSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0160",
+          "nome": "MORFOSSINTAXE CONTRASTIVA DE LINGUAS MODERNAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0161",
+          "nome": "LEXICOGRAFIA E ESTRATEGIAS DE USO DE DICIONARIOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0162",
+          "nome": "TOPICOS ATUAIS: PROBLEMAS INTERCULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0164",
+          "nome": "LABORATORIO: ESTRATEGIAS DE USO DA GRAMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0166",
+          "nome": "TOPICOS ATUAIS EM LINGUISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0170",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0171",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0172",
+          "nome": "PRATICA DE TRADUCAO EM LATIM 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0173",
+          "nome": "PORTUGUES COMO SEGUNDA LINGUA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0176",
+          "nome": "ESTUDOS HELENICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0177",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - AVANCADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0178",
+          "nome": "EXPERIENCIA DE ENSINO",
+          "ch": "0"
+        },
+        {
+          "codigo": "MTC0006",
+          "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0013",
+          "nome": "DIDATICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0017",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0018",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0022",
+          "nome": "CURRICULOS E PROGRAMAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0028",
+          "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0029",
+          "nome": "ENSINO SUPLETIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0030",
+          "nome": "ENSINO SUPLETIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0050",
+          "nome": "PRINCIPIOS DA PSICOGENESE APLICADOS A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0143",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0011",
+          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0017",
+          "nome": "LEGISLACAO DO ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0018",
+          "nome": "LEGISLACAO DO ENSINO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0019",
+          "nome": "HIGIENE ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0046",
+          "nome": "PSICOLOGIA COGNITIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0050",
+          "nome": "PSICOLOGIA COGNITIVA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0012",
+          "nome": "PSICOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0014",
+          "nome": "SOCIOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0016",
+          "nome": "HISTORIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0019",
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0022",
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0027",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0069",
+          "nome": "ORIENTACAO VOCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0096",
+          "nome": "FUNDAMENTOS MULTICULTURAIS E SIMBOLICOS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0001",
+          "nome": "LABORATORIO DE ESTUDOS DE LITERATURA ARTES E HUMANIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0003",
+          "nome": "TOPICOS ESPECIAIS EM LITERATURA INFANTIL E JUVENIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0004",
+          "nome": "TRAGEDIA GREGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0005",
+          "nome": "OFICINA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0006",
+          "nome": "LITERATURA PORTUGUESA - MODERNISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0007",
+          "nome": "LITERATURA PORTUGUESA - REALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0008",
+          "nome": "LITERATURA PORTUGUESA - RENASCIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0009",
+          "nome": "LITERATURA PORTUGUESA - MEDIEVALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0010",
+          "nome": "LITERATURA PORTUGUESA - BARROCO E ARCADISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0011",
+          "nome": "LITERATURA PORTUGUESA - ROMANTISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0012",
+          "nome": "LITERATURA PORTUGUESA - PARNASIANISMO E SIMBOLISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0016",
+          "nome": "CRITICA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0018",
+          "nome": "ESTILISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0020",
+          "nome": "LITERATURA COMPARADA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0021",
+          "nome": "LITERATURA BRASILEIRA - ROMANTISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0022",
+          "nome": "LITERATURA BRASILEIRA - REALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0023",
+          "nome": "LITERATURA BRASILEIRA - MODERNISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0024",
+          "nome": "LITERATURA BRASILEIRA - BARROCO E ARCADISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0025",
+          "nome": "LITERATURA BRASILEIRA - PARNASIANISMO E SIMBOLISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0026",
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0027",
+          "nome": "LITERATURA BRASILEIRA - TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0028",
+          "nome": "HISTORIOGRAFIA DA LITERATURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0029",
+          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0031",
+          "nome": "ESTETICA E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0036",
+          "nome": "LITERATURA FRANCESA - CRITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0037",
+          "nome": "LITERATURA DE LINGUA FRANCESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0038",
+          "nome": "LITERATURA DE LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0039",
+          "nome": "LITERATURA DE LINGUA FRANCESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0040",
+          "nome": "LITERATURA INGLESA I - SECULO XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0041",
+          "nome": "LITERATURA INGLESA II - IDADE MEDIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0042",
+          "nome": "LITERATURA INGLESA III - SECULO XIX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0043",
+          "nome": "LITERATURA INGLESA IV - DRAMA ISABELINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0044",
+          "nome": "LITERATURA INGLESA V - TRAGEDIA SHAKESPEARIANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0045",
+          "nome": "LITERATURA NORTE-AMERICANA I - SECULO XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0046",
+          "nome": "LITERATURA NORTE-AMERICANA II - SECULO XIX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0047",
+          "nome": "LITERATURA NORTE-AMERICANA III - NARRATIVA SECULO XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0048",
+          "nome": "LITERATURA LATINA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0049",
+          "nome": "LITERATURA LATINA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0050",
+          "nome": "LITERATURA LATINA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0051",
+          "nome": "LITERATURA GREGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0052",
+          "nome": "LITERATURA GREGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0053",
+          "nome": "LITERATURA GREGA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0054",
+          "nome": "LITERATURA LATINA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0056",
+          "nome": "LITERATURA AFRICANA EM LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0058",
+          "nome": "LITERATURA COMPARADA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0060",
+          "nome": "TEORIA DA NARRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0061",
+          "nome": "LITERATURA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0062",
+          "nome": "LITERATURA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0063",
+          "nome": "LITERATURA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0064",
+          "nome": "LITERATURA ESPANHOLA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0065",
+          "nome": "LITERATURA ESPANHOLA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0066",
+          "nome": "LITERATURA ESPANHOLA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0067",
+          "nome": "LITERATURA HISPANO-AMERICANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0068",
+          "nome": "LITERATURA HISPANO-AMERICANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0069",
+          "nome": "LITERATURA HISPANO-AMERICANA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0070",
+          "nome": "LITERATURA HISPANO - AMERICANA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0071",
+          "nome": "LITERATURA INGLESA VI - ROMANCE SECULO XVIII - XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0072",
+          "nome": "LITERATURA INGLESA VII - POESIA SECULO XVI - XVII",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0073",
+          "nome": "LITERATURA INGLESA VIII - TEATRO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0074",
+          "nome": "LITERATURA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0076",
+          "nome": "TOPICOS ATUAIS EM LITERATURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEL0077",
+          "nome": "LITERATURA ESTRANGEIRA EM LINGUA VERNACULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0078",
+          "nome": "LITERATURA INGLESA XIV - CONTEXTOS CULTURAIS SECULOS XVI - XVIII",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0079",
+          "nome": "LITERATURA INGLESA XIII - CONTEXTOS CULTURAIS ATE SECULO XV",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0081",
+          "nome": "LITERATURA NORTE AMERICANA IV - TOPICOS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0082",
+          "nome": "LITERATURA NORTE-AMERICANA V - CONTEXTOS CULTURAIS DE 1850 AO SEC XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0083",
+          "nome": "LITERATURA NORTE-AMERICANA VI - CONTEXTOS CULTURAIS ATE 1850",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0084",
+          "nome": "LITERATURA INGLESA IX - JOHN MILTON",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0085",
+          "nome": "LITERATURA INGLESA X - PROSA E POESIA  SEC. XVIII",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0086",
+          "nome": "LITERATURA INGLESA XI - LITERATURA IRLANDESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0087",
+          "nome": "LITERATURA INGLESA XII - TOPICOS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0088",
+          "nome": "LITERATURA INGLESA XV - CONTEXTOS CULTURAIS SECULOS XIX - XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0090",
+          "nome": "TOPICOS ESPECIAIS EM LITERATURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0091",
+          "nome": "LITERATURA BRASILEIRA - PRE-MODERNISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0093",
+          "nome": "TEORIA E PRATICA DA ANALISE DO TEXTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0095",
+          "nome": "TEORIA DO TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0097",
+          "nome": "TEORIA DA LINGUAGEM POETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0098",
+          "nome": "LABORATORIO DE LITERATURA PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEL0107",
+          "nome": "LITERATURA HISPANO - AMERICANA 1 - SECULOS 16,17 E 18",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0108",
+          "nome": "LITERATURA ESPANHOLA 1 - IDADE MEDIA E SIGLO DE ORO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0109",
+          "nome": "FUNDAMENTOS DA LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0110",
+          "nome": "CULTURA CLASSICA 1 - GRECIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0111",
+          "nome": "CULTURA CLASSICA 2 - ROMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0112",
+          "nome": "PANORAMA DA LITERATURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0113",
+          "nome": "CULTURA MEDIEVAL 1 : GRECO - LATINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0118",
+          "nome": "MONOGRAFIA EM LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0269",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ARTE-EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0154",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0131",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0099",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0100",
+          "nome": "MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0050",
+          "nome": "FILOLOGIA ROMANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0080",
+          "nome": "CONTEXTOS CULTURAIS DA LITERATURA FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0412",
+          "nome": "FRANCES: DA LEXICOLOGIA A LEXICOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0014",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0154",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0325",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0061",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0131",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0324",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0099",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0100",
+          "nome": "MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0323",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0050",
+          "nome": "FILOLOGIA ROMANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0080",
+          "nome": "CONTEXTOS CULTURAIS DA LITERATURA FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0055",
+          "nome": "CIVILIZACAO FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0320",
+          "nome": "MORFOSSINTAXE DO FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0032",
+          "nome": "LITERATURA FRANCESA - PANORAMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0412",
+          "nome": "FRANCES: DA LEXICOLOGIA A LEXICOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0056",
+          "nome": "CIVILIZACAO DE EXPRESSAO FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0322",
+          "nome": "ANALISE E PRODUCAO DE TEXTOS EM FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0033",
+          "nome": "LITERATURA FRANCESA - ROMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0093",
+          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0317",
+          "nome": "FONETICA E FONOLOGIA DO FRANCES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0034",
+          "nome": "LITERATURA FRANCESA - TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0096",
+          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0315",
+          "nome": "HISTORIA DA LINGUA FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0035",
+          "nome": "LITERATURA FRANCESA - POESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

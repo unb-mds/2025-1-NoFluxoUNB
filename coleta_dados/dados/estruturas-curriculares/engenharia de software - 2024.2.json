@@ -1,0 +1,877 @@
+{
+  "curso": "ENGENHARIA DE SOFTWARE",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2024.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0302",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0071",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0073",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0085",
+          "nome": "MATEMATICA DISCRETA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0158",
+          "nome": "ORIENTACAO A OBJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0108",
+          "nome": "MATEMATICA DISCRETA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0142",
+          "nome": "FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0146",
+          "nome": "ESTRUTURAS DE DADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0303",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0307",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0312",
+          "nome": "METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0003",
+          "nome": "COMPILADORES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0030",
+          "nome": "ESTRUTURAS DE DADOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0137",
+          "nome": "SISTEMAS DE BANCO DE DADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0170",
+          "nome": "FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0173",
+          "nome": "INTERACAO HUMANO COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0313",
+          "nome": "REQUISITOS DE SOFTWARE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0060",
+          "nome": "SISTEMAS DE BANCO DE DADOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0124",
+          "nome": "PROJETO DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0208",
+          "nome": "ARQUITETURA E DESENHO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0211",
+          "nome": "FUNDAMENTOS DE REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0314",
+          "nome": "TESTES DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0315",
+          "nome": "QUALIDADE DE SOFTWARE 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0109",
+          "nome": "FUNDAMENTOS DE SISTEMAS EMBARCADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0210",
+          "nome": "PARADIGMAS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0242",
+          "nome": "TECNICAS DE PROGRAMACAO EM PLATAFORMAS EMERGENTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0244",
+          "nome": "PROGRAMACAO PARA SISTEMAS PARALELOS E DISTRIBUIDOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0288",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "FGA0316",
+          "nome": "ENGENHARIA DE PRODUTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0317",
+          "nome": "GERENCIA DE CONFIGURACAO E EVOLUCAO DE SOFTWARE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0287",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0304",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0290",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0318",
+          "nome": "ATIVIDADE DE EXTENSAO ENGENHARIA DE SOFTWARE",
+          "ch": "45"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "JOGOS",
+          "nome": "60H OPTATIVA ENM0080 - FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FCTE0001",
+          "nome": "FUNDAMENTOS LOGICOS DE INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCTE0002",
+          "nome": "PARADIGMAS DE SOLUCAO DE PROBLEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCTE0003",
+          "nome": "ESTRUTURAS DE DADOS PARA COMPETICOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCTE0004",
+          "nome": "MATEMATICA PARA COMPETICOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCTE0005",
+          "nome": "ALGORITMOS EM GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCTE0006",
+          "nome": "GEOMETRIA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCTE0007",
+          "nome": "ALGORITMOS EM STRINGS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0006",
+          "nome": "FUNDAMENTOS DE EQUACOES DIFERENCIAIS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0008",
+          "nome": "SISTEMAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0027",
+          "nome": "PRINCIPIOS DE ROBOTICA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0028",
+          "nome": "PROGRAMACAO PARA COMPETICOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0031",
+          "nome": "SEMINARIOS EM ENGENHARIA DE SOFTWARE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0034",
+          "nome": "TOPICOS ESPECIAIS EM MATEMATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0038",
+          "nome": "AERODINAMICA DE SISTEMAS AEROESPACIAIS",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0041",
+          "nome": "TOPICOS ESPECIAIS EM JOGOS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0043",
+          "nome": "DINAMICA DOS GASES PARA SISTEMAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0045",
+          "nome": "MECANICA DO VOO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0046",
+          "nome": "METODOS E TECNICAS DA ESCRITA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0053",
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0054",
+          "nome": "TOPICOS ESPECIAIS EM GOVERNANCA DE TECNOLOGIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0066",
+          "nome": "FUNDAMENTOS DE VARIAVEL COMPLEXA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0072",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0074",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0083",
+          "nome": "APRENDIZADO DE MAQUINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0084",
+          "nome": "DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0111",
+          "nome": "INTRODUCAO A WEB SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0112",
+          "nome": "QUALIDADE DE SOFTWARE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0125",
+          "nome": "INTRODUCAO A GEOMETRIA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0129",
+          "nome": "PROCESSAMENTO DIGITAL DE SINAIS FINANCEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0134",
+          "nome": "TOPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0144",
+          "nome": "FISICA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0155",
+          "nome": "INTRODUCAO AO DESIGN E CONCEPCAO DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0166",
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0169",
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0171",
+          "nome": "TECNICAS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0174",
+          "nome": "DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0179",
+          "nome": "MECANICA DOS SOLIDOS 2 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0181",
+          "nome": "INOVACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0186",
+          "nome": "ELETRICIDADE APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0188",
+          "nome": "METODOS EXPERIMENTAIS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0201",
+          "nome": "PROJETO DE CIRCUITOS INTEGRADOS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0203",
+          "nome": "PLANEJAMENTO E GESTAO DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0204",
+          "nome": "DINAMICA DOS FLUIDOS",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0220",
+          "nome": "SISTEMAS EMBARCADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0221",
+          "nome": "INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0226",
+          "nome": "ELETRONICA VEICULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0254",
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0264",
+          "nome": "INTRODUCAO A COMPUTACAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0265",
+          "nome": "ECONOMIA DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0274",
+          "nome": "PRODUTIVIDADE E PROFISSIONALISMO EM ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0275",
+          "nome": "ENGENHARIA DE SOFTWARE EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0279",
+          "nome": "PROGRAMACAO WEB",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0319",
+          "nome": "GOVERNANCA EM TECNOLOGIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0320",
+          "nome": "FELICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0321",
+          "nome": "MELHORIA DE PROCESSOS DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0322",
+          "nome": "INTRODUCAO A GAMIFICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0323",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0324",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0325",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0326",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0327",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0328",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0302",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0071",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0073",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0085",
+          "nome": "MATEMATICA DISCRETA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0158",
+          "nome": "ORIENTACAO A OBJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0108",
+          "nome": "MATEMATICA DISCRETA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0142",
+          "nome": "FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0146",
+          "nome": "ESTRUTURAS DE DADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0303",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0307",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0312",
+          "nome": "METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0003",
+          "nome": "COMPILADORES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0030",
+          "nome": "ESTRUTURAS DE DADOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0137",
+          "nome": "SISTEMAS DE BANCO DE DADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0170",
+          "nome": "FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0173",
+          "nome": "INTERACAO HUMANO COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0313",
+          "nome": "REQUISITOS DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0060",
+          "nome": "SISTEMAS DE BANCO DE DADOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0124",
+          "nome": "PROJETO DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0208",
+          "nome": "ARQUITETURA E DESENHO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0211",
+          "nome": "FUNDAMENTOS DE REDES DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0314",
+          "nome": "TESTES DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0315",
+          "nome": "QUALIDADE DE SOFTWARE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0109",
+          "nome": "FUNDAMENTOS DE SISTEMAS EMBARCADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0210",
+          "nome": "PARADIGMAS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0242",
+          "nome": "TECNICAS DE PROGRAMACAO EM PLATAFORMAS EMERGENTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0244",
+          "nome": "PROGRAMACAO PARA SISTEMAS PARALELOS E DISTRIBUIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0288",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "FGA0316",
+          "nome": "ENGENHARIA DE PRODUTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0317",
+          "nome": "GERENCIA DE CONFIGURACAO E EVOLUCAO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0287",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0304",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0290",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0318",
+          "nome": "ATIVIDADE DE EXTENSAO ENGENHARIA DE SOFTWARE",
+          "ch": "45"
+        }
+      ]
+    }
+  ]
+}

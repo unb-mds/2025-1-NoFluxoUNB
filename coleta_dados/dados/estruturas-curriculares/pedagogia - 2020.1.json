@@ -1,0 +1,757 @@
+{
+  "curso": "PEDAGOGIA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0157",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0158",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0377",
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0150",
+          "nome": "PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0151",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0166",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0193",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0194",
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0132",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0163",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0182",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0184",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0234",
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0155",
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0168",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0199",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0211",
+          "nome": "EDUCACAO, TECNOLOGIA E  COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0231",
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0125",
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0130",
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0172",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0175",
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0236",
+          "nome": "ESTAGIO SUPERVISIONADO I: EDUCACAO INFANTIL",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0197",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0212",
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0237",
+          "nome": "ESTAGIO SUPERVISIONADO II: ANOS INICIAIS ( CRIANCAS OU ADULTOS/EJAI)",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0123",
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0173",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0238",
+          "nome": "ESTAGIO SUPERVISIONADO III: GESTAO ESCOLAR",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0239",
+          "nome": "TRABALHO FINAL DE CURSO I",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0240",
+          "nome": "ESTAGIO SUPERVISIONADO IV: ESPACOS EDUCATIVOS NAO ESCOLARES",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0174",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0241",
+          "nome": "TRABALHO FINAL DE CURSO II",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "NCIA",
+          "nome": "60H OPTATIVA FED0001 - GENERO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0004",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0124",
+          "nome": "APRENDIZAGEM E DESENVOLVIMENTO DO PNEE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0126",
+          "nome": "CULTURA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0127",
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0129",
+          "nome": "PROJETO 3 FASE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0131",
+          "nome": "ADMINISTRACAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0152",
+          "nome": "INTRODUCAO A CLASSE HOSPITALAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0153",
+          "nome": "EDUCACAO DE ADULTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0154",
+          "nome": "PROJETO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0156",
+          "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0159",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0161",
+          "nome": "INVESTIGACAO FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0162",
+          "nome": "PROJETO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0164",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0165",
+          "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0167",
+          "nome": "SOCIONOMIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0169",
+          "nome": "PROJETO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0171",
+          "nome": "PROCESSO DE ALFABETIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0176",
+          "nome": "FUNDAMENTOS DA LINGUAGEM NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0177",
+          "nome": "OFICINA DE FORMACAO DE PROFESSOR LEITOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0178",
+          "nome": "PROJETO 3 FASE 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0179",
+          "nome": "FUNDAMENTOS DA LINGUAGEM MUSICAL NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0180",
+          "nome": "PROJETO 4 FASE 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FED0181",
+          "nome": "EDUCACAO A DISTANCIA - PEDAGOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0183",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0185",
+          "nome": "ORIENTACAO VOCACIONAL PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0186",
+          "nome": "PROJETO 4 FASE 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "FED0187",
+          "nome": "PROJETO 5 FASE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0188",
+          "nome": "LITERATURA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0189",
+          "nome": "PSICOLOGIA SOCIAL NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0190",
+          "nome": "PROJETO 5 FASE 2 - TFC",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0191",
+          "nome": "FILOSOFIA COM CRIANCAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0192",
+          "nome": "ARTE, PEDAGOGIA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0195",
+          "nome": "ATIVIDADES LUDICAS EM INICIO ESCOLARIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0196",
+          "nome": "AVALIACAO EDUCACIONAL DO PNEE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0198",
+          "nome": "CRIATIVIDADE E INOVACAO NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0200",
+          "nome": "DESENVOLVIMENTO HUMANO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0201",
+          "nome": "EDUCACAO E LINGUAGENS TECNOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0202",
+          "nome": "EDUCACAO EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0203",
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0204",
+          "nome": "EDUCACAO MULTICULTURAL NA CONTEMPORANEIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0205",
+          "nome": "EDUCACAO NAO-FORMAL CIENCIA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0206",
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0207",
+          "nome": "FORMAS DE EXPRESSAO DA CRIANCA DE 0 A 6 ANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0208",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0209",
+          "nome": "MULTICULTURALISMO E ENSINO RELIGIOSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0210",
+          "nome": "OFICINAS DE TEXTOS ACADEMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0213",
+          "nome": "ENSINO DE CIENCIAS E TECNOLOGIA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0214",
+          "nome": "TOPICOS ESPECIAIS EM PSICOLOGIA  DA EDUCACAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0215",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0216",
+          "nome": "PENSAMENTO EDUCACIONAL BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0217",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0218",
+          "nome": "PRATICAS MIDIATICAS EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0219",
+          "nome": "TOPICOS ESPECIAIS EM FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0220",
+          "nome": "PRODUCAO E LEITURA DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0221",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FED0222",
+          "nome": "PSICANALISE E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0223",
+          "nome": "TOPICOS ESPECIAIS DE PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0224",
+          "nome": "PSICODRAMA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0225",
+          "nome": "OFICINA DE AUDIOVISUAIS NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0226",
+          "nome": "PSICOLOGIA, CULTURA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0227",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL E INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0228",
+          "nome": "TOPICOS ESPECIAIS DA HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0229",
+          "nome": "GESTAO DE PROGRAMAS E PROJETOS EDUCACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0230",
+          "nome": "ENFOQUES PSICOPEDAGOGICOS DAS DIFICULDADES DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0232",
+          "nome": "EDUCACAO EM GEOGRAFIA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0233",
+          "nome": "EDUCACAO PROFISSIONAL E TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0235",
+          "nome": "FINANCIAMENTO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0001",
+          "nome": "TOPICOS ESPECIAIS EM PRATICAS PEDAGOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0157",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0158",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0377",
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0150",
+          "nome": "PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0151",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0166",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0193",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0194",
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0132",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0163",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0182",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0184",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0234",
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0155",
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0168",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0199",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0211",
+          "nome": "EDUCACAO, TECNOLOGIA E  COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0231",
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0125",
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0130",
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0172",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0175",
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0236",
+          "nome": "ESTAGIO SUPERVISIONADO I: EDUCACAO INFANTIL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0197",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0212",
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0237",
+          "nome": "ESTAGIO SUPERVISIONADO II: ANOS INICIAIS ( CRIANCAS OU ADULTOS/EJAI)",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0123",
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0173",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0238",
+          "nome": "ESTAGIO SUPERVISIONADO III: GESTAO ESCOLAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0239",
+          "nome": "TRABALHO FINAL DE CURSO I",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0240",
+          "nome": "ESTAGIO SUPERVISIONADO IV: ESPACOS EDUCATIVOS NAO ESCOLARES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0174",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0241",
+          "nome": "TRABALHO FINAL DE CURSO II",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1532 @@
+{
+  "curso": "RELAÇÕES INTERNACIONAIS",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2017.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0012",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS CONTEMPORANEAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0052",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0168",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0035",
+          "nome": "DIREITO INTERNACIONAL PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0018",
+          "nome": "ORGANIZACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0154",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0156",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "IRI0144",
+          "nome": "ANALISE DAS RELACOES INTERNACIONAIS DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0158",
+          "nome": "POLITICA COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0169",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "IRI0049",
+          "nome": "ANALISE DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0053",
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0146",
+          "nome": "DIREITO EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "IRI0066",
+          "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0164",
+          "nome": "POLITICA INTERNACIONAL CONTEMPORANEA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "IRI0055",
+          "nome": "SISTEMAS DE DIREITO CONTEMPORANEOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0025 - ORGANIZACAO E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0111",
+          "nome": "ESTUDOS E PESQUISAS PARA A PAZ",
+          "ch": "60"
+        },
+        {
+          "codigo": "COT0001",
+          "nome": "ECONOMIA E GESTAO DE AREAS PROTEGIDAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0025",
+          "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0027",
+          "nome": "ANALISE MICROECONOMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0040",
+          "nome": "ECONOMIA INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0128",
+          "nome": "INTRODUCAO A ECONOMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0141",
+          "nome": "ECONOMIA DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0145",
+          "nome": "EMPRESAS MULTINACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0197",
+          "nome": "ECONOMIA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0030",
+          "nome": "ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0061",
+          "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0021",
+          "nome": "DIREITO CONSTITUCIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0023",
+          "nome": "DIREITO CONSTITUCIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0062",
+          "nome": "TEORIA GERAL DO DIREITO PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0153",
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0167",
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0205",
+          "nome": "INTRODUCAO AO ESTUDO DO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0207",
+          "nome": "DIREITO ROMANO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0210",
+          "nome": "TEORIA GERAL DO ESTADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0212",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0214",
+          "nome": "SOCIOLOGIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0216",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0218",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0249",
+          "nome": "TEORIA GERAL DO ESTADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0270",
+          "nome": "INTRODUCAO A FILOSOFIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0271",
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0095",
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0099",
+          "nome": "HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0107",
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0141",
+          "nome": "CULTURA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0001",
+          "nome": "DEMOCRACIA E RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0002",
+          "nome": "INTERCAMBIO INTERNACIONAL",
+          "ch": "240"
+        },
+        {
+          "codigo": "IRI0003",
+          "nome": "TOPICOS ESPECIAIS EM INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0004",
+          "nome": "GENERO E RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0005",
+          "nome": "BRASIL: POLITICA, ECONOMIA E RELACOES EXTERIORES [EN]",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0006",
+          "nome": "MIGRACAO E REFUGIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0007",
+          "nome": "RELACOES INTERNACIONAIS DA CHINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0008",
+          "nome": "RELACOES INTERNACIONAIS DO ATLANTICO SUL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0009",
+          "nome": "PROCESSOS DECISORIOS E POLITICA EXTERNA DOS EUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0010",
+          "nome": "POLITICA AMBIENTAL GLOBAL NA AMAZONIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0011",
+          "nome": "HISTORIA DA POLITICA EXTERIOR DO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IRI0023",
+          "nome": "POLITICA EXTERNA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0043",
+          "nome": "DISSERTACAO EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0045",
+          "nome": "POLITICA EXTERNA DAS GRANDES POTENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0047",
+          "nome": "GEOPOLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0048",
+          "nome": "INTEGRACAO REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0050",
+          "nome": "ORGANIZACOES INTERNACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0065",
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0068",
+          "nome": "PROBLEMAS ESTRATEGICOS CONTEMPORANEOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0092",
+          "nome": "GLOBALIZACAO E RELACOES INTERCULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0095",
+          "nome": "FILOSOFIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0096",
+          "nome": "PROCESSOS DECISORIOS EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0099",
+          "nome": "INTEGRACAO EUROPEIA: HISTORIA, PROCESSOS E DINAMICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0100",
+          "nome": "INTEGRACAO EUROPEIA: INSTITUICOES E FUNCIONAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0101",
+          "nome": "INTEGRACAO EUROPEIA: A POLITICA EXTERNA E DE SEGURANCA COMUM",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0102",
+          "nome": "PROTECAO INTERNACIONAL DO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0106",
+          "nome": "PRATICA DO DIREITO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0121",
+          "nome": "COOPERACAO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0124",
+          "nome": "PROTECAO INTERNACIONAL DOS DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0125",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0126",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DAS RELACOES INTERNACIONAIS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0127",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DAS RELACOES INTERNACIONAIS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0128",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DAS RELACOES INTERNACIONAIS 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0129",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA INTERNACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0131",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA INTERNACIONAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0133",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA INTERNACIONAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0134",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA INTERNACIONAL 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0141",
+          "nome": "SOCIEDADE CIVIL E POLITICA MUNDIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0142",
+          "nome": "JURISPRUDENCIA DE DIREITO INTERNACIONAL E DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0143",
+          "nome": "CORPORACOES TRANSNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0145",
+          "nome": "DIREITO DA INTEGRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0147",
+          "nome": "DIREITO DOS TRATADOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0148",
+          "nome": "DIREITO INTERNACIONAL ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0150",
+          "nome": "DIREITO INTERNACIONAL HUMANITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0151",
+          "nome": "ESTAGIO SUPERVISIONADO EM RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0152",
+          "nome": "ESTAGIO SUPERVISIONADO EM RELACOES INTERNACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0153",
+          "nome": "GLOBALIZACAO E GOVERNANCA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0155",
+          "nome": "INSTITUICOES POL. E INTERMEDIACAO DE INTERESSES EM PERSP. COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0157",
+          "nome": "POLITICA AMBIENTAL GLOBAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0159",
+          "nome": "POLITICA, ECONOMIA E SOCIEDADE EM PERSPECTIVA COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0160",
+          "nome": "RELACOES INTERNACIONAIS DA AMERICA LATINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0161",
+          "nome": "SEGURANCA INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0163",
+          "nome": "SOLUCAO JURISDICIONAL DE CONTROVERSIAS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0165",
+          "nome": "A POLITICA EXTERIOR DO BRASIL SOB O NACIONAL-DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0166",
+          "nome": "A POLITICA EXTERIOR DO BRASIL SOB O IMPERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0167",
+          "nome": "A POLITICA EXTERIOR DO BRASIL NA PRIMEIRA REPUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0170",
+          "nome": "O BRASIL E O MULTILATERALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0171",
+          "nome": "TEMAS DAS RELACOES INTERNACIONAIS DO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0172",
+          "nome": "SISTEMA MULTILATERAL DE COMERCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0173",
+          "nome": "SIMULACOES EM RELACOES INTERNACIONAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0174",
+          "nome": "CINEMA, LITERATURA E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0175",
+          "nome": "ESTUDOS DE AREA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0176",
+          "nome": "ESTUDOS DE AREA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0177",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS PRE-CONTEMPORANEAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0178",
+          "nome": "HISTORIA E POLITICA DO ORIENTE MEDIO CONTEMPORANEO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0180",
+          "nome": "TEORIA E PRATICA DA NEGOCIACAO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0181",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0182",
+          "nome": "NEGOCIACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0183",
+          "nome": "RELACOES INTERNACIONAIS DO ORIENTE MEDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0184",
+          "nome": "RELACOES INTERNACIONAIS DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0186",
+          "nome": "POPULACOES E DESENVOLVIMENTO GLOBAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI1101",
+          "nome": "DESIGUALDADES, CAPITALISMO HISTORICO E ALTERNATIVAS AO DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0019",
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0072",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0073",
+          "nome": "JAPONES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0074",
+          "nome": "JAPONES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0075",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0086",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0107",
+          "nome": "LINGUA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0157",
+          "nome": "LINGUA ESTRANGEIRA 1",
+          "ch": "0"
+        },
+        {
+          "codigo": "LET0158",
+          "nome": "LINGUA ESTRANGEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0160",
+          "nome": "LINGUA ESTRANGEIRA 2",
+          "ch": "0"
+        },
+        {
+          "codigo": "LET0161",
+          "nome": "LINGUA ESTRANGEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0164",
+          "nome": "FRANCES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0245",
+          "nome": "INGLES: EXPRESSAO ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0247",
+          "nome": "INGLES: EXPRESSAO ORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0252",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0260",
+          "nome": "INGLES: EXPRESSAO ESCRITA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0262",
+          "nome": "INGLES: EXPRESSAO ESCRITA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0305",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0306",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0312",
+          "nome": "INTRODUCAO A MORFOSSINTAXE DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0325",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0334",
+          "nome": "INGLES: COMPREENSAO DA LINGUA ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0338",
+          "nome": "LINGUA ITALIANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0360",
+          "nome": "JAPONES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0361",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0363",
+          "nome": "JAPONES 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0364",
+          "nome": "JAPONES 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0365",
+          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0385",
+          "nome": "JAPONES - EXPRESSAO ESCRITA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0388",
+          "nome": "PERSA 1 - FARSI  1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0390",
+          "nome": "ROMENO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0400",
+          "nome": "LINGUA ARABE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0409",
+          "nome": "POLONES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0037",
+          "nome": "LINGUA PORTUGUESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0038",
+          "nome": "LINGUA PORTUGUESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0039",
+          "nome": "LINGUA PORTUGUESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0005",
+          "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0010",
+          "nome": "HISTORIA SOCIAL E POLITICA LATINO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0015",
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0019",
+          "nome": "POLITICA E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0033",
+          "nome": "TEORIA POLITICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IRI0146",
+          "nome": "DIREITO EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0012",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS CONTEMPORANEAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0052",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0168",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0035",
+          "nome": "DIREITO INTERNACIONAL PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0018",
+          "nome": "ORGANIZACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0154",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0156",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0144",
+          "nome": "ANALISE DAS RELACOES INTERNACIONAIS DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0158",
+          "nome": "POLITICA COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0169",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0049",
+          "nome": "ANALISE DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0053",
+          "nome": "COMERCIO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0146",
+          "nome": "DIREITO EM RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0066",
+          "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0164",
+          "nome": "POLITICA INTERNACIONAL CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0055",
+          "nome": "SISTEMAS DE DIREITO CONTEMPORANEOS",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

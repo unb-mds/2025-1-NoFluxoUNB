@@ -1,0 +1,1742 @@
+{
+  "curso": "DESIGN - PROGRAMAÇÃO VISUAL",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2017.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0020",
+          "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0049",
+          "nome": "INTRODUCAO AO DESIGN",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0304",
+          "nome": "FISICA PARA DESENHO INDUSTRIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0011",
+          "nome": "EXPRESSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0034",
+          "nome": "ESTUDO DA FORMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0037",
+          "nome": "DESENHO APLICADO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0003",
+          "nome": "FUNDAMENTOS DA LINGUAGEM APLICADOS AO DESIGN",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0023",
+          "nome": "METODOLOGIA DO PROJETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0045",
+          "nome": "DESENHO APLICADO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0046",
+          "nome": "OFICINA DE MODELOS E MAQUETE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0012",
+          "nome": "ANALISE GRAFICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0040",
+          "nome": "PROGRAMACAO VISUAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0050",
+          "nome": "MATERIAIS E PROCESSOS GRAFICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0004",
+          "nome": "FOTOGRAFIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0013",
+          "nome": "ANALISE GRAFICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0041",
+          "nome": "PROGRAMACAO VISUAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0047",
+          "nome": "FOTOGRAFIA E VIDEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0042",
+          "nome": "PROGRAMACAO VISUAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0052",
+          "nome": "PROGRAMACAO VISUAL 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0117",
+          "nome": "DIREITO INDUSTRIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0071",
+          "nome": "ESTAGIO OBRIGATORIO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "DIN0054",
+          "nome": "DIPLOMACAO EM PROGRAMACAO VISUAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0064 - ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0031",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0032",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0045",
+          "nome": "CENOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0095",
+          "nome": "INTRODUCAO A INTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0097",
+          "nome": "INTERPRETACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0137",
+          "nome": "TECNICAS DE INTERPRETACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0141",
+          "nome": "TECNICAS DE INTERPRETACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0171",
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0172",
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0173",
+          "nome": "INTERPRETACAO TEATRAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0200",
+          "nome": "LABORATORIO INTERARTISTICO",
+          "ch": "120"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0152",
+          "nome": "INTRODUCAO A MICROINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CID0031",
+          "nome": "PALEOGRAFIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "COM0129",
+          "nome": "LINGUAGENS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0132",
+          "nome": "LINGUAGENS DA COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0138",
+          "nome": "PLANEJAMENTO GRAFICO, VISUAL E WEB",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0145",
+          "nome": "ROTEIRO, PRODUCAO E DIRECAO PARA WEB, VIDEO E CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0006",
+          "nome": "PRODUCAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0008",
+          "nome": "ARGUMENTO E ROTEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0011",
+          "nome": "CRIATIVIDADE EM PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0020",
+          "nome": "SOM DO FILME 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0042",
+          "nome": "DOCUMENTARIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0060",
+          "nome": "PUBLICIDADE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0061",
+          "nome": "INTRODUCAO AS HISTORIAS EM QUADRINHOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0076",
+          "nome": "FOTOGRAFIA E ILUMINACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0079",
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0098",
+          "nome": "INTRODUCAO A PUBLICIDADE E PROPAGANDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0103",
+          "nome": "LINGUAGENS CINEMATOGRAFICA E AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0107",
+          "nome": "DIRECAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0108",
+          "nome": "PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0111",
+          "nome": "EDICAO E MONTAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0117",
+          "nome": "INTRODUCAO A LINGUAGEM SONORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0118",
+          "nome": "ROTEIRO, PRODUCAO E REALIZACAO EM AUDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0125",
+          "nome": "DIRECAO DE ARTE EM ARTES GRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DIN0001",
+          "nome": "DESIGN DE INTERACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0002",
+          "nome": "DESIGN DE JOGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0006",
+          "nome": "TOPICOS ESPECIAIS EM DESIGN",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0007",
+          "nome": "ENCADERNACAO ARTESANAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0008",
+          "nome": "PROCESSOS ARTESANAIS DE REPRODUCAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0016",
+          "nome": "PROJETO VISUAL 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "DIN0017",
+          "nome": "PROJETO VISUAL 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "DIN0018",
+          "nome": "PROJETO VISUAL 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "DIN0019",
+          "nome": "PROJETO VISUAL 4",
+          "ch": "120"
+        },
+        {
+          "codigo": "DIN0021",
+          "nome": "INTRODUCAO AO DESENHO INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0022",
+          "nome": "INTRODUCAO A PROGRAMACAO VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0024",
+          "nome": "PROJETO DE DIPLOMACAO EM PROGRAMACAO VISUAL",
+          "ch": "150"
+        },
+        {
+          "codigo": "DIN0025",
+          "nome": "PROJETO DO OBJETO 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "DIN0026",
+          "nome": "PROJETO DO OBJETO 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "DIN0027",
+          "nome": "PROJETO DO OBJETO 3",
+          "ch": "150"
+        },
+        {
+          "codigo": "DIN0028",
+          "nome": "PROJETO DO OBJETO 4",
+          "ch": "150"
+        },
+        {
+          "codigo": "DIN0029",
+          "nome": "PROJETO DE DIPLOMACAO EM PROJETO DO PRODUTO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DIN0030",
+          "nome": "TIPOGRAFIA CINETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0031",
+          "nome": "CRIATIVIDADE EM DESIGN",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0032",
+          "nome": "DESIGN REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0035",
+          "nome": "COMPUTACAO GRAFICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0036",
+          "nome": "ESTAGIO SUPERVISIONADO EM PROGRAMACAO VISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0038",
+          "nome": "ESTAGIO SUPERVISIONADO EM PROJETO DO PRODUTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0039",
+          "nome": "PROJETO DE PRODUTO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0043",
+          "nome": "PROJETO DE PRODUTO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0044",
+          "nome": "PROJETO DE PRODUTO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0048",
+          "nome": "INTRODUCAO A ENGENHARIA COGNITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0051",
+          "nome": "PROJETO DE PRODUTO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0056",
+          "nome": "DIPLOMACAO EM PROJETO DO PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0057",
+          "nome": "SEMINARIOS DE PRATICA PROFISSIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0059",
+          "nome": "ESTUDOS DIRIGIDOS EM DESIGN 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0061",
+          "nome": "ESTUDOS DIRIGIDOS EM DESIGN 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0063",
+          "nome": "ESTUDOS DIRIGIDOS EM DESIGN 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0065",
+          "nome": "ESTUDOS DIRIGIDOS EM DESIGN 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0066",
+          "nome": "MODELAGEM DIGITAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0067",
+          "nome": "PROCESSOS DE PESQUISA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0070",
+          "nome": "INTRODUCAO AS MIDIAS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0072",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0073",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0110",
+          "nome": "TOPICOS ESPECIAIS EM DESIGN 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0111",
+          "nome": "TOPICOS ESPECIAIS EM DESIGN 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0112",
+          "nome": "TOPICOS ESPECIAIS EM DESIGN 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0030",
+          "nome": "METODOLOGIA DE PESQUISA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0305",
+          "nome": "FUNDAMENTOS EM DESIGN, UTOPIAS, TERRITORIOS E ECOLOGIAS URBANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0575",
+          "nome": "FUNDAMENTOS EM DESIGN DE INFORMACAO E INTERACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DPG0993",
+          "nome": "FUNDAMENTOS EM DESIGN, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0054",
+          "nome": "GEOMETRIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0147",
+          "nome": "MATERIAIS INDUSTRIAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0148",
+          "nome": "MATERIAIS INDUSTRIAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0149",
+          "nome": "PROCESSO DE FABRICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0150",
+          "nome": "PROCESSO DE FABRICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0151",
+          "nome": "SISTEMAS MECANICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0152",
+          "nome": "SISTEMAS MECANICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0153",
+          "nome": "SISTEMAS MECANICOS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0154",
+          "nome": "SISTEMAS MECANICOS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0171",
+          "nome": "PROCESSOS DE FABRICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0172",
+          "nome": "MATERIAIS INDUSTRIAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0173",
+          "nome": "SISTEMAS MECANICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0017",
+          "nome": "PESQUISA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0138",
+          "nome": "PROCESSO DE INOVACAO EM TECNOLOGIA ASSISTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0024",
+          "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0047",
+          "nome": "REPROGRAFIA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FDD0111",
+          "nome": "DIREITO AUTORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0167",
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0270",
+          "nome": "INTRODUCAO A FILOSOFIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0271",
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0109",
+          "nome": "INTRODUCAO A LOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0124",
+          "nome": "FILOSOFIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0205",
+          "nome": "ILUSTRACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0069",
+          "nome": "MECANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0039",
+          "nome": "FOTOJORNALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0049",
+          "nome": "PLANEJAMENTO GRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0056",
+          "nome": "ETICA E LEGISLACAO EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0058",
+          "nome": "OFICINA DE TEXTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0080",
+          "nome": "INTRODUCAO AO JORNALISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0133",
+          "nome": "EDICAO DE IMAGEM EM REVISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0252",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0254",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0323",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0324",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0325",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0433",
+          "nome": "FRANCES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0058",
+          "nome": "SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0089",
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0093",
+          "nome": "INTRODUCAO A MUSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0097",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0098",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0099",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0244",
+          "nome": "EVOLUCAO DA MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0735",
+          "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0054",
+          "nome": "PERCEPCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PRO0011",
+          "nome": "PROJETO ARQUITETONICO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0025",
+          "nome": "DESENHO E PLASTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0026",
+          "nome": "DESENHO E PLASTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0028",
+          "nome": "GEOMETRIA CONSTRUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0056",
+          "nome": "ERGONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0058",
+          "nome": "PSICOLOGIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0002",
+          "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0018",
+          "nome": "MORFOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0016",
+          "nome": "ESTUDOS AMBIENTAIS-BIOCLIMATISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0017",
+          "nome": "CONFORTO TERMICO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0059",
+          "nome": "INFOESTETICA 1 - ESTETICA DAS IMAGENS INFORMATICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0060",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0065",
+          "nome": "DESENHO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0072",
+          "nome": "MORFOLOGIA GEOMETRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0073",
+          "nome": "MORFOLOGIA EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0074",
+          "nome": "DESENHO GEOMETRICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0075",
+          "nome": "DESENHO PERSPECTIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0076",
+          "nome": "OFICINA DE COMPOSICAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0077",
+          "nome": "OFICINA DE COMPOSICAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0078",
+          "nome": "OFICINA DE COMPOSICAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0079",
+          "nome": "INICIACAO AS TECNICAS INDUSTRIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0081",
+          "nome": "TEORIA DAS TECNICAS E DOS MATERIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0082",
+          "nome": "TEORIA DAS TECNICAS E DOS MATERIAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0085",
+          "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0088",
+          "nome": "OFICINA DE FOTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0090",
+          "nome": "OFICINA DE FOTOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0094",
+          "nome": "OFICINA DE FOTOGRAFIA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0098",
+          "nome": "TECNICA DE PLANEJAMENTO CINEMATOGRAFICO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0101",
+          "nome": "TECNICA DE EDICAO CINEMATOGRAFICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0104",
+          "nome": "ANALISE DO FILME 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0107",
+          "nome": "TECNICA DE FILMAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0113",
+          "nome": "PRATICAS DE ENSINO: MATERIAIS EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0114",
+          "nome": "HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0116",
+          "nome": "MODELAGEM DO OBJETO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0117",
+          "nome": "MODELAGEM DO OBJETO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0119",
+          "nome": "TECNICAS EXPERIMENTAIS DE ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0122",
+          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0140",
+          "nome": "ANATOMIA ARTISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0141",
+          "nome": "HISTORIA DA ARTE ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0163",
+          "nome": "MATERIAIS EM ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0185",
+          "nome": "ARTE ELETRONICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0187",
+          "nome": "PINTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0188",
+          "nome": "INTRODUCAO A GRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0212",
+          "nome": "DESENHO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0220",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0230",
+          "nome": "INTERVENCAO/PERFORMANCE/INSTALACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0231",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0232",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0235",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0237",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0239",
+          "nome": "SERIGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0240",
+          "nome": "PINTURA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0241",
+          "nome": "ESCULTURA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0244",
+          "nome": "ANIMACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0245",
+          "nome": "DESENHO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0246",
+          "nome": "ARTE ELETRONICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0247",
+          "nome": "XILOGRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0248",
+          "nome": "LITOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0249",
+          "nome": "CALCOGRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0253",
+          "nome": "HISTORIA DA ARTE MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0254",
+          "nome": "HISTORIA DA ARTE MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0255",
+          "nome": "HISTORIA DA ARTE CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0256",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0294",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0003",
+          "nome": "FUNDAMENTOS DA LINGUAGEM APLICADOS AO DESIGN",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0004",
+          "nome": "FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0071",
+          "nome": "ESTAGIO OBRIGATORIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0054",
+          "nome": "DIPLOMACAO EM PROGRAMACAO VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0020",
+          "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0049",
+          "nome": "INTRODUCAO AO DESIGN",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0304",
+          "nome": "FISICA PARA DESENHO INDUSTRIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0011",
+          "nome": "EXPRESSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0034",
+          "nome": "ESTUDO DA FORMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0037",
+          "nome": "DESENHO APLICADO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0003",
+          "nome": "FUNDAMENTOS DA LINGUAGEM APLICADOS AO DESIGN",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0023",
+          "nome": "METODOLOGIA DO PROJETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0045",
+          "nome": "DESENHO APLICADO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0046",
+          "nome": "OFICINA DE MODELOS E MAQUETE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0012",
+          "nome": "ANALISE GRAFICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0040",
+          "nome": "PROGRAMACAO VISUAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0050",
+          "nome": "MATERIAIS E PROCESSOS GRAFICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0004",
+          "nome": "FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0013",
+          "nome": "ANALISE GRAFICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0041",
+          "nome": "PROGRAMACAO VISUAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0047",
+          "nome": "FOTOGRAFIA E VIDEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DIN0042",
+          "nome": "PROGRAMACAO VISUAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DIN0052",
+          "nome": "PROGRAMACAO VISUAL 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0117",
+          "nome": "DIREITO INDUSTRIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0071",
+          "nome": "ESTAGIO OBRIGATORIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DIN0054",
+          "nome": "DIPLOMACAO EM PROGRAMACAO VISUAL",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

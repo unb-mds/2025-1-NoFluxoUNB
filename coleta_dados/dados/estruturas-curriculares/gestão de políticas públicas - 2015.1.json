@@ -1,0 +1,2547 @@
+{
+  "curso": "GESTÃO DE POLÍTICAS PÚBLICAS",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2015.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0021",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0031",
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0038",
+          "nome": "ORGANIZACAO DA ADMINISTRACAO PUBLICA FEDERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0039",
+          "nome": "ECONOMIA PARA POLITICAS PUBLICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0119",
+          "nome": "ESTADO, GOVERNO E POLITICAS PUBLICAS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0008",
+          "nome": "METODOS E TECNICAS DE PESQUISA APLICADOS A GPP",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0034",
+          "nome": "ADMINISTRACAO DE SERVICOS NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0041",
+          "nome": "POLITICA, FINANCIAMENTO E ORCAMENTO DAS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0043",
+          "nome": "CARGOS NO SERVICO PUBLICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "POL0117",
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0118",
+          "nome": "ETICA E POLITICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "GPP0002",
+          "nome": "RESIDENCIA EM POLITICAS PUBLICAS",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "GPP0003",
+          "nome": "RESIDENCIA EM POLITICAS PUBLICAS 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "OS",
+          "nome": "60H OPTATIVA ADM0025 - ORGANIZACAO E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0035",
+          "nome": "ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0041",
+          "nome": "GESTAO DE PESSOAS EM ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0047",
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0052",
+          "nome": "FINANCAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0068",
+          "nome": "MERCADO FINANCEIRO E DE CAPITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0070",
+          "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0092",
+          "nome": "ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0162",
+          "nome": "GESTAO DA INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0192",
+          "nome": "CALCULO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0197",
+          "nome": "METODOLOGIA DE PESQUISA APLICADA A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0198",
+          "nome": "METODOLOGIA CIENTIFICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0226",
+          "nome": "GESTAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0253",
+          "nome": "TREINAMENTO, DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0258",
+          "nome": "GESTAO DE DESEMPENHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0302",
+          "nome": "GESTAO DE MUDANCA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0303",
+          "nome": "GESTAO DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0304",
+          "nome": "GESTAO DE RESPONSABILIDADE SOCIOAMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0305",
+          "nome": "GESTAO POR COMPETENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0307",
+          "nome": "METODOS E MODELOS QUANTITATIVOS DE DECISAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0308",
+          "nome": "NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0309",
+          "nome": "TOPICOS CONTEMPORANEOS EM ADMINISTRACAO PUBLICA E GESTAO SOCIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0317",
+          "nome": "ADMINISTRACAO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0321",
+          "nome": "ABORDAGENS CRITICAS AO ESTUDO DE ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0363",
+          "nome": "GESTAO DE ORGANIZACAO SEM FINS LUCRATIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0364",
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0021",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0031",
+          "nome": "ADMINISTRACAO FINANCEIRA E CONTABILIDADE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0067",
+          "nome": "PROGRAMACAO FISCAL E FINANCEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0079",
+          "nome": "CONTABILIDADE GERAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0091",
+          "nome": "EXECUCAO DA GESTAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0099",
+          "nome": "CONTROLE E AVALIACAO DA GESTAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0001",
+          "nome": "PLANEJAMENTO E AVALIACAO SOCIOAMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0008",
+          "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0010",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CDS0012",
+          "nome": "POLITICAS PUBLICAS E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0013",
+          "nome": "POPULACAO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0015",
+          "nome": "INDICADORES DE DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0039",
+          "nome": "SUSTENTABILIDADE ETICA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0007",
+          "nome": "FISIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0039",
+          "nome": "ELEMENTOS DE FISIOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0041",
+          "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0036",
+          "nome": "SOCIEDADES COMPLEXAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0056",
+          "nome": "ANTROPOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0058",
+          "nome": "IDENTIDADE E RELACOES INTERETNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0078",
+          "nome": "ANTROPOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0005",
+          "nome": "POLITICAS DE SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0011",
+          "nome": "SAUDE E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0020",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0026",
+          "nome": "ADMINISTRACAO DE SERVICOS DE SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0063",
+          "nome": "DIREITO SANITARIO E LEGISLACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0079",
+          "nome": "GESTAO DE SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0001",
+          "nome": "ECONOMIA PARA POLITICAS PUBLICAS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0025",
+          "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0032",
+          "nome": "ANALISE MACROECONOMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0067",
+          "nome": "DESENVOLVIMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0122",
+          "nome": "POLITICA ECONOMICA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0124",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0128",
+          "nome": "INTRODUCAO A ECONOMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0134",
+          "nome": "ECONOMIA INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0139",
+          "nome": "ECONOMIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0141",
+          "nome": "ECONOMIA DO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0179",
+          "nome": "TOPICOS ESPECIAIS EM FINANCAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0197",
+          "nome": "ECONOMIA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0199",
+          "nome": "TEORIA DO DESENVOLVIMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0222",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0246",
+          "nome": "ECONOMIA LATINO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0261",
+          "nome": "PLANEJAMENTO PUBLICO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0262",
+          "nome": "ECONOMIA AMBIENTAL E ECOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0265",
+          "nome": "FUNDAMENTOS DE ECONOMIA DO MEIO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0266",
+          "nome": "ECONOMIA DA POLITICA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0267",
+          "nome": "ANALISE CUSTO BENEFICIO AMBIENTAL DE PROJETOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0270",
+          "nome": "PLANEJAMENTO DE INVESTIMENTOS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0272",
+          "nome": "MICROECONOMIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0273",
+          "nome": "ECONOMIA DO SETOR EXTERNO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0274",
+          "nome": "ESPACO REGIONAL URBANO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0275",
+          "nome": "INSTRUMENTO DE POLITICA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0010",
+          "nome": "ESTUDOS COMPARADOS SOBRE AS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0012",
+          "nome": "SOCIEDADE, CULTURA E POLITICA NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0043",
+          "nome": "INTRODUCAO ENFERMAGEM E ESTAGIO",
+          "ch": "225"
+        },
+        {
+          "codigo": "ENF0047",
+          "nome": "CONTEXTUALIZACAO DA ENFERMAGEM NA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0051",
+          "nome": "SISTEMATIZACAO DA ASSISTENCIA EM ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0057",
+          "nome": "GESTAO EM POLITICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0058",
+          "nome": "VIVENCIAS INTEGRADORAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0059",
+          "nome": "VIVENCIAS INTEGRADORAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENF0086",
+          "nome": "SEMIOLOGIA E SEMIOTECNICA APLICADA A ENFERMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0066",
+          "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0033",
+          "nome": "ESTATISTICA EXPLORATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0046",
+          "nome": "DEMOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0054",
+          "nome": "PESQUISA OPERACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0061",
+          "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0070",
+          "nome": "METODOS ESTATISTICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0009",
+          "nome": "INTERNET E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0041",
+          "nome": "POLITICAS DE COMUNICACAO, SOCIEDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0031",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0259",
+          "nome": "POLITICA AGRICOLA E DESENVOLVIMENTO RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0178",
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0198",
+          "nome": "BIOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0208",
+          "nome": "SAUDE E SOCIEDADE 2: A CONSTRUCAO SOCIAL DO PROCESSO SAUDE E DOENCA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0216",
+          "nome": "CONTEXTO HISTORICO E SOCIAL DA ENFERMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0228",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0234",
+          "nome": "POLITICAS, SISTEMAS E SERVICOS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0249",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0250",
+          "nome": "INTEGRACAO AO CENARIO DAS PRATICAS 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0266",
+          "nome": "DA CELULA AOS SISTEMAS 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0276",
+          "nome": "FUNDAMENTOS DA EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0324",
+          "nome": "DIREITO SANITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0336",
+          "nome": "ECONOMIA E FINANCIAMENTO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0021",
+          "nome": "DIREITO CONSTITUCIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0023",
+          "nome": "DIREITO CONSTITUCIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0025",
+          "nome": "DIREITO ADMINISTRATIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0027",
+          "nome": "DIREITO ADMINISTRATIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0031",
+          "nome": "DIREITO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0033",
+          "nome": "DIREITO TRIBUTARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0035",
+          "nome": "DIREITO INTERNACIONAL PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0055",
+          "nome": "DIREITO DO TRABALHO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0062",
+          "nome": "TEORIA GERAL DO DIREITO PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0153",
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0167",
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0172",
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0205",
+          "nome": "INTRODUCAO AO ESTUDO DO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0207",
+          "nome": "DIREITO ROMANO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0210",
+          "nome": "TEORIA GERAL DO ESTADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0212",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0214",
+          "nome": "SOCIOLOGIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0216",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0218",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0224",
+          "nome": "DIREITO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0248",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0249",
+          "nome": "TEORIA GERAL DO ESTADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0270",
+          "nome": "INTRODUCAO A FILOSOFIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0271",
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0272",
+          "nome": "ETICA E DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0288",
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0181",
+          "nome": "INOVACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0082",
+          "nome": "FILOSOFIA SOCIAL E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0086",
+          "nome": "FILOSOFIA DA LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0087",
+          "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0071",
+          "nome": "PARASITOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0095",
+          "nome": "PATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0165",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0167",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0171",
+          "nome": "ESTRUTURA E FUNCAO ESTOMATOLOGICAS - TEORIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0512",
+          "nome": "HISTOLOGIA MEDICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FTD0010",
+          "nome": "EMPREENDEDORISMO E INOVACAO TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0207",
+          "nome": "POLITICA EDUCACIONAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0267",
+          "nome": "ESTADO POLITICA AMBIENTE E SUSTENTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0280",
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0344",
+          "nome": "REGULACAO E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0374",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0397",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0435",
+          "nome": "TEORIA DO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0555",
+          "nome": "POLITICA E GESTAO DE RESIDUOS URBANOS E RECICLAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0557",
+          "nome": "POLITICA E GESTAO DE UNIDADES DE CONSERVACAO E AREAS PROTEGIDAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0014",
+          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0021",
+          "nome": "ESTUDOS REGIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0032",
+          "nome": "GEOGRAFIA URBANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0046",
+          "nome": "GEOGRAFIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0066",
+          "nome": "TEORIA GEOGRAFICA E DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0068",
+          "nome": "POLITICA PUBLICA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0022",
+          "nome": "FUNDAMENTOS DE HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0054",
+          "nome": "HISTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0004",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE POLITICAS PUBLICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0005",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE POLITICAS PUBLICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0006",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE POLITICAS PUBLICAS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0007",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE POLITICAS PUBLICAS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0010",
+          "nome": "PROJETO DE TRABALHO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0013",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE POLITICAS PUBLICAS 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0014",
+          "nome": "TOPICOS CONTEMPORANEOS EM GESTAO DE POLITICAS PUBLICAS 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0015",
+          "nome": "AVALIACAO DE PROGRAMAS GOVERNAMENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0016",
+          "nome": "CONTROVERSIAS URBANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0017",
+          "nome": "DEMOCRACIA DIGITAL, GOVERNANCA DA INTERNET E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0018",
+          "nome": "DEMOCRACIA E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0019",
+          "nome": "GESTAO E GOVERNANCA PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0020",
+          "nome": "IMPLEMENTACAO DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0021",
+          "nome": "INTRODUCAO A GESTAO DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0022",
+          "nome": "NOVAS INSTITUCIONALIDADES NA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0023",
+          "nome": "PARTICIPACAO SOCIAL E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0024",
+          "nome": "POLITICAS PUBLICAS DE CIENCIA, TECNOLOGIA E INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0025",
+          "nome": "POLITICAS PUBLICAS DE EMPREGO TRABALHO E RENDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0026",
+          "nome": "POLITICAS PUBLICAS E (DES)ENVOLVIMENTO TERRITORIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0027",
+          "nome": "POLITICAS URBANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0028",
+          "nome": "PROCESSO DECISORIO E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0029",
+          "nome": "TEORIAS MARXISTAS DO ESTADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0032",
+          "nome": "FINANCAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0033",
+          "nome": "PLANEJAMENTO GOVERNAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0035",
+          "nome": "ADMINISTRACAO PUBLICA COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0036",
+          "nome": "ORCAMENTO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0040",
+          "nome": "INOVACAO NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0088",
+          "nome": "CORPO E POLITICAS PUBLICAS: EPISTEMOLOGIAS, PRATICAS DE PESQUISA E EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0089",
+          "nome": "DIREITOS HUMANOS E POLITICAS PUBLICAS: CONCEITOS E PRATICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0143",
+          "nome": "HISTOLOGIA ANIMAL 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0137",
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0213",
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0111",
+          "nome": "CIENCIA, TECNOLOGIA E GOVERNO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0086",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0252",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0260",
+          "nome": "INGLES: EXPRESSAO ESCRITA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0262",
+          "nome": "INGLES: EXPRESSAO ESCRITA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0312",
+          "nome": "INTRODUCAO A MORFOSSINTAXE DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0334",
+          "nome": "INGLES: COMPREENSAO DA LINGUA ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0433",
+          "nome": "FRANCES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0059",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0017",
+          "nome": "NUTRICAO NORMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "NUT0054",
+          "nome": "NUTRICAO HUMANA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "ODT0020",
+          "nome": "MICROBIOLOGIA ORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ODT0083",
+          "nome": "ODONTOLOGIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ODT0097",
+          "nome": "ESTOMATOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0038",
+          "nome": "ADMINISTRACAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0052",
+          "nome": "FINANCIAMENTO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0076",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0001",
+          "nome": "INDICADORES ECONOMICOS E SOCIAIS E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0010",
+          "nome": "HISTORIA SOCIAL E POLITICA LATINO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0015",
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0017",
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0021",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0022",
+          "nome": "COMPORTAMENTO POLITICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0030",
+          "nome": "ANALISE POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0032",
+          "nome": "POLITICA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0033",
+          "nome": "TEORIA POLITICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0036",
+          "nome": "PENSAMENTO POLITICO LATINO-AMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0037",
+          "nome": "PARTIDOS POLITICOS E SISTEMAS ELEITORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0038",
+          "nome": "LEGISLACAO E PROCESSO POLITICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0040",
+          "nome": "AVALIACAO DE POLITICAS GOVERNAMENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0042",
+          "nome": "POLITICA E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0046",
+          "nome": "PENSAMENTO POLITICO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0047",
+          "nome": "ESTRUTURA DO PODER NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0048",
+          "nome": "POLITICA E ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0049",
+          "nome": "MUDANCA POLITICA NA AMERICA DO SUL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0051",
+          "nome": "ESTADO E DESENVOLVIMENTO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0053",
+          "nome": "POLITICA E ECONOMIA MUNDIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0060",
+          "nome": "POLITICAS PUBLICAS E TEORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0062",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0065",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0075",
+          "nome": "ESTADO E TEORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0078",
+          "nome": "TEORIA DA ESCOLHA PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0082",
+          "nome": "ATIVIDADE DE EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0083",
+          "nome": "ATIVIDADE DE EXTENSAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0084",
+          "nome": "PESQUISA EM CIENCIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0085",
+          "nome": "PESQUISA EM CIENCIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0088",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0121",
+          "nome": "GOVERNO ELETRONICO E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0161",
+          "nome": "PESQUISA EM CIENCIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0162",
+          "nome": "PESQUISA EM CIENCIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0010",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0049",
+          "nome": "PSICOLOGIA DAS ORGANIZACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0077",
+          "nome": "DIVERSIDADE NAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0001",
+          "nome": "SEGURIDADE SOCIAL 3 - ASSISTENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0024",
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0076",
+          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0087",
+          "nome": "INSTITUICOES E PRATICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0099",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0125",
+          "nome": "QUESTAO URBANA E RURAL NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0127",
+          "nome": "ECONOMIA POLITICA E CAPITALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0130",
+          "nome": "SEGURIDADE SOCIAL 1 - PREVIDENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0029",
+          "nome": "SOCIOLOGIA DAS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0043",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0069",
+          "nome": "PENSAMENTO SOCIOLOGICO LATINO-AMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0087",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0090",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0093",
+          "nome": "SOCIOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0096",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0097",
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0103",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0113",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0120",
+          "nome": "METODOLOGIAS QUALITATIVAS EM CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0117",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO E DIVERSIDADE CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0021",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0003",
+          "nome": "RESIDENCIA EM POLITICAS PUBLICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0021",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0031",
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0038",
+          "nome": "ORGANIZACAO DA ADMINISTRACAO PUBLICA FEDERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0039",
+          "nome": "ECONOMIA PARA POLITICAS PUBLICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0119",
+          "nome": "ESTADO, GOVERNO E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0008",
+          "nome": "METODOS E TECNICAS DE PESQUISA APLICADOS A GPP",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0034",
+          "nome": "ADMINISTRACAO DE SERVICOS NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0041",
+          "nome": "POLITICA, FINANCIAMENTO E ORCAMENTO DAS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0043",
+          "nome": "CARGOS NO SERVICO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0117",
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0118",
+          "nome": "ETICA E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0002",
+          "nome": "RESIDENCIA EM POLITICAS PUBLICAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "GPP0003",
+          "nome": "RESIDENCIA EM POLITICAS PUBLICAS 2",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

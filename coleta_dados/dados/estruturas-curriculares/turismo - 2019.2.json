@@ -1,0 +1,997 @@
+{
+  "curso": "TURISMO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2019.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0038",
+          "nome": "ESTUDO DO TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0041",
+          "nome": "CONSTRUCAO DO CONHECIMENTO CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0044",
+          "nome": "COMUNICACAO NO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0078",
+          "nome": "GEOGRAFIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0197",
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "CET0013",
+          "nome": "PESQUISA EM TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0040",
+          "nome": "ESTUDO DO TURISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0045",
+          "nome": "ESTRUTURAS DE SUPORTE AO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0050",
+          "nome": "ECOLOGIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CET0001",
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0039",
+          "nome": "SUSTENTABILIDADE ETICA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0043",
+          "nome": "ESTUDO DO TURISMO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0050",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - HOSPEDAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0052",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS-AGENCIAMENTO OPERACAO E TRANSPORTE",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0157",
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0002",
+          "nome": "LEGISLACAO TURISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0005",
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0051",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - LAZER",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0053",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - EVENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0054",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - ALIMENTACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CET0006",
+          "nome": "FUNDAMENTOS DE ESTATISTICA APLICADO AO TURISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0014",
+          "nome": "ESTRUTURACAO E PROMOCAO DE DESTINOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0022",
+          "nome": "ELABORACAO DE PROJETOS EM TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0042",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "CET0004",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0055",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "CET0007",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0009",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "CET0021",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 4",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "MARKETING",
+          "nome": "60H OPTATIVA ADM0092 - ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0150",
+          "nome": "CRIACAO DE NEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0162",
+          "nome": "GESTAO DA INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0226",
+          "nome": "GESTAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0231",
+          "nome": "COMPORTAMENTO ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0264",
+          "nome": "MARKETING SOCIAL E DE SERVICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0300",
+          "nome": "COMPORTAMENTO DO CONSUMIDOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0304",
+          "nome": "GESTAO DE RESPONSABILIDADE SOCIOAMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0306",
+          "nome": "MARKETING DE RELACIONAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0317",
+          "nome": "ADMINISTRACAO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0364",
+          "nome": "POLITICAS PUBLICAS DE TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0011",
+          "nome": "GESTAO E PRESTACAO DE CONTAS NO TERCEIRO SETOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0160",
+          "nome": "CONTABILIDADE SOCIOAMBIENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CDS0003",
+          "nome": "COMIDA, CULTURA E SISTEMAS DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDT1101",
+          "nome": "TECNOLOGIA SOCIAL E INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0005",
+          "nome": "DECRESCIMENTO: CONSUMIR MENOS PARA QUE TODOS VIVAM MELHOR",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0039",
+          "nome": "ECOLOGIAS URBANAS E ECOLOGIAS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0087",
+          "nome": "CIDADANIA MUNDIAL E GOVERNANCA GLOBAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0120",
+          "nome": "A CIDADE E A TERCEIRA IDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CER0001",
+          "nome": "TOPICOS EM ESTUDOS DO CERRADO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CER0002",
+          "nome": "TOPICOS EM ESTUDOS DO CERRADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0010",
+          "nome": "SEMINARIOS EM TURISMO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0012",
+          "nome": "ENOTURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0015",
+          "nome": "SEMINARIOS EM TURISMO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0016",
+          "nome": "POETICAS DA VIAGEM: ARTE CINEMA LITERATURA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0017",
+          "nome": "PLANEJAMENTO E ORGANIZACAO DE EVENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0018",
+          "nome": "TURISMO RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0019",
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0020",
+          "nome": "MEMORIAS GASTRONOMICAS E GUSTATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0023",
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0024",
+          "nome": "INOVACAO EMPRESARIAL EM HOSPITALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0025",
+          "nome": "INTRODUCAO A HOTELARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0026",
+          "nome": "FUNDAMENTOS DE ENOGASTRONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0027",
+          "nome": "RECREACAO E ANIMACAO TURISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0028",
+          "nome": "TECNICAS E PRATICAS DE OPERACAO E AGENCIAMENTO TURISTICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0029",
+          "nome": "PLANEJAMENTO E OPERACAO DE TRILHAS INTERPRETATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0030",
+          "nome": "TURISMO E INTERPRETACAO DE PATRIMONIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0031",
+          "nome": "FUNDAMENTOS DE  ECONOMETRIA  APLICADA AO TURISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0032",
+          "nome": "SEMINARIOS EM TURISMO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0033",
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0034",
+          "nome": "TOPICOS ESPECIAIS EM GASTRONOMIA 4 - COZINHAS BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0035",
+          "nome": "SEMINARIOS EM TURISMO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0036",
+          "nome": "SEMINARIOS EM TURISMO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0037",
+          "nome": "SEMINARIOS EM TURISMO 7",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0046",
+          "nome": "SEMINARIOS EM TURISMO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0048",
+          "nome": "HISTORIA DA ARTE E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0049",
+          "nome": "INOVACAO EM SERVICOS TURISTICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0090",
+          "nome": "TRABALHO E EMPREGO NO TURISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0091",
+          "nome": "ESCRIVIVENDO PELO E COM O TURISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0093",
+          "nome": "TURISMO E PESSOAS COM DEFICIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0128",
+          "nome": "INTRODUCAO AO MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0079",
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0098",
+          "nome": "INTRODUCAO A PUBLICIDADE E PROPAGANDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0101",
+          "nome": "FUNDAMENTOS DE COMUNICACAO VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX1101",
+          "nome": "DARCY RIBEIRO: PENSAMENTO E FAZIMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX1102",
+          "nome": "PENSAMENTO NEGRO CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0003",
+          "nome": "CONTABILIDADE NACIONAL APLICADA AO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0003",
+          "nome": "CULTURA E IDENTIDADE NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0009",
+          "nome": "AGENTES E AGENCIAS DO PATRIMONIO CULTURAL NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0041",
+          "nome": "MUSEOLOGIA PATRIMONIO MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0071",
+          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0084",
+          "nome": "POLITICAS E PRATICAS DO PATRIMONIO CULTURAL NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0087",
+          "nome": "EDUCACAO PATRIMONIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0116",
+          "nome": "PRESERVACAO E CONSERVACAO DE BENS CULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0128",
+          "nome": "PATRIMONIO, PRESERVACAO E MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0179",
+          "nome": "RECREACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0282",
+          "nome": "TEORIAS DO LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0288",
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0304",
+          "nome": "GESTAO DE EVENTOS EM ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0241",
+          "nome": "ANTROPOLOGIA ECOLOGICA, ETNOCONSERVACIONISMO E GESTAO DOS BENS COMUNS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0264",
+          "nome": "PLANEJAMENTO GESTAO E SINALIZACAO DE TRILHAS INTERPRETATIVAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0532",
+          "nome": "POLITICA E GESTAO AMBIENTAL EM TERRAS INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0550",
+          "nome": "POLITICA E GESTAO EM ECOTURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0557",
+          "nome": "POLITICA E GESTAO DE UNIDADES DE CONSERVACAO E AREAS PROTEGIDAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0004",
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0050",
+          "nome": "GEOGRAFIA HUMANA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0066",
+          "nome": "TEORIA GEOGRAFICA E DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0020",
+          "nome": "IMPLEMENTACAO DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0023",
+          "nome": "PARTICIPACAO SOCIAL E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0026",
+          "nome": "POLITICAS PUBLICAS E (DES)ENVOLVIMENTO TERRITORIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0132",
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0141",
+          "nome": "CULTURA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0143",
+          "nome": "CULTURA BRASILEIRA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0152",
+          "nome": "HISTORIA DA AMAZONIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0162",
+          "nome": "TEORIA DA HISTORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0172",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0202",
+          "nome": "HISTORIA DAS IDEIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0083",
+          "nome": "COMUNICACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0338",
+          "nome": "LINGUA ITALIANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0341",
+          "nome": "ESPANHOL COMERCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0342",
+          "nome": "ESPANHOL TURISTICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0059",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0061",
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0156",
+          "nome": "OFICINAS DE ENSINO DE HISTORIA - LUGARES DE MEMORIA DO DF",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0045",
+          "nome": "TEORIA SOCIOLOGICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0268",
+          "nome": "PRODUCAO CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0038",
+          "nome": "ESTUDO DO TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0041",
+          "nome": "CONSTRUCAO DO CONHECIMENTO CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0044",
+          "nome": "COMUNICACAO NO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0078",
+          "nome": "GEOGRAFIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0197",
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0013",
+          "nome": "PESQUISA EM TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0040",
+          "nome": "ESTUDO DO TURISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0045",
+          "nome": "ESTRUTURAS DE SUPORTE AO TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0050",
+          "nome": "ECOLOGIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0001",
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0039",
+          "nome": "SUSTENTABILIDADE ETICA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0043",
+          "nome": "ESTUDO DO TURISMO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0050",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - HOSPEDAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0052",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS-AGENCIAMENTO OPERACAO E TRANSPORTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ADM0157",
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0002",
+          "nome": "LEGISLACAO TURISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0005",
+          "nome": "PLANEJAMENTO E GESTAO EM TURISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0051",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - LAZER",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0053",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - EVENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0054",
+          "nome": "EQUIPAMENTOS E SERVICOS TURISTICOS - ALIMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0006",
+          "nome": "FUNDAMENTOS DE ESTATISTICA APLICADO AO TURISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0014",
+          "nome": "ESTRUTURACAO E PROMOCAO DE DESTINOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0022",
+          "nome": "ELABORACAO DE PROJETOS EM TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0042",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0004",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0055",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0007",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "CET0009",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0021",
+          "nome": "PROJETO INTEGRADOR EM TURISMO 4",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

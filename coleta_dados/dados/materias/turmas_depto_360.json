@@ -1,0 +1,2027 @@
+[
+    {
+        "nome": "ATELIÊ DE HISTÓRIAS EM QUADRINHOS EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0005"
+    },
+    {
+        "nome": "ATELIÊ DE PROJETO DE ARQUITETURA E URBANISMO SUSTENTÁVEL",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Exercícios de projeto do espaço urbano. Ênfase na definição de variáveis projetuais, processos de projeção e soluções físicas que criem e mantenham a sustentabilidade das comunidades de  Vizinhança e trabalho urbanas. Aplicação de métodos e técnicas que contemplem, orientem e estimulem a participação social do usuário e a geração de padrões de intervenção que reforcem a dimensão social da arquitetura e do urbanismo.",
+        "codigo": "PRO0050"
+    },
+    {
+        "nome": "AVALIAÇÃO DE PÓS-OCUPAÇÃO DE ESPAÇOS URBANOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0052"
+    },
+    {
+        "nome": "CIÊNCIAS DO COMPORTAMENTO APLICADAS À ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0004"
+    },
+    {
+        "nome": "COMPUTACAO GRAFICA APLICADA A ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0063 ) OU ( FAU0245 ) OU ( FAU0246 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Conceitos básicos em Microinformática. Fundamentos de Sistemas Operacionais. Conceitos básicos em Computação Gráfica e suas aplicações em CAD (Computer Aided Design). Conceitos, comandos, funções e utilização de sistemas de desenho assistido por computador. Metodologia de desenvolvimento de projetos em sistemas assistidos por computador. Criação, armazenamento e manipulação de desenhos bi e tridimensionais. Elaboração de biblioteca de símbolos. Desenvolvimento de projeto final com utilização da biblioteca de símbolos criada.",
+        "codigo": "PRO0045"
+    },
+    {
+        "nome": "COMPUTACAO GRAFICA APLICADA A ARQUITETURA E URBANISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0045 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0211 ) OU ( FAU0212 )",
+        "equivalencias_especificas": [],
+        "ementa": "Revisão conceitual em computação gráfica e suas aplicações em CAD (Computer Aided Design). Técnicas avançadas de modelagem tridimensional. Fundamentos sobre a Teoria das Cores. Métodos e técnicas de iluminação e reflexão. Ferramentas de apresentação e princípios de animação.",
+        "codigo": "PRO0037"
+    },
+    {
+        "nome": "CONFORTO TÉRMICO AMBIENTAL 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( TEC0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( TEC0017 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0064"
+    },
+    {
+        "nome": "DESENHO ARQUITETONICO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0061 ) OU ( FAU0168 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0133 ) ) OU ( FAU0168 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENM0131 ) ) OU ( FAU0168 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0133 ) ) OU ( FAU0168 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0133 ) ) OU ( FAU0168 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENM0131 ) ) OU ( FAU0168 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conhecimento básico dos meios de expressão e representação de projetos de arquitetura e urbanismo. Familiarização com os instrumentos, meios e materiais utilizados para expressão e representação. Normas e convenções (ABNT e DIN). Linhas, texturas, desenhosde projeto, projeto de execução, detalhes. Normalização das pranchas, escalas gráficas, selo e indicações de apoio à leitura de projetos. Modelos reduzidos.",
+        "codigo": "PRO0023"
+    },
+    {
+        "nome": "DESENHO DE ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0023 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0061"
+    },
+    {
+        "nome": "DESENHO E PLASTICA 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0169 ) OU ( PRO0024 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0037 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0037 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0037 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0037 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0037 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0037 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0169 OU PRO0024 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Disciplina introdutória de caráter prático-analíticos visando desenvolver a capacidade de exprimir e representar idéias e intenções numa linguagem bi e tridimensional, através dos materiasi e técnicas de expressão e representação.",
+        "codigo": "PRO0025"
+    },
+    {
+        "nome": "DESENHO E PLASTICA 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0170 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2004.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2004.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2004.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2004.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0007 OU VIS0062 OU VIS0063 ) E ( FAU0008 OU VIS0064 OU VIS0065 ) E ( FAU0017 OU VIS0075 ) E ( VIS0211 OU VIS0212 ) ) OU ( FAU0170 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2004.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aprofundamento e direcionamento de conceitos, técnicas e materiais de expressão gráfica paa aplicação nos projetos de arquitetura e urbanismo.",
+        "codigo": "PRO0026"
+    },
+    {
+        "nome": "DESENHO E PLASTICA 3",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0026 E PRO0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Complementa a seqüência de Desenho e Plástica 1 e Desenho e Plástica 2. É uma disciplina que aborda vários aspectos da expressão e representação artística arquitetônica. Tem o caráter de ateliê livre, contemplando o desenho, a pintura, a escultura, o modelo vivo, arte final etc.",
+        "codigo": "PRO0046"
+    },
+    {
+        "nome": "ERGONOMIA APLICADA À ARQUITETURA DE INTERIORES",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0003"
+    },
+    {
+        "nome": "ESBOÇOS URBANOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Aprofundamento e direcionamento de conceitos e práticas dos croquis da escala urbana no nível da percepção e da imagem mental. Ênfase na valorização do poder de proposição de espaços urbanos pela ferramenta do croqui.",
+        "codigo": "PRO0066"
+    },
+    {
+        "nome": "ESPACO,EXPRESSAO E SIGNIFICADO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0026 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0171 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ENC0054 ) ) OU ( FAU0171 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0054 ) ) OU ( FAU0171 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ENC0054 ) ) OU ( FAU0171 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVIMENTO DO RACIOCINIO ESPACIAL E DA CAPACIDADE DE  PROPO- SICAO DE ESPACO TRIDIMENSIONAL. FAMILIARIZACAO E EXPLORACAO DO POTENCI- AL EXPRESSIVO ATRAVES DOS MEIOS DE  COMPOSICAO, VARIEDADE DE  ESCALAS E DO USO DE TECNICAS EM PERMITIR A PRATICA DOS DESENHOS CRIATIVOS, DE OB- SERVACAO E TECNO, TANTO COMO INSTRUMENTACAO PROPOSITIVA QUANTO COMO RE- GISTRO DE IDEIAS.",
+        "codigo": "PRO0027"
+    },
+    {
+        "nome": "ESTAGIOS SUPERVISIONADOS DE PROJETOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0020 ) OU ( PRO0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0123 ) OU ( FAU0124 ) OU ( FAU0125 ) OU ( FAU0126 ) OU ( FAU0127 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina visa proporcionar um realcionamento mais estreito entre o plano didático e a realidade profissional. Por meio de exercício prático, levado a efeito junto a empresas públicas ou privadas, o aluno tem a oportunidade de poder participar efetivamente da experiência profissional, colaborando na realização de trabalhos executados sob a responsabilidade de profissionais legalmente habilitados.",
+        "codigo": "PRO0007"
+    },
+    {
+        "nome": "GEOMETRIA CONSTRUTIVA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0172 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2002.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2004.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0034 OU DIN0033 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2004.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2002.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2004.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2002.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0014 OU VIS0072 ) E ( FAU0016 OU VIS0074 ) E ( ENC0054 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2004.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0034 OU DIN0033 ) ) OU ( FAU0172 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2004.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Análise e construção das formas geométricas básicas bi e tridimensionais e suas aplicações como suporte da arquitetura.",
+        "codigo": "PRO0028"
+    },
+    {
+        "nome": "GEOMETRIA DA FORMA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0195 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) ) OU ( FAU0195 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2002.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) ) OU ( FAU0195 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) ) OU ( FAU0195 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2002.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) ) OU ( FAU0195 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) ) OU ( FAU0195 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0172 OU PRO0028 ) ) OU ( FAU0195 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2002.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aplicações de helicoidais, interseções de sólidos e construções por meio de geometria projetiva e projeto de construção de protótipos objetivando a manipulação espacial de objetos estudados.",
+        "codigo": "PRO0029"
+    },
+    {
+        "nome": "INICIACAO AO PROJETO PAISAGISTICO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( FAU0109 E FAU0133 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0232 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0167 OU PRO0022 ) ) OU ( FAU0232 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0167 OU PRO0022 ) ) OU ( FAU0232 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0167 OU PRO0022 ) ) OU ( FAU0232 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "CONCEITO DA PAISAGEM CONHECIMENTOS BASICOS SOBRTE SEUS FATORES FISI-COS E CULTURAIS. INTRODUCAO EMETODOLOGIA DO PLANEJAMENTO DA PAISAGEM.      ESTUDO DOS DIFERENTES  TIPOS DE  ESPACOS LIVRES  URBANOS E ANALISE DEPROJETOS EXECUTADOS.                                                       ELABORACAO DE PROJETO DE  ESPACOS LIVRES  URBANOS: VIAS URBANAS, PRA-CAS, PARQUES, ESPACOS INTERSTICIAIS OU VINCULADOS A EDIFICIOS.",
+        "codigo": "PRO0044"
+    },
+    {
+        "nome": "INTRODUÇÃO AO PROJETO DE ARQUITETURA 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0153 OU PRO0010 OU PRO0011 ) E ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "PRO0042"
+    },
+    {
+        "nome": "INTRODUÇÃO AO TRABALHO FINAL DE GRADUAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( TEC0023 E PRO0018 E PRO0020 E TAU0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0039 ) OU ( FAU0213 ) OU ( PRO0038 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo preliminar de um objeto arquitetônico (na escala da edificação ou na escala da cidade), em função de proposta de trabalho formulada sobre tema de livre escolha do aluno, que venha a incorporar necessariamente os conhecimentos teóricos e tecnológicos adquiridos ao longo do Curso. Ênfase na realização de pesquisa de dados e elaboração de Programa de Necessidades.",
+        "codigo": "PRO0094"
+    },
+    {
+        "nome": "INTRODUÇÃO AO TRABALHO FINAL DE GRADUAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( TEC0023 E PRO0018 E PRO0020 E TAU0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAU0213 ) OU ( PRO0038 ) OU ( PRO0094 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0121 OU FAU0122 OU PRO0006 ) ) OU ( FAU0213 OU PRO0038 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0121 OU FAU0122 OU PRO0006 ) ) OU ( FAU0213 OU PRO0038 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0121 OU FAU0122 OU PRO0006 ) ) OU ( FAU0213 OU PRO0038 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estuddo preliminar de um objeto arquitetônico (na escala da edificação ou na escala  da cidade), em função de proposta de trabalho formulada sobr tema de livre escolha do aluno, que venha a incorporar necessariamente os conhecimentos teóricos e tecnológicos adquiridos ao longo do Curso. Ênfase na realização de pesquisa de dados e elaboração de Programa de Necessidades.",
+        "codigo": "PRO0039"
+    },
+    {
+        "nome": "INVENÇÕES E PATENTES EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0062"
+    },
+    {
+        "nome": "MÉTODOS E TÉCNICAS DE PESQUISA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0053"
+    },
+    {
+        "nome": "MODELAGEM DA INFORMAÇÃO DA CONSTRUÇÃO - BIM",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0063 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0065"
+    },
+    {
+        "nome": "MODELAGEM TRIDIMENSIONAL DIGITAL EM ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0045 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0063"
+    },
+    {
+        "nome": "MONITORIA EM ATELIÊ DE HISTÓRIAS EM QUADRINHOS EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0098"
+    },
+    {
+        "nome": "MONITORIA EM ATELIÊ DE PROJETO DE ARQUITETURA E URBANISMO SUSTENTÁVEL",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0137"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO DE PÓS-OCUPAÇÃO DE ESPAÇOS URBANOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0139"
+    },
+    {
+        "nome": "MONITORIA EM CIÊNCIAS DO COMPORTAMENTO APLICADAS À ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0082"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTACAO GRAFICA APLICADA A ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0132"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTACAO GRAFICA APLICADA A ARQUITETURA E URBANISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0125"
+    },
+    {
+        "nome": "MONITORIA EM CONFORTO TÉRMICO AMBIENTAL 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0064 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0092"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO ARQUITETONICO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0075"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO DE ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0148"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO E PLASTICA 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0076"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO E PLASTICA 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0077"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO E PLASTICA 3",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0133"
+    },
+    {
+        "nome": "MONITORIA EM ERGONOMIA APLICADA À ARQUITETURA DE INTERIORES",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0096"
+    },
+    {
+        "nome": "MONITORIA EM ESBOÇOS URBANOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0066 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0093"
+    },
+    {
+        "nome": "MONITORIA EM ESPACO,EXPRESSAO E SIGNIFICADO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0116"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIOS SUPERVISIONADOS DE PROJETOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0083"
+    },
+    {
+        "nome": "MONITORIA EM GEOMETRIA CONSTRUTIVA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0078"
+    },
+    {
+        "nome": "MONITORIA EM GEOMETRIA DA FORMA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0118"
+    },
+    {
+        "nome": "MONITORIA EM INICIACAO AO PROJETO PAISAGISTICO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0131"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO AO PROJETO DE ARQUITETURA 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0129"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO AO TRABALHO FINAL DE GRADUAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0088"
+    },
+    {
+        "nome": "MONITORIA EM INVENÇÕES E PATENTES EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0062 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0149"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS E TÉCNICAS DE PESQUISA EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0053 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0140"
+    },
+    {
+        "nome": "MONITORIA EM MODELAGEM DA INFORMAÇÃO DA CONSTRUÇÃO - BIM",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0081"
+    },
+    {
+        "nome": "MONITORIA EM MODELAGEM TRIDIMENSIONAL DIGITAL EM ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0080"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE MAQUETE",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0124"
+    },
+    {
+        "nome": "MONITORIA EM PLANEJAMENTO DA PAISAGEM",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0122"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0055 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0142"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0143"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 3",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0144"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 4",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0058 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0091"
+    },
+    {
+        "nome": "MONITORIA EM PRATICA PROFISSIONAL",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0102"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO VISUAL APLICADA A ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0087"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO ARQUITETONICO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0069"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0084"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA ASSISTIDO POR COMPUTADOR",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0119"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA DE FUNÇÕES COMPLEXAS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0073"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA DE GRANDES VAOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0072"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA DE INTERESSE COMUNITÁRIO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0141"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0146"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA E URBANISMO 8 - TÉCNICAS RETROSPECTIVAS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0089"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA - HABITAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0071"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA INDUSTRIALIZADA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0109"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA - LINGUAGEM E EXPRESSÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0070"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE ARQUITETURA - PROBLEMAS ESPECIAIS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0101"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE DIPLOMACAO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0099"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE DIPLOMACAO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0127"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE EDIFICAÇÃO E URBANÍSMO 6",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0128"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE PAISAGISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0060 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0079"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE PAISAGISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0068"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0074"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE URBANISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0085"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE URBANISMO - PROBLEMAS ESPECIAIS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0130"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO E PLANEJAMENTO  DE HABITAÇÃO POPULAR",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0138"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO PAISAGÍSTICO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0086"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO PAISAGISTICO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0121"
+    },
+    {
+        "nome": "MONITORIA EM SABER LOCAL - COMUNIDADE E ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0136"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO FINAL DE GRADUAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0090"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO FINAL DE GRADUAÇÃO EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0067"
+    },
+    {
+        "nome": "MONITORIA EM VEGETACAO APLICADA AO PAISAGISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( PRO0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "PRO0123"
+    },
+    {
+        "nome": "OFICINA DE MAQUETE",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0023 ) OU ( FAU0133 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0210 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0210 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0210 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0210 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0210 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0210 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Valorização do uso da maquete como meio para simular o espaço arquitetônico, apreender as técnicas construtivas estruturais, desenvolver a relação plano-espaço tridimensional e expressar e representar o projeto arquitetônico.",
+        "codigo": "PRO0036"
+    },
+    {
+        "nome": "PLANEJAMENTO DA PAISAGEM",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0022 ) OU ( PRO0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0203 ) OU ( PRO0033 )",
+        "equivalencias_especificas": [],
+        "ementa": "Conceito de paisagem. Paisagem natural e paisagem cultural. Processos naturais de modificação da paisagem. Metodologia do planejamento da paisagem.",
+        "codigo": "PRO0034"
+    },
+    {
+        "nome": "PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0055"
+    },
+    {
+        "nome": "PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0056"
+    },
+    {
+        "nome": "PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 3",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0057"
+    },
+    {
+        "nome": "PRÁTICA DE ESCRITÓRIO MODELO DE ARQUITETURA E URBANISMO 4",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0058"
+    },
+    {
+        "nome": "PRATICA PROFISSIONAL",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0141 ) OU ( FAU0142 )",
+        "equivalencias_especificas": [],
+        "ementa": "Legislação de modalidade do exercício profissional, órgãos regulamentadores da profissão, órgãos de classe, organizações nacionais e internacionais organização profissional relacionada ao mercado de trabalho, sua evolução na sociedade brasileira.  Perspectivas do desenvolvimento profissional. Seminários e debates.",
+        "codigo": "PRO0009"
+    },
+    {
+        "nome": "PROGRAMACAO VISUAL APLICADA A ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0015 ) OU ( FAU0133 E FAU0111 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0199 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina visa fornecer ao estudante de arquitetura e urbanismo subsídios para uma iniciação à programação  visual do edifício e do espaço urbano, analisando como os elementos de comunicação visual podem integrar-se, interferir e até modificar estes espaços.",
+        "codigo": "PRO0031"
+    },
+    {
+        "nome": "PROJETO ARQUITETONICO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAU0109 ) OU ( FAU0153 ) OU ( PRO0010 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0042 ) ) OU ( FAU0153 OU PRO0010 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Prática  intensiva de projetos como resposta a situação arquitetônicas simples, predeterminadas, com acentuado compromisso com o urbano. Tratamento  da arquitetura  na sua totalidade, considerados os aspectos ambientais, tecnológicos, funcionais e estéticos. Análise de espaços existentes e sua reproposição. Desenvolvimento em nível de estudo preliminar. Apresentação com ênfase no desenho à mão livre com perspectivas e maquetes.",
+        "codigo": "PRO0011"
+    },
+    {
+        "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0159 )",
+        "equivalencias_especificas": [],
+        "ementa": "Prática em projetos de edificações, a nível de equipamentos urbanos, por meio de análise e avaliação críticas da inserção de objetos arquitetônicos em uma dada fração urbana, e proposta de sua ocupação física com o fim de conceber o espaço arquitetônico em toda a sua abrangência, desde as suas necessidades ambientais e possibilidades econômicas, até seu significado enquanto produção cultural. Os alunos deverão, necessariamente, neste PA5, projetar edifícios com soluções verticais.",
+        "codigo": "PRO0017"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA ASSISTIDO POR COMPUTADOR",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0045 E PRO0016 ) OU ( PRO0045 E FAU0111 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0196 )",
+        "equivalencias_especificas": [],
+        "ementa": "Revisão conceitual em Computação Gráfica e sistemas CAD para o desenvolvimento de projetos. As ferramentas de produção e edição (construção, edição, visualização e impressão) planejamento, organização e otimização de projetos. Técnicas de apresentação. Desenvolvimento em computador de projetos de arquitetura e urbanismo.",
+        "codigo": "PRO0030"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA DE FUNÇÕES COMPLEXAS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0017 E TEC0028 E TEC0029 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0160 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0160 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0160 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0160 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Projeto de edificação com grande número de espaços específicos para funções interagentes. Programação, dimensionamento relativo entre as funções, descrição das atividades, caracterização dos espaços, equipamentos e instalações. Desenvolvimento a nível de anteprojeto.",
+        "codigo": "PRO0018"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA DE GRANDES VAOS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0015 E TEC0016 E TEC0018 ) OU ( PRO0015 E TEC0016 E TEC0038 E TEC0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0158 )",
+        "equivalencias_especificas": [],
+        "ementa": "Projeto de edificações cujo programa exija grandes vãos, com problemas específicos de segurança (relacionados à presença de grande número de pessoas) e de controle ambiental (iluminação, acústica, visibilidade etc). Detalhes de elementos construtivos e de circulação vertical. Aplicação de metodologias relativas à análise do sítio. Tema de forte compromisso com a escala urbana, com ênfase na presença da edificação no seu entorno.",
+        "codigo": "PRO0016"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA DE INTERESSE COMUNITÁRIO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0054"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA E URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) E ( FAU0210 OU PRO0036 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) E ( FAU0210 OU PRO0036 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) E ( FAU0210 OU PRO0036 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) E ( FAU0210 OU PRO0036 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0154 OU FAU0155 OU PRO0012 OU PRO0013 ) E ( FAU0210 OU PRO0036 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "PRO0059"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA E URBANISMO 8 - TÉCNICAS RETROSPECTIVAS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0020 E PRO0018 E TEC0013 E TAU0009 ) OU ( PRO0020 E PRO0018 E TEC0044 E TAU0009 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0252 )",
+        "equivalencias_especificas": [],
+        "ementa": "O domínio das teorias, práticas projetuais e soluções tecnológicas para a preservação, conservação, restauração, recontrução, reabilitação e reutilização de edificações, conjuntos arquitetônicos e cidades.",
+        "codigo": "PRO0047"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA - HABITAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( TEC0012 E PRO0013 ) OU ( TEC0026 E PRO0059 ) OU ( TEC0012 E PRO0059 ) OU ( TEC0026 E PRO0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0156 ) OU ( FAU0157 ) OU ( PRO0014 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0111 ) ) OU ( FAU0156 OU FAU0157 OU PRO0014 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0111 ) ) OU ( FAU0156 OU FAU0157 OU PRO0014 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0111 ) ) OU ( FAU0156 OU FAU0157 OU PRO0014 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Prática em projetos de edificações residenciais uni e/ou plurifamiliares, precedida de aulas teóricas e de debates sobre a questão habitacional. Mostra de fatos/desenhos sobre o tema, estudo de casos, exemplificações, seguindo-se a definição da clientela e do programa de necessidades. Estudos ambientais de implantação, técnicas de projetação e de configurações volumétricas, dimensionamentos  estruturais preliminares, fluxos e adequação das várias funções da moradia de modo a orientar o aluno a conceber o espaço urbanístico e/ou arquitetônico residencial em todas as suas abrangências e dimensões. Desenvolvimento de análise sas condicionantes sociais, ambientais, técnicas e econômicas e a avaliação crítica dos conteúdos, rendimentos e procedimentos, de modo que todos possam entender o significado da intervenção na cidade enquanto produção cultural e política. Desenvolvimento incluindo estudo volumétrico, perspectivas  e maquetes.",
+        "codigo": "PRO0015"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA INDUSTRIALIZADA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0015 E TEC0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0161 )",
+        "equivalencias_especificas": [],
+        "ementa": "Projeto de edificações utilizando sistemas construtivos que impliquem o emprego de elementos repetitivos passíveis de industrialização. Padronização, coordenação modular, pré-moldagem. Desenvolvimento no nível de projeto executivo.",
+        "codigo": "PRO0019"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA - LINGUAGEM E EXPRESSÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0154 ) OU ( FAU0155 ) OU ( PRO0012 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0110 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0110 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0110 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0110 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0110 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0110 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( PRO0059 ) ) OU ( FAU0154 OU FAU0155 OU PRO0012 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "projeto de edificações de pequeno porte com forte conteúdo simbólico de caráter coletivo. Ênfase no exercício de simbolização e expressão estética, além da resolução dos aspectos funcionais, ambientais e construtivos. Detalhamento relevante para o partido arquitetônico.",
+        "codigo": "PRO0013"
+    },
+    {
+        "nome": "PROJETO DE ARQUITETURA - PROBLEMAS ESPECIAIS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0135 ) OU ( FAU0136 )",
+        "equivalencias_especificas": [],
+        "ementa": "TRabalho suplementar em projeto de edificação. Resolução de problemas arquitetônicos com abordagens específicas a serem definidas em planos de curso apresentados pelos professores e/ou por visitantes especialmente convidados.",
+        "codigo": "PRO0008"
+    },
+    {
+        "nome": "PROJETO DE DIPLOMACAO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0041 ) OU ( PRO0018 E PRO0021 E TEC0013 E TEC0023 E TAU0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0121 ) OU ( FAU0122 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0213 OU PRO0038 OU PRO0039 ) E ( FAU0214 OU PRO0040 ) ) OU ( FAU0121 OU FAU0122 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0213 OU PRO0038 OU PRO0039 ) E ( FAU0214 OU PRO0040 ) ) OU ( FAU0121 OU FAU0122 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0213 OU PRO0038 OU PRO0039 ) E ( FAU0214 OU PRO0040 ) ) OU ( FAU0121 OU FAU0122 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PROJETO DE UM OBJETO ARQUITETONICO (A ESCALA DA EDIFICACAO OU A ESCA-LA DA CIDADE), EM FUNCAO DE PROPOSTA DE TRABALHO FORMULADO SOBRE TEMA DELIVRE ESCOLHA DO ALUNO, QUE VENHA A INCORPORAR NECESSARIAMENTE OS CONHE-CIMENTE OS CONHECIMENTOS TEORICOS E TECNOLOGICOS ADQUIRIDOS AO LONGO  DOCURSO, COM DESENVOLVIMENTO EM TODOS OS NIVEIS DE PRODUTIVIDADE,  CRIATI-VIDADE E DECISAO.",
+        "codigo": "PRO0006"
+    },
+    {
+        "nome": "PROJETO DE DIPLOMACAO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( TEC0013 E PRO0021 E PRO0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0214 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0121 OU FAU0122 OU PRO0006 ) ) OU ( FAU0214 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0121 OU FAU0122 OU PRO0006 ) ) OU ( FAU0214 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0121 OU FAU0122 OU PRO0006 ) ) OU ( FAU0214 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "PRO0040"
+    },
+    {
+        "nome": "PROJETO DE EDIFICAÇÃO E URBANÍSMO 6",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( FAU0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0219 ) OU ( FAU0220 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0160 OU PRO0018 ) ) OU ( FAU0219 OU FAU0220 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0160 OU PRO0018 ) ) OU ( FAU0219 OU FAU0220 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0160 OU PRO0018 ) ) OU ( FAU0219 OU FAU0220 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRATICA EM PROJETO DE  EDIFICACOES AO NIVEL DE EQUIPAMENTOS  URBANOS,COMPLEXOS, OU CIDADES,  COM  ENFASE  NO DESENVOLVIMENTO DOS ASPECTOS  DEDESENHO ARQUITETONICO E DESENHO URBANO, AO NIVEL DE DETALHAMENTO.",
+        "codigo": "PRO0041"
+    },
+    {
+        "nome": "PROJETO DE PAISAGISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0015 E TEC0038 ) OU ( PRO0015 E TEC0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0022 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0060"
+    },
+    {
+        "nome": "PROJETO DE PAISAGISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0060 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0022 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "x",
+        "codigo": "PRO0002"
+    },
+    {
+        "nome": "PROJETO DE URBANISMO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0022 E PRO0018 ) OU ( TEC0018 ) OU ( TEC0038 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0162 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0215 OU FAU0216 ) E ( FAU0217 OU FAU0218 ) E ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0162 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0215 OU FAU0216 ) E ( FAU0217 OU FAU0218 ) E ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0162 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0215 OU FAU0216 ) E ( FAU0217 OU FAU0218 ) E ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0162 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Exercício de projeto de espaço urbano. Aplicação de técnicas e procedimentos urbanísticos com ênfase no dimensionamento de um programa de necessidades, considerando os aspectos funcionais, ambientais e comportamentais.",
+        "codigo": "PRO0020"
+    },
+    {
+        "nome": "PROJETO DE URBANISMO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0020 E TEC0027 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0163 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0215 OU FAU0216 ) E ( FAU0217 OU FAU0218 ) E ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0163 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0215 OU FAU0216 ) E ( FAU0217 OU FAU0218 ) E ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0163 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0215 OU FAU0216 ) E ( FAU0217 OU FAU0218 ) E ( FAU0219 OU FAU0220 OU PRO0041 ) ) OU ( FAU0163 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Exercício de projeto de espaço urbano.Formulação, avaliação e adoção de alternativas de organização espacial instrumentos de implementação de propostas (legislação urbana, gestão, financiamento etc.). Aplicação de técnicas e procedimentos urbanísticos com ênfase nos aspectos de infra-estrutura urbana, legislação, custos, financiamento e gestão.",
+        "codigo": "PRO0021"
+    },
+    {
+        "nome": "PROJETO DE URBANISMO - PROBLEMAS ESPECIAIS",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0020 ) OU ( FAU0218 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0231 )",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho suplementar em projeto de urbanismo. Resolução de problemas urbanísticos com abordagens específicas a serem definidas em planos de curso apresentado pelos professores e/ou por  visitantes especialmente convidados.",
+        "codigo": "PRO0043"
+    },
+    {
+        "nome": "PROJETO E PLANEJAMENTO  DE HABITAÇÃO POPULAR",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( TEC0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "PRO0051"
+    },
+    {
+        "nome": "PROJETO PAISAGÍSTICO 1",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( PRO0002 E PRO0060 ) OU ( FAU0167 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0232 OU PRO0044 ) ) OU ( FAU0167 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0232 OU PRO0044 ) ) OU ( FAU0167 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0232 OU PRO0044 ) ) OU ( FAU0167 )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1989.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Intervenção na paisagem urbana. Projetos de espaços urbanos livres e de espaços abertos vinculados à edificação. Metodologia e representação gráfica de projetos de paisagismo.",
+        "codigo": "PRO0022"
+    },
+    {
+        "nome": "PROJETO PAISAGISTICO 2",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0022 ) OU ( PRO0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0202 )",
+        "equivalencias_especificas": [],
+        "ementa": "Projetos Paisagísticos vinculados ao sistema de áreas verdes urbanas, especialmente parques urbanos, metropolitanos, temáticos ou áreas reservadas.",
+        "codigo": "PRO0032"
+    },
+    {
+        "nome": "SABER LOCAL - COMUNIDADE E ARQUITETURA",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Trata-se do estudo sobre situações existentes, destacando-se os movimentos sociais urbanos e rurais, sob o ponto de vista da produção e configuração do seu ambiente. A disciplina problematizará a prática e a formação dos profissionais universitários (principalmente dos arquitetos) face às práticas e modos de construção das populações tradicionais. Um dos exemplos a serem considerados será as etnias indígenas brasileiras as quais empregam matérias-primas naturais e processos construtivos tradicionais no seu habitat. A análise dará especial ênfase ao saber (tecnológico e arquitetônico) dessas comunidades contingenciado pela natureza e pelas instituições reguladoras desses povos.",
+        "codigo": "PRO0049"
+    },
+    {
+        "nome": "TRABALHO FINAL DE GRADUAÇÃO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0026 E PRO0021 E TEC0014 E TAU0012 E PRO0039 E PRO0047 E PRO0045 E IGD0183 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Projeto de um objeto arquitetônico (nae escala da edificação ou na escala da cidade), em funçao de estudo preliminar formulado anteriormente sobre tema de livre escolha do aluno, que venha a incorporar necessariamente os conhecimentos teóricos e tecnológicos adquiridos ao longo do Curso. Ênfase na continuidade e evolução de trabalho iniciado e aprovado em introdução ao Trabalho Final de Graduação.",
+        "codigo": "PRO0048"
+    },
+    {
+        "nome": "TRABALHO FINAL DE GRADUAÇÃO EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0026 E PRO0021 E ( TAU0012 OU TAU0045 ) E ( PRO0039 OU PRO0094 ) E PRO0047 E IGD0183 ) ) OU ( ( PRO0026 E PRO0021 E ( TAU0001 OU TAU0044 ) E PRO0039 E PRO0047 E IGD0183 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( PRO0095 )",
+        "equivalencias_especificas": [],
+        "ementa": "A definir.",
+        "codigo": "PRO0001"
+    },
+    {
+        "nome": "TRABALHO FINAL DE GRADUAÇÃO EM ARQUITETURA E URBANISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "( ( PRO0026 E PRO0021 E ( TAU0012 OU TAU0045 ) E ( PRO0039 OU PRO0094 ) E PRO0047 E IGD0183 ) ) OU ( ( PRO0026 E PRO0021 E ( TAU0001 OU TAU0044 ) E PRO0039 E PRO0047 E IGD0183 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( PRO0001 )",
+        "equivalencias_especificas": [],
+        "ementa": "Projeto de um objeto arquitetônico (na escala da edificação ou na escala da cidade), em função de estudo preliminar formulado anteriormente sobre tema de livre escolha do aluno, que venha a incorporar necessariamente os conhecimentos teóricos e tecnológicos adquiridos ao longo do Curso. Ênfase na continuidade e evolução de trabalho iniciado e aprovado em Introdução ao Trabalho Final de Graduação.",
+        "codigo": "PRO0095"
+    },
+    {
+        "nome": "VEGETACAO APLICADA AO PAISAGISMO",
+        "unidade_responsavel": "DEPTO PROJETOS EXPRES REPRES ARQ E URBAN ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0205 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina tem por objetivo aprofundar o conhecimento e afinidade no tratamento dos espaços livres utilizando elementos vegetais.",
+        "codigo": "PRO0035"
+    }
+]

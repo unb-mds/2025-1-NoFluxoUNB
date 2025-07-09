@@ -1,0 +1,837 @@
+{
+  "curso": "ENGENHARIA ELETRÔNICA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2021.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0071",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0073",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0067",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0069",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0072",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0074",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0119",
+          "nome": "TEORIA DE ELETROMAGNETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0120",
+          "nome": "PRATICA DE ELETROMAGNETISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0075",
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0078",
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0086",
+          "nome": "TEORIA DE ELETRICIDADE APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0087",
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0096",
+          "nome": "ELETRONICA EMBARCADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0100",
+          "nome": "PRATICA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0101",
+          "nome": "TEORIA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0102",
+          "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0068",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0070",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0092",
+          "nome": "PRINCIPIOS DE COMUNICACAO PARA ENGENHARIA",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0093",
+          "nome": "PRINCIPIOS DE CONTROLE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0017",
+          "nome": "PROJETOS DE CIRCUITOS INTEGRADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0103",
+          "nome": "SISTEMAS OPERACIONAIS EMBARCADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0132",
+          "nome": "INSTRUMENTACAO ELETRONICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0219",
+          "nome": "PROCESSAMENTO DE SINAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0098",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0099",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0250",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0021",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0011",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "FGA0003",
+          "nome": "COMPILADORES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0013",
+          "nome": "ANATOMIA E FISIOLOGIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0014",
+          "nome": "PROCESSAMENTO DE SINAIS BIOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0015",
+          "nome": "PROCESSAMENTO DIGITAL DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0016",
+          "nome": "TOPICOS ESPECIAL EM INSTRUMENTACAO BIOMEDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0025",
+          "nome": "SISTEMAS DE ENERGIA SOLAR E EOLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0044",
+          "nome": "PROJETO DE SISTEMAS DE CONTROLE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0046",
+          "nome": "METODOS E TECNICAS DA ESCRITA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0057",
+          "nome": "ELETRONICA DE POTENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0088",
+          "nome": "TEORIA DE SISTEMAS DE CONVERSAO DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0089",
+          "nome": "LABORATORIO DE SISTEMAS DE CONVERSAO DE ENERGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0094",
+          "nome": "ANTENAS IMPRESSAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0095",
+          "nome": "CODIFICACAO E COMPRESSAO DE SINAIS, IMAGENS E VIDEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0097",
+          "nome": "ELETRONICA DE RADIO FREQUENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0116",
+          "nome": "ELETRONICA DE ALTA FREQUENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0129",
+          "nome": "PROCESSAMENTO DIGITAL DE SINAIS FINANCEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0138",
+          "nome": "METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0147",
+          "nome": "ESTRUTURA DE DADOS E ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0158",
+          "nome": "ORIENTACAO A OBJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0165",
+          "nome": "PROCESSO DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0166",
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0169",
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0170",
+          "nome": "FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0171",
+          "nome": "TECNICAS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0181",
+          "nome": "INOVACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0195",
+          "nome": "GESTAO DA PRODUCAO AUTOMOTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0198",
+          "nome": "PROJETO COM CIRCUITOS RECONFIGURAVEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0200",
+          "nome": "ENGENHARIA DE PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0201",
+          "nome": "PROJETO DE CIRCUITOS INTEGRADOS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0202",
+          "nome": "INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0221",
+          "nome": "INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0222",
+          "nome": "INSTRUMENTACAO BIOMEDICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0224",
+          "nome": "COMUNICACOES DIGITAIS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0226",
+          "nome": "ELETRONICA VEICULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0254",
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0256",
+          "nome": "PROJETO DE SENSORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0257",
+          "nome": "INTEGRIDADES DE SINAIS E DESIGN DE CIRCUITOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0258",
+          "nome": "INSTRUMENTACAO BIOMEDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0259",
+          "nome": "MODELAGEM DE SISTEMAS BIOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0260",
+          "nome": "TOPICOS AVANCADOS EM ELETROMAGNETISMO APLICADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0261",
+          "nome": "TOPICOS ESPECIAIS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0280",
+          "nome": "PROJETO DE CIRCUITOS ELETRONICOS INTEGRADOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0292",
+          "nome": "INTRODUCAO A FOTONICA E OPTRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0299",
+          "nome": "SISTEMAS BIOINSPIRADOS APLICADOS A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0380",
+          "nome": "PROCESSOS ESTOCASTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0071",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0073",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0067",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0069",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0072",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0074",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0119",
+          "nome": "TEORIA DE ELETROMAGNETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0120",
+          "nome": "PRATICA DE ELETROMAGNETISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0075",
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0078",
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0086",
+          "nome": "TEORIA DE ELETRICIDADE APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0087",
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0096",
+          "nome": "ELETRONICA EMBARCADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0100",
+          "nome": "PRATICA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0101",
+          "nome": "TEORIA DE FISICA DOS DISPOSITIVOS ELETRONICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0102",
+          "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0068",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0070",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0092",
+          "nome": "PRINCIPIOS DE COMUNICACAO PARA ENGENHARIA",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0093",
+          "nome": "PRINCIPIOS DE CONTROLE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0017",
+          "nome": "PROJETOS DE CIRCUITOS INTEGRADOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0103",
+          "nome": "SISTEMAS OPERACIONAIS EMBARCADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0132",
+          "nome": "INSTRUMENTACAO ELETRONICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0219",
+          "nome": "PROCESSAMENTO DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0098",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0099",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0250",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0021",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "FGA0011",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

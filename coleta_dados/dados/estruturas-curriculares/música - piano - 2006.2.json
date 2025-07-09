@@ -1,0 +1,392 @@
+{
+  "curso": "MÚSICA - PIANO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2006.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0475",
+          "nome": "PIANO 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0477",
+          "nome": "PIANO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0479",
+          "nome": "PIANO 3",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0481",
+          "nome": "PIANO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0658",
+          "nome": "PRATICA DE ACOMPANHAMENTO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0484",
+          "nome": "PIANO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0660",
+          "nome": "PRATICA DE ACOMPANHAMENTO 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0486",
+          "nome": "PIANO 6",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0133",
+          "nome": "MUSICA DE CAMARA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0488",
+          "nome": "PIANO 7",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0692",
+          "nome": "ESTAGIO SUPERVISIONADO EM PIANO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0129",
+          "nome": "MUSICA DE CAMARA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0136",
+          "nome": "MUSICA DE CAMARA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0259",
+          "nome": "MUSICA DE CAMARA 4",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "MUS0020",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0022",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0475",
+          "nome": "PIANO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0477",
+          "nome": "PIANO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0479",
+          "nome": "PIANO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0481",
+          "nome": "PIANO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0658",
+          "nome": "PRATICA DE ACOMPANHAMENTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0484",
+          "nome": "PIANO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0660",
+          "nome": "PRATICA DE ACOMPANHAMENTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0486",
+          "nome": "PIANO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0133",
+          "nome": "MUSICA DE CAMARA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0488",
+          "nome": "PIANO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0692",
+          "nome": "ESTAGIO SUPERVISIONADO EM PIANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0129",
+          "nome": "MUSICA DE CAMARA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0136",
+          "nome": "MUSICA DE CAMARA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0259",
+          "nome": "MUSICA DE CAMARA 4",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

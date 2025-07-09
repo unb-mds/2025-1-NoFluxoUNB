@@ -1,0 +1,1052 @@
+{
+  "curso": "LÍNGUA DE SINAIS BRASILEIRA -PORTUGUÊS COMO SEGUNDA LÍNGUA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2019.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0009",
+          "nome": "TECNOLOGIAS E LINGUAGEM: LINGUA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0010",
+          "nome": "LINGUISTICA DE LINGUAS DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0011",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0012",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0013",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0014",
+          "nome": "LITERATURA DA LINGUA DE SINAIS BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0015",
+          "nome": "FONOLOGIA CONTRASTIVA LSB / PSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0016",
+          "nome": "BILINGUISMO E EDUCACAO DE SURDO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0017",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0018",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0019",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0020",
+          "nome": "MORFOSSINTAXE CONTRASTIVA PSL - LSB",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0033",
+          "nome": "EXPRESSAO CORPORAL E LINGUA DE SINAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0021",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0022",
+          "nome": "LEXICOGRAFIA E TERMINOLOGIA DA LS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0023",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0024",
+          "nome": "POLITICAS LINGUISTICAS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0026",
+          "nome": "LABORATORIO DE GRAMATICA CONSTRATIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0027",
+          "nome": "VARIACAO LINGUISTICA NA LSB",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0028",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0029",
+          "nome": "ELABORACAO DE TEXTO ACADEMICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0030",
+          "nome": "LABORATORIO DE LSB-PSL: VIDEOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0031",
+          "nome": "LINGUA DE SINAIS ESCRITA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0032",
+          "nome": "ESTAGIO SUPERVISIONADO 1 BILINGUE",
+          "ch": "210"
+        },
+        {
+          "codigo": "LIP0034",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO LSB-PSL",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0035",
+          "nome": "ESTAGIO SUPERVISIONADO 2 BILINGUE",
+          "ch": "210"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "VEL",
+          "nome": "60H OPTATIVA CDS0008 - MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0036",
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FED0086",
+          "nome": "EDUCACAO E DESENVOLVIMENTO SUSTENTAVEIS (SAUDE E MEIO AMBIENTE)",
+          "ch": "120"
+        },
+        {
+          "codigo": "FED0164",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0019",
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0020",
+          "nome": "LINGUA NEERLANDESA (HOLANDES) 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0059",
+          "nome": "CULTURA E INSTITUICOES INGLESAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0064",
+          "nome": "CULTURA E INSTITUICOES NORTE AMERICANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0066",
+          "nome": "CULTURA E INSTITUICOES INGLESAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0073",
+          "nome": "JAPONES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0107",
+          "nome": "LINGUA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0243",
+          "nome": "CULTURA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0252",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0332",
+          "nome": "CULTURA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0334",
+          "nome": "INGLES: COMPREENSAO DA LINGUA ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0338",
+          "nome": "LINGUA ITALIANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0379",
+          "nome": "LINGUA ITALIANA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0380",
+          "nome": "LINGUA ITALIANA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0388",
+          "nome": "PERSA 1 - FARSI  1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0390",
+          "nome": "ROMENO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0391",
+          "nome": "PERSA 2 - FARSI 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0393",
+          "nome": "IRANOLOGIA - CULTURA IRANIANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0394",
+          "nome": "ROMENO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0400",
+          "nome": "LINGUA ARABE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0403",
+          "nome": "LINGUA ARABE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0407",
+          "nome": "FUNDAMENTOS DA LINGUISTICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0409",
+          "nome": "POLONES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0411",
+          "nome": "POLONES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0414",
+          "nome": "INTRODUCAO A TRADUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0440",
+          "nome": "LINGUA E PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0025",
+          "nome": "INTRODUCAO A SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0036",
+          "nome": "OFICINA DE TEXTOS LSB - PSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0046",
+          "nome": "FONETICA E FONOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0047",
+          "nome": "MORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0049",
+          "nome": "SINTAXE",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0061",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0082",
+          "nome": "TOPICOS ATUAIS EM LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0088",
+          "nome": "LEXICOLOGIA E LEXICOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0095",
+          "nome": "INTRODUCAO A ANALISE DO DISCURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0100",
+          "nome": "MORFOLOGIA DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0109",
+          "nome": "GREGO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0110",
+          "nome": "GREGO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0113",
+          "nome": "GREGO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0118",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES COMO SEGUNDA LINGUA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0119",
+          "nome": "FONETICA E FONOLOGIA COMPARADAS DE LINGUAS MODERNAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0120",
+          "nome": "ABORDAGENS, METODOS E TECNICAS DO ENSINO DE PBSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0121",
+          "nome": "FUNDAMENTOS DE AQUISICAO DE PRIMEIRA E DE SEGUNDA LINGUA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0123",
+          "nome": "SINTAXE DO PORTUGUES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0124",
+          "nome": "INTRODUCAO AOS MULTIMEIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0128",
+          "nome": "VARIACAO LINGUISTICA NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0131",
+          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0141",
+          "nome": "FONETICA E FONOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0142",
+          "nome": "MORFOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0143",
+          "nome": "FONETICA E FONOLOGIA DA LINGUA PORTUGUESA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0145",
+          "nome": "MORFOSSINTAXE DA LINGUA PORTUGUESA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0146",
+          "nome": "SINTAXE GERAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0147",
+          "nome": "SINTAXE DA LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0148",
+          "nome": "LABORATORIO DE REDACAO PARA O ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0152",
+          "nome": "PORTUGUES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0154",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0155",
+          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0159",
+          "nome": "LINGUISTICA APLICADA AO ENSINO DE PSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0176",
+          "nome": "ESTUDOS HELENICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0177",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - AVANCADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0143",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0114",
+          "nome": "MEIO AMBIENTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0076",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0077",
+          "nome": "EDUCACAO AMBIENTAL E PRATICAS COMUNITARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0003",
+          "nome": "TOPICOS ESPECIAIS EM LITERATURA INFANTIL E JUVENIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0112",
+          "nome": "PANORAMA DA LITERATURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0033",
+          "nome": "EXPRESSAO CORPORAL E LINGUA DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0009",
+          "nome": "TECNOLOGIAS E LINGUAGEM: LINGUA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0010",
+          "nome": "LINGUISTICA DE LINGUAS DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0011",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0012",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0013",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0014",
+          "nome": "LITERATURA DA LINGUA DE SINAIS BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0015",
+          "nome": "FONOLOGIA CONTRASTIVA LSB / PSL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0016",
+          "nome": "BILINGUISMO E EDUCACAO DE SURDO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0017",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0018",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0019",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0020",
+          "nome": "MORFOSSINTAXE CONTRASTIVA PSL - LSB",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0033",
+          "nome": "EXPRESSAO CORPORAL E LINGUA DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0021",
+          "nome": "LINGUA DE SINAIS BRASILEIRA 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0022",
+          "nome": "LEXICOGRAFIA E TERMINOLOGIA DA LS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0023",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ESCRITOS EM PORTUGUES 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0024",
+          "nome": "POLITICAS LINGUISTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0026",
+          "nome": "LABORATORIO DE GRAMATICA CONSTRATIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0027",
+          "nome": "VARIACAO LINGUISTICA NA LSB",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0028",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0029",
+          "nome": "ELABORACAO DE TEXTO ACADEMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0030",
+          "nome": "LABORATORIO DE LSB-PSL: VIDEOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0031",
+          "nome": "LINGUA DE SINAIS ESCRITA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0032",
+          "nome": "ESTAGIO SUPERVISIONADO 1 BILINGUE",
+          "ch": "210"
+        },
+        {
+          "codigo": "LIP0034",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO LSB-PSL",
+          "ch": "120"
+        },
+        {
+          "codigo": "LIP0035",
+          "nome": "ESTAGIO SUPERVISIONADO 2 BILINGUE",
+          "ch": "210"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

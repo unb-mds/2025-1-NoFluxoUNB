@@ -1,0 +1,732 @@
+{
+  "curso": "ARTES VISUAIS",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2013.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0353",
+          "nome": "ESTRATEGIAS DE APRENDIZAGEM A DISTANCIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0354",
+          "nome": "FUNDAMENTOS DO CURSO",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0356",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0360",
+          "nome": "A PSICOLOGIA E A CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0361",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0359",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0363",
+          "nome": "ATELIER DE ARTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0364",
+          "nome": "HISTORIA DAS ARTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0362",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0365",
+          "nome": "TEORIA DA ARTE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0372",
+          "nome": "CANTO 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0374",
+          "nome": "ATELIER DE ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0375",
+          "nome": "HISTORIA DA ARTE-EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0379",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0377",
+          "nome": "HISTORIA DAS ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0378",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0346",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0347",
+          "nome": "HISTORIA DA ARTE-EDUCACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0345",
+          "nome": "ESTAGIO SUPERVISIONADO EM ATRTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0343",
+          "nome": "LABORATOTIO DE POETICAS CONTEMPORANEAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0341",
+          "nome": "ESTAGIO SUPERVISIONADO EM ATRTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0342",
+          "nome": "HISTORIA DAS ARTES VISUAIS NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0305",
+          "nome": "ARTE E CULTURA POPULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0324",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0325",
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0331",
+          "nome": "LABORATORIO DE ARTE E TECNOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0388",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0339",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "ch": "270"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUCAO INTERDISCIPLINAR",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0330",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DO CURSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0332",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "270"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0349",
+          "nome": "PSICOLOGIA E CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0351",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0357",
+          "nome": "FUNDAMENTOS DA LICENCIATURA EM ARTES VISUAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0358",
+          "nome": "ESTRATEGIAS DE ENSINO E APRENDIZAGEM A DISTANCIA",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "IDA0016",
+          "nome": "OBJETOS DE APRENDIZAGEM PARA O ENSINO DAS ARTES VISUAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0316",
+          "nome": "SUPORTE CENICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0319",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0322",
+          "nome": "LABORATORIO DE POETICAS CONTEMPORANEAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0327",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 4",
+          "ch": "120"
+        },
+        {
+          "codigo": "IDA0336",
+          "nome": "PROCESSOS DE ENCENACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0350",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0352",
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0367",
+          "nome": "TEORIA DA ARTE",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0376",
+          "nome": "HISTORIA DA ARTE-EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0389",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO EM TEATRO 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "IDA0396",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DO CURSO EM ARTES VISUAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "ILD0002",
+          "nome": "OFICINA DE TEXTOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ILD0042",
+          "nome": "OFICINA DE PRODUCAO, COMPETENCIAS LINGUISITCAS E MIDIATICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0281",
+          "nome": "HISTORIA DAS ARTES VISUAIS NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0282",
+          "nome": "TEORIA DA ARTE",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0283",
+          "nome": "ATELIER DE PRODUCAO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0284",
+          "nome": "HISTORIA DAS ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0285",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0286",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0287",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0288",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0289",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0290",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "ch": "270"
+        },
+        {
+          "codigo": "VIS0291",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "270"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0362",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0365",
+          "nome": "TEORIA DA ARTE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0372",
+          "nome": "CANTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0377",
+          "nome": "HISTORIA DAS ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0378",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0345",
+          "nome": "ESTAGIO SUPERVISIONADO EM ATRTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0341",
+          "nome": "ESTAGIO SUPERVISIONADO EM ATRTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0342",
+          "nome": "HISTORIA DAS ARTES VISUAIS NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0388",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0339",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "ch": "270"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUCAO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0330",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DO CURSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0332",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "270"
+        },
+        {
+          "codigo": "IDA0353",
+          "nome": "ESTRATEGIAS DE APRENDIZAGEM A DISTANCIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0354",
+          "nome": "FUNDAMENTOS DO CURSO",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0356",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0360",
+          "nome": "A PSICOLOGIA E A CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0361",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0160",
+          "nome": "TEORIAS DA EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0359",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0363",
+          "nome": "ATELIER DE ARTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0364",
+          "nome": "HISTORIA DAS ARTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0362",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0365",
+          "nome": "TEORIA DA ARTE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0372",
+          "nome": "CANTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0374",
+          "nome": "ATELIER DE ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0375",
+          "nome": "HISTORIA DA ARTE-EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0379",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0377",
+          "nome": "HISTORIA DAS ARTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0378",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0346",
+          "nome": "TECNOLOGIAS CONTEMPORANEAS NA ESCOLA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0347",
+          "nome": "HISTORIA DA ARTE-EDUCACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0345",
+          "nome": "ESTAGIO SUPERVISIONADO EM ATRTES VISUAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0348",
+          "nome": "ATELIER DE ARTES VISUAIS 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0343",
+          "nome": "LABORATOTIO DE POETICAS CONTEMPORANEAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0341",
+          "nome": "ESTAGIO SUPERVISIONADO EM ATRTES VISUAIS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0342",
+          "nome": "HISTORIA DAS ARTES VISUAIS NO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0344",
+          "nome": "ATELIER DE ARTES VISUAIS 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0305",
+          "nome": "ARTE E CULTURA POPULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0324",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0325",
+          "nome": "ESTAGIO SUPERVISIONADO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0331",
+          "nome": "LABORATORIO DE ARTE E TECNOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0388",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0339",
+          "nome": "PROJETO INTERDISCIPLINAR DE ENSINO E APRENDIZAGEM 2",
+          "ch": "270"
+        },
+        {
+          "codigo": "IDA0340",
+          "nome": "ATELIER DE PRODUCAO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0330",
+          "nome": "SEMINARIO PRESENCIAL DE CONCLUSAO DO CURSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0332",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "270"
+        },
+        {
+          "codigo": "IDA0349",
+          "nome": "PSICOLOGIA E CONSTRUCAO DO CONHECIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0351",
+          "nome": "LEITURA E PRODUCAO DE TEXTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IDA0357",
+          "nome": "FUNDAMENTOS DA LICENCIATURA EM ARTES VISUAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "IDA0358",
+          "nome": "ESTRATEGIAS DE ENSINO E APRENDIZAGEM A DISTANCIA",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

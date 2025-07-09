@@ -1,0 +1,1557 @@
+{
+  "curso": "CIÊNCIAS SOCIAIS",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0117",
+          "nome": "INTRODUCAO AS CIENCIAS SOCIAIS LATINO-AMERICANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0014",
+          "nome": "CIENCIAS SOCIAIS LATINO-AMERICANAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0301",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS I",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAN0042",
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0130",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS II",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0122",
+          "nome": "ESTAGIO 1: SOCIOLOGIA DO ENSINO DE SOCIOLOGIA",
+          "ch": "135"
+        },
+        {
+          "codigo": "SOL0133",
+          "nome": "DESENHOS DE PESQUISA EM CIENCIAS SOCIAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0132",
+          "nome": "ESTAGIO 2: PRATICA DE ENSINO EM CIENCIAS SOCIAIS 1",
+          "ch": "135"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "SOL0127",
+          "nome": "ESTAGIO 3: PRATICA DE ENSINO EM CIENCIAS SOCIAIS 2",
+          "ch": "135"
+        },
+        {
+          "codigo": "SOL0300",
+          "nome": "TECNICAS DE PESQUISA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0128",
+          "nome": "LABORATORIO DOCENTE EM SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "SOL0126",
+          "nome": "PRATICA DE PESQUISA 1 LICENCIATURA",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "SOL0129",
+          "nome": "PRATICA DE PESQUISA 2 LICENCIATURA",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "CIO",
+          "nome": "CULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0002",
+          "nome": "COMUNIDADES QUILOMBOLAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0003",
+          "nome": "ANTROPOLOGIA E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0004",
+          "nome": "ANTROPOLOGIA E DEFICIENCIA(S)",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0005",
+          "nome": "ANTROPOLOGIA E MERCADO DE TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0006",
+          "nome": "ANTROPOLOGIA DA MORTE E DO MORRER",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0007",
+          "nome": "ANTROPOLOGIA E MEDICAMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0008",
+          "nome": "ARQUEOLOGIA E OS MUNDOS INDIGENAS PRE-COLOMBIANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0009",
+          "nome": "ANTROPOLOGIA LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0010",
+          "nome": "ETNOGRAFIA DAS INSTITUICOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0011",
+          "nome": "ESTILOS DE ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0012",
+          "nome": "INDIGENISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0013",
+          "nome": "ANTROPOLOGIA DA CIENCIA E DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0014",
+          "nome": "ANTROPOLOGIA VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0015",
+          "nome": "ANTROPOLOGIA DA AMAZONIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0016",
+          "nome": "ANTROPOLOGIA DA TECNICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0017",
+          "nome": "ANTROPOLOGIA DAS MIGRACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0018",
+          "nome": "ANTROPOLOGIA DO CONSUMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0019",
+          "nome": "ANTROPOLOGIA DO CORPO E DA PESSOA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0021",
+          "nome": "SEMINARIO DE PESQUISA ANTROPOLOGICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0024",
+          "nome": "MULHER, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0036",
+          "nome": "SOCIEDADES COMPLEXAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0039",
+          "nome": "FUNDAMENTOS DE CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0040",
+          "nome": "METODOS E TECNICAS EM ANTROPOLOGIA SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0043",
+          "nome": "ANTROPOLOGIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0045",
+          "nome": "EXCURSAO DIDATICA DE PESQUISA",
+          "ch": "240"
+        },
+        {
+          "codigo": "DAN0046",
+          "nome": "ANTROPOLOGIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0047",
+          "nome": "ANTROPOLOGIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0049",
+          "nome": "INDIVIDUO, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0050",
+          "nome": "ORGANIZACAO SOCIAL E PARENTESCO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0052",
+          "nome": "CULTURA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0053",
+          "nome": "ANTROPOLOGIA DO GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0054",
+          "nome": "ANTROPOLOGIA DA MUSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0055",
+          "nome": "ANTROPOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0056",
+          "nome": "ANTROPOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0058",
+          "nome": "IDENTIDADE E RELACOES INTERETNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0060",
+          "nome": "TRADICOES CULTURAIS BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0061",
+          "nome": "ESTUDOS AFRO-BRASILEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0062",
+          "nome": "SOCIEDADES CAMPONESAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0063",
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0065",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0066",
+          "nome": "TOPICOS ESPECIAIS EM  ANTROPOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0068",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0070",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0072",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0074",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0076",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0077",
+          "nome": "PENSAMENTO ANTROPOLOGICO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0078",
+          "nome": "ANTROPOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0080",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0082",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 9",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0084",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 10",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0086",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 11",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0088",
+          "nome": "TOPICOS ESPECIAIS EM ANTROPOLOGIA 12",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0089",
+          "nome": "ARTES E OFICIOS DOS SABERES TRADICIONAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0173",
+          "nome": "MONITORIA DE PESQUISA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "ELA0001",
+          "nome": "TOPICOS ESPECIAIS DE METODOLOGIA QUALITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0003",
+          "nome": "CULTURA E IDENTIDADE NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0004",
+          "nome": "TOPICOS ESPECIAIS DE METODOLOGIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0007",
+          "nome": "POLITICA E ESTADO NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0008",
+          "nome": "PENSAMENTO SOCIAL E POLITICO NA AMERICA LATINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0009",
+          "nome": "PROCESSOS DE DESENVOLVIMENTO NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0010",
+          "nome": "ESTUDOS COMPARADOS SOBRE AS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0012",
+          "nome": "SOCIEDADE, CULTURA E POLITICA NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0005",
+          "nome": "TOPICO DE METODOLOGIA DE HISTORIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0008",
+          "nome": "HISTORIA DA AFRICA COLONIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0012",
+          "nome": "TOPICO ESPECIAL EM TEORIA DA HISTORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0020",
+          "nome": "HISTORIA E HISTORIOGRAFIA DA ESCRAVIDAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0044",
+          "nome": "HISTORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0045",
+          "nome": "HISTORIA CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0058",
+          "nome": "HISTORIA DA CULTURA MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0059",
+          "nome": "LEITURA E ANALISE DE DOCUMENTOS HISTORICOS: SECULOS XIII/XVI 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0067",
+          "nome": "TEORIA E METODOS EM ESTUDOS FEMINISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0079",
+          "nome": "TOPICO ESPECIAL EM HISTORIA DAS IDEIAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0080",
+          "nome": "HISTORIA CONTEMPORANEA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0082",
+          "nome": "HISTORIA DA AMERICA DO NORTE E CARIBE CONTEMPORANEOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0083",
+          "nome": "HISTORIA CONTEMPORANEA DA URSS EUROPEIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0090",
+          "nome": "HISTORIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0091",
+          "nome": "HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0095",
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0099",
+          "nome": "HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0107",
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0116",
+          "nome": "CULTURA IBERICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0120",
+          "nome": "HISTORIOGRAFIA DO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0121",
+          "nome": "HISTORIA DOS PARTIDOS POLITICOS NA REPUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0122",
+          "nome": "INTRODUCAO A HISTORIA DAS IDEIAS SOCIAIS NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0123",
+          "nome": "HISTORIA DO EXTREMO ORIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0126",
+          "nome": "HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0129",
+          "nome": "HISTORIA DO BRASIL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0132",
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0133",
+          "nome": "HISTORIA DOS PAISES ARABES",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0138",
+          "nome": "HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0147",
+          "nome": "PRATICA DE ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0152",
+          "nome": "HISTORIA DA AMAZONIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0153",
+          "nome": "HISTORIA DAS RELIGIOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0157",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0159",
+          "nome": "HISTORIA DA AFRICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0167",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0168",
+          "nome": "HISTORIA, MUSICA E MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0177",
+          "nome": "HISTORIA MEDIEVAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0179",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0184",
+          "nome": "HISTORIA DA AFRICA PRE-COLONIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0188",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0196",
+          "nome": "HISTORIA E HISTORIOGRAFIA DAS MULHERES NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0197",
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0200",
+          "nome": "HISTORIA E HISTORIOGRAFIA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0201",
+          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0203",
+          "nome": "HISTORIA E HISTORIOGRAFIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0206",
+          "nome": "HISTORIA E HISTORIOGRAFIA MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0207",
+          "nome": "HISTORIA E HISTORIOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0208",
+          "nome": "HISTORIA CONTEMPORANEA DOS ESTADOS UNIDOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0249",
+          "nome": "TOPICO ESPECIAL EM TEORIA DA HISTORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0250",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0251",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0252",
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0006",
+          "nome": "POLITICA E ANTIRRACISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0007",
+          "nome": "GENERO E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0010",
+          "nome": "HISTORIA SOCIAL E POLITICA LATINO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0015",
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0017",
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0019",
+          "nome": "POLITICA E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0021",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0022",
+          "nome": "COMPORTAMENTO POLITICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0028",
+          "nome": "INFORMATICA EM CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0030",
+          "nome": "ANALISE POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0032",
+          "nome": "POLITICA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0033",
+          "nome": "TEORIA POLITICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0035",
+          "nome": "POLITICA REGIONAL AFRICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0037",
+          "nome": "PARTIDOS POLITICOS E SISTEMAS ELEITORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0038",
+          "nome": "LEGISLACAO E PROCESSO POLITICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0040",
+          "nome": "AVALIACAO DE POLITICAS GOVERNAMENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0042",
+          "nome": "POLITICA E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0046",
+          "nome": "PENSAMENTO POLITICO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0047",
+          "nome": "ESTRUTURA DO PODER NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0048",
+          "nome": "POLITICA E ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0050",
+          "nome": "MUDANCA POLITICA NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0051",
+          "nome": "ESTADO E DESENVOLVIMENTO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0052",
+          "nome": "SEMINARIO SOBRE O BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0059",
+          "nome": "TEORIA E METODOS MARXISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0060",
+          "nome": "POLITICAS PUBLICAS E TEORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0062",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0072",
+          "nome": "POLITICA E TEORIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0073",
+          "nome": "POLITICA E IDEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0117",
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0118",
+          "nome": "ETICA E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0001",
+          "nome": "PENSAMENTO SOCIAL BRASILEIRO, INSTITUICOES E CULTURA POLITICA NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0003",
+          "nome": "TEORIA DOS SISTEMAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0004",
+          "nome": "TEORIA CRITICA DA SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0005",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0006",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 9",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0007",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 10",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0008",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 11",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0010",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 12",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0011",
+          "nome": "SOCIOLOGIA DO DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0012",
+          "nome": "ADMINISTRACAO INSTITUCIONAL DE CONFLITOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0013",
+          "nome": "SOCIOLOGIA DO TRABALHO E RELACOES SOCIAIS DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0014",
+          "nome": "SOCIOLOGIA DO AUDIO VISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0015",
+          "nome": "SOCIOLOGIA DAS DIFERENCAS SEXUAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0017",
+          "nome": "TEORIA E PENSAMENTO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0018",
+          "nome": "SOCIOLOGIAS EMERGENTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0019",
+          "nome": "EPISTEMOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0021",
+          "nome": "SOCIOLOGIA DO CONFLITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0022",
+          "nome": "SOCIOLOGIA DA VIOLENCIA NA PERSPECTIVA DAS RELACOES DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0023",
+          "nome": "SOCIOLOGIAS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0024",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE SOCIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0025",
+          "nome": "SEMINARIOS EM SOCIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "SOL0026",
+          "nome": "SEMINARIOS EM SOCIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "SOL0027",
+          "nome": "PENSAMENTO POLITICO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0028",
+          "nome": "SOCIOLOGIA DAS MIDIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0029",
+          "nome": "SOCIOLOGIA DAS POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0030",
+          "nome": "SOCIOLOGIA DA JUVENTUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0031",
+          "nome": "SOCIOLOGIA DA MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0032",
+          "nome": "SEMINARIO DE SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0033",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 13",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0034",
+          "nome": "SOCIOLOGIA DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0035",
+          "nome": "PARADIGMAS DA CATEGORIA GENERO E RACA NO CONTEXTO LATINOAMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0053",
+          "nome": "TEORIAS DA SOCIALIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0055",
+          "nome": "SOCIOLOGIA DAS ORGANIZACOES FORMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0058",
+          "nome": "SOCIOLOGIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0060",
+          "nome": "SOCIOLOGIA E IDEOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0063",
+          "nome": "ESTRUTURA DE CLASSES E ESTRATIFICACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0064",
+          "nome": "POLITICA ESPECIAL - ELITES POLITICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0069",
+          "nome": "PENSAMENTO SOCIOLOGICO LATINO-AMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0080",
+          "nome": "SOCIOLOGIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0085",
+          "nome": "SOCIOLOGIA DO ESPORTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0087",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0089",
+          "nome": "SOCIOLOGIA DA CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0090",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0091",
+          "nome": "ESTRUTURA E MUDANCAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0092",
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0093",
+          "nome": "SOCIOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0094",
+          "nome": "SOCIOLOGIA DA IDEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0096",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0099",
+          "nome": "DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0100",
+          "nome": "SOCIOLOGIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0101",
+          "nome": "SOCIOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0102",
+          "nome": "SOCIOLOGIA DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0103",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0106",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0107",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0108",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0109",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0110",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0111",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0112",
+          "nome": "ARTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0113",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0114",
+          "nome": "MEIO AMBIENTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0115",
+          "nome": "SOCIOLOGIA DAS RELACOES DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0116",
+          "nome": "SOCIOLOGIA DA VIOLENCIA E DA CONFLITUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0117",
+          "nome": "SOCIOLOGIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0118",
+          "nome": "CIENCIA, TECNOLOGIA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0119",
+          "nome": "METODOLOGIAS QUANTITATIVAS EM CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0120",
+          "nome": "METODOLOGIAS QUALITATIVAS EM CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0121",
+          "nome": "SOCIOLOGIA DAS RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0123",
+          "nome": "PENSAMENTO SOCIAL NO BRASIL DO SECULO XIX",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0124",
+          "nome": "PENSAMENTO SOCIAL NO BRASIL DO SECULO XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0125",
+          "nome": "DIREITOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0131",
+          "nome": "ENSINO SUPERIOR E GLOBALIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0134",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0135",
+          "nome": "IDENTIDADES SOCIAIS NA INTERSECCIONALIDADE DE GENERO E RACA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0136",
+          "nome": "SOCIOLOGIA DO PODER",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0117",
+          "nome": "INTRODUCAO AS CIENCIAS SOCIAIS LATINO-AMERICANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0014",
+          "nome": "CIENCIAS SOCIAIS LATINO-AMERICANAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0301",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS I",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0042",
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0130",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS II",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0122",
+          "nome": "ESTAGIO 1: SOCIOLOGIA DO ENSINO DE SOCIOLOGIA",
+          "ch": "135"
+        },
+        {
+          "codigo": "SOL0133",
+          "nome": "DESENHOS DE PESQUISA EM CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0132",
+          "nome": "ESTAGIO 2: PRATICA DE ENSINO EM CIENCIAS SOCIAIS 1",
+          "ch": "135"
+        },
+        {
+          "codigo": "SOL0127",
+          "nome": "ESTAGIO 3: PRATICA DE ENSINO EM CIENCIAS SOCIAIS 2",
+          "ch": "135"
+        },
+        {
+          "codigo": "SOL0300",
+          "nome": "TECNICAS DE PESQUISA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0128",
+          "nome": "LABORATORIO DOCENTE EM SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0126",
+          "nome": "PRATICA DE PESQUISA 1 LICENCIATURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "SOL0129",
+          "nome": "PRATICA DE PESQUISA 2 LICENCIATURA",
+          "ch": "120"
+        }
+      ]
+    }
+  ]
+}

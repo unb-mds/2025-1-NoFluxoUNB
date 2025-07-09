@@ -1,0 +1,862 @@
+{
+  "curso": "EDUCAÇÃO DO CAMPO - CIÊNCIAS DA NATUREZA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2019.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0041",
+          "nome": "CEBEP 1 - CONFLITOS ESTRUTURAIS BRASILEIROS E EDUCACAO POPULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0043",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0374",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0375",
+          "nome": "FILOSOFIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0377",
+          "nome": "TEORIA PEDAGOGICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0381",
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0384",
+          "nome": "PESQUISA E MEMORIA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0386",
+          "nome": "PRATICAS PEDAGOGICAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0390",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 1",
+          "ch": "15"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0049",
+          "nome": "CEBEP 2 - FORMACAO NACIONAL E IDENTID CAMPONESA INDIGENA E QUILOMBOLA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0054",
+          "nome": "MATEMATICA BASICA E APLICACOES NA VIDA DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0062",
+          "nome": "PESQUISA E MEMORIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0392",
+          "nome": "TEORIA PEDAGOGICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0397",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0400",
+          "nome": "FILOSOFIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0403",
+          "nome": "PRATICAS PEDAGOGICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0516",
+          "nome": "COMPOSICAO DO UNIVERSO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0066",
+          "nome": "BIOLOGIA GERAL: CITOLOGIA E HISTOLOGIA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0069",
+          "nome": "HISTORIA E FILOSOFIA DAS CIENCIAS DA NATUREZA E DA MATEMATICA 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0075",
+          "nome": "PESQUISA E MEMORIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0077",
+          "nome": "CEBEP 3: RACA, GENERO E GERACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0367",
+          "nome": "COMPOSICAO QUIMICA DOS SERES VIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0379",
+          "nome": "POLITICA EDUCACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0417",
+          "nome": "PRATICAS PEDAGOGICAS 3",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0427",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0429",
+          "nome": "FILOSOFIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0431",
+          "nome": "TEORIA PEDAGOGICA 3",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0079",
+          "nome": "CEBEP 4 - QUESTAO SOCIAL E QUESTAO AGRARIA NO BRASIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0086",
+          "nome": "BIOLOGIA VEGETAL E ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0088",
+          "nome": "GEOCIENCIAS PARA EDUCACAO DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0165",
+          "nome": "TEORIA PEDAGOGICA 4",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0458",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0499",
+          "nome": "PRATICAS PEDAGOGICAS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0513",
+          "nome": "MECANICA E VIDA NO CAMPO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0100",
+          "nome": "QUIMICA DA TERRA E DO AMBIENTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FUP0103",
+          "nome": "LUZ, ONDAS E A VIDA NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0222",
+          "nome": "PRATICA PEDAGOGICA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0225",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 1 - COMUNIDADE",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0460",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM 2",
+          "ch": "45"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0111",
+          "nome": "CEBEP 6: SOBERANIA, SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0113",
+          "nome": "TEORIA PEDAGOGICA 5",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0115",
+          "nome": "GENETICA E MELHORAMENTO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0166",
+          "nome": "TRABALHO DE CONCLUSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0167",
+          "nome": "PRATICAS PEDAGOGICAS 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0169",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 2: EJA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FUP0233",
+          "nome": "HIDRODINAMICA E TERMODINAMICA E A VIDA NO CAMPO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0129",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0131",
+          "nome": "TEORIA PEDAGOGICA 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0183",
+          "nome": "FLUXO DE ENERGIA E CICLOS BIOGEOQUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0185",
+          "nome": "TRABALHO DE CONCLUSAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0187",
+          "nome": "PRATICAS PEDAGOGICAS 7",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0189",
+          "nome": "ESTAGIO C. S. 3 - GESTAO DE DOCENCIA",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0236",
+          "nome": "ELETROMAGNETISMO E A VIDA NO CAMPO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0143",
+          "nome": "ECOLOGIA POLITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0144",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0209",
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0210",
+          "nome": "TRABALHO DE CONCLUSAO 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0212",
+          "nome": "PRATICAS PEDAGOGICAS 8",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0214",
+          "nome": "ESTAGIO C. S. 4 - GESTAO E DOCENCIA",
+          "ch": "105"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA FUP0044 - LEITURA E PRODUCAO DE TEXTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0045",
+          "nome": "MATEMATICA E SOCIEDADE",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0047",
+          "nome": "PROMOCAO DA SAUDE",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0050",
+          "nome": "LEITURA E PRODUCAO DE TEXTO 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0056",
+          "nome": "ARITMETICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0058",
+          "nome": "HISTORIA E FILOSOFIA DAS CIENCIAS DA NATUREZA E DA MATEMATICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0063",
+          "nome": "LETRAMENTO CIENTIFICO E DIGITAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0073",
+          "nome": "ARITMETICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0074",
+          "nome": "COMUNICACAO E TECNOLOGIAS DA INFORMACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0076",
+          "nome": "LEITURA E PRODUCAO DE TEXTO 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0080",
+          "nome": "LEITURA E PRODUCAO DE TEXTO 4",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0096",
+          "nome": "PESQUISA E MEMORIA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0101",
+          "nome": "ANATOMIA E FISIOLOGIA HUMANA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0106",
+          "nome": "CEBEP 5: DIVERSIDADE GERACIONAL NO CAMPO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0107",
+          "nome": "LEITURA E PRODUCAO DE TEXTO 5",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0108",
+          "nome": "PESQUISA E MEMORIA 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0112",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM NA ESCOLA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0116",
+          "nome": "TOPICOS EM QUIMICA APLICADA E DO COTIDIANO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0117",
+          "nome": "GEOCIENCIAS E MEIO AMBIENTE",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0126",
+          "nome": "HISTORIA DOS MOVIMENTOS SOCIAIS NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0130",
+          "nome": "CEBEP: TOPICOS ESPECIAIS",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0134",
+          "nome": "TOPICOS EM FISICA MODERNA E CONTEMPORANEA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0135",
+          "nome": "TOPICOS EM QUIMICA APLICADA E DO COTIDIANO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0147",
+          "nome": "TOPICOS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0149",
+          "nome": "TEXTOS ACADEMICOS: ATIVIDADES DE LEITURA, ESCRITA E REESCRITA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0150",
+          "nome": "EDUCACAO POPULAR E EDUCACAO DE JOVENS E ADULTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0151",
+          "nome": "EDUCACAO DO CAMPO E DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0152",
+          "nome": "EDUCACAO DO CAMPO SAUDE E MEIO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0153",
+          "nome": "AGROBIODIVERSIDADE E SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0154",
+          "nome": "AGROECOLOGIA E ESCOLA DO CAMPO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0155",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO DO CAMPO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0156",
+          "nome": "LABORATORIO DE DIRECAO E INTERPRETACAO TEATRAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0157",
+          "nome": "EXPRESSOES ESTETICA E CULTURA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0158",
+          "nome": "LABORATORIO DE DRAMATURGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0159",
+          "nome": "DOCUMENTARIO, TERRITORIO E EDUCACAO DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0163",
+          "nome": "POLITICA EDUCACIONAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0171",
+          "nome": "OUTRAS FORMAS DE ATIVIDADES ESPANHOL INSTRUMENTAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0205",
+          "nome": "OUTRAS FORMAS DE ATIVIDADE: ESPANHOL INSTRUMENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0393",
+          "nome": "MEDIACOES ENTRE FORMA SOCIAL E ESTETICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0405",
+          "nome": "OUTRAS FORMAS DE ATIVIDADES: OFICINA INFORMATICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0420",
+          "nome": "HISTORIA E FILOSOFIA DA FISICA E DA MATEMATICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0466",
+          "nome": "FILOSOFIA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0468",
+          "nome": "FILOSOFIA 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0493",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DE TRABALHO PEDAGOGICO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0041",
+          "nome": "CEBEP 1 - CONFLITOS ESTRUTURAIS BRASILEIROS E EDUCACAO POPULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0043",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0374",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0375",
+          "nome": "FILOSOFIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0377",
+          "nome": "TEORIA PEDAGOGICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0381",
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0384",
+          "nome": "PESQUISA E MEMORIA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0386",
+          "nome": "PRATICAS PEDAGOGICAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0390",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0049",
+          "nome": "CEBEP 2 - FORMACAO NACIONAL E IDENTID CAMPONESA INDIGENA E QUILOMBOLA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0054",
+          "nome": "MATEMATICA BASICA E APLICACOES NA VIDA DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0062",
+          "nome": "PESQUISA E MEMORIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0392",
+          "nome": "TEORIA PEDAGOGICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0397",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0400",
+          "nome": "FILOSOFIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0403",
+          "nome": "PRATICAS PEDAGOGICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0516",
+          "nome": "COMPOSICAO DO UNIVERSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0066",
+          "nome": "BIOLOGIA GERAL: CITOLOGIA E HISTOLOGIA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0069",
+          "nome": "HISTORIA E FILOSOFIA DAS CIENCIAS DA NATUREZA E DA MATEMATICA 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0075",
+          "nome": "PESQUISA E MEMORIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0077",
+          "nome": "CEBEP 3: RACA, GENERO E GERACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0367",
+          "nome": "COMPOSICAO QUIMICA DOS SERES VIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0379",
+          "nome": "POLITICA EDUCACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0417",
+          "nome": "PRATICAS PEDAGOGICAS 3",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0427",
+          "nome": "ORGANIZACAO ESCOLAR E METODO DO TRABALHO PEDAGOGICO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0429",
+          "nome": "FILOSOFIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0431",
+          "nome": "TEORIA PEDAGOGICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0079",
+          "nome": "CEBEP 4 - QUESTAO SOCIAL E QUESTAO AGRARIA NO BRASIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0086",
+          "nome": "BIOLOGIA VEGETAL E ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0088",
+          "nome": "GEOCIENCIAS PARA EDUCACAO DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0165",
+          "nome": "TEORIA PEDAGOGICA 4",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0458",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0499",
+          "nome": "PRATICAS PEDAGOGICAS 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0513",
+          "nome": "MECANICA E VIDA NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0100",
+          "nome": "QUIMICA DA TERRA E DO AMBIENTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FUP0103",
+          "nome": "LUZ, ONDAS E A VIDA NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0222",
+          "nome": "PRATICA PEDAGOGICA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0225",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 1 - COMUNIDADE",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0460",
+          "nome": "DESENVOLVIMENTO HUMANO E APRENDIZAGEM 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0111",
+          "nome": "CEBEP 6: SOBERANIA, SEGURANCA ALIMENTAR E NUTRICIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0113",
+          "nome": "TEORIA PEDAGOGICA 5",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0115",
+          "nome": "GENETICA E MELHORAMENTO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0166",
+          "nome": "TRABALHO DE CONCLUSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0167",
+          "nome": "PRATICAS PEDAGOGICAS 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0169",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 2: EJA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FUP0233",
+          "nome": "HIDRODINAMICA E TERMODINAMICA E A VIDA NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0129",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0131",
+          "nome": "TEORIA PEDAGOGICA 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0183",
+          "nome": "FLUXO DE ENERGIA E CICLOS BIOGEOQUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0185",
+          "nome": "TRABALHO DE CONCLUSAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0187",
+          "nome": "PRATICAS PEDAGOGICAS 7",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0189",
+          "nome": "ESTAGIO C. S. 3 - GESTAO DE DOCENCIA",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0236",
+          "nome": "ELETROMAGNETISMO E A VIDA NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0143",
+          "nome": "ECOLOGIA POLITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0144",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0209",
+          "nome": "ESCOLA E EDUCACAO DO CAMPO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0210",
+          "nome": "TRABALHO DE CONCLUSAO 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0212",
+          "nome": "PRATICAS PEDAGOGICAS 8",
+          "ch": "45"
+        },
+        {
+          "codigo": "FUP0214",
+          "nome": "ESTAGIO C. S. 4 - GESTAO E DOCENCIA",
+          "ch": "105"
+        }
+      ]
+    }
+  ]
+}

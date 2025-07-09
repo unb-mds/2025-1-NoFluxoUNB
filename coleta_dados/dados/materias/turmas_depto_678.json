@@ -1,0 +1,3591 @@
+[
+    {
+        "nome": "ANÁLISE INSTRUMENTAL PARTE PRÁTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0180 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação dos fundamentos teóricos sobre as técnicas analíticas instrumentais espectroscópicas (espectroscopia emissão atômica, espectrofotometria de absorção molecular), eletroquímicas (condutometria, e potenciometria) e de separação (cromatografia líquida, cromatografia gasosa e espectrometria de massa como técnica de detecção). Aprimoramento do raciocínio lógico para realizar as etapas de um procedimento analítico instrumental como: Escolha de métodos, amostragem, preparo de amostras, análise e relatórios. Apresentação de noções de incerteza das medidas e tratamento estatístico de dados.",
+        "codigo": "FAR0185"
+    },
+    {
+        "nome": "ANÁLISE INSTRUMENTAL PARTE TEÓRICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0168 OU IQD0243 OU FAR0181 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação dos fundamentos teóricos sobre as técnicas analíticas instrumentais espectroscópicas (espectroscopia emissão atômica, espectrofotometria de absorção molecular), eletroquímicas (condutometria, e potenciometria) e de separação (cromatografia líquida, cromatografia gasosa e espectrometria de massa como técnica de detecção). Aprimoramento do raciocínio lógico para realizar as etapas de um procedimento analítico instrumental como: Escolha de métodos, amostragem, preparo de amostras, análise e relatórios. Apresentação de noções de incerteza das medidas e tratamento estatístico de dados.",
+        "codigo": "FAR0180"
+    },
+    {
+        "nome": "ANÁLISE INSTRUMENTAL TEÓRICA E EXPERIMENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0168 ) OU ( IQD0243 ) OU ( FAR0181 E FAR0186 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0180 E FAR0185 ) OU ( IQD0033 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( IQD0021 ) E ( IQD0022 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0021 ) E ( IQD0022 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0185 OU IQD0186 OU IQD0187 ) E ( IQD0226 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0185 OU IQD0186 OU IQD0187 ) E ( IQD0226 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0021 ) E ( IQD0022 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0185 OU IQD0186 OU IQD0187 ) E ( IQD0226 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0185 OU IQD0186 OU IQD0187 ) E ( IQD0226 ) ) OU ( IQD0033 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Apresentação dos fundamentos teóricos das técnicas analíticas instrumentais: espectroscópicas, eletroquímicas e de separação. Desenvolvimento de habilidades práticas em aulas experimentais envolvendo métodos amplamente utilizados como: espectroscopia emissão atômica, espectrofotometria de absorção molecular, condutometria, potenciometria, cromatografia liquida e cromatografia gasosa. Aprimoramento do raciocínio lógico para realizar as etapas de um procedimento analítico instrumental (Escolha de métodos, amostragem, preparo de amostras, analise e relatórios). Apresentação de Noções de incerteza das medidas e tratamento estatístico de dados.",
+        "codigo": "FAR0024"
+    },
+    {
+        "nome": "ANÁLISE ORGÂNICA DOS FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( IQD0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0209 E FCE0239 ) OU ( FCS0077 ) OU ( IQD0280 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0209 ) E ( FCE0239 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0133 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2016.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0133 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0209 ) E ( FCE0239 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0133 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2016.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0133 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0209 ) E ( FCE0239 ) ) OU ( FCS0077 OU IQD0280 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Introdução. Isomeria. Funções Orgânicas. Principais reações. Mecanismos das reações orgâncias e correlações com biotransformações. Técnicas de extração, separação e purificação de compostos orgânicos aplicados à Farmácia.",
+        "codigo": "FAR0167"
+    },
+    {
+        "nome": "ANÁLISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( IQD0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0181 E FAR0186 ) OU ( IQD0281 ) OU ( FCS0078 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( IQD0117 OU IQD0118 ) E ( IQD0243 ) ) OU ( FCS0078 OU IQD0281 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0117 OU IQD0118 ) E ( IQD0243 ) ) OU ( FCS0078 OU IQD0281 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0117 OU IQD0118 ) E ( IQD0243 ) ) OU ( FCS0078 OU IQD0281 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0117 OU IQD0118 ) E ( IQD0243 ) ) OU ( FCS0078 OU IQD0281 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( IQD0117 OU IQD0118 ) E ( IQD0243 ) ) OU ( FCS0078 OU IQD0281 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Equilíbrio iônico: métodos gerais de resolução de problemas envolvendo equilibrios ionicos, sob o ponto de vista analítico. Equilíbrio ácido-base: equilíbrios envolvendo ions complexos. Equilibrios de oxi-redução: balanças de massas e cargas. Solubilidade e produtos de solubilidade. Sensibilidade e seletividade das reações analíticas. Separação e classificação analítica de cátions e ânions. Conceitos gerais de análise quantitativa. Erros, análise gravimétrica e volumétrica. Algarismos significativos, substância padrão e indicadores. Importância e aplicação desses conceitos na análise de fármacos.",
+        "codigo": "FAR0168"
+    },
+    {
+        "nome": "ANÁLISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS PARTE PRÁTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "( FAR0181 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação dos princípios da química e das etapas envolvidas no processo de análise química (escolha de métodos, amostragem, preparo de amostras, analise e relatórios. Noções de incerteza das medidas e tratamento de dados. Fundamentos de equilíbrios químicos em: reações ácido-base, formação de precipitados (solubilidade), formação de compostos de coordenação e reações redox. Aplicações na determinação quantitativa de diversas espécies químicas por volumetria. Técnicas clássicas de separação e identificação de substancias. Seletividade, sensibilidade e especificidade de reações químicas.",
+        "codigo": "FAR0186"
+    },
+    {
+        "nome": "ANALISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS PARTE TEÓRICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( IQD0125 )",
+        "co_requisitos": "( FAR0186 )",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Apresentação dos princípios da química e das etapas envolvidas no processo de análise química (escolha de métodos, amostragem, preparo de amostras, analise e relatórios. Noções de incerteza das medidas e tratamento de dados. Fundamentos de equilíbrios químicos em: reações ácido-base, formação de precipitados (solubilidade), formação de compostos de coordenação e reações redox. Aplicações na determinação quantitativa de diversas espécies químicas por volumetria. Técnicas clássicas de separação e identificação de substancias. Seletividade, sensibilidade e especificidade de reações químicas.",
+        "codigo": "FAR0181"
+    },
+    {
+        "nome": "ASSISTÊNCIA FARMACÊUTICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0213 ) OU ( FCS0047 ) OU ( FCS0048 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0213 ) ) OU ( FCS0047 OU FCS0048 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0213 ) ) OU ( FCS0047 OU FCS0048 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0213 ) ) OU ( FCS0047 OU FCS0048 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0213 ) ) OU ( FCS0047 OU FCS0048 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0213 ) ) OU ( FCS0047 OU FCS0048 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1 - Apresenta políticas públicas e sociais relacionadas à Assistência Farmacêutica. 2 - Discute o papel do Estado na Assistência Farmacêutica. 3 -  Faz um resgate histórico do papel dos medicamentos na sociedade e as responsabilidades e atribuições do farmacêutico. 4 - Organização e promoção da Assistência Farmacêutica no nível individual e coletivo.",
+        "codigo": "FAR0119"
+    },
+    {
+        "nome": "ASSISTÊNCIA FARMACÊUTICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0119 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1 - Compreensão da gestão e planejamento da Assistência Farmacêutica, com enfoque no ciclo da Assistência Farmacêutica e na garantia da qualidade de serviços farmacêuticos. 2 - Debater abordagens estratégicas para promoção do uso adequado de medicamentos no nível individual e coletivo.",
+        "codigo": "FAR0173"
+    },
+    {
+        "nome": "ATENÇÃO FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0177 E FAR0173 ) OU ( FAR0131 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1 - Caracterização e implantação da atenção Farmacêutica.2 - Condutas e técnicas no cuidado farmacêutico.",
+        "codigo": "FAR0162"
+    },
+    {
+        "nome": "AVALIAÇÃO DE TECNOLOGIAS EM SAÚDE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Avaliação de tecnologias em saúde (ATS) como ferramenta de gestão em saúde.  Avaliação de tecnologias em saúde no Brasil e no mundo. Tipos de estudo e níveis de evidência aplicados à ATS. Análise econômica em saúde. Modelagem e tipos de modelos em avaliação econômica. Análise de impacto orçamentário. Monitoramento do horizonte tecnológico. A incorporação de novas tecnologias no Sistema Único de Saúde. Avaliação de desempenho de tecnologias pós-incorporação.",
+        "codigo": "FAR0040"
+    },
+    {
+        "nome": "BIOPROSPECÇÃO FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Objetiva o estudo de substâncias inéditas, a partir de plantas do bioma cerrado, com potencial atividade farmacológica, através de análise botânica, química, biológica e toxicológica.",
+        "codigo": "FAR0048"
+    },
+    {
+        "nome": "BIOQUÍMICA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FCE0307 OU FAR0174 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0367 ) OU ( FCE0416 E FCE0417 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Organização de um laboratório de Bioquímica Clínica princípios e cuidados na coleta de amostras biológicas controle e garantia da qualidade em Bioquímica Clínica gasometria arterial fundamentos de urinálise análise do líquor dosagens bioquímicas de interesse clínico-laboratorial interpretação de prontuários",
+        "codigo": "FAR0251"
+    },
+    {
+        "nome": "BIOTECNOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 E GEM0014 ) OU ( FAR0124 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0170"
+    },
+    {
+        "nome": "BOTÂNICA APLICADA A FARMÁCIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( BOT0004 E BOT0020 E BOT0044 ) OU ( BOT0043 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ICB0102 OU BOT0004 ) E ( ICB0115 OU BOT0014 ) E ( ICB0134 OU BOT0021 ) ) OU ( BOT0043 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0102 OU BOT0004 ) E ( ICB0115 OU BOT0014 ) E ( ICB0134 OU BOT0021 ) ) OU ( BOT0043 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Morfologia externa de órgãos vegetativos e reprodutivos. Princípios taxonômicos e principais famílias de interesse farmacêutico. Princípios básicos de citologia e histologia vegetal. Anatomia de órgãos vegetais e sua aplicação na diagnose de drogas vegetais.OBJETIVOS:Evidenciar a importância da Botânica Aplicada à Farmácia e suas relações com a Farmacognosia.Morfologia e Sistemática. Conhecer a morfologia dos órgãos vegetativos e reprodutivos: raiz, caule, folha, fruto e semente. Ter noções de classificação taxonômica. Conhecer algumas chaves artificiais de classificação botânica. Conhecer as características de algas, criptógamas e angiospermas de interesse farmacêutico. Anatomia. Conhecer a estrutura anatômica dos órgãos vegetativos e reprodutivos das plantas superiores, especialmente das angiospermas.",
+        "codigo": "FAR0030"
+    },
+    {
+        "nome": "BROMATOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 ) OU ( FCE0238 ) OU ( CEL0082 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "FCE0418 E FCE0419",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução à Ciência de Alimentos. Classificação de alimentos. Estudo dos vários grupos de nutrientes. Dosagem quantitativa dos nutrientes em alimentos. Interações alimentos e medicamentos. Legislação vigente.",
+        "codigo": "FAR0050"
+    },
+    {
+        "nome": "CIÊNCIA ALÉM DA CIÊNCIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0012 ) OU ( FAR0034 )",
+        "equivalencias_especificas": [],
+        "ementa": "Novas e surpreendentes descobertas científicas em diferentes áreas, como a Física, Biologia eNeurofisiologia, dentre outras, vem mudando paradigmas e conduzido a formas variadas de se ver einterpretar a realidade fenomênica. Em particular, uma concepção sistêmica e interconectada da realidadepassou a desempenhar papel relevante nesta análise. Dessa forma, os limites entre ciência e filosofia eespiritualidade tornaram-se tênues e os conceitos intercambiáveis. O que levou a uma nova fronteira deinvestigação.Certamente, esta nova visão de mundo e universo abriu novas possibilidades de responder questõesfundamentais à existência humana, tais como: O que somos? O que é a mente? O que é a consciência? Qual é anatureza do Universo em que vivemos? Qual é o verdadeiro significado da existência do universo e do próprioser humano? As respostas a essas perguntas certamente poderão nortear a qualidade de vida e ascaracterísticas das nossas relações pessoais. Em resumo, todas essas questões embora pareçam desconexas,nos levam a um ponto crucial da existência humana:”A Felicidade”.Dessa forma, se torna prioritário acessar este novo conhecimento cientifico, assim como o contido emtradições antigas, onde estas questões foram abordadas, estudadas e caminhos para as respostas das mesmassinalizados. Dentre esses caminhos destaca-se a prática de meditação, como uma das principais ferramentaspara atingir a felicidade.",
+        "codigo": "FAR0035"
+    },
+    {
+        "nome": "CITOLOGIA CLÍNICA CÉRVICO-VAGINAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0174 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O aluno deverá ser capaz ao final da disciplina compreender a importância dos aspectoscitomorfológicos relacionados à citologia clínica cérvico-vaginal na prevenção do câncer de colo deútero, realizando o reconhecimento das alterações celulares reativas benignas, dos processosinfecciosos, as atipias celulares e lesões intraepiteliais escamosas e glandulares, HPV e suacarcinogênese, nomenclaturas e classificação do Sistema de Bethesda, identificação das célulasmalignas dos epitélios escamoso e glandular do colo uterino, diagnóstico diferencial, além defundamentos do citodiagnóstico hormonal e o papel da citologia clínica em associação as novasestratégias com base em testes moleculares de HPV na prevenção do câncer cervical.",
+        "codigo": "FAR0027"
+    },
+    {
+        "nome": "CONTROLE DE QUALIDADE FÍSICO-QUÍMICO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0136 ) OU ( FAR0176 ) OU ( FCE0369 E FAR0024 ) OU ( FAR0180 E FAR0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0309 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0309 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0309 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0309 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0309 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1 - Conceito de Qualidade. 2 -  Validação de métodos. 3 - Boas Práticas Laboratoriais. 4 - Utilização de documentação oficial: Farmacopeias e resoluções normativas. 5 - Controle de qualidade matéria-prima. 6 - Controle de qualidade de formas farmacêuticas líquidas, sólidas e semi-sólidas. 7 -Técnicas doseamento analítico de medicamentos.",
+        "codigo": "FAR0002"
+    },
+    {
+        "nome": "CONTROLE DE QUALIDADE MICROBIOLÓGICO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0050 E FCE0309 ) OU ( FAR0176 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0373 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1 - Boas Práticas Laboratoriais. Métodos farmacopeicos para detecção de microrganismos específicos. 2 -  Controle da Qualidade e produtos farmacêuticos não estéreis e de produtos estéreis.",
+        "codigo": "FAR0003"
+    },
+    {
+        "nome": "DEONTOLOGIA E LEGISLAÇÃO FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FCE0188 E FCE0213 ) OU ( FAR0119 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCE0255 OU FAR0133 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estrutura organizacional e jurídica da Profissão farmacêutica. Organização da profissão farmacêutica e sua atuação profissional na assistência farmacêutica. Legislação farmacêutica e sanitária.",
+        "codigo": "FAR0250"
+    },
+    {
+        "nome": "DIAGNÓSTICO LABORATORIAL EM IMUNOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0137 E FCE0367 ) OU ( CEL0110 E FCE0367 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Detecção, quantificação e caracterização dos anticorpos e seu uso como ferramenta para diagnóstico através do estudo das principais técnicas e metodologias empregadas nos exames sorológicos utilizados na rotina de Imunologia Clinica (Aglutinação, precipitação, turbidimetria, quimioluminescência, radioimunoensaio – RIA, ensaio imunoenzimático – ELISA, Imunofluorescência, imunohistoquímica, radioimunodifusão, imunoblotting, entre outras) e técnicas de manipulação da resposta imunológica. Imunidade passiva e ativa. Controle genético da resposta imune. Histocompatibilidade. Tolerância imunológica. Imunomoduladores e tumores, utilização de vacinas (imunização), soros e globulinas. Imunopatologias e exames diagnósticos relacionados, estudos dos nomes e indicações clínicas dos exames, elaboração e liberação de laudos de exames imunológicos.",
+        "codigo": "FAR0021"
+    },
+    {
+        "nome": "DIAGNÓSTICO LABORATORIAL EM MICROBIOLOGIA  CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0050 E CEL0110 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Infecções bacterianas: diagnóstico clínico laboratorial dos principais gêneros de importância clínica métodos de detecção dos mecanismos de resistência bacteriana aos antimicrobianos aspectos clínicos e diagnósticos dos principais vírus e fungos de importância clínica.",
+        "codigo": "FAR0028"
+    },
+    {
+        "nome": "DIAGNÓSTICO LABORATORIAL EM PARASITOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0174 ) OU ( CEL0050 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo dos protozoários e helmintos: revisão dos conceitos de ciclo evolutivo, morfologia, patogenia, sintomatologia, tratamento, profilaxia e epidemiologia aplicação das técnicas utilizadas no diagnóstico laboratorial, técnicas de coleta, processamento e conservação do material biológico preparação de reativos e corantes estudo de métodos e técnicas específicas que permitam o diagnóstico laboratorial de protozoários intestinais, teciduais e sanguíneos, dos helmintos e estudos dos nomes e indicações clínicas dos exames, elaboração e liberação de laudos de exames parasitológicos.",
+        "codigo": "FAR0008"
+    },
+    {
+        "nome": "ECONOMIA E GESTÃO DE EMPRESAS FARMACÊUTICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0399 ) OU ( FCS0062 ) OU ( FCS0063 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Qualidade em economia e administração de empresas. Economia e administração de sistemas privados e hospitalares. Farmacoeconomia e administração aplicadas às Farmácias Hospitalar e Comunitária. Gestão dos recursos de materiais e medicamentos. Etapas dos sistemas de gestão. Economia: Conceitos básicos em economia as estruturas básicas do mercado farmacêutico o setor farmacêutico no contexto econômico nacional.Administração: conceitos, princípios e funções o contexto empresarial do setor farmacêutico brasileiro o ser empreendedor visão empresarial famracêutica estratégias econômicas e de administração para gestão de sistemas de saúde.",
+        "codigo": "FAR0134"
+    },
+    {
+        "nome": "ELEMENTOS DE FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FMD0013 E FMD0019 E FMD0027 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ICB0151 OU CFS0006 OU FAR0031 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0151 OU CFS0006 OU FAR0031 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0151 OU CFS0006 OU FAR0031 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0151 OU CFS0006 OU FAR0031 OU FAR0032 OU FMD0073 ) )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "2023.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Princípios básicos da farmacodinâmica e farmacocinética. Aspectos gerais dafarmacologia dos sistemas adrenérgico e colinérgico e do sistema nervoso central.Farmacologia geral dos fármacos antiinflamatórios, analgésicos opióides eantibacterianos.",
+        "codigo": "FAR0033"
+    },
+    {
+        "nome": "EMBRIOLOGIA HUMANA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FMD0496 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAR0074 ) OU ( FMD0133 ) OU ( FMD0134 )",
+        "equivalencias_especificas": [],
+        "ementa": "1 - APRESENTAÇÃO:  A disciplina EMBRIOLOGIA MÉDICA consta de 04 créditos e é oferecida semestralmente, em caráter obrigatório aos estudantes de Medicina da Universidade de Brasília.2 - OBJETIVOS:\tAtravés dos estímulos e instrumentos necessário ao aprendizado, pretende-se desenvolver no aluno a compreensão do desenvolvimento humano e das alterações que possam advir em qualquer de suas etapas.\tEspera-se que o aluno, ao terminar o curso, não trate o conhecimento adquirido como um fim em si mesmo, mas como um meio para alcançar uma adequada formação profissional e também o aperfeiçoamento da capacidade crítica e da criatividade.",
+        "codigo": "FAR0075"
+    },
+    {
+        "nome": "ENZIMOLOGIA E TECNOLOGIA DE FERMENTAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 ) OU ( FCE0225 ) OU ( IQD0296 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo de proteínas: estrutura e função. Cinética e inibição enzimática. Processos de produção e purificação de enzimas. Introdução à tecnologia das fermentações. Aplicações de biologia molecular para o estudo de enzimas.",
+        "codigo": "FAR0141"
+    },
+    {
+        "nome": "EPIDEMIOLOGIA DO MEDICAMENTO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0172 ) OU ( FAR0125 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudos epidemiológicos e estatísticos experimentais e observacionais (ensaio clínico, caso-controle, coortes, transversais) de avaliação econômica do uso de medicamentos. Farmacovigilância. Estudos de Utilização de Medicamentos, que compreendem a comercialização, distribuição, prescrição, dispensação e uso dos medicamentos em uma sociedade, com enfoque especial em suas conseqüências sanitárias, sociais e econômicas. Programas de notificação espontânea. Medicina Baseada em Evidências. Informação em medicamentos.",
+        "codigo": "FAR0135"
+    },
+    {
+        "nome": "ESTÁGIO EM ANÁLISE DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conceito de qualidade. Sistemas de qualidade. Regulação. Avaliação da qualidade de fármacos e medicamentos",
+        "codigo": "FAR0153"
+    },
+    {
+        "nome": "ESTÁGIO EM ASSISTÊNCIA FARMACÊUTICA 1 - FARMÁCIA HOSPITALAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0131 ) OU ( FAR0177 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0066 ) OU ( FCS0067 )",
+        "equivalencias_especificas": [],
+        "ementa": "Abordagem das diretrizes  e requisitos necessários para viabilizar o funcionamento e organização de uma Farmácia Hospitalar visando dinamizar e melhorar a assistência farmacêutica prestada na unidade hospitalar.Neste estágio será apresentado aos estudantes  a Farmácia Hospitalar como um órgão de abrangência assistencial técnica-científica e administrativa, onde se desenvolvem atividades ligadas à produção, ao armazenamento, ao controle, a dispensação e a destruição de medicamentos e correlatos às unidades hospitalares, bem como a orientação de pacientes internos e ambulatoriais visando sempre a eficácia da terapêutica, além da redução dos custos, voltando-se, também, para o desenvolvimento da inter- relação dos diversos profissionais da saúde, o ensino e a pesquisa, propiciando um vasto campo de aprimoramento profissional.",
+        "codigo": "FAR0147"
+    },
+    {
+        "nome": "ESTÁGIO EM ASSISTÊNCIA FARMACÊUTICA 2 - FARMÁCIA COMUNITÁRIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0131 ) OU ( FAR0177 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0068 )",
+        "equivalencias_especificas": [],
+        "ementa": "O Estágio visa consolidar um processo de ensino-aprendizagem ao final do qual o aluno deterá atitudes, habilidades e conhecimentos referentes à Assistência Farmacêutica Comunitária.",
+        "codigo": "FAR0148"
+    },
+    {
+        "nome": "ESTAGIO EM BIOTECNOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0061 )",
+        "equivalencias_especificas": [],
+        "ementa": "Utilizando técnicas de biotecnologia, biologia molecular, farmacologia e cultura de células, a disciplina procura treinar, com atividade laboratorial, os alunos para as técnicas de transformação, crescimento e purificação de proteínas, e outras para a compreensão das pesquisas atuais sobre o estudo da obtenção e ação de fármacos.",
+        "codigo": "FAR0130"
+    },
+    {
+        "nome": "ESTÁGIO EM CONTROLE DE QUALIDADE DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0139 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0070 )",
+        "equivalencias_especificas": [],
+        "ementa": "## => ENSAIOS BIOLÓGICOS   E  SEUS  REQUISITOS. PADRÕES.  PRECAUÇÕES EMANEJO DE ANIMAIS   DE   LABORATÓRIO   TESTE   DE  PIROGÊNIO: EM ANIMAIS(COELHO)  E \"in vitro\"  COM  Limulus amoebocyte Lysate (LAL) PARA PRESENÇA DE ENDOTOXIMAS. CONTROLE  MICROBIOLÓGICA  DE  MEDICAMENTOS.  GRAU   DERISCO DOS MICROORGANISMOS. CONTAGEM DE MICROORGANISMOS  VIÁVEIS,MÉTODO EM PLACA E EM TUBOS (NÚMERO   MAIS   PROVÁVEIS)    PESQUISA DEMICROORGANISMOS   PATÓGENOS:   MÉTODOS   MICROBIOLÓGICO.   TESTE  DE ESTERILIDADE.ANÁLISE DAS PROPRIEDADES FISICO-QUÍMICAS DE PRODUTOSFARMACÊUTICAS E COSMÉTICOS.TESTES FÍSICOS,MÉTODOS GRAVIMÉTRICOSTÉCNICAS     POTENCIOMETRICAS.   MÉTODOS     TITULOMÉTRICOS.   TÉCNICAS ESPECTROFOTOMÉTRICAS.    TÉCNICAS    CROMOTOGRÁFICAS.   DOSAGEM DEFORMAS FARMACÊUTICAS. ESTUDO DE ESTABILIDADE. CONTROLE DE PRODUTOS QUE REQUEREM DETERMINAÇÃO ENZIMÁTICA.",
+        "codigo": "FAR0151"
+    },
+    {
+        "nome": "ESTÁGIO EM FARMACOGNOSIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0064 )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudos aprofundados de como passar da planta ao medicamento e de como controlar a qualidade dos medicamentos fitoterápicos, utilizando para isto os métodos de extração, purificação e caracterização de drogas naturais de origem vegetal e os testes físico-químicos aplicáveis ao controle de qualidade.",
+        "codigo": "FAR0138"
+    },
+    {
+        "nome": "ESTÁGIO EM FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina treina o aluno a realizar pesquisas referentes aos mecanismos de ação e/ou aspectos clínicos de diversas classes de fármacos, assim como identificar possíveis alvos farmacológicos para o desenvolvimento de novas drogas.",
+        "codigo": "FAR0149"
+    },
+    {
+        "nome": "ESTÁGIO EM FARMACOTÉCNICA E COSMETOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Trabalho de complementação da aprendizagem em atividades técnico-farmacêuticas e de pesquisa, a fim de se consolidarem os ensinamentos básicos de farmacotécnica e cosmetologia e possibilitar a integração dos conhecimentos teóricos e práticos, visando um aperfeiçoamento técnico e científico.",
+        "codigo": "FAR0154"
+    },
+    {
+        "nome": "ESTAGIO EM FISIOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0052 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina introduz diversas técnicas de biologia molecular e celular como a construção de mutantes, os ensaios de interação proteína-proteína e proteína-DNA e os ensaios de transfecção em cultura de células, fundamentais para a investigação das alterações dos mecanismos transcricionais em doenças hereditárias, endócrinas e do metabolismo.",
+        "codigo": "FAR0122"
+    },
+    {
+        "nome": "ESTAGIO EM GENETICA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0055 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina Estágio em Genética visa concorrer para a formação do profissional farmacêutico através do entendimento do papel dos processos básicos da biologia molecular assim como sua aplicação prática.",
+        "codigo": "FAR0123"
+    },
+    {
+        "nome": "ESTÁGIO EM GERÊNCIA DE ASSISTÊNCIA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0128 ) OU ( FAR0177 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Utilizando projetos já estabelecidos  nas unidades de governo responsáveis pela gerência de uma política de medicamentos, o aluno deverá estudar a organização e estratégias desenvolvidas na tomada de decisões na área de acesso ao medicamento - seleção, programação, aquisição, produção, armazenamento e distribuição e a promoção ao uso racional de medicamentos prescrição, dispensação, farmacovigilância, capacitação dos profissionais de saúde e educação do paciente.",
+        "codigo": "FAR0046"
+    },
+    {
+        "nome": "ESTAGIO EM IMUNOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0053 )",
+        "equivalencias_especificas": [],
+        "ementa": "a definir",
+        "codigo": "FCS0054"
+    },
+    {
+        "nome": "ESTÁGIO EM METABOLISMO MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0059 ) OU ( FCS0060 )",
+        "equivalencias_especificas": [],
+        "ementa": "Utilizando técnicas de biologia molecular, farmacologia e cultura de células, a disciplina procura treinar com atividade laboratorial os alunos para o estudo da ação de hormônios e ligantes de receptores envolvidos na regulação do metabolismo celular, como por exemplo receptor do hormônio tireoidiano, do fator ativador de peroxissomo.",
+        "codigo": "FAR0129"
+    },
+    {
+        "nome": "ESTÁGIO EM PESQUISA E POLÍTICA DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0050 ) OU ( FCS0051 )",
+        "equivalencias_especificas": [],
+        "ementa": "Esta disciplina é um estágio de pesquisa em que os alunos dedicam pelo menos 6 horas semanais e participar em uma das pesquisas em andamento na área de Política de Medicamentos.",
+        "codigo": "FAR0121"
+    },
+    {
+        "nome": "ESTÁGIO EM PRODUÇÃO DE IMUNOBIOLÓGICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0141 E FAR0140 ) OU ( FAR0141 E FAR0007 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0019 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0045"
+    },
+    {
+        "nome": "ESTÁGIO EM TECNOLOGIA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Definições e objetivos da Tecnologia Farmacêutica Técnicas de pulverização de matérias-primas sólidas, Tecnologia das formas farmacêuticas sólidas e semi-sólidas (pomadas e sistemas dispersos), Preparação das formas farmacêuticas pressurizadas e dos inalantes de pó seco, Tecnologia das formas farmacêuticas estéreis, Tecnologia das formas farmacêuticas de liberação modificada: lipossomas, nanocápsulas e sistemas transdérmicos materiais de acondicionamento das preparações farmacêuticas.",
+        "codigo": "FAR0155"
+    },
+    {
+        "nome": "ESTÁGIO EM TOXICOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( IQD0051 OU FCE0238 OU FCE0260 OU FAR0024 OU IQD0033 OU IQD0126 ) OU ( FAR0180 E FAR0185 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0049 )",
+        "equivalencias_especificas": [],
+        "ementa": "Avaliação da exposição humana a contaminantes tóxicos através da análise de água, solo, ar, alimentos e material biológico.",
+        "codigo": "FAR0120"
+    },
+    {
+        "nome": "ESTÁGIO LIVRE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0139 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => ESTÁGIO QUE O ALUNO PODERÁ CURSAR EM QUALQUER ÁREA  DA  FAR-MÁCIA: HOSPITAL, COMUNIDADE, INDUSTRIA OU VIGILÂNCIA SANITÁRIA.",
+        "codigo": "FAR0152"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0173 E FAR0004 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Neste estágio o estudante desenvolverá atividades na Farmácia Escola do HUB/UnB ou em outras farmácias no âmbito do Serviço Único de Saúde (SUS), tendo contato com a dispensação de medicamentos, orientação do usuário do medicamento e/ou a gestão da assistência farmacêutica.",
+        "codigo": "FAR0006"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0173 E FAR0176 E FAR0134 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0005 )",
+        "equivalencias_especificas": [],
+        "ementa": "Neste estágio o estudante desenvolverá atividades em ambientes de drogarias e/ou farmácias magistrais de iniciativa pública ou privada, tendo contato com a dispensação de medicamentos, orientação do usuário do, medicamento e a gestão do estabelecimento farmacêutico. Ademais, no caso das farmácias magistrais terá contato com a preparação de formas farmacêuticas oficinais e magistrais, considerando a viabilidade técnica das formulações, incompatibilidades e estabilidade, acondicionamento e rotulagem adequados.",
+        "codigo": "FAR0017"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0023 E FAR0006 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0006 )",
+        "equivalencias_especificas": [],
+        "ementa": "Neste estágio o estudante desenvolverá atividades em hospitais públicos e/ou privados, incluindo atividades práticas relacionadas aos princípios de administração e legislação aplicados à farmácia hospitalar suprimento de produtos de saúde e medicamentos seleção, aquisição, armazenamento, controle da qualidade, controle de estoque e dispensação de medicamentos e produtos de saúde participação de comissões de controle de infecção hospitalar, farmacovigilância, gerência hospitalar de risco sanitário, farmacoterapêutica, preparação de nutrição parenteral e/ou quimioterápicos farmácia clínica integração à equipe multiprofissional da área de saúde.",
+        "codigo": "FAR0018"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FCE0006 OU FAR0248 ) E ( FAR0251 OU FCE0367 ) E ( FAR0171 ) E ( FAR0009 ) E ( FAR0021 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Neste estágio o estudante desenvolverá atividades em uma das seguintes áreas de atuação profissional: farmácia industrial, alimentos ou análises clínicas. A área de estágio é de livre escolha do discente, podendo ser Indústrias farmoquímicas, de medicamentos, de alimentos, de cosméticos, de produtos domissanitários, de caráter público ou privado Laboratórios de controle da qualidade de medicamentos, alimentos, cosméticos e saneantes, de caráter público ou privado Laboratórios de análises clínicas, patologia clínica, centros de pesquisas que realizem atividades laboratoriais no cenário das análises clínicas e/ou laboratórios forenses Empresas públicas ou privadas que realizem assessoria científica a indústrias de cosméticos, alimentos ou farmacêutica Agências e órgãos regulamentadores, de fiscalização, gerenciamento e/ou administração farmacêutica ou alimentícia, de caráter público ou privado Instituições e Centros de Pesquisa Internato rural realizado em Secretarias Municipais de Saúde Instituições e Centros de Pesquisa ou Internato rural realizado em Secretarias Municipais de Saúde.",
+        "codigo": "FAR0019"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO: AMBULATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0011"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO: DROGARIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0012"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO: HOSPITALAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0013"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO: LIVRE 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0014"
+    },
+    {
+        "nome": "ESTÁGIO SUPERVISIONADO: LIVRE 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0015"
+    },
+    {
+        "nome": "FARMACOBOTÂNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FCE0192 OU IQD0125 OU FCE0201 OU CEL0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0220 ) OU ( FCE0420 E FCE0421 ) OU ( BOT0043 ) OU ( FAR0030 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Introdução á Farmacobotânica e de morfologia e anatomia vegetal. Reconhecimento de plantas medicinais, tanto para a planta inteira como seus tecidos. Praticas laboratoriais relacionadas aos temas, com observações das diversas estruturas vegetais sob microscópico ótico, usando lâminas temporais e permanentes. Controle de qualidade da droga. Cultivos básicos para plantas medicinais tantos exóticos como nativos, produtoras de substâncias de interesse terapêutico.",
+        "codigo": "FAR0249"
+    },
+    {
+        "nome": "FARMACOCINÉTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAR0144 )",
+        "equivalencias_especificas": [],
+        "ementa": "A farmacocinética estuda o \"movimento\" dos fármacos. Podendo ser definida como a medida e formal e interpretação das mudanças das concentrações dos fármacos em um ou mais diferentes regiões do corpo. Sendo assim a farmacocinética envolve o estudo da absorção, distribuição e eliminação (metabolismo e excreção) dos fármacos e seus metabólitos. Utilizando modelos matemáticos com objetivo de prever e modificar as variáveis farmacocinéticas de forma adequada para otimizar o melhor uso dos medicamentos.",
+        "codigo": "FAR0145"
+    },
+    {
+        "nome": "FARMACODINÂMICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CFS0041 E CEL0054 ) OU ( CEL0067 ) OU ( CEL0083 ) OU ( CEL0094 ) OU ( CFS0010 ) OU ( CFS0037 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0057 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) ) OU ( FCS0057 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) ) OU ( FCS0057 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) ) OU ( FCS0057 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) ) OU ( FCS0057 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) ) OU ( FCS0057 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "O objetivo da disciplina é instruir os alunos sobre o mecanismo de ação das principais drogas utilizadas na prática farmacêutica. Os principais pontos abordados incluem noções básicas de farmacologia geral, função de receptores de membrana, acoplados à enzimas e nucleares, ação dos autacóides, e farmacologia do sistema nervoso autônomo, renal, cardiovascular, gastrointestinal, endócrino e hematopoiético. Além disso a disciplina utiliza aulas práticas para demonstrar os conceitos básicos que governam a resposta celular à ação de drogas que atuam em receptores nucleares.",
+        "codigo": "FAR0125"
+    },
+    {
+        "nome": "FARMACODINAMICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0125 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Quimioterapia do câncer, drogas antivirais e antifúngicas. Antibióticos antibacterianos. Mediadores da dor , Analgésicos antipiréticos e analgésicos opióides. Anestésicos locais e anestésicos gerais. Fármacos ansiolíticos  e drogas hipnóticas. Neurolépticos, antidepressivos e antimaníacos. Anti- convulsivantes  e  antiparkinsonianos.  Farmacodependência.",
+        "codigo": "FAR0132"
+    },
+    {
+        "nome": "FARMACOGNOSIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0030 E FAR0172 E IQD0072 ) OU ( FAR0030 E FAR0125 E IQD0072 ) OU ( FCE0220 E FAR0167 ) OU ( FCE0220 E FAR0172 E IQD0072 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0258 E FCE0352 ) OU ( FCS0058 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0258 ) E ( FCE0352 ) ) OU ( FCS0058 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0258 ) E ( FCE0352 ) ) OU ( FCS0058 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0258 ) E ( FCE0352 ) ) OU ( FCS0058 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0258 ) E ( FCE0352 ) ) OU ( FCS0058 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0258 ) E ( FCE0352 ) ) OU ( FCS0058 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Evidenciar a importância da Farmacognosia e sua multidisciplinaridade, que exige o conhecimento da Botânica, Química Extrativa, Química Analítica e Farmacologia. Evidenciar como passar do produto natural (planta, animal e microorganismo) ao medicamento. Evidenciar a pesquisa de novas substâncias naturais apresentando um interesse terapêutico e aprofundar o estudo das substâncias naturais já introduzidas em terapêutica. Conhecer os diferentes grupos químicos em que os produtos naturais se enquadram.",
+        "codigo": "FAR0127"
+    },
+    {
+        "nome": "FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0019 ) OU ( CEL0067 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0246 ) OU ( ICB0151 ) OU ( CFS0006 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( ICB0198 OU CFS0014 OU FAR0032 ) ) OU ( ICB0151 OU CFS0006 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0198 OU CFS0014 OU FAR0032 ) ) OU ( ICB0151 OU CFS0006 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0198 OU CFS0014 OU FAR0032 ) ) OU ( ICB0151 OU CFS0006 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) ) OU ( ICB0151 OU CFS0006 )",
+                "matriz_curricular": "ENFERMAGEM - Enfermeiro - Presencial - D",
+                "curriculo": "7412/-2 - 2010.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) ) OU ( ICB0151 OU CFS0006 )",
+                "matriz_curricular": "ENFERMAGEM - Enfermeiro - Presencial - D",
+                "curriculo": "7412/1 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( ICB0198 OU CFS0014 OU FAR0032 ) ) OU ( ICB0151 OU CFS0006 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Absorção,  distribuição,  biotransformação  e  eliminação de fármacos.Princípios Farmacodinâmicos, interação droga-receptorIntrodução  ao  Sistema  Nervoso  Autônomo. Parassimpatomiméticos diretos, anticolinesterásicos e parassimpatolíticos. Ganglioplégicos e Bloqueadores neuromusculares. Simpatomiméticos , Simpatolíticos  e  Anti-hipertensivos.Farmacologia da dor  e  Anestésicos locais.Mediadores químicos do processo inflamatório.Anti-inflamatórios não esteroidais  e  Corticosteróides.Farmacologia dos opióides , Ansiolíticos, e Anestésicos gerais.Farmacologia dos principais antibióticos.",
+        "codigo": "FAR0031"
+    },
+    {
+        "nome": "FARMACOLOGIA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CFS0037 E FAR0124 ) OU ( CFS0041 E FAR0124 ) OU ( CFS0041 E GEM0014 E FAR0142 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCE0246 E FCE0256 E FCE0370 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Princípios básicos da farmacodinâmica, farmacocinética e farmacologia clínica. Farmacologia dos sistemas adrenérgico e colinérgico, e a ação dos bloqueadores neuromusculares. Farmacologia dos sistemas endócrino e gastrointestinal. Fármacos antiinflamatórios, analgésicos opióides e anestésicos.",
+        "codigo": "FAR0172"
+    },
+    {
+        "nome": "FARMACOLOGIA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0172 )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCE0246 E FCE0256 E FCE0370 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Farmacocinética. Farmacologia do sistema nervoso central e dos sistemas cardiovascular e renal.",
+        "codigo": "FAR0177"
+    },
+    {
+        "nome": "FARMACOLOGIA 3",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0177 )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCE0246 E FCE0256 E FCE0370 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Farmacologia dos sistemas respiratório e hematopoiético. Fármacos imunossupressores e antineoplásicos. Fármacos antibacterianos, antivirais, anti-fúngicos e anti-parasitários. Farmacogenômica. Desenvolvimento e descoberta de drogas.",
+        "codigo": "FAR0004"
+    },
+    {
+        "nome": "FARMACOLOGIA CLINICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 E CFS0041 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Abordagem dos Princípios Gerais da terapêutica clínica dos medicamentos nas diversas patologias. Nesta disciplina será ensinado os princípios básicos de farmacocinética, ensaios clínicos assim como estimular o aluno a desenvolver um extenso conhecimento de drogas para habilitá-lo ao manuseio de medicamentos envolvidos na terapêutica clínica. Um dos principais objetivos a ser cumprido é o definir quais os medicamentos indicados e contra-indicados para determinadas patologias, assim como particularizar as formas de administração destas drogas, suas interações medicamentosas e seus efeitos colaterais.",
+        "codigo": "FAR0128"
+    },
+    {
+        "nome": "FARMACOLOGIA CLINICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FMD0095 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0004 ) E ( FAR0172 ) E ( FAR0177 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A farmacologia clínica  , encontra-se entre os vários meios da obtenção do sentido amplo da definição de terapêutica .A verdadeira integração ou entrelaçamento entre a farmacologia e a terapêutica define  a importância teórica da aplicabilidade desta disciplina no contexto do curso de fármácia .",
+        "codigo": "FAR0131"
+    },
+    {
+        "nome": "FARMACOLOGIA MOLECULAR EXPERIMENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 ) OU ( CEL0062 ) OU ( CEL0082 ) OU ( CEL0094 ) OU ( CEL0026 ) OU ( CEL0077 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0065 )",
+        "equivalencias_especificas": [],
+        "ementa": "## => A FARMACOLOGIA  MOLECULAR  EXPERIMENTAL  TEM  COMO  OBJETIVOPROPICIAR O APRENDIZADO DE TÉCNICAS LABOLATÓRIAIS RELACIONADAS  APESQUISA NA ÁREA DE DESENVOLVIMENTO DE FÁRMACOS.",
+        "codigo": "FAR0146"
+    },
+    {
+        "nome": "FARMACOTÉCNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0126 E IQD0296 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0136 ) OU ( FCE0308 E FCE0369 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamentos teóricos e práticos para a elaboração de produtos farmacêuticos eficazes e estáveis, envolvendo o estudo das operações básicas e prévias ao processo de fabricação de formas farmcêuticas, com foco na relação entre composição e biodisponibilidade, acondicionamento, conservação, estabilização, incompatibilidades e via de administração.",
+        "codigo": "FAR0176"
+    },
+    {
+        "nome": "FARMACOTÉCNICA COM ASPECTOS TECNOLÓGICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0176 ) OU ( FAR0136 ) OU ( FCE0369 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0139 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0402 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0402 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0402 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0402 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0402 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "1 - Boas práticas de fabricação de medicamentos na indústria farmacêutica. 2 -  Aspectos relacionados aodesenvolvimento e fabricação de diferentes formas farmacêuticas, tais como comprimidos convencionais e deliberação modificada sistemas transdérmicos preparações parenterais sistemas vetorizados enanoparticulados e dispositivos de administração pulmonar.",
+        "codigo": "FAR0009"
+    },
+    {
+        "nome": "FARMACOTECNICA E COSMETOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0126 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0176 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo das operações básicas e prévias do processo de fabricação de formas farmacêuticas e formas de dosificação. Ao final do curso o aluno deverá estar apto ao desenvolvimento de formas farmacêuticas alopáticas e suas formas de dosificação.",
+        "codigo": "FAR0136"
+    },
+    {
+        "nome": "FÍSICA INDUSTRIAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( IFD0189 ) OU ( FCE0225 ) OU ( FAR0176 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamento das Operações Farmacêuticas Industriais e suas aplicações na produção de medicamentos e de alimentos, habilitando o aluno a identificar e utilizar o processo físico a ser empregado na produção farmacêutica em escala industrial.",
+        "codigo": "FAR0140"
+    },
+    {
+        "nome": "FÍSICA INDUSTRIAL FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0176 ) OU ( IFD0189 E FAR0136 ) OU ( FCE0369 E FCE0225 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0140 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamento das operações farmacêuticas industriais e suas aplicações na produção de medicamentos e de alimentos, habilitando o aluno a identificar e utilizar o processo físico a ser empregado na produção farmacêutica em escala industrial e no tratamento de efluente para a preservação do meio ambiente.",
+        "codigo": "FAR0007"
+    },
+    {
+        "nome": "FISIOPATOLOGIA DAS DOENÇAS HEMATOLÓGICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( GEM0014 E CFS0041 ) OU ( FAR0124 E CFS0037 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina fornecerá subsídios teóricos que permitam que os alunos compreendam os mecanismos de desenvolvimento das doenças hematológicas e os associem com as técnicas laboratoriais disponíveis para a elucidação diagnostica. Nesse âmbito, serão abordadas as anemias nutricionais e hemolíticas, além das neoplasias hematológicas.",
+        "codigo": "FAR0175"
+    },
+    {
+        "nome": "FISIOPATOLOGIA DO COMPORTAMENTO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CFS0037 ) OU ( CFS0041 ) OU ( CFS0055 ) OU ( CFS0053 ) OU ( CFS0048 ) OU ( CFS0010 ) OU ( FCE0222 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Neuroanatomia, neurofisiologia e neuroquímica dos mecanismos homeostásicos e patológicos do comportamento.",
+        "codigo": "FAR0184"
+    },
+    {
+        "nome": "FISIOPATOLOGIA E FARMACOLOGIA DAS DOENÇAS ENDÓCRINAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina abordará a fisiopatologia de doenças endócrinas comuns, como a obesidade, diabetes, dislipidemia, síndrome dos ovários policísticos, disfunções tireoidianas e adrenais, hipogonadismo e alterações da secreção de hormônio do crescimento. Abordará, ainda, o tratamento farmacológico de cada uma destas condições.",
+        "codigo": "FAR0029"
+    },
+    {
+        "nome": "FUNDAMENTOS DE BIOTECNOLOGIA DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( GEM0014 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FAR0124 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CEL0095 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CEL0095 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A disciplina visa concorrer para a formação do profissional através do entendimento do papel dos processos na biologia e diferenciação celular, assim como sua aplicação prática. O conhecimento não será tratado como um fim em si, mas como um meio para se alcançar uma adequada formação profissional, oferecendo aos alunos o estímulo e os instrumentos necessários para que aprendam diferentes aspectos da biologia molecular.",
+        "codigo": "FAR0142"
+    },
+    {
+        "nome": "FUNDAMENTOS DE PARASITOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0137 E FMD0095 ) OU ( CEL0110 E FAR0174 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCS0007 ) OU ( ICB0299 ) OU ( FMD0003 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina de Parasitologia visa ao estudo das doenças parasitárias mais prevalentes que agravam a saúde do homem. Estudam-se em cada parasito: sua origem, posição sistemática, ecologia, morfologia, biologia (ciclo evolutivo), relação do parasito com o hospedeiro, sua epidemiologia, diagnóstico, controle e profilaxia. A abordagem multidisciplinar integrada dos temas visa a permitir a compreensão das doenças parasitárias, conjuntamente com o meio ambiente onde se formou a rede conectiva entre agentes etiológicos, hospedeiros e vetores.",
+        "codigo": "FAR0182"
+    },
+    {
+        "nome": "FUNDAMENTOS EM FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ICB0198 ) OU ( CFS0014 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-4 - 2004.1",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-2 - 2015.2",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/-3 - 2010.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCS0057 OU FAR0125 ) E ( FAR0128 ) E ( FAR0131 ) E ( FAR0132 ) ) OU ( ICB0198 OU CFS0014 )",
+                "matriz_curricular": "MEDICINA - Medico - Presencial - D",
+                "curriculo": "7111/1 - 2016.1",
+                "data_vigencia": "1993.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Introdução à Farmacologia.Noções de Farmacocinética  e  Farmacodinâmica.Estudo dos receptores farmacológicos.Anticolinesterásicos , Aminas simpatomiméticas.Farmacologia do Sistema Colinérgico  e  Adrenérgico.Farmacologia  dos  Autacóides .  Anti-histamímicos.Anti-inflamatórios não esteroidais  e  esteroidais.  Antibióticos.Farmacologia  da  dor ,  Anestésicos gerais  e  locais.Ansiolíticos  e  Sedativos.  Neurolépticos ,  Antidepressivos  e  Antimaníacos.Anticonvulsivantes  e  Antiparkinsonianos.Farmacodependência.",
+        "codigo": "FAR0032"
+    },
+    {
+        "nome": "GENÉTICA BÁSICA E MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0192 E FCE0204 E FCE0224 ) OU ( FAR0142 ) OU ( FCS0056 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0190 OU FCE0191 OU FCE0192 ) E ( FCE0202 OU FCE0203 OU FCE0204 ) E ( FCE0223 OU FCE0224 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CEL0095 ) E ( GEM0055 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CEL0095 ) E ( GEM0055 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0190 OU FCE0191 OU FCE0192 ) E ( FCE0202 OU FCE0203 OU FCE0204 ) E ( FCE0223 OU FCE0224 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CEL0095 ) E ( GEM0055 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0190 OU FCE0191 OU FCE0192 ) E ( FCE0202 OU FCE0203 OU FCE0204 ) E ( FCE0223 OU FCE0224 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CEL0095 ) E ( GEM0055 ) ) OU ( FCS0056 )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/2 - 2018.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estudo dos diferentes mecanismos moleculares e o papel dos mesmos na biologia e diferenciação celular, assim como sua aplicação prática na elucidação da gênese de diversas doenças, identificação de novos alvos terapêuticos e desenvolvimento de novas abordagens terapêuticas.",
+        "codigo": "FAR0124"
+    },
+    {
+        "nome": "GESTÃO DA QUALIDADE E SAÚDE BASEADA EM VALOR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [],
+        "ementa": "Ferramentas da gestão da qualidade aplicadas a todos os níveis de atenção à saúde. Ferramentas de gestão de riscos e segurança do paciente. Estudo das ciências da implementação e da melhoria.  Experiência do paciente. Modelos de remuneração em saúde. Saúde baseada em valor.",
+        "codigo": "FAR0039"
+    },
+    {
+        "nome": "HEMATOLOGIA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0031 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FMD0157 E FMD0159 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "AO FINAL DO CURSO O ALUNO DEVERA ESTAR  APTO A DISTINGUIR AS  PRINCI-PAIS SINDROMES HEMATOLOGICAS  REALIZAR UM HEMOGRAMA  COMPLETO TIPAR  ETRANSFUNDIR UM SANGUE E CONHECE OS PRINCIPAIS DISTURBIOS DA HEMOSTASIA.",
+        "codigo": "FAR0056"
+    },
+    {
+        "nome": "HEMATOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FCE0307 ) OU ( CFS0039 E FAR0174 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0006 ) OU ( FCE0426 E FCE0427 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "Hematologia laboratorial na prática clínica. Técnicas de colheita de sangue. Anticoagulantes utilizados no laboratório de hematologia. Hemograma: índices hematométricos unidades de medição em hematologia. Observação do esfregaço de sangue periférico: anomalias quantitativas e qualitativas dos glóbulos vermelhos e brancos. Noções de hematopoiese: eritropoiese e mielopoieses. Noções de coagulação e hemostase. Testes laboratoriais utilizados no diagnóstico de anomalias da coagulação. Testes do glóbulo branco: leucemias agudas e crônicas.",
+        "codigo": "FAR0248"
+    },
+    {
+        "nome": "IMUNOFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CFS0041 ) OU ( CFS0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( CEL0025 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( CEL0025 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aprendizagem dos aspectos básicos da Imunologia e suas aplicações práticas na área farmacêutica. Compreensão dos processos patológicos relacionados ao sistema imunológico, passíveis de intervenções farmacológicas.",
+        "codigo": "FAR0137"
+    },
+    {
+        "nome": "INTERAÇÃO FÁRMACO-NUTRIENTE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0032 ) OU ( FAR0033 ) OU ( FAR0172 ) OU ( FAR0031 ) OU ( FCE0246 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Farmacocinética: dinâmica da absorção, da distribuição e da eliminação dos fármacos (revisão).Fundamentos da medicina nutricionalIntrodução aos agentes farmacológicos terapêuticosManejo na administração de medicamentos por via enteralTerapia de Nutrição Parenteral (TNP)Interações fármaco-nutrienteComunicação e orientação do profissional de saúde ao usuário.",
+        "codigo": "FAR0036"
+    },
+    {
+        "nome": "INTRODUCAO A ANATOMIA E EMBRIOLOGIA HUMANAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FMD0148 E FMD0150 ) )",
+        "equivalencias_especificas": [],
+        "ementa": "ASPECTOS BASICOS DA MORFOLOGIA HUMANA. AULAS COM ESTUDO  ORIENTADO DEANATOMIA  SISTEMATICA  COM COMPLEMENTACAO RADIOLOGICA  E PADRONIZACAO DANOMECLATURA.                                                            TODOS OS SISTEMAS SAO APRESENTADOS COM SUA ANATOMIA FUNCIONALE SAO DADASAS NOCOES BASICAS DA MORFOGENESE E DA ORGANOGENESE DE MODO O MAIS  INTE-GRADOS POSSIVEL.",
+        "codigo": "FAR0051"
+    },
+    {
+        "nome": "INTRODUÇÃO A CIÊNCIAS FARMACÊUTICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1 - Introdução dos estudantes a estrutura do Curso de Farmácia na Universidade de Brasília. 2 -  Introdução dos estudantes às diferentes áreas de conhecimento abrangidas nas Ciências Farmacêuticas. 3 - Áreas de atuação profissional do farmacêutico. 4 - História do curso de Farmácia e a influência que os avanços científicos e tecnológicos exercem sobre eles. 5 - Oportunidades de inserção no mercado de trabalho. 6 - Pesquisa acadêmica.",
+        "codigo": "FAR0016"
+    },
+    {
+        "nome": "INTRODUÇÃO A FARMÁCIA HOSPITALAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0119 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1 - Caracterização e implantação da Farmácia Hospitalar. 2 - Seleção e dispensação hospitalar de medicamentos. 3 - Farmácia clínica e uso racional de medicamentos.",
+        "codigo": "FAR0023"
+    },
+    {
+        "nome": "INTRODUÇÃO À GESTÃO DA QUALIDADE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0165"
+    },
+    {
+        "nome": "INTRODUÇÃO AO CONTROLE DE QUALIDADE DE MEDICAMENTOS E CORRELATOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0136 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fornecer subsídios teóricos para a avaliação da qualidade de produtos farmacêuticos e correlatos através de análise qualitativa e quantitativa.",
+        "codigo": "FAR0044"
+    },
+    {
+        "nome": "INTRODUÇÃO À VIROLOGIA HUMANA E ANIMAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0095 ) OU ( FAR0124 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Propõe-se que os discentes dos cursos da área de saúde, biológicas e biomédicas exercitem os conhecimentos sobre as diferentes famílias de vírus, a\ntaxonomia e classificação destas estruturas, mecanismos de infecção e replicação em diferentes células de variados hospedeiros, com maior enfoque ao\nhomem e animais domésticos. Objetiva-se ainda que os temas expostos fomentem discussões acadêmicas sobre os mecanismos de patogênese viral e de\ndefesa do hospedeiro frente a estas infecções, assim como as medidas de prevenção e controle, e as terapias antivirais utilizadas. Como tema final,\nexpõe-se a epidemiologia de viroses emergentes e reemergentes, colocando em ênfase os eventos mais recentes da literatura especializada.",
+        "codigo": "FAR0179"
+    },
+    {
+        "nome": "LABORATÓRIO EM FARMACOEPIDEMIOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0128 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0071 )",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0156"
+    },
+    {
+        "nome": "MEDICAMENTOS FITOTERÁPICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1- Estudo dos aspectos químicos e biológicos de Medicamentos Fitoterápicos2- Estudo da legislação brasileira e internacional. Histórico e inserção no Sistema de Saúde. Acesso ao patrimônio genético brasileiro 3- Estudo das exigências da Fitoterapia Clínica:a)\tdiagnóstico clínico preciso da doençab)\tdiagnóstico clínico preciso do estado fisiológico do pacientec)\tconhecimento científico-técnico aprofundado:\"\tPropriedades dos Medicamentos Fitoterápicos\"\tIndicação baseada no uso tradicionalConfirmação experimental - estudo da literatura científicaEstabelecimento pela pratica médica  4- Estudo dos Medicamentos Fitoterápicos: Ginkgo biloba, Serenoa repens, Valeriana officinalis e Mikania glomerata  5- Medicamentos Fitoterápicos a partir de plantas brasileiras e estrangeiras",
+        "codigo": "FAR0158"
+    },
+    {
+        "nome": "MÉTODOS DE PESQUISA EM CIÊNCIAS FARMACÊUTICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Propiciar ao estudante de Farmácia autonomia na elaboração de pesquisa bibliográficas, conceituando e apontando as etapas da mesma no contexto de pesquisa cinetífica bem como estimular e aperfeiçoar a capacidade de desenvolver a observação, análise e síntese, orientando-o para a compreensão, recuperação, avaliação e uso dos dados obtidos na pesquisa bibliográfica, baseado no conhecimento da estrutura de projetos e pesquisa e de comunicação formal científica.",
+        "codigo": "FAR0166"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE INSTRUMENTAL PARTE PRÁTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0185 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0214"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE INSTRUMENTAL PARTE TEÓRICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0180 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0359"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE INSTRUMENTAL TEÓRICA E EXPERIMENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0221"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE ORGÂNICA DOS FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0167 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0204"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0168 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0244"
+    },
+    {
+        "nome": "MONITORIA EM ANÁLISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS PARTE PRÁTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0186 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0247"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE QUALITATIVA E QUANTITATIVA DOS FÁRMACOS PARTE TEÓRICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0181 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0360"
+    },
+    {
+        "nome": "MONITORIA EM ASSISTÊNCIA FARMACÊUTICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0119 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0199"
+    },
+    {
+        "nome": "MONITORIA EM ASSISTÊNCIA FARMACÊUTICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0173 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0208"
+    },
+    {
+        "nome": "MONITORIA EM ATENÇÃO FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0162 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0341"
+    },
+    {
+        "nome": "MONITORIA EM AVALIAÇÃO DE TECNOLOGIAS EM SAÚDE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0285"
+    },
+    {
+        "nome": "MONITORIA EM BIOPROSPECÇÃO FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0224"
+    },
+    {
+        "nome": "MONITORIA EM BIOQUÍMICA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0251 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0254"
+    },
+    {
+        "nome": "MONITORIA EM BIOTECNOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0170 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0349"
+    },
+    {
+        "nome": "MONITORIA EM BOTÂNICA APLICADA A FARMÁCIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0277"
+    },
+    {
+        "nome": "MONITORIA EM BROMATOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0225"
+    },
+    {
+        "nome": "MONITORIA EM CIÊNCIA ALÉM DA CIÊNCIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0198"
+    },
+    {
+        "nome": "MONITORIA EM CITOLOGIA CLÍNICA CÉRVICO-VAGINAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0222"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLE DE QUALIDADE FÍSICO-QUÍMICO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0188"
+    },
+    {
+        "nome": "MONITORIA EM CONTROLE DE QUALIDADE MICROBIOLÓGICO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0189"
+    },
+    {
+        "nome": "MONITORIA EM DEONTOLOGIA E LEGISLAÇÃO FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0250 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0255"
+    },
+    {
+        "nome": "MONITORIA EM DIAGNÓSTICO LABORATORIAL EM IMUNOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0220"
+    },
+    {
+        "nome": "MONITORIA EM DIAGNÓSTICO LABORATORIAL EM MICROBIOLOGIA  CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0196"
+    },
+    {
+        "nome": "MONITORIA EM DIAGNÓSTICO LABORATORIAL EM PARASITOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0193"
+    },
+    {
+        "nome": "MONITORIA EM ECONOMIA E GESTÃO DE EMPRESAS FARMACÊUTICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0134 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0202"
+    },
+    {
+        "nome": "MONITORIA EM ELEMENTOS DE FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0033 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0280"
+    },
+    {
+        "nome": "MONITORIA EM EMBRIOLOGIA HUMANA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0075 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0298"
+    },
+    {
+        "nome": "MONITORIA EM ENZIMOLOGIA E TECNOLOGIA DE FERMENTAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0141 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0235"
+    },
+    {
+        "nome": "MONITORIA EM EPIDEMIOLOGIA DO MEDICAMENTO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0135 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0233"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM ANÁLISE DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0153 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0238"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM ASSISTÊNCIA FARMACÊUTICA 1 - FARMÁCIA HOSPITALAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0147 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0326"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM ASSISTÊNCIA FARMACÊUTICA 2 - FARMÁCIA COMUNITÁRIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0148 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0327"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO EM BIOTECNOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0130 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0232"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM CONTROLE DE QUALIDADE DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0151 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0330"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM FARMACOGNOSIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0138 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0234"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0149 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0237"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM FARMACOTÉCNICA E COSMETOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0154 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0239"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO EM FISIOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0122 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0228"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO EM GENETICA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0123 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0229"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM GERÊNCIA DE ASSISTÊNCIA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0291"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO EM IMUNOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FCS0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FCS0080"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM METABOLISMO MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0129 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0231"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM PESQUISA E POLÍTICA DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0121 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0227"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM PRODUÇÃO DE IMUNOBIOLÓGICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0290"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM TECNOLOGIA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0155 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0240"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO EM TOXICOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0120 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0226"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO LIVRE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0152 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0331"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0191"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0217"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0218"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0219"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO: AMBULATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0258"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO: DROGARIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0259"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO: HOSPITALAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0260"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO: LIVRE 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0261"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO SUPERVISIONADO: LIVRE 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0262"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOCINÉTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0145 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0324"
+    },
+    {
+        "nome": "MONITORIA EM FARMACODINÂMICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0125 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0305"
+    },
+    {
+        "nome": "MONITORIA EM FARMACODINAMICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0132 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0312"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOGNOSIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0127 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0201"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0197"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0172 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0207"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0177 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0210"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA 3",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0190"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA CLINICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0128 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0308"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA CLINICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0131 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0311"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOLOGIA MOLECULAR EXPERIMENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0146 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0236"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOTÉCNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0176 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0209"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOTÉCNICA COM ASPECTOS TECNOLÓGICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0216"
+    },
+    {
+        "nome": "MONITORIA EM FARMACOTECNICA E COSMETOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0136 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0316"
+    },
+    {
+        "nome": "MONITORIA EM FÍSICA INDUSTRIAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0140 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0320"
+    },
+    {
+        "nome": "MONITORIA EM FÍSICA INDUSTRIAL FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0192"
+    },
+    {
+        "nome": "MONITORIA EM FISIOPATOLOGIA DAS DOENÇAS HEMATOLÓGICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0175 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0212"
+    },
+    {
+        "nome": "MONITORIA EM FISIOPATOLOGIA DO COMPORTAMENTO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0184 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0213"
+    },
+    {
+        "nome": "MONITORIA EM FISIOPATOLOGIA E FARMACOLOGIA DAS DOENÇAS ENDÓCRINAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0276"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DE BIOTECNOLOGIA DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0142 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0322"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DE PARASITOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0182 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0211"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS EM FARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0279"
+    },
+    {
+        "nome": "MONITORIA EM GENÉTICA BÁSICA E MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0124 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0200"
+    },
+    {
+        "nome": "MONITORIA EM GESTÃO DA QUALIDADE E SAÚDE BASEADA EM VALOR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0284"
+    },
+    {
+        "nome": "MONITORIA EM HEMATOLOGIA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0297"
+    },
+    {
+        "nome": "MONITORIA EM IMUNOFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0137 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0317"
+    },
+    {
+        "nome": "MONITORIA EM INTERAÇÃO FÁRMACO-NUTRIENTE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0282"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A ANATOMIA E EMBRIOLOGIA HUMANAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0296"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A CIÊNCIAS FARMACÊUTICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0194"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO A FARMÁCIA HOSPITALAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0195"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À GESTÃO DA QUALIDADE",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0165 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0344"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO AO CONTROLE DE QUALIDADE DE MEDICAMENTOS E CORRELATOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0289"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO À VIROLOGIA HUMANA E ANIMAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0179 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0246"
+    },
+    {
+        "nome": "MONITORIA EM LABORATÓRIO EM FARMACOEPIDEMIOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0156 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0335"
+    },
+    {
+        "nome": "MONITORIA EM MEDICAMENTOS FITOTERÁPICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0158 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0337"
+    },
+    {
+        "nome": "MONITORIA EM MÉTODOS DE PESQUISA EM CIÊNCIAS FARMACÊUTICAS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0166 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0345"
+    },
+    {
+        "nome": "MONITORIA EM PATOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0174 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0245"
+    },
+    {
+        "nome": "MONITORIA EM PLANTAS MEDICINAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0292"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS AVANÇADAS EM NEUROFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0272"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM FARMÁCIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0294"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM NEUROFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0160 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0339"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM QUÍMICA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0150 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0329"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM QUÍMICA ORGÂNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0157 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0241"
+    },
+    {
+        "nome": "MONITORIA EM PRÁTICAS EM VIROLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0215"
+    },
+    {
+        "nome": "MONITORIA EM QUIMICA FARMACEUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0230"
+    },
+    {
+        "nome": "MONITORIA EM QUÍMICA FARMACÊUTICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0273"
+    },
+    {
+        "nome": "MONITORIA EM REAÇÃO ADVERSA A MEDICAMENTO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0269"
+    },
+    {
+        "nome": "MONITORIA EM RECONHECIMENTO MOLECULAR DE FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0283"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIOS EM QUÍMICA FARMACÊUTICA E MEDICINAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0178 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0357"
+    },
+    {
+        "nome": "MONITORIA EM TÉCNICA INSTRUMENTAL FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0257"
+    },
+    {
+        "nome": "MONITORIA EM TECNOLOGIA DE ALIMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0171 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0206"
+    },
+    {
+        "nome": "MONITORIA EM TECNOLOGIA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0139 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0319"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM COSMETOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0288"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM FARMACOLOGIA APLICADA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0159 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0242"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM FARMACOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0223"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM NEUROFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0161 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0340"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS EM TOXICOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0286"
+    },
+    {
+        "nome": "MONITORIA EM TOXICOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0143 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0203"
+    },
+    {
+        "nome": "MONITORIA EM TOXICOLOGIA ANALÍTICA E DE ALIMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0163 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0243"
+    },
+    {
+        "nome": "MONITORIA EM TOXICOLOGIA EXPERIMENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0164 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0343"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0267"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0187 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0366"
+    },
+    {
+        "nome": "MONITORIA EM URINÁLISE E FLUIDOS CORPORAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0183 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0362"
+    },
+    {
+        "nome": "MONITORIA EM VIGILÂNCIA SANITÁRIA APLICADA À FARMÁCIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0169 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0205"
+    },
+    {
+        "nome": "MONITORIA EM VIGILÂNCIA SANITÁRIA DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0005 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0252"
+    },
+    {
+        "nome": "MONITORIA EM VIGILANCIA SANITARIA, DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0133 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "FAR0313"
+    },
+    {
+        "nome": "NEUROBIOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( CFS0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina de Neurobiologia Molecular visa oferecer o conhecimento sobre a estrutura e função do sistema nervoso central (SNC) em seres humanos, para uma compressão adequada pelos alunos dos principais métodos de estudo envolvidos  na patogênese de doenças neurológicas, com ênfase nas epilepsias e doença de Alzheimer.",
+        "codigo": "FAR0253"
+    },
+    {
+        "nome": "PATOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CFS0037 E FAR0124 ) OU ( CFS0041 E GEM0014 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina aborda os processos patológicos que contituem a base das doenças, avaliando os conceitos de saúde, doença, envelhecimento e morte, assim como os mecanismos de agressão e as respostas de defesa do organismo. Enfoca as alterações morfofuncionais e/ou moleculares das células, dos tecidos e dos órgãos dos diferentes sistemas do organismo. Aborda os diferentes métodos diagnósticos e a interpretação clínica dos resultados.",
+        "codigo": "FAR0174"
+    },
+    {
+        "nome": "PLANEJAMENTO RACIONAL DE FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estratégias na descoberta compostos líderes e protótipos. Aspectos do reconhecimento molecular de substâncias bioativas e dos seus efeitos terapêuticos. Aspectos qualitativos e quantitativos da relação estrutura-atividade: Atributos moleculares e descritores. Organização espacial, mapeamento de receptores e modelagem molecular. Modificações químicas e as propriedades farmacocinéticas.",
+        "codigo": "DPG1327"
+    },
+    {
+        "nome": "PLANTAS MEDICINAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0030 ) OU ( FCE0220 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Conhecer a importância de se estudar as plantas medicinais dentro do contexto da biodiversidadebrasileira. Identificar plantas medicinais em termos de nome comum, nome científico e família. Conheceras principais plantas medicinais utilizadas no Brasil e em outros países, droga vegetal, indicaçãomedicinal, forma farmacêutica e classificação botânica. Conhecer técnicas de propagação, cultivo,colheita, secagem e armazenamento de plantas medicinais. Desenvolver visão crítica sobre estudosfarmacológicos já realizados com plantas medicinais e estudar as possíveis interações medicamentosas ereações adversas oriundas do seu uso. Aprofundar o estudo de plantas medicinais utilizadas com finsterapêuticos em diferentes especialidades médicas.",
+        "codigo": "FAR0047"
+    },
+    {
+        "nome": "PRÁTICAS AVANÇADAS EM NEUROFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0160 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina treina o aluno, através de diferentes técnicas associadas à área de neurofarmacologia, arealizar pesquisas referentes aos mecanismos neurais subjacentes às psicopatologias, assim como acaracterização dos efeitos comportamentais e neuroquímicos de compostos psicoativos e de novassubstâncias com potencial terapêutico.",
+        "codigo": "FAR0025"
+    },
+    {
+        "nome": "PRÁTICAS EM FARMÁCIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0128 ) OU ( FAR0177 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "1. Antiretrovirais : inibidores de transcriptase reversa – inibidores de transcriptase reversa – análogos de\nnucleosídeio, inibidores de transcriptase reversa – não análogos de nucleosídeo, inibidores de protease.\n2. Antiinfecciosos de uso geral: antibacterianos – aminoglicosídeos, cefalosporinas, macrolídeos e\nlincosamidas, penicilinas, quinolonas, sulfas e anti-sépticos urinários, tetraciclinas.\n3. Quimioterápicos : alquilantes, antimetabólitos, ligananas, taxanos, derivados de platina, bifosfatos, análogos\nde purina.\n4. Sistema nervoso central: anticonvulsivantes, antidepressivos e antimaníacos, antipsicóticos;\nantiparkisonianos, hipnóticos e sedativos;\n5. Analgésicos opióides: codeína, morfina, tramadol, oxicodona e associação\n6. Anticoagulantes – via oral e parenteral\n7. Imunosupressores",
+        "codigo": "FAR0049"
+    },
+    {
+        "nome": "PRÁTICAS EM MICROBIOLOGIA CLÍNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Práticas de técnicas de cultivo de micro-organismos em meios complexos e /ou quimicamente definidos. Planejamento e execução de ensaios de crescimentos, ensaios de mecanismos de inibição microbiana, testes de indução e /ou inibição de virulência e resistência microbiana in vitro. Ensaios de curvas de crescimento microbiano e preparação de gráficos com análise de dados. Ensaios de concentração inibitória mínima pelos métodos CLSI, EUCAST e/ou BrCAST.",
+        "codigo": "FAR0256"
+    },
+    {
+        "nome": "PRÁTICAS EM NEUROFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0072 )",
+        "equivalencias_especificas": [],
+        "ementa": "A disciplina treina o aluno, através de diferentes técnicas associadas à área de neurofarmacologia, a realizar pesquisas referentes aos mecanismos neurais subjacentes às psicopatologias, assim como a caracterização dos efeitos comportamentais e neuroquímicos de compostos psicoativos e de novas substâncias com potencial terapêutico.",
+        "codigo": "FAR0160"
+    },
+    {
+        "nome": "PRÁTICAS EM QUÍMICA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0126 ) OU ( FAR0167 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo de desenvolvimento e a relação atividade-estrutura dos fármacos. Estudo das diferentes vias químicas de obtenção e a análise dos fármacos obtidos.",
+        "codigo": "FAR0150"
+    },
+    {
+        "nome": "PRÁTICAS EM QUÍMICA ORGÂNICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( IQD0051 OU IQD0280 OU FCS0077 OU FAR0167 OU FCE0239 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "a definir",
+        "codigo": "FAR0157"
+    },
+    {
+        "nome": "PRÁTICAS EM VIROLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0124 ) OU ( FAR0142 ) OU ( CEL0054 ) OU ( CEL0050 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0001 )",
+        "equivalencias_especificas": [],
+        "ementa": "a definir",
+        "codigo": "FAR0001"
+    },
+    {
+        "nome": "QUIMICA FARMACEUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0167 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0259 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0259 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0259 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0259 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0259 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0259 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "A Química Farmacêutica preocupa-se com a descoberta, o desenvolvimento, a identificação e a interpretação do modo de ação dos compostos biologicamente ativos nas moléculas, assim como com o estudo, a identificação e a síntese dos produtos metabólicos de fármacos e produtos relacionados. Esta disciplina mostra aos alunos o vasto campo das Ciências Farmacêuticas e aplica os princípios da Química e da Biologia à criação do conhecimento que conduz à introdução de novos agentes terapêuticos. Esta disciplina aborda principalmente a relação estrutura-atividade dos medicamentos e seu modo de ação.",
+        "codigo": "FAR0126"
+    },
+    {
+        "nome": "QUÍMICA FARMACÊUTICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0126 E FAR0004 ) OU ( FCE0259 E FCE0370 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Relações entre a estrutura química e a atividade farmacológica de agentes de classes terapêuticas diversas. Fármacos que atuam na neurotransmissão, sistema nervoso, sistema cardiovascular, sistema hormonal, sistema imunológico e quimioterápicos.",
+        "codigo": "FAR0026"
+    },
+    {
+        "nome": "REAÇÃO ADVERSA A MEDICAMENTO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0125 E FAR0128 ) OU ( FAR0177 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Abordagem dos diferentes tipos de reações adversas a medicamentos, diferenciação entre efeito adverso e reação adversa a medicamentos, protocolos para notificação de RAM, interelacionamento entre a notificação de RAM e o sistema nacional de farmacovigilância, centro de informações sobre medicamentos, prevalência de RAMno Brasil e no mundo, diferenciação entre erros de prescrição e RAM, classificação de acordo com a gravidade",
+        "codigo": "FAR0022"
+    },
+    {
+        "nome": "RECONHECIMENTO MOLECULAR DE FÁRMACOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0168 ) OU ( FAR0167 ) OU ( FAR0181 E FAR0186 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Reconhecimento de aspectos estruturais, eletrônicos, conformacionais e estereoquímicos de fármacos. Propriedades físico-químicas de fármacos. Polaridade de ligação, atributos e complementos.Forças intermoleculares e reconhecimento molecular. Aminoácidos. Biomoléculas, fármacos e ligantes: atributos e complementos de interação em diferentes biofases.",
+        "codigo": "FAR0037"
+    },
+    {
+        "nome": "SEMINÁRIOS EM QUÍMICA FARMACÊUTICA E MEDICINAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( FAR0126 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Seminários sobre temas atuais da área de Química Farmacêutica e Medicinal.",
+        "codigo": "FAR0178"
+    },
+    {
+        "nome": "TÉCNICA INSTRUMENTAL FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0167 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "FAR0010"
+    },
+    {
+        "nome": "TECNOLOGIA DE ALIMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0050 E FAR0141 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0400 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Problema alimentar no mundo atual. Importância sócio-econômica dos alimentos. Aspectos gerais em tecnologia de alimentos.Tecnologia do processamento dos alimentos.  Fundamentos e características da conservação dos alimentos. Equipamentos típicos. Embalagens apropriadas. Aspectos da tecnologia de cereais , óleos e gorduras, leite e derivados e carnes e derivados. Legislação vigente. Segurança alimentar. Controle de qualidade de alimentos.",
+        "codigo": "FAR0171"
+    },
+    {
+        "nome": "TECNOLOGIA FARMACÊUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0136 ) OU ( FCE0369 ) OU ( FAR0176 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Definições e objetivos da Tecnologia Farmacêutica. Administração de medicamentos e sua relação com as formas farmacêuticas. Classificação das formas farmacêuticas, formas farmacêuticas obtidas por divisão mecânica das substâncias medicinais, tecnologias atuais utilizadas na obtenção de novos produtos farmacêuticos.",
+        "codigo": "FAR0139"
+    },
+    {
+        "nome": "TÓPICOS EM COSMETOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0136 E FAR0176 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0018 )",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamentos teórico-práticos para a elaboração de produtos cosméticos eficazes e estáveis. Ao final do curso o aluno deverá estar apto ao desenvolvimento, preparação e conservação de produtos cosméticos.",
+        "codigo": "FAR0043"
+    },
+    {
+        "nome": "TÓPICOS EM FARMACOLOGIA APLICADA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Formas farmacêuticas, vias de administração, absorção, distribuição, metabolização e eliminação de fármacos, farmacologia do sistema nervoso autônomo, bloqueadores neuromusculares, antibióticos, autacóides, antiinflamatórios não-esteróides, antiinflamatórios esteróides, analgésicos, diuréticos, cardiotônicos,antiretrovirais, quimioterápicos.",
+        "codigo": "FAR0159"
+    },
+    {
+        "nome": "TÓPICOS EM FARMACOLOGIA MOLECULAR",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( CEL0054 ) OU ( CEL0062 ) OU ( CEL0082 ) OU ( CEL0094 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Com a leitura, compreensão, apresentação e discussão entre todos os alunos e professor de artigos científico, a disciplina procura treinar os alunos para o estudo da ação farmacológica de fármacos, as pesquisas atuais na busca do conhecimento de ação dos fármacos.",
+        "codigo": "FAR0042"
+    },
+    {
+        "nome": "TÓPICOS EM NEUROFARMACOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FCS0073 ) OU ( FCS0074 )",
+        "equivalencias_especificas": [],
+        "ementa": "Leitura, compreensão, interpretação crítica, apresentação e discussão entre estudantes e professor de textos científicos na área de neurofarmacologia dos distúrbios psicopatológicos, das doenças neurodegenerativas e da farmacodependência.",
+        "codigo": "FAR0161"
+    },
+    {
+        "nome": "TÓPICOS EM TOXICOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( IQD0072 ) OU ( NUT0049 ) OU ( FAR0031 ) OU ( FAR0032 ) OU ( IQD0092 ) OU ( FAV0179 ) OU ( FAR0167 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => DISCUSSÃO     DE   ASPECTOS     DA    TOXICOLOGIA   A   INICIDÊNCIA DE SUBSTÂNCIAS   TÓXICAS   NO  MEIO  AMBIENTE, MECANISMO DE AÇÃOTÓXICA,TÉCNICAS  ANALÍTICAS  PARA  DETECÇÃO  DE TOXINAS E SEUS METABÓLITOSNO MEIO AMBIENTE E FLUIDOS BIOLÓGICOS, EXPOSIÇÃO A SUBSTÂNCIAS  TÓ-XICAS E AVALIAÇÃO DE RISCO.",
+        "codigo": "FAR0041"
+    },
+    {
+        "nome": "TOXICOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( IQD0072 E FAR0125 ) OU ( FAR0167 E FAR0172 ) OU ( FAR0172 E IQD0072 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( ( FCE0372 ) )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0372 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conceitos de agentes tóxicos. Estudos dos fármacos, medicamentos e drogas nos aspectos toxicocinéticos e toxicodinâmicos. Absorção, distribuição e eliminação de toxicantes. Mecanismos de biotransformação. Noções de fitotoxicologia e farmacotoxicologia. Toxicologia Industrial, agrícola, alimentar, social e ambiental. Aspectos da toxicologia forense.",
+        "codigo": "FAR0143"
+    },
+    {
+        "nome": "TOXICOLOGIA ANALÍTICA E DE ALIMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( IQD0063 OU IQD0243 OU FAR0168 OU FCE0238 OU FCE0260 OU FAR0024 OU IQD0033 OU FAR0161 ) OU ( FAR0180 E FAR0185 ) OU ( FAR0181 E FAR0186 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Este curso tem como objetivo incluir alunos de graduação, principalmente dos cursos de farmácia, química e biologia em projetos de pesquisa para avaliar a exposição humana a substâncias tóxicas através da sua análise e de seus metabólitos em amostras de alimentos, medicamentos e material biológico. Dentre estas substâncias incluem metais pesados, micotoxinas, pesticidas e drogas de abuso. Outros projetos incluem epidemiologia das intoxicações e toxicologia experimental.",
+        "codigo": "FAR0163"
+    },
+    {
+        "nome": "TOXICOLOGIA EXPERIMENTAL",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0405 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-3 - 2008.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0405 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/-2 - 2014.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0405 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7013/1 - 2016.2",
+                "data_vigencia": "2008.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTA:Neste curso serão realizados experimentos para análise de substâncias tóxicas em alimentos, medicamentos e outras matrizes, e de indicadores biológicos de dose interna ou de efeito da exposição humana a substâncias tóxicas. Dentre as substâncias tóxicas de interesse se encontram pesticidas, micotoxinas, metais pesados e doses de abuso. As técnicas analíticas utilizadas nos experimentos incluem cromatografia liquida por camada fina (CCD) e de alta resolução (HPLC), cromatografia gasosa, espectrofotometria UV/Vis e espectrofotometria de absorção atômica. 4 - CONTEÚDO PROGRAMÁTICO1.Cromatografia camada fina - paracetamol em comprimidos, aflatoxinas em alimentos, 2.Espectrofotometria UV/Vis - colinesterase plasmática, coproporfirina urinária3.Espectrofotometria de absorção atômica - metais em alimentos e material biológico4.Cromatografia líquida de alta eficiência (HPLC) - cafeína em urina5.Cromatografia gasosa - pesticidas em alimentos, drogas de abuso6.Métodos colorimétricos - drogas de abuso",
+        "codigo": "FAR0164"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAR0187 )",
+        "equivalencias_especificas": [],
+        "ementa": "Treinamento individual do estudante em metodologia científica, como atividade que integra as vivências de aprendizado adquiridas ao longo do curso, permitindo uma reflexão crítica da formação e atuação do profissional farmacêutico. Consiste, sob supervisão de um professor orientador, na elaboração e no desenvolvimento de um plano de trabalho, que culmine na apresentação do(s) resultados na forma de trabalho cinetífico (monografia ou artigo).",
+        "codigo": "FAR0020"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAR0020 )",
+        "equivalencias_especificas": [],
+        "ementa": "Treinamento individual do estudante em metodologia científica, como atividade\nque integra as vivências de aprendizado adquiridas ao longo do curso,\npermitindo uma reflexão crítica da formação e atuação do profissional\nfarmacêutico. Consiste, sob supervisão de um professor orientador, na\nelaboração e no desenvolvimento de um plano de trabalho, que culmine na\napresentação do(s) resultados na forma de trabalho cinetífico (monografia ou\nartigo).",
+        "codigo": "FAR0187"
+    },
+    {
+        "nome": "URINÁLISE E FLUIDOS CORPORAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0174 ) OU ( FAR0028 ) OU ( FCE0367 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fase pré-analítica de amostras de fluidos corporais. Composição e análises laboratoriais físico-químicas, citológicas e microbiológicas dos principais fluidos analisados em laboratórios como urina, líquidos serosos, liquor, amniótico, sinovial e sêmen. Relação dos parâmetros laboratoriais com o diagnóstico clínico de prováveis patologias que comprometem os principais fluidos corporais.",
+        "codigo": "FAR0183"
+    },
+    {
+        "nome": "VIGILÂNCIA SANITÁRIA APLICADA À FARMÁCIA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0119 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0133 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Aspectos históricos, conceituais e legais da vigilância sanitária e o Sistema Nacional de Vigilância Sanitária no contexto do Sistema Único de Saúde. Regulação sanitária da produção, comercialização e serviços de interesse à saúde e sujeitos ao regime de vigilância sanitária.",
+        "codigo": "FAR0169"
+    },
+    {
+        "nome": "VIGILÂNCIA SANITÁRIA DE MEDICAMENTOS",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Abordagem prática e teórica do manejo dos PRM (problemas relacionados aos medicamentos) utilizando por meio a Vigilância Sanitária.",
+        "codigo": "FAR0005"
+    },
+    {
+        "nome": "VIGILANCIA SANITARIA, DEONTOLOGIA E LEGISLACAO FARMACEUTICA",
+        "unidade_responsavel": "DEPARTAMENTO DE FARMACIA ",
+        "pre_requisitos": "( ( FAR0172 ) OU ( FAR0128 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-2 - 2013.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/-3 - 2010.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/-2 - 2013.2",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - N",
+                "curriculo": "7609/1 - 2015.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "1997.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FCE0255 ) E ( FAR0169 ) )",
+                "matriz_curricular": "FARMACIA - Bacharelado - Presencial - D",
+                "curriculo": "7692/1 - 2015.1",
+                "data_vigencia": "2010.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Conhecimento da legislação normativa vigente no que tange a produção, comercialização, prescrição, informação e dispensação de medicamentos, bem como introduzir a legislação do sistema de saúde e da vigilância sanitária, além de abordar os aspectos éticos da profissão farmacêutica.",
+        "codigo": "FAR0133"
+    }
+]

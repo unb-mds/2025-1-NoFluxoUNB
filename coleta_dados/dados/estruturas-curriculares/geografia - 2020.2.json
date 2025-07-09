@@ -1,0 +1,892 @@
+{
+  "curso": "GEOGRAFIA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2020.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0051",
+          "nome": "INTRODUCAO A CIENCIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0089",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0010",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0014",
+          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0017",
+          "nome": "GEOGRAFIA DO BRASIL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0030",
+          "nome": "FOTOINTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0032",
+          "nome": "GEOGRAFIA URBANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0090",
+          "nome": "GEOGRAFIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0019",
+          "nome": "GEOGRAFIA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0020",
+          "nome": "METODOLOGIA DA GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0064",
+          "nome": "PRATICA E PESQUISA DE CAMPO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0085",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0083",
+          "nome": "PRATICA E PESQUISA DE CAMPO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEA0087",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA 2",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0084",
+          "nome": "PRATICA E PESQUISA DE CAMPO 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEA0088",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA 3",
+          "ch": "165"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "CERRADO",
+          "nome": "60H OPTATIVA CEL0088 - BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0038",
+          "nome": "INTRODUCAO AOS ESTUDOS DA MOBILIDADE ESPACIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CET0012",
+          "nome": "ENOTURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0069",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE DADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0152",
+          "nome": "INTRODUCAO A MICROINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0005",
+          "nome": "ECOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0061",
+          "nome": "ECONOMIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0108",
+          "nome": "ECONOMIA RURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0139",
+          "nome": "ECONOMIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0012",
+          "nome": "SOCIEDADE, CULTURA E POLITICA NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0007",
+          "nome": "FUNDAMENTOS DO DESENVOLVIMENTO E APRENDIZAGEM APLICADOS A EDF ENS FUND",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0505",
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0002",
+          "nome": "GEOGRAFIA,  AMBIENTE E SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0003",
+          "nome": "GEOGRAFIA AFRICANA E AFROBRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0004",
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0011",
+          "nome": "GEOGRAFIA FISICA 2: METEOROLOGIA E CLIMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0016",
+          "nome": "REGIONALIZACAO DO ESPACO MUNDIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0018",
+          "nome": "GEOGRAFIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0021",
+          "nome": "ESTUDOS REGIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0024",
+          "nome": "GEOGRAFIA APLICADA AO PLANEJAMENTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0025",
+          "nome": "GEOGRAFIA APLICADA AO PLANEJAMENTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0031",
+          "nome": "RECURSOS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0034",
+          "nome": "ANALISES GEOMORFOLOGICAS REGIONAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0035",
+          "nome": "ANALISE DE MICROCLIMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0036",
+          "nome": "SENSORES REMOTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0040",
+          "nome": "GEOGRAFIA HUMANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0043",
+          "nome": "CARTOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0044",
+          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0046",
+          "nome": "GEOGRAFIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0047",
+          "nome": "GEOGRAFIA FISICA 4: ESTUDOS DAS AGUAS CONTINENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0049",
+          "nome": "GEOGRAFIA FISICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0050",
+          "nome": "GEOGRAFIA HUMANA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0052",
+          "nome": "ANALISES CLIMATOLOGICAS REGIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0061",
+          "nome": "EXTENSAO EM GEOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0066",
+          "nome": "TEORIA GEOGRAFICA E DESENVOLVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0067",
+          "nome": "GEOGRAFIA CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0068",
+          "nome": "POLITICA PUBLICA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0070",
+          "nome": "SISTEMA DE INFORMACAO GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0071",
+          "nome": "GEOGRAFIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0072",
+          "nome": "GEOGRAFIA E MOVIMENTOS SOCIAIS NO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0073",
+          "nome": "INTRODUCAO A FITOGEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0074",
+          "nome": "EPISTEMOLOGIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0075",
+          "nome": "GEOGRAFIA ECONOMICA DA ENERGIA E PLANEJAMENTO ENERGETICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0077",
+          "nome": "INTRODUCAO A AVALIACAO DE IMPACTO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0078",
+          "nome": "GEOGRAFIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0079",
+          "nome": "GEO-HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0080",
+          "nome": "TOPICOS ESPECIAIS EM GEOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0081",
+          "nome": "TOPICOS ESPECIAIS EM GEOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0082",
+          "nome": "ENSINO DE NATUREZA DA CIENCIA: TEORIA E PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0092",
+          "nome": "POPULACAO E GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0093",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0094",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0095",
+          "nome": "INTRODUCAO AO ESTUDO DO CARSTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0136",
+          "nome": "GEOGRAFIA E POLITICA CONTENCIOSA: REVOLUCOES E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0220",
+          "nome": "ESTUDOS DAS RELACOES ETNICO-RACIAIS E DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0028",
+          "nome": "PEDOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0043",
+          "nome": "TOPOGRAFIA FOTOGRAMETRIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0045",
+          "nome": "GEOLOGIA ESTRUTURAL",
+          "ch": "150"
+        },
+        {
+          "codigo": "IGD0081",
+          "nome": "DESENHO GEOLOGICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0270",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0271",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0092",
+          "nome": "GLOBALIZACAO E RELACOES INTERCULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0013",
+          "nome": "DIDATICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0017",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0018",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0022",
+          "nome": "CURRICULOS E PROGRAMAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0028",
+          "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0029",
+          "nome": "ENSINO SUPLETIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0030",
+          "nome": "ENSINO SUPLETIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0011",
+          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0017",
+          "nome": "LEGISLACAO DO ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0018",
+          "nome": "LEGISLACAO DO ENSINO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0019",
+          "nome": "HIGIENE ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0018",
+          "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0047",
+          "nome": "SOCIOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0087",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0101",
+          "nome": "SOCIOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0018",
+          "nome": "MORFOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0012",
+          "nome": "PSICOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0014",
+          "nome": "SOCIOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0016",
+          "nome": "HISTORIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0021",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0022",
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0027",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0069",
+          "nome": "ORIENTACAO VOCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0051",
+          "nome": "INTRODUCAO A CIENCIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0089",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0010",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0014",
+          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0017",
+          "nome": "GEOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0030",
+          "nome": "FOTOINTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0032",
+          "nome": "GEOGRAFIA URBANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0090",
+          "nome": "GEOGRAFIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0019",
+          "nome": "GEOGRAFIA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0020",
+          "nome": "METODOLOGIA DA GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0064",
+          "nome": "PRATICA E PESQUISA DE CAMPO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0085",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0083",
+          "nome": "PRATICA E PESQUISA DE CAMPO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEA0087",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEA0084",
+          "nome": "PRATICA E PESQUISA DE CAMPO 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEA0088",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA 3",
+          "ch": "165"
+        }
+      ]
+    }
+  ]
+}

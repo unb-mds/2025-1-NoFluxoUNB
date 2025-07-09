@@ -1,0 +1,1647 @@
+{
+  "curso": "SERVIÇO SOCIAL",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2016.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0024",
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0110",
+          "nome": "QUESTAO SOCIAL E SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0127",
+          "nome": "ECONOMIA POLITICA E CAPITALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0101",
+          "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0113",
+          "nome": "TRABALHO E SOCIABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0048",
+          "nome": "PESQUISA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0103",
+          "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0130",
+          "nome": "SEGURIDADE SOCIAL 1 - PREVIDENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "SER0035",
+          "nome": "FUNDAMENTOS ETICOS E ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0076",
+          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0096",
+          "nome": "PESQUISA SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0105",
+          "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0112",
+          "nome": "PROCESSOS DE TRABALHO E SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "SER0001",
+          "nome": "SEGURIDADE SOCIAL 3 - ASSISTENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0052",
+          "nome": "PLANEJAMENTO, ADMINISTRACAO E GESTAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0107",
+          "nome": "ESTAGIO EM SERVICO SOCIAL 1",
+          "ch": "240"
+        },
+        {
+          "codigo": "SER0115",
+          "nome": "PROCESSOS DE TRABALHO E SERVICO SOCIAL 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "SER0109",
+          "nome": "ESTAGIO EM SERVICO SOCIAL 2",
+          "ch": "240"
+        },
+        {
+          "codigo": "SER0062",
+          "nome": "TOPICOS ESPECIAIS EM SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "SER0079",
+          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0002",
+          "nome": "RELACOES SOCIAIS, FAMILIA E SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0099",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0131",
+          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "SER0038",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "90"
+        },
+        {
+          "codigo": "SER0003",
+          "nome": "ENVELHECIMENTO E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0060",
+          "nome": "TOPICOS ESPECIAIS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0126",
+          "nome": "PRATICAS DE INFORMATICA EM SERVICO SOCIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0025 - ORGANIZACAO E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0070",
+          "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0010",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CDS0012",
+          "nome": "POLITICAS PUBLICAS E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0029",
+          "nome": "INTRODUCAO AOS ESTUDOS DO FUTURO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0043",
+          "nome": "CULTURA PODER E RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0056",
+          "nome": "PROCESSOS SOCIO-HISTORICO CUBANO E CONTEXTO ATUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0097",
+          "nome": "DIREITOS HUMANOS E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0024",
+          "nome": "MULHER, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0036",
+          "nome": "SOCIEDADES COMPLEXAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0040",
+          "nome": "METODOS E TECNICAS EM ANTROPOLOGIA SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0042",
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0049",
+          "nome": "INDIVIDUO, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0056",
+          "nome": "ANTROPOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0011",
+          "nome": "SAUDE E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0038",
+          "nome": "SAUDE FAMILIAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0261",
+          "nome": "PLANEJAMENTO PUBLICO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0272",
+          "nome": "MICROECONOMIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0012",
+          "nome": "SOCIEDADE, CULTURA E POLITICA NAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0034",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0044",
+          "nome": "HISTORIA DA FILOSOFIA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0049",
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0063",
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0082",
+          "nome": "FILOSOFIA SOCIAL E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0125",
+          "nome": "FENOMENOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0127",
+          "nome": "FILOSOFIA MARXISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0129",
+          "nome": "DIALETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0132",
+          "nome": "EXISTENCIALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0165",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0167",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0033",
+          "nome": "PLANEJAMENTO GOVERNAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0034",
+          "nome": "ADMINISTRACAO DE SERVICOS NO SETOR PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0129",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA INTERNACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0078",
+          "nome": "LINGUA FRANCESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0122",
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0175",
+          "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "NUT0017",
+          "nome": "NUTRICAO NORMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "NUT0034",
+          "nome": "AVALIACAO ALIMENTAR E NUTRICIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0054",
+          "nome": "NUTRICAO HUMANA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0024",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0025",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0027",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0028",
+          "nome": "PSICOLOGIA DO DESENVOLVIMENTO INFANTIL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0030",
+          "nome": "DESENVOLVIMENTO NO CURSO DA VIDA ADULTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0035",
+          "nome": "DESENVOLVIMENTO E NECESSIDADES ESPECIAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0004",
+          "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0017",
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0059",
+          "nome": "TEORIA E METODOS MARXISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0018",
+          "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0010",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0023",
+          "nome": "DESENVOLVIMENTO DE COMUNIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0030",
+          "nome": "OFICINA DE INSTRUMENTAL TECNICO-OPERATIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0043",
+          "nome": "METODOLOGIA DO SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0045",
+          "nome": "METODOLOGIA DO SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0053",
+          "nome": "TEORIA GERAL DO SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0055",
+          "nome": "TEORIA GERAL DO SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0056",
+          "nome": "TEORIA GERAL DO SERVICO SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0057",
+          "nome": "POLITICA SOCIAL ESPECIAL 8 - POLITICA DISTRIBUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0066",
+          "nome": "POLITICA SOCIAL ESPECIAL 2 - AGRARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0077",
+          "nome": "POLITICA SOCIAL ESPECIAL 7 - PREVIDENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0080",
+          "nome": "ANALISE E INTERVENCAO NA REALIDADE SOCIAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "SER0084",
+          "nome": "METODOLOGIA DO SERVICO SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0085",
+          "nome": "PARTICIPACAO SOCIO-POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0087",
+          "nome": "INSTITUICOES E PRATICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0088",
+          "nome": "O COTIDIANO POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0111",
+          "nome": "OFICINA DE TEORIA SOCIAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "SER0114",
+          "nome": "FUNDAMENTOS DE METODOLOGIA DA PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0116",
+          "nome": "OFICINA DE TEORIA SOCIAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "SER0117",
+          "nome": "OFICINA DE TEORIA SOCIAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "SER0118",
+          "nome": "PRATICA DE PESQUISA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0119",
+          "nome": "PRATICA DE PESQUISA SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0120",
+          "nome": "PRATICA DE PESQUISA SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0121",
+          "nome": "PRATICA DE PESQUISA SOCIAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0125",
+          "nome": "QUESTAO URBANA E RURAL NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0128",
+          "nome": "ADMINISTRACAO E SUPERVISAO EM SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0129",
+          "nome": "PLANEJAMENTO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0132",
+          "nome": "OFICINA DE SUPERVISAO DE ESTAGIO EM SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0133",
+          "nome": "OFICINA DE SUPERVISAO DE ESTAGIO EM SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0022",
+          "nome": "SOCIOLOGIA DA VIOLENCIA NA PERSPECTIVA DAS RELACOES DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0027",
+          "nome": "PENSAMENTO POLITICO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0069",
+          "nome": "PENSAMENTO SOCIOLOGICO LATINO-AMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0080",
+          "nome": "SOCIOLOGIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0091",
+          "nome": "ESTRUTURA E MUDANCAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0093",
+          "nome": "SOCIOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0094",
+          "nome": "SOCIOLOGIA DA IDEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0097",
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0098",
+          "nome": "TECNICAS DE PESQUISA",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0101",
+          "nome": "SOCIOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0102",
+          "nome": "SOCIOLOGIA DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0103",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0115",
+          "nome": "SOCIOLOGIA DAS RELACOES DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0121",
+          "nome": "SOCIOLOGIA DAS RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0025",
+          "nome": "METODOS E TECNICAS DE PESQUISA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0062",
+          "nome": "TOPICOS ESPECIAIS EM SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0002",
+          "nome": "RELACOES SOCIAIS, FAMILIA E SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0099",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0131",
+          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0003",
+          "nome": "ENVELHECIMENTO E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0060",
+          "nome": "TOPICOS ESPECIAIS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0126",
+          "nome": "PRATICAS DE INFORMATICA EM SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0024",
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0110",
+          "nome": "QUESTAO SOCIAL E SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0127",
+          "nome": "ECONOMIA POLITICA E CAPITALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0101",
+          "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0113",
+          "nome": "TRABALHO E SOCIABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0048",
+          "nome": "PESQUISA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0103",
+          "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0130",
+          "nome": "SEGURIDADE SOCIAL 1 - PREVIDENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0035",
+          "nome": "FUNDAMENTOS ETICOS E ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0076",
+          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0096",
+          "nome": "PESQUISA SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0105",
+          "nome": "FUNDAMENTOS HISTORICOS E TEORICO-METODOLOGICOS DO SERVICO SOCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0112",
+          "nome": "PROCESSOS DE TRABALHO E SERVICO SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0001",
+          "nome": "SEGURIDADE SOCIAL 3 - ASSISTENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0052",
+          "nome": "PLANEJAMENTO, ADMINISTRACAO E GESTAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0107",
+          "nome": "ESTAGIO EM SERVICO SOCIAL 1",
+          "ch": "240"
+        },
+        {
+          "codigo": "SER0115",
+          "nome": "PROCESSOS DE TRABALHO E SERVICO SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0109",
+          "nome": "ESTAGIO EM SERVICO SOCIAL 2",
+          "ch": "240"
+        },
+        {
+          "codigo": "SER0062",
+          "nome": "TOPICOS ESPECIAIS EM SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0079",
+          "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0002",
+          "nome": "RELACOES SOCIAIS, FAMILIA E SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0099",
+          "nome": "TOPICOS ESPECIAIS EM POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0131",
+          "nome": "METODOS E TECNICAS QUANTITATIVOS E QUALITATIVOS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0038",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "90"
+        },
+        {
+          "codigo": "SER0003",
+          "nome": "ENVELHECIMENTO E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0060",
+          "nome": "TOPICOS ESPECIAIS EM PESQUISA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0126",
+          "nome": "PRATICAS DE INFORMATICA EM SERVICO SOCIAL",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

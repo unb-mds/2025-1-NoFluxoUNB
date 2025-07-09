@@ -1,0 +1,2685 @@
+[
+    {
+        "nome": "ANALISE GRAFICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Fundamentos de tipografia, a história da escrita, o estudo imagéico das letras, dos signos visuais e da palavra escrita.Objetivos:- desenvolver a habilidade visual-desenvolver a capacidade projetual do estudante por meio do exercício da forma e dos valores semânticos da palavra escrita.-desenvolver a capacidade crítica em relação à tipografia, através do estudo de fatoshistóricos e conceitos tipográficos.",
+        "codigo": "DIN0012"
+    },
+    {
+        "nome": "ANALISE GRAFICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0012 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "O estudo  imagético da tipografia aplicada ao texto e ao design gráfico em geral, considerando aspectos formais, funcionais e expressivos.",
+        "codigo": "DIN0013"
+    },
+    {
+        "nome": "ANALISE GRAFICA 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "DESENVOLVIMENTO DE PROJETOS VISUAIS A PARTIR DE TRABALHOS MULTIDISCI-PLINARES,  VISANDO A  REALIZACAO  DE  UM  PRODUTO  FORMAL  GRAFICO E  OU(IMAGETICO).",
+        "codigo": "DIN0014"
+    },
+    {
+        "nome": "ANALISE GRAFICA 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0014 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "DESENVOLVIMENTO DE PROJETOS VISUAIS A PARTIR DE TRABALHOS MULTIDISCI-PLINARES, VISANDO A REALIZACAO DE UM PRODUTO FORMAL NA AREA DE  ESTERIO-RES E - OU - INTERIORES, EM NIVEIS DO ESPACO DO OBJETO, DO EDIFICIO E DOURBANO.",
+        "codigo": "DIN0015"
+    },
+    {
+        "nome": "COMPUTACAO GRAFICA APLICADA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Licenciatura - Presencial - N",
+                "curriculo": "5665/-4 - 2016.1",
+                "data_vigencia": "2001.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Licenciatura - Presencial - N",
+                "curriculo": "5665/-5 - 2004.1",
+                "data_vigencia": "2001.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Licenciatura - Presencial - N",
+                "curriculo": "5665/-2 - 2018.1",
+                "data_vigencia": "2001.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Licenciatura - Presencial - N",
+                "curriculo": "5665/-3 - 2016.2",
+                "data_vigencia": "2001.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0279 OU VIS0184 OU VIS0185 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Licenciatura - Presencial - N",
+                "curriculo": "5665/1 - 2019.2",
+                "data_vigencia": "2001.1",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Introdução aos fundamentos, técnicas e instrumentos da computação gráfica aplicados ao design. Objetivos:Apresentar os fundamentos, técnicas e instrumentos da computação gráfica, a fim de aprimorar a capacidade individual dos alunos.",
+        "codigo": "DIN0035"
+    },
+    {
+        "nome": "CRIATIVIDADE EM DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "DESENVOLVIMENTO DE MODELOS E PROGRAMAS DE  ESTIMULACAO E  TREINAMENTODE PENSAMENTO CRIATIVO.",
+        "codigo": "DIN0031"
+    },
+    {
+        "nome": "DESENHO APLICADO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-5 - 2003.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) E ( ENC0054 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) E ( ENC0054 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/1 - 2018.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-3 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0169 OU PRO0024 OU PRO0025 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) E ( ENC0054 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0016 OU VIS0074 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-4 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTADesenvolver e exercitar a capacidade de representação gráfica, compreendendo e reforçando o domínio da linguagem geométrica e sua aplicação em representações bidimensionais e tridimensionais.OBJETIVOS1. Objetivos transversais: estimular e desenvolver a capacidade analítica na relação que os discentes desenvolvem com o espaço físico cotidianamente. Reforçar a noção da aplicação prática de conceitos geométricos aparentemente abstratos.2. Objetivos processuais: desenvolver e aprimorar o uso da linguagem gráfica, aprofundando o domínio técnico e teórico e exercitando sua aplicação prática na representação de objetos e espaços.3. Objetivo de conteúdo: capacitar o aluno a desenvolver representações de objetos simples e complexos, permitindo que o mesmo seja capaz de transmitir representações gráficas das soluções desenvolvidas no campo do Design, seja para profissionais do campo das ciências aplicadas, seja para pessoas da sociedade em geral.",
+        "codigo": "DIN0037"
+    },
+    {
+        "nome": "DESENHO APLICADO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0037 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-5 - 2003.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0170 OU PRO0026 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-3 - 2005.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0170 OU PRO0026 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/-2 - 2010.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0170 OU PRO0026 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/-2 - 2013.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/1 - 2018.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-2 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-3 - 2014.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0170 OU PRO0026 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - D",
+                "curriculo": "5126/1 - 2016.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0170 OU PRO0026 ) )",
+                "matriz_curricular": "ARQUITETURA E URBANISMO - Arquiteto e Urbanista - Presencial - N",
+                "curriculo": "5673/1 - 2016.1",
+                "data_vigencia": "1996.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0017 OU VIS0075 ) )",
+                "matriz_curricular": "ARTES VISUAIS - Bacharelado - Presencial - D",
+                "curriculo": "5649/-4 - 2013.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTAConstrução e aplicação de principais tipos de projeção espacial, associados à utilização de técnicas e materiais expressivos para representação bidimensional e apresentação de projetos.OBJETIVOS1. Objetivos transversais: estimular e desenvolver a capacidade analítica na relação que os discentes desenvolvem com o espaço físico cotidianamente.2. Objetivos processuais: desenvolver e aprimorar o uso da linguagem gráfica, aprofundando o domínio técnico e teórico e exercitando sua aplicação prática na representação de objetos e espaços.3. Objetivo de conteúdo: capacitar o aluno a desenvolver representações de objetos simples e complexos, permitindo que o mesmo seja capaz de transmitir representações gráficas das soluções desenvolvidas no campo do Design, seja para profissionais do campo das ciências aplicadas, seja para pessoas da sociedade em geral.",
+        "codigo": "DIN0045"
+    },
+    {
+        "nome": "DESIGN DE INTERAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DIN0001"
+    },
+    {
+        "nome": "DESIGN DE JOGOS",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaTeoria e prática de desenvolvimento de projeto de jogos digitais interativos.ObjetivoCapacitar o aluno a determinar de maneira analítica a sucessão de etapas, principais técnicas e procedimentos necessários para o desenvolvimento de jogos.Conteúdo ProgramáticoDesign de Jogos / Design de Interação / Noções de Usabilidade e Arquitetura de Informação / Técnicas de ilustração e Animação para Jogos / Mecânica, Narrativa e Jogabilidade / Head Up Displays / Uso de sprite sheets, tilemapsMétodo didáticoAulas teóricas e práticas envolvendo trabalhos em grupo.",
+        "codigo": "DIN0002"
+    },
+    {
+        "nome": "DESIGN REGIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0039 ) OU ( DIN0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "IDENTIFICACAO DO POTENCIAL DO DESIGN DENTRO DE SETORES INDUSTRIAIS DAREGIAO, COMO FATOR DE CONDICIONANTE DE NOVOS PROJETOS.",
+        "codigo": "DIN0032"
+    },
+    {
+        "nome": "DIPLOMAÇÃO EM PROGRAMAÇÃO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0052 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0053",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0295 OU VIS0209 OU DIN0024 ) ) OU ( DIN0053 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0295 OU VIS0209 OU DIN0024 ) ) OU ( DIN0053 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0295 OU VIS0209 OU DIN0024 ) ) OU ( DIN0053 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0295 OU VIS0209 OU DIN0024 ) ) OU ( DIN0053 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0295 OU VIS0209 OU DIN0024 ) ) OU ( DIN0053 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "DIN0054"
+    },
+    {
+        "nome": "DIPLOMAÇÃO EM PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0051 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0029 ) ) OU ( VIS0252 OU DIN0055 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0029 ) ) OU ( VIS0252 OU DIN0055 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0029 ) ) OU ( VIS0252 OU DIN0055 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1988.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "",
+        "codigo": "DIN0056"
+    },
+    {
+        "nome": "ENCADERNAÇÃO ARTESANAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A encadernação como meio de expressão artística e do design a partir do estudo de materiais, métodos e praticas manuais.",
+        "codigo": "DIN0007"
+    },
+    {
+        "nome": "ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0071",
+        "equivalencias_especificas": [],
+        "ementa": "Aplicação de conhecimentos, habilidades e atitudes adquiridos durante o curso, diretamente no mercado de trabalho, por meio da participação em projetos de design em produto (para estudantes de PP), programação visual (para estudantes de PV) ou outros projetos cobertos pelo programa do curso e pela área.\n\nObjetivos:\nAcompanhamento e orientação da atuação discente no estágio, com ou sem remuneração, para vincular a formação acadêmica à experiência de mercado.\nSupervisionar e orientar a aplicação de métodos, técnicas e metodologias presentes no currículo.\n\nConteúdo:\nDiscussão sobre legislação (Lei n.11788).\nApresentação, análise e revisão de trabalhos realizados no contexto dos estágios.",
+        "codigo": "DIN0009"
+    },
+    {
+        "nome": "ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0009",
+        "equivalencias_especificas": [],
+        "ementa": "Aplicação de conhecimentos, habilidades e atitudes adquiridos durante o curso, diretamente no mercado de trabalho, por meio da participação em projetos de design em produto (para estudantes de PP), programação visual(para estudantes de PV) ou outros projetos cobertos pelo programa do curso e pela área. Objetivos: Acompanhamento e orientação da atuação discente no estágio, com ou sem remuneração, para vincular a formação acadêmica à experiência de mercado. Supervisionar e orientar a aplicação de métodos, técnicas e metodologias presentes no currículo. Conteúdo: Discussão sobre legislação (Lei n.11788). Apresentação, análise e revisão de trabalhos realizados no contexto dos estágios.",
+        "codigo": "DIN0071"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM PROGRAMACAO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaAplicação do conhecimento adquirido durante o curso, diretamente no mercado de trabalho, por meio da participação em projetos de design tanto de produto, quanto gráfico e de atuações pertinentes às duas habilitações.Objetivo:Acompanhamento e orientação da atuação do(a) aluno(a) no estágio, para o vínculo efetivo entre a formação na academia e a experiência no mercado.",
+        "codigo": "DIN0036"
+    },
+    {
+        "nome": "ESTAGIO SUPERVISIONADO EM PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Aplicação do conhecimento adquirido durante o curso, diretamente no mercado de trabalho, por meio da participação em projetos de design tanto de produto, quanto gráfico e de atuações pertinentes às duas habilitações.Objetivo:Acompanhamento e orientação da atuação do(a) aluno(a) no estágio, para o vínculo efetivo entre a formação na academia e a experiência no mercado.",
+        "codigo": "DIN0038"
+    },
+    {
+        "nome": "ESTUDO DA FORMA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EMENTAA disciplina contempla a conscientização e o desenvolvimento de habilidades queculminam na concepção da forma tridimensional, por meio de leitura de bibliografiapertinente, observação e análise da forma concebida, além da vivência dosprocessos de percepção, criatividade e experimentação.OBJETIVOO intuito primeiro de Estudo da Forma é o desenvolvimento da capacidade deobservação, crítica, pesquisa e criação da forma tridimensional, na formação doestudante de design.",
+        "codigo": "DIN0034"
+    },
+    {
+        "nome": "ESTUDOS DIRIGIDOS EM DESIGN 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DIN0059"
+    },
+    {
+        "nome": "ESTUDOS DIRIGIDOS EM DESIGN 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DIN0061"
+    },
+    {
+        "nome": "ESTUDOS DIRIGIDOS EM DESIGN 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DIN0063"
+    },
+    {
+        "nome": "ESTUDOS DIRIGIDOS EM DESIGN 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "A definir",
+        "codigo": "DIN0065"
+    },
+    {
+        "nome": "EXPRESSAO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0010 ) OU ( VIS0068 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "ARTES CENICAS - INTERPRETACAO TEATRAL - Bacharelado - Presencial - D",
+                "curriculo": "5371/-4 - 2016.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "ARTES CENICAS - INTERPRETACAO TEATRAL - Bacharelado - Presencial - D",
+                "curriculo": "5371/-5 - 2016.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "ARTES CENICAS - INTERPRETACAO TEATRAL - Bacharelado - Presencial - D",
+                "curriculo": "5371/-6 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "ARTES CENICAS - INTERPRETACAO TEATRAL - Bacharelado - Presencial - D",
+                "curriculo": "5371/-3 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "ARTES CENICAS - INTERPRETACAO TEATRAL - Bacharelado - Presencial - D",
+                "curriculo": "5371/1 - 2020.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0011 OU VIS0069 ) E ( FAU0012 OU VIS0070 ) E ( FAU0013 OU VIS0071 ) ) OU ( FAU0010 OU VIS0068 )",
+                "matriz_curricular": "ARTES CENICAS - INTERPRETACAO TEATRAL - Bacharelado - Presencial - D",
+                "curriculo": "5371/-2 - 2019.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Capacidade perceptiva espacial e princípios da linguagem visual com sentido deproporção, equilíbrio, harmonia e estética, com o uso de formas planas em diversosmateriais, técnicas e texturas. OBJETIVOIntroduzir o aluno na prática de técnicas específicas de representaçãoo por meio dodesenho, ferramentas fundamentais para a prática gráfico-projetual. A atividade defazer desenhos tem muitas funções diferentes. Os modos de realizar os desenhossão tão variados quanto as formas de fazer marcas em um papel e tão numerososquanto os autores que os fazem. Um dos aspéctos mais importantes do desenhoe o seu papel fundamental como método de registrar informações visuais do mundocircundante.",
+        "codigo": "DIN0011"
+    },
+    {
+        "nome": "FOTOGRAFIA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EmentaIntrodução prática às técnicas básicas da Fotografia e ao universo da comunicação visual contemporânea. Conhecimento dos processos fotográficos, valorização da apreciação estética e da percepção criativa da realidade. Aquisição de uma cultura visual e atitude crítica diante do conteúdo, da forma e dos sentidos da imagem fotográfica.ObjetivosConhecer a história, o contexto e o desenvolvimento relativos à produção e uso da imagem fotográfica.Adquirir tecnicas básicas de fotografia valorizando a educação estética.Ampliar a competência analítica para o uso da imagem em diferentes contextos.ProgramaAulas expositivas dialogadas // Leituras, análises e interpretações de textos e imagens // Saídas fotográficas // Resolução de exercícios referentes às aulas // Seleção dos trabalhos",
+        "codigo": "DIN0004"
+    },
+    {
+        "nome": "FOTOGRAFIA E VIDEO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0028 OU VIS0082 ) E ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0028 OU VIS0082 ) E ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0028 OU VIS0082 ) E ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0028 OU VIS0082 ) E ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0028 OU VIS0082 ) E ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAC0046 OU COM0145 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "2015.1",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0038 OU VIS0089 OU VIS0090 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaAnálise e exploração dos recursos de fotografia e de vídeo como ferramentas auxliares a apreensão e a representação de objetos.ObjetivosA proposta da disciplina Fotografia & Vídeo é familiarizar o aluno com a linguagem cinematográfica e sua utilização, despertar o senso crítico na leitura de filmes e conhecer um pouco mais sobre algumas cinematografias existentes. Aproveitando os conhecimentos já adquiridos com a fotografia, o aluno vai ser apresentado as técnicas da imagem em movimento. Os resultados práticos da disciplina serão apresentados em forma de pequenos vídeos.",
+        "codigo": "DIN0047"
+    },
+    {
+        "nome": "FUNDAMENTOS DA LÍNGUAGEM APLICADOS AO DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de conhecimentos relacionados aos elementos básicos da linguagem visual, à estruturação da composição visual e à teoria da cor.",
+        "codigo": "DIN0003"
+    },
+    {
+        "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Estudo dos movimentos precursores, historia e relação do design com o contexto socio-economico e cultural. OBJETIVOSConhecer aspectos históricos, estéticos e simbólicos dos principais movimentos artísticos modernos e contemporâneos e seus desdobramentos nas artes aplicadas design gráfico e de produto. Bem como, estudar impactos das tecnologias aplicadas às artes e ao design na sociedade pós-industrial.",
+        "codigo": "DIN0020"
+    },
+    {
+        "nome": "INTRODUCAO A ENGENHARIA COGNITIVA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "ESTUDO DA INTERACAO HOMEM-MAQUINA DE UM  PONTO DE VISTA  PSICOLOGICO,CULTURAL E AFETIVO.",
+        "codigo": "DIN0048"
+    },
+    {
+        "nome": "INTRODUCAO AO DESENHO INDUSTRIAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0075 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTUDO DOS PRINCIPIOS BASICOS DE PROJETO DO OBJETO (PROJETO DO PRODU-TO), ENQUANTO DESENVOLVIMENTO DE PROJETOS, COM USO DE METODOLOGIAS ESPE-CIFICAS.",
+        "codigo": "DIN0021"
+    },
+    {
+        "nome": "INTRODUCAO AO DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0075 OU DIN0021 ) E ( FAU0076 OU FAU0077 OU DIN0022 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaEstudo e conceituações referentes à atividade de Design (Desenho Industrial) e prática profissional.ObjetivosDespertar uma reflexão crítica e analítica em relação ao design: apresentar fundamentos conceituais do design, as relações entre as disciplinas que o compõem, suas relações com as diversas áreas da tecnologia e das ciências sociais aplicadas e uma introdução às práticas do mercado de trabalho do designer.",
+        "codigo": "DIN0049"
+    },
+    {
+        "nome": "INTRODUCAO A PROGRAMACAO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0011 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0076 ) OU ( FAU0077 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0049 ) ) OU ( FAU0076 OU FAU0077 )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "ESTUDO DOS PRINCIPIOS BASICOS DE PROGRAMACAO VISUAL, ENQUANTO  DESEN-VOLVIMENTO DE PROJETO, COM USO DE METODOLOGIAS ESPECIFICAS.",
+        "codigo": "DIN0022"
+    },
+    {
+        "nome": "INTRODUÇÃO AS MÍDIAS DIGITAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0035 E DIN0040 ) OU ( DIN0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Teoria, história e analise de projetos em mídias digitais no campo do design.Objetivos:Fornecer aos alunos conceitos, teorias e história das mídias digitais com foco no design. Desenvolver a capacidade crítica dos alunos em relação à projetos de mídias digitais. Conteúdo programático: Teoria e História das mídias digitais. Análise e critica de projetos de mídias digitais, considerando aspectos conceituais, estéticos, entre outros. Desenvolvimento de um projeto de baixa complexidade na área.Metodologia: Aulas expositivas e discussão em sala de aula, estudos de casos, seminários e  acompanhamentos dos trabalhos.",
+        "codigo": "DIN0070"
+    },
+    {
+        "nome": "MATERIAIS E PROCESSOS GRAFICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0027 OU VIS0081 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0027 OU VIS0081 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0027 OU VIS0081 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0027 OU VIS0081 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0027 OU VIS0081 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTAOrigem das técnicas de impressão. Estudo das técnicas e dos materiais envolvidos no processo de impressão de um projeto gráfico. Subsídios para o acompanhamento e desenvolvimento de um projeto gráfico aplicado à mídia impressa em todas as suas fases de elaboração.OBJETIVOS1. Objetivos transversais: estimular e desenvolver a capacidade analítica em relação aos diferentes sistemas de impressão.2. Objetivos processuais: reforçar a noção da aplicação prática de conceitos e processos técnicos na atividade de produção gráfica.3. Objetivo de conteúdo: desenvolver a capacidade de viabilizar o projeto gráfico de acordo com os pré-requisitos existentes em todas as fases da realização de um impresso.",
+        "codigo": "DIN0050"
+    },
+    {
+        "nome": "METODOLOGIA DO PROJETO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EMENTAEmenta: Estudo analítico de metodologia, enquanto suporte lógico-formal e instrumento de trabalho, apresentando uma visão geral acerca de conceitos de design, diferentes métodos e técnicas aplicadas na atividade projetual.OBJETIVOS1. Objetivos transversais: estimular e desenvolver a sensibilidade, o senso crítico, e capacidade de comunicação em equipes multidisciplinares, de modo que sejam capazes de desenvolver ação mais abrangente e contextualizada do design na economia, na cultura e na sociedade.2. Objetivos processuais: desenvolver a expressividade no desenvolvimento de projetos, abordando processos que explorem as possibilidades de desenvolvimento em projetos complexos.3. Objetivo de conteúdo: Capacitar o aluno a determinar, sistemicamente, a sucessão, o conteúdo e os procedimentos necessários para o desenvolvimento de projetos, contemplando temas como atuação em equipe, interdisciplinaridade, compreensão do projeto e sua elaboração conceitual e formal.",
+        "codigo": "DIN0023"
+    },
+    {
+        "nome": "MODELAGEM DIGITAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DIN0066"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE GRAFICA 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0012 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0126"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE GRAFICA 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0013 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0127"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE GRAFICA 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0014 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0153"
+    },
+    {
+        "nome": "MONITORIA EM ANALISE GRAFICA 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0015 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0154"
+    },
+    {
+        "nome": "MONITORIA EM COMPUTACAO GRAFICA APLICADA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0035 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0173"
+    },
+    {
+        "nome": "MONITORIA EM CRIATIVIDADE EM DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0031 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0170"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO APLICADO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0037 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0120"
+    },
+    {
+        "nome": "MONITORIA EM DESENHO APLICADO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0045 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0123"
+    },
+    {
+        "nome": "MONITORIA EM DESIGN DE INTERAÇÃO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0001 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0125"
+    },
+    {
+        "nome": "MONITORIA EM DESIGN DE JOGOS",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0002 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0142"
+    },
+    {
+        "nome": "MONITORIA EM DESIGN REGIONAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0032 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0171"
+    },
+    {
+        "nome": "MONITORIA EM DIPLOMAÇÃO EM PROGRAMAÇÃO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0054 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0191"
+    },
+    {
+        "nome": "MONITORIA EM DIPLOMAÇÃO EM PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0056 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0192"
+    },
+    {
+        "nome": "MONITORIA EM ENCADERNAÇÃO ARTESANAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0007 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0115"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0071 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0203"
+    },
+    {
+        "nome": "MONITORIA EM ESTÁGIO OBRIGATÓRIO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0009 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0148"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM PROGRAMACAO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0036 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0174"
+    },
+    {
+        "nome": "MONITORIA EM ESTAGIO SUPERVISIONADO EM PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0038 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0176"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDO DA FORMA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0034 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0119"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS DIRIGIDOS EM DESIGN 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0059 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0137"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS DIRIGIDOS EM DESIGN 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0061 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0138"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS DIRIGIDOS EM DESIGN 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0063 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0139"
+    },
+    {
+        "nome": "MONITORIA EM ESTUDOS DIRIGIDOS EM DESIGN 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0065 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0140"
+    },
+    {
+        "nome": "MONITORIA EM EXPRESSAO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0011 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0116"
+    },
+    {
+        "nome": "MONITORIA EM FOTOGRAFIA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0004 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0114"
+    },
+    {
+        "nome": "MONITORIA EM FOTOGRAFIA E VIDEO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0047 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0132"
+    },
+    {
+        "nome": "MONITORIA EM FUNDAMENTOS DA LÍNGUAGEM APLICADOS AO DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0003 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0113"
+    },
+    {
+        "nome": "MONITORIA EM HISTORIA DA ARTE E DA TECNOLOGIA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0020 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0117"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A ENGENHARIA COGNITIVA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0048 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0186"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO AO DESENHO INDUSTRIAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0021 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0160"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO AO DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0049 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0133"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUCAO A PROGRAMACAO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0022 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0161"
+    },
+    {
+        "nome": "MONITORIA EM INTRODUÇÃO AS MÍDIAS DIGITAIS",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0070 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0202"
+    },
+    {
+        "nome": "MONITORIA EM MATERIAIS E PROCESSOS GRAFICOS",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0050 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0134"
+    },
+    {
+        "nome": "MONITORIA EM METODOLOGIA DO PROJETO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0023 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0118"
+    },
+    {
+        "nome": "MONITORIA EM MODELAGEM DIGITAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0066 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0198"
+    },
+    {
+        "nome": "MONITORIA EM OFICINA DE MODELOS E MAQUETE",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0046 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0124"
+    },
+    {
+        "nome": "MONITORIA EM PROCESSOS ARTESANAIS DE REPRODUÇÃO GRÁFICA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0008 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0147"
+    },
+    {
+        "nome": "MONITORIA EM PROCESSOS DE PESQUISA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0067 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0199"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO VISUAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0040 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0129"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO VISUAL 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0041 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0121"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO VISUAL 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0042 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0130"
+    },
+    {
+        "nome": "MONITORIA EM PROGRAMACAO VISUAL 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0052 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0136"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE DIPLOMACAO EM PROGRAMACAO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0024 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0163"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE DIPLOMACAO EM PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0029 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0168"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE PRODUTO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0039 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0128"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE PRODUTO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0043 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0131"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE PRODUTO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0044 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0122"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DE PRODUTO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0051 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0135"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DO OBJETO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0025 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0164"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DO OBJETO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0026 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0165"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DO OBJETO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0027 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0166"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO DO OBJETO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0028 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0167"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO VISUAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0016 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0155"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO VISUAL 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0017 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0156"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO VISUAL 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0018 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0157"
+    },
+    {
+        "nome": "MONITORIA EM PROJETO VISUAL 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0019 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0158"
+    },
+    {
+        "nome": "MONITORIA EM SEMINÁRIOS DE PRÁTICA PROFISSIONAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0057 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0193"
+    },
+    {
+        "nome": "MONITORIA EM TIPOGRAFIA CINETICA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0030 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0169"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0006 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0145"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM DESIGN 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0110 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0206"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM DESIGN 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0111 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0207"
+    },
+    {
+        "nome": "MONITORIA EM TÓPICOS ESPECIAIS EM DESIGN 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0112 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0208"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0072 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0204"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 1 - PROGRAMAÇÃO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0068 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0200"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 1 - PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0069 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0201"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0073 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0205"
+    },
+    {
+        "nome": "MONITORIA EM TRABALHO DE CONCLUSÃO DE CURSO EM DESIGN 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( DIN0010 )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Atividade de Monitoria em Disciplina de Graduação.",
+        "codigo": "DIN0149"
+    },
+    {
+        "nome": "OFICINA DE MODELOS E MAQUETE",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0009 OU VIS0066 OU VIS0067 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Estudo das técnicas de confecção de modelos, maquetes, mockups e protótipos em escala.",
+        "codigo": "DIN0046"
+    },
+    {
+        "nome": "PROCESSOS ARTESANAIS DE REPRODUÇÃO GRÁFICA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Ementa Estudo e prática de processos artesanais de reprodução gráfica - serigrafia. Objetivos Pesquisar e experimentar processos de reprodução gráfica e desenvolver projetos gráfico-visuais que explorem as possibilidades tecnológicas do processo de serigrafia. Conteúdo programático Princípios do processo e das técnicas de impressão serigráfica e aplicações. Materiais básicos. Técnicas de preparação das imagens e dos diapositivos para gravação. Processo de preparação e gravação das imagens nas telas serigráficas. Impressão em uma e em mais cores, sobre diferentes tipos de suportes.Bibliografia básica LIMA, Sérgio Machado de (“Doutor Silk”). Manual de serigráfica (eBook). 2.ed. Rio de Janeiro: edição do autor, 2012. Disponível para compra em http://drsilk.blogspot.com.br/ LIMA, Sérgio Machado de (“Doutor Silk”). Impressão serigráfica. 1.ed. Rio de Janeiro: Senai-RJ, 2009. Disponível para compra em http://drsilk.blogspot.com.br/ MEDIO TONO. Curso básico de serigrafía. 1.ed. Madrid: Medio Tono, [s/data]. FIGUEROA, Carlos Alberto Vazquez. Serigrafía. 1.ed. Tlalnepantla: Red Tercer Milenio, 2012.",
+        "codigo": "DIN0008"
+    },
+    {
+        "nome": "PROCESSOS DE PESQUISA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Etapas do processo de pesquisa; revisão de literatura; definição de problema de pesquisa; elaboração de objetivos de pesquisa; pesquisa experimental, correlacional e documental; técnicas e métodos de coleta de dados; noções de análise de dados; redação de projetos de pesquisa.",
+        "codigo": "DIN0067"
+    },
+    {
+        "nome": "PROGRAMACAO VISUAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0031 OU FAU0032 OU DIN0016 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0031 OU FAU0032 OU DIN0016 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0031 OU FAU0032 OU DIN0016 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0031 OU FAU0032 OU DIN0016 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0031 OU FAU0032 OU DIN0016 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Ementa:Desenvolver o projeto de programação visual, com ênfase em projetos de baixa complexidade.Objetivos:\tDesenvolver a capacidade de projetar do aluno na área de programação visual, levando-o a compreender e projetar segundo as noções de sistema, organização e hierarquia de informações visuais.Específicos:Incentivar a intersecção dos processos criativos, de projeto e de linguagens presentes nas comunicações visuais, permitindo ao aluno desenvolver de forma sistêmica projetos iniciais em design.",
+        "codigo": "DIN0040"
+    },
+    {
+        "nome": "PROGRAMACAO VISUAL 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0040 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0033 OU DIN0017 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0033 OU DIN0017 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0033 OU DIN0017 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0033 OU DIN0017 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0033 OU DIN0017 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Ementa:Desenvolvimento de projetos de média complexidade em Programação Visual.Objetivos:  1. Objetivo atitudinal: estimular e desenvolver a sensibilidade, o senso crítico, e a capacidade de interação em equipes multidisciplinares, de modo que sejam capazes de compreender o projeto como a síntese de visão e ação mais abrangentes e contextualizadas do design na economia, na cultura e na sociedade.2. Objetivo de processo: desenvolver a prática projetual em design, isto é, exercitar a capacidade de conceber soluções em design através de um processo ordenado, contínuo e acumulativo de pesquisa, análise, reelaboração e síntese conceitual e formal.3. Objetivo de conteúdo: capacitar o aluno a desenvolver projetos sistematizados de média complexidade em programação visual de modo que venha a compreender a idéia de marca e identidade de marca, aplicadas no âmbito de organizações públicas ou privadas.",
+        "codigo": "DIN0041"
+    },
+    {
+        "nome": "PROGRAMACAO VISUAL 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0041 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0034 OU DIN0018 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0034 OU DIN0018 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0034 OU DIN0018 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0034 OU DIN0018 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0034 OU DIN0018 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Ementa: Desenvolvimento de projetos de programação visual de médiacomplexidade.Objetivos: Desenvolver a capacidade projetual do design editorial a partir demétodos e técnicas. Ampliar a competência analítica para avaliação de projetosgráficos, com foco em editoriais de livros e revistas.",
+        "codigo": "DIN0042"
+    },
+    {
+        "nome": "PROGRAMACAO VISUAL 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( FAU0035 OU DIN0019 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0035 OU DIN0019 ) )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0035 OU DIN0019 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0035 OU DIN0019 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( FAU0035 OU DIN0019 ) )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "Ementa: Teoria e prática de desenvolvimento de projeto de interfaces de mídias digitais interativas.Objetivoso Despertar o interesse pelo design de mídias digitais.o Levar conceitos e características relacionados ao desenvolvimento de projetos dedesign de mídias digitais.o Despertar uma atitude crítica nos alunos com relação a projetos de design de mídias digitais.",
+        "codigo": "DIN0052"
+    },
+    {
+        "nome": "PROJETO DE DIPLOMACAO EM PROGRAMACAO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0013 E DIN0019 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0295 ) OU ( VIS0209 )",
+        "equivalencias_especificas": [],
+        "ementa": "PROJETO FINAL DE GRADUACAO, QUE ENVOLVERA UMA PROPOSTA DE TRABALHO DELIVRE ESCOLHA DO ALUNO A QUAL DEVCERA INCORPORAR CONHECIMENTOS  TEORICOSE PRATICOS JA ADQUIRIDOS NO CURSO, ENQUANTO PROJETO VISUAL. O  DESENVOL-VIMENTO DO PRODUTO PODERA SER ACOMPANHADO DE ESTAGIO SUPERVISIONADO.",
+        "codigo": "DIN0024"
+    },
+    {
+        "nome": "PROJETO DE DIPLOMACAO EM PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "PROJETO FINAL DE GRADUACAO ENVOLVENDO UMA PROPOSTA DE TRABALHO DE LI-VRE ESCOLHA DO ALUNO, A QUAL DEVERA INCORPORAR CONHECIMENTOS  TEORICOS EPRATICOS JA ADQUIRIDOS NO CURSO,  ENQUANTO PRO DO  PRODUTO. O DESENVOL-VIMENTO DO PROJETO PODERA SER ACOMPANHADO DE ESTAGIO SUPERVISIONADO.",
+        "codigo": "DIN0029"
+    },
+    {
+        "nome": "PROJETO DE PRODUTO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0025 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0025 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0025 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EmentaDesenvolvimento, prática e execução de projeto de produto com aplicação dos conhecimentos adquiridos sobre procedimentos metodológicos, de representação e de linguagem. Ênfase em projetos com baixo grau de complexidade.ObjetivosExercitar a atividade projetual, incentivando a capacidade de análise crítica, conceitual e de organização metodológica, com o intuito de promover o amadurecimento profissional necessário a(o) estudante. Despertar a conscientização dos alunos em relação ao papel do designer perante o contexto atual. Pontos principais: 1 Explorar o senso crítico, analítico e criativo em todo o desenvolvimento do projeto 2 Aplicação de métodos projetuais de acordo com a demanda 3 Desenvolvimento de um projeto completo, até a construção de um modelo ou protótipo 4 Detalhamento técnico básico para fabricação 5 Elaboração de relatório técnico do projeto6 Apresentação do projeto.",
+        "codigo": "DIN0039"
+    },
+    {
+        "nome": "PROJETO DE PRODUTO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0039 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0026 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0026 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0026 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTAExercitar a atividade projetual em design, incentivando a capacidade de análise conceitual e de organização metodológica, com o intuito de promover o conhecimento das práticas do design inseridas no contexto de mercado. Desenvolver o projeto de produto utilizando os conhecimentos, as experiências e as ferramentas metodológicas à partir dos conceitos de open source e file to factory.OBJETIVOS GERAISDesenvolvimento de projeto de produto utilizando os conhecimentos, as experiências e as ferramentas metodológicas à partir dos conceitos com foco na experiência do usuário, open source e file to factory . Nesta etapa do curso, o projeto deve atender a uma demanda real de mercado, pesquisa e(ou) extensão, envolvendo, preferencialmente, outras áreas do conhecimento.OBJETIVOS ESPECÍFICOSUtilizar ferramentas para desenvolvimento de projeto de produto considerando a coleta de dados e a validação com o cliente à distância, considerando a interface do produto com o usuário e a experiência do usuário à partir dos conceitos de open source e file to factory.",
+        "codigo": "DIN0043"
+    },
+    {
+        "nome": "PROJETO DE PRODUTO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0043 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0027 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0027 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0027 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTAA disciplina Projeto do Produto 3 contempla o desenvolvimento de sistemas emdesign, que englobam artefatos, ambientes/contextos, processos e relações. Issodeve se dar com a aplicação dos conhecimentos e experiências adquiridos nasdisciplinas que compõem o período básico do curso e nas de projeto anteriores (PP1e PP2), consistindo em um processo acumulativo que passa pelas etapas principaisde um projeto.OBJETIVOO objetivo é o exercício da atividade projetual na promoção da capacidade deconceituação e de organização metodológica, para o amadurecimento profissionalnecessário ao estudante nesta etapa de formação.",
+        "codigo": "DIN0044"
+    },
+    {
+        "nome": "PROJETO DE PRODUTO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0028 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0028 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0028 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "EMENTA Desenvolvimento de projeto em design: execução de projeto de produto com aplicação dos conhecimentos e experiências adquiridos nas disciplinas que compõem o período básico do curso e nas de projeto (PP1, PP2 e PP3), consistindo em um processo acumulativo que passa por todos os aspectos e etapas de um projeto. Recomenda-se, nesta etapa do curso, que o projeto atenda a uma demanda real de mercado, pesquisa e(ou) extensão, os dois últimos desenvolvidos no curso/universidade, envolvendo, preferencialmente, outras áreas do conhecimento.OBJETIVOSExercitar a atividade projetual, incentivando a capacidade de análise conceitual e de organização metodológica, com o intuito de promover o amadurecimento profissional necessário do(a) estudante nesta etapa de proximidade da finalização do curso.",
+        "codigo": "DIN0051"
+    },
+    {
+        "nome": "PROJETO DO OBJETO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0021 E DIN0022 E DIN0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0039 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0039 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0039 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVIMENTO DE PROJETO PRATICA E EXECUCAO DO PROJETO DO  PRODUTO,COM APLICACAO DOS CONHECIMENTOS ADQUIRIDOS  NAS INTERFACES E DISCIPLINASTECNICAS. ENFASE EM PROJETOS DE BAIXO GRAU DE COMPLEXIDADE A PARTIR  DASNECESSIDADES DO USUARIO. INCLUI ESTAGIO QUANDO NECESSARIO,",
+        "codigo": "DIN0025"
+    },
+    {
+        "nome": "PROJETO DO OBJETO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0025 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0043 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0043 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0043 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVIMENTO DO PROJETO. PRATICA E EXECUCAO DO PROJETO DO PRODUTO,COM APLICACAO DOS CONHECIMENTOS ADQUIRIDOS NAS INTERFACES  E DISCIPLINASTECNICAS. ENFASE EM  PROJETOS COM BAIXA  MEDIA COMPLEXIDADE A PARTIR DASNECESSIDADES DO USUARIO. INCLUI ESTAGIO QUANDO NECESSARIO.",
+        "codigo": "DIN0026"
+    },
+    {
+        "nome": "PROJETO DO OBJETO 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0026 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0044 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0044 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0044 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVIMENTO DE PROJETO. PRATICA E EXECUCAO DO PROJETO DO PRODUTO,COM APLICACAO DOS CONHECIMENTOS ADQUIRIDAS NAS  INTERFACES E DISCIPLINASTECNICAS.  ENFASE EM  PROJETOS  DE  MEDIA/ALTA COMPLEXIDADE A PARTIR  DENECESSIDADES DO USUARIO. INCLUI ESTAGIO QUANDO NECESSARIO.",
+        "codigo": "DIN0027"
+    },
+    {
+        "nome": "PROJETO DO OBJETO 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0027 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0051 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0051 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0051 ) )",
+                "matriz_curricular": "DESIGN - PROJETO DO PRODUTO - Bacharelado - Presencial - D",
+                "curriculo": "5398/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "DESENVOLVIMENTO DE PROJETO. PRATICA E EXECUCAO DO PROJETO DO PRODUTO,COM APLICACAO DOS CONHECIMENTOS ADQUIRIDOS NAS INTERFACES  E DISCIPLINASTECNICAS. ENFASE EM PROJETOS DE ALTO  GRAU DE COMPLEXIDADE A PARTIR  DASNECESSIDADES DO URUARIO. INCLUI ESTAGIO QUANDO NECESSARIO.",
+        "codigo": "DIN0028"
+    },
+    {
+        "nome": "PROJETO VISUAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0022 E DIN0021 E DIN0023 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( FAU0031 ) OU ( FAU0032 )",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0040 ) ) OU ( FAU0031 OU FAU0032 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0040 ) ) OU ( FAU0031 OU FAU0032 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0040 ) ) OU ( FAU0031 OU FAU0032 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0040 ) ) OU ( FAU0031 OU FAU0032 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0040 ) ) OU ( FAU0031 OU FAU0032 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRATICA E EXECUCAO DE PROJETOS DE PROGRAMACAO VISUAL, DE  BAIXA  COM-PLEXIDADE ATRAVES DE METODOLOGIA APROPRIADA.",
+        "codigo": "DIN0016"
+    },
+    {
+        "nome": "PROJETO VISUAL 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0016 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0041 ) ) OU ( FAU0033 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0041 ) ) OU ( FAU0033 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0041 ) ) OU ( FAU0033 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0041 ) ) OU ( FAU0033 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0041 ) ) OU ( FAU0033 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRATICA E EXECUCAO DE PROJETOS DE PROGRAMACAO VISUAL, DE  BAIXA A ME-DIA COMPLEXIDADE ATRAVES, DE METODOLOGIA APROPRIADA.",
+        "codigo": "DIN0017"
+    },
+    {
+        "nome": "PROJETO VISUAL 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0017 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0042 ) ) OU ( FAU0034 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0042 ) ) OU ( FAU0034 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0042 ) ) OU ( FAU0034 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0042 ) ) OU ( FAU0034 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0042 ) ) OU ( FAU0034 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRATICA E EXECUCCAO DE PROJETOS EM PROGRAMACAO VISUSAL, DE MEDIA/ALTACOMPLEXIDADE, ATRAVES DE METODOLOGIA APROPRIADA.",
+        "codigo": "DIN0018"
+    },
+    {
+        "nome": "PROJETO VISUAL 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0018 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [
+            {
+                "expressao": "( ( DIN0052 ) ) OU ( FAU0035 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-4 - 2012.1",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0052 ) ) OU ( FAU0035 )",
+                "matriz_curricular": "DESENHO INDUSTRIAL - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-5 - 2006.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0052 ) ) OU ( FAU0035 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-2 - 2015.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0052 ) ) OU ( FAU0035 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/-3 - 2012.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            },
+            {
+                "expressao": "( ( DIN0052 ) ) OU ( FAU0035 )",
+                "matriz_curricular": "DESIGN - PROGRAMACAO VISUAL - Bacharelado - Presencial - D",
+                "curriculo": "5380/1 - 2017.2",
+                "data_vigencia": "1971.2",
+                "fim_vigencia": ""
+            }
+        ],
+        "ementa": "PRATICA E EXECUCCAO DE PROJETOS EM PROGRAMACAO VISUAL DE ALTA COMPLE-XIDADE, ATRAVES DE METODOLOGIA APROPRIADA.",
+        "codigo": "DIN0019"
+    },
+    {
+        "nome": "SEMINÁRIOS DE PRÁTICA PROFISSIONAL 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "## => APRESENTAÇÃO, POR DESIGNERS CONVIDADOS, E DISCURSSÃO DE TE-MAS ATUAIS   PERTINENTES   AO   MERCADO  PROFISSIONAL   DE  DESIGN E AOEXERCÍCIO DA PROFISSÃO, BEM COMO NOÇÕES DE EMPREENDEDORISMO.",
+        "codigo": "DIN0057"
+    },
+    {
+        "nome": "TIPOGRAFIA CINETICA",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0013 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "EXPLORACAO VISUAL DAS QUALIDADES CINETICAS DO DESIGN GRAFICO E  TIPO-GRAFICO,  DE  ACORDO  COM  AS  FUNCOES  INFORMATIVAS  E  EXPRESSIVAS  DACOMUNICACAO VISUAL.",
+        "codigo": "DIN0030"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM DESIGN",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DIN0006"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM DESIGN 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "Exposição de uma breve história do vestuário e da Moda destacando o seu advento. Discussão sobre a conceituação e sobre a significação da Moda. Definição do fenômeno da Moda e sua evolução no Ocidente Europeu. Abordar os conceitos estéticos, o avanço tecnológico, o mercado globalizado, a sustentabilidade do sistema de produção e a diversidade cultural aplicados à Arte, ao Design e à Moda. Explanação sobre valores estéticos, históricos, culturais e sociais aplicados ao Design de Moda.",
+        "codigo": "DIN0110"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM DESIGN 3",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "QUADROS  CONCEITUAIS DA  HISTORIA. RELACOES COM  AS DEMAIS  CIENCIAS.TERMINOLOGIA. OS VARIOS CONCEITOS DE HISTORIA. A HISTORIA COMO CIENCIA.",
+        "codigo": "DIN0111"
+    },
+    {
+        "nome": "TÓPICOS ESPECIAIS EM DESIGN 4",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "-",
+        "equivalencias_especificas": [],
+        "ementa": "",
+        "codigo": "DIN0112"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0044 ) OU ( DIN0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "( DIN0068 OU DIN0069 )",
+        "equivalencias_especificas": [],
+        "ementa": "Desenvolvimento de um trabalho investigativo ou de um projeto de alta complexidade no campo do Design. Ao final de TCC1, o aluno deverá apresentar, conforme seja seu trabalho de natureza projetual ou investigativa, os capítulos iniciais da pesquisa, contendo definição de objeto de pesquisa, revisão de literatura, metodologia, cronograma, levantamento de dados e primeiras discussões.",
+        "codigo": "DIN0072"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1 - PROGRAMAÇÃO VISUAL",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0042 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0072",
+        "equivalencias_especificas": [],
+        "ementa": "*",
+        "codigo": "DIN0068"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 1 - PROJETO DO PRODUTO",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0044 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0072",
+        "equivalencias_especificas": [],
+        "ementa": "*",
+        "codigo": "DIN0069"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "-",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0010",
+        "equivalencias_especificas": [],
+        "ementa": "Elaboração do Trabalho de conclusão de curso pautado no regulamento aprovado pelo Colegiado do Curso, utilizando conhecimentos teóricos, metodológicos e éticos sob orientação docente. Compreensão e/ou capacidade de aplicação dos procedimentos projetuais, relativos à prática do design, a partir da proposição ou análise de projeto; desenvolvimento de habilidades relativas às diferentes etapas da atividade projetual; elaboração e apresentação do relatório de pesquisa ou de projeto.",
+        "codigo": "DIN0073"
+    },
+    {
+        "nome": "TRABALHO DE CONCLUSÃO DE CURSO EM DESIGN 2",
+        "unidade_responsavel": "DEPARTAMENTO DE DESIGN (11.01.01.14.04) ",
+        "pre_requisitos": "( ( DIN0052 ) OU ( DIN0051 ) )",
+        "co_requisitos": "-",
+        "equivalencias": "DIN0073",
+        "equivalencias_especificas": [],
+        "ementa": "Elaboração  do  Trabalho  de  conclusão  de  curso  pautado  no regulamento aprovado pelo Colegiado do Curso, utilizando conhecimentos teóricos, metodológicos e éticos sob orientação docente. Compreensão e/ou capacidade de aplicação dos procedimentos projetuais, relativos à prática do design, a partir da proposição ou análise de projeto;  desenvolvimento  de  habilidades  relativas  às diferentes etapas da atividade projetual; elaboração e apresentação do relatório de pesquisa ou de projeto.\n\nObjetivos:\nAcompanhamento e orientação da atuação discente no estágio, com ou sem remuneração, para vincular a formação acadêmica à experiência de mercado.\nSupervisionar e orientar a aplicação de métodos, técnicas e metodologias presentes no currículo.\n\nConteúdo:\nDiscussão sobre legislação (Lei n.11788).\nApresentação, análise e revisão de trabalhos realizados no contexto dos estágios.",
+        "codigo": "DIN0010"
+    }
+]

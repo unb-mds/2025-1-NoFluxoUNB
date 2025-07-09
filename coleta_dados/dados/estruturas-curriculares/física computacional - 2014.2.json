@@ -1,0 +1,1957 @@
+{
+  "curso": "FÍSICA COMPUTACIONAL",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2014.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0344",
+          "nome": "SEMINARIO DE GRADUACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0071",
+          "nome": "MECANICA CLASSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0183",
+          "nome": "FISICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0185",
+          "nome": "FISICA 4 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0321",
+          "nome": "METODOS COMPUTACIONAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0089",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0074",
+          "nome": "TEORIA ELETROMAGNETICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0098",
+          "nome": "FISICA QUANTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0323",
+          "nome": "METODOS COMPUTACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0326",
+          "nome": "COMPUTACAO ALGEBRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0078",
+          "nome": "TERMODINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0355",
+          "nome": "INTRODUCAO A FISICA ESTATISTICA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0100",
+          "nome": "MECANICA QUANTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0328",
+          "nome": "SIMULACAO DE PROCESSOS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0176",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0177",
+          "nome": "ARQUITETURA DE PROCESSADORES DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0198",
+          "nome": "FISICA MATEMATICA",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0082",
+          "nome": "FISICA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0314",
+          "nome": "PROJETO FINAL EM FISICA COMPUTACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0122",
+          "nome": "FISICA NUCLEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0148",
+          "nome": "SEMINARIO DE GRADUACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0316",
+          "nome": "PROJETO FINAL EM FISICA COMPUTACIONAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0107",
+          "nome": "FISICA ATOMICA E MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0115",
+          "nome": "ESTADO SOLIDO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0137",
+          "nome": "LABORATORIO ESPECIAL",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "BIOFISICA",
+          "nome": "60H OPTATIVA CEL0028 - METODOS EM BIOPOLIMEROS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0087",
+          "nome": "ENOVELAMENTO DE PROTEINAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0088",
+          "nome": "BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DPG1066",
+          "nome": "TOPICOS DE FISICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0030",
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0132",
+          "nome": "MECANICA DOS SOLIDOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0172",
+          "nome": "CIRCUITOS ELETRICOS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0174",
+          "nome": "CIRCUITOS ELETRICOS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0177",
+          "nome": "ELETROMAGNETISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0179",
+          "nome": "ELETROMAGNETISMO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0181",
+          "nome": "ELETRONICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0183",
+          "nome": "ELETRONICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0184",
+          "nome": "MATERIAIS ELETRICOS E MAGNETICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0185",
+          "nome": "CONVERSAO DE ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0191",
+          "nome": "TEORIA DE COMUNICACOES",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0195",
+          "nome": "PROPAGACAO DE ONDAS ELETROMAGNETICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0212",
+          "nome": "DISPOSITIVOS ELETRONICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0275",
+          "nome": "ELETROMAGNETISMO GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0302",
+          "nome": "ELETRONICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0313",
+          "nome": "CIRCUITOS ELETRICOS APLICADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0334",
+          "nome": "COMPUTACAO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0340",
+          "nome": "DISPOSITIVOS E CIRCUITOS ELETRONICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0068",
+          "nome": "TERMODINAMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0070",
+          "nome": "MAQUINAS TERMICAS",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0071",
+          "nome": "TRANSFERENCIA DE CALOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0082",
+          "nome": "MECANICA DOS FLUIDOS 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0120",
+          "nome": "MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0128",
+          "nome": "TRANSPORTE DE CALOR E MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0140",
+          "nome": "MECANICA DOS FLUIDOS 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0163",
+          "nome": "MECANICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0143",
+          "nome": "FUNDAMENTOS DA TEORIA ELETROMAGNETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0204",
+          "nome": "DINAMICA DOS FLUIDOS",
+          "ch": "75"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0107",
+          "nome": "HISTORIA DA CIENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0001",
+          "nome": "PRATICA DE APOIO DA FISICA 1- 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0002",
+          "nome": "PRATICA DE APOIO DA FISICA 1- 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0003",
+          "nome": "PRATICA DE APOIO DA FISICA 1-3",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0004",
+          "nome": "FISICA ZERO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0007",
+          "nome": "PRATICA DE APOIO A FISICA 2 - 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0008",
+          "nome": "PRATICA DE APOIO A FISICA 2 - 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0009",
+          "nome": "PRATICA DE APOIO A FISICA 2 - 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0011",
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0012",
+          "nome": "FUNDAMENTOS MATEMATICOS DA FISICA B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0013",
+          "nome": "ONDAS, OPTICA E TERMODINAMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0015",
+          "nome": "MECANICA CLASSICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0017",
+          "nome": "FISICA MATEMATICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0018",
+          "nome": "RELATIVIDADE E FISICA QUANTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0019",
+          "nome": "MECANICA CLASSICA B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0020",
+          "nome": "METODOS COMPUTACIONAIS A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0023",
+          "nome": "FISICA MATEMATICA B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0024",
+          "nome": "MECANICA QUANTICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0025",
+          "nome": "TEORIA ELETROMAGNETICA A",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0029",
+          "nome": "TEORIA ELETROMAGNETICA B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0054",
+          "nome": "METODOS COMPUTACIONAIS B",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0055",
+          "nome": "ELETROMAGNETISMO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0069",
+          "nome": "MECANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0076",
+          "nome": "TEORIA ELETROMAGNETICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0084",
+          "nome": "MECANICA ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0086",
+          "nome": "TECNICAS EXPERIMENTAIS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0088",
+          "nome": "MECANICA CLASSICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0091",
+          "nome": "INTRODUCAO A CINEMATICA RELATIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0093",
+          "nome": "TEORIA DOS FLUIDOS CLASSICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0096",
+          "nome": "FISICA ONDULATORIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0103",
+          "nome": "TEORIA QUANTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0105",
+          "nome": "PARTICULAS ELEMENTARES 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0109",
+          "nome": "FISICA ATOMICA E MOLECULAR 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0112",
+          "nome": "OPTICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0119",
+          "nome": "TEORIA DE SOLIDOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0124",
+          "nome": "CINEMATICA RELATIVISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0128",
+          "nome": "INTRODUCAO A RELATIVIDADE GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0132",
+          "nome": "TEORIA DOS GRUPOS APLICADA A FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0135",
+          "nome": "OPTICA QUANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0140",
+          "nome": "INSTRUMENTACAO CIENTIFICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0142",
+          "nome": "INSTRUMENTACAO CIENTIFICA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0150",
+          "nome": "INTRODUCAO A METODOS DA FISICA TEORICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0159",
+          "nome": "TEORIA QUANTICA DE CAMPOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0163",
+          "nome": "ELETRODINAMICA CLASSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0166",
+          "nome": "MECANICA CLASSICA AVANCADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0169",
+          "nome": "INTRODUCAO A FISICA DE PLASMA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0194",
+          "nome": "INTRODUCAO A RELATIVIDADE",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0196",
+          "nome": "INTRODUCAO A ESPECTROSCOPIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0200",
+          "nome": "METODOS COMPUTACIONAIS EM FISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0202",
+          "nome": "FISICA ATOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0204",
+          "nome": "FISICA MOLECULAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0206",
+          "nome": "FISICA MOLECULAR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0210",
+          "nome": "FISICA GERAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0213",
+          "nome": "FISICA GERAL 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0217",
+          "nome": "FISICA GERAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0220",
+          "nome": "FISICA GERAL 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0224",
+          "nome": "FISICA GERAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0227",
+          "nome": "FISICA GERAL 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0230",
+          "nome": "FISICA 1 PARA BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0236",
+          "nome": "FISICA GERAL 4 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0238",
+          "nome": "FISICA 2 PARA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0240",
+          "nome": "FISICA 2 EXPERIMENTAL PARA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0244",
+          "nome": "FISICA GERAL 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0246",
+          "nome": "METODOLOGIA DO ENSINO DE FISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0247",
+          "nome": "METODOLOGIA DO ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0250",
+          "nome": "MECANICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0252",
+          "nome": "FISICA MATEMATICA - NOTURNO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0254",
+          "nome": "TEORIA ELETROMAGNETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0256",
+          "nome": "FISICA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0258",
+          "nome": "EVOLUCAO HISTORICA DOS CONCEITOS DA FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0260",
+          "nome": "TEORIA QUANTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0262",
+          "nome": "MECANICA QUANTICA RELATIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0270",
+          "nome": "ESTRUTURA DA MATERIA 3 - FISICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0275",
+          "nome": "ESTRUTURA DA MATERIA 4 - FISICA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0282",
+          "nome": "PRATICA E ENSINO DE FISICA PARA O 2 GRAU 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0284",
+          "nome": "ELABORACAO E UTILIZACAO DE MATERIAL DIDATICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0286",
+          "nome": "ELABORACAO E UTILIZACAO DE MATERIAL DIDATICO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0288",
+          "nome": "PROGRAMA DE ENSINO DE FISICA PARA O 2 GRAU 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0290",
+          "nome": "PROGRAMA DE ENSINO DE FISICA PARA O 2 GRAU 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0293",
+          "nome": "FISICA TERMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0296",
+          "nome": "METODOS MATEMATICOS DA FISICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0299",
+          "nome": "FISICA 1 PARA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0302",
+          "nome": "FISICA 1 EXPERIMENTAL PARA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0306",
+          "nome": "ESTRUTURA DA MATERIA 1 - FISICA ATOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0308",
+          "nome": "ESPECTROSCOPIA ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0310",
+          "nome": "INSTRUMENTACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0312",
+          "nome": "INSTRUMENTACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0319",
+          "nome": "COMPUTACAO VETORIAL E PARALELA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0330",
+          "nome": "TOPICOS EM FISICA COMPUTACIONAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0339",
+          "nome": "INICIACAO A PESQUISA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0340",
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0342",
+          "nome": "FUNDAMENTOS DE ASTRONOMIA E ASTROFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0343",
+          "nome": "DINAMICA DE FLUIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0346",
+          "nome": "SEMINARIO DE GRADUACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0347",
+          "nome": "ASTROFISICA E COSMOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0348",
+          "nome": "INTRODUCAO A MECANICA CELESTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0354",
+          "nome": "MECANICA QUANTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0430",
+          "nome": "INTRODUCAO AO ENSINO E DIVULGACAO DA FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0445",
+          "nome": "FISICA DOS PLASMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0446",
+          "nome": "PROJETO FINAL EM LICENCIATURA DE FISICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0447",
+          "nome": "PROJETO FINAL EM LICENCIATURA DE FISICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0448",
+          "nome": "PROJETO FINAL EM FISICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0449",
+          "nome": "PROJETO FINAL EM FISICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0024",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0110",
+          "nome": "GEOFISICA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0003",
+          "nome": "INTRODUCAO A COMPUTACAO APLICADA AOS PROCESSOS QUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0005",
+          "nome": "TRANSFERENCIA DE QUANTIDADE DE MOVIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0021",
+          "nome": "QUIMICA ANALITICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0022",
+          "nome": "PRINCIPIOS DE QUIMICA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0029",
+          "nome": "ESPECTROSCOPIA ATOMICA E MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0056",
+          "nome": "QUIMICA INORGANICA 1 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0078",
+          "nome": "FISICO-QUIMICA 1 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0079",
+          "nome": "FISICO-QUIMICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0101",
+          "nome": "TERMODINAMICA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0103",
+          "nome": "EQUILIBRIO E CINETICA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0105",
+          "nome": "QUIMICA QUANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0139",
+          "nome": "QUIMICA DOS ELEMENTOS DE TRANSICAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0145",
+          "nome": "TERMODINAMICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0191",
+          "nome": "INTRODUCAO A QUIMICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0192",
+          "nome": "LABORATORIO DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0037",
+          "nome": "LINGUA PORTUGUESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0038",
+          "nome": "LINGUA PORTUGUESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0034",
+          "nome": "ALGEBRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0040",
+          "nome": "ALGEBRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0041",
+          "nome": "INTRODUCAO A OTIMIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0044",
+          "nome": "ANALISE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0046",
+          "nome": "ANALISE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0047",
+          "nome": "TOPOLOGIA DOS ESPACOS METRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0048",
+          "nome": "EQUACOES DIFERENCIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0050",
+          "nome": "GEOMETRIA DIFERENCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0057",
+          "nome": "ANALISE NUMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0099",
+          "nome": "INTRODUCAO AS EQUACOES DIFERENCIAIS PARCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0120",
+          "nome": "INTRODUCAO A TEORIA DE MEDIDA E INTEGRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0137",
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0344",
+          "nome": "SEMINARIO DE GRADUACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0089",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0078",
+          "nome": "TERMODINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0355",
+          "nome": "INTRODUCAO A FISICA ESTATISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0176",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0177",
+          "nome": "ARQUITETURA DE PROCESSADORES DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0198",
+          "nome": "FISICA MATEMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0122",
+          "nome": "FISICA NUCLEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0148",
+          "nome": "SEMINARIO DE GRADUACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0107",
+          "nome": "FISICA ATOMICA E MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0115",
+          "nome": "ESTADO SOLIDO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0137",
+          "nome": "LABORATORIO ESPECIAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0344",
+          "nome": "SEMINARIO DE GRADUACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0181",
+          "nome": "FISICA 3 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0071",
+          "nome": "MECANICA CLASSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0183",
+          "nome": "FISICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0185",
+          "nome": "FISICA 4 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0321",
+          "nome": "METODOS COMPUTACIONAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0089",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0074",
+          "nome": "TEORIA ELETROMAGNETICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0098",
+          "nome": "FISICA QUANTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0323",
+          "nome": "METODOS COMPUTACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0326",
+          "nome": "COMPUTACAO ALGEBRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0078",
+          "nome": "TERMODINAMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0355",
+          "nome": "INTRODUCAO A FISICA ESTATISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0100",
+          "nome": "MECANICA QUANTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0328",
+          "nome": "SIMULACAO DE PROCESSOS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0176",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0177",
+          "nome": "ARQUITETURA DE PROCESSADORES DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0198",
+          "nome": "FISICA MATEMATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0082",
+          "nome": "FISICA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0314",
+          "nome": "PROJETO FINAL EM FISICA COMPUTACIONAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0122",
+          "nome": "FISICA NUCLEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0148",
+          "nome": "SEMINARIO DE GRADUACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0316",
+          "nome": "PROJETO FINAL EM FISICA COMPUTACIONAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0107",
+          "nome": "FISICA ATOMICA E MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0115",
+          "nome": "ESTADO SOLIDO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0137",
+          "nome": "LABORATORIO ESPECIAL",
+          "ch": "120"
+        }
+      ]
+    }
+  ]
+}

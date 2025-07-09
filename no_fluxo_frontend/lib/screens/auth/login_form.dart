@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../constants/app_colors.dart';
+import '../../cache/shared_preferences_helper.dart';
+import '../../config/app_colors.dart';
 import 'password_recovery_screen.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'anonymous_login_screen.dart';
+import 'package:email_validator/email_validator.dart';
+import 'dart:async';
+import '../../service/auth_service.dart'; // Importar o AuthService
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class LoginForm extends StatefulWidget {
   final VoidCallback onToggleView;
@@ -20,8 +27,12 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _authService = AuthService(); // Instância do AuthService
+
   bool _rememberMe = false;
   bool _obscurePassword = true;
+  bool _isLoading = false; // Estado de carregamento
+  String? _emailError;
 
   @override
   void dispose() {
@@ -30,217 +41,565 @@ class _LoginFormState extends State<LoginForm> {
     super.dispose();
   }
 
+  // Método para fazer login com email e senha
+  Future<void> _handleEmailLogin() async {
+    if (!_formKey.currentState!.validate()) {
+      _handleFormValidationError();
+      return;
+    }
+
+    setState(() {
+      _isLoading = true;
+      _emailError = null;
+    });
+
+    try {
+      // Usando o método login do AuthService
+      final error = await _authService.login(
+        _emailController.text.trim(),
+        _passwordController.text,
+      );
+
+      if (mounted) {
+        if (error == null) {
+          // Login bem-sucedido
+          _showLoginSuccessModal(context, 'email');
+        } else {
+          // Erro no login
+          setState(() {
+            _emailError = error;
+          });
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _emailError = 'Erro inesperado: $e';
+        });
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  // Método para fazer login com Google
+  Future<void> _handleGoogleLogin() async {
+    setState(() {
+      _isLoading = true;
+      _emailError = null;
+    });
+
+    try {
+      await _authService.signInWithGoogle();
+      /* if (mounted) {
+        _showLoginSuccessModal(context, 'google');
+      } */
+    } on AuthException catch (e) {
+      if (mounted) {
+        setState(() {
+          _emailError = e.message;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _emailError = 'Erro no login com Google: $e';
+        });
+      }
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+  }
+
+  // Método para lidar com erros de validação do formulário
+  void _handleFormValidationError() {
+    final email = _emailController.text;
+    if (email.isEmpty) {
+      setState(() {
+        _emailError = 'Por favor, insira seu e-mail';
+      });
+    } else if (!email.contains('@')) {
+      setState(() {
+        _emailError = 'Inclua um "@" no endereço de e-mail.';
+      });
+    } else {
+      final parts = email.split('@');
+      if (parts.length != 2 || parts[1].isEmpty) {
+        setState(() {
+          _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
+        });
+      } else if (!parts[1].contains('.') ||
+          parts[1].startsWith('.') ||
+          parts[1].endsWith('.')) {
+        setState(() {
+          _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
+        });
+      } else {
+        setState(() {
+          _emailError = 'E-mail inválido.';
+        });
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: AppColors.black.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              'Login',
-              style: GoogleFonts.poppins(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: AppColors.white,
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 440),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 28),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.08),
+                blurRadius: 16,
+                offset: const Offset(0, 4),
               ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 24),
-            TextFormField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                labelStyle: const TextStyle(color: AppColors.white),
-                prefixIcon: const Icon(Icons.email, color: AppColors.white),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-              ),
-              style: const TextStyle(color: AppColors.white),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Por favor, insira seu email';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              controller: _passwordController,
-              obscureText: _obscurePassword,
-              decoration: InputDecoration(
-                labelText: 'Senha',
-                labelStyle: const TextStyle(color: AppColors.white),
-                prefixIcon: const Icon(Icons.lock, color: AppColors.white),
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                    color: AppColors.white,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      _obscurePassword = !_obscurePassword;
-                    });
-                  },
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(color: AppColors.primary),
-                ),
-              ),
-              style: const TextStyle(color: AppColors.white),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Por favor, insira sua senha';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 16),
-            Row(
+            ],
+          ),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Checkbox(
-                  value: _rememberMe,
-                  onChanged: (value) {
-                    setState(() {
-                      _rememberMe = value ?? false;
-                    });
-                  },
-                  fillColor: WidgetStateProperty.resolveWith<Color>(
-                    (Set<WidgetState> states) {
-                      if (states.contains(WidgetState.selected)) {
-                        return AppColors.primary;
-                      }
-                      return AppColors.white;
-                    },
-                  ),
-                ),
-                const Text(
-                  'Lembrar-me',
-                  style: TextStyle(color: AppColors.white),
-                ),
-                const Spacer(),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PasswordRecoveryScreen(),
+                if (_emailError != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFFF4E5),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: const Color(0xFFFFB020)),
                       ),
-                    );
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(Icons.warning_amber_rounded,
+                              color: Color(0xFFFFB020), size: 28),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              _emailError!,
+                              style: GoogleFonts.poppins(
+                                color: Colors.black87,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                Text(
+                  'Login',
+                  style: GoogleFonts.poppins(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 28),
+                TextFormField(
+                  controller: _emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  enabled: !_isLoading, // Desabilita durante o carregamento
+                  decoration: InputDecoration(
+                    hintText: 'E-mail',
+                    hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
+                    filled: true,
+                    fillColor: Colors.white,
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 18),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: const BorderSide(color: Color(0xFF2563EB)),
+                    ),
+                  ),
+                  style:
+                      GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Por favor, insira seu e-mail';
+                    }
+                    if (!value.contains('@')) {
+                      return 'Inclua um "@" no endereço de e-mail.';
+                    }
+                    final parts = value.split('@');
+                    if (parts.length != 2 || parts[1].isEmpty) {
+                      return 'Inclua um domínio após o "@" (ex: gmail.com).';
+                    }
+                    if (!parts[1].contains('.') ||
+                        parts[1].startsWith('.') ||
+                        parts[1].endsWith('.')) {
+                      return 'Inclua um domínio válido após o "@" (ex: gmail.com).';
+                    }
+                    if (!EmailValidator.validate(value)) {
+                      return 'E-mail inválido.';
+                    }
+                    return null;
                   },
-                  style: TextButton.styleFrom(
-                    overlayColor: Colors.transparent,
+                  onChanged: (value) {
+                    if (_emailError != null) {
+                      setState(() {
+                        _emailError = null;
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: _obscurePassword,
+                  enabled: !_isLoading, // Desabilita durante o carregamento
+                  decoration: InputDecoration(
+                    hintText: 'Senha',
+                    hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
+                    filled: true,
+                    fillColor: Colors.white,
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 18),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14),
+                      borderSide: const BorderSide(color: Color(0xFF2563EB)),
+                    ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Colors.grey[600],
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
+                    ),
                   ),
-                  child: const Text(
-                    'Esqueceu a senha?',
-                    style: TextStyle(color: AppColors.primary),
+                  style:
+                      GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Por favor, insira sua senha';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _rememberMe,
+                      onChanged: _isLoading
+                          ? null
+                          : (value) {
+                              setState(() {
+                                _rememberMe = value ?? false;
+                              });
+                            },
+                      activeColor: const Color(0xFF2563EB),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4)),
+                    ),
+                    Text(
+                      'Lembrar-me',
+                      style: GoogleFonts.poppins(
+                          fontSize: 14, color: Colors.grey[700]),
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: _isLoading
+                          ? null
+                          : () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const PasswordRecoveryScreen(),
+                                ),
+                              );
+                            },
+                      child: MouseRegion(
+                        cursor: _isLoading
+                            ? SystemMouseCursors.basic
+                            : SystemMouseCursors.click,
+                        child: Text(
+                          'Esqueceu a senha?',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            color: _isLoading
+                                ? Colors.grey[400]
+                                : const Color(0xFF6366F1),
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 22),
+                SizedBox(
+                  height: 52,
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _handleEmailLogin,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2563EB),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      textStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      elevation: 2,
+                    ),
+                    child: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white),
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : const Text('Entrar'),
+                  ),
+                ),
+                const SizedBox(height: 18),
+                // Separador "ou"
+                Row(
+                  children: [
+                    const Expanded(
+                        child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Text(
+                        'ou',
+                        style: GoogleFonts.poppins(
+                            color: Colors.grey[600], fontSize: 15),
+                      ),
+                    ),
+                    const Expanded(
+                        child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
+                  ],
+                ),
+                const SizedBox(height: 18),
+                // Botão Google
+                SizedBox(
+                  height: 52,
+                  child: OutlinedButton.icon(
+                    onPressed: _isLoading ? null : _handleGoogleLogin,
+                    icon: _isLoading
+                        ? const SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : SvgPicture.asset(
+                            'assets/icons/Google__G__logo.svg',
+                            height: 24,
+                            width: 24,
+                          ),
+                    label: Text(
+                      'Entrar com o Google',
+                      style: GoogleFonts.poppins(
+                        color: _isLoading ? Colors.grey[400] : Colors.grey[800],
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      side: const BorderSide(color: Color(0xFFD1D5DB)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      elevation: 0,
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 8),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 14),
+                // Botão Visitante
+                SizedBox(
+                  height: 52,
+                  child: ElevatedButton(
+                    onPressed: _isLoading
+                        ? null
+                        : () {
+                            context.go('/login-anonimo');
+                          },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          _isLoading ? Colors.grey[400] : Colors.black87,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      textStyle: GoogleFonts.poppins(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      elevation: 1,
+                    ),
+                    child: const Text('Entrar como Visitante'),
+                  ),
+                ),
+                const SizedBox(height: 18),
+                Center(
+                  child: TextButton(
+                    onPressed: _isLoading ? null : widget.onToggleView,
+                    style: TextButton.styleFrom(
+                      foregroundColor:
+                          _isLoading ? Colors.grey[400] : Colors.black87,
+                      textStyle: GoogleFonts.poppins(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    child: const Text('Não tem uma conta? Cadastre-se'),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  // Redireciona usando GoRouter
-                  // ignore: use_build_context_synchronously
-                  context.go('/auth/upload');
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primary,
-                foregroundColor: AppColors.white,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: const Text(
-                'Entrar',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-            // Botão de login com Google
-            ElevatedButton.icon(
-              onPressed: () {
-                // TODO: Implementar autenticação Google
-              },
-              icon: Image.asset(
-                'assets/icons/Google__G__logo.svg',
-                height: 24,
-                width: 24,
-                errorBuilder: (context, error, stackTrace) =>
-                    const Icon(Icons.login, color: Colors.red),
-              ),
-              label: const Text(
-                'Entrar com Google',
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black87,
-                elevation: 2,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                shadowColor: Colors.black12,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Não tem uma conta?',
-                  style: TextStyle(color: AppColors.white),
-                ),
-                TextButton(
-                  onPressed: widget.onToggleView,
-                  style: TextButton.styleFrom(
-                    overlayColor: Colors.transparent,
-                  ),
-                  child: const Text(
-                    'Cadastre-se',
-                    style: TextStyle(color: AppColors.primary),
-                  ),
-                ),
-              ],
-            ),
-          ],
+          ),
         ),
       ),
     );
+  }
+
+  void _showLoginSuccessModal(BuildContext context, String loginType) {
+    bool closed = false;
+    late Timer timer;
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 360),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.08),
+                    blurRadius: 16,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE6FAF0),
+                      shape: BoxShape.circle,
+                    ),
+                    padding: const EdgeInsets.all(12),
+                    child:
+                        Icon(Icons.check, color: Colors.green[600], size: 32),
+                  ),
+                  const SizedBox(height: 18),
+                  Text(
+                    'Login realizado',
+                    style: GoogleFonts.poppins(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    loginType == 'google'
+                        ? 'Você entrou com o Google.'
+                        : 'Você entrou com e-mail.',
+                    style: GoogleFonts.poppins(
+                      color: Colors.grey[600],
+                      fontSize: 14,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 22),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 44,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        closed = true;
+                        Navigator.of(context).pop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF183C8B),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        textStyle: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      child: const Text('OK'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    timer = Timer(const Duration(seconds: 2), () {
+      if (context.mounted) {
+        if (!closed) {
+          closed = true;
+          Navigator.of(context).pop();
+        }
+        context.go('/upload-historico');
+      }
+    });
   }
 }

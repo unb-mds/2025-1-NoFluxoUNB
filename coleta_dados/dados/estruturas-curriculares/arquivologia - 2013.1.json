@@ -1,0 +1,982 @@
+{
+  "curso": "ARQUIVOLOGIA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2013.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ADM0319",
+          "nome": "ORGANIZACAO, METODOS E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0063",
+          "nome": "ARQUIVO CORRENTE 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0064",
+          "nome": "ARQUIVO CORRENTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0076",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "ADM0308",
+          "nome": "NEGOCIACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0050",
+          "nome": "INFORMATICA DOCUMENTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0065",
+          "nome": "ARQUIVO INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0172",
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0073",
+          "nome": "SEMINARIO EM ARQUIVISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0066",
+          "nome": "DIPLOMATICA E TIPOLOGIA DOCUMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0067",
+          "nome": "ARQUIVO PERMANENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0046",
+          "nome": "ANALISE DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0068",
+          "nome": "ARQUIVO PERMANENTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0077",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCI0029",
+          "nome": "CATALOGACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0054",
+          "nome": "LINGUAGENS DOCUMENTARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0075",
+          "nome": "PLANEJAMENTO E GESTAO DE INSTITUICAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0052",
+          "nome": "ESTUDO DE USUARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0059",
+          "nome": "INDEXACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCI0070",
+          "nome": "PROJETO DE IMPLANTACAO DE SISTEMAS ARQUIVISTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0071",
+          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0074",
+          "nome": "SEMINARIO EM ARQUIVISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "SISTEMAS",
+          "nome": "60H OPTATIVA ADM0027 - METODOS E PROCESSOS ADMINISTRATIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0049",
+          "nome": "TEORIA DO PLANEJAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0070",
+          "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0170",
+          "nome": "SISTEMAS DE COMPUTACAO APLICADOS A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0182",
+          "nome": "COMUNICACAO E NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0101",
+          "nome": "SISTEMAS CONTABEIS APLICADOS A ARQUIVOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0069",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE DADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0152",
+          "nome": "INTRODUCAO A MICROINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CID0031",
+          "nome": "PALEOGRAFIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0033",
+          "nome": "ESTATISTICA EXPLORATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0068",
+          "nome": "ESTATISTICA EXPLORATORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0011",
+          "nome": "EDITORACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0015",
+          "nome": "MUSEOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0016",
+          "nome": "MUSEOLOGIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0022",
+          "nome": "MUSEOLOGIA E PRESERVACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0025",
+          "nome": "BIBLIOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0030",
+          "nome": "ORGANIZACAO E TRATAMENTO DE MATERIAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0031",
+          "nome": "CLASSIFICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0035",
+          "nome": "INFORMACAO E DOCUMENTACAO MUSEOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0036",
+          "nome": "GESTAO DE MUSEUS E POLITICAS DE ACERVOS MUSEOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0041",
+          "nome": "MUSEOLOGIA PATRIMONIO MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0042",
+          "nome": "MUSEOLOGIA E PRESERVACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0043",
+          "nome": "BIBLIOGRAFIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0047",
+          "nome": "REPROGRAFIA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FCI0048",
+          "nome": "ORGANIZACAO DO TRABALHO INTELECTUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0053",
+          "nome": "CONTROLE BIBLIOGRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0055",
+          "nome": "SERVICOS DE INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0060",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIBLIOTECONOMIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCI0061",
+          "nome": "ELABORACAO E MANUTENCAO DE TESAUROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0072",
+          "nome": "NOTARIADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0078",
+          "nome": "PRATICA DE ARQUIVOS UNIVERSITARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0080",
+          "nome": "PLANEJAMENTO E ELABORACAO DE BASES DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0081",
+          "nome": "MONOGRAFIA EM BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0082",
+          "nome": "USABILIDADE NA INTERACAO HUMANO - COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0083",
+          "nome": "ARQUIVO, CINEMA, INFORMACAO E MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0118",
+          "nome": "ACESSO E DIFUSAO DAS INFORMACOES ARQUIVISTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0120",
+          "nome": "CLASSIFICACAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0121",
+          "nome": "DESCRICAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0123",
+          "nome": "GESTAO DE DOCUMENTOS ARQUIVISTICOS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0127",
+          "nome": "INTRODUCAO AO TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0129",
+          "nome": "REPRESENTACAO DA INFORMACAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0130",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0001",
+          "nome": "COMUNICACAO, INFORMACAO E COMPUTACAO : FUNDAMENTOS E APLICACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ADM0308",
+          "nome": "NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0073",
+          "nome": "SEMINARIO EM ARQUIVISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0029",
+          "nome": "CATALOGACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0054",
+          "nome": "LINGUAGENS DOCUMENTARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0052",
+          "nome": "ESTUDO DE USUARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0059",
+          "nome": "INDEXACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0074",
+          "nome": "SEMINARIO EM ARQUIVISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0023",
+          "nome": "INTRODUCAO A ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0319",
+          "nome": "ORGANIZACAO, METODOS E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0063",
+          "nome": "ARQUIVO CORRENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0064",
+          "nome": "ARQUIVO CORRENTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0076",
+          "nome": "ESTAGIO SUPERVISIONADO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "ADM0308",
+          "nome": "NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0050",
+          "nome": "INFORMATICA DOCUMENTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0065",
+          "nome": "ARQUIVO INTERMEDIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0172",
+          "nome": "LEGISLACAO ADMINISTRATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0073",
+          "nome": "SEMINARIO EM ARQUIVISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0066",
+          "nome": "DIPLOMATICA E TIPOLOGIA DOCUMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0067",
+          "nome": "ARQUIVO PERMANENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0046",
+          "nome": "ANALISE DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0068",
+          "nome": "ARQUIVO PERMANENTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0077",
+          "nome": "ESTAGIO SUPERVISIONADO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "FCI0029",
+          "nome": "CATALOGACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0054",
+          "nome": "LINGUAGENS DOCUMENTARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0075",
+          "nome": "PLANEJAMENTO E GESTAO DE INSTITUICAO ARQUIVISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0052",
+          "nome": "ESTUDO DE USUARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0059",
+          "nome": "INDEXACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0070",
+          "nome": "PROJETO DE IMPLANTACAO DE SISTEMAS ARQUIVISTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0071",
+          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0074",
+          "nome": "SEMINARIO EM ARQUIVISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

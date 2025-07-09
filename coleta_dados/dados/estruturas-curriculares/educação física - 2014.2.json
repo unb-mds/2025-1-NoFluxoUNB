@@ -1,0 +1,827 @@
+{
+  "curso": "EDUCAÇÃO FÍSICA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2014.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0018",
+          "nome": "FUNDAMENTOS HISTORICOS-FILOSOFICO DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0025",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0035",
+          "nome": "FUNDAMENTOS TEORICOS-METODOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0046",
+          "nome": "EDUCACAO FISICA E PRATICAS CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0389",
+          "nome": "INFORMATICA INSTRUMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0396",
+          "nome": "COMUNICACAO, EXPRESSAO E ESTUDO ACADEMICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0019",
+          "nome": "FUNDAMENTOS SOCIO-ANTROPOLOGICO DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0036",
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0047",
+          "nome": "EDUCACAO FISICA: LEIS, NORMAS E POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0394",
+          "nome": "DIDATICA DA EDUCACAO FISICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0017",
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0024",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0045",
+          "nome": "ASPECTOS PSICOLOGICOS DA APRENDIZAGEM APLICADOS A EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0052",
+          "nome": "SEMINARIO DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0023",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0026",
+          "nome": "FISIOLOGIA DO EXERCICIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0028",
+          "nome": "CINESIOLOGIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0027",
+          "nome": "PREVENCAO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0037",
+          "nome": "ESTATISTICA APLICADA A EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0043",
+          "nome": "FUNDAMENTOS DO DESENV E APRENDIZ APLICADOS A EDUC FIS INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0048",
+          "nome": "ESTAGIO SUPERVISIONADO NA EDUCACAO FISICA INFANTIL",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0040",
+          "nome": "ESTUDOS E PESQUISA EM EDUCACAO FISICA ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0044",
+          "nome": "FUNDAMENTOS DO DESENV E APRENDIZ APLICADOS A EDUC FIS NO ENS FUND",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0049",
+          "nome": "ESTAGIO SUPERSIONADO NA EDUCACAO FISICA NO ENSINO FUNDAMENTA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0382",
+          "nome": "MEDIDAS E AVALIACAO NA EDUCACAO FISICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0022",
+          "nome": "ADMINISTRACAO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0050",
+          "nome": "EST SUP EDUCACAO FISICA NO ENSINO MEDIO E NA EDUC JOVENS E ADULTOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0051",
+          "nome": "FUND DO DESENV E APREND APL A EDU FIS  ENSINO MEDIO E NA EJA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0087",
+          "nome": "TRABALHO DE CONCLUSAO DO CURSO I",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0020",
+          "nome": "ESTAGIO SUPERVISIONADO AVANCADO EM EDUCACAO FISICA",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0094",
+          "nome": "TRABALHO DE CONCLUSAO DO CURSO II",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FEF0392",
+          "nome": "FUNDAMENTOS BIOLOGICOS APLICADOS A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0029",
+          "nome": "METODOLOGIA DAS ATIVIDADES GIMNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0030",
+          "nome": "METODOLOGIA DA DANCA E EXPRESSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0031",
+          "nome": "METODOLOGIA DO ATLETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0032",
+          "nome": "NATACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0033",
+          "nome": "METODOLOGIA DOS JOGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0034",
+          "nome": "PRINCIPIO DO TREINAMENTO RESISTIDO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0041",
+          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0042",
+          "nome": "METODOLOGIA DAS LUTAS E ARTES MARCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0067",
+          "nome": "EDUCACAO FISICA ADAPTADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0071",
+          "nome": "ESTAGIO SUPERVISIONADO PRIMEIRO CICLO DO ENSINO FUNDAMENTAL",
+          "ch": "105"
+        },
+        {
+          "codigo": "FEF0072",
+          "nome": "CRESCIMENTO E DESENVOLVIMENTO MOTOR HUMANO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0073",
+          "nome": "POLITICAS E FUNDAMENTOS DA EDUCACAO BASICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0074",
+          "nome": "PEDAGOGIA DA EDUCACAO FISICA NA EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0075",
+          "nome": "ESTAGIO SUPERVISIONADO NA EDUCACAO INFANTIL",
+          "ch": "105"
+        },
+        {
+          "codigo": "FEF0076",
+          "nome": "PEDAGOGIA DOS ESPORTES COLETIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0077",
+          "nome": "EDUCACAO FISICA PARA PORTADORES DE NECESSIDADES ESPECIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0078",
+          "nome": "PROCESSO DE ENSINO-APRENDIZAGEM DE HABILIDADES MOTORAS",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0080",
+          "nome": "PROGRAMAS DE APTIDAO FISICA APLICADOS A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0081",
+          "nome": "ORGANIZACAO DE EVENTOS DE EDUCACAO FISICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0082",
+          "nome": "PEDAGOGIA DA EDUCACAO FISICA NO ENSINO FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0083",
+          "nome": "PEDAGOGIA DAS LUTAS / ARTES MACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0084",
+          "nome": "EDUCACAO FISICA E SAUDE",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0086",
+          "nome": "PEDAGOGIA DA DANCA ESCOLAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0088",
+          "nome": "ESTAGIO SUPERVISIONADO - SEGUNDO CICLO DO ENSINO FUNDAMENTAL",
+          "ch": "105"
+        },
+        {
+          "codigo": "FEF0089",
+          "nome": "LAZER, TRABALHO E SOCIEDADE",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0091",
+          "nome": "POLITICAS PUBLICAS, EDUCACAO E EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0092",
+          "nome": "MANIFESTACOES ALTERNATIVAS DA CULTURA ESPORTIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0095",
+          "nome": "PEDAGOGIA DA EDUCACAO FISICA NO ENSINO MEDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0096",
+          "nome": "ESTAGIO SUPERVISIONADO NO ENSINO MEDIO",
+          "ch": "105"
+        },
+        {
+          "codigo": "FEF0098",
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0099",
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO FISICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0100",
+          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0101",
+          "nome": "MARKETING NA EDUCACAO FISICA - ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0102",
+          "nome": "METODOLOGIA DA GINASTICA LABORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0383",
+          "nome": "NUTRICAO APLICADA A EDUCACAO FISICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0385",
+          "nome": "PEDAGOGIA DOS ESPORTES INDIVIDUAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0386",
+          "nome": "PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0387",
+          "nome": "PRATICAS CURRICULARES 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "FEF0390",
+          "nome": "HISTORIA DA EDUCACAO E EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0391",
+          "nome": "FUNDAMENTOS ANATOMIA HUMANA CINESIOLOGIA APLICADOS A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0393",
+          "nome": "PEDAGOGIA DA GINASTICA ESCOLAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0397",
+          "nome": "FUNDAMENTOS DA EDUCACAO FISICA",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0398",
+          "nome": "JOGO E EUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0399",
+          "nome": "PRATICAS CURRICULARES 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0400",
+          "nome": "MANIFESTACOES RITMICAS EXPRESSIVAS",
+          "ch": "45"
+        },
+        {
+          "codigo": "FEF0402",
+          "nome": "FUNDAMENTOS FISIOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0403",
+          "nome": "FUNDAMENTOS SOCIOFILOSOFICOS DA EDUCACAO E DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0404",
+          "nome": "PRATICAS CURRICULARES 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0504",
+          "nome": "EDUCACAO TUTORIAL: O CURRICULO DE FORMACAO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0042",
+          "nome": "OFICINA DE PRODUCAO, COMPETENCIAS LINGUISITCAS E MIDIATICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0018",
+          "nome": "FUNDAMENTOS HISTORICOS-FILOSOFICO DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0025",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0035",
+          "nome": "FUNDAMENTOS TEORICOS-METODOLOGICOS DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0046",
+          "nome": "EDUCACAO FISICA E PRATICAS CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0389",
+          "nome": "INFORMATICA INSTRUMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0396",
+          "nome": "COMUNICACAO, EXPRESSAO E ESTUDO ACADEMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0019",
+          "nome": "FUNDAMENTOS SOCIO-ANTROPOLOGICO DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0036",
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0047",
+          "nome": "EDUCACAO FISICA: LEIS, NORMAS E POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0394",
+          "nome": "DIDATICA DA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0017",
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0024",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0045",
+          "nome": "ASPECTOS PSICOLOGICOS DA APRENDIZAGEM APLICADOS A EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0052",
+          "nome": "SEMINARIO DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0023",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0026",
+          "nome": "FISIOLOGIA DO EXERCICIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0028",
+          "nome": "CINESIOLOGIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0027",
+          "nome": "PREVENCAO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0037",
+          "nome": "ESTATISTICA APLICADA A EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0043",
+          "nome": "FUNDAMENTOS DO DESENV E APRENDIZ APLICADOS A EDUC FIS INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0048",
+          "nome": "ESTAGIO SUPERVISIONADO NA EDUCACAO FISICA INFANTIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0040",
+          "nome": "ESTUDOS E PESQUISA EM EDUCACAO FISICA ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0044",
+          "nome": "FUNDAMENTOS DO DESENV E APRENDIZ APLICADOS A EDUC FIS NO ENS FUND",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0049",
+          "nome": "ESTAGIO SUPERSIONADO NA EDUCACAO FISICA NO ENSINO FUNDAMENTA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0382",
+          "nome": "MEDIDAS E AVALIACAO NA EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0022",
+          "nome": "ADMINISTRACAO EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0050",
+          "nome": "EST SUP EDUCACAO FISICA NO ENSINO MEDIO E NA EDUC JOVENS E ADULTOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0051",
+          "nome": "FUND DO DESENV E APREND APL A EDU FIS  ENSINO MEDIO E NA EJA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0087",
+          "nome": "TRABALHO DE CONCLUSAO DO CURSO I",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0020",
+          "nome": "ESTAGIO SUPERVISIONADO AVANCADO EM EDUCACAO FISICA",
+          "ch": "150"
+        },
+        {
+          "codigo": "FEF0094",
+          "nome": "TRABALHO DE CONCLUSAO DO CURSO II",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0392",
+          "nome": "FUNDAMENTOS BIOLOGICOS APLICADOS A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

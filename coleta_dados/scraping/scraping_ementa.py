@@ -4,6 +4,7 @@ import json
 import time
 import os
 import re
+import unicodedata
 
 
 def get_viewstate(soup):
@@ -15,79 +16,51 @@ def normalize(text):
     return ' '.join(text.strip().lower().split())
 
 
+def remover_acentos(texto):
+    return unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
+
+
 def extract_dados_por_nivel(relatorio_html):
     soup = BeautifulSoup(relatorio_html, 'html.parser')
+    texto = soup.get_text(separator=' ', strip=True).lower()
+
+    blocos = re.split(r'(\d+º nível)', texto, flags=re.IGNORECASE)
     niveis = []
-    materias = []
-    optativas = []
-    semestre_atual = 1
-    modo_optativa = False
+    for i in range(1, len(blocos), 2):
+        nome_nivel = remover_acentos(blocos[i]).upper()
+        nome_nivel = re.sub(r'(\d+)O NIVEL', r'\1° NIVEL', nome_nivel)
+        conteudo = blocos[i + 1]
+        conteudo = re.split(r'cadeia|grupo de componentes', conteudo, flags=re.IGNORECASE)[0]
+        materias = []
+        for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo, flags=re.IGNORECASE):
+            nome_materia = remover_acentos(m[1]).upper()
+            if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
+                continue
+            materias.append({
+                'codigo': remover_acentos(m[0]).upper(),
+                'nome': nome_materia,
+                'ch': m[2]
+            })
+        if materias:
+            niveis.append({'nivel': nome_nivel, 'materias': materias})
 
-    tabela = soup.find('table')
-    if not tabela:
-        print("Tabela principal não encontrada!")
-        return niveis
+    match_optativas = re.search(r'(optativas[\w\s]*)(.*)', texto, flags=re.IGNORECASE)
+    if match_optativas:
+        conteudo_opt = match_optativas.group(2)
+        conteudo_opt = re.split(r'cadeia|grupo de componentes', conteudo_opt, flags=re.IGNORECASE)[0]
+        materias_opt = []
+        for m in re.findall(r'([a-z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', conteudo_opt, flags=re.IGNORECASE):
+            nome_materia = remover_acentos(m[1]).upper()
+            if 'CH TOTAL' in nome_materia or 'CH MINIMA' in nome_materia:
+                continue
+            materias_opt.append({
+                'codigo': remover_acentos(m[0]).upper(),
+                'nome': nome_materia,
+                'ch': m[2]
+            })
+        if materias_opt:
+            niveis.append({'nivel': 'OPTATIVAS', 'materias': materias_opt})
 
-    for tr in tabela.find_all('tr'):
-        td_colspan = tr.find('td', colspan="2")
-        if td_colspan:
-            # Salva matérias acumuladas no local correto
-            if materias and not modo_optativa:
-                niveis.append({
-                    'nivel': f"{semestre_atual}º Semestre",
-                    'materias': materias
-                })
-                materias = []
-                semestre_atual += 1
-            elif materias and modo_optativa:
-                optativas.extend(materias)
-                materias = []
-
-            texto_divisor = td_colspan.get_text(strip=True).lower()
-            if "optativa" in texto_divisor:
-                modo_optativa = True
-            else:
-                modo_optativa = False
-            continue
-
-        if 'componentes' in (tr.get('class') or []):
-            tds = tr.find_all('td')
-            if tds and tds[0].text.strip():
-                texto = tds[0].get_text(strip=True)
-                match = re.match(r'([A-Z0-9]+)\s*-\s*(.*?)\s*-\s*(\d+)h', texto)
-                if match:
-                    codigo, nome, carga = match.groups()
-                    # Natureza: tenta pegar do segundo <td>, senão usa o padrão
-                    natureza = "Optativa" if modo_optativa else "Obrigatória"
-                    if len(tds) > 1 and tds[1].text.strip():
-                        natureza = tds[1].get_text(strip=True)
-                    materia = {
-                        'codigo': codigo,
-                        'nome': nome.strip(),
-                        'carga_horaria': f"{carga}h",
-                        'natureza': natureza
-                    }
-                    materias.append(materia)
-                else:
-                    print("Regex não bateu para:", texto)
-
-    # Salva o último grupo de matérias
-    if materias and not modo_optativa:
-        niveis.append({
-            'nivel': f"{semestre_atual}º Semestre",
-            'materias': materias
-        })
-    elif materias and modo_optativa:
-        optativas.extend(materias)
-
-    # Adiciona optativas como um nível separado, se houver
-    if optativas:
-        niveis.append({
-            'nivel': "Optativas",
-            'materias': optativas
-        })
-
-    print(f"=== FIM DO PARSER: {len(niveis)} níveis extraídos (incluindo optativas) ===")
     return niveis
 
 
@@ -114,7 +87,6 @@ def acessar_relatorio(session, soup, btn_name, btn_value, estrutura_id, estrutur
 
 
 def scrape_estruturas():
-    # Caminho absoluto para o arquivo JSON
     script_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(script_dir, '..', 'dados', 'cursos-de-graduacao.json')
     output_dir = os.path.join(script_dir, '..', 'dados', 'estruturas-curriculares')
@@ -125,18 +97,16 @@ def scrape_estruturas():
 
     base_url = "https://sigaa.unb.br/sigaa/public/curso/lista.jsf?nivel=G&aba=p-graduacao"
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0'
     }
 
     session = requests.Session()
     session.headers.update(headers)
 
-    # 1. Acessar página inicial para pegar cookies e viewstate
     resp = session.get(base_url)
     soup = BeautifulSoup(resp.text, 'html.parser')
     viewstate = get_viewstate(soup)
 
-    # 2. Iterar sobre os cursos na página inicial
     tabela = soup.find('table', {'class': 'listagem'})
     if not tabela:
         print("Erro: Tabela de cursos não encontrada.")
@@ -153,6 +123,8 @@ def scrape_estruturas():
             continue
 
         nome_curso = cols[0].get_text(strip=True)
+        tipo_curso = cols[1].get_text(strip=True)  # <<<<<< ADICIONADO
+
         link_tag = tr.find('a', href=True, title="Visualizar Página do Curso")
         if not link_tag:
             print(f"Erro: Link não encontrado para o curso {nome_curso}.")
@@ -162,11 +134,9 @@ def scrape_estruturas():
         print(f"Processando curso: {nome_curso}")
         print(f"DEBUG: Link do curso: {curso_url}")
 
-        # 3. Acessar página do curso
         resp = session.get(curso_url)
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        # 4. Procurar o sub-menu 'Estruturas Curriculares' dentro da aba 'Ensino'
         estrutura_link = None
         for a in soup.find_all('a', href=True):
             if 'estruturaCurricular.jsf' in a['href'] or 'curriculo.jsf' in a['href']:
@@ -180,17 +150,24 @@ def scrape_estruturas():
         estrutura_url = requests.compat.urljoin(curso_url, estrutura_link)
         print(f"DEBUG: Link de estrutura curricular encontrado: {estrutura_url}")
 
-        # 5. Acessar página de estruturas curriculares
         resp = session.get(estrutura_url)
         soup = BeautifulSoup(resp.text, 'html.parser')
 
-        # 6. Encontrar estrutura ativa e link do relatório (ícone do livro)
         linhas = soup.find_all('tr', class_=['linha_impar', 'linha_par'])
-        relatorio_params = None
+        relatorios = []
         for tr in linhas:
+            if len(relatorios) == 2:
+                break
             tds = tr.find_all('td')
-            if len(tds) >= 2 and 'Ativa' in tds[1].text:
-                # Procura o <a> com o título correto
+            if len(tds) >= 2:
+                texto_identificador = ''
+                periodo_letivo = ''
+                for txt in tds:
+                    if 'Detalhes da Estrutura Curricular' in txt.text:
+                        texto_identificador = txt.text.strip()
+                    match_periodo = re.search(r'Período letivo em vigor:?\s*([0-9]{4}\.[12])', txt.text)
+                    if match_periodo:
+                        periodo_letivo = match_periodo.group(1)
                 for a in tr.find_all('a', title="Relatório da Estrutura Curricular", onclick=True):
                     onclick = a['onclick']
                     btn_match = re.search(r"\{'([^']+)':'([^']+)'", onclick)
@@ -199,30 +176,33 @@ def scrape_estruturas():
                         btn_name = btn_match.group(1)
                         btn_value = btn_match.group(2)
                         estrutura_id = id_match.group(1)
-                        relatorio_params = (btn_name, btn_value, estrutura_id)
+                        id_arquivo = periodo_letivo if periodo_letivo else re.sub(r'[^\w]', '_', texto_identificador)
+                        relatorios.append((btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo))
                         break
-                if relatorio_params:
-                    break
 
-        # Simular o clique (POST)
-        if relatorio_params:
-            btn_name, btn_value, estrutura_id = relatorio_params
+        for idx, (btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo) in enumerate(relatorios):
             relatorio_html = acessar_relatorio(session, soup, btn_name, btn_value, estrutura_id, estrutura_url)
-            print(f"Relatório encontrado e baixado para: {nome_curso}")
-
-            # 7. Extrair dados por nível
+            print(f"Relatório encontrado e baixado para: {nome_curso} - {id_arquivo if id_arquivo else f'estructura{idx+1}'}")
             dados_por_nivel = extract_dados_por_nivel(relatorio_html)
 
-            # 8. Salvar dados organizados em JSON
-            output_path = os.path.join(output_dir, f"{normalize(nome_curso)}.json")
+            periodo_letivo_vigor = ''
+            relatorio_soup = BeautifulSoup(relatorio_html, 'html.parser')
+            th = relatorio_soup.find('th', string=lambda s: s and 'Período Letivo de Entrada em Vigor' in s)
+            if th:
+                td = th.find_next_sibling('td')
+                if td:
+                    periodo_letivo_vigor = td.get_text(strip=True)
+
+            nome_arquivo = periodo_letivo_vigor if periodo_letivo_vigor else (id_arquivo if id_arquivo else f'estructura{idx+1}')
+            output_path = os.path.join(output_dir, f"{normalize(nome_curso)} - {nome_arquivo}.json")
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     'curso': nome_curso,
+                    'tipo_curso': tipo_curso,  # <<<<< ADICIONADO
+                    'periodo_letivo_vigor': periodo_letivo_vigor,
                     'niveis': dados_por_nivel
                 }, f, ensure_ascii=False, indent=2)
             print(f"Dados organizados por nível salvos em: {output_path}")
-
-        time.sleep(2)  # Pausa de 2 segundos antes de processar o próximo curso
 
     print("Scraping concluído!")
 

@@ -1,0 +1,1877 @@
+{
+  "curso": "MEDICINA VETERINÁRIA",
+  "tipo_curso": "Médico Veterinário",
+  "periodo_letivo_vigor": "2016.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0234",
+          "nome": "INTRODUCAO A MEDICINA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0236",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0052",
+          "nome": "FISIOLOGIA VETERINARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0066",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0043",
+          "nome": "EMBRIOLOGIA ANIMAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0178",
+          "nome": "FISIOLOGIA VETERINARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0206",
+          "nome": "MICROBIOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0303",
+          "nome": "PATOLOGIA GERAL VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0016",
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0018",
+          "nome": "PARASITOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0158",
+          "nome": "PATOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0179",
+          "nome": "FARMACOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0180",
+          "nome": "NUTRICAO ANIMAL",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0006",
+          "nome": "SEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0160",
+          "nome": "EPIDEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0181",
+          "nome": "BOVINOCULTURA DE CORTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0182",
+          "nome": "BOVINOCULTURA DE LEITE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0248",
+          "nome": "AVICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0249",
+          "nome": "SUINOCULTURA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0015",
+          "nome": "DOENCAS PARASITARIAS DOS ANIMAIS DOMESTICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0088",
+          "nome": "EXTENSAO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0161",
+          "nome": "FISIOPATOLOGIA DA REPRODUCAO DA FEMEA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0166",
+          "nome": "PATOLOGIA CLINICA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0167",
+          "nome": "FISIOPATOLOGIA DA REPRODUCAO DO MACHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0297",
+          "nome": "DOENCAS INFECCIOSAS DOS ANIMAIS DOMESTICOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0165",
+          "nome": "TECNICA CIRURGICA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0169",
+          "nome": "TECNOLOGIA DE LEITE E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0207",
+          "nome": "ANESTESIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0243",
+          "nome": "DIAGNOSTICO POR IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0328",
+          "nome": "SAUDE PUBLICA VETERINARIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0003",
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0005",
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FAV0168",
+          "nome": "TECNOLOGIA DE CARNES E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0199",
+          "nome": "CLINICA CIRURGICA DE PEQUENOS ANIMAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0004",
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0007",
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "FAV0084",
+          "nome": "POLITICAS PUBLICAS DE SAUDE ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0186",
+          "nome": "INSPECAO DE LEITE E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0208",
+          "nome": "INSPECAO DE CARNES E DERIVADOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FAV0184",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "VEGETAL",
+          "nome": "60H OPTATIVA BOT0008 - FISIOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0020",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0021",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0042",
+          "nome": "ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0049",
+          "nome": "MORFOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0023",
+          "nome": "BIOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0026",
+          "nome": "BIOLOGIA MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0027",
+          "nome": "BIOLOGIA MOLECULAR 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0033",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0040",
+          "nome": "INTRODUCAO A BIOQUIMICA EXPERIMENTAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0042",
+          "nome": "TOPICOS EM BIOQUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0062",
+          "nome": "METABOLISMO CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0072",
+          "nome": "PESQUISA EM BIOLOGIA MOLECULAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0074",
+          "nome": "PESQUISA EM BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0093",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOQUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0095",
+          "nome": "BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0098",
+          "nome": "PESQUISA EM IMUNOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0002",
+          "nome": "PESQUISA EM REPRODUCAO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0010",
+          "nome": "FISIOLOGIA DOS SISTEMAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0013",
+          "nome": "VENENOS ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0031",
+          "nome": "NEUROFISIOLOGIA MEDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0041",
+          "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0044",
+          "nome": "SISTEMAS SENSORIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0045",
+          "nome": "EXPERIMENTACAO EM FISIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0048",
+          "nome": "FISIOLOGIA ANIMAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0049",
+          "nome": "FISIOLOGIA ANIMAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0050",
+          "nome": "NEUROETOLOGIA DO ESTRESSE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0052",
+          "nome": "BASES BIOLOGICAS DA REPRODUCAO EM MAMIFEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0055",
+          "nome": "FISIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0086",
+          "nome": "TOPICOS EM NEUROCIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0152",
+          "nome": "INTRODUCAO A MICROINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0045",
+          "nome": "VIGILANCIA SANITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0013",
+          "nome": "LIMNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0024",
+          "nome": "ETOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0042",
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0043",
+          "nome": "ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0049",
+          "nome": "BIOLOGIA E ECOLOGIA DE PEIXES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0108",
+          "nome": "ECONOMIA RURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0004",
+          "nome": "ECOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0031",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0032",
+          "nome": "FUNDAMENTOS EM FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0041",
+          "nome": "TOPICOS EM TOXICOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAR0125",
+          "nome": "FARMACODINAMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0146",
+          "nome": "FARMACOLOGIA MOLECULAR EXPERIMENTAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAR0167",
+          "nome": "ANALISE ORGANICA DOS FARMACOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0001",
+          "nome": "BIOCOMBUSTIVEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0017",
+          "nome": "PRODUCAO E MANEJO DE ANIMAIS SILVESTRES E EXOTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0026",
+          "nome": "BIOCLIMATOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0038",
+          "nome": "ESTATISTICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0051",
+          "nome": "OFTALMOLOGIA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0055",
+          "nome": "PRATICA HOSPITALAR VETERINARIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0056",
+          "nome": "PRATICA HOSPITALAR VETERINARIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0057",
+          "nome": "PRATICA HOSPITALAR VETERINARIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0058",
+          "nome": "ESTAGIO NAO OBRIGATORIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0060",
+          "nome": "ESTAGIO NAO OBRIGATORIO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0062",
+          "nome": "ESTAGIO NAO OBRIGATORIO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0069",
+          "nome": "FERTILIDADE DO SOLO E ADUBACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0105",
+          "nome": "PLANTAS FORRAGEIRAS E PASTAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0109",
+          "nome": "ALIMENTOS E ALIMENTACAO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0110",
+          "nome": "GENETICA QUANTITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0113",
+          "nome": "ANATOMIA E FISIOLOGIA DOS ANIMAIS DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0117",
+          "nome": "PRODUCAO E CONTROLE DE PRODUTOS BIOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0143",
+          "nome": "PATOLOGIA CLINICA CIRURGICA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0144",
+          "nome": "SAUDE E CLINICA DAS AVES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0145",
+          "nome": "CLINICA CIRURGICA DE GRANDES ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0146",
+          "nome": "BIOTECNICAS AVANCADAS NA REPRODUCAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0150",
+          "nome": "ZOOTECNIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0159",
+          "nome": "PARASITOLOGIA E DOENCAS PARASITARIAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0164",
+          "nome": "PLANEJAMENTO EM SAUDE ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0175",
+          "nome": "COOPERATIVISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0177",
+          "nome": "MICROINFORMATICA APLICADA A AGRICULTURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0183",
+          "nome": "DEONTOLOGIA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0185",
+          "nome": "PRATICA HOSPITALAR VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0187",
+          "nome": "SANEAMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0196",
+          "nome": "SAUDE E CLINICA DOS RUMINANTES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0205",
+          "nome": "SAUDE E CLINICA DOS EQUINOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0213",
+          "nome": "ADMINISTRACAO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0229",
+          "nome": "ELABORACAO DE PROJETOS AGROPECUARIOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0230",
+          "nome": "INTRODUCAO A PROJETOS AGROPECUARIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0237",
+          "nome": "EQUINOCULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0239",
+          "nome": "CAPRINOCULTURA E OVINOCULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0240",
+          "nome": "SAUDE E CLINICA DOS SUINOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0241",
+          "nome": "SAUDE E CLINICA DOS ANIMAIS DE COMPANHIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0242",
+          "nome": "OBSTETRICIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0245",
+          "nome": "BEM-ESTAR ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0246",
+          "nome": "NUTRICAO DE RUMINANTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0247",
+          "nome": "NUTRICAO DE MONOGASTRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0259",
+          "nome": "POLITICA AGRICOLA E DESENVOLVIMENTO RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0261",
+          "nome": "DIAGNOSTICO RURAL PARTICIPATIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0263",
+          "nome": "MELHORAMENTO GENETICO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0268",
+          "nome": "DIAGNOSTICO RURAL PARTICIPATIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0271",
+          "nome": "FARMACOVIGILANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0273",
+          "nome": "BIOLOGIA DO SOLO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0274",
+          "nome": "FUNDAMENTOS DE CIENCIA DO SOLO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0275",
+          "nome": "ADMINISTRACAO RURAL E COMERCIALIZACAO AGRICOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0276",
+          "nome": "ZOOTECNIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0293",
+          "nome": "TOPICOS ESPECIAIS EM ZOOTECNIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0295",
+          "nome": "AGRONEGOCIO E SISTEMAS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0299",
+          "nome": "UTILIZACAO DE PLANTAS FORRAGEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0300",
+          "nome": "GERENCIA DA PROPRIEDADE RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0301",
+          "nome": "PESQUISA PARTICIPANTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0302",
+          "nome": "METODOS DE EXPERIMENTACAO  COM ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0305",
+          "nome": "TOPICOS AVANCADOS EM FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0306",
+          "nome": "TERAPEUTICA APLICADA AOS ANIMAIS DE COMPANHIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0309",
+          "nome": "AGRICULTURA FAMILIAR E DESENVOLVIMENTO RURAL NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0314",
+          "nome": "NUTRICAO DE EQUINOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0315",
+          "nome": "SAUDE E CLINICA DE ANIMAIS SILVESTRES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0324",
+          "nome": "ESTAGIO NAO OBRIGATORIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0326",
+          "nome": "TECNOLOGIA E INSPECAO DE PESCADO OVOS E MEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0329",
+          "nome": "AQUICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0330",
+          "nome": "AVALIACAO DE CARCACAS E QUALIDADE DA CARNE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0331",
+          "nome": "DIAGNOSTICO HISTOPATOLOGICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0332",
+          "nome": "MEDICINA VETERINARIA LEGAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0333",
+          "nome": "TOXICOLOGIA VETERINARIA E PLANTAS TOXICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0335",
+          "nome": "TERAPIA GENICA 1 - FUNDAMENTOS E TECNICAS DE RNAI",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0336",
+          "nome": "ZOONOSES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0337",
+          "nome": "BIOTERISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0338",
+          "nome": "PRATICAS CIRURGICAS EM PEQUENOS ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0340",
+          "nome": "CUNICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0341",
+          "nome": "ESTATISTICA APLICADA A EXPERIMENTACAO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0344",
+          "nome": "MARKETING AGROINDUSTRIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0370",
+          "nome": "DESENVOLVIMENTO RURAL SUSTENTAVEL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0512",
+          "nome": "NEUROLOGIA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0070",
+          "nome": "NEUROANATOMIA FUNCIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0143",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0409",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0013",
+          "nome": "MORFOFUNCIONAL 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FMD0091",
+          "nome": "ANATOMIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0093",
+          "nome": "PROCESSOS PATOLOGICOS GERAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0095",
+          "nome": "PATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0512",
+          "nome": "HISTOLOGIA MEDICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0200",
+          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0265",
+          "nome": "BIOLOGIA GERAL APLICADA A GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0302",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0313",
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0316",
+          "nome": "UNIVERSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0318",
+          "nome": "SERES VIVOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0326",
+          "nome": "TERRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0328",
+          "nome": "SERES VIVOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0329",
+          "nome": "COMPOSTOS ORGANICOS E VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0355",
+          "nome": "CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0523",
+          "nome": "ECOSSISTEMAS TERRESTRES AQUATICOS E INTERFACES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0528",
+          "nome": "ZOOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0010",
+          "nome": "FUNDAMENTOS DE TECNICAS HISTOLOGICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0011",
+          "nome": "EMBRIOLOGIA GERAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0021",
+          "nome": "TERATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0022",
+          "nome": "FUNDAMENTOS DE HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0026",
+          "nome": "CITOGENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0040",
+          "nome": "FUNDAMENTOS DE EMBRIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0053",
+          "nome": "PRATICAS DE EMBRIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0054",
+          "nome": "HISTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0055",
+          "nome": "GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0059",
+          "nome": "BIOLOGIA ESTRUTURAL DOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0063",
+          "nome": "EMBRIOLOGIA HUMANA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0075",
+          "nome": "SEGURANCA EM CAMPO E LABORATORIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0098",
+          "nome": "MORFOLOGIA E TAXONOMIA VEGETAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "ICB0143",
+          "nome": "HISTOLOGIA ANIMAL 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0250",
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0251",
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "IFD0005",
+          "nome": "FISICA TEORICA PARA CIENCIAS AGRARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0006",
+          "nome": "FISICA EXPERIMENTAL PARA CIENCIAS AGRARIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0192",
+          "nome": "FISICA PARA CIENCIAS AGRARIAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0340",
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0137",
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "NUT0020",
+          "nome": "HIGIENE DOS ALIMENTOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0049",
+          "nome": "FUNDAMENTOS DE ANALISE DE ALIMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0062",
+          "nome": "HIGIENE DOS ALIMENTOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0092",
+          "nome": "FUNDAMENTOS DE CIENCIAS DOS ALIMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0034",
+          "nome": "FUNDAMENTOS DE NEUROCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0052",
+          "nome": "COMPORTAMENTO ANIMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0087",
+          "nome": "SOCIOLOGIA DO DESENVOLVIMENTO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0013",
+          "nome": "ZOOLOGIA INVERTEBRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0017",
+          "nome": "ZOOLOGIA VERTEBRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0028",
+          "nome": "COMPORTAMENTO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0016",
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0234",
+          "nome": "INTRODUCAO A MEDICINA VETERINARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0236",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0052",
+          "nome": "FISIOLOGIA VETERINARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0066",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0043",
+          "nome": "EMBRIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0178",
+          "nome": "FISIOLOGIA VETERINARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0206",
+          "nome": "MICROBIOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0303",
+          "nome": "PATOLOGIA GERAL VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0016",
+          "nome": "METODOS QUANTITATIVOS EM MEDICINA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0018",
+          "nome": "PARASITOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0158",
+          "nome": "PATOLOGIA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0179",
+          "nome": "FARMACOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0180",
+          "nome": "NUTRICAO ANIMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0006",
+          "nome": "SEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0160",
+          "nome": "EPIDEMIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0181",
+          "nome": "BOVINOCULTURA DE CORTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0182",
+          "nome": "BOVINOCULTURA DE LEITE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0248",
+          "nome": "AVICULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0249",
+          "nome": "SUINOCULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0015",
+          "nome": "DOENCAS PARASITARIAS DOS ANIMAIS DOMESTICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0088",
+          "nome": "EXTENSAO RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0161",
+          "nome": "FISIOPATOLOGIA DA REPRODUCAO DA FEMEA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0166",
+          "nome": "PATOLOGIA CLINICA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0167",
+          "nome": "FISIOPATOLOGIA DA REPRODUCAO DO MACHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0297",
+          "nome": "DOENCAS INFECCIOSAS DOS ANIMAIS DOMESTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0165",
+          "nome": "TECNICA CIRURGICA VETERINARIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0169",
+          "nome": "TECNOLOGIA DE LEITE E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0207",
+          "nome": "ANESTESIOLOGIA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0243",
+          "nome": "DIAGNOSTICO POR IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0328",
+          "nome": "SAUDE PUBLICA VETERINARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0003",
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0005",
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FAV0168",
+          "nome": "TECNOLOGIA DE CARNES E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0199",
+          "nome": "CLINICA CIRURGICA DE PEQUENOS ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0004",
+          "nome": "CLINICA MEDICA DE ANIMAIS DE COMPANHIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0007",
+          "nome": "CLINICA E CIRURGIA DE RUMINANTES E EQUINOS 2",
+          "ch": "150"
+        },
+        {
+          "codigo": "FAV0084",
+          "nome": "POLITICAS PUBLICAS DE SAUDE ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0186",
+          "nome": "INSPECAO DE LEITE E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0208",
+          "nome": "INSPECAO DE CARNES E DERIVADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0184",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

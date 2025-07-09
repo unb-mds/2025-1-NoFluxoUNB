@@ -1,0 +1,527 @@
+{
+  "curso": "GESTÃO DO AGRONEGÓCIO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2020.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0276",
+          "nome": "MATEMATICA PARA AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0277",
+          "nome": "INTRODUCAO AO AGRONEGOCIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0280",
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0281",
+          "nome": "ADMINISTRACAO APLICADA AO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0306",
+          "nome": "SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0279",
+          "nome": "EVOLUCAO DA AGRICULTURA FAMILIAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0289",
+          "nome": "CONTABILIDADE GERENCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0292",
+          "nome": "SISTEMAS DE PRODUCAO DE MATERIAS-PRIMAS VEGETAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0293",
+          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0294",
+          "nome": "SISTEMAS AGROINDUTRIAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0307",
+          "nome": "COMERCIALIZACAO DE PRODUTOS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0308",
+          "nome": "MARKETING NO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0309",
+          "nome": "SISTEMAS DE PRODUCAO DE MATERIAS-PRIMAS ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0310",
+          "nome": "ESTATISTICA APLICADA A GESTAO DO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0311",
+          "nome": "METODOLOGIA DE PESQUISA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0312",
+          "nome": "PESQUISA E EXTENSAO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0282",
+          "nome": "ADMINISTRACAO FINANCEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0333",
+          "nome": "CUSTOS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0334",
+          "nome": "GESTAO DA QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0335",
+          "nome": "GESTAO DE PESSOAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0336",
+          "nome": "PESQUISA OPERACIONAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0342",
+          "nome": "PLANEJAMENTO ESTRATEGICO E EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0343",
+          "nome": "INOVACAO TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0344",
+          "nome": "REGULACAO E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0345",
+          "nome": "SISTEMA DE INFORMACAO E AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0346",
+          "nome": "ANALISE DE DECISOES E ADMINISTRACAO DE RISCOS",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0410",
+          "nome": "TECNOLOGIAS DE PRODUTOS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0411",
+          "nome": "GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0412",
+          "nome": "GESTAO DE COOPERATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0414",
+          "nome": "TRANSPORTE E LOGISTICA AGROINDUSTRIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0445",
+          "nome": "ELABORACAO E ANALISE DE PROJETOS AGROINDUSTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0446",
+          "nome": "GESTAO DE NEGOCIOS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0568",
+          "nome": "INTRODUCAO AS PRATICAS E A PESQUISA DO GESTOR DO AGRONEGOCIO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0061 - LOGISTICA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "FAV0344",
+          "nome": "MARKETING AGROINDUSTRIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0004",
+          "nome": "FUNDAMENTOS EM CIENCIAS E MICROBIOLOGIA DOS ALIMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0026",
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0028",
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0030",
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0035",
+          "nome": "CALCULO VETORIAL E GEOMETRIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0036",
+          "nome": "EDUCACAO E COMUNICACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0040",
+          "nome": "PRATICAS DE CAMPO EM BOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0125",
+          "nome": "CIENCIA, TECNOLOGIA, SOCIEDADE: UMA INTRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0127",
+          "nome": "POLITICAS AGRICOLAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0128",
+          "nome": "ECONOMIA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0139",
+          "nome": "UNIVERSIDADE, SOCIEDADE E DEMOCRACIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0160",
+          "nome": "ACAO COLETIVA E FORMACAO DE GRUPOS DE INTERESSE NO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0161",
+          "nome": "AGROECOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0239",
+          "nome": "CANAIS DE DISTRIBUICAO DE ALIMENTOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0268",
+          "nome": "USO DO PROGRAMA R COM APLICACOES AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0269",
+          "nome": "DIREITO NO AGRONEGOCIO E LEGISLACAO TRIBUTARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0271",
+          "nome": "METODOS DE APOIO A DECISAO EM AGRONEGOCIO E LOGISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0272",
+          "nome": "MERCADOS FUTUROS E DE OPCOES AGROPECUARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0273",
+          "nome": "COMUNICACAO RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0274",
+          "nome": "EXTENSAO RURAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0278",
+          "nome": "INICIACAO A FORMACAO UNIVERSITARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0283",
+          "nome": "CIENCIA E TECNOLOGIA",
+          "ch": "135"
+        },
+        {
+          "codigo": "FUP0284",
+          "nome": "CIENCIA E TECNOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0285",
+          "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0286",
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0287",
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0288",
+          "nome": "INTRODUCAO A ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0290",
+          "nome": "ETICA E PERFIL DO PROFISSIONAL NO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0291",
+          "nome": "AGRICULTURA FAMILIAR E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0295",
+          "nome": "SISTEMAS AGROINDUTRIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0296",
+          "nome": "FILOSOFIA E SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0300",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0303",
+          "nome": "PROJETO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0304",
+          "nome": "MATEMATICA PARA CIENCIAS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0305",
+          "nome": "CRIATIVIDADE NAS ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0314",
+          "nome": "BASES PSICOLOGICAS PARA O ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0337",
+          "nome": "METODOS QUALITATIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0339",
+          "nome": "TOPICOS AVANCADOS EM GESTAO DO AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0340",
+          "nome": "AGRONEGOCIO E DESENVOLVIMENTO REGIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0341",
+          "nome": "SEMINARIO EM AGRONEGOCIO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0368",
+          "nome": "NOVA ECONOMIA INSTITUCIONAL",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

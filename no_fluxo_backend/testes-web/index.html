@@ -237,94 +237,48 @@
 
         <div class="content">
             <div class="quick-actions">
-                <button class="quick-button" onclick="runAllTests()">🚀 Executar Todos os Testes</button>
-                <button class="quick-button" onclick="clearAllResults()">🗑️ Limpar Resultados</button>
-                <button class="quick-button" onclick="loadSampleData()">📝 Carregar Dados de Exemplo</button>
+                <button class="quick-button" onclick="buscarCursos()">🔄 Atualizar Lista de Cursos</button>
+                <button class="quick-button" onclick="verPreRequisitosDetalhados()">📋 Ver Pré-requisitos Detalhados</button>
             </div>
-
-            <!-- Teste de Banco -->
             <div class="test-section">
                 <div class="test-header">
-                    <div class="test-title">1️⃣ Teste de Conexão com Banco</div>
-                    <button class="test-button" onclick="testBanco()">Executar Teste</button>
-                </div>
-                <div class="test-result" id="result-banco">
-                    <div class="result-header">
-                        <span>Resultado do Teste</span>
-                        <span class="result-status status-loading">Carregando...</span>
-                    </div>
-                    <div class="result-content" id="content-banco"></div>
-                </div>
-            </div>
-
-            <!-- Teste de Curso -->
-            <div class="test-section">
-                <div class="test-header">
-                    <div class="test-title">2️⃣ Teste de Busca de Curso</div>
-                    <button class="test-button" onclick="testCurso()">Executar Teste</button>
+                    <div class="test-title">Cursos disponíveis</div>
                 </div>
                 <div class="test-form">
                     <div class="form-group">
-                        <label class="form-label">Nome do Curso:</label>
-                        <input type="text" class="form-input" id="curso-nome" placeholder="Ex: Engenharia de Software" value="Engenharia de Software">
+                        <label class="form-label">Selecione um curso:</label>
+                        <select class="form-input" id="select-curso" onchange="onCursoChange()">
+                            <option value="">Selecione...</option>
+                        </select>
                     </div>
                 </div>
-                <div class="test-result" id="result-curso">
+                <div class="test-result" id="materias-curso-result" style="display:none;">
                     <div class="result-header">
-                        <span>Resultado do Teste</span>
-                        <span class="result-status status-loading">Carregando...</span>
+                        <span>Matérias do curso</span>
                     </div>
-                    <div class="result-content" id="content-curso"></div>
+                    <div class="result-content" id="materias-curso-content"></div>
                 </div>
             </div>
-
-            <!-- Teste de Casamento -->
-            <div class="test-section">
+            <div class="test-section" id="pre-req-detalhado-section" style="display:none;">
                 <div class="test-header">
-                    <div class="test-title">3️⃣ Teste de Casamento de Disciplinas</div>
-                    <button class="test-button" onclick="testCasamento()">Executar Teste</button>
+                    <div class="test-title">Pré-requisitos Detalhados</div>
                 </div>
                 <div class="test-form">
                     <div class="form-group">
-                        <label class="form-label">Nome do Curso:</label>
-                        <input type="text" class="form-input" id="casamento-curso" placeholder="Ex: Engenharia de Software" value="Engenharia de Software">
+                        <label class="form-label">Código da Matéria:</label>
+                        <input type="text" class="form-input" id="filtro-codigo-materia" placeholder="Ex: MAT001">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Dados Extraídos (JSON):</label>
-                        <textarea class="form-textarea" id="casamento-dados" placeholder="Cole aqui os dados extraídos do PDF..."></textarea>
-                    </div>
-                </div>
-                <div class="test-result" id="result-casamento">
-                    <div class="result-header">
-                        <span>Resultado do Teste</span>
-                        <span class="result-status status-loading">Carregando...</span>
-                    </div>
-                    <div class="result-content" id="content-casamento"></div>
-                </div>
-            </div>
-
-            <!-- Teste Completo -->
-            <div class="test-section">
-                <div class="test-header">
-                    <div class="test-title">4️⃣ Teste Completo</div>
-                    <button class="test-button" onclick="testCompleto()">Executar Teste</button>
-                </div>
-                <div class="test-form">
                     <div class="form-group">
                         <label class="form-label">Nome do Curso:</label>
-                        <input type="text" class="form-input" id="completo-curso" placeholder="Ex: Engenharia de Software" value="Engenharia de Software">
+                        <input type="text" class="form-input" id="filtro-nome-curso" placeholder="Ex: Engenharia de Software">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label">Dados Extraídos (JSON):</label>
-                        <textarea class="form-textarea" id="completo-dados" placeholder="Cole aqui os dados extraídos do PDF..."></textarea>
-                    </div>
+                    <button class="test-button" onclick="buscarPreRequisitosAvancado()">Buscar Pré-requisitos</button>
                 </div>
-                <div class="test-result" id="result-completo">
+                <div class="test-result" style="display:block;">
                     <div class="result-header">
-                        <span>Resultado do Teste</span>
-                        <span class="result-status status-loading">Carregando...</span>
+                        <span>Resultado</span>
                     </div>
-                    <div class="result-content" id="content-completo"></div>
+                    <div class="result-content" id="pre-req-detalhado-content"></div>
                 </div>
             </div>
         </div>
@@ -570,10 +524,114 @@
             document.getElementById('completo-dados').value = JSON.stringify(dadosExemplo, null, 2);
         }
 
-        // Carregar dados de exemplo ao abrir a página
+        // Carregar cursos ao abrir a página
         window.onload = function() {
-            loadSampleData();
+            buscarCursos();
         };
+
+        async function buscarCursos() {
+            const select = document.getElementById('select-curso');
+            select.innerHTML = '<option value="">Carregando...</option>';
+            const response = await fetch('/api/cursos');
+            const cursos = await response.json();
+            select.innerHTML = '<option value="">Selecione...</option>';
+            cursos.forEach(curso => {
+                const opt = document.createElement('option');
+                opt.value = curso.id_curso;
+                opt.textContent = `${curso.nome_curso} (${curso.matriz_curricular})`;
+                select.appendChild(opt);
+            });
+        }
+
+        async function onCursoChange() {
+            const select = document.getElementById('select-curso');
+            const id_curso = select.value;
+            const resultDiv = document.getElementById('materias-curso-result');
+            const contentDiv = document.getElementById('materias-curso-content');
+            if (!id_curso) {
+                resultDiv.style.display = 'none';
+                contentDiv.innerHTML = '';
+                return;
+            }
+            contentDiv.innerHTML = 'Carregando...';
+            resultDiv.style.display = 'block';
+            const response = await fetch(`/api/cursos/${id_curso}/materias`);
+            const materias = await response.json();
+            if (!materias.length) {
+                contentDiv.innerHTML = '<em>Nenhuma matéria encontrada para este curso.</em>';
+                return;
+            }
+            let html = `<table style="width:100%;border-collapse:collapse;">`;
+            html += `<tr><th style='text-align:left;padding:4px;'>Nível</th><th style='text-align:left;padding:4px;'>Código</th><th style='text-align:left;padding:4px;'>Nome</th><th style='text-align:left;padding:4px;'>Carga Horária</th></tr>`;
+            materias.forEach(item => {
+                if (item.materias) {
+                    html += `<tr><td style='padding:4px;'>${item.nivel}</td><td style='padding:4px;'>${item.materias.codigo_materia}</td><td style='padding:4px;'>${item.materias.nome_materia}</td><td style='padding:4px;'>${item.materias.carga_horaria}</td></tr>`;
+                }
+            });
+            html += `</table>`;
+            contentDiv.innerHTML = html;
+        }
+
+        async function verPreRequisitosDetalhados() {
+            const section = document.getElementById('pre-req-detalhado-section');
+            const contentDiv = document.getElementById('pre-req-detalhado-content');
+            section.style.display = 'block';
+            contentDiv.innerHTML = 'Carregando...';
+            const response = await fetch('/api/vw-pre-requisitos-detalhado');
+            const data = await response.json();
+            if (!data.length) {
+                contentDiv.innerHTML = '<em>Nenhum pré-requisito detalhado encontrado.</em>';
+                return;
+            }
+            let html = `<table style="width:100%;border-collapse:collapse;">`;
+            html += `<tr><th style='text-align:left;padding:4px;'>Curso</th><th style='text-align:left;padding:4px;'>Matriz</th><th style='text-align:left;padding:4px;'>Código Matéria</th><th style='text-align:left;padding:4px;'>Matéria</th><th style='text-align:left;padding:4px;'>Código Pré-req.</th><th style='text-align:left;padding:4px;'>Pré-requisito</th></tr>`;
+            data.forEach(item => {
+                html += `<tr>` +
+                    `<td style='padding:4px;'>${item.nome_curso || ''}</td>` +
+                    `<td style='padding:4px;'>${item.matriz_curricular || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_requisito || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_requisito || ''}</td>` +
+                `</tr>`;
+            });
+            html += `</table>`;
+            contentDiv.innerHTML = html;
+        }
+
+        async function buscarPreRequisitosAvancado() {
+            const section = document.getElementById('pre-req-detalhado-section');
+            const contentDiv = document.getElementById('pre-req-detalhado-content');
+            section.style.display = 'block';
+            contentDiv.innerHTML = 'Carregando...';
+            const codigo = document.getElementById('filtro-codigo-materia').value.trim();
+            const curso = document.getElementById('filtro-nome-curso').value.trim();
+            let url = '/api/vw-pre-requisitos-detalhado?';
+            const params = [];
+            if (codigo) params.push(`codigo_materia=${encodeURIComponent(codigo)}`);
+            if (curso) params.push(`nome_curso=${encodeURIComponent(curso)}`);
+            url += params.join('&');
+            const response = await fetch(url);
+            const data = await response.json();
+            if (!data.length) {
+                contentDiv.innerHTML = '<em>Nenhum pré-requisito detalhado encontrado.</em>';
+                return;
+            }
+            let html = `<table style="width:100%;border-collapse:collapse;">`;
+            html += `<tr><th style='text-align:left;padding:4px;'>Curso</th><th style='text-align:left;padding:4px;'>Matriz</th><th style='text-align:left;padding:4px;'>Código Matéria</th><th style='text-align:left;padding:4px;'>Matéria</th><th style='text-align:left;padding:4px;'>Código Pré-req.</th><th style='text-align:left;padding:4px;'>Pré-requisito</th></tr>`;
+            data.forEach(item => {
+                html += `<tr>` +
+                    `<td style='padding:4px;'>${item.nome_curso || ''}</td>` +
+                    `<td style='padding:4px;'>${item.matriz_curricular || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_materia || ''}</td>` +
+                    `<td style='padding:4px;'>${item.codigo_requisito || ''}</td>` +
+                    `<td style='padding:4px;'>${item.nome_requisito || ''}</td>` +
+                `</tr>`;
+            });
+            html += `</table>`;
+            contentDiv.innerHTML = html;
+        }
     </script>
 </body>
 </html> 

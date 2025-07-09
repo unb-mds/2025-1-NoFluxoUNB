@@ -1,0 +1,2502 @@
+{
+  "curso": "PEDAGOGIA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2019.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0039",
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0002",
+          "nome": "EDUCACAO, TECNOLOGIA E COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0021",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0041",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0041",
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0042",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0103",
+          "nome": "PESQUISA EM EDUCACAO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "MTC0003",
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0039",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0001",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0046",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "MTC0004",
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0055",
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0165",
+          "nome": "EDUCACAO EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0043",
+          "nome": "ESTAGIO SUPERVISIONADO I: EDUCACAO INFANTIL",
+          "ch": "120"
+        },
+        {
+          "codigo": "MTC0053",
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0059",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0061",
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0067",
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0044",
+          "nome": "PROJETOS DE ENSINO, PESQUISA E EXTENSAO - PEPEX",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0045",
+          "nome": "ESTAGIO SUPERVISIONADO II: ANOS INICIAIS",
+          "ch": "120"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0080",
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0046",
+          "nome": "EDUCACAO EM GEOGRAFIA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0155",
+          "nome": "ENSINO DE CIENCIAS E TECNOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0047",
+          "nome": "ESTAGIO SUPERVISIONADO III: GESTAO ESCOLAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0092",
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0048",
+          "nome": "GESTAO DE PROGRAMAS E PROJETOS EDUCACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0105",
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0049",
+          "nome": "TRABALHO FINAL DE CURSO I",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0050",
+          "nome": "ESTAGIO SUPERVISIONADO IV: ESPACOS EDUCATIVOS NAO-ESCOLARES",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0072",
+          "nome": "EDUCACAO E LINGUAGENS TECNOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0052",
+          "nome": "FINANCIAMENTO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0145",
+          "nome": "GENERO E EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0051",
+          "nome": "TRABALHO FINAL DE CURSO II",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0076",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0052",
+          "nome": "EDUCACAO PROFISSIONAL E TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0076",
+          "nome": "EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA CEL0019 - BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0079",
+          "nome": "FUNDAMENTOS DE MICROBIOLOGIA MEDICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0088",
+          "nome": "BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0031",
+          "nome": "NEUROFISIOLOGIA MEDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0137",
+          "nome": "LEVANTAMENTO DE DADOS EM PESQUISA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0152",
+          "nome": "INTRODUCAO A MICROINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0155",
+          "nome": "TEORIA E PRATICA PEDAGOGICA EM INFORMATICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0024",
+          "nome": "MULHER, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0040",
+          "nome": "METODOS E TECNICAS EM ANTROPOLOGIA SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0042",
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0020",
+          "nome": "ESTATISTICA APLICADA A EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0021",
+          "nome": "ESTATISTICA APLICADA A EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0017",
+          "nome": "PESQUISA EM COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0019",
+          "nome": "POLITICAS CULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0075",
+          "nome": "EMBRIOLOGIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0053",
+          "nome": "INTRODUCAO A ANALISE DE DADOS E INDICADORES EDUCACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0114",
+          "nome": "TOPICOS ESPECIAIS EM PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0149",
+          "nome": "SEMINARIO SOBRE TRABALHO FINAL DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0087",
+          "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0107",
+          "nome": "HISTORIA DA CIENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0134",
+          "nome": "MITO E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0136",
+          "nome": "FILOSOFIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0013",
+          "nome": "MORFOFUNCIONAL 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FMD0019",
+          "nome": "MORFOFUNCIONAL 2",
+          "ch": "330"
+        },
+        {
+          "codigo": "FMD0025",
+          "nome": "PSICOLOGIA MEDICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0027",
+          "nome": "MORFOFUNCIONAL 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "FMD0037",
+          "nome": "ATENCAO PRIMARIA A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0039",
+          "nome": "PSICOLOGIA MEDICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0064",
+          "nome": "PSICOLOGIA MEDICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0066",
+          "nome": "PROCESSOS PATOLOGICOS PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0067",
+          "nome": "PROCESSOS PATOLOGICOS TEORICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0095",
+          "nome": "PATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0165",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0167",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0237",
+          "nome": "SEMIOTICA",
+          "ch": "300"
+        },
+        {
+          "codigo": "FMD0286",
+          "nome": "GENETICA CLINICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0447",
+          "nome": "PSICOLOGIA MEDICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0497",
+          "nome": "FISIOLOGIA HUMANA 1",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0505",
+          "nome": "FISIOLOGIA MEDICA 2",
+          "ch": "135"
+        },
+        {
+          "codigo": "FMD0509",
+          "nome": "FISIOLOGIA MEDICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0512",
+          "nome": "HISTOLOGIA MEDICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0044",
+          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0022",
+          "nome": "FUNDAMENTOS DE HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0054",
+          "nome": "HISTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0153",
+          "nome": "HISTORIA DAS RELIGIOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0184",
+          "nome": "HISTORIA DA AFRICA PRE-COLONIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0143",
+          "nome": "HISTOLOGIA ANIMAL 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0018",
+          "nome": "ORGANIZACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0049",
+          "nome": "ANALISE DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0052",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0092",
+          "nome": "GLOBALIZACAO E RELACOES INTERCULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0057",
+          "nome": "REALIDADE BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0324",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0325",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0046",
+          "nome": "FONETICA E FONOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0047",
+          "nome": "MORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0058",
+          "nome": "SEMANTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0005",
+          "nome": "TOPICOS ESPECIAIS DE LINGUAGEM E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0013",
+          "nome": "DIDATICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0016",
+          "nome": "MEDIDAS EDUCACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0017",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0018",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0022",
+          "nome": "CURRICULOS E PROGRAMAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0028",
+          "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0029",
+          "nome": "ENSINO SUPLETIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0030",
+          "nome": "ENSINO SUPLETIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0033",
+          "nome": "TECNOLOGIA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0044",
+          "nome": "COMPUTADORES NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0050",
+          "nome": "PRINCIPIOS DA PSICOGENESE APLICADOS A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0056",
+          "nome": "ARTE, PEDAGOGIA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0057",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM INICIO DE ESCOLARIZACAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0064",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM INICIO DE ESCOLARIZACAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0068",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM INICIO DE ESCOLARIZACAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0073",
+          "nome": "PRODUCAO E LEITURA DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0074",
+          "nome": "PROJETO EM TECNOLOGIA EDUCACIONAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0075",
+          "nome": "PROJETO EM TECNOLOGIA EDUCACIONAL 2",
+          "ch": "180"
+        },
+        {
+          "codigo": "MTC0077",
+          "nome": "EDUCACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0078",
+          "nome": "ELEMENTOS DE LINGUAGEM CINEMATOGRAFICA PARA A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0079",
+          "nome": "TOPICOS ESPECIAIS EM TECNOLOGIA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0080",
+          "nome": "ESTUDO INDIVIDUAL ORIENTADO EM TECNOLOGIA EDUCACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0081",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM TECNOLOGIA EDUCACIONAL 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "MTC0082",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM TECNOLOGIA EDUCACIONAL 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "MTC0083",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM TECNOLOGIA EDUCACIONAL 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "MTC0084",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM TECNOLOGIA EDUCACIONAL 4",
+          "ch": "15"
+        },
+        {
+          "codigo": "MTC0086",
+          "nome": "USOS DE TV/VIDEO NA ESCOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0087",
+          "nome": "EDUCACAO, MIDIA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0089",
+          "nome": "OFICINA DE AUDIOVISUAIS NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0090",
+          "nome": "OFICINA DE TECNOLOGIA EDUCACIONAL 3:RADIO E MEIOS SONOROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0091",
+          "nome": "PRATICAS MEDIATICAS NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0093",
+          "nome": "OFICINAS DE TEXTOS DIDATICOS ESCRITOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0094",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM INICIO DE ESCOLARIZACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0096",
+          "nome": "EDUCACAO HIPERTEXTUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0099",
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0101",
+          "nome": "LITERATURA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0107",
+          "nome": "OFICINA DE TEXTOS ACADEMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0115",
+          "nome": "TOPICOS ESPECIAIS EM TECNOLOGIA EDUCACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0118",
+          "nome": "LINGUAGEM 1 - MANIFESTACOES HUMANAS:LUDICO,ESTETICO E UTILITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0119",
+          "nome": "LINGUAGEM 2 - EDUCACAO E CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0121",
+          "nome": "LINGUAGEM 4 - GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0123",
+          "nome": "LINGUAGEM 5 - LINGUA MATERNA TEXTO E CONTEXTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0129",
+          "nome": "LINGUAGEM 6 - EDUCACAO MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0136",
+          "nome": "PESQUISA EM EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0138",
+          "nome": "EDUCACAO E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0141",
+          "nome": "DESAFIOS NA FORMACAO DO EDUCADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0142",
+          "nome": "PSICOMOTRICIDADE : O ESPACO DO CORPO NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0143",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0145",
+          "nome": "INTRODUCAO AO PROCESSO EDUCATIVO",
+          "ch": "120"
+        },
+        {
+          "codigo": "MTC0146",
+          "nome": "ATIVIDADES LUDICAS EM INICIO DE ESCOLARIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0147",
+          "nome": "PRATICA DOCENTE E LINGUAGENS CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0149",
+          "nome": "FUNDAMENTOS DA LINGUAGEM MUSICAL NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0151",
+          "nome": "OFICINA DE FORMACAO DO PROFESSOR-LEITOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0152",
+          "nome": "TEORIA E PRATICA DO LEXICO PORTUGUES",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0153",
+          "nome": "EDUCACAO MATEMATICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0154",
+          "nome": "EDUCACAO MATEMATICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0156",
+          "nome": "OFICINAS DE ENSINO DE HISTORIA - LUGARES DE MEMORIA DO DF",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0157",
+          "nome": "EDUCACAO ESTETICA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0158",
+          "nome": "FORMAS DE EXPRESSAO DA CRIANCA DE 0 A 6 ANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0160",
+          "nome": "FUNDAMENTOS DA LINGUAGEM MUSICAL NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0161",
+          "nome": "EDUCACAO NAO-FORMAL EM CIENCIAS E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0162",
+          "nome": "ETNOGRAFIA DE SALA DE AULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0164",
+          "nome": "PRATICA DOCENTE: LINGUAGENS CORPORAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0089",
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0145",
+          "nome": "CANTO CORAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0017",
+          "nome": "NUTRICAO NORMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "NUT0034",
+          "nome": "AVALIACAO ALIMENTAR E NUTRICIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0054",
+          "nome": "NUTRICAO HUMANA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "PAD0010",
+          "nome": "INFORMATICA APLICADA A ADMINISTRACAO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0011",
+          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0017",
+          "nome": "LEGISLACAO DO ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0018",
+          "nome": "LEGISLACAO DO ENSINO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0019",
+          "nome": "HIGIENE ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0034",
+          "nome": "DIREITO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0039",
+          "nome": "METODOS E TECNICAS DE PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0041",
+          "nome": "GESTAO DE DESENVOLVIMENTO DE CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0045",
+          "nome": "PESQUISA EM ADMINISTRACAO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0046",
+          "nome": "ESTATISTICA APLICADA A ADMINISTRACAO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0047",
+          "nome": "COMUNICACAO EM ADMINISTRACAO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0049",
+          "nome": "ADMINISTRACAO DA EDUCACAO E COMUNIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0062",
+          "nome": "TOPICOS ESPECIAIS EM PLANEJAMENTO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0064",
+          "nome": "TOPICOS ESPECIAIS EM AVALIACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0065",
+          "nome": "TOPICOS ESPECIAIS DE PESQUISA EM ADMINISTRACAO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0067",
+          "nome": "TOPICOS ESPECIAIS EM POLITICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0070",
+          "nome": "ANTROPOLOGIA DAS ORGANIZACOES E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0071",
+          "nome": "CULTURA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0074",
+          "nome": "ORGANIZACAO DA EDUCACAO NO DISTRITO FEDERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0078",
+          "nome": "TOPICOS ESPECIAIS EM ADMINISTRACAO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0079",
+          "nome": "GESTAO DE SISTEMAS DE EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0023",
+          "nome": "PSICOPATOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0061",
+          "nome": "FUNDAMENTOS DA PSICOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0002",
+          "nome": "PROCESSOS DE DESENVOLVIMENTO HUMANO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0025",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0027",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0028",
+          "nome": "PSICOLOGIA DO DESENVOLVIMENTO INFANTIL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0032",
+          "nome": "PSICOLOGIA DA CRIATIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0036",
+          "nome": "DESENVOLVIMENTO E NECESSIDADES ESPECIAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0039",
+          "nome": "PEDAGOGIA TERAPEUTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0018",
+          "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0021",
+          "nome": "HISTORIA  DA PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0023",
+          "nome": "DESENVOLVIMENTO DE COMUNIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0024",
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0048",
+          "nome": "PESQUISA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0085",
+          "nome": "PARTICIPACAO SOCIO-POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0096",
+          "nome": "PESQUISA SOCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0037",
+          "nome": "SOCIOLOGIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0055",
+          "nome": "SOCIOLOGIA DAS ORGANIZACOES FORMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0089",
+          "nome": "SOCIOLOGIA DA CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0097",
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0098",
+          "nome": "TECNICAS DE PESQUISA",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0002",
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0003",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0004",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL E INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0005",
+          "nome": "TOPICOS ESPECIAIS EM SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0006",
+          "nome": "TOPICOS ESPECIAIS DE FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0007",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0008",
+          "nome": "TOPICOS ESPECIAIS DA HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0012",
+          "nome": "PSICOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0014",
+          "nome": "SOCIOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0016",
+          "nome": "HISTORIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0019",
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0022",
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0025",
+          "nome": "METODOS E TECNICAS DE PESQUISA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0027",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0042",
+          "nome": "FUNDAMENTOS SOCIAIS DA EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0043",
+          "nome": "FUNDAMENTOS SOCIAIS DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0044",
+          "nome": "FUNDAMENTOS POLITICOS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0049",
+          "nome": "FUNDAMENTOS DE ORIENTACAO PROFIS E SOCIAL PARA O DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0050",
+          "nome": "PROGRAMACAO DE ENSINO PARA O DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0051",
+          "nome": "OFICINA BASICA DE RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0052",
+          "nome": "METODOS, TECNICAS E RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0053",
+          "nome": "LABORATORIO EM AVALIACAO EDUCACIONAL DO DEFICIENTE MENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0054",
+          "nome": "AVALIACAO EDUCACIONAL DO DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0055",
+          "nome": "FUNDAMENTOS DA EDUCACAO PARA O DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0056",
+          "nome": "DESENVOLVIMENTO BIOPSICOSSOCIAL DO DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0069",
+          "nome": "ORIENTACAO VOCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0071",
+          "nome": "TOPICOS ESPECIAIS EM ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0076",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0077",
+          "nome": "EDUCACAO AMBIENTAL E PRATICAS COMUNITARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0080",
+          "nome": "PSICOLOGIA NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0083",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0085",
+          "nome": "MEDIDAS EDUCACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0093",
+          "nome": "EDUCACAO DO CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0094",
+          "nome": "INCONSCIENTE E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0096",
+          "nome": "FUNDAMENTOS MULTICULTURAIS E SIMBOLICOS DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0098",
+          "nome": "EDUCACAO/GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0099",
+          "nome": "FUNDAMENTOS MULTICULTURAIS DA HISTORIA DA EDUCACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0100",
+          "nome": "OFICINA VIVENCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0105",
+          "nome": "PESQUISA EM EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0106",
+          "nome": "SOCIONOMIA, PSICODRAMA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0108",
+          "nome": "MULTICULTURALISMO E ENSINO RELIGIOSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0109",
+          "nome": "FILOSOFIA COM CRIANCAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0111",
+          "nome": "INVESTIGACAO FILOSOFICA NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0112",
+          "nome": "PESQUISA EM EDUCACAO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0113",
+          "nome": "PESQUISA EM EDUCACAO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0114",
+          "nome": "PESQUISA EM EDUCACAO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0115",
+          "nome": "ENFOQUES PSICOPEDAGOGICOS DAS DIFICULDADES DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0116",
+          "nome": "TOPICOS EM EDUCACAO AMBIENTAL: EXPERIENCIAS PEDAGOGICAS ALTERNATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0117",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO E DIVERSIDADE CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0119",
+          "nome": "APRENDIZAGEM E DESENVOLVIMENTO DO PNEE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0120",
+          "nome": "INTRODUCAO A CLASSE HOSPITALAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0122",
+          "nome": "ORIENTACAO VOCACIONAL PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0123",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0124",
+          "nome": "SEMINARIOS EM TECNOLOGIAS NA EDUCACAO : EDUCACAO ESPECIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0125",
+          "nome": "OFICINA DE ORIENTACAO VOCACIONAL PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0126",
+          "nome": "PESQUISA E PRATICA PEDAGOGICA EM ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0127",
+          "nome": "PENSAMENTO EDUCACIONAL BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0128",
+          "nome": "TOPICOS ESPECIAIS DA HISTORIA DA EDUCACAO BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0129",
+          "nome": "TOPICOS ESPECIAIS DA HISTORIA DA EDUCACAO BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0130",
+          "nome": "MULTICULTURALISMO E CURRICULO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0131",
+          "nome": "MULTICULTURALISMO E CURRICULO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0132",
+          "nome": "MULTICULTURALISMO E ENSINO RELIGIOSO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0133",
+          "nome": "MULTICULTURALISMO E SUBJETIVIDADE EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0134",
+          "nome": "EDUCACAO E MULTICULTURALISMO NA CONTEMPORANEIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0135",
+          "nome": "TOPICOS ESPECIAIS EM PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0136",
+          "nome": "PSICOLOGIA SOCIAL NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0137",
+          "nome": "OFICINA TEMATICA EM PSICOLOGIA DA EDUCACAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEF0138",
+          "nome": "ENFOQUES PSICOPEDAGOGICOS DAS DIFICULDADES DE APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0139",
+          "nome": "CRIATIVIDADE E INOVACAO NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0140",
+          "nome": "FUNDAMENTOS DA ORIENT PROFISS P/ PORTADOR DE NECESSIDADES EDUCACIONAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "TEF0141",
+          "nome": "PRINCIPIOS, METODOS, TECNICAS E RECURSOS DIDATICOS P/ ENSINO DO PNEE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0143",
+          "nome": "AVALIACAO EDUCACIONAL DO PORTADOR DE NECESSIDADES EDUC ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0144",
+          "nome": "SEMINARIO EM EDUCACAO INCLUSIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0146",
+          "nome": "BRINQUEDO E BRINCADEIRA: O ILUDICO NO CONTEXTO DA DIVERSIDADE ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0148",
+          "nome": "EDUCACAO, AMBIENTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0149",
+          "nome": "AMBIENTE, CULTURA E NATUREZA NO CINEMA E NA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0156",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0165",
+          "nome": "EDUCACAO EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0044",
+          "nome": "PROJETOS DE ENSINO, PESQUISA E EXTENSAO - PEPEX",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0046",
+          "nome": "EDUCACAO EM GEOGRAFIA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0155",
+          "nome": "ENSINO DE CIENCIAS E TECNOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0048",
+          "nome": "GESTAO DE PROGRAMAS E PROJETOS EDUCACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0105",
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0072",
+          "nome": "EDUCACAO E LINGUAGENS TECNOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0052",
+          "nome": "FINANCIAMENTO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0145",
+          "nome": "GENERO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0052",
+          "nome": "EDUCACAO PROFISSIONAL E TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0076",
+          "nome": "EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0039",
+          "nome": "INTRODUCAO A PEDAGOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0002",
+          "nome": "EDUCACAO, TECNOLOGIA E COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0021",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0041",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0041",
+          "nome": "INFANCIA, CRIANCA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0042",
+          "nome": "EDUCACAO INCLUSIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0103",
+          "nome": "PESQUISA EM EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0003",
+          "nome": "PROCESSOS DE ALFABETIZACAO E LETRAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0039",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0001",
+          "nome": "ESCOLARIZACAO DE SURDOS E LIBRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0046",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0004",
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0055",
+          "nome": "EDUCACAO MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0165",
+          "nome": "EDUCACAO EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0043",
+          "nome": "ESTAGIO SUPERVISIONADO I: EDUCACAO INFANTIL",
+          "ch": "120"
+        },
+        {
+          "codigo": "MTC0053",
+          "nome": "ENSINO E APRENDIZAGEM DA LINGUA MATERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0059",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0061",
+          "nome": "EDUCACAO EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0067",
+          "nome": "ENSINO DE CIENCIA E TECNOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0044",
+          "nome": "PROJETOS DE ENSINO, PESQUISA E EXTENSAO - PEPEX",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0045",
+          "nome": "ESTAGIO SUPERVISIONADO II: ANOS INICIAIS",
+          "ch": "120"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0080",
+          "nome": "GESTAO DAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0046",
+          "nome": "EDUCACAO EM GEOGRAFIA II",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0155",
+          "nome": "ENSINO DE CIENCIAS E TECNOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0047",
+          "nome": "ESTAGIO SUPERVISIONADO III: GESTAO ESCOLAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0092",
+          "nome": "EDUCACAO E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0048",
+          "nome": "GESTAO DE PROGRAMAS E PROJETOS EDUCACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0105",
+          "nome": "EDUCACAO MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0049",
+          "nome": "TRABALHO FINAL DE CURSO I",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0050",
+          "nome": "ESTAGIO SUPERVISIONADO IV: ESPACOS EDUCATIVOS NAO-ESCOLARES",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0072",
+          "nome": "EDUCACAO E LINGUAGENS TECNOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0052",
+          "nome": "FINANCIAMENTO DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0145",
+          "nome": "GENERO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0051",
+          "nome": "TRABALHO FINAL DE CURSO II",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0076",
+          "nome": "AVALIACAO NAS ORGANIZACOES EDUCATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0052",
+          "nome": "EDUCACAO PROFISSIONAL E TECNOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0076",
+          "nome": "EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

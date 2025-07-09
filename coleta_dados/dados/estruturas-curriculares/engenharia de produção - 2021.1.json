@@ -1,0 +1,807 @@
+{
+  "curso": "ENGENHARIA DE PRODUÇÃO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2021.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0056",
+          "nome": "INTRODUCAO A ENGENHARIA DE PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0076",
+          "nome": "ENGENHARIA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0061",
+          "nome": "FORMACAO DE VALOR EM SISTEMAS DE PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0069",
+          "nome": "METODOLOGIA DE PROJETO DE SISTEMAS DE PRODUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0179",
+          "nome": "FISICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0128",
+          "nome": "TRANSPORTE DE CALOR E MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0071",
+          "nome": "PROJETO DE SISTEMAS DE PRODUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0064",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0072",
+          "nome": "SISTEMAS DE INFORMACAO EM ENGENHARIA DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0073",
+          "nome": "PROJETO DE SISTEMAS DE PRODUCAO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0126",
+          "nome": "INTRODUCAO A CIENCIA DOS MATERIAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "EPR0066",
+          "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0171",
+          "nome": "PROCESSOS DE FABRICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0001",
+          "nome": "PROJETO DE SISTEMAS DE PRODUCAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0002",
+          "nome": "PLANEJAMENTO E CONTROLE DA PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0004",
+          "nome": "SIMULACAO DE SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0006",
+          "nome": "SEGURANCA E SAUDE NO TRABALHO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0007",
+          "nome": "PROJETO DE SISTEMAS DE PRODUCAO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0030",
+          "nome": "GESTAO DA QUALIDADE NA PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0077",
+          "nome": "ERGONOMIA DE SISTEMAS PRODUTIVOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0008",
+          "nome": "PROJETO DE SISTEMAS DE PRODUCAO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0012",
+          "nome": "LOGISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0013",
+          "nome": "ENGENHARIA DO PRODUTO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0009",
+          "nome": "PROJETO DE SISTEMAS DE PRODUCAO 7",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0065",
+          "nome": "GESTAO ESTRATEGICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "11° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0010",
+          "nome": "ESTAGIO SUPERVISIONADO OBRIGATORIO",
+          "ch": "180"
+        },
+        {
+          "codigo": "EPR0045",
+          "nome": "PROJETO DE GRADUACAO DE ENGENHARIA DE PRODUCAO 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "12° NIVEL",
+      "materias": [
+        {
+          "codigo": "EPR0046",
+          "nome": "PROJETO DE GRADUACAO DE ENGENHARIA DE PRODUCAO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0025 - ORGANIZACAO E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0064",
+          "nome": "ADMINISTRACAO DE MARKETING",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0070",
+          "nome": "GOVERNO E ADMINISTRACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0092",
+          "nome": "ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0004",
+          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0006",
+          "nome": "ANATOMIA DAS MADEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0020",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0021",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0042",
+          "nome": "ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0049",
+          "nome": "MORFOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0142",
+          "nome": "INFORMATICA E SOCIEDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DPG0690",
+          "nome": "INTRODUCAO A EXPLORACAO OFFSHORE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0042",
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0061",
+          "nome": "ECONOMIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0010",
+          "nome": "INICIACAO A ENGENHARIA FLORESTAL",
+          "ch": "15"
+        },
+        {
+          "codigo": "EFL0044",
+          "nome": "TECNOLOGIA DE PRODUTOS FLORESTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0049",
+          "nome": "TECNOLOGIA DA MADEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0037",
+          "nome": "TRANSFERENCIA DE ENERGIA E MASSA",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0054",
+          "nome": "GEOMETRIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0132",
+          "nome": "MECANICA DOS SOLIDOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0166",
+          "nome": "HIDROLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0267",
+          "nome": "CARTOGRAFIA E GEOPROCESSAMENTO APLICADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0274",
+          "nome": "ESTATISTICA APLICADA A ENGENHARIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0001",
+          "nome": "ELETRICIDADE BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0002",
+          "nome": "LABORATORIO DE ELETRICIDADE BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0013",
+          "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0172",
+          "nome": "CIRCUITOS ELETRICOS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0229",
+          "nome": "INSTALACOES ELETRICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0243",
+          "nome": "ELETRICIDADE",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0273",
+          "nome": "PLANEJAMENTO ENERGETICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0274",
+          "nome": "FUNDAMENTOS DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0289",
+          "nome": "CIRCUITOS POLIFASICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0334",
+          "nome": "COMPUTACAO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0002",
+          "nome": "INTRODUCAO A EXPLORACAO DE PETROLEO EM ALTO MAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENM0027",
+          "nome": "TECNOLOGIAS DE COMANDO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0068",
+          "nome": "TERMODINAMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0071",
+          "nome": "TRANSFERENCIA DE CALOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0072",
+          "nome": "INSTALACOES TERMOMECANICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0082",
+          "nome": "MECANICA DOS FLUIDOS 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0090",
+          "nome": "MATERIAIS DE CONSTRUCAO MECANICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0120",
+          "nome": "MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0121",
+          "nome": "MECANICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0122",
+          "nome": "PROJETO DE MAQUINAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0123",
+          "nome": "PROJETO DE MAQUINAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0124",
+          "nome": "PROJETO DE SISTEMAS MECANICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0127",
+          "nome": "TECNOLOGIA DE FABRICACAO 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "ENM0131",
+          "nome": "DESENHO MECANICO ASSISTIDO POR COMPUTADOR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0132",
+          "nome": "DESENHO MECANICO ASSISTIDO POR COMPUTADOR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0134",
+          "nome": "SISTEMAS INTEGRADOS DE MANUFATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0140",
+          "nome": "MECANICA DOS FLUIDOS 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0145",
+          "nome": "METROLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0146",
+          "nome": "TECNOLOGIA MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0163",
+          "nome": "MECANICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0164",
+          "nome": "MECANICA DOS MATERIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0165",
+          "nome": "MECANICA DOS MATERIAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0174",
+          "nome": "SISTEMAS ENERGETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0176",
+          "nome": "INTRODUCAO A ECOLOGIA INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0187",
+          "nome": "PROCESSO DE DESENVOLVIMENTO DE PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0190",
+          "nome": "DESENHO MECANICO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0003",
+          "nome": "TOMADA DE DECISAO COM ENFOQUE EM ANALISE MULTICRITERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0005",
+          "nome": "GESTAO DE RISCOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0014",
+          "nome": "CONTROLE ESTATISTICO DE PROCESSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0016",
+          "nome": "CUSTOS EM SISTEMAS DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0017",
+          "nome": "DINAMICA DE SISTEMAS EM ORGANIZACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0018",
+          "nome": "GESTAO DE RISCOS EM ORGANIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0019",
+          "nome": "MERCADOLOGIA ESTRATEGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0020",
+          "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0021",
+          "nome": "SEMINARIO EM ENGENHARIA DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0022",
+          "nome": "SISTEMAS DE SUPORTE A DECISAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0023",
+          "nome": "TOPICOS ESPECIAIS EM GESTAO DA PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0024",
+          "nome": "TOPICOS ESPECIAIS EM GESTAO DA INOVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0025",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA DO TRABALHO E ERGONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0026",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA DO PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0027",
+          "nome": "TOPICOS ESPECIAIS EM PESQUISA OPERACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0028",
+          "nome": "TOPICOS ESPECIAIS EM PESQUISA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0029",
+          "nome": "TOPICOS ESPECIAIS EM LOGISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0032",
+          "nome": "TOPICOS ESPECIAIS EM GESTAO SUSTENTAVEL",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0034",
+          "nome": "SISTEMAS COLABORATIVOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0035",
+          "nome": "INOVACAO EM SISTEMAS DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0036",
+          "nome": "FINANCAS  COMPORTAMENTAIS E PESSOAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0037",
+          "nome": "SISTEMA DE PRODUCAO ENXUTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0038",
+          "nome": "GERENCIAMENTO DE PROJETOS COMPLEXOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0039",
+          "nome": "PLANEJAMENTO E CONTROLE DE SERVICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0040",
+          "nome": "ERGONOMIA EM SISTEMAS PRODUTIVOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0041",
+          "nome": "CUSTEIO DE BENS E SERVICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0043",
+          "nome": "ENGENHARIA DE PRODUTOS FINANCEIROS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0044",
+          "nome": "DESENVOLVIMENTO DE SERVICOS",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

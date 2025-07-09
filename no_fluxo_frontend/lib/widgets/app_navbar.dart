@@ -1,194 +1,124 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
-import '../constants/app_colors.dart';
+import 'package:mobile_app/cache/shared_preferences_helper.dart';
+import 'package:mobile_app/routes/app_router.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:mobile_app/utils/utils.dart';
+import 'gradient_underline_button.dart';
+import 'gradient_cta_button.dart';
+import 'app_logo.dart';
+import 'glass_container.dart';
 
 class AppNavbar extends StatefulWidget {
-  const AppNavbar({super.key});
+  final bool hideAcesseButton;
+  final bool isFluxogramasPage;
+  const AppNavbar(
+      {super.key,
+      this.hideAcesseButton = false,
+      this.isFluxogramasPage = false});
 
   @override
   State<AppNavbar> createState() => _AppNavbarState();
 }
 
 class _AppNavbarState extends State<AppNavbar> {
-  bool _isHoveringHome = false;
-  bool _isHoveringAbout = false;
-  bool _isHoveringAcesso = false;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.black
-          .withOpacity(0.5), // Cor de fundo semi-transparente para a navbar
-      padding: const EdgeInsets.symmetric(
-          horizontal: 24.0, vertical: 8.0), // Aumenta o padding vertical
+    return GlassContainer(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment
-            .spaceBetween, // Mantém espaço entre a esquerda e a direita
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Título/Logo à esquerda com padding
-          Padding(
-            padding: const EdgeInsets.only(
-                left: 50.0), // Aumenta o padding à esquerda
-            child: GestureDetector(
-              onTap: () => context.go('/'),
-              child: Text(
-                'NOFLX UNB',
-                style: GoogleFonts.permanentMarker(
-                  fontSize: 36, // Tamanho da fonte do título
-                  color: AppColors.white,
-                  shadows: [
-                    const Shadow(
-                      color: Color.fromARGB(77, 0, 0,
-                          0), // Mantido Color.fromARGB para consistência
-                      offset: Offset(2, 2),
-                      blurRadius: 4,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          const AppLogo(),
           // Links de navegação e botão agrupados à direita
           Row(
-            mainAxisSize:
-                MainAxisSize.min, // Ocupa o mínimo de espaço horizontal
+            mainAxisSize: MainAxisSize.min,
             children: [
-              MouseRegion(
-                onEnter: (_) => setState(() => _isHoveringHome = true),
-                onExit: (_) => setState(() => _isHoveringHome = false),
-                child: GestureDetector(
-                  onTap: () => context.go('/'),
-                  child: AnimatedScale(
-                    scale: _isHoveringHome ? 1.05 : 1.0,
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeInOut,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 4.0),
-                          child: Text(
-                            'HOME',
-                            style: GoogleFonts.permanentMarker(
-                              fontSize: 19,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.ease,
-                          height: 2,
-                          width: _isHoveringHome
-                              ? 48
-                              : 0, // Ajuste para o tamanho do texto
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF4A1D96), Color(0xFFE11D48)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16),
-              MouseRegion(
-                onEnter: (_) => setState(() => _isHoveringAbout = true),
-                onExit: (_) => setState(() => _isHoveringAbout = false),
-                child: GestureDetector(
-                  onTap: () => context.go('/#sobre'),
-                  child: AnimatedScale(
-                    scale: _isHoveringAbout ? 1.05 : 1.0,
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeInOut,
-                    child: Stack(
-                      alignment: Alignment.bottomCenter,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 4.0),
-                          child: Text(
-                            'SOBRE NÓS',
-                            style: GoogleFonts.permanentMarker(
-                              fontSize: 19,
-                              color: AppColors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.ease,
-                          height: 2,
-                          width: _isHoveringAbout
-                              ? 80
-                              : 0, // Ajuste para o tamanho do texto
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF4A1D96), Color(0xFFE11D48)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 24),
-              MouseRegion(
-                onEnter: (_) => setState(() => _isHoveringAcesso = true),
-                onExit: (_) => setState(() => _isHoveringAcesso = false),
-                child: AnimatedScale(
-                  scale: _isHoveringAcesso ? 1.05 : 1.0,
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  child: ElevatedButton(
+              // Na tela de upload histórico, mostra apenas o botão SAIR
+              if (Utils.isCurrentRoute(context, '/upload-historico')) ...[
+                if (SharedPreferencesHelper.currentUser != null) ...[
+                  GradientUnderlineButton(
                     onPressed: () {
-                      context.go('/auth');
+                      SharedPreferencesHelper.currentUser = null;
+                      Supabase.instance.client.auth.signOut();
+                      context.go('/login');
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                      shadowColor: Colors.transparent,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)),
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [AppColors.purple, AppColors.pink],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      constraints: const BoxConstraints(
-                          minWidth: 260.0, minHeight: 40.0),
-                      alignment: Alignment.center,
-                      child: Text(
-                        'ACESSE NOSSO SISTEMA',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.permanentMarker(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.white,
-                        ),
-                      ),
-                    ),
-                  ),
+                    text: 'SAIR',
+                  )
+                ]
+              ] else ...[
+                // Para outras páginas, mostra a navegação normal
+                GradientUnderlineButton(
+                  onPressed: () {
+                    context.go('/');
+                  },
+                  text: 'HOME',
                 ),
-              ),
+                const SizedBox(width: 16),
+                // Botão "MEUS FLUXOGRAMAS" só aparece quando:
+                // 1. Usuário está logado
+                // 2. Usuário já fez upload do fluxograma (dadosFluxograma != null)
+                if (SharedPreferencesHelper.currentUser != null) ...[
+                  const SizedBox(width: 16),
+                  GradientUnderlineButton(
+                    onPressed: () {
+                      if (SharedPreferencesHelper
+                              .currentUser!.dadosFluxograma !=
+                          null) {
+                        context.go('/meu-fluxograma');
+                      } else {
+                        context.go('/upload-historico');
+                      }
+                    },
+                    text: 'MEUS FLUXOGRAMAS',
+                  ),
+                ],
+                // Botões FLUXOGRAMAS e ASSISTENTE aparecem quando não está nas rotas de login/cadastro
+                if (!Utils.isPublicRoute(context) &&
+                    !Utils.routeStartsWith(context, '/fluxogramas')) ...[
+                  const SizedBox(width: 16),
+                  GradientUnderlineButton(
+                    onPressed: () {
+                      context.go('/fluxogramas');
+                    },
+                    text: 'FLUXOGRAMAS',
+                  ),
+                  if (!SharedPreferencesHelper.isAnonimo) ...[
+                    const SizedBox(width: 16),
+                    GradientUnderlineButton(
+                      onPressed: () {
+                        context.go('/assistente');
+                      },
+                      text: 'ASSISTENTE',
+                    ),
+                  ]
+                ],
+                // Botão "ACESSE NOSSO SISTEMA" aparece apenas na home quando não está logado
+                if ((Utils.isHomeRoute(context) &&
+                        SharedPreferencesHelper.currentUser == null) ||
+                    SharedPreferencesHelper.isAnonimo) ...[
+                  const SizedBox(width: 24),
+                  GradientCTAButton(
+                    onPressed: () {
+                      context.go('/login');
+                    },
+                    text: 'ACESSE NOSSO SISTEMA',
+                  ),
+                ],
+                // Botão "SAIR" aparece quando logado
+                if (SharedPreferencesHelper.currentUser != null) ...[
+                  const SizedBox(width: 16),
+                  GradientUnderlineButton(
+                    onPressed: () {
+                      SharedPreferencesHelper.currentUser = null;
+                      Supabase.instance.client.auth.signOut();
+                      context.go('/login');
+                    },
+                    text: 'SAIR',
+                  )
+                ]
+              ]
             ],
           ),
         ],

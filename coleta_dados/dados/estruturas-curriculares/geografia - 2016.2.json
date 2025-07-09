@@ -1,0 +1,567 @@
+{
+  "curso": "GEOGRAFIA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2016.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0040",
+          "nome": "INICIACAO A CIENCIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0042",
+          "nome": "FUNDAMENTOS BASICOS EM CLIMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0043",
+          "nome": "FUNDAMENTOS BASICOS EM GEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0044",
+          "nome": "INFORMATICA BASICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0036",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0037",
+          "nome": "INTRODUCAO A GEOGRAFIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0038",
+          "nome": "GEOGRAFIA DA POPULACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0039",
+          "nome": "FUNDAMENTOS BASICOS DE GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0041",
+          "nome": "CARTOGRAFIA E EDUCACAO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0007",
+          "nome": "GEOGRAFIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0008",
+          "nome": "CULTURA E ESPACO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0009",
+          "nome": "FUNDAMENTOS BASICOS DE FITOGEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0010",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0011",
+          "nome": "INTRODUCAO AOS ESTUDOS REGIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0035",
+          "nome": "CARTOGRAFIA E EDUCACAO 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0018",
+          "nome": "GEOGRAFIA DAS CIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0019",
+          "nome": "GEOMORFOLOGIA DAS AREAS INTERTROPICAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0020",
+          "nome": "FUNDAMENTO DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0021",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0013",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0014",
+          "nome": "FUNDAMENTOS DE DIDATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0022",
+          "nome": "BASES FISICAS DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0026",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0027",
+          "nome": "REGIONALIZACAO DO ESPACO MUNDIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0012",
+          "nome": "GEOGRAFIA REGIONAL DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0016",
+          "nome": "ELEMENTOS BASICOS DE GEOGRAFIA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0017",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0024",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0046",
+          "nome": "REGIONALIZACAO HUMANA E ECONOMICA DO ESPACO MUNDIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0047",
+          "nome": "DIDATICA PARA O ENSINO DE GEOGRAFIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0015",
+          "nome": "GEOGRAFIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0023",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA NO ENSINO FUNDAMENTAL",
+          "ch": "210"
+        },
+        {
+          "codigo": "ICH0025",
+          "nome": "TRABALHO FINAL EM GEOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0028",
+          "nome": "GEOGRAFIA AFRICANA E AFRO-BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICH0030",
+          "nome": "POLITICAS PUBLICAS E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0032",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA NO ENSINO MEDIO",
+          "ch": "210"
+        },
+        {
+          "codigo": "ICH0033",
+          "nome": "TRABALHO FINAL EM GEOGRAFIA 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "FED0168",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0001",
+          "nome": "PRATICAS INOVADORAS NO ENSINO DE GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0029",
+          "nome": "ANALISES POLITICAS DO ESPACO GEOGRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0031",
+          "nome": "REGIONALIZACAO DA AMERICA LATINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0045",
+          "nome": "PORTUGUES BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0270",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0271",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0040",
+          "nome": "INICIACAO A CIENCIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0042",
+          "nome": "FUNDAMENTOS BASICOS EM CLIMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0043",
+          "nome": "FUNDAMENTOS BASICOS EM GEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0044",
+          "nome": "INFORMATICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0036",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0037",
+          "nome": "INTRODUCAO A GEOGRAFIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0038",
+          "nome": "GEOGRAFIA DA POPULACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0039",
+          "nome": "FUNDAMENTOS BASICOS DE GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0041",
+          "nome": "CARTOGRAFIA E EDUCACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0007",
+          "nome": "GEOGRAFIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0008",
+          "nome": "CULTURA E ESPACO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0009",
+          "nome": "FUNDAMENTOS BASICOS DE FITOGEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0010",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0011",
+          "nome": "INTRODUCAO AOS ESTUDOS REGIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0035",
+          "nome": "CARTOGRAFIA E EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0170",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0018",
+          "nome": "GEOGRAFIA DAS CIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0019",
+          "nome": "GEOMORFOLOGIA DAS AREAS INTERTROPICAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0020",
+          "nome": "FUNDAMENTO DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0021",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0013",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0014",
+          "nome": "FUNDAMENTOS DE DIDATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0022",
+          "nome": "BASES FISICAS DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0026",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0027",
+          "nome": "REGIONALIZACAO DO ESPACO MUNDIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0012",
+          "nome": "GEOGRAFIA REGIONAL DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0016",
+          "nome": "ELEMENTOS BASICOS DE GEOGRAFIA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0017",
+          "nome": "METODOS E TECNICAS DE PESQUISA EM GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0024",
+          "nome": "PRATICA PEDAGOGICA EM GEOGRAFIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0046",
+          "nome": "REGIONALIZACAO HUMANA E ECONOMICA DO ESPACO MUNDIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0047",
+          "nome": "DIDATICA PARA O ENSINO DE GEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0015",
+          "nome": "GEOGRAFIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0023",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA NO ENSINO FUNDAMENTAL",
+          "ch": "210"
+        },
+        {
+          "codigo": "ICH0025",
+          "nome": "TRABALHO FINAL EM GEOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0028",
+          "nome": "GEOGRAFIA AFRICANA E AFRO-BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ILD0001",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0030",
+          "nome": "POLITICAS PUBLICAS E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICH0032",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOGRAFIA NO ENSINO MEDIO",
+          "ch": "210"
+        },
+        {
+          "codigo": "ICH0033",
+          "nome": "TRABALHO FINAL EM GEOGRAFIA 2",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,962 @@
+{
+  "curso": "GEOLOGIA",
+  "tipo_curso": "Geólogo",
+  "periodo_letivo_vigor": "2025.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0318",
+          "nome": "INTRODUCAO A EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0332",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0142",
+          "nome": "GEOQUIMICA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0049",
+          "nome": "PALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0182",
+          "nome": "INTRODUCAO AO ELETROMAGNETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0195",
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0319",
+          "nome": "COMUNICACAO COM A COMUNIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0047",
+          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0200",
+          "nome": "PETROLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0201",
+          "nome": "METODOS POTENCIAIS, RADIOMETRICOS E ELETROMAGNETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0320",
+          "nome": "COMUNICACAO COM A COMUNIDADE 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0036",
+          "nome": "PETROLOGIA IGNEA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0202",
+          "nome": "METODOS SISMICOS E ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0205",
+          "nome": "ESTAGIO EM GEOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0312",
+          "nome": "MAPEAMENTO GEOLOGICO 1",
+          "ch": "75"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0033",
+          "nome": "PETROLOGIA METAMORFICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0150",
+          "nome": "GEOLOGIA ESTRUTURAL 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0162",
+          "nome": "GEOQUIMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0321",
+          "nome": "COMUNICACAO COM A COMUNIDADE 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0041",
+          "nome": "GEOLOGIA ECONOMICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0054",
+          "nome": "HIDROGEOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0085",
+          "nome": "GEOLOGIA HISTORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0313",
+          "nome": "MAPEAMENTO GEOLOGICO 2",
+          "ch": "75"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0088",
+          "nome": "GEOLOGIA DO BRASIL",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0096",
+          "nome": "PROSPECCAO GERAL",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0114",
+          "nome": "PREPARACAO DO MAPEAMENTO GEOLOGICO FINAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0199",
+          "nome": "GEOQUIMICA DO AMBIENTE SUPERFICIAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0314",
+          "nome": "TRABALHO DE MAPEAMENTO GEOLOGICO FINAL",
+          "ch": "240"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "VEL",
+          "nome": "60H OPTATIVA EST0019 - ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0129",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FUP0144",
+          "nome": "LINGUA BRASILEIRA DE SINAIS 2 LIBRAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0003",
+          "nome": "INTRODUCAO A VULCANOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0004",
+          "nome": "INTRODUCAO A METEOROLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0005",
+          "nome": "SISMOLOGIA AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0007",
+          "nome": "PROCESSAMENTOS DE DADOS SISMOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0009",
+          "nome": "PROCESSOS METAMORFICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0010",
+          "nome": "RECURSOS HIDRICOS PARA CIENCIAS AMBIENTAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0028",
+          "nome": "PEDOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0030",
+          "nome": "SEDIMENTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0057",
+          "nome": "GEOLOGIA DO PETROLEO",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0059",
+          "nome": "GEOLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0077",
+          "nome": "ECONOMIA MINERAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0081",
+          "nome": "DESENHO GEOLOGICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0083",
+          "nome": "TECTONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0093",
+          "nome": "GEOFISICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0098",
+          "nome": "MICROPALEONTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0110",
+          "nome": "GEOFISICA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0118",
+          "nome": "GEOLOGIA AMBIENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0126",
+          "nome": "ESTAGIO SUPERVISIONADO EM GEOCIENCIAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0128",
+          "nome": "GEMOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0130",
+          "nome": "LEGISLACAO MINERAL PROFISSIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0132",
+          "nome": "BIOESTRATIGRAFIA E PALEOECOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0138",
+          "nome": "METODOS QUANTITATIVOS EM GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0144",
+          "nome": "MINERALOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0145",
+          "nome": "MINERALOGIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0151",
+          "nome": "MINERAIS E ROCHAS INDUSTRIAIS E RECURSOS MINERAIS ENERGETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0152",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0153",
+          "nome": "MICROTECTONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0154",
+          "nome": "GEOMETRIA E CONTROLE ESTRUTURAL DE CORPOS DE MINERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0155",
+          "nome": "MICROSCOPIA DE MINERIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0156",
+          "nome": "TECNICAS DE PESQUISA EM GEOQUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0157",
+          "nome": "TECNICAS DE PREPARACAO E ANALISE DE MINERAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0158",
+          "nome": "MINERALOGIA DE ARGILAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0159",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0161",
+          "nome": "INTRODUCAO AO SISTEMA DE POSICIONAMENTO GLOBAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0163",
+          "nome": "METODOS COMPUTACIONAIS EM GEOFISICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0164",
+          "nome": "INTROD AO PROCESSAMENTO E INTERPRETACAO DADOS EM GEOFISICA AEREA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0166",
+          "nome": "ESTAGIO SUPERVISIONADO AVANCADO EM GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0167",
+          "nome": "FUNDAMENTOS DA HISTORIA DA TERRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0168",
+          "nome": "INTRODUCAO AS CIENCIAS DA TERRA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0169",
+          "nome": "INTRODUCAO A GEOLOGIA DO PETROLEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0170",
+          "nome": "INTRODUCAO A GEOLOGIA DE RESERVATORIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0171",
+          "nome": "INTRODUCAO A ANALISE DE BACIAS: TECTONICA E SEDIMENTACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0172",
+          "nome": "INTRODUCAO A PROSPECCAO GEOFISICA DO PETROLEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0174",
+          "nome": "PALEOBIOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0175",
+          "nome": "INTRODUCAO A CARTOGRAFIA TEMATICA E DIGITAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0176",
+          "nome": "GEOLOGIA DE ISOTOPOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0180",
+          "nome": "CARACTERIZACAO DE DEPOSITOS HIDROTERMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0184",
+          "nome": "SISMOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUCAO A MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0187",
+          "nome": "PROGRAMACAO EM GEOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0192",
+          "nome": "INTRODUCAO A FISICA DA TERRA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0193",
+          "nome": "PRINCIPIOS DE GEOFISICA DE EXPLORACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0196",
+          "nome": "MINERAIS E ROCHAS INDUSTRIAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0197",
+          "nome": "RECURSOS MINERAIS ENERGETICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0206",
+          "nome": "CARTOGRAFIA GEOLOGICA DIGITAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0207",
+          "nome": "FUNDAMENTOS DE SENSORIAMENTO REMOTO E INTERPRETACAO DE IMAGENS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0208",
+          "nome": "PALEOCEANOGRAFIA E PALEOCLIMA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0209",
+          "nome": "RADAR DE PENETRACAO NO SOLO (GPR)",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0211",
+          "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0212",
+          "nome": "SEDIMENTOLOGIA 2 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0214",
+          "nome": "PROPRIEDADES FISICAS DAS ROCHAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0236",
+          "nome": "OCEANOGRAFIA FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0246",
+          "nome": "CURADORIA MICROPALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0247",
+          "nome": "INTRODUCAO AOS MUSEUS DE CIENCIAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0251",
+          "nome": "PRINCIPIOS DE GEOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0252",
+          "nome": "PRINCIPIOS DE GEOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0257",
+          "nome": "RECUPERACAO DE AREAS DEGRADADAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0258",
+          "nome": "INTRODUCAO A PEDOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0260",
+          "nome": "INTRODUCAO A GEOMORFOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0300",
+          "nome": "PERFILAGEM GEOFISICA DE POCOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0311",
+          "nome": "ANALISE DE FACIES E MODELOS DEPOSICIONAIS",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0322",
+          "nome": "ATIVIDADE COMPLEMENTAR 30H",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0323",
+          "nome": "ATIVIDADE COMPLEMENTAR 60H",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0324",
+          "nome": "ATIVIDADE COMPLEMENTAR 90H",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0325",
+          "nome": "FUNDAMENTOS DE MICROSCOPIA ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0328",
+          "nome": "INTRODUCAO A ANALISE DE BACIAS: TECTONICA E SEDIMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0329",
+          "nome": "ATIVIDADE COMPLEMENTAR 120H",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0330",
+          "nome": "ATIVIDADE COMPLEMENTAR 150H",
+          "ch": "150"
+        },
+        {
+          "codigo": "IGD0331",
+          "nome": "ATIVIDADE COMPLEMENTAR 180H",
+          "ch": "180"
+        },
+        {
+          "codigo": "IGD0585",
+          "nome": "GEOLOGIA DE ENGENHARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0318",
+          "nome": "INTRODUCAO A EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0332",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0142",
+          "nome": "GEOQUIMICA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0049",
+          "nome": "PALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0182",
+          "nome": "INTRODUCAO AO ELETROMAGNETISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0195",
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0319",
+          "nome": "COMUNICACAO COM A COMUNIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0047",
+          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0200",
+          "nome": "PETROLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0201",
+          "nome": "METODOS POTENCIAIS, RADIOMETRICOS E ELETROMAGNETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0320",
+          "nome": "COMUNICACAO COM A COMUNIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0036",
+          "nome": "PETROLOGIA IGNEA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0202",
+          "nome": "METODOS SISMICOS E ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0205",
+          "nome": "ESTAGIO EM GEOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0312",
+          "nome": "MAPEAMENTO GEOLOGICO 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0033",
+          "nome": "PETROLOGIA METAMORFICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0150",
+          "nome": "GEOLOGIA ESTRUTURAL 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0162",
+          "nome": "GEOQUIMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0321",
+          "nome": "COMUNICACAO COM A COMUNIDADE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0041",
+          "nome": "GEOLOGIA ECONOMICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0054",
+          "nome": "HIDROGEOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0085",
+          "nome": "GEOLOGIA HISTORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0313",
+          "nome": "MAPEAMENTO GEOLOGICO 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0088",
+          "nome": "GEOLOGIA DO BRASIL",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0096",
+          "nome": "PROSPECCAO GERAL",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0114",
+          "nome": "PREPARACAO DO MAPEAMENTO GEOLOGICO FINAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0199",
+          "nome": "GEOQUIMICA DO AMBIENTE SUPERFICIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0314",
+          "nome": "TRABALHO DE MAPEAMENTO GEOLOGICO FINAL",
+          "ch": "240"
+        }
+      ]
+    }
+  ]
+}

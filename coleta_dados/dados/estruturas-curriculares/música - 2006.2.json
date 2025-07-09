@@ -1,0 +1,502 @@
+{
+  "curso": "MÚSICA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2006.2",
+  "niveis": [
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0122",
+          "nome": "INSTRUMENTACAO E ORQUESTRACAO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0124",
+          "nome": "INSTRUMENTACAO E ORQUESTRACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0112",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0145",
+          "nome": "CANTO CORAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0184",
+          "nome": "REGENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0653",
+          "nome": "PIANO SUPLEMENTAR 3",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0114",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0157",
+          "nome": "COMPOSICAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0186",
+          "nome": "REGENCIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0656",
+          "nome": "PIANO SUPLEMENTAR 4",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0108",
+          "nome": "CONTRAPONTO E FUGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0116",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0160",
+          "nome": "COMPOSICAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0163",
+          "nome": "COMPOSICAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0110",
+          "nome": "PROSODIA MUSICAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0188",
+          "nome": "REGENCIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0191",
+          "nome": "REGENCIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0662",
+          "nome": "CONTRAPONTO E FUGA 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0194",
+          "nome": "REGENCIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0239",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0197",
+          "nome": "REGENCIA 6",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "11° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0200",
+          "nome": "REGENCIA 7",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "12° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0666",
+          "nome": "ESTAGIO SUPERVISIONADO EM REGENCIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "MUS0020",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0022",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0110",
+          "nome": "PROSODIA MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0122",
+          "nome": "INSTRUMENTACAO E ORQUESTRACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0124",
+          "nome": "INSTRUMENTACAO E ORQUESTRACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0112",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0145",
+          "nome": "CANTO CORAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0184",
+          "nome": "REGENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0653",
+          "nome": "PIANO SUPLEMENTAR 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0114",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0157",
+          "nome": "COMPOSICAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0186",
+          "nome": "REGENCIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0656",
+          "nome": "PIANO SUPLEMENTAR 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0108",
+          "nome": "CONTRAPONTO E FUGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0116",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0160",
+          "nome": "COMPOSICAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0163",
+          "nome": "COMPOSICAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0110",
+          "nome": "PROSODIA MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0188",
+          "nome": "REGENCIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0191",
+          "nome": "REGENCIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0662",
+          "nome": "CONTRAPONTO E FUGA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0194",
+          "nome": "REGENCIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0239",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0197",
+          "nome": "REGENCIA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0200",
+          "nome": "REGENCIA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0666",
+          "nome": "ESTAGIO SUPERVISIONADO EM REGENCIA",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

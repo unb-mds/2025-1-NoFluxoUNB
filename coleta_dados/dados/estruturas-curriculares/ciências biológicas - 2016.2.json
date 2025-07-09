@@ -1,0 +1,3147 @@
+{
+  "curso": "CIÊNCIAS BIOLÓGICAS",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2016.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0049",
+          "nome": "INTRODUCAO A BIOLOGIA EVOLUTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0041",
+          "nome": "ELEMENTOS DA PRATICA EDUCACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0244",
+          "nome": "FILOSOFIA E HISTORIA DAS CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "BOT0020",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0042",
+          "nome": "DIDATICA DAS CIENCIAS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0167",
+          "nome": "FUNDAMENTOS DA HISTORIA DA TERRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0042",
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0095",
+          "nome": "BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0043",
+          "nome": "DIDATICA DA BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0340",
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0043",
+          "nome": "EMBRIOLOGIA ANIMAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0110",
+          "nome": "IMUNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0111",
+          "nome": "MICROBIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0043",
+          "nome": "ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0055",
+          "nome": "GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0045",
+          "nome": "PRATICA DE EDUCACAO EM CIENCIAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0013",
+          "nome": "ZOOLOGIA INVERTEBRADOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEL0023",
+          "nome": "BIOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0047",
+          "nome": "PRATICA DE EDUCACAO EM CIENCIAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0049",
+          "nome": "PRATICA DE EDUCACAO EM BIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0017",
+          "nome": "ZOOLOGIA VERTEBRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0004",
+          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "BOT0008",
+          "nome": "FISIOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0048",
+          "nome": "FISIOLOGIA ANIMAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0051",
+          "nome": "PRATICA DE EDUCACAO EM BIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0208",
+          "nome": "ESTAGIO SUPERVISIONADO NO ENSINO DE CIENCIAS",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "CFS0049",
+          "nome": "FISIOLOGIA ANIMAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0018",
+          "nome": "EVOLUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0210",
+          "nome": "ESTAGIO SUPERVISIONADO NO ENSINO DE BIOLOGIA",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "ICB0053",
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "VEGETAL",
+          "nome": "45H OPTATIVA BOT0006 - ANATOMIA DAS MADEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0013",
+          "nome": "ESTAGIO EM BOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0014",
+          "nome": "BOTANICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0015",
+          "nome": "BOTANICA EVOLUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0017",
+          "nome": "CULTURA DE TECIDOS DE PLANTAS",
+          "ch": "45"
+        },
+        {
+          "codigo": "BOT0019",
+          "nome": "ALGAS CONTINENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0021",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0023",
+          "nome": "ANATOMIA VEGETAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0024",
+          "nome": "ANATOMIA VEGETAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0025",
+          "nome": "ESTAGIO EM ESTRUTURA MACRO E MICROSCOPICA DA MADEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0027",
+          "nome": "PESQUISA EM VEGETACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0030",
+          "nome": "ESTAGIO EM TECNICAS MICROSCOPICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0032",
+          "nome": "PESQUISA EM FISIOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0033",
+          "nome": "PESQUISA EM MORFOLOGIA E ANATOMIA DOS SISTEMAS SUBTERRANEOS DO CERRADO",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0035",
+          "nome": "ESTAGIO EM TECNICAS DE HERBARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0036",
+          "nome": "ESTAGIO EM INFORMATICA APLICADA A BOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0037",
+          "nome": "PESQUISA EM ANATOMIA DAS PLANTAS DO CERRADO",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0040",
+          "nome": "ESTAGIO EM TAXONOMIA DAS ALGAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0042",
+          "nome": "ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0045",
+          "nome": "FISIOLOGIA DE ESTRESSES AMBIENTAIS EM PLANTAS",
+          "ch": "45"
+        },
+        {
+          "codigo": "BOT0046",
+          "nome": "VEGETACAO DO CERRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0047",
+          "nome": "FISIOLOGIA DA FLORACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "BOT0048",
+          "nome": "FISIOLOGIA DA GERMINACAO DAS SEMENTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0049",
+          "nome": "MORFOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0050",
+          "nome": "BIOLOGIA REPRODUTIVA E POLINIZACAO DE ANGIOSPERMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0055",
+          "nome": "SISTEMATICA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0056",
+          "nome": "ETNOBOTANICA DO CERRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0057",
+          "nome": "BOTANICA EM CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0059",
+          "nome": "BIOLOGIA DAS DIATOMACEAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0061",
+          "nome": "MERISTEMAS E DESENVOLVIMENTO VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0062",
+          "nome": "COLETA E INVENTARIO DE FITODIVERSIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0063",
+          "nome": "BIOTECNOLOGIA DE PLANTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0064",
+          "nome": "ADAPATACOES DAS PLANTAS AO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0065",
+          "nome": "SISTEMATICA DE PTERIDOFITAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0066",
+          "nome": "BOTANICA DOS BIOMAS BRASILEIROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0067",
+          "nome": "PRATICA DE FISIOLOGIA VEGETAL APLICADAS AO ENSINO MEDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0068",
+          "nome": "METABOLISMO VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0071",
+          "nome": "METABOLISMO E DESENVOLVIMENTO VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0072",
+          "nome": "TOPICOS EM BOTANICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0074",
+          "nome": "PESQUISA EM BOTANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0076",
+          "nome": "TOPICOS EM BOTANICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "BOT0078",
+          "nome": "DIVERSIDADE VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0010",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0001",
+          "nome": "ENGENHARIA GENETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0002",
+          "nome": "TECNOLOGIA ENZIMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0003",
+          "nome": "MICROBIOLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0005",
+          "nome": "BIOSSEGURANCA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0006",
+          "nome": "BOAS PRATICAS DE LABORATORIO E DE FABRICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0008",
+          "nome": "IMUNOLOGIA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0009",
+          "nome": "REDACAO CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0011",
+          "nome": "TECNOLOGIA DE BIOPROCESSOS E FERMENTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0014",
+          "nome": "ENGENHARIA METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0015",
+          "nome": "TOPICOS EM BIOFISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0018",
+          "nome": "MODELAGEM MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0019",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "CEL0021",
+          "nome": "BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0025",
+          "nome": "IMUNOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0026",
+          "nome": "BIOLOGIA MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0027",
+          "nome": "BIOLOGIA MOLECULAR 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0033",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0040",
+          "nome": "INTRODUCAO A BIOQUIMICA EXPERIMENTAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0042",
+          "nome": "TOPICOS EM BIOQUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0046",
+          "nome": "MICROBIOLOGIA MEDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0049",
+          "nome": "PROCESSOS MICROBIOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0052",
+          "nome": "METODOS EM BIOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0056",
+          "nome": "TOPICOS EM BIOQUIMICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0057",
+          "nome": "TOPICOS EM BIOLOGIA CELULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0060",
+          "nome": "TOPICOS EM BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0062",
+          "nome": "METABOLISMO CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0068",
+          "nome": "PESQUISA EM ENGENHARIA GENETICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0072",
+          "nome": "PESQUISA EM BIOLOGIA MOLECULAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0074",
+          "nome": "PESQUISA EM BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0076",
+          "nome": "PESQUISA EM MICROBIOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0078",
+          "nome": "INTRODUCAO A BIOENERGETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0079",
+          "nome": "FUNDAMENTOS DE MICROBIOLOGIA MEDICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0081",
+          "nome": "VIROLOGIA GERAL COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0086",
+          "nome": "FUNDAMENTOS DE ENGENHARIA GENETICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0087",
+          "nome": "ENOVELAMENTO DE PROTEINAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0091",
+          "nome": "INTRODUCAO A BIOTECNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0093",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOQUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0096",
+          "nome": "PARASITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0098",
+          "nome": "PESQUISA EM IMUNOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0099",
+          "nome": "INTRODUCAO A IMUNOLOGIA EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0100",
+          "nome": "IMUNOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0101",
+          "nome": "TECNICAS EM BIOLOGIA ESTRUTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0102",
+          "nome": "BIOLOGIA DO DESENVOLVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0105",
+          "nome": "ESTAGIO EM BIOLOGIA ESTRUTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0107",
+          "nome": "ESTAGIO SUPERVISIONADO EM IMUNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0109",
+          "nome": "ESTAGIO SUPERVISIONADO EM VIROLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0113",
+          "nome": "COMPUTACAO GRAFICA APLICADA A ILUSTRACAO CIENTIFICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0114",
+          "nome": "COMPUTACAO GRAFICA APLICADA A ILUSTRACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0115",
+          "nome": "HIGIENE E SAUDE PARA ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0116",
+          "nome": "PRATICAS DE BIOLOGIA CELULAR APLICADA AO ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0117",
+          "nome": "TOPICOS EM MICROBIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0120",
+          "nome": "BIOINFORMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0121",
+          "nome": "INSTRUMENTACAO CIENTIFICA EM BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0122",
+          "nome": "METABOLISMO E REGULACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0110",
+          "nome": "AGRICULTURA ALTERNATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0001",
+          "nome": "PRINCIPIOS EM FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0005",
+          "nome": "PESQUISA EM METABOLISMO ENERGETICO DE VERTEBRADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0010",
+          "nome": "FISIOLOGIA DOS SISTEMAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0012",
+          "nome": "NEUROBIOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CFS0013",
+          "nome": "VENENOS ANIMAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0022",
+          "nome": "PRINCIPIOS FARMACOLOGICOS EM BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0026",
+          "nome": "TOPICOS ESPECIAIS EM FISIOLOGIA ANIMAL COMPARATIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CFS0030",
+          "nome": "PESQUISA EM NEUROBIOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0031",
+          "nome": "NEUROFISIOLOGIA MEDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0032",
+          "nome": "PRINCIPIOS DE INSTRUMENTACAO ELETROFISIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0033",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE SINAIS BIOLOGICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0034",
+          "nome": "BIOLOGIA DE ANFIBIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0035",
+          "nome": "NEUROPSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0037",
+          "nome": "ELEMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0041",
+          "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0044",
+          "nome": "SISTEMAS SENSORIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0045",
+          "nome": "EXPERIMENTACAO EM FISIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0047",
+          "nome": "PESQUISA EM TOXINOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0050",
+          "nome": "NEUROETOLOGIA DO ESTRESSE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0052",
+          "nome": "BASES BIOLOGICAS DA REPRODUCAO EM MAMIFEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0054",
+          "nome": "PRINCIPIOS DE ELETROFISIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0055",
+          "nome": "FISIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0056",
+          "nome": "ANATOMIA ANIMAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0059",
+          "nome": "CIENCIA E EXPERIMENTACAO DE ANIMAIS DE LABORATORIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0086",
+          "nome": "TOPICOS EM NEUROCIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0069",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE DADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEG1101",
+          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIACAO A DOCENCIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0001",
+          "nome": "PRATICAS EM CIENCIAS AMBIENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0005",
+          "nome": "ECOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0009",
+          "nome": "ESTAGIO EM ECOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0010",
+          "nome": "CONSERVACAO DE RECURSOS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0013",
+          "nome": "LIMNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0015",
+          "nome": "MEIO AMBIENTE FISICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0017",
+          "nome": "METODOS EM BIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0021",
+          "nome": "ECOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0034",
+          "nome": "ECOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0036",
+          "nome": "EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0037",
+          "nome": "ECOLOGIA TROPICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0040",
+          "nome": "TOPICOS EM ECOSSISTEMAS DO CERRADO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0044",
+          "nome": "METODOS EM ECOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0045",
+          "nome": "ECOLOGIA DO FOGO NO CERRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0046",
+          "nome": "SOLOS E VEGETACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0048",
+          "nome": "ECOLOGIA E EDUCACAO AMBIENTAL PARA ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0049",
+          "nome": "BIOLOGIA E ECOLOGIA DE PEIXES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0050",
+          "nome": "ECOLOGIA E TURISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0051",
+          "nome": "DELINEAMENTO EXPERIMENTAL E ANALISE DE DADOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0052",
+          "nome": "BIODIVERSIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0053",
+          "nome": "MUDANCAS AMBIENTAIS GLOBAIS E BIODIVERSIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0055",
+          "nome": "ECOLOGIA DA PAISAGEM E CONSERVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0057",
+          "nome": "MENEJO DE ECOSISTEMAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0115",
+          "nome": "ECOLOGIA DE INSETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0261",
+          "nome": "PLANEJAMENTO PUBLICO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0272",
+          "nome": "MICROECONOMIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0004",
+          "nome": "ECOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0010",
+          "nome": "INICIACAO A ENGENHARIA FLORESTAL",
+          "ch": "15"
+        },
+        {
+          "codigo": "EFL0025",
+          "nome": "MANEJO DE FAUNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0072",
+          "nome": "TOPICOS EM BIODIVERSIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0076",
+          "nome": "BIOLOGIA DA CONSERVACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "EFL0083",
+          "nome": "INTRODUCAO A CIENCIA DO SOLO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0083",
+          "nome": "PROBABILIDADE E ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0031",
+          "nome": "FARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0122",
+          "nome": "ESTAGIO EM FISIOLOGIA MOLECULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0124",
+          "nome": "GENETICA BASICA E MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0129",
+          "nome": "ESTAGIO EM METABOLISMO MOLECULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0146",
+          "nome": "FARMACOLOGIA MOLECULAR EXPERIMENTAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAR0160",
+          "nome": "PRATICAS EM NEUROFARMACOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0161",
+          "nome": "TOPICOS EM NEUROFARMACOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FAV0017",
+          "nome": "PRODUCAO E MANEJO DE ANIMAIS SILVESTRES E EXOTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0038",
+          "nome": "ESTATISTICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0050",
+          "nome": "AGROTOXICOS",
+          "ch": "45"
+        },
+        {
+          "codigo": "FAV0052",
+          "nome": "FISIOLOGIA VETERINARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0066",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0100",
+          "nome": "MELHORAMENTO DE PLANTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0113",
+          "nome": "ANATOMIA E FISIOLOGIA DOS ANIMAIS DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0123",
+          "nome": "MECANICA DOS MOTORES E MAQUINAS AGRICOLAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0148",
+          "nome": "EDAFOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0152",
+          "nome": "MECANICA DOS MOTORES E MAQUINAS AGRICOLAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0163",
+          "nome": "MICROBIOLOGIA BIOTECNOLOGIA AGRICOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0178",
+          "nome": "FISIOLOGIA VETERINARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0180",
+          "nome": "NUTRICAO ANIMAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0236",
+          "nome": "ANATOMIA DOS ANIMAIS DOMESTICOS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAV0274",
+          "nome": "FUNDAMENTOS DE CIENCIA DO SOLO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAV0276",
+          "nome": "ZOOTECNIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAV0284",
+          "nome": "MAQUINAS E MECANIZACAO AGRICOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCS0076",
+          "nome": "FARMACODEPENDENCIA EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0183",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0070",
+          "nome": "NEUROANATOMIA FUNCIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0143",
+          "nome": "FISIOLOGIA DO EXERCICIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0409",
+          "nome": "ANATOMIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIT0002",
+          "nome": "INTRODUCAO A VIROLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIT0003",
+          "nome": "INTRODUCAO A PATOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0004",
+          "nome": "INTRODUCAO A BACTERIOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0006",
+          "nome": "MICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0007",
+          "nome": "VECTORES DE FITOPATOGENOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIT0009",
+          "nome": "INTRODUCAO A NEMATOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0010",
+          "nome": "BACTERIOLOGIA VEGETAL APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0011",
+          "nome": "NEMATOLOGIA VEGETAL APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0015",
+          "nome": "ESTAGIO SUPERVISIONADO EM FITOPATOLOGIA",
+          "ch": "75"
+        },
+        {
+          "codigo": "FIT0017",
+          "nome": "INTRODUCAO A VIROLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIT0022",
+          "nome": "PESQUISA EM BACTERIOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIT0024",
+          "nome": "PESQUISA EM MICOLOGIA : FUNGOS FITOPATOGENICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIT0026",
+          "nome": "PESQUISA EM NEMATOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIT0029",
+          "nome": "PESQUISA EM VIROLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIT0032",
+          "nome": "ELEMENTOS DE MICOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIT0035",
+          "nome": "DIVERSIDADE MICROBIANA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIT0036",
+          "nome": "DIVERSIDADE MICROBIANA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIT0037",
+          "nome": "DIAGNOSE DE DOENCAS DE PLANTAS (DPP)",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0001",
+          "nome": "ESTAGIO EM PARASITOLOGIA MEDICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0013",
+          "nome": "MORFOFUNCIONAL 1",
+          "ch": "150"
+        },
+        {
+          "codigo": "FMD0071",
+          "nome": "PARASITOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0091",
+          "nome": "ANATOMIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0138",
+          "nome": "ESTAGIO EM LABORATORIO DE PARASITOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0148",
+          "nome": "INTRODUCAO A ANATOMIA E EMBRIOLOGIA HUMANAS - TEORIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0150",
+          "nome": "INTRODUCAO A ANATOMIA E EMBRIOLOGIA HUMANAS - PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0165",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0167",
+          "nome": "ELEMENTOS DE ANATOMIA E FISIOLOGIA HUMANAS - PRATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0497",
+          "nome": "FISIOLOGIA HUMANA 1",
+          "ch": "180"
+        },
+        {
+          "codigo": "FMD0509",
+          "nome": "FISIOLOGIA MEDICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FMD0510",
+          "nome": "ELEMENTOS DE ANATOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0512",
+          "nome": "HISTOLOGIA MEDICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0200",
+          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0265",
+          "nome": "BIOLOGIA GERAL APLICADA A GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0302",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0313",
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0316",
+          "nome": "UNIVERSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0318",
+          "nome": "SERES VIVOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0326",
+          "nome": "TERRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0328",
+          "nome": "SERES VIVOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0329",
+          "nome": "COMPOSTOS ORGANICOS E VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0355",
+          "nome": "CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0523",
+          "nome": "ECOSSISTEMAS TERRESTRES AQUATICOS E INTERFACES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0528",
+          "nome": "ZOOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0010",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0011",
+          "nome": "GEOGRAFIA FISICA 2: METEOROLOGIA E CLIMATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0017",
+          "nome": "GEOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0019",
+          "nome": "GEOGRAFIA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0030",
+          "nome": "FOTOINTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0031",
+          "nome": "RECURSOS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0044",
+          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0001",
+          "nome": "NANOBIOTECNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0002",
+          "nome": "BIOLOGIA REGENERATIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "GEM0004",
+          "nome": "INVASOES BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0005",
+          "nome": "GENETICA E BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0006",
+          "nome": "BIOLOGIA GERAL E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0007",
+          "nome": "FUNDAMENTOS DE GENETICA DA CONSERVACAO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0010",
+          "nome": "FUNDAMENTOS DE TECNICAS HISTOLOGICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0011",
+          "nome": "EMBRIOLOGIA GERAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0015",
+          "nome": "GENETICA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0021",
+          "nome": "TERATOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0022",
+          "nome": "FUNDAMENTOS DE HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0024",
+          "nome": "FUNDAMENTOS DE GENETICA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0025",
+          "nome": "EMBRIOLOGIA DOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0026",
+          "nome": "CITOGENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0029",
+          "nome": "ESTAGIO EM GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0033",
+          "nome": "ESTAGIO EM MORFOLOGIA E MORFOGENESE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0035",
+          "nome": "EVOLUCAO HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0039",
+          "nome": "ESTAGIO EM OCEANOGRAFIA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0040",
+          "nome": "FUNDAMENTOS DE EMBRIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0042",
+          "nome": "HISTOLOGIA VETERINARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0045",
+          "nome": "PESQUISA EM EVOLUCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0047",
+          "nome": "PESQUISA EM GENETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0051",
+          "nome": "ESTAGIO EM EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0052",
+          "nome": "GENETICAS DAS PLANTAS CULTIVADAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0053",
+          "nome": "PRATICAS DE EMBRIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0054",
+          "nome": "HISTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0056",
+          "nome": "TOPICOS EM GENETICA E BIOLOGIA EVOLUTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0058",
+          "nome": "BIOLOGIA REPRODUTIVA DE PEIXES",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0059",
+          "nome": "BIOLOGIA ESTRUTURAL DOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0060",
+          "nome": "PRATICAS DE GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0061",
+          "nome": "METODOLOGIA DE ENSINO EXPERIMENTAL EM GENETICA E EVOLUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0063",
+          "nome": "EMBRIOLOGIA HUMANA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0064",
+          "nome": "TOPICOS COMPLEMENTARES EM HISTOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "GEM0065",
+          "nome": "BIOLOGIA SINTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0066",
+          "nome": "BIOLOGIA E GENETICA DA CONSERVACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0068",
+          "nome": "INTRODUCAO A HERANCA EPIGENETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0019",
+          "nome": "BIOLOGIA QUANTITATIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ICB0064",
+          "nome": "ILUSTRACAO CIENTIFICA NO PROCESSO DE ENSINO E APRENDIZAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0075",
+          "nome": "SEGURANCA EM CAMPO E LABORATORIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0076",
+          "nome": "ILUSTRACAO CIENTIFICA APLICADA A PRATICA DE CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0077",
+          "nome": "EDUCACAO  AMBIENTAL SUSTENTAVEL",
+          "ch": "120"
+        },
+        {
+          "codigo": "ICB0079",
+          "nome": "PESQUISA EM EDUCACAO CIENTIFICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ICB0080",
+          "nome": "FILOSOFIA DA BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0081",
+          "nome": "HISTORIA DA BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0082",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0084",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE BIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0097",
+          "nome": "DINAMICA DA CONSTRUCAO DO CONHECIMENTO CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0098",
+          "nome": "MORFOLOGIA E TAXONOMIA VEGETAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "ICB0143",
+          "nome": "HISTOLOGIA ANIMAL 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0177",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0201",
+          "nome": "METODOLOGIA DE ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0202",
+          "nome": "METODOLOGIA DE ENSINO DE BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0205",
+          "nome": "ILUSTRACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0214",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA 1 - BACHAREL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0219",
+          "nome": "ESTAGIO SUPERVISIONADO EM BIOLOGIA 2 - BACHAREL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ICB0220",
+          "nome": "TECNICAS AVANCADAS DE ILUSTRACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0221",
+          "nome": "TOPICOS EM ILUSTRACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0222",
+          "nome": "ESTAGIO EM ILUSTRACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0229",
+          "nome": "ESTAGIO EM EXTENSAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0231",
+          "nome": "ESTAGIO EM EXTENSAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ICB0245",
+          "nome": "SEMINARIOS EM BIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0250",
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0251",
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0265",
+          "nome": "ETNOBIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0266",
+          "nome": "GESTAO DE DADOS E COLECOES DE HISTORIA NATURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0005",
+          "nome": "FISICA TEORICA PARA CIENCIAS AGRARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0006",
+          "nome": "FISICA EXPERIMENTAL PARA CIENCIAS AGRARIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0067",
+          "nome": "INTRODUCAO A FISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0072",
+          "nome": "ELETRICIDADE MAGNETISMO",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0192",
+          "nome": "FISICA PARA CIENCIAS AGRARIAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0299",
+          "nome": "FISICA 1 PARA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0302",
+          "nome": "FISICA 1 EXPERIMENTAL PARA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0310",
+          "nome": "INSTRUMENTACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0312",
+          "nome": "INSTRUMENTACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0049",
+          "nome": "PALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0098",
+          "nome": "MICROPALEONTOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0174",
+          "nome": "PALEOBIOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0056",
+          "nome": "QUIMICA INORGANICA 1 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0063",
+          "nome": "QUIMICA ANALITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0101",
+          "nome": "TERMODINAMICA QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0110",
+          "nome": "TECNICA DE PESQUISA EM QUIMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0118",
+          "nome": "QUIMICA ANALITICA QUALITATIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0137",
+          "nome": "REACOES ORGANICAS E SEUS MECANISMOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0213",
+          "nome": "QUIMICA BIOLOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0122",
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0245",
+          "nome": "INGLES: EXPRESSAO ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0252",
+          "nome": "INGLES: COMPREENSAO DE TEXTOS ESCRITOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0262",
+          "nome": "INGLES: EXPRESSAO ESCRITA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0312",
+          "nome": "INTRODUCAO A MORFOSSINTAXE DO INGLES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0334",
+          "nome": "INGLES: COMPREENSAO DA LINGUA ORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0061",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0113",
+          "nome": "GREGO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0048",
+          "nome": "EQUACOES DIFERENCIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0137",
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0017",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0018",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0022",
+          "nome": "CURRICULOS E PROGRAMAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0028",
+          "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0029",
+          "nome": "ENSINO SUPLETIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0030",
+          "nome": "ENSINO SUPLETIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0143",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0011",
+          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0017",
+          "nome": "LEGISLACAO DO ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0018",
+          "nome": "LEGISLACAO DO ENSINO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0019",
+          "nome": "HIGIENE ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0018",
+          "nome": "PSICOLOGIA GERAL E EXPERIMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0034",
+          "nome": "FUNDAMENTOS DE NEUROCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0035",
+          "nome": "VEGETACAO APLICADA AO PAISAGISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0014",
+          "nome": "SOCIOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0016",
+          "nome": "HISTORIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0017",
+          "nome": "EVOLUCAO DA EDUCACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0019",
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0022",
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0027",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0069",
+          "nome": "ORIENTACAO VOCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0077",
+          "nome": "EDUCACAO AMBIENTAL E PRATICAS COMUNITARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0098",
+          "nome": "EDUCACAO/GESTAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0140",
+          "nome": "ANATOMIA ARTISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ZOO0001",
+          "nome": "TOPICOS EM ZOOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0003",
+          "nome": "TOPICOS EM ZOOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0004",
+          "nome": "METODOS E PRATICAS EM COMPORTAMENTO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0005",
+          "nome": "BIODIVERSIDADE URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0007",
+          "nome": "SISTEMATICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0008",
+          "nome": "BIOLOGIA DOS MAMIFEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0018",
+          "nome": "ENTOMOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0020",
+          "nome": "ENTOMOLOGIA ECONOMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ZOO0021",
+          "nome": "ECOLOGIA DE CAMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0024",
+          "nome": "TOPICOS EM ZOOLOGIA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ZOO0026",
+          "nome": "ESTAGIO EM ZOOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0027",
+          "nome": "COMPORTAMENTO DOS INSETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0028",
+          "nome": "COMPORTAMENTO ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0030",
+          "nome": "COMUNIDADE DE INSETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0031",
+          "nome": "ORNITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0032",
+          "nome": "BIOLOGIA DOS REPTEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0033",
+          "nome": "INTRODUCAO A BIOLOGIA MARINHA",
+          "ch": "75"
+        },
+        {
+          "codigo": "ZOO0036",
+          "nome": "PESQUISA EM ZOOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0037",
+          "nome": "BIOLOGIA DOS ARACNIDEOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0038",
+          "nome": "BIOLOGIA DOS PARASITAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0039",
+          "nome": "CONSERVACAO DA FAUNA SILVESTRE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0041",
+          "nome": "DIVERSIDADE ANIMAL - METODOLOGIA DE ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0042",
+          "nome": "PRATICAS DE ZOOLOGIA APLICADAS AO ENSINO FUNDAMENTAL E MEDIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0043",
+          "nome": "BIOLOGIA DE COLEOPTEROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0045",
+          "nome": "ENTOMOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0046",
+          "nome": "SELECAO SEXUAL E REPRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0047",
+          "nome": "ENTOMOLOGIA FORENSE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0048",
+          "nome": "BIOGEOGRAFIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0049",
+          "nome": "DIVERSIDADE ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ZOO0054",
+          "nome": "BIOLOGIA QUANTITATIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0042",
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0043",
+          "nome": "EMBRIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0004",
+          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0089",
+          "nome": "CITOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0049",
+          "nome": "INTRODUCAO A BIOLOGIA EVOLUTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0041",
+          "nome": "ELEMENTOS DA PRATICA EDUCACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0244",
+          "nome": "FILOSOFIA E HISTORIA DAS CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0020",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CFS0021",
+          "nome": "ANATOMIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0042",
+          "nome": "DIDATICA DAS CIENCIAS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0167",
+          "nome": "FUNDAMENTOS DA HISTORIA DA TERRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0042",
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0062",
+          "nome": "BIOLOGIA ESTRUTURAL DOS TECIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0095",
+          "nome": "BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0043",
+          "nome": "DIDATICA DA BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0340",
+          "nome": "FUNDAMENTOS DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0043",
+          "nome": "EMBRIOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0110",
+          "nome": "IMUNOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0111",
+          "nome": "MICROBIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0043",
+          "nome": "ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0055",
+          "nome": "GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0045",
+          "nome": "PRATICA DE EDUCACAO EM CIENCIAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0013",
+          "nome": "ZOOLOGIA INVERTEBRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0023",
+          "nome": "BIOFISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0047",
+          "nome": "PRATICA DE EDUCACAO EM CIENCIAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0049",
+          "nome": "PRATICA DE EDUCACAO EM BIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ZOO0017",
+          "nome": "ZOOLOGIA VERTEBRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0004",
+          "nome": "INTRODUCAO A ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0008",
+          "nome": "FISIOLOGIA VEGETAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0048",
+          "nome": "FISIOLOGIA ANIMAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0051",
+          "nome": "PRATICA DE EDUCACAO EM BIOLOGIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0208",
+          "nome": "ESTAGIO SUPERVISIONADO NO ENSINO DE CIENCIAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0049",
+          "nome": "FISIOLOGIA ANIMAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0018",
+          "nome": "EVOLUCAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0210",
+          "nome": "ESTAGIO SUPERVISIONADO NO ENSINO DE BIOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ICB0053",
+          "nome": "PROJETO DE PESQUISA EM EDUCACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

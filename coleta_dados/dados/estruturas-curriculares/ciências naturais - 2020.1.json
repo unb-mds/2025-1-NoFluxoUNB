@@ -1,0 +1,947 @@
+{
+  "curso": "CIÊNCIAS NATURAIS",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0246",
+          "nome": "LABORATORIO DE QUIMICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0299",
+          "nome": "FILOSOFIA E SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0313",
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0321",
+          "nome": "NATUREZA E ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0348",
+          "nome": "INTRODUCAO AO CALCULO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0349",
+          "nome": "SISTEMA EDUCACIONAL BRASILEIRO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0314",
+          "nome": "BASES PSICOLOGICAS PARA O ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0316",
+          "nome": "UNIVERSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0329",
+          "nome": "COMPOSTOS ORGANICOS E VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0247",
+          "nome": "FUNDAMENTOS QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0285",
+          "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0286",
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0355",
+          "nome": "CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0288",
+          "nome": "INTRODUCAO A ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0330",
+          "nome": "DIDATICA DAS CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0528",
+          "nome": "ZOOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0323",
+          "nome": "METODOLOGIA DA PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0351",
+          "nome": "LUZ E SOM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0362",
+          "nome": "ENERGIA E DINAMICA DAS TRANSFORMACOES QUIMICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0527",
+          "nome": "BOTANICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0320",
+          "nome": "SAUDE E AMBIENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0363",
+          "nome": "ELETROMAGNETISMO EM CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0537",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0199",
+          "nome": "GENETICA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0350",
+          "nome": "ENSINO DE GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0408",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0541",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 2",
+          "ch": "105"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0302",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0542",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
+          "ch": "105"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FUP0473",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0543",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 4",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPLEMENTAR",
+          "nome": "15H OPTATIVA DEG0201 - ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEG1101",
+          "nome": "PROGRAMA INSTITUCIONAL DE BOLSA DE INICIACAO A DOCENCIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0049",
+          "nome": "BIOLOGIA E ECOLOGIA DE PEIXES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0035",
+          "nome": "CIENCIA ALEM DA CIENCIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0343",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0001",
+          "nome": "ANATOMIA E FISIOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0003",
+          "nome": "TOPICOS ESPECIAIS EM BIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0005",
+          "nome": "CURRICULO E AVALIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0006",
+          "nome": "ABORDAGEM DO CORPO HUMANO NO ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0007",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIAS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0008",
+          "nome": "EDUCACAO E LUDICIDADE NO ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0009",
+          "nome": "BIOLOGIA MOLECULAR E BIOTECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0010",
+          "nome": "ELEMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0011",
+          "nome": "COMPLEXIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0012",
+          "nome": "ETICA E FORMACAO DOCENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0013",
+          "nome": "EVOLUCAO DO DESENVOLVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0014",
+          "nome": "FUNDAMENTOS E ESTRATEGIAS NO ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0015",
+          "nome": "LABORATORIO DE MICROSCOPIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0016",
+          "nome": "LABORATORIO DE QUIMICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0018",
+          "nome": "TOPICOS EM EDUCACAO E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0019",
+          "nome": "ECOLOGIA DO ORGANISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0035",
+          "nome": "CALCULO VETORIAL E GEOMETRIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0040",
+          "nome": "PRATICAS DE CAMPO EM BOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0044",
+          "nome": "LEITURA E PRODUCAO DE TEXTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0162",
+          "nome": "ADOLESCENCIA NA ESCOLA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0200",
+          "nome": "FUNDAMENTOS EM ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0218",
+          "nome": "SIMULACAO EM ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0219",
+          "nome": "TRABALHO DE CAMPO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0220",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0244",
+          "nome": "QUIMICA E ANALISE DO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0248",
+          "nome": "QUIMICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0249",
+          "nome": "TOPICOS ESPECIAIS EM GEOCIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0251",
+          "nome": "BOTANICA DE CAMPO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0254",
+          "nome": "EDUCACAO PARA A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0255",
+          "nome": "MORFOFISIOLOGIA COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0256",
+          "nome": "INTRODUCAO A PALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0261",
+          "nome": "PEDOLOGIA E EDAFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0276",
+          "nome": "MATEMATICA PARA AGRONEGOCIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0303",
+          "nome": "PROJETO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0304",
+          "nome": "MATEMATICA PARA CIENCIAS NATURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0324",
+          "nome": "ENSINO DE QUIMICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0325",
+          "nome": "EXPERIMENTOS DE QUIMICA PARA O ENSINO MEDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0331",
+          "nome": "PROJETO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0332",
+          "nome": "RECURSOS DIDATICOS PARA O ENSINO DE CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0347",
+          "nome": "BOTANICA DE CAMPO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0353",
+          "nome": "EDUCACAO AMBIENTAL E ENSINO DE CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0354",
+          "nome": "SEMINARIOS EM CIENCIAS NATURAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0361",
+          "nome": "MEIO AMBIENTE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0407",
+          "nome": "MECANICA APLICADA AS CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0409",
+          "nome": "BIODIVERSIDADE BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0415",
+          "nome": "FUNDAMENTOS DE QUIMICA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0434",
+          "nome": "CLIMATOLOGIA E MUDANCAS CLIMATICAS GLOBAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0436",
+          "nome": "FUNDAMENTOS DA ABORDAGEM ECOSSISTEMICA A SAUDE HUMANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0443",
+          "nome": "INTRODUCAO A SAUDE PUBLICA E AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0520",
+          "nome": "GEOPROCESSAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0535",
+          "nome": "GESTAO AMBIENTAL URBANA E REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0538",
+          "nome": "LABORATORIO DE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0539",
+          "nome": "PRINCIPIOS DE SISTEMATICA FILOGENETICA E BIOGEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0544",
+          "nome": "BIOQUIMICA E ELEMENTOS DE FARMACOQUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0558",
+          "nome": "POLUICAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0083",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ICB0085",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE BIOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0083",
+          "nome": "COMUNICACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0117",
+          "nome": "SEMINARIO DE TOPICOS EM MATEMATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0079",
+          "nome": "O EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0246",
+          "nome": "LABORATORIO DE QUIMICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0299",
+          "nome": "FILOSOFIA E SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0313",
+          "nome": "QUIMICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0321",
+          "nome": "NATUREZA E ENERGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0348",
+          "nome": "INTRODUCAO AO CALCULO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0349",
+          "nome": "SISTEMA EDUCACIONAL BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0314",
+          "nome": "BASES PSICOLOGICAS PARA O ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0316",
+          "nome": "UNIVERSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0329",
+          "nome": "COMPOSTOS ORGANICOS E VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FUP0247",
+          "nome": "FUNDAMENTOS QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0285",
+          "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0286",
+          "nome": "ENSINO DE CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0355",
+          "nome": "CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FUP0288",
+          "nome": "INTRODUCAO A ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0330",
+          "nome": "DIDATICA DAS CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0528",
+          "nome": "ZOOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0323",
+          "nome": "METODOLOGIA DA PESQUISA EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0351",
+          "nome": "LUZ E SOM",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0362",
+          "nome": "ENERGIA E DINAMICA DAS TRANSFORMACOES QUIMICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0527",
+          "nome": "BOTANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0320",
+          "nome": "SAUDE E AMBIENTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0363",
+          "nome": "ELETROMAGNETISMO EM CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0537",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0199",
+          "nome": "GENETICA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0350",
+          "nome": "ENSINO DE GEOCIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0408",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0541",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0302",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "FUP0542",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "FUP0473",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0543",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 4",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

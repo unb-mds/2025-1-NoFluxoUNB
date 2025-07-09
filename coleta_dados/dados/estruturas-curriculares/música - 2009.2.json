@@ -1,0 +1,2552 @@
+{
+  "curso": "MÚSICA",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2009.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0097",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0752",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0098",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0729",
+          "nome": "HISTORIA DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0023",
+          "nome": "MUSICA DE TRADICAO ORAL PERFORMATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0151",
+          "nome": "PIANO SUPLEMENTAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0153",
+          "nome": "TEORIA E PRATICA DE GRAVACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0750",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0774",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0022",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0730",
+          "nome": "HISTORIA DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0751",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0021",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "IDA0023",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0761",
+          "nome": "HISTORIA DA MUSICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0022",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0102",
+          "nome": "HARMONIA SUPERIOR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0129",
+          "nome": "MUSICA DE CAMARA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0801",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 4",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0497",
+          "nome": "PRATICA DE CONJUNTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0758",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0762",
+          "nome": "HISTORIA DA MUSICA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0104",
+          "nome": "HARMONIA SUPERIOR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0133",
+          "nome": "MUSICA DE CAMARA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0759",
+          "nome": "INTRODUCAO AO PIANO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0771",
+          "nome": "RITMOS BRASILEIROS 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0502",
+          "nome": "PRATICA DE CONJUNTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0788",
+          "nome": "PROJETO DE ESTAGIO E PRATICA DOCENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0106",
+          "nome": "CONTRAPONTO E FUGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0749",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0760",
+          "nome": "INTRODUCAO AO PIANO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0770",
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0804",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0262",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0505",
+          "nome": "PRATICA DE CONJUNTO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0020",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0248",
+          "nome": "ANALISE MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0719",
+          "nome": "TECNOLOGIA MUSICAL BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0786",
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0003",
+          "nome": "INTRODUCAO A PESQUISA EM MUSICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0737",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0805",
+          "nome": "PROJETO DE RECITAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0263",
+          "nome": "MUSICA POPULAR BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0508",
+          "nome": "PRATICA DE CONJUNTO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0745",
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "MUS0787",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0806",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0511",
+          "nome": "PRATICA DE CONJUNTO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0627",
+          "nome": "PRATICA DE ORQUESTRA 6",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "NICO",
+          "nome": "MUSICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0008",
+          "nome": "CORPOREIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0009",
+          "nome": "CORPOREIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0023",
+          "nome": "ANTROPOLOGIA CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0084",
+          "nome": "MULTICULTURISMO E EDUCACAO",
+          "ch": "105"
+        },
+        {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0148",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0165",
+          "nome": "EDUCANDO COM NECESSIDADES EDUCACIONAIS ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IDA0391",
+          "nome": "LABORATORIO INTERARTISTICO",
+          "ch": "120"
+        },
+        {
+          "codigo": "IQD0270",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0271",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0009",
+          "nome": "EDUCACAO DE ADULTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0033",
+          "nome": "TECNOLOGIA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0038",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0039",
+          "nome": "EDUCACAO INFANTIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0076",
+          "nome": "EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0078",
+          "nome": "ELEMENTOS DE LINGUAGEM CINEMATOGRAFICA PARA A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0138",
+          "nome": "EDUCACAO E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0004",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO POPULAR 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0006",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO POPULAR 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0016",
+          "nome": "ARRANJO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0017",
+          "nome": "HARMONIA NA MUSICA POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0018",
+          "nome": "HARMONIA NA MUSICA POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0019",
+          "nome": "IMPROVISACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0026",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0028",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0031",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO POPULAR 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0034",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO POPULAR 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0062",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0063",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0064",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0065",
+          "nome": "INSTRUMENTO PRINCIPAL PIANO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0079",
+          "nome": "TRILHA SONORA PARA JOGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0080",
+          "nome": "INSTRUMENTO PRINCIPAL GUITARRA 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0082",
+          "nome": "INSTRUMENTO PRINCIPAL GUITARRA 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0084",
+          "nome": "MUSICA E INTERFACES",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0086",
+          "nome": "LABORATORIO DE PERFORMANCE",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0087",
+          "nome": "LABORATORIO DE MUSICA E TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0089",
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0093",
+          "nome": "INTRODUCAO A MUSICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0096",
+          "nome": "INTRODUCAO A MUSICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0099",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0108",
+          "nome": "CONTRAPONTO E FUGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0112",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0114",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0116",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0118",
+          "nome": "TEORIAS CONTEMPORANEAS DA MUSICA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0120",
+          "nome": "FISIOLOGIA DA VOZ",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0122",
+          "nome": "INSTRUMENTACAO E ORQUESTRACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0136",
+          "nome": "MUSICA DE CAMARA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0145",
+          "nome": "CANTO CORAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0148",
+          "nome": "PIANO SUPLEMENTAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0155",
+          "nome": "TEORIA E PRATICA DE GRAVACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0158",
+          "nome": "COMPOSICAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0161",
+          "nome": "COMPOSICAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0164",
+          "nome": "COMPOSICAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0166",
+          "nome": "COMPOSICAO MUSICAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0169",
+          "nome": "COMPOSICAO MUSICAL 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0172",
+          "nome": "COMPOSICAO MUSICAL 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0175",
+          "nome": "COMPOSICAO MUSICAL 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0178",
+          "nome": "COMPOSICAO MUSICAL 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0184",
+          "nome": "REGENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0186",
+          "nome": "REGENCIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0188",
+          "nome": "REGENCIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0191",
+          "nome": "REGENCIA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0194",
+          "nome": "REGENCIA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0197",
+          "nome": "REGENCIA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0200",
+          "nome": "REGENCIA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0203",
+          "nome": "REGENCIA 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0206",
+          "nome": "INTRODUCAO A MUSICOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0215",
+          "nome": "INSTRUMENTO SUPLEMENTAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0218",
+          "nome": "CANTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0220",
+          "nome": "CANTO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0223",
+          "nome": "CANTO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0226",
+          "nome": "CANTO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0229",
+          "nome": "CANTO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0231",
+          "nome": "CANTO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0233",
+          "nome": "CANTO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0235",
+          "nome": "CANTO 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0236",
+          "nome": "MUSICA E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0239",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0241",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0250",
+          "nome": "PERCEPCAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0254",
+          "nome": "ACUSTICA MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0259",
+          "nome": "MUSICA DE CAMARA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0271",
+          "nome": "INTRODUCAO AO VIOLINO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0273",
+          "nome": "INTRODUCAO AO VIOLINO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0277",
+          "nome": "VIOLINO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0279",
+          "nome": "VIOLINO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0281",
+          "nome": "VIOLINO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0283",
+          "nome": "VIOLINO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0286",
+          "nome": "VIOLINO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0288",
+          "nome": "VIOLINO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0291",
+          "nome": "VIOLINO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0294",
+          "nome": "VIOLINO 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0298",
+          "nome": "INTRODUCAO A VIOLA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0302",
+          "nome": "INTRODUCAO A VIOLA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0306",
+          "nome": "VIOLA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0308",
+          "nome": "VIOLA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0310",
+          "nome": "VIOLA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0315",
+          "nome": "VIOLA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0319",
+          "nome": "VIOLA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0321",
+          "nome": "VIOLA 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0324",
+          "nome": "INTRODUCAO AO VIOLONCELO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0326",
+          "nome": "INTRODUCAO AO VIOLONCELO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0328",
+          "nome": "VIOLONCELO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0330",
+          "nome": "VIOLONCELO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0332",
+          "nome": "VIOLONCELO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0334",
+          "nome": "VIOLONCELO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0337",
+          "nome": "VIOLONCELO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0340",
+          "nome": "VIOLONCELO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0343",
+          "nome": "VIOLONCELO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0346",
+          "nome": "VIOLONCELO 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0348",
+          "nome": "INTRODUCAO A CLARINETA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0350",
+          "nome": "INTRODUCAO A CLARINETA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0352",
+          "nome": "CLARINETA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0354",
+          "nome": "CLARINETA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0356",
+          "nome": "CLARINETA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0358",
+          "nome": "CLARINETA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0360",
+          "nome": "CLARINETA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0363",
+          "nome": "CLARINETA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0365",
+          "nome": "CLARINETA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0367",
+          "nome": "CLARINETA 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0369",
+          "nome": "INTRODUCAO AO OBOE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0371",
+          "nome": "INTRODUCAO AO OBOE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0392",
+          "nome": "INTRODUCAO A TROMPA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0394",
+          "nome": "INTRODUCAO A TROMPA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0397",
+          "nome": "TROMPA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0399",
+          "nome": "TROMPA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0401",
+          "nome": "TROMPA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0403",
+          "nome": "TROMPA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0406",
+          "nome": "TROMPA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0408",
+          "nome": "TROMPA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0410",
+          "nome": "TROMPA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0412",
+          "nome": "TROMPA 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0414",
+          "nome": "INTRODUCAO AO FAGOTE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0416",
+          "nome": "INTRODUCAO AO FAGOTE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0420",
+          "nome": "FAGOTE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0422",
+          "nome": "FAGOTE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0424",
+          "nome": "FAGOTE 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0426",
+          "nome": "FAGOTE 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0429",
+          "nome": "FAGOTE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0432",
+          "nome": "FAGOTE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0435",
+          "nome": "FAGOTE 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0440",
+          "nome": "INTRODUCAO A FLAUTA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0442",
+          "nome": "INTRODUCAO A FLAUTA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0446",
+          "nome": "FLAUTA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0448",
+          "nome": "FLAUTA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0450",
+          "nome": "FLAUTA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0452",
+          "nome": "FLAUTA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0455",
+          "nome": "FLAUTA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0457",
+          "nome": "FLAUTA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0460",
+          "nome": "FLAUTA 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0467",
+          "nome": "INTRODUCAO AO PIANO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0471",
+          "nome": "INTRODUCAO AO PIANO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0475",
+          "nome": "PIANO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0477",
+          "nome": "PIANO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0479",
+          "nome": "PIANO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0481",
+          "nome": "PIANO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0484",
+          "nome": "PIANO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0486",
+          "nome": "PIANO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0488",
+          "nome": "PIANO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0490",
+          "nome": "PIANO 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0512",
+          "nome": "PRATICA DE CONJUNTO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0514",
+          "nome": "PRATICA DE CONJUNTO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0515",
+          "nome": "PRATICA DE CONJUNTO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0517",
+          "nome": "INTRODUCAO AO TROMPETE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0519",
+          "nome": "INTRODUCAO AO TROMPETE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0521",
+          "nome": "TROMPETE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0523",
+          "nome": "TROMPETE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0525",
+          "nome": "TROMPETE 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0527",
+          "nome": "TROMPETE 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0529",
+          "nome": "TROMPETE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0531",
+          "nome": "TROMPETE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0533",
+          "nome": "TROMPETE 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0535",
+          "nome": "TROMPETE 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0540",
+          "nome": "INTRODUCAO AO CONTRABAIXO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0542",
+          "nome": "INTRODUCAO AO CONTRABAIXO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0545",
+          "nome": "CONTRABAIXO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0547",
+          "nome": "CONTRABAIXO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0549",
+          "nome": "CONTRABAIXO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0551",
+          "nome": "CONTRABAIXO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0553",
+          "nome": "CONTRABAIXO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0555",
+          "nome": "CONTRABAIXO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0557",
+          "nome": "CONTRABAIXO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0559",
+          "nome": "CONTRABAIXO 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0562",
+          "nome": "INTRODUCAO AO SAXOFONE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0564",
+          "nome": "INTRODUCAO AO SAXOFONE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0568",
+          "nome": "SAXOFONE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0570",
+          "nome": "SAXOFONE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0572",
+          "nome": "SAXOFONE 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0574",
+          "nome": "SAXOFONE 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0577",
+          "nome": "SAXOFONE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0580",
+          "nome": "SAXOFONE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0583",
+          "nome": "SAXOFONE 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0585",
+          "nome": "SAXOFONE 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0587",
+          "nome": "INTRODUCAO AO VIOLAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0590",
+          "nome": "INTRODUCAO AO VIOLAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0592",
+          "nome": "VIOLAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0594",
+          "nome": "VIOLAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0596",
+          "nome": "VIOLAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0598",
+          "nome": "VIOLAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0601",
+          "nome": "VIOLAO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0603",
+          "nome": "VIOLAO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0606",
+          "nome": "VIOLAO 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0609",
+          "nome": "VIOLAO 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0612",
+          "nome": "PRATICA DE ORQUESTRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0615",
+          "nome": "PRATICA DE ORQUESTRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0618",
+          "nome": "PRATICA DE ORQUESTRA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0621",
+          "nome": "PRATICA DE ORQUESTRA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0624",
+          "nome": "PRATICA DE ORQUESTRA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0633",
+          "nome": "ANALISE MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0635",
+          "nome": "ANALISE MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0638",
+          "nome": "MUSICA DE CAMARA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0641",
+          "nome": "MUSICA DE CAMARA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0648",
+          "nome": "INTRODUCAO AO CANTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0650",
+          "nome": "INTRODUCAO AO CANTO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0658",
+          "nome": "PRATICA DE ACOMPANHAMENTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0660",
+          "nome": "PRATICA DE ACOMPANHAMENTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0697",
+          "nome": "TROMBONE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0700",
+          "nome": "TROMBONE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0702",
+          "nome": "TROMBONE 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0704",
+          "nome": "TROMBONE 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0706",
+          "nome": "TROMBONE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0708",
+          "nome": "TROMBONE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0710",
+          "nome": "TROMBONE 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0712",
+          "nome": "TROMBONE 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0714",
+          "nome": "APRECIACAO MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0716",
+          "nome": "INTRODUCAO A FLAUTA DOCE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0718",
+          "nome": "INTRODUCAO A FLAUTA DOCE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0720",
+          "nome": "TOPICOS DE APLICACAO DE TECNOLOGIA A COMPOSICAO MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0722",
+          "nome": "HARMONIA E IMPROVISACAO NA MUSICA POPULAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0723",
+          "nome": "METODOS DE EDUCACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0724",
+          "nome": "INTRODUCAO AO TROMBONE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0725",
+          "nome": "INTRODUCAO AO TROMBONE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0726",
+          "nome": "OPERA - ESTUDIO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0727",
+          "nome": "OPERA - ESTUDIO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0728",
+          "nome": "OPERA - ESTUDIO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0733",
+          "nome": "INSTRUMENTO PRINCIPAL CANTO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0735",
+          "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0738",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0741",
+          "nome": "ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0743",
+          "nome": "OPERA - ESTUDIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0744",
+          "nome": "OPERA - ESTUDIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0746",
+          "nome": "FUNDAMENTOS DA TECNICAVOCAL/INSTRUMENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0747",
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0748",
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0753",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0765",
+          "nome": "INSTRUMENTO SUPLEMENTAR VIOLAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0766",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0767",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0768",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO ELETRICO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0769",
+          "nome": "INSTRUMENTO PRINCIPAL GUITARRA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0772",
+          "nome": "INSTRUMENTO SUPLEMENTAR VIOLAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0773",
+          "nome": "INSTRUMENTO PRINCIPAL CANTO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0775",
+          "nome": "INSTRUMENTO PRINCIPAL PERCUSSAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0776",
+          "nome": "CANTO CORAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0777",
+          "nome": "CANTO CORAL 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0778",
+          "nome": "CANTO CORAL 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0779",
+          "nome": "INSTRUMENTO SUPLEMENTAR CANTO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0780",
+          "nome": "LITERATURA CORAL 3: CLASSICISMO E ROMANTISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0781",
+          "nome": "LITERATURA CORAL 4: ERA MODERNA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0782",
+          "nome": "RITMOS BRASILEIROS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0783",
+          "nome": "INSTRUMENTO PRINCIPAL CANTO POPULAR 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0784",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0785",
+          "nome": "INSTRUMENTO PRINCIPAL PERCUSSAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0789",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0790",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO ELETRICO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0791",
+          "nome": "INSTRUMENTO PRINCIPAL GUITARRA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0792",
+          "nome": "INSTRUMENTO PRINCIPAL GUITARRA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0793",
+          "nome": "INSTRUMENTO PRINCIPAL GUITARRA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0794",
+          "nome": "INSTRUMENTO PRINCIPAL TROMBONE 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0795",
+          "nome": "INSTRUMENTO PRINCIPAL TROMBONE 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0796",
+          "nome": "INSTRUMENTO PRINCIPAL TROMBONE 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0797",
+          "nome": "INSTRUMENTO PRINCIPAL TROMBONE 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0798",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0799",
+          "nome": "INSTRUMENTO PRINCIPAL CONTRABAIXO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0800",
+          "nome": "INSTRUMENTO PRINCIPAL PERCUSSAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0802",
+          "nome": "INSTRUMENTO PRINCIPAL CANTO POPULAR 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0803",
+          "nome": "INSTRUMENTO SUPLEMENTAR CANTO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0807",
+          "nome": "OFICINA INTERDISCIPLINAR EM EDUCACAO MUSICAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0808",
+          "nome": "EDUCACAO AUDITIVA MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0809",
+          "nome": "EDUCACAO AUDITIVA MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0810",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO MUSICAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0811",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO MUSICAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0812",
+          "nome": "OFICINA INTERDISCIPLINAR EM EDUCACAO MUSICAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0813",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0814",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0815",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0816",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0817",
+          "nome": "INSTRUMENTO PRINCIPAL PERCUSSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0818",
+          "nome": "INSTRUMENTO PRINCIPAL PERCUSSAO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0819",
+          "nome": "INSTRUMENTO PRINCIPAL PERCUSSAO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0820",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0821",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0822",
+          "nome": "INSTRUMENTO PRINCIPAL CANTO POPULAR 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0823",
+          "nome": "INSTRUMENTO PRINCIPAL CANTO POPULAR 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS1050",
+          "nome": "ESTAGIO SUPERVISIONADO EM VIOLINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0009",
+          "nome": "PSICOLOGIA SOCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0041",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0123",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0122",
+          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MUS0023",
+          "nome": "MUSICA DE TRADICAO ORAL PERFORMATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0151",
+          "nome": "PIANO SUPLEMENTAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0153",
+          "nome": "TEORIA E PRATICA DE GRAVACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0750",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0774",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0021",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0022",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0102",
+          "nome": "HARMONIA SUPERIOR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0129",
+          "nome": "MUSICA DE CAMARA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0801",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0104",
+          "nome": "HARMONIA SUPERIOR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0133",
+          "nome": "MUSICA DE CAMARA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0759",
+          "nome": "INTRODUCAO AO PIANO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0771",
+          "nome": "RITMOS BRASILEIROS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0106",
+          "nome": "CONTRAPONTO E FUGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0749",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0760",
+          "nome": "INTRODUCAO AO PIANO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0770",
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0804",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0020",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0248",
+          "nome": "ANALISE MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0719",
+          "nome": "TECNOLOGIA MUSICAL BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0786",
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0263",
+          "nome": "MUSICA POPULAR BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0508",
+          "nome": "PRATICA DE CONJUNTO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0745",
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0511",
+          "nome": "PRATICA DE CONJUNTO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0627",
+          "nome": "PRATICA DE ORQUESTRA 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0097",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0752",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0098",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0729",
+          "nome": "HISTORIA DA MUSICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0023",
+          "nome": "MUSICA DE TRADICAO ORAL PERFORMATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0151",
+          "nome": "PIANO SUPLEMENTAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0153",
+          "nome": "TEORIA E PRATICA DE GRAVACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0750",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0774",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0022",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0730",
+          "nome": "HISTORIA DA MUSICA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0751",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0021",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "IDA0023",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0761",
+          "nome": "HISTORIA DA MUSICA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0022",
+          "nome": "HISTORIA DA MUSICA POPULAR DO BRASIL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0102",
+          "nome": "HARMONIA SUPERIOR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0129",
+          "nome": "MUSICA DE CAMARA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0801",
+          "nome": "INSTRUMENTO PRINCIPAL VIOLAO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0497",
+          "nome": "PRATICA DE CONJUNTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0758",
+          "nome": "PRATICA DE ENSINO E APRENDIZAGEM MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0762",
+          "nome": "HISTORIA DA MUSICA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0104",
+          "nome": "HARMONIA SUPERIOR 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0133",
+          "nome": "MUSICA DE CAMARA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0759",
+          "nome": "INTRODUCAO AO PIANO POPULAR 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0771",
+          "nome": "RITMOS BRASILEIROS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0502",
+          "nome": "PRATICA DE CONJUNTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0788",
+          "nome": "PROJETO DE ESTAGIO E PRATICA DOCENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0106",
+          "nome": "CONTRAPONTO E FUGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0749",
+          "nome": "SEMINARIO EM EDUCACAO MUSICAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0760",
+          "nome": "INTRODUCAO AO PIANO POPULAR 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0770",
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0804",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0262",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0505",
+          "nome": "PRATICA DE CONJUNTO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0020",
+          "nome": "HISTORIA DA MUSICA BRASILEIRA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0248",
+          "nome": "ANALISE MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0719",
+          "nome": "TECNOLOGIA MUSICAL BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0786",
+          "nome": "INSTRUMENTO SUPLEMENTAR PERCUSSAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0003",
+          "nome": "INTRODUCAO A PESQUISA EM MUSICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0737",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0805",
+          "nome": "PROJETO DE RECITAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0263",
+          "nome": "MUSICA POPULAR BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0508",
+          "nome": "PRATICA DE CONJUNTO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0745",
+          "nome": "FUNDAMENTOS DA TECNICA VOCAL/INSTRUMENTAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0787",
+          "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "MUS0806",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "MUS0511",
+          "nome": "PRATICA DE CONJUNTO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0627",
+          "nome": "PRATICA DE ORQUESTRA 6",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

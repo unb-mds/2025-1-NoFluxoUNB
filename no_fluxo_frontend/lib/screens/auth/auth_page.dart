@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../widgets/animated_background.dart';
 import '../../widgets/app_navbar.dart';
 import 'login_form.dart';
@@ -6,20 +7,16 @@ import 'signup_form.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AuthPage extends StatefulWidget {
-  const AuthPage({super.key});
+  const AuthPage({super.key, this.isLogin = true});
+  
+  final bool isLogin;
 
   @override
   State<AuthPage> createState() => _AuthPageState();
 }
 
 class _AuthPageState extends State<AuthPage> {
-  bool isLogin = true;
 
-  void toggleView() {
-    setState(() {
-      isLogin = !isLogin;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +38,15 @@ class _AuthPageState extends State<AuthPage> {
                     child: SingleChildScrollView(
                       child: Center(
                         child: Container(
-                          constraints: const BoxConstraints(maxWidth: 400),
-                          padding: const EdgeInsets.all(24.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 24.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              const SizedBox(height: 40),
-                              if (isLogin)
-                                LoginForm(onToggleView: toggleView)
+                              const SizedBox(height: 30),
+                              if (widget.isLogin)
+                                LoginForm(onToggleView: () => context.go('/signup'))
                               else
-                                SignupForm(onToggleView: toggleView),
+                                SignupForm(onToggleView: () => context.go('/login')),
                             ],
                           ),
                         ),

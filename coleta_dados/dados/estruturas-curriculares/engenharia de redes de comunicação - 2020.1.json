@@ -1,0 +1,902 @@
+{
+  "curso": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2020.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0026",
+          "nome": "INTRODUCAO A ENGENHARIA DE REDES DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0334",
+          "nome": "COMPUTACAO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0013",
+          "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0039",
+          "nome": "SISTEMAS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0040",
+          "nome": "LABORATORIO DE SISTEMAS DIGITAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0022",
+          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0056",
+          "nome": "SISTEMAS MICROPROCESSADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0058",
+          "nome": "LABORATORIO DE SISTEMAS MICROPROCESSADOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0274",
+          "nome": "FUNDAMENTOS DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0015",
+          "nome": "FUNDAMENTOS DE REDES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0068",
+          "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0091",
+          "nome": "SISTEMAS OPERACIONAIS DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0177",
+          "nome": "ELETROMAGNETISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0011",
+          "nome": "LABORATORIO DE REDES",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0025",
+          "nome": "PROTOCOLOS DE TRANSPORTE E ROTEAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0282",
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0024",
+          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0045",
+          "nome": "ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0046",
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0295",
+          "nome": "LABORATORIO DE PRINCIPIOS DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0306",
+          "nome": "PRINCIPIOS DE COMUNICACAO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0017",
+          "nome": "AVALIACAO DE DESEMPENHO DE REDES E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0352",
+          "nome": "REDES LOCAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0016",
+          "nome": "GERENCIA DE REDES E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0090",
+          "nome": "SEGURANCA DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0357",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENGENHARIA DE REDES DE COMUNICACAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "ENE0358",
+          "nome": "PROJETO FINAL DE GRADUACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0360",
+          "nome": "PROJETO FINAL DE GRADUACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "COMPUTADORES",
+          "nome": "60H OPTATIVA CIC0088 - COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0097",
+          "nome": "BANCOS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0191",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO DE JOGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0195",
+          "nome": "PRINCIPIOS DE VISAO COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0242",
+          "nome": "SINAIS E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0132",
+          "nome": "MECANICA DOS SOLIDOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0256",
+          "nome": "INTRODUCAO A REALIDADE VIRTUAL E A TECNICAS INTERATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0007",
+          "nome": "REDES DE TELECOMUNICACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0008",
+          "nome": "LABORATORIO DE REDES DE TELECOMUNICACOES",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0014",
+          "nome": "PLANEJAMENTO DE REDES SEM FIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0021",
+          "nome": "TOPICOS EM REDES DE COMUNICACAO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0049",
+          "nome": "MATERIAIS ELETRICOS E MAGNETICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0050",
+          "nome": "LABORATORIO DE MATERIAIS ELETRICOS E MAGNETICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0064",
+          "nome": "REDES SEM FIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0065",
+          "nome": "IMAGENS MEDICAS: AQUISICAO E RECONSTRUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0081",
+          "nome": "COMUNICACOES VIA SATELITE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0082",
+          "nome": "NOCOES DE INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0083",
+          "nome": "REDES DE TELECOMUNICACOES 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0085",
+          "nome": "ANALISE DINAMICA  LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0086",
+          "nome": "REDES DE TELECOMUNICACOES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0087",
+          "nome": "OPERACAO E ADMINISTRACAO DE REDES",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0088",
+          "nome": "SISTEMAS DE INFORMACAO DISTRIBUIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0089",
+          "nome": "CABEAMENTO ESTRUTURADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0141",
+          "nome": "FUNDAMENTOS DE ELETROTECNICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0163",
+          "nome": "SINAIS E SISTEMAS DISCRETOS NO TEMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0164",
+          "nome": "SISTEMAS DE AUDIO E VIDEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0169",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA BIOMEDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0179",
+          "nome": "ELETROMAGNETISMO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0183",
+          "nome": "ELETRONICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0184",
+          "nome": "MATERIAIS ELETRICOS E MAGNETICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0186",
+          "nome": "CONVERSAO DE ENERGIA E MAQUINAS ELETRICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0194",
+          "nome": "ANTENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0195",
+          "nome": "PROPAGACAO DE ONDAS ELETROMAGNETICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0202",
+          "nome": "SISTEMAS DE COMUNICACOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0204",
+          "nome": "TELEFONIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0206",
+          "nome": "TELEFONIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0207",
+          "nome": "RADIODIFUSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0209",
+          "nome": "PROCESSAMENTO DIGITAL DE IMAGENS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0211",
+          "nome": "TEORIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0229",
+          "nome": "INSTALACOES ELETRICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0238",
+          "nome": "FOTONICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0247",
+          "nome": "TECNOLOGIA DE CIRCUITOS INTEGRADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0262",
+          "nome": "COMUNICACOES DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0264",
+          "nome": "TOPICOS ESPECIAIS EM TELECOMUNICACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0269",
+          "nome": "TOPICOS ESPECIAIS EM SISTEMA DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0276",
+          "nome": "METODOLOGIA E DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0289",
+          "nome": "CIRCUITOS POLIFASICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0321",
+          "nome": "INTRODUCAO AO PROJETO DE CIRCUITOS INTEGRADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0329",
+          "nome": "COMUNICACOES OPTICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0331",
+          "nome": "ANTENAS - TEORIA E PRATICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0332",
+          "nome": "TOPICOS EM ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0338",
+          "nome": "TOPICOS ESPECIAIS EM PROCESSAMENTO DE SINAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0344",
+          "nome": "COMUNICACOES MOVEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0347",
+          "nome": "TOPICOS EM REDES DE COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0349",
+          "nome": "TOPICOS EM REDES DE COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0353",
+          "nome": "ANTENAS EM REDES DE COMUNICACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0459",
+          "nome": "ENGENHARIA E MUDANCAS CLIMATICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENM0176",
+          "nome": "INTRODUCAO A ECOLOGIA INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0064",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0066",
+          "nome": "PESQUISA OPERACIONAL EM ENGENHARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0147",
+          "nome": "EDUCACAO DAS RELACOES ETNICO-RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0026",
+          "nome": "INTRODUCAO A ENGENHARIA DE REDES DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0334",
+          "nome": "COMPUTACAO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0013",
+          "nome": "ALGORITMOS E ESTRUTURA DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0039",
+          "nome": "SISTEMAS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0040",
+          "nome": "LABORATORIO DE SISTEMAS DIGITAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0175",
+          "nome": "FISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0022",
+          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0056",
+          "nome": "SISTEMAS MICROPROCESSADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0058",
+          "nome": "LABORATORIO DE SISTEMAS MICROPROCESSADOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0067",
+          "nome": "SINAIS E SISTEMAS EM TEMPO CONTINUO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0274",
+          "nome": "FUNDAMENTOS DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0177",
+          "nome": "FISICA 2 EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENE0015",
+          "nome": "FUNDAMENTOS DE REDES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0066",
+          "nome": "INTRODUCAO AOS CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0068",
+          "nome": "SINAIS E SISTEMAS EM TEMPO DISCRETO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0091",
+          "nome": "SISTEMAS OPERACIONAIS DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0177",
+          "nome": "ELETROMAGNETISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0011",
+          "nome": "LABORATORIO DE REDES",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0025",
+          "nome": "PROTOCOLOS DE TRANSPORTE E ROTEAMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0282",
+          "nome": "LABORATORIO DE CIRCUITOS ELETRICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0304",
+          "nome": "CIRCUITOS ELETRICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0024",
+          "nome": "PROJETO TRANSVERSAL EM REDES DE COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0045",
+          "nome": "ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0046",
+          "nome": "LABORATORIO DE ELETRONICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0295",
+          "nome": "LABORATORIO DE PRINCIPIOS DE COMUNICACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENE0306",
+          "nome": "PRINCIPIOS DE COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0017",
+          "nome": "AVALIACAO DE DESEMPENHO DE REDES E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0352",
+          "nome": "REDES LOCAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0016",
+          "nome": "GERENCIA DE REDES E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0090",
+          "nome": "SEGURANCA DE REDES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0357",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENGENHARIA DE REDES DE COMUNICACAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "ENE0358",
+          "nome": "PROJETO FINAL DE GRADUACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "EPR0068",
+          "nome": "ORGANIZACAO INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0360",
+          "nome": "PROJETO FINAL DE GRADUACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "EPR0059",
+          "nome": "HIGIENE E SEGURANCA DO TRABALHO",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

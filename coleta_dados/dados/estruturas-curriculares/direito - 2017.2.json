@@ -1,0 +1,1592 @@
+{
+  "curso": "DIREITO",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2017.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0153",
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0013",
+          "nome": "SOCIOLOGIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0167",
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0249",
+          "nome": "TEORIA GERAL DO ESTADO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0017",
+          "nome": "TEORIA GERAL DO PROCESSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0062",
+          "nome": "TEORIA GERAL DO DIREITO PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0248",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0272",
+          "nome": "ETICA E DIREITO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0021",
+          "nome": "DIREITO CONSTITUCIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0092",
+          "nome": "DIREITO DAS OBRIGACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0165",
+          "nome": "TEORIA GERAL DO DIREITO PENAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0169",
+          "nome": "TEORIA GERAL DO PROCESSO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0242",
+          "nome": "HISTORIA DO DIREITO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0025",
+          "nome": "DIREITO ADMINISTRATIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0039",
+          "nome": "DIREITO PENAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0045",
+          "nome": "DIREITO PROCESSUAL CIVIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0097",
+          "nome": "DIREITO DOS CONTRATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0278",
+          "nome": "EXAME DE PROFICIENCIA 1",
+          "ch": "15"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0023",
+          "nome": "DIREITO CONSTITUCIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0041",
+          "nome": "DIREITO PENAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0047",
+          "nome": "DIREITO PROCESSUAL CIVIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0072",
+          "nome": "DIREITO COMERCIAL 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0027",
+          "nome": "DIREITO ADMINISTRATIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0049",
+          "nome": "DIREITO PROCESSUAL PENAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0065",
+          "nome": "DIREITO DAS COISAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0145",
+          "nome": "DIREITO PROCESSUAL CIVIL 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0011",
+          "nome": "FILOSOFIA DO DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0029",
+          "nome": "DIREITO ADMINISTRATIVO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0051",
+          "nome": "DIREITO PROCESSUAL PENAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0068",
+          "nome": "DIREITO DE FAMILIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0267",
+          "nome": "DIREITO DO TRABALHO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0035",
+          "nome": "DIREITO INTERNACIONAL PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0239",
+          "nome": "PROJETO DE MONOGRAFIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0259",
+          "nome": "ESTAGIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0268",
+          "nome": "DIREITO COLETIVO DO TRABALHO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0031",
+          "nome": "DIREITO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0053",
+          "nome": "DIREITO PROCESSUAL DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0176",
+          "nome": "DIREITO DAS SUCESSOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0245",
+          "nome": "RESPONSABILIDADE CIVIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0261",
+          "nome": "ESTAGIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0279",
+          "nome": "EXAME DE PROFICIENCIA 2",
+          "ch": "15"
+        }
+      ]
+    },
+    {
+      "nivel": "11° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0033",
+          "nome": "DIREITO TRIBUTARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0074",
+          "nome": "DIREITO COMERCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0174",
+          "nome": "DIREITO COMERCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0262",
+          "nome": "ESTAGIO 3",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "12° NIVEL",
+      "materias": [
+        {
+          "codigo": "FDD0241",
+          "nome": "DIREITO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0263",
+          "nome": "ESTAGIO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0264",
+          "nome": "ESTAGIO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0269",
+          "nome": "REDACAO DE MONOGRAFIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA CCA0015 - CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0025",
+          "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0022",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0002",
+          "nome": "HISTORIA DO DIREITO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0004",
+          "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0008",
+          "nome": "HISTORIA DAS IDEIAS JURIDICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0037",
+          "nome": "DIREITO INTERNACIONAL PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0043",
+          "nome": "MEDICINA LEGAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0055",
+          "nome": "DIREITO DO TRABALHO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0058",
+          "nome": "DIREITO DO TRABALHO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0060",
+          "nome": "DIREITO PREVIDENCIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0079",
+          "nome": "JURISPRUDENCIA DO DIREITO CIVIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0081",
+          "nome": "JURISPRUDENCIA DO DIREITO PENAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0083",
+          "nome": "JURISPRUDENCIA DO DIREITO DO TRABALHO E PREVIDENCIARIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0085",
+          "nome": "JURISPRUDENCIA DO DIREITO COMERCIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0088",
+          "nome": "CRIMINOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0090",
+          "nome": "DIREITO AGRARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0099",
+          "nome": "JURISPRUDENCIA DO DIREITO ADMINISTRATIVO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0101",
+          "nome": "JURISPRUDENCIA DO DIREITO CONSTITUCIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0103",
+          "nome": "JURISPRUDENCIA DO DIREITO FINANCEIRO E TRIBUTARIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0105",
+          "nome": "DIREITO PARLAMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0107",
+          "nome": "DIREITO DE SEGURANCA NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0109",
+          "nome": "DIREITO DE CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0111",
+          "nome": "DIREITO AUTORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0113",
+          "nome": "DIREITO BANCARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0117",
+          "nome": "DIREITO INDUSTRIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0120",
+          "nome": "DIREITO ELEITORAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0122",
+          "nome": "DIREITO DE NAVEGACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0124",
+          "nome": "DIREITO DO MERCADO DE CAPITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0127",
+          "nome": "DIREITO PENITENCIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0129",
+          "nome": "DIREITO EDILICIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0131",
+          "nome": "DIREITO ROMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0134",
+          "nome": "DIREITO SINDICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0136",
+          "nome": "DIREITO CANONICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0138",
+          "nome": "DIREITO RODOVIARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0143",
+          "nome": "HISTORIA DO DIREITO CRIMINAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0147",
+          "nome": "DIREITO PROCESSUAL DO TRABALHO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0158",
+          "nome": "DIREITO PROCESSUAL PENAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0162",
+          "nome": "ESTAGIO CURRICULAR SUPERVISIONADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0188",
+          "nome": "PROFICIENCIA 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0199",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0203",
+          "nome": "TEORIA GERAL DO ESTADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0205",
+          "nome": "INTRODUCAO AO ESTUDO DO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0207",
+          "nome": "DIREITO ROMANO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0210",
+          "nome": "TEORIA GERAL DO ESTADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0212",
+          "nome": "ECONOMIA POLITICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0214",
+          "nome": "SOCIOLOGIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0216",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0218",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0224",
+          "nome": "DIREITO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0226",
+          "nome": "TEORIA GERAL DO PROCESSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0231",
+          "nome": "PRATICA E ATUALIZACAO DO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0234",
+          "nome": "PRATICA E ATUALIZACAO DO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0236",
+          "nome": "MONOGRAFIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0244",
+          "nome": "ATUALIZACAO E PRATICA DO DIREITO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0247",
+          "nome": "PROFICIENCIA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0250",
+          "nome": "ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0252",
+          "nome": "ATUALIZACAO E PRATICA DO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0254",
+          "nome": "ATUALIZACAO E PRATICA DO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0256",
+          "nome": "ATUALIZACAO E PRATICA DO DIREITO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0258",
+          "nome": "ATUALIZACAO E PRATICA DO DIREITO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0265",
+          "nome": "PROFICIENCIA 3",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0266",
+          "nome": "PROFICIENCIA 4",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0270",
+          "nome": "INTRODUCAO A FILOSOFIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0271",
+          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0273",
+          "nome": "DIREITO DAS RELACOES DE CONSUMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0274",
+          "nome": "ARBITRAGEM, MEDIACAO E NEGOCIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0275",
+          "nome": "DIREITO DA CONCORRENCIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0277",
+          "nome": "DIREITO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0281",
+          "nome": "DIREITO INTERNACIONAL DOS DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0063",
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0065",
+          "nome": "FILOSOFIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0079",
+          "nome": "LOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0109",
+          "nome": "INTRODUCAO A LOGICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0179",
+          "nome": "LOGICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0010",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0017",
+          "nome": "GEOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0031",
+          "nome": "ECONOMIA PARA  POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0032",
+          "nome": "FINANCAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GPP0037",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0095",
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0107",
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0024",
+          "nome": "POLITICA 1 - RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0027",
+          "nome": "POLITICA 3 - POLITICA LATINO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0054",
+          "nome": "DIREITO DAS SOCIEDADES COMERCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0055",
+          "nome": "SISTEMAS DE DIREITO CONTEMPORANEOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0057",
+          "nome": "DIREITO DIPLOMATICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0060",
+          "nome": "DIREITO BANCARIO E DO MERCADO DE CAPITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0065",
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0066",
+          "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0110",
+          "nome": "DIREITO INTERNACIONAL DOS NEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0168",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0169",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0076",
+          "nome": "FRANCES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0086",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0103",
+          "nome": "LINGUA ALEMA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0122",
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0338",
+          "nome": "LINGUA ITALIANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0379",
+          "nome": "LINGUA ITALIANA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0380",
+          "nome": "LINGUA ITALIANA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0061",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0063",
+          "nome": "LATIM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0110",
+          "nome": "GREGO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0113",
+          "nome": "GREGO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0153",
+          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0154",
+          "nome": "PRATICA DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0005",
+          "nome": "PRATICA DE ENSINO EM INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0015",
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0017",
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0019",
+          "nome": "POLITICA E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0045",
+          "nome": "TEORIA SOCIOLOGICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0047",
+          "nome": "SOCIOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0058",
+          "nome": "SOCIOLOGIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0278",
+          "nome": "EXAME DE PROFICIENCIA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0279",
+          "nome": "EXAME DE PROFICIENCIA 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0153",
+          "nome": "PESQUISA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0013",
+          "nome": "SOCIOLOGIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0167",
+          "nome": "INTRODUCAO AO DIREITO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0249",
+          "nome": "TEORIA GERAL DO ESTADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0017",
+          "nome": "TEORIA GERAL DO PROCESSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0019",
+          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0062",
+          "nome": "TEORIA GERAL DO DIREITO PRIVADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0248",
+          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0272",
+          "nome": "ETICA E DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0021",
+          "nome": "DIREITO CONSTITUCIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0092",
+          "nome": "DIREITO DAS OBRIGACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0165",
+          "nome": "TEORIA GERAL DO DIREITO PENAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FDD0169",
+          "nome": "TEORIA GERAL DO PROCESSO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0242",
+          "nome": "HISTORIA DO DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0025",
+          "nome": "DIREITO ADMINISTRATIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0039",
+          "nome": "DIREITO PENAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0045",
+          "nome": "DIREITO PROCESSUAL CIVIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0097",
+          "nome": "DIREITO DOS CONTRATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0278",
+          "nome": "EXAME DE PROFICIENCIA 1",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0023",
+          "nome": "DIREITO CONSTITUCIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0041",
+          "nome": "DIREITO PENAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0047",
+          "nome": "DIREITO PROCESSUAL CIVIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0072",
+          "nome": "DIREITO COMERCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0027",
+          "nome": "DIREITO ADMINISTRATIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0049",
+          "nome": "DIREITO PROCESSUAL PENAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0065",
+          "nome": "DIREITO DAS COISAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0145",
+          "nome": "DIREITO PROCESSUAL CIVIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0011",
+          "nome": "FILOSOFIA DO DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0029",
+          "nome": "DIREITO ADMINISTRATIVO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0051",
+          "nome": "DIREITO PROCESSUAL PENAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0068",
+          "nome": "DIREITO DE FAMILIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0267",
+          "nome": "DIREITO DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0035",
+          "nome": "DIREITO INTERNACIONAL PUBLICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0239",
+          "nome": "PROJETO DE MONOGRAFIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0259",
+          "nome": "ESTAGIO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0268",
+          "nome": "DIREITO COLETIVO DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0031",
+          "nome": "DIREITO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0053",
+          "nome": "DIREITO PROCESSUAL DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0176",
+          "nome": "DIREITO DAS SUCESSOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0245",
+          "nome": "RESPONSABILIDADE CIVIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FDD0261",
+          "nome": "ESTAGIO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0279",
+          "nome": "EXAME DE PROFICIENCIA 2",
+          "ch": "15"
+        },
+        {
+          "codigo": "FDD0033",
+          "nome": "DIREITO TRIBUTARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0074",
+          "nome": "DIREITO COMERCIAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0174",
+          "nome": "DIREITO COMERCIAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0262",
+          "nome": "ESTAGIO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0241",
+          "nome": "DIREITO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0263",
+          "nome": "ESTAGIO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0264",
+          "nome": "ESTAGIO 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0269",
+          "nome": "REDACAO DE MONOGRAFIA",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

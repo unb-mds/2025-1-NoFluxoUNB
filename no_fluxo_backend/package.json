@@ -4,9 +4,11 @@
   "description": "Backend do projeto No Fluxo com TypeScript, Express.js e Supabase",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "setup-tesseract": "node scripts/setup-tesseract.js",
+    "build": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && tsc",
+    "build-and-start": "npm run build && npm run start",
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts",
+    "dev": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,7 +31,8 @@
     "express-ws": "^5.0.2",
     "form-data": "^4.0.3",
     "helmet": "^7.1.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "winston": "^3.12.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

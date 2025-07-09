@@ -1,0 +1,1842 @@
+{
+  "curso": "ARQUITETURA E URBANISMO",
+  "tipo_curso": "Arquiteto e Urbanista",
+  "periodo_letivo_vigor": "2016.1",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0011",
+          "nome": "PROJETO ARQUITETONICO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0025",
+          "nome": "DESENHO E PLASTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0028",
+          "nome": "GEOMETRIA CONSTRUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0002",
+          "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0026",
+          "nome": "INTRODUCAO A TECNOLOGIA EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0013",
+          "nome": "PROJETO DE ARQUITETURA - LINGUAGEM E EXPRESSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0023",
+          "nome": "DESENHO ARQUITETONICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0063",
+          "nome": "MODELAGEM TRIDIMENSIONAL DIGITAL EM ARQUITETURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TAU0005",
+          "nome": "HISTORIA DA ARQUITETURA E DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0016",
+          "nome": "ESTUDOS AMBIENTAIS-BIOCLIMATISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0038",
+          "nome": "SISTEMAS ESTRUTURAIS 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0015",
+          "nome": "PROJETO DE ARQUITETURA - HABITACAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0026",
+          "nome": "DESENHO E PLASTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0006",
+          "nome": "HISTORIA DA ARQUITETURA E DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0039",
+          "nome": "SISTEMAS ESTRUTURAIS 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0271",
+          "nome": "MATERIAIS PARA CONSTRUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0020",
+          "nome": "PROJETO DE URBANISMO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0060",
+          "nome": "PROJETO DE PAISAGISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0065",
+          "nome": "MODELAGEM DA INFORMACAO DA CONSTRUCAO - BIM",
+          "ch": "30"
+        },
+        {
+          "codigo": "TAU0007",
+          "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0027",
+          "nome": "INFRA-ESTRUTURA URBANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0042",
+          "nome": "CONFORTO TERMICO AMBIENTAL 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENC0276",
+          "nome": "MATERIAIS PARA CONSTRUCAO EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0277",
+          "nome": "MATERIAIS PARA CONSTRUCAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0016",
+          "nome": "PROJETO DE ARQUITETURA DE GRANDES VAOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0064",
+          "nome": "CONFORTO TERMICO AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0041",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0002",
+          "nome": "PROJETO DE PAISAGISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0009",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0013",
+          "nome": "PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0001",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0029",
+          "nome": "CONFORTO AMBIENTAL LUMINOSO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0017",
+          "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0008",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0002",
+          "nome": "INSTALACOES E EQUIPAMENTOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0022",
+          "nome": "SISTEMAS ESTRUTURAIS EM ACO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0028",
+          "nome": "CONFORTO SONORO",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0018",
+          "nome": "PROJETO DE ARQUITETURA DE FUNCOES COMPLEXAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0025",
+          "nome": "ESTETICA E HISTORIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0003",
+          "nome": "INSTALACOES E EQUIPAMENTOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0023",
+          "nome": "SISTEMAS ESTRUTURAIS EM MADEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0043",
+          "nome": "TECNICAS DE CONSTRUCAO 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0021",
+          "nome": "PROJETO DE URBANISMO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0011",
+          "nome": "ARQUITETURA E URBANISMO DA ATUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0044",
+          "nome": "TECNICAS DE CONSTRUCAO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0047",
+          "nome": "PROJETO DE ARQUITETURA E URBANISMO 8 - TECNICAS RETROSPECTIVAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0012",
+          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "11° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0039",
+          "nome": "INTRODUCAO AO TRABALHO FINAL DE GRADUACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0009",
+          "nome": "PRATICA PROFISSIONAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "12° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0001",
+          "nome": "TRABALHO FINAL DE GRADUACAO EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "13° NIVEL",
+      "materias": [
+        {
+          "codigo": "PRO0007",
+          "nome": "ESTAGIOS SUPERVISIONADOS DE PROJETOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0014",
+          "nome": "ESTAGIO SUPERVISIONADO EM OBRA",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA BOT0004 - INTRODUCAO A ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0006",
+          "nome": "ANATOMIA DAS MADEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0020",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS CRIPTOGAMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0021",
+          "nome": "MORFOLOGIA E TAXONOMIA DAS FANEROGAMAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "BOT0042",
+          "nome": "ANATOMIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0044",
+          "nome": "ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0046",
+          "nome": "VEGETACAO DO CERRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0049",
+          "nome": "MORFOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0055",
+          "nome": "SISTEMATICA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0088",
+          "nome": "BIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0031",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0045",
+          "nome": "CENOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0129",
+          "nome": "LINGUAGENS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0145",
+          "nome": "ROTEIRO, PRODUCAO E DIRECAO PARA WEB, VIDEO E CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0043",
+          "nome": "ANTROPOLOGIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0006",
+          "nome": "PRODUCAO GRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0008",
+          "nome": "ARGUMENTO E ROTEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0061",
+          "nome": "INTRODUCAO AS HISTORIAS EM QUADRINHOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0076",
+          "nome": "FOTOGRAFIA E ILUMINACAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0079",
+          "nome": "INTRODUCAO A FOTOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0083",
+          "nome": "ANALISE DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0103",
+          "nome": "LINGUAGENS CINEMATOGRAFICA E AUDIOVISUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0117",
+          "nome": "INTRODUCAO A LINGUAGEM SONORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0118",
+          "nome": "ROTEIRO, PRODUCAO E REALIZACAO EM AUDIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0015",
+          "nome": "MEIO AMBIENTE FISICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0139",
+          "nome": "ECONOMIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0010",
+          "nome": "INICIACAO A ENGENHARIA FLORESTAL",
+          "ch": "15"
+        },
+        {
+          "codigo": "EFL0049",
+          "nome": "TECNOLOGIA DA MADEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0085",
+          "nome": "COMPOSITOS LIGNOCELUSOSICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0053",
+          "nome": "DESENHO TECNICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0054",
+          "nome": "GEOMETRIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0055",
+          "nome": "MATERIAIS DE CONSTRUCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENC0122",
+          "nome": "GERENCIA DE PROJETOS EM ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0143",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENC0229",
+          "nome": "MATERIAIS DE CONSTRUCAO - TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0230",
+          "nome": "MATERIAIS DE CONSTRUCAO - EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0255",
+          "nome": "MATERIAIS DE CONSTRUCAO CIVIL 1 - EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0268",
+          "nome": "CIENCIA DOS MATERIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0027",
+          "nome": "BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAU0109",
+          "nome": "PROJETO DE EDIFICACAO E URBANISMO 1",
+          "ch": "180"
+        },
+        {
+          "codigo": "FAU0110",
+          "nome": "PROJETO DE EDIFICACAO E URBANISMO 2",
+          "ch": "180"
+        },
+        {
+          "codigo": "FAU0111",
+          "nome": "PROJETO DE EDIFICACAO E URBANISMO 3",
+          "ch": "180"
+        },
+        {
+          "codigo": "FAU0114",
+          "nome": "TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAU0133",
+          "nome": "EXPRESSAO E REPRESENTACAO DE PROJETO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAU0146",
+          "nome": "ESTRUTURAS ARQUITETONICAS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAU0147",
+          "nome": "ESTRUTURAS ARQUITETONICAS 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAU0216",
+          "nome": "PROJETO DE EDIFICACAO E URBANISMO 4",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAU0218",
+          "nome": "PROJETO DE EDIFICACAO E URBANISMO 5",
+          "ch": "120"
+        },
+        {
+          "codigo": "FAU0225",
+          "nome": "TEORIA E HISTORIA DA ARQUITETURA E URBANISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0082",
+          "nome": "FILOSOFIA SOCIAL E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0107",
+          "nome": "HISTORIA DA CIENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0004",
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0036",
+          "nome": "SENSORES REMOTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0044",
+          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0110",
+          "nome": "HISTORIA SOCIAL E POLITICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0111",
+          "nome": "HISTORIA SOCIAL E POLITICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ICB0250",
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "ICB0251",
+          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0173",
+          "nome": "GEOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0057",
+          "nome": "REALIDADE BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0106",
+          "nome": "LINGUA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0023",
+          "nome": "MATEMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0006",
+          "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0089",
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0040",
+          "nome": "AVALIACAO DE POLITICAS GOVERNAMENTAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0054",
+          "nome": "PERCEPCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0003",
+          "nome": "ERGONOMIA APLICADA A ARQUITETURA DE INTERIORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0004",
+          "nome": "CIENCIAS DO COMPORTAMENTO APLICADAS A ARQUITETURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0005",
+          "nome": "ATELIE DE HISTORIAS EM QUADRINHOS EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0008",
+          "nome": "PROJETO DE ARQUITETURA - PROBLEMAS ESPECIAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "PRO0019",
+          "nome": "PROJETO DE ARQUITETURA INDUSTRIALIZADA",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0022",
+          "nome": "PROJETO PAISAGISTICO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0027",
+          "nome": "ESPACO,EXPRESSAO E SIGNIFICADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0029",
+          "nome": "GEOMETRIA DA FORMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0030",
+          "nome": "PROJETO DE ARQUITETURA ASSISTIDO POR COMPUTADOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0031",
+          "nome": "PROGRAMACAO VISUAL APLICADA A ARQUITETURA E URBANISMO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PRO0032",
+          "nome": "PROJETO PAISAGISTICO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "PRO0034",
+          "nome": "PLANEJAMENTO DA PAISAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0035",
+          "nome": "VEGETACAO APLICADA AO PAISAGISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0036",
+          "nome": "OFICINA DE MAQUETE",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0037",
+          "nome": "COMPUTACAO GRAFICA APLICADA A ARQUITETURA E URBANISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0042",
+          "nome": "INTRODUCAO AO PROJETO DE ARQUITETURA 1",
+          "ch": "180"
+        },
+        {
+          "codigo": "PRO0043",
+          "nome": "PROJETO DE URBANISMO - PROBLEMAS ESPECIAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "PRO0044",
+          "nome": "INICIACAO AO PROJETO PAISAGISTICO",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0045",
+          "nome": "COMPUTACAO GRAFICA APLICADA A ARQUITETURA E URBANISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0046",
+          "nome": "DESENHO E PLASTICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0049",
+          "nome": "SABER LOCAL - COMUNIDADE E ARQUITETURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0050",
+          "nome": "ATELIE DE PROJETO DE ARQUITETURA E URBANISMO SUSTENTAVEL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PRO0051",
+          "nome": "PROJETO E PLANEJAMENTO  DE HABITACAO POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0052",
+          "nome": "AVALIACAO DE POS-OCUPACAO DE ESPACOS URBANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0054",
+          "nome": "PROJETO DE ARQUITETURA DE INTERESSE COMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0055",
+          "nome": "PRATICA DE ESCRITORIO MODELO DE ARQUITETURA E URBANISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0056",
+          "nome": "PRATICA DE ESCRITORIO MODELO DE ARQUITETURA E URBANISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0057",
+          "nome": "PRATICA DE ESCRITORIO MODELO DE ARQUITETURA E URBANISMO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0058",
+          "nome": "PRATICA DE ESCRITORIO MODELO DE ARQUITETURA E URBANISMO 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0059",
+          "nome": "PROJETO DE ARQUITETURA E URBANISMO 1",
+          "ch": "180"
+        },
+        {
+          "codigo": "PRO0061",
+          "nome": "DESENHO DE ARQUITETURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0062",
+          "nome": "INVENCOES E PATENTES EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0066",
+          "nome": "ESBOCOS URBANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0058",
+          "nome": "PSICOLOGIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0024",
+          "nome": "INTRODUCAO AO SERVICO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0101",
+          "nome": "SOCIOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0001",
+          "nome": "INICIACAO CIENTIFICA EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0003",
+          "nome": "METODOS E TECNICAS NA PROJETACAO ARQUITETONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0004",
+          "nome": "MORFOLOGIA ARQUITETONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0010",
+          "nome": "ARQUITERURA E URBANISMO DA AMERICA LATINA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0014",
+          "nome": "ARQUITETURA E ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0015",
+          "nome": "CONFIGURACAO URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0017",
+          "nome": "INTRODUCAO A PESQUISA E A EXTENSAO EM ARQUITETURA E URBANISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "TAU0018",
+          "nome": "MORFOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0019",
+          "nome": "TEORIA URBANO-REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0020",
+          "nome": "ESTRUTURAS URBANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0021",
+          "nome": "PLANEJAMENTO HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0022",
+          "nome": "SINTAXE URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0023",
+          "nome": "ESTETICA DO ESPACO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0026",
+          "nome": "BRASILIA, EXPERIENCIA URBANISTICA - PRATICA E TEORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0027",
+          "nome": "ARTE COMPARADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0028",
+          "nome": "ARTE E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0029",
+          "nome": "SEMIOTICA DA  CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0030",
+          "nome": "TEORIAS ESTETICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0031",
+          "nome": "URBANISMO E URBANIZACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0004",
+          "nome": "PRATICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0005",
+          "nome": "PRATICA CONSTRUTIVA EM CANTEIRO EXPERIMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0007",
+          "nome": "INSTALACOES E EQUIPAMENTOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0008",
+          "nome": "INDUSTRIALIZACAO DA CONSTRUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0009",
+          "nome": "PROGRAMACAO E CONTROLE DE PROJETO E OBRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0010",
+          "nome": "ESTRUTURAS ARQUITETONICAS 3",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEC0012",
+          "nome": "SISTEMAS CONSTRUTIVOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0013",
+          "nome": "TECNICAS DE CONSTRUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0017",
+          "nome": "CONFORTO TERMICO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0018",
+          "nome": "SISTEMAS ESTRUTURAIS NA ARQUITETURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEC0019",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO",
+          "ch": "120"
+        },
+        {
+          "codigo": "TEC0024",
+          "nome": "ESTRUTURAS ESPECIAIS EM ARQUITETURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0030",
+          "nome": "SISTEMAS CONSTRUTIVOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0031",
+          "nome": "ESTUDOS ESPECIAIS EM TECNOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0032",
+          "nome": "GESTAO AMBIENTAL URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0033",
+          "nome": "ENSAIO EM TECNOLOGIA  DA ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0035",
+          "nome": "PROJETO AMBIENTAL INTEGRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0036",
+          "nome": "ESTRUTURAS ARQUITETONICAS E O AMBIENTE CONSTRUIDO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0037",
+          "nome": "ACO E ARQUITETURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0060",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0065",
+          "nome": "DESENHO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0072",
+          "nome": "MORFOLOGIA GEOMETRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0074",
+          "nome": "DESENHO GEOMETRICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0075",
+          "nome": "DESENHO PERSPECTIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0085",
+          "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0088",
+          "nome": "OFICINA DE FOTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0090",
+          "nome": "OFICINA DE FOTOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0094",
+          "nome": "OFICINA DE FOTOGRAFIA 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0113",
+          "nome": "PRATICAS DE ENSINO: MATERIAIS EM ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0185",
+          "nome": "ARTE ELETRONICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0187",
+          "nome": "PINTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0188",
+          "nome": "INTRODUCAO A GRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "TAU0012",
+          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0009",
+          "nome": "PRATICA PROFISSIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0011",
+          "nome": "PROJETO ARQUITETONICO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0025",
+          "nome": "DESENHO E PLASTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0028",
+          "nome": "GEOMETRIA CONSTRUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0002",
+          "nome": "INTRODUCAO A ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0026",
+          "nome": "INTRODUCAO A TECNOLOGIA EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0013",
+          "nome": "PROJETO DE ARQUITETURA - LINGUAGEM E EXPRESSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0023",
+          "nome": "DESENHO ARQUITETONICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0063",
+          "nome": "MODELAGEM TRIDIMENSIONAL DIGITAL EM ARQUITETURA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TAU0005",
+          "nome": "HISTORIA DA ARQUITETURA E DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0016",
+          "nome": "ESTUDOS AMBIENTAIS-BIOCLIMATISMO",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0038",
+          "nome": "SISTEMAS ESTRUTURAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0015",
+          "nome": "PROJETO DE ARQUITETURA - HABITACAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0026",
+          "nome": "DESENHO E PLASTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0006",
+          "nome": "HISTORIA DA ARQUITETURA E DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0039",
+          "nome": "SISTEMAS ESTRUTURAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0271",
+          "nome": "MATERIAIS PARA CONSTRUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0020",
+          "nome": "PROJETO DE URBANISMO 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0060",
+          "nome": "PROJETO DE PAISAGISMO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0065",
+          "nome": "MODELAGEM DA INFORMACAO DA CONSTRUCAO - BIM",
+          "ch": "30"
+        },
+        {
+          "codigo": "TAU0007",
+          "nome": "ARQUITERURA E URBANISMO DA SOCIEDADE INDUSTRIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0027",
+          "nome": "INFRA-ESTRUTURA URBANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0042",
+          "nome": "CONFORTO TERMICO AMBIENTAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0276",
+          "nome": "MATERIAIS PARA CONSTRUCAO EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "ENC0277",
+          "nome": "MATERIAIS PARA CONSTRUCAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0016",
+          "nome": "PROJETO DE ARQUITETURA DE GRANDES VAOS",
+          "ch": "120"
+        },
+        {
+          "codigo": "PRO0064",
+          "nome": "CONFORTO TERMICO AMBIENTAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0041",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0002",
+          "nome": "PROJETO DE PAISAGISMO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0009",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL COLONIA E IMPERIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TAU0013",
+          "nome": "PLANEJAMENTO URBANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0001",
+          "nome": "SISTEMAS ESTRUTURAIS EM CONCRETO ARMADO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0029",
+          "nome": "CONFORTO AMBIENTAL LUMINOSO",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0017",
+          "nome": "PROJETO ARQUITETONICO DE EDIFICACOES EM ALTURA",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0008",
+          "nome": "ARQUITERURA E URBANISMO NO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0002",
+          "nome": "INSTALACOES E EQUIPAMENTOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0022",
+          "nome": "SISTEMAS ESTRUTURAIS EM ACO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0028",
+          "nome": "CONFORTO SONORO",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0018",
+          "nome": "PROJETO DE ARQUITETURA DE FUNCOES COMPLEXAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0025",
+          "nome": "ESTETICA E HISTORIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0003",
+          "nome": "INSTALACOES E EQUIPAMENTOS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0023",
+          "nome": "SISTEMAS ESTRUTURAIS EM MADEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0043",
+          "nome": "TECNICAS DE CONSTRUCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0021",
+          "nome": "PROJETO DE URBANISMO 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0011",
+          "nome": "ARQUITETURA E URBANISMO DA ATUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEC0044",
+          "nome": "TECNICAS DE CONSTRUCAO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0047",
+          "nome": "PROJETO DE ARQUITETURA E URBANISMO 8 - TECNICAS RETROSPECTIVAS",
+          "ch": "120"
+        },
+        {
+          "codigo": "TAU0012",
+          "nome": "ENSAIO DE TEORIA E HISTORIA DE ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0039",
+          "nome": "INTRODUCAO AO TRABALHO FINAL DE GRADUACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0009",
+          "nome": "PRATICA PROFISSIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "PRO0001",
+          "nome": "TRABALHO FINAL DE GRADUACAO EM ARQUITETURA E URBANISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0007",
+          "nome": "ESTAGIOS SUPERVISIONADOS DE PROJETOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEC0014",
+          "nome": "ESTAGIO SUPERVISIONADO EM OBRA",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

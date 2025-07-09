@@ -1,0 +1,1097 @@
+{
+  "curso": "ESTATÍSTICA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2021.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0001",
+          "nome": "COMPUTACAO EM ESTATISTICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0033",
+          "nome": "ESTATISTICA EXPLORATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0070",
+          "nome": "METODOS ESTATISTICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0017",
+          "nome": "METODOS ESTATISTICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0035",
+          "nome": "INFERENCIA ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0036",
+          "nome": "TECNICAS DE AMOSTRAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0046",
+          "nome": "DEMOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0076",
+          "nome": "CALCULO DE PROBABILIDADE 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0004",
+          "nome": "ESTATISTICA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0038",
+          "nome": "ANALISE DE REGRESSAO LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0042",
+          "nome": "DELINEAMENTO E ANALISE DE EXPERIMENTOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0048",
+          "nome": "PROCESSOS ESTOCASTICOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0005",
+          "nome": "INFERENCIA BAYESIANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0040",
+          "nome": "ANALISE MULTIVARIADA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0051",
+          "nome": "ANALISE DE SERIES TEMPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0064",
+          "nome": "ANALISE DE DADOS CATEGORIZADOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0081",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "EST0067",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0035 - ANALISE DE DECISOES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0052",
+          "nome": "FINANCAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0150",
+          "nome": "CRIACAO DE NEGOCIOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0157",
+          "nome": "ESTRATEGIA ORGANIZACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0192",
+          "nome": "CALCULO FINANCEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0198",
+          "nome": "METODOLOGIA CIENTIFICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0214",
+          "nome": "INTRODUCAO A TEORIAS ORGANIZACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0221",
+          "nome": "ADMINISTRACAO EMPREENDEDORA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0226",
+          "nome": "GESTAO DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ADM0320",
+          "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0015",
+          "nome": "CONTABILIDADE GERAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0021",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0056",
+          "nome": "AVALIACAO DE PROJETOS DE INVESTIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0079",
+          "nome": "CONTABILIDADE GERAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0103",
+          "nome": "INTRODUCAO A CONTABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0149",
+          "nome": "ATUARIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0155",
+          "nome": "METODOS QUANTITATIVOS APLICADOS AS CIENCIAS CONTABEIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CDS0002",
+          "nome": "HISTORIA AMBIENTAL DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0007",
+          "nome": "INTRODUCAO AO DESENVOLVIMENTO SUSTENTAVEL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0008",
+          "nome": "MEIO AMBIENTE, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0010",
+          "nome": "TRABALHO INTERDISCIPLINAR INTEGRADO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CDS0012",
+          "nome": "POLITICAS PUBLICAS E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CDS0016",
+          "nome": "EDUCACAO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0052",
+          "nome": "INTRODUCAO AOS ESTUDOS DE POPULACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0002",
+          "nome": "FUNDAMENTOS TEORICOS DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0069",
+          "nome": "INTRODUCAO AO PROCESSAMENTO DE DADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0182",
+          "nome": "LOGICA COMPUTACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX1102",
+          "nome": "PENSAMENTO NEGRO CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX1113",
+          "nome": "ETNOLOGIA VISUAL DA IMAGEM DO NEGRO NO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0054",
+          "nome": "ECONOMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0056",
+          "nome": "ECONOMIA QUANTITATIVA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0072",
+          "nome": "ECONOMIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0128",
+          "nome": "INTRODUCAO A ECONOMETRIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0197",
+          "nome": "ECONOMIA ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0230",
+          "nome": "ANALISE ECONOMICA DE SERIES DE TEMPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0261",
+          "nome": "PLANEJAMENTO PUBLICO E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0272",
+          "nome": "MICROECONOMIA AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0054",
+          "nome": "METODOLOGIA DA PESQUISA EM SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0003",
+          "nome": "COMPUTACAO EM ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0006",
+          "nome": "TECNICAS DE AMOSTRAGEM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0007",
+          "nome": "ESTATISTICA ESPACIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0008",
+          "nome": "LABORATORIO DE ESTATISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0009",
+          "nome": "LABORATORIO DE ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0010",
+          "nome": "CONSULTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0011",
+          "nome": "MODELOS LINEARES GENERALIZADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0012",
+          "nome": "ANALISE DE SERIES TEMPORAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0013",
+          "nome": "DEMOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0014",
+          "nome": "TEORIA DA RESPOSTA AO ITEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0015",
+          "nome": "TOPICOS EM ESTATISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0016",
+          "nome": "MODELOS LINEARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0018",
+          "nome": "ANALISE MULTIVARIADA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0030",
+          "nome": "ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0044",
+          "nome": "DELINEAMENTO E ANALISE DE EXPERIMENTOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0045",
+          "nome": "CONTROLE ESTATISTICO DE QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0047",
+          "nome": "APLICACOES DA ESTATISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0052",
+          "nome": "HISTORIA DA ESTATISTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0054",
+          "nome": "PESQUISA OPERACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0056",
+          "nome": "PESQUISA OPERACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0057",
+          "nome": "ESTATISTICA NAO PARAMETRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0059",
+          "nome": "CONTROLE DE QUALIDADE NA PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0060",
+          "nome": "MATEMATICA FINANCEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0061",
+          "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0068",
+          "nome": "ESTATISTICA EXPLORATORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0073",
+          "nome": "METODOS APLICADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0074",
+          "nome": "MEDIDAS DE INFORMACAO E APLICACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0077",
+          "nome": "TOPICOS EM ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0078",
+          "nome": "PROGRAMAS - PRODUTO EM ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0082",
+          "nome": "TOPICOS EM CONSULTORIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0083",
+          "nome": "PROBABILIDADE E ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0084",
+          "nome": "INTRODUCAO A INFERENCIA BAYESIANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0086",
+          "nome": "ANALISE DE SOBREVIVENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0087",
+          "nome": "PRATICAS DE EXTENSAO EM ESTATISTICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0088",
+          "nome": "PRATICAS DE EXTENSAO EM ESTATISTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0090",
+          "nome": "COMPUTACAO EM ESTATISTICA 2: SAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0091",
+          "nome": "COMPUTACAO EM ESTATISTICA 2: R",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0092",
+          "nome": "COMPUTACAO EM ESTATISTICA 2: PYTHON",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0187",
+          "nome": "EPIDEMIOLOGIA DESCRITIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FTD0008",
+          "nome": "EMPRESA JUNIOR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FTD0009",
+          "nome": "EMPRESA JUNIOR 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0160",
+          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0028",
+          "nome": "VARIAVEL COMPLEXA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0034",
+          "nome": "ALGEBRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0038",
+          "nome": "TEORIA DOS NUMEROS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0046",
+          "nome": "ANALISE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0048",
+          "nome": "EQUACOES DIFERENCIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0054",
+          "nome": "INTRODUCAO A PROGRAMACAO LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0057",
+          "nome": "ANALISE NUMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0059",
+          "nome": "METODOS MATEMATICOS DA FISICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0078",
+          "nome": "ANALISE DE ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0080",
+          "nome": "INTRODUCAO A TEORIA DOS GRAFOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0082",
+          "nome": "ANALISE COMBINATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0119",
+          "nome": "LOGICA MATEMATICA E COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0120",
+          "nome": "INTRODUCAO A TEORIA DE MEDIDA E INTEGRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0137",
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0020",
+          "nome": "ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0037",
+          "nome": "METODOS DE PESQUISA EM PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0001",
+          "nome": "COMPUTACAO EM ESTATISTICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "EST0033",
+          "nome": "ESTATISTICA EXPLORATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0070",
+          "nome": "METODOS ESTATISTICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0017",
+          "nome": "METODOS ESTATISTICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0053",
+          "nome": "CALCULO NUMERICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0035",
+          "nome": "INFERENCIA ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0036",
+          "nome": "TECNICAS DE AMOSTRAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0046",
+          "nome": "DEMOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0076",
+          "nome": "CALCULO DE PROBABILIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0004",
+          "nome": "ESTATISTICA COMPUTACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0038",
+          "nome": "ANALISE DE REGRESSAO LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0042",
+          "nome": "DELINEAMENTO E ANALISE DE EXPERIMENTOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0048",
+          "nome": "PROCESSOS ESTOCASTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0005",
+          "nome": "INFERENCIA BAYESIANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0040",
+          "nome": "ANALISE MULTIVARIADA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0051",
+          "nome": "ANALISE DE SERIES TEMPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0064",
+          "nome": "ANALISE DE DADOS CATEGORIZADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0081",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0067",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

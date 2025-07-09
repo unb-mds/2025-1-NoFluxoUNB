@@ -1,0 +1,42 @@
+# Git e documentação
+.git/
+.gitignore
+*.md
+LICENSE
+
+# Logs e cache
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backend específico
+no_fluxo_backend/node_modules/
+no_fluxo_backend/dist/
+no_fluxo_backend/.env*
+no_fluxo_backend/logs/*.log
+
+# Frontend específico
+no_fluxo_frontend/.dart_tool/
+no_fluxo_frontend/.packages
+no_fluxo_frontend/build/
+no_fluxo_frontend/.flutter-plugins
+no_fluxo_frontend/.flutter-plugins-dependencies
+no_fluxo_frontend/android/
+no_fluxo_frontend/ios/
+no_fluxo_frontend/linux/
+no_fluxo_frontend/macos/
+no_fluxo_frontend/windows/
+no_fluxo_frontend/web/
+no_fluxo_frontend/test/
+
+# Outros
+coverage/
+.nyc_output/ 

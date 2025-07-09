@@ -1,0 +1,857 @@
+{
+  "curso": "ENGENHARIA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2008.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0162",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0030",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0084",
+          "nome": "DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0166",
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0169",
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0254",
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0153",
+          "nome": "MECANICA DOS SOLIDOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENE0277",
+          "nome": "SISTEMAS DIGITAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0008",
+          "nome": "SISTEMAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0143",
+          "nome": "FUNDAMENTOS DA TEORIA ELETROMAGNETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0144",
+          "nome": "FISICA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA ADM0092 - ADMINISTRACAO DA PRODUCAO E OPERACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0093",
+          "nome": "LINGUAGENS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0105",
+          "nome": "ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0140",
+          "nome": "GERENCIA DE PROJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0197",
+          "nome": "TECNICAS DE PROGRAMACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0035",
+          "nome": "INTRODUCAO A MECANICA DOS SOLIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENC0132",
+          "nome": "MECANICA DOS SOLIDOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0334",
+          "nome": "COMPUTACAO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "ENM0120",
+          "nome": "MECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EPR0072",
+          "nome": "SISTEMAS DE INFORMACAO EM ENGENHARIA DE PRODUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0001",
+          "nome": "CONTRATACAO DE SERVICOS DE TECNOLOGIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0002",
+          "nome": "FUNDAMENTOS DE COMPILADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0004",
+          "nome": "TECNICAS DE MEDICAO FUNCIONAL E ESTIMATIVAS DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0005",
+          "nome": "MATEMATICA APLICADA A SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0007",
+          "nome": "CONFIABILIDADE DE COMPONENTES E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0026",
+          "nome": "FUNDAMENTOS DE ARQUITETURA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0027",
+          "nome": "PRINCIPIOS DE ROBOTICA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0028",
+          "nome": "PROGRAMACAO PARA COMPETICOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0029",
+          "nome": "ESTRUTURAS DE DADOS E ALGORITMOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0031",
+          "nome": "SEMINARIOS EM ENGENHARIA DE SOFTWARE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0032",
+          "nome": "TOPICOS ESPECIAIS EM FISICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0034",
+          "nome": "TOPICOS ESPECIAIS EM MATEMATICA APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0035",
+          "nome": "ANALISE DE SISTEMAS DE ENERGIA ELETRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0036",
+          "nome": "PRE-CALCULO PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0038",
+          "nome": "AERODINAMICA DE SISTEMAS AEROESPACIAIS",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0041",
+          "nome": "TOPICOS ESPECIAIS EM JOGOS DIGITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0042",
+          "nome": "TOPICOS ESPECIAIS EM SISTEMAS CRITICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0043",
+          "nome": "DINAMICA DOS GASES PARA SISTEMAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0044",
+          "nome": "PROJETO DE SISTEMAS DE CONTROLE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0045",
+          "nome": "MECANICA DO VOO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0046",
+          "nome": "METODOS E TECNICAS DA ESCRITA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0047",
+          "nome": "PROCESSOS PETROQUIMICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0053",
+          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0054",
+          "nome": "TOPICOS ESPECIAIS EM GOVERNANCA DE TECNOLOGIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0067",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0069",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0071",
+          "nome": "PRATICA DE ELETRONICA DIGITAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0073",
+          "nome": "TEORIA DE ELETRONICA DIGITAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0075",
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0078",
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0086",
+          "nome": "TEORIA DE ELETRICIDADE APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0087",
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0093",
+          "nome": "PRINCIPIOS DE CONTROLE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0102",
+          "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0104",
+          "nome": "QUIMICA ORGANICA APLICADA A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0123",
+          "nome": "CALCULO PARA ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0125",
+          "nome": "INTRODUCAO A GEOMETRIA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0126",
+          "nome": "CALCULO PARA ENGENHARIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0127",
+          "nome": "EQUACOES DIFERENCIAIS ORDINARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0128",
+          "nome": "CALCULO PARA ENGENHARIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0134",
+          "nome": "TOPICOS ESPECIAIS DE ENGENHARIA DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0135",
+          "nome": "SISTEMAS DE BANCOS DE DADOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0138",
+          "nome": "METODOS DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0139",
+          "nome": "MATERIAIS DE CONSTRUCAO DE ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0140",
+          "nome": "GESTAO AMBIENTAL PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0142",
+          "nome": "FUNDAMENTOS DE ARQUITETURA DE COMPUTADORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0145",
+          "nome": "ESTRUTURAS DE DADOS E ALGORITMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0151",
+          "nome": "ERGONOMIA DO PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0155",
+          "nome": "INTRODUCAO AO DESIGN E CONCEPCAO DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0156",
+          "nome": "COMBUSTIVEIS E BIOCOMBUSTIVEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0158",
+          "nome": "ORIENTACAO A OBJETOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0159",
+          "nome": "ESTRUTURAS MATEMATICAS PARA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0165",
+          "nome": "PROCESSO DE DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0171",
+          "nome": "TECNICAS DE PROGRAMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0172",
+          "nome": "REQUISITOS DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0175",
+          "nome": "ENGENHARIA DE PETROLEO E GAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0179",
+          "nome": "MECANICA DOS SOLIDOS 2 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0187",
+          "nome": "METODOS MATEMATICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0197",
+          "nome": "SISTEMAS DE CONTROLE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0204",
+          "nome": "DINAMICA DOS FLUIDOS",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0206",
+          "nome": "ENGENHARIA DE PRODUTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0208",
+          "nome": "ARQUITETURA E DESENHO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0242",
+          "nome": "TECNICAS DE PROGRAMACAO EM PLATAFORMAS EMERGENTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0248",
+          "nome": "SISTEMAS DE PROPULSAO HIBRIDOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0262",
+          "nome": "TRANSMISSAO E DISTRIBUICAO DE ENERGIA ELETRICA",
+          "ch": "75"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0221",
+          "nome": "SISMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0010",
+          "nome": "GEOMETRIA ANALITICA PARA MATEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0039",
+          "nome": "ALGEBRA LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0048",
+          "nome": "EQUACOES DIFERENCIAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0084",
+          "nome": "DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0166",
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0169",
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0254",
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0162",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0024",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0030",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0084",
+          "nome": "DESENVOLVIMENTO DE SOFTWARE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0166",
+          "nome": "ELEMENTOS E METODOS EM ELETRONICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0169",
+          "nome": "FONTES DE ENERGIA E TECNOLOGIAS DE CONVERSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0254",
+          "nome": "CIENCIAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0153",
+          "nome": "MECANICA DOS SOLIDOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0277",
+          "nome": "SISTEMAS DIGITAIS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0008",
+          "nome": "SISTEMAS AEROESPACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0143",
+          "nome": "FUNDAMENTOS DA TEORIA ELETROMAGNETICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0144",
+          "nome": "FISICA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

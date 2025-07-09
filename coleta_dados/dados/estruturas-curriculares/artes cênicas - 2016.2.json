@@ -1,0 +1,1627 @@
+{
+  "curso": "ARTES CÊNICAS",
+  "tipo_curso": "Licenciatura",
+  "periodo_letivo_vigor": "2016.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0164",
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0167",
+          "nome": "A VOZ EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0171",
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0177",
+          "nome": "MOVIMENTO E LINGUAGEM 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0165",
+          "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0168",
+          "nome": "A PALAVRA EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0172",
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0178",
+          "nome": "MOVIMENTO E LINGUAGEM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0182",
+          "nome": "ENCENACAO TEATRAL 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0169",
+          "nome": "VOZ E PALAVRA NA PERFORMANCE TEATRAL CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0173",
+          "nome": "INTERPRETACAO TEATRAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0179",
+          "nome": "MOVIMENTO E LINGUAGEM 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0189",
+          "nome": "METODOLOGIA DO ENSINO DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0183",
+          "nome": "ENCENACAO TEATRAL 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0166",
+          "nome": "TEATRALIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0190",
+          "nome": "METODOLOGIA DO ENSINO DO TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0184",
+          "nome": "ENCENACAO TEATRAL 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0042",
+          "nome": "DIRECAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0146",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0191",
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0149",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0192",
+          "nome": "DIPLOMACAO EM ARTES CENICAS 1",
+          "ch": "120"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "CEN0194",
+          "nome": "DIPLOMACAO EM ARTES CENICAS 2",
+          "ch": "180"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "TEATRAL",
+          "nome": "150H OPTATIVA CEN0006 - PROJETO EM INTERPRETACAO TEATRAL",
+          "ch": "210"
+        },
+        {
+          "codigo": "CEN0007",
+          "nome": "LABORATORIO DE CRIACAO CENICO-MUSICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0008",
+          "nome": "CORPOREIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0009",
+          "nome": "CORPOREIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0031",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0032",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0036",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0038",
+          "nome": "CORPO E MOVIMENTO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0039",
+          "nome": "ENCENACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0040",
+          "nome": "ENCENACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0041",
+          "nome": "ENCENACAO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0045",
+          "nome": "CENOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0046",
+          "nome": "CENOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0047",
+          "nome": "CENOGRAFIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0049",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0051",
+          "nome": "SEMINARIO AVANCADO DE TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0053",
+          "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0055",
+          "nome": "TECNICAS EXPERIMENTAIS DE ARTES CENICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0058",
+          "nome": "LINGUAGEM DRAMATICA NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0059",
+          "nome": "SEMINARIO INTERDISCIPLINAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0066",
+          "nome": "CORPO E MOVIMENTO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0067",
+          "nome": "CORPO E MOVIMENTO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0068",
+          "nome": "EXPRESSAO CORPORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0069",
+          "nome": "EXPRESSAO CORPORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0070",
+          "nome": "EXPRESSAO CORPORAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0071",
+          "nome": "EXPRESSAO CORPORAL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0072",
+          "nome": "VOZ E DICCAO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0076",
+          "nome": "VOZ E DICCAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0078",
+          "nome": "VOZ E MOVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0081",
+          "nome": "METODOLOGIA DA ENCENACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0083",
+          "nome": "METODOLOGIA DA ENCENACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0087",
+          "nome": "TEATRO BRASILEIRO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0088",
+          "nome": "LITERATURA DRAMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0089",
+          "nome": "LITERATURA DRAMATICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0090",
+          "nome": "LITERATURA DRAMATICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0091",
+          "nome": "LITERATURA DRAMATICA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0095",
+          "nome": "INTRODUCAO A INTERPRETACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0097",
+          "nome": "INTERPRETACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0098",
+          "nome": "INTERPRETACAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0099",
+          "nome": "INTERPRETACAO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0100",
+          "nome": "INTERPRETACAO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0102",
+          "nome": "DIRECAO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0103",
+          "nome": "DIRECAO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0104",
+          "nome": "DIRECAO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0106",
+          "nome": "TEORIA DO TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0107",
+          "nome": "INTRODUCAO AS TECNICAS TEATRAIS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0109",
+          "nome": "CRITICA TEATRAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0112",
+          "nome": "INDUMENTARIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0113",
+          "nome": "INDUMENTARIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0115",
+          "nome": "SONOPLASTIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0117",
+          "nome": "SONOPLASTIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0120",
+          "nome": "ILUMINACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0121",
+          "nome": "ILUMINACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0122",
+          "nome": "ILUMINACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0124",
+          "nome": "MAQUIAGEM",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0126",
+          "nome": "PRODUCAO TEATRAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0131",
+          "nome": "O CORPO TRAGICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0133",
+          "nome": "DINAMICA DA VOZ 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0134",
+          "nome": "DINAMICA DA VOZ 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0135",
+          "nome": "FUNDAMENTOS DA EDUCACAO ARTISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0137",
+          "nome": "TECNICAS DE INTERPRETACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0139",
+          "nome": "TECNICAS DE SUPORTE CENICO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0140",
+          "nome": "TECNICAS DE SUPORTE CENICO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0141",
+          "nome": "TECNICAS DE INTERPRETACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0142",
+          "nome": "METODOLOGIA DA ENCENACAO E DIRECAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0143",
+          "nome": "METODOLOGIA DA ENCENACAO E DIRECAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0154",
+          "nome": "HISTORIA DO ENSINO DAS ARTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0155",
+          "nome": "VOZ NO TEATRO NOS SECULOS XVI A XVIII",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0156",
+          "nome": "VOZ NO TEATRO CLASSICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0157",
+          "nome": "VOZ NO TEATRO CONTEMPORANEO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEN0158",
+          "nome": "ESTUDOS MITOLOGICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0159",
+          "nome": "ESTUDOS MITOLOGICOS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0161",
+          "nome": "SEMINARIO EM ARTE EDUCACAO PARA A INCLUSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0163",
+          "nome": "CARACTERIZACAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEN0170",
+          "nome": "VOZ E PALAVRA NA PERFORMANCE TEATRAL CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0174",
+          "nome": "INTERPRETACAO TEATRAL 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0175",
+          "nome": "PRATICA DE MONTAGEM",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEN0176",
+          "nome": "INTERPRETACAO E MONTAGEM",
+          "ch": "150"
+        },
+        {
+          "codigo": "CEN0181",
+          "nome": "MOVIMENTO E LINGUAGEM 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0185",
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0186",
+          "nome": "DIPLOMACAO EM INTERPRETACAO TEATRAL 1",
+          "ch": "240"
+        },
+        {
+          "codigo": "CEN0193",
+          "nome": "DIPLOMACAO EM ARTES CENICAS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEN0196",
+          "nome": "SEMINARIO DE ARTE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0199",
+          "nome": "LABORATORIO DE TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0200",
+          "nome": "LABORATORIO INTERARTISTICO",
+          "ch": "120"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0043",
+          "nome": "ANTROPOLOGIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0060",
+          "nome": "TRADICOES CULTURAIS BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0078",
+          "nome": "DIRECAO DO FILME 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0096",
+          "nome": "OFICINA BASICA DE AUDIOVISUAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAP0149",
+          "nome": "DIRECAO DE ATORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0124",
+          "nome": "FILOSOFIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0134",
+          "nome": "MITO E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0270",
+          "nome": "PRINCIPIO INTERDISCIPLINAR 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0086",
+          "nome": "LINGUA INGLESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0122",
+          "nome": "LINGUA ESPANHOLA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0337",
+          "nome": "LINGUA ITALIANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0006",
+          "nome": "FUNDAMENTOS DA ARTE NA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0089",
+          "nome": "OFICINA BASICA DE MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0097",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0098",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0099",
+          "nome": "LINGUAGEM E ESTRUTURACAO MUSICAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0120",
+          "nome": "FISIOLOGIA DA VOZ",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0139",
+          "nome": "CANTO CORAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0142",
+          "nome": "CANTO CORAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0236",
+          "nome": "MUSICA E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0237",
+          "nome": "MUSICA E SOCIEDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0239",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0241",
+          "nome": "TECNICA DE EXPRESSAO VOCAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0244",
+          "nome": "EVOLUCAO DA MUSICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0263",
+          "nome": "MUSICA POPULAR BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0714",
+          "nome": "APRECIACAO MUSICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0735",
+          "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0016",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0002",
+          "nome": "PROCESSOS DE DESENVOLVIMENTO HUMANO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0024",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0025",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: INFANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0027",
+          "nome": "DESENVOLVIMENTO NO CURSO DE VIDA: ADOLESCENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0032",
+          "nome": "PSICOLOGIA DA CRIATIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0052",
+          "nome": "PSICOLOGIA ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0096",
+          "nome": "SUPERDOTACAO, TALENTO E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0016",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0054",
+          "nome": "PERCEPCAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0025",
+          "nome": "DESENHO E PLASTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PRO0026",
+          "nome": "DESENHO E PLASTICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0089",
+          "nome": "SOCIOLOGIA DA CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0112",
+          "nome": "ARTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0020",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0027",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0041",
+          "nome": "ANTROPOLOGIA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0052",
+          "nome": "METODOS, TECNICAS E RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0082",
+          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0004",
+          "nome": "TRAGEDIA GREGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0014",
+          "nome": "INTRODUCAO A TEORIA DA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0027",
+          "nome": "LITERATURA BRASILEIRA - TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0031",
+          "nome": "ESTETICA E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0095",
+          "nome": "TEORIA DO TEATRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0060",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0063",
+          "nome": "DESENHO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0065",
+          "nome": "DESENHO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0074",
+          "nome": "DESENHO GEOMETRICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0075",
+          "nome": "DESENHO PERSPECTIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0085",
+          "nome": "OFICINA BASICA DE ARTES PLASTICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0088",
+          "nome": "OFICINA DE FOTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0097",
+          "nome": "CINEMA BRASILEIRO CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0104",
+          "nome": "ANALISE DO FILME 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0112",
+          "nome": "MATERIAIS EM ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0122",
+          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0127",
+          "nome": "FUNDAMENTOS DE LINGUAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0140",
+          "nome": "ANATOMIA ARTISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0141",
+          "nome": "HISTORIA DA ARTE ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0185",
+          "nome": "ARTE ELETRONICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0187",
+          "nome": "PINTURA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0188",
+          "nome": "INTRODUCAO A GRAVURA",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0220",
+          "nome": "PROJETO INTERDISCIPLINAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0231",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0232",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0235",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0237",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0250",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0253",
+          "nome": "HISTORIA DA ARTE MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0254",
+          "nome": "HISTORIA DA ARTE MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0255",
+          "nome": "HISTORIA DA ARTE CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0256",
+          "nome": "HISTORIA DA ARTE NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0258",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0260",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 7",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0262",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 8",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0264",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 9",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0266",
+          "nome": "SEMINARIO EM TEORIA,CRITICA E HISTORIA DA ARTE 10",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0183",
+          "nome": "ENCENACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0184",
+          "nome": "ENCENACAO TEATRAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0164",
+          "nome": "POETICAS TEATRAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0167",
+          "nome": "A VOZ EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0171",
+          "nome": "INTERPRETACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0177",
+          "nome": "MOVIMENTO E LINGUAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0165",
+          "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0168",
+          "nome": "A PALAVRA EM PERFORMANCE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0172",
+          "nome": "INTERPRETACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0178",
+          "nome": "MOVIMENTO E LINGUAGEM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0182",
+          "nome": "ENCENACAO TEATRAL 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0169",
+          "nome": "VOZ E PALAVRA NA PERFORMANCE TEATRAL CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0173",
+          "nome": "INTERPRETACAO TEATRAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0179",
+          "nome": "MOVIMENTO E LINGUAGEM 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0189",
+          "nome": "METODOLOGIA DO ENSINO DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0183",
+          "nome": "ENCENACAO TEATRAL 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0166",
+          "nome": "TEATRALIDADES BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0190",
+          "nome": "METODOLOGIA DO ENSINO DO TEATRO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0184",
+          "nome": "ENCENACAO TEATRAL 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0042",
+          "nome": "DIRECAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0146",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0191",
+          "nome": "METODOLOGIA DE PESQUISA EM ARTES CENICAS E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0149",
+          "nome": "ESTAGIO SUPERVISIONADO EM ARTES CENICAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0192",
+          "nome": "DIPLOMACAO EM ARTES CENICAS 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEN0194",
+          "nome": "DIPLOMACAO EM ARTES CENICAS 2",
+          "ch": "180"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        }
+      ]
+    }
+  ]
+}

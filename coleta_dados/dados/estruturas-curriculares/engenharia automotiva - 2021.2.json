@@ -1,0 +1,792 @@
+{
+  "curso": "ENGENHARIA AUTOMOTIVA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2021.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0107",
+          "nome": "LABORATORIO DE ONDULATORIA E FISICA TERMICA PARA A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0155",
+          "nome": "INTRODUCAO AO DESIGN E CONCEPCAO DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0067",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0069",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0075",
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0078",
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0152",
+          "nome": "ERGONOMIA DO PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0055",
+          "nome": "TECNOLOGIAS DE FABRICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0086",
+          "nome": "TEORIA DE ELETRICIDADE APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0087",
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0102",
+          "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0179",
+          "nome": "MECANICA DOS SOLIDOS 2 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0188",
+          "nome": "METODOS EXPERIMENTAIS PARA ENGENHARIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0023",
+          "nome": "DINAMICA DOS MECANISMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0056",
+          "nome": "TECNOLOGIAS DE FABRICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0076",
+          "nome": "EQUIPAMENTOS TERMOFLUIDOS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0190",
+          "nome": "PROJETO DE ELEMENTOS AUTOMOTIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0191",
+          "nome": "MATERIAIS COMPOSTOS E PLASTICOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0193",
+          "nome": "ARQUITETURA DE MOTORES DE COMBUSTAO INTERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0226",
+          "nome": "ELETRONICA VEICULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0228",
+          "nome": "PROJETO DE SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0230",
+          "nome": "DINAMICA DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0266",
+          "nome": "ACUSTICA E VIBRACOES VEICULARES",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0229",
+          "nome": "ANALISE ESTRUTURAL METODO DOS ELEMENTOS FINITOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0250",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0267",
+          "nome": "PROJETO DE ESTRUTURAS DE VEICULOS",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0021",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FGA0011",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "O",
+          "nome": "60H OPTATIVA CIC0088 - COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "FGA0007",
+          "nome": "CONFIABILIDADE DE COMPONENTES E SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0040",
+          "nome": "SISTEMAS DE CONTROLE AUTOMOTIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0046",
+          "nome": "METODOS E TECNICAS DA ESCRITA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0077",
+          "nome": "INTRODUCAO AO DESGASTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0123",
+          "nome": "CALCULO PARA ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0125",
+          "nome": "INTRODUCAO A GEOMETRIA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0126",
+          "nome": "CALCULO PARA ENGENHARIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0127",
+          "nome": "EQUACOES DIFERENCIAIS ORDINARIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0128",
+          "nome": "CALCULO PARA ENGENHARIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0131",
+          "nome": "ENGENHARIA DE SOFTWARE AUTOMOTIVO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0167",
+          "nome": "SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0186",
+          "nome": "ELETRICIDADE APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0195",
+          "nome": "GESTAO DA PRODUCAO AUTOMOTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0214",
+          "nome": "TOPICOS ESPECIAIS EM ENGENHARIA AUTOMOTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0232",
+          "nome": "INTEGRACAO E TESTES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0233",
+          "nome": "SENSORES E TRANSDUTORES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0268",
+          "nome": "ANALISE DINAMICA METODOS DOS ELEMENTOS FINITOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0270",
+          "nome": "SISTEMAS HIDRAULICOS E PNEUMATICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0271",
+          "nome": "PROJETO DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0272",
+          "nome": "DINAMICA MULTICORPOS VEICULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0284",
+          "nome": "ENGENHARIA DE MANUTENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0285",
+          "nome": "INTRODUCAO A MECANICA DA FRATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0379",
+          "nome": "FUNDAMENTOS DE PROPULSAO ELETRICA VEICULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0004",
+          "nome": "ALGORITMOS E PROGRAMACAO DE COMPUTADORES",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0161",
+          "nome": "ENGENHARIA E AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0163",
+          "nome": "INTRODUCAO A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0168",
+          "nome": "DESENHO INDUSTRIAL ASSISTIDO POR COMPUTADOR",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0171",
+          "nome": "FISICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IFD0173",
+          "nome": "FISICA 1 EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0090",
+          "nome": "ONDULATORIA E FISICA TERMICA PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0107",
+          "nome": "LABORATORIO DE ONDULATORIA E FISICA TERMICA PARA A ENGENHARIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0154",
+          "nome": "MECANICA DOS SOLIDOS 1 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0155",
+          "nome": "INTRODUCAO AO DESIGN E CONCEPCAO DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0160",
+          "nome": "METODOS NUMERICOS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "ENM0080",
+          "nome": "FENOMENOS DE TRANSPORTE",
+          "ch": "75"
+        },
+        {
+          "codigo": "FGA0067",
+          "nome": "TEORIA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0069",
+          "nome": "PRATICA DE CIRCUITOS ELETRONICOS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0075",
+          "nome": "LABORATORIO DE MATERIAIS DE CONSTRUCAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "FGA0078",
+          "nome": "TEORIA DE MATERIAIS DE CONSTRUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "FGA0133",
+          "nome": "ENGENHARIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0150",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0152",
+          "nome": "ERGONOMIA DO PRODUTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0164",
+          "nome": "HUMANIDADES E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0055",
+          "nome": "TECNOLOGIAS DE FABRICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0086",
+          "nome": "TEORIA DE ELETRICIDADE APLICADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0087",
+          "nome": "LABORATORIO DE ELETRICIDADE APLICADA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0102",
+          "nome": "SINAIS E SISTEMAS PARA ENGENHARIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0179",
+          "nome": "MECANICA DOS SOLIDOS 2 PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0184",
+          "nome": "GESTAO DA PRODUCAO E QUALIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0188",
+          "nome": "METODOS EXPERIMENTAIS PARA ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0023",
+          "nome": "DINAMICA DOS MECANISMOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0056",
+          "nome": "TECNOLOGIAS DE FABRICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0076",
+          "nome": "EQUIPAMENTOS TERMOFLUIDOS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0148",
+          "nome": "ENGENHARIA DE SEGURANCA DO TRABALHO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0190",
+          "nome": "PROJETO DE ELEMENTOS AUTOMOTIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0191",
+          "nome": "MATERIAIS COMPOSTOS E PLASTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0193",
+          "nome": "ARQUITETURA DE MOTORES DE COMBUSTAO INTERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0226",
+          "nome": "ELETRONICA VEICULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0228",
+          "nome": "PROJETO DE SISTEMAS AUTOMOTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0230",
+          "nome": "DINAMICA DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0266",
+          "nome": "ACUSTICA E VIBRACOES VEICULARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0229",
+          "nome": "ANALISE ESTRUTURAL METODO DOS ELEMENTOS FINITOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0250",
+          "nome": "PROJETO INTEGRADOR DE ENGENHARIA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "FGA0267",
+          "nome": "PROJETO DE ESTRUTURAS DE VEICULOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0009",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0021",
+          "nome": "ESTAGIO SUPERVISIONADO",
+          "ch": "210"
+        },
+        {
+          "codigo": "FGA0011",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}

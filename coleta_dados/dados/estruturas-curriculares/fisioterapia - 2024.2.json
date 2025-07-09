@@ -1,0 +1,1917 @@
+{
+  "curso": "FISIOTERAPIA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2024.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0193",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0845",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0886",
+          "nome": "EXTENSAO UNIVERSITARIA NA FCE",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0145",
+          "nome": "SUPORTE E MOVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0218",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FISICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0770",
+          "nome": "EXTENSAO NAS BASES BIOLOGICAS E DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0862",
+          "nome": "SAUDE E SOCIEDADE 2: O PROCESSO SAUDE-DOENCA COMO CONSTRUCAO SOCIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0205",
+          "nome": "SEMINARIO INTEGRATIVO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0226",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0772",
+          "nome": "ATIVIDADE AUTONOMA DE EXTENSAO NAS BASES BIOLOGICAS E DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0849",
+          "nome": "SISTEMAS E POLITICAS DE SAUDE",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0147",
+          "nome": "PROCESSOS PATOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0207",
+          "nome": "FUNCIONALIDADE E SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0279",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0989",
+          "nome": "ATIVIDADE DE EXTENSAO AUTONOMA NA UNIVERSIDADE DE BRASILIA 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0241",
+          "nome": "SEMINARIO INTEGRATIVO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0283",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0284",
+          "nome": "FISIOTERAPIA NA ATENCAO BASICA AVALIACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0285",
+          "nome": "FISIOTERAPIA NA ATENCAO DE MEDIA COMPLEXIDADE: AVALIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0286",
+          "nome": "FISIOTERAPIA NA ATENCAO DE ALTA COMPLEXIDADE: AVALIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0298",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITACAO: AVALIACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0990",
+          "nome": "GESTAO DE SERVICOS E RECURSOS HUMANOS EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0993",
+          "nome": "ATIVIDADE DE EXTENSAO COLETIVA NO EIXO CENARIOS DE PRATICA EM FISIOTERAPIA 1",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0272",
+          "nome": "SEMINARIO INTEGRATIVO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0288",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0289",
+          "nome": "FISIOTERAPIA NA ATENCAO BASICA RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0290",
+          "nome": "FISIOTERAPIA NA ATENCAO DE MEDIA COMPLEXIDADE: RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0291",
+          "nome": "FISIOTERAPIA NA ATENCAO DE ALTA COMPLEXIDADE: RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0299",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITACAO: RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0996",
+          "nome": "ATIVIDADES DE EXTENSAO COLETIVA NO EIXO CENARIOS DE PRATICA EM FISIOTERAPIA 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0280",
+          "nome": "SEMINARIO INTEGRATIVO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0292",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0293",
+          "nome": "FISIOTERAPIA NA ATENCAO BASICA INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0294",
+          "nome": "FISIOTERAPIA NA ATENCAO DE MEDIA COMPLEXIDADE: INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0295",
+          "nome": "FISIOTERAPIA NA ATENCAO DE ALTA COMPLEXIDADE: INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0296",
+          "nome": "EXERCICIO PROFISSIONAL E DEONTOLOGIA EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0300",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITACAO: INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0997",
+          "nome": "ATIVIDADE DE EXTENSAO COLETIVA NO EIXO CENARIOS DE PRATICA EM FISIOTERAPIA 3",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0034",
+          "nome": "ESTAGIO OBRIGATORIO  EM FISIOTERAPIA 1",
+          "ch": "300"
+        },
+        {
+          "codigo": "FCE0301",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FISIOTERAPIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0991",
+          "nome": "ATIVIDADE DE EXTENSAO AUTONOMA NA UNIVERSIDADE DE BRASILIA 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0035",
+          "nome": "ESTAGIO OBRIGATORIO  EM FISIOTERAPIA 2",
+          "ch": "300"
+        },
+        {
+          "codigo": "FCE0992",
+          "nome": "ATIVIDADE DE EXTENSAO AUTONOMA NA UNIVERSIDADE DE BRASILIA 3",
+          "ch": "75"
+        }
+      ]
+    },
+    {
+      "nivel": "10° NIVEL",
+      "materias": [
+        {
+          "codigo": "FCE0036",
+          "nome": "ESTAGIO OBRIGATORIO  EM FISIOTERAPIA 3",
+          "ch": "300"
+        },
+        {
+          "codigo": "FCE0998",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "FICA",
+          "nome": "30H OPTATIVA CEL0021 - BIOQUIMICA E BIOFISICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0026",
+          "nome": "BIOLOGIA MOLECULAR 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0027",
+          "nome": "BIOLOGIA MOLECULAR 2",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0035",
+          "nome": "BIOLOGIA CELULAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0050",
+          "nome": "MICROBIOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0063",
+          "nome": "BIOQUIMICA E BIOFISICA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0083",
+          "nome": "BIOQUIMICA E BIOFISICA EXPERIMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0102",
+          "nome": "BIOLOGIA DO DESENVOLVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEL0122",
+          "nome": "METABOLISMO E REGULACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0007",
+          "nome": "SAUDE DIREITOS HUMANOS E ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0008",
+          "nome": "DIREITOS HUMANOS LGBT",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0021",
+          "nome": "DIVERSIDADE SEXUAL E DE GENERO E POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0042",
+          "nome": "POLITICA SOCIAL FAMILIA E ENVELHECIMENTO POPULACIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0043",
+          "nome": "CULTURA PODER E RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0063",
+          "nome": "VIOLENCIA, SEGURANCA E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0069",
+          "nome": "EDUCACAO E CULTURA AFRO-BRASILEIRA OS QUILOMBOS CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0085",
+          "nome": "CULTURA LATINO-AMERICANA SECULO XX",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0102",
+          "nome": "IDENTIDADE DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0117",
+          "nome": "PENSAMENTO LGBT BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0120",
+          "nome": "A CIDADE E A TERCEIRA IDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0122",
+          "nome": "GENERO E SEXUALIDADE NO MUNDO CLASSICO",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0125",
+          "nome": "HISTORIA E CINEMA: PERSPECTIVAS DOS FEMINISMOS NEGROS, DECOLONIAIS E INTERSECCIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0126",
+          "nome": "DIREITOS HUMANOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "CEM0131",
+          "nome": "RACA, CIENCIA E SAUDE DA POPULACAO NEGRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0133",
+          "nome": "MULHERES INSPIRADORAS: PERSPECTIVAS CRITICAS PARA A EDUCACAO EM DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEM0134",
+          "nome": "EDUCACAO E DESIGUALDADES SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0012",
+          "nome": "PEDAGOGIA DO TEATRO E DIVERSIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0018",
+          "nome": "PRATICA DOCENTE EM RELACOES ETNICAS E DE GENERO",
+          "ch": "90"
+        },
+        {
+          "codigo": "CFS0041",
+          "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "COM0198",
+          "nome": "EPISTEMOLOGIAS NEGRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0100",
+          "nome": "COMUNICACAO E GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0002",
+          "nome": "COMUNICACAO, SAUDE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0007",
+          "nome": "INTRODUCAO A BIOETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DSC0010",
+          "nome": "INFORMACAO E INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0016",
+          "nome": "EDUCACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0043",
+          "nome": "SAUDE MENTAL EM SAUDE COLETIVA",
+          "ch": "45"
+        },
+        {
+          "codigo": "DSC0050",
+          "nome": "POLITICAS PUBLICAS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0051",
+          "nome": "DEMOGRAFIA E BIOESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0056",
+          "nome": "COMUNICACAO EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0064",
+          "nome": "BIOETICA E SAUDE PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0072",
+          "nome": "GESTAO DO TRABALHO E EDUCACAO PERMANENTE NA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DSC0094",
+          "nome": "TERAPIAS COMUNITARIAS E PRATICAS INTEGRATIVAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0017",
+          "nome": "METODOS EM BIOLOGIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0057",
+          "nome": "GESTAO EM POLITICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENF0080",
+          "nome": "PRATICAS SAUDAVEIS E TERAPIAS INTEGRATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FAR0137",
+          "nome": "IMUNOFARMACOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0001",
+          "nome": "FUNDAMENTOS DE CITOGENETICA HUMANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0002",
+          "nome": "INTRODUCAO AOS CUIDADOS PALIATIVOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0008",
+          "nome": "PROCESSOS COGNITIVOS: APLICACOES EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0009",
+          "nome": "PRATICA DA FISIOTERAPIA BASEADA EM PROBLEMAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0010",
+          "nome": "TOPICOS AVANCADOS EM PATOLOGIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0017",
+          "nome": "PRINCIPAIS VETORES DE IMPORTANCIA EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0018",
+          "nome": "METODOLOGIAS QUALITATIVAS EM SAUDE COLETIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0019",
+          "nome": "SAUDE, CUIDADO E RECONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0021",
+          "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0022",
+          "nome": "JOGOS VIRTUAIS NA PRATICA TERAPEUTICA: BASES E EVIDENCIAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0023",
+          "nome": "VARIABILIDADE DA FREQUENCIA CARDIACA: APLICACOES CLINICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0024",
+          "nome": "RECURSOS TECNOLOGICOS AVANCADOS EM FISIOTERAPIA DERMATO-FUNCIONAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0025",
+          "nome": "TOPICOS ESPECIAIS EM FISIOTERAPIA AQUATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0026",
+          "nome": "TEORIAS DO DESENVOLVIMENTO MOTOR: REPERCUSSOES NA INTERVENCAO PRECOCE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0027",
+          "nome": "PROCESSOS COGNITIVOS: PRATICA FISIOTERAPEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0028",
+          "nome": "FUNDAMENTOS DE CANCEROLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0032",
+          "nome": "NEUROPSICOLOGIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0033",
+          "nome": "FUNDAMENTOS DA PSICOLOGIA APLICADOS AOS CICLOS DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0043",
+          "nome": "FISICA ACUSTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0044",
+          "nome": "ANTROPOLOGIA DA SAUDE E ADOECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0045",
+          "nome": "METODO DA ERGONOMIA DA ATIVIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0046",
+          "nome": "INTRODUCAO A SAUDE DO TRABALHADOR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0050",
+          "nome": "ATENCAO AO PREMATURO E A FAMILIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0051",
+          "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0053",
+          "nome": "PROCESSOS COGNITIVOS: CINESIO-FISIOPATOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0060",
+          "nome": "FISIOTERAPIA NO TRATAMENTO DA DOR CRONICA VERTEBRAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0061",
+          "nome": "BASES CELULARES E MORFOLOGICAS DO DESENVOLVIMENTO REGENERACAO MUSCULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0072",
+          "nome": "TOPICOS AVANCADOS EM TERAPIA MANUAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0074",
+          "nome": "TOPICOS AVANCADOS EM TERAPIA MANUAL 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0077",
+          "nome": "NEUROANATOMIA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0079",
+          "nome": "BASES DE FISIOLOGIA ENDOCRINA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0096",
+          "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA HIPERTROFIA MUSCULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0097",
+          "nome": "PESQUISA APLICADA EM FISIOTERAPIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0098",
+          "nome": "PESQUISA APLICADA EM FISIOTERAPIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0099",
+          "nome": "BASES MOLECULARES CELULARES E FUNCIONAIS DA ATROFIA MUSCULOESQUELETICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0100",
+          "nome": "PESQUISA EM PROCESSOS BIOLOG APLIC A ESTRUTURA FUNCAO E REABILITACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0108",
+          "nome": "PRODUCAO AUDIOVISUAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0109",
+          "nome": "PESQUISA EM ERGONOMIA E BIOMECANICA OCUPACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0110",
+          "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0116",
+          "nome": "FUNDAMENTOS EM PSICOLOGIA APLICADOS AO DESENVOLVIMENTO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0135",
+          "nome": "BASES CIENTIFICAS DE NUTRICAO E ATIVIDADE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0138",
+          "nome": "PROCESSO DE INOVACAO EM TECNOLOGIA ASSISTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0139",
+          "nome": "INFECCAO RELACIONADA A ASSISTENCIA A SAUDE: VIGILANCIA E CONTROLE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0140",
+          "nome": "SEGURANCA DO PACIENTE NA ATENCAO A SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0141",
+          "nome": "PESQUISA EM EXERCICIO FISICO, REABILITACAO E DESEMPENHO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0146",
+          "nome": "DA CELULA AOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0150",
+          "nome": "PARASITOSES HUMANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0155",
+          "nome": "TOPICOS ESPECIAIS EM INTERACOES PATOGENO - HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0167",
+          "nome": "GENERO, RACA, SEXUALIDADE: SAUDE E DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0197",
+          "nome": "FISIOLOGIA CLINICA DO EXERCICIO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0214",
+          "nome": "BIOSSEGURANCA E BIOPROTECAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0219",
+          "nome": "INTRODUCAO A PSICOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0233",
+          "nome": "PESQUISA EM MOVIMENTO FUNCIONAL HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0236",
+          "nome": "PROMOCAO A SAUDE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0237",
+          "nome": "RACIONALIDADES MEDICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0240",
+          "nome": "SAUDE, AMBIENTE E TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0243",
+          "nome": "PRATICAS DE SAUDE BASEADAS EM EVIDENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0245",
+          "nome": "TOPICOS ESPECIAIS DAS CELULAS AOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0246",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0251",
+          "nome": "DINAMICAS GRUPAIS E ATIVIDADES CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0273",
+          "nome": "SAUDE E SOCIEDADE 3: DIVERSIDADE SOCIAL E SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0275",
+          "nome": "SOCIOLOGIA DO CORPO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0277",
+          "nome": "MODELOS E PRATICAS DE ATENCAO A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0278",
+          "nome": "TEORIAS E MODELOS DE ADMINISTRACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0305",
+          "nome": "TOPICOS ESPECIAIS EM MICROBIOLOGIA APLICADOS A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0306",
+          "nome": "VIGILANCIA SANITARIA APLICADA A PROFISSIONAIS DE SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0311",
+          "nome": "DEPENDENCIA QUIMICA E SUA TERAPEUTICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0312",
+          "nome": "NEUROBIOLOGIA DOS TRANSTORNOS MENTAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0313",
+          "nome": "IMUNOBIOLOGIA DA RELACAO PATOGENO - HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0315",
+          "nome": "TOPICOS EM METABOLISMO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0316",
+          "nome": "PALPACAO OSTEOMIOARTICULAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0317",
+          "nome": "LEITURA E ANALISE CRITICA DE ARTIGOS CIENTIFICOS EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0323",
+          "nome": "ECONOMIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0327",
+          "nome": "PENSAMENTO SOCIAL E SAUDE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0329",
+          "nome": "MECANISMOS DE AGRESSAO E DEFESA 3 - PRATICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0330",
+          "nome": "PENSAMENTO SOCIAL EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0331",
+          "nome": "SEMINARIO INTEGRATIVO 6",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0335",
+          "nome": "PROMOCAO DA SAUDE CONCEITOS E CONTEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0343",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0344",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0349",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0350",
+          "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0374",
+          "nome": "MORTE NO CONTEXTO HUMANO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0382",
+          "nome": "PESQUISA EM GERONTOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0383",
+          "nome": "TOPICOS AVANCADOS EM FISIOTERAPIA NA SAUDE DA MULHER: BASES CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0384",
+          "nome": "METODOS E TECNICAS EM METABOLISMO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0385",
+          "nome": "FISIOPATOLOGIA E FARMACOLOGIA DO DIABETES",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0391",
+          "nome": "TECNOLOGIA ASSISTIVA E ACESSIBILIDADE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0392",
+          "nome": "LESAO RENAL AGUDA NA PRATICA CLINICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0395",
+          "nome": "TOPICOS EM FISIOTERAPIA NAS FRAGILIDADES DO IDOSO: BASES CIENTIFICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0441",
+          "nome": "INTRODUCAO A NEUROPSICOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0457",
+          "nome": "ANALISE BIOMECANICA DA MARCHA HUMANA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0605",
+          "nome": "FISIOTERAPIA EM TERAPIA INTENSIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0722",
+          "nome": "FISIOTERAPIA RESPIRATORIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0844",
+          "nome": "PESQUISA EM BASES BIOLOGICAS E DA SAUDE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0864",
+          "nome": "SAUDE E SOCIEDADE 3: SAUDE E DIVERSIDADE NO CONTEXTO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0001",
+          "nome": "TOPICOS ESPECIAIS EM BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0155",
+          "nome": "NOCOES DE DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FED0084",
+          "nome": "MULTICULTURISMO E EDUCACAO",
+          "ch": "105"
+        },
+        {
+          "codigo": "FEF0008",
+          "nome": "CRESCIMENTO MATURACAO E DESEMPENHO MOTOR",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0013",
+          "nome": "METODOLOGIA DAS MODALIDADES ESPORTIVAS COLETIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0015",
+          "nome": "ANATOMIA DOS SISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0016",
+          "nome": "CORPO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0068",
+          "nome": "PRATICAS CORPORAIS ALTERNATIVAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0069",
+          "nome": "PROMOCAO DA ATIVIDADE FISICA PARA A SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0107",
+          "nome": "PRATICA DESPORTIVA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0151",
+          "nome": "CINESIOLOGIA APLICADA A EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0160",
+          "nome": "CRESCIMENTO E DESENVOLVIMENTO MOTOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0172",
+          "nome": "PREVENCAO DE ACIDENTES E PRIMEIROS SOCORROS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0226",
+          "nome": "INFORMACAO DESPORTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0271",
+          "nome": "PROGRAMAS PREVENTIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0275",
+          "nome": "BIOMECANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0279",
+          "nome": "APRENDIZAGEM E DESENVOLVIMENTO MOTOR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0288",
+          "nome": "POLITICAS PUBLICAS EM EDUCACAO FISICA, ESPORTE, SAUDE E LAZER",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0306",
+          "nome": "TEORIA DO DESPORTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0327",
+          "nome": "TEORIA E PRATICA DA RECREACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FEF0331",
+          "nome": "EDUCACAO FISICA ADAPTADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0334",
+          "nome": "FUNDAMENTOS DA ADMINISTRACAO NO DESPORTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0377",
+          "nome": "INTRODUCAO A EQUOTERAPIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0408",
+          "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FEF0410",
+          "nome": "EDUCACAO FISICA E PRATICAS CORPORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0413",
+          "nome": "PRINCIPIOS NUTRICIONAIS APLICADOS A ATIVIDADE FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0505",
+          "nome": "PRATICA DESPORTIVA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0202",
+          "nome": "INFORMATICA EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FGA0221",
+          "nome": "INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0184",
+          "nome": "ETICA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0014",
+          "nome": "SAUDE, AMBIENTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0091",
+          "nome": "ANATOMIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "FTD0007",
+          "nome": "INTRODUCAO A ATIVIDADE EMPRESARIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0012",
+          "nome": "ETICA E FORMACAO DOCENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0049",
+          "nome": "CEBEP 2 - FORMACAO NACIONAL E IDENTID CAMPONESA INDIGENA E QUILOMBOLA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0077",
+          "nome": "CEBEP 3: RACA, GENERO E GERACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0106",
+          "nome": "CEBEP 5: DIVERSIDADE GERACIONAL NO CAMPO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0150",
+          "nome": "EDUCACAO POPULAR E EDUCACAO DE JOVENS E ADULTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0152",
+          "nome": "EDUCACAO DO CAMPO SAUDE E MEIO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0263",
+          "nome": "INTRODUCAO AS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0361",
+          "nome": "MEIO AMBIENTE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0401",
+          "nome": "SAUDE, SEXUALIDADE E REPRODUCAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "GEM0023",
+          "nome": "FUNDAMENTOS DE CITOLOGIA E HISTOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "GEM0041",
+          "nome": "HISTOLOGIA BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IFD0189",
+          "nome": "FISICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IPD0002",
+          "nome": "TOPICOS EM ERGONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0032",
+          "nome": "GENERO, LINGUA E PODER",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0137",
+          "nome": "CALCULO 1 - SEMIPRESENCIAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0004",
+          "nome": "EDUCACAO DE JOVENS, ADULTOS E IDOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0077",
+          "nome": "EDUCACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0136",
+          "nome": "PESQUISA EM EDUCACAO A DISTANCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0138",
+          "nome": "EDUCACAO E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0157",
+          "nome": "EDUCACAO ESTETICA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "NUT0001",
+          "nome": "FUNDAMENTOS EM ALIMENTACAO E NUTRICAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "NUT0053",
+          "nome": "INTRODUCAO A NUTRICAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "NUT0054",
+          "nome": "NUTRICAO HUMANA 1",
+          "ch": "45"
+        },
+        {
+          "codigo": "NUT0055",
+          "nome": "NUTRICAO HUMANA 2",
+          "ch": "45"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0060",
+          "nome": "PSICOLOGIA E RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0059",
+          "nome": "PSICOLOGIA DA SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0073",
+          "nome": "PSICOLOGIA DO GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0095",
+          "nome": "PSICOLOGIA DO ESPORTE E DO EXERCICIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0021",
+          "nome": "HISTORIA  DA PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0034",
+          "nome": "ERGONOMIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PST0056",
+          "nome": "ERGONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0003",
+          "nome": "ENVELHECIMENTO E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0007",
+          "nome": "GENERO, RACA/ETNIA E POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0013",
+          "nome": "SOCIOLOGIA DO TRABALHO E RELACOES SOCIAIS DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0015",
+          "nome": "SOCIOLOGIA DAS DIFERENCAS SEXUAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0022",
+          "nome": "SOCIOLOGIA DA VIOLENCIA NA PERSPECTIVA DAS RELACOES DE GENERO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0035",
+          "nome": "PARADIGMAS DA CATEGORIA GENERO E RACA NO CONTEXTO LATINOAMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0117",
+          "nome": "SOCIOLOGIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0121",
+          "nome": "SOCIOLOGIA DAS RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0135",
+          "nome": "IDENTIDADES SOCIAIS NA INTERSECCIONALIDADE DE GENERO E RACA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0171",
+          "nome": "CULTURA, PODER E RELACOES RACIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0050",
+          "nome": "PROGRAMACAO DE ENSINO PARA O DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0051",
+          "nome": "OFICINA BASICA DE RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0052",
+          "nome": "METODOS, TECNICAS E RECURSOS DIDATICOS PARA O DEFICIENTE MENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0053",
+          "nome": "LABORATORIO EM AVALIACAO EDUCACIONAL DO DEFICIENTE MENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0054",
+          "nome": "AVALIACAO EDUCACIONAL DO DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0055",
+          "nome": "FUNDAMENTOS DA EDUCACAO PARA O DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0056",
+          "nome": "DESENVOLVIMENTO BIOPSICOSSOCIAL DO DEFICIENTE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0081",
+          "nome": "TOP ESP EDUCACAO 2-EDUCACAO DO ALUNO PORTADOR NECESSIDADES ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0083",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0099",
+          "nome": "FUNDAMENTOS MULTICULTURAIS DA HISTORIA DA EDUCACAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0123",
+          "nome": "TECNOLOGIAS NA EDUCACAO ESPECIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0124",
+          "nome": "SEMINARIOS EM TECNOLOGIAS NA EDUCACAO : EDUCACAO ESPECIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "TEF0134",
+          "nome": "EDUCACAO E MULTICULTURALISMO NA CONTEMPORANEIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0140",
+          "nome": "FUNDAMENTOS DA ORIENT PROFISS P/ PORTADOR DE NECESSIDADES EDUCACIONAIS",
+          "ch": "45"
+        },
+        {
+          "codigo": "TEF0143",
+          "nome": "AVALIACAO EDUCACIONAL DO PORTADOR DE NECESSIDADES EDUC ESPECIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0144",
+          "nome": "SEMINARIO EM EDUCACAO INCLUSIVA",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0145",
+          "nome": "GENERO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0148",
+          "nome": "EDUCACAO, AMBIENTE E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0149",
+          "nome": "AMBIENTE, CULTURA E NATUREZA NO CINEMA E NA LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0156",
+          "nome": "TOPICOS ESPECIAIS EM EDUCACAO ESPECIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0038",
+          "nome": "IMAGEM, CULTURA E SOCIEDADE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0188",
+          "nome": "SAUDE E SOCIEDADE 1: INTRODUCAO AS CIENCIAS SOCIAIS EM SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0189",
+          "nome": "SEMINARIO INTEGRATIVO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0192",
+          "nome": "DO ATOMO A CELULA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0193",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0201",
+          "nome": "ORGANIZACAO MORFOFUNCIONAL E DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0229",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS ACADEMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0845",
+          "nome": "EPIDEMIOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0886",
+          "nome": "EXTENSAO UNIVERSITARIA NA FCE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0145",
+          "nome": "SUPORTE E MOVIMENTO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0204",
+          "nome": "DO GENE A VIDA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0206",
+          "nome": "EPIDEMIOLOGIA ANALITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0218",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA: AGENTES FISICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0222",
+          "nome": "INTEGRACAO DOS PROCESSOS VITAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0231",
+          "nome": "SISTEMA IMUNITARIO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0770",
+          "nome": "EXTENSAO NAS BASES BIOLOGICAS E DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0862",
+          "nome": "SAUDE E SOCIEDADE 2: O PROCESSO SAUDE-DOENCA COMO CONSTRUCAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0205",
+          "nome": "SEMINARIO INTEGRATIVO 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0224",
+          "nome": "INTEGRACAO METABOLICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0226",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA TROFISMO E PLASTICIDADE TECIDUAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0254",
+          "nome": "AGENTES INFECCIOSOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0264",
+          "nome": "SISTEMAS DE MANUTENCAO DA VIDA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0772",
+          "nome": "ATIVIDADE AUTONOMA DE EXTENSAO NAS BASES BIOLOGICAS E DA SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0849",
+          "nome": "SISTEMAS E POLITICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0147",
+          "nome": "PROCESSOS PATOLOGICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0194",
+          "nome": "INTRODUCAO A PESQUISA CIENTIFICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0207",
+          "nome": "FUNCIONALIDADE E SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0279",
+          "nome": "FUNDAMENTOS DE FISIOTERAPIA - MOVIMENTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0282",
+          "nome": "INTERACAO PARASITO-HOSPEDEIRO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0989",
+          "nome": "ATIVIDADE DE EXTENSAO AUTONOMA NA UNIVERSIDADE DE BRASILIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0241",
+          "nome": "SEMINARIO INTEGRATIVO 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0283",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0284",
+          "nome": "FISIOTERAPIA NA ATENCAO BASICA AVALIACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0285",
+          "nome": "FISIOTERAPIA NA ATENCAO DE MEDIA COMPLEXIDADE: AVALIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0286",
+          "nome": "FISIOTERAPIA NA ATENCAO DE ALTA COMPLEXIDADE: AVALIACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0298",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITACAO: AVALIACAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0990",
+          "nome": "GESTAO DE SERVICOS E RECURSOS HUMANOS EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0993",
+          "nome": "ATIVIDADE DE EXTENSAO COLETIVA NO EIXO CENARIOS DE PRATICA EM FISIOTERAPIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0272",
+          "nome": "SEMINARIO INTEGRATIVO 4",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0288",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0289",
+          "nome": "FISIOTERAPIA NA ATENCAO BASICA RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0290",
+          "nome": "FISIOTERAPIA NA ATENCAO DE MEDIA COMPLEXIDADE: RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0291",
+          "nome": "FISIOTERAPIA NA ATENCAO DE ALTA COMPLEXIDADE: RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0299",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITACAO: RECURSOS TERAPEUTICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0996",
+          "nome": "ATIVIDADES DE EXTENSAO COLETIVA NO EIXO CENARIOS DE PRATICA EM FISIOTERAPIA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0280",
+          "nome": "SEMINARIO INTEGRATIVO 5",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0292",
+          "nome": "FISIOTERAPIA BASEADA EM EVIDENCIAS 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0293",
+          "nome": "FISIOTERAPIA NA ATENCAO BASICA INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0294",
+          "nome": "FISIOTERAPIA NA ATENCAO DE MEDIA COMPLEXIDADE: INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0295",
+          "nome": "FISIOTERAPIA NA ATENCAO DE ALTA COMPLEXIDADE: INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0296",
+          "nome": "EXERCICIO PROFISSIONAL E DEONTOLOGIA EM FISIOTERAPIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0300",
+          "nome": "FISIOTERAPIA NO PROCESSO DE REABILITACAO: INTERVENCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0997",
+          "nome": "ATIVIDADE DE EXTENSAO COLETIVA NO EIXO CENARIOS DE PRATICA EM FISIOTERAPIA 3",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0034",
+          "nome": "ESTAGIO OBRIGATORIO  EM FISIOTERAPIA 1",
+          "ch": "300"
+        },
+        {
+          "codigo": "FCE0301",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM FISIOTERAPIA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0991",
+          "nome": "ATIVIDADE DE EXTENSAO AUTONOMA NA UNIVERSIDADE DE BRASILIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0035",
+          "nome": "ESTAGIO OBRIGATORIO  EM FISIOTERAPIA 2",
+          "ch": "300"
+        },
+        {
+          "codigo": "FCE0992",
+          "nome": "ATIVIDADE DE EXTENSAO AUTONOMA NA UNIVERSIDADE DE BRASILIA 3",
+          "ch": "75"
+        },
+        {
+          "codigo": "FCE0036",
+          "nome": "ESTAGIO OBRIGATORIO  EM FISIOTERAPIA 3",
+          "ch": "300"
+        },
+        {
+          "codigo": "FCE0998",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "30"
+        }
+      ]
+    }
+  ]
+}

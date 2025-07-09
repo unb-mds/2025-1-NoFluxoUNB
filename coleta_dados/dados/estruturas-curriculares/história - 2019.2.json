@@ -1,0 +1,3097 @@
+{
+  "curso": "HISTÓRIA",
+  "tipo_curso": "Bacharelado",
+  "periodo_letivo_vigor": "2019.2",
+  "niveis": [
+    {
+      "nivel": "1° NIVEL",
+      "materias": [
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "2° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0088",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0132",
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "3° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0090",
+          "nome": "HISTORIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0091",
+          "nome": "HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "4° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0099",
+          "nome": "HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0138",
+          "nome": "HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0095",
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "6° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0107",
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0129",
+          "nome": "HISTORIA DO BRASIL 4",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "7° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0003",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0028",
+          "nome": "PRATICA DE PESQUISA HISTORICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0126",
+          "nome": "HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "8° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0010",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "OPTATIVAS",
+      "materias": [
+        {
+          "codigo": "FANEROGAMAS",
+          "nome": "90H OPTATIVA BOT0044 - ORGANOGRAFIA E SISTEMATICA FANEROFITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "BOT0056",
+          "nome": "ETNOBOTANICA DO CERRADO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEL0054",
+          "nome": "BIOQUIMICA FUNDAMENTAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0067",
+          "nome": "BIOQUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0077",
+          "nome": "BIOQUIMICA ANIMAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0082",
+          "nome": "BIOQUIMICA E BIOFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEL0094",
+          "nome": "FUNDAMENTOS DE BIOQUIMICA E BIOFISICA",
+          "ch": "120"
+        },
+        {
+          "codigo": "CEL0095",
+          "nome": "BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0030",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0031",
+          "nome": "OFICINA BASICA DE ARTES CENICAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "CEN0036",
+          "nome": "HISTORIA DO TEATRO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CEN0049",
+          "nome": "HISTORIA DO TEATRO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0007",
+          "nome": "INTRODUCAO A CIENCIA DA COMPUTACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0008",
+          "nome": "PROGRAMACAO SISTEMATICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0064",
+          "nome": "INTRODUCAO A SISTEMAS DE INFORMACOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0088",
+          "nome": "COMPUTACAO BASICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "CIC0090",
+          "nome": "ESTRUTURAS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0092",
+          "nome": "ORGANIZACAO DE ARQUIVOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0097",
+          "nome": "BANCOS DE DADOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0174",
+          "nome": "INTRODUCAO A PROGRAMACAO CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CIC0175",
+          "nome": "PROGRAMACAO AVANCADA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CID0031",
+          "nome": "PALEOGRAFIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "DAN0036",
+          "nome": "SOCIEDADES COMPLEXAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0041",
+          "nome": "TEORIA ANTROPOLOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0042",
+          "nome": "TEORIA ANTROPOLOGICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0043",
+          "nome": "ANTROPOLOGIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0046",
+          "nome": "ANTROPOLOGIA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0047",
+          "nome": "ANTROPOLOGIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0049",
+          "nome": "INDIVIDUO, CULTURA E SOCIEDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0050",
+          "nome": "ORGANIZACAO SOCIAL E PARENTESCO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0052",
+          "nome": "CULTURA E MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0056",
+          "nome": "ANTROPOLOGIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0058",
+          "nome": "IDENTIDADE E RELACOES INTERETNICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0060",
+          "nome": "TRADICOES CULTURAIS BRASILEIRAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0062",
+          "nome": "SOCIEDADES CAMPONESAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0063",
+          "nome": "SOCIEDADES INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0077",
+          "nome": "PENSAMENTO ANTROPOLOGICO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0078",
+          "nome": "ANTROPOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0002",
+          "nome": "HISTORIA DA PUBLICIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0015",
+          "nome": "CINEMA E LITERATURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0022",
+          "nome": "TENDENCIAS DO CINEMA E DA TELEVISAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0067",
+          "nome": "HISTORIA DO CINEMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAP0083",
+          "nome": "ANALISE DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
+          "codigo": "DEX0196",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEX0197",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEX0198",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEX0199",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEX0200",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEX0201",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEX0202",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEX0203",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEX0204",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0205",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEX0206",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEX0207",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEX0208",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEX0209",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEX0210",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEX0211",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEX0212",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEX0213",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEX0214",
+          "nome": "ATIVIDADE DE EXTENSAO",
+          "ch": "510"
+        },
+        {
+          "codigo": "DSC0037",
+          "nome": "PRATICAS DE SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0002",
+          "nome": "ECOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "ECL0005",
+          "nome": "ECOLOGIA VEGETAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0014",
+          "nome": "CIENCIAS DO AMBIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0021",
+          "nome": "ECOLOGIA ANIMAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0024",
+          "nome": "ETOLOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "ECL0030",
+          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0033",
+          "nome": "ECOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0039",
+          "nome": "ECOLOGIA BASICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "ECL0042",
+          "nome": "MEIO AMBIENTE FISICO E ECOSSISTEMAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECL0043",
+          "nome": "ECOLOGIA DE POPULACOES E COMUNIDADES",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0021",
+          "nome": "HISTORIA ECONOMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0023",
+          "nome": "FORMACAO ECONOMICA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0025",
+          "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0027",
+          "nome": "ANALISE MICROECONOMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0032",
+          "nome": "ANALISE MACROECONOMICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0050",
+          "nome": "CONTABILIDADE NACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0099",
+          "nome": "MACROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0124",
+          "nome": "ECONOMIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0126",
+          "nome": "MICROECONOMIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0147",
+          "nome": "CONJUNTURA ECONOMICA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0159",
+          "nome": "ECONOMIA DO BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0185",
+          "nome": "MICROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0187",
+          "nome": "ECONOMIA QUANTITATIVA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0189",
+          "nome": "MACROECONOMIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "ECO0218",
+          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EFL0004",
+          "nome": "ECOLOGIA FLORESTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "ELA0013",
+          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0019",
+          "nome": "ESTATISTICA APLICADA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0023",
+          "nome": "PROBABILIDADE E ESTATISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0024",
+          "nome": "ESTATISTICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0030",
+          "nome": "ESTATISTICA ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0033",
+          "nome": "ESTATISTICA EXPLORATORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0034",
+          "nome": "ANALISE ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0035",
+          "nome": "INFERENCIA ESTATISTICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0036",
+          "nome": "TECNICAS DE AMOSTRAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0038",
+          "nome": "ANALISE DE REGRESSAO LINEAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0042",
+          "nome": "DELINEAMENTO E ANALISE DE EXPERIMENTOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "EST0046",
+          "nome": "DEMOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0047",
+          "nome": "APLICACOES DA ESTATISTICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0069",
+          "nome": "INTRODUCAO A PROBABILIDADE",
+          "ch": "60"
+        },
+        {
+          "codigo": "EST0070",
+          "nome": "METODOS ESTATISTICOS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0016",
+          "nome": "ESTETICA E CULTURA DE MASSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0019",
+          "nome": "POLITICAS CULTURAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0020",
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAC0021",
+          "nome": "TEORIAS DA COMUNICACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0075",
+          "nome": "EMBRIOLOGIA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FAR0124",
+          "nome": "GENETICA BASICA E MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0013",
+          "nome": "INTRODUCAO A MUSEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0014",
+          "nome": "MUSEOLOGIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0023",
+          "nome": "INTRODUCAO A BIBLIOTECONOMIA E CIENCIA DA INFORMACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0024",
+          "nome": "HISTORIA DO LIVRO E DAS BIBLIOTECAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0043",
+          "nome": "BIBLIOGRAFIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0049",
+          "nome": "BIBLIOTECONOMIA E SOCIEDADE BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0053",
+          "nome": "CONTROLE BIBLIOGRAFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0062",
+          "nome": "INTRODUCAO A ARQUIVOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCI0071",
+          "nome": "CONSERVACAO E RESTAURACAO DE DOCUMENTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0002",
+          "nome": "HISTORIA DO DIREITO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0006",
+          "nome": "INTRODUCAO AO DIREITO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0242",
+          "nome": "HISTORIA DO DIREITO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0105",
+          "nome": "PRATICA DESPORTIVA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FGA0157",
+          "nome": "PROBABILIDADE E ESTATISTICA APLICADO A ENGENHARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0003",
+          "nome": "FILOSOFIA CONTEMPORANEA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0007",
+          "nome": "FILOSOFIA GERAL E METAFISICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0029",
+          "nome": "EVOLUCAO DO PENSAMENTO FILOSOFICO E CIENTIFICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0034",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0039",
+          "nome": "HISTORIA DA FILOSOFIA MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0044",
+          "nome": "HISTORIA DA FILOSOFIA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0049",
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0050",
+          "nome": "HISTORIA DA FILOSOFIA NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0053",
+          "nome": "TEORIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0056",
+          "nome": "LOGICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0059",
+          "nome": "TEORIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0062",
+          "nome": "FILOSOFIA GERAL E PROBLEMAS METAFISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0063",
+          "nome": "ANTROPOLOGIA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0065",
+          "nome": "FILOSOFIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0068",
+          "nome": "ESTETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0069",
+          "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0077",
+          "nome": "INICIACAO A METODOLOGIA CIENTIFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0082",
+          "nome": "FILOSOFIA SOCIAL E POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0087",
+          "nome": "EPISTEMOLOGIA DAS CIENCIAS HUMANAS E SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0088",
+          "nome": "HERMENEUTICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0107",
+          "nome": "HISTORIA DA CIENCIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0114",
+          "nome": "HISTORIA DA FILOSOFIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0115",
+          "nome": "HISTORIA DA FILOSOFIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0116",
+          "nome": "HISTORIA DA FILOSOFIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0117",
+          "nome": "HISTORIA DA FILOSOFIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0124",
+          "nome": "FILOSOFIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0127",
+          "nome": "FILOSOFIA MARXISTA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0129",
+          "nome": "DIALETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0134",
+          "nome": "MITO E FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0136",
+          "nome": "FILOSOFIA DA RELIGIAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0156",
+          "nome": "HISTORIA DA CIENCIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0165",
+          "nome": "INTRODUCAO A HISTORIA DA FILOSOFIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0166",
+          "nome": "INTRODUCAO A PRATICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0167",
+          "nome": "ETICA FILOSOFICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0175",
+          "nome": "EPISTEMOLOGIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0176",
+          "nome": "FILOSOFIA POLITICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0177",
+          "nome": "FILOSOFIA MEDIEVAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0179",
+          "nome": "LOGICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0180",
+          "nome": "FILOSOFIA ANTIGA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0181",
+          "nome": "FILOSOFIA MODERNA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0182",
+          "nome": "ESTETICA E FILOSOFIA DA ARTE",
+          "ch": "90"
+        },
+        {
+          "codigo": "FIL0183",
+          "nome": "FILOSOFIA DA CIENCIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "FMD0445",
+          "nome": "FUNDAMENTOS DE PSICOPATOLOGIA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0447",
+          "nome": "PSICOLOGIA MEDICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "FMD0496",
+          "nome": "ANATOMIA MEDICA",
+          "ch": "180"
+        },
+        {
+          "codigo": "GEA0004",
+          "nome": "URBANIZACAO NA AMERICA LATINA E CARIBE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0010",
+          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0012",
+          "nome": "GEOGRAFIA AGRARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0014",
+          "nome": "REGIONALIZACAO DO ESPACO BRASILEIRO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0017",
+          "nome": "GEOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0018",
+          "nome": "GEOGRAFIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0032",
+          "nome": "GEOGRAFIA URBANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0038",
+          "nome": "GEOMORFOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0039",
+          "nome": "GEOGRAFIA HUMANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0041",
+          "nome": "GEOGRAFIA HUMANA E ECONOMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0042",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "GEA0043",
+          "nome": "CARTOGRAFIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0044",
+          "nome": "GEOGRAFIA DO MEIO AMBIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0051",
+          "nome": "INTRODUCAO A CIENCIA GEOGRAFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0060",
+          "nome": "CLIMATOLOGIA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEA0089",
+          "nome": "CARTOGRAFIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0005",
+          "nome": "GENETICA E BIOLOGIA MOLECULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0014",
+          "nome": "GENETICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0015",
+          "nome": "GENETICA HUMANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0024",
+          "nome": "FUNDAMENTOS DE GENETICA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "GEM0055",
+          "nome": "GENETICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0005",
+          "nome": "TOPICO DE METODOLOGIA DE HISTORIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0007",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
+          "ch": "165"
+        },
+        {
+          "codigo": "HIS0008",
+          "nome": "HISTORIA DA AFRICA COLONIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0012",
+          "nome": "TOPICO ESPECIAL EM TEORIA DA HISTORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0013",
+          "nome": "TOPICO ESPECIAL EM METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0015",
+          "nome": "HISTORIA E HISTORIOGRAFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0016",
+          "nome": "HISTORIA DA PENINSULA IBERICA NA IDADE MEDIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0020",
+          "nome": "HISTORIA E HISTORIOGRAFIA DA ESCRAVIDAO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0022",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0029",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0030",
+          "nome": "PALEOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0031",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DA HISTORIA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0032",
+          "nome": "TOPICOS ESPECIAIS EM TEORIA DA HISTORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0036",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0037",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0038",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0039",
+          "nome": "HISTORIA E ARQUEOLOGIA DOS VASOS GREGOS ANTIGOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0040",
+          "nome": "HISTORIA E HISTORIOGRAFIA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0041",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0042",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0043",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0044",
+          "nome": "HISTORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0045",
+          "nome": "HISTORIA CULTURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0046",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0047",
+          "nome": "DIVULGACAO CIENTIFICA & HISTORIA PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0048",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0049",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0050",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0051",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0052",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MEDIEVAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0055",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0056",
+          "nome": "LABORATORIO DE PESQUISA EM HISTORIA INTELECTUAL - BRASIL",
+          "ch": "30"
+        },
+        {
+          "codigo": "HIS0058",
+          "nome": "HISTORIA DA CULTURA MEDIEVAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0059",
+          "nome": "LEITURA E ANALISE DE DOCUMENTOS HISTORICOS: SECULOS XIII/XVI 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0061",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0063",
+          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0064",
+          "nome": "HISTORIA DA CULTURA NA IDADE MEDIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0065",
+          "nome": "LABORATORIO DE CARTOGRAFIA E ICONOGRAFIA MEDIEVAIS",
+          "ch": "30"
+        },
+        {
+          "codigo": "HIS0067",
+          "nome": "TEORIA E METODOS EM ESTUDOS FEMINISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0070",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0072",
+          "nome": "TOPICO ESPECIAL EM HISTORIA MODERNA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0079",
+          "nome": "TOPICO ESPECIAL EM HISTORIA DAS IDEIAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0080",
+          "nome": "HISTORIA CONTEMPORANEA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0082",
+          "nome": "HISTORIA DA AMERICA DO NORTE E CARIBE CONTEMPORANEOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0083",
+          "nome": "HISTORIA CONTEMPORANEA DA URSS EUROPEIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0085",
+          "nome": "EPIGRAFIA E PALEOGRAFIA ANTIGAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0086",
+          "nome": "EPIGRAFIA E PALEOGRAFIA MEDIEVAL E MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0109",
+          "nome": "DISSERTACAO - HISTORIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "HIS0116",
+          "nome": "CULTURA IBERICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0120",
+          "nome": "HISTORIOGRAFIA DO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0121",
+          "nome": "HISTORIA DOS PARTIDOS POLITICOS NA REPUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0122",
+          "nome": "INTRODUCAO A HISTORIA DAS IDEIAS SOCIAIS NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0123",
+          "nome": "HISTORIA DO EXTREMO ORIENTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0125",
+          "nome": "HISTORIA MODERNA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0133",
+          "nome": "HISTORIA DOS PAISES ARABES",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0134",
+          "nome": "CULTURA IBERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0140",
+          "nome": "CULTURA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0141",
+          "nome": "CULTURA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0142",
+          "nome": "HISTORIA ANTIGA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0143",
+          "nome": "CULTURA BRASILEIRA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0147",
+          "nome": "PRATICA DE ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0149",
+          "nome": "PRATICA DE ENSINO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0150",
+          "nome": "HISTORIA REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0152",
+          "nome": "HISTORIA DA AMAZONIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0153",
+          "nome": "HISTORIA DAS RELIGIOES",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0154",
+          "nome": "SEMINARIO TEMATICO: VIOLENCIA E PODER",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0157",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0158",
+          "nome": "HISTORIA DA AMERICA NAO IBERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0159",
+          "nome": "HISTORIA DA AFRICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0160",
+          "nome": "NOSSA HERANCA O ILUMINISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0162",
+          "nome": "TEORIA DA HISTORIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0164",
+          "nome": "TOPICOS ESPECIAIS EM ESTUDOS CLASSICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0165",
+          "nome": "LEITURA E ANALISE DE DOCUMENTOS HISTORICOS: SECULOS XIII/XVI 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0167",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0168",
+          "nome": "HISTORIA, MUSICA E MEMORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0169",
+          "nome": "HISTORIA CONTEMPORANEA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0170",
+          "nome": "CULTURA E CIDADE: BRASIL CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0172",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0174",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0176",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0177",
+          "nome": "HISTORIA MEDIEVAL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0179",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0180",
+          "nome": "REPRESENTACOES E IMAGENS: SEXO E GENERO NA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0184",
+          "nome": "HISTORIA DA AFRICA PRE-COLONIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0186",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0188",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0190",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0192",
+          "nome": "LABORATORIO EM HISTORIA DO BRASIL REPUBLICA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "HIS0193",
+          "nome": "LABORATORIO DE ESTUDOS FEMINISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0194",
+          "nome": "HISTORIA E HISTORIOGRAFIA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0195",
+          "nome": "HISTORIA E HISTORIOGRAFIA DAS AMERICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0196",
+          "nome": "HISTORIA E HISTORIOGRAFIA DAS MULHERES NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0197",
+          "nome": "HISTORIA: NATUREZA E CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0199",
+          "nome": "TOPICO ESPECIAL EM ENSINO DE HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0200",
+          "nome": "HISTORIA E HISTORIOGRAFIA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0201",
+          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0202",
+          "nome": "HISTORIA DAS IDEIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0203",
+          "nome": "HISTORIA E HISTORIOGRAFIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0205",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "HIS0207",
+          "nome": "HISTORIA E HISTORIOGRAFIA DO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0208",
+          "nome": "HISTORIA CONTEMPORANEA DOS ESTADOS UNIDOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "HIS0210",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "ICB0098",
+          "nome": "MORFOLOGIA E TAXONOMIA VEGETAL",
+          "ch": "120"
+        },
+        {
+          "codigo": "IFD0353",
+          "nome": "PROGRAMACAO PARA SISTEMAS FISICOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0021",
+          "nome": "GEOLOGIA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0024",
+          "nome": "CRISTALOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0033",
+          "nome": "PETROLOGIA METAMORFICA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0036",
+          "nome": "PETROLOGIA IGNEA",
+          "ch": "135"
+        },
+        {
+          "codigo": "IGD0047",
+          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0049",
+          "nome": "PALEONTOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0051",
+          "nome": "ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0085",
+          "nome": "GEOLOGIA HISTORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0088",
+          "nome": "GEOLOGIA DO BRASIL",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0140",
+          "nome": "FUNDAMENTOS DE MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0142",
+          "nome": "GEOQUIMICA ANALITICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0143",
+          "nome": "DESENHO TECNICO GEOLOGICO",
+          "ch": "90"
+        },
+        {
+          "codigo": "IGD0147",
+          "nome": "MAPEAMENTO GEOLOGICO 1",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0148",
+          "nome": "GEOLOGIA ESTRUTURAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0150",
+          "nome": "GEOLOGIA ESTRUTURAL 2",
+          "ch": "105"
+        },
+        {
+          "codigo": "IGD0162",
+          "nome": "GEOQUIMICA GERAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0183",
+          "nome": "TOPOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0185",
+          "nome": "INTRODUCAO A MINERALOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0191",
+          "nome": "MAPEAMENTO GEOLOGICO 2",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0192",
+          "nome": "INTRODUCAO A FISICA DA TERRA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0194",
+          "nome": "MINERALOGIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "IGD0195",
+          "nome": "MINERALOGIA DE NAO SILICATOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0198",
+          "nome": "CARTOGRAFIA E GEODESIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0200",
+          "nome": "PETROLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0203",
+          "nome": "GEOLOGIA SEDIMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0210",
+          "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0211",
+          "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "30"
+        },
+        {
+          "codigo": "IGD0212",
+          "nome": "SEDIMENTOLOGIA 2 - PRODUTOS E PROCESSOS SEDIMENTARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "IGD0224",
+          "nome": "INTRODUCAO A GEOLOGIA ESTRUTURAL",
+          "ch": "75"
+        },
+        {
+          "codigo": "IGD0244",
+          "nome": "PETROLOGIA IGNEA E METAMORFICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0051",
+          "nome": "QUIMICA GERAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0058",
+          "nome": "FUNDAMENTOS DE QUIMICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0061",
+          "nome": "LABORATORIO DE QUIMICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0072",
+          "nome": "INTRODUCAO A QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0092",
+          "nome": "QUIMICA INORGANICA BASICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0095",
+          "nome": "QUIMICA ORGANICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0120",
+          "nome": "FUNDAMENTOS DE QUIMICA INORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0124",
+          "nome": "QUIMICA DOS ELEMENTOS REPRESENTATIVOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0125",
+          "nome": "QUIMICA GERAL TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0126",
+          "nome": "QUIMICA GERAL EXPERIMENTAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0131",
+          "nome": "QUIMICA ORGANICA PARA CIENCIAS BIOLOGICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0133",
+          "nome": "FUNDAMENTOS DE QUIMICA ORGANICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0153",
+          "nome": "QUIMICA GERAL E INORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0209",
+          "nome": "QUIMICA GERAL E ORGANICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "IQD0245",
+          "nome": "QUIMICA ORGANICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0252",
+          "nome": "QUIMICA GERAL E ORGANICA TEORICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IQD0259",
+          "nome": "PRINCIPIOS DE EQUILIBRIOS QUIMICOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0260",
+          "nome": "CALCULOS BASICOS DE QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0262",
+          "nome": "ESTRUTURA ATOMICA E LIGACOES QUIMICAS",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0263",
+          "nome": "PRINCIPIOS DA TERMODINAMICA E CINETICA QUIMICA",
+          "ch": "30"
+        },
+        {
+          "codigo": "IQD0296",
+          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0011",
+          "nome": "HISTORIA DA POLITICA EXTERIOR DO BRASIL",
+          "ch": "90"
+        },
+        {
+          "codigo": "IRI0012",
+          "nome": "HISTORIA DAS RELACOES INTERNACIONAIS CONTEMPORANEAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0013",
+          "nome": "INTRODUCAO AO ESTUDO DAS RELACOES INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0015",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0023",
+          "nome": "POLITICA EXTERNA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0045",
+          "nome": "POLITICA EXTERNA DAS GRANDES POTENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0047",
+          "nome": "GEOPOLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0048",
+          "nome": "INTEGRACAO REGIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0052",
+          "nome": "TEORIA DAS RELACOES INTERNACIONAIS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0059",
+          "nome": "DIVISAO INTERNACIONAL DO TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0065",
+          "nome": "RELACOES ECONOMICAS INTERNACIONAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0066",
+          "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0168",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "IRI0169",
+          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0045",
+          "nome": "TEORIAS DA COMUNICACAO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0050",
+          "nome": "HISTORIA DA IMPRENSA",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0060",
+          "nome": "IMPRENSA SINDICAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "JOR0078",
+          "nome": "INTRODUCAO A COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0044",
+          "nome": "LINGUA ALEMA INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0059",
+          "nome": "CULTURA E INSTITUICOES INGLESAS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0060",
+          "nome": "CIVILIZACAO DE PAISES FRANCOFONOS",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0064",
+          "nome": "CULTURA E INSTITUICOES NORTE AMERICANAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0067",
+          "nome": "CULTURA ALEMA 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0068",
+          "nome": "CULTURA ALEMA 2",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0069",
+          "nome": "CULTURA DOS PAISES DE LINGUA ALEMA",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0077",
+          "nome": "LINGUA FRANCESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0084",
+          "nome": "LINGUA INGLESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0085",
+          "nome": "LINGUA INGLESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0101",
+          "nome": "LINGUA ALEMA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0102",
+          "nome": "LINGUA ALEMA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0103",
+          "nome": "LINGUA ALEMA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0116",
+          "nome": "LINGUA ALEMA INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0118",
+          "nome": "LINGUA ESPANHOLA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0120",
+          "nome": "LINGUA ESPANHOLA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0162",
+          "nome": "INGLES INSTRUMENTAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0243",
+          "nome": "CULTURA JAPONESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0305",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0306",
+          "nome": "TEORIA E PRATICA DO ESPANHOL ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0323",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 4",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0324",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0325",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0326",
+          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0331",
+          "nome": "INGLES INSTRUMENTAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0332",
+          "nome": "CULTURA JAPONESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0376",
+          "nome": "LINGUA CHINESA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0377",
+          "nome": "LINGUA CHINESA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0378",
+          "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0432",
+          "nome": "FRANCES 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0433",
+          "nome": "FRANCES 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0001",
+          "nome": "ESTUDOS DE TRADUCAO DE PROSA GREGA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0002",
+          "nome": "ESTUDOS DE TRADUCAO DA POESIA GREGA ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0045",
+          "nome": "INTRODUCAO A LINGUISTICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0061",
+          "nome": "LATIM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0063",
+          "nome": "LATIM 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0065",
+          "nome": "LATIM 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0069",
+          "nome": "LATIM 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0107",
+          "nome": "GREGO 6",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0109",
+          "nome": "GREGO 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0110",
+          "nome": "GREGO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0113",
+          "nome": "GREGO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0025",
+          "nome": "CALCULO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0026",
+          "nome": "CALCULO 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0027",
+          "nome": "CALCULO 3",
+          "ch": "90"
+        },
+        {
+          "codigo": "MAT0031",
+          "nome": "INTRODUCAO A ALGEBRA LINEAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0075",
+          "nome": "CALCULO DE PROBABILIDADE 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0059",
+          "nome": "ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0073",
+          "nome": "PRODUCAO E LEITURA DA IMAGEM",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0077",
+          "nome": "EDUCACAO COMUNITARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0101",
+          "nome": "LITERATURA E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0236",
+          "nome": "MUSICA E SOCIEDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0237",
+          "nome": "MUSICA E SOCIEDADE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MUS0735",
+          "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0015",
+          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0020",
+          "nome": "ETICA PROFISSIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0021",
+          "nome": "PSICOPATOLOGIA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0025",
+          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0027",
+          "nome": "TEORIAS PSICANALITICAS 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0040",
+          "nome": "TEORIAS PSICANALITICAS 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0043",
+          "nome": "PSICODRAMA",
+          "ch": "90"
+        },
+        {
+          "codigo": "PCL0061",
+          "nome": "FUNDAMENTOS DA PSICOLOGIA CLINICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
+          "ch": "90"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0071",
+          "nome": "PSICOLOGIA: CURSO E PROFISSAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0010",
+          "nome": "HISTORIA SOCIAL E POLITICA LATINO-AMERICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0011",
+          "nome": "INTRODUCAO A CIENCIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0012",
+          "nome": "TEORIA POLITICA MODERNA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0013",
+          "nome": "TEORIA POLITICA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0015",
+          "nome": "ELITES POLITICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0017",
+          "nome": "POLITICA BRASILEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0019",
+          "nome": "POLITICA E SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0021",
+          "nome": "TOPICOS ESPECIAIS EM CIENCIA POLITICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0022",
+          "nome": "COMPORTAMENTO POLITICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0030",
+          "nome": "ANALISE POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0032",
+          "nome": "POLITICA BRASILEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0033",
+          "nome": "TEORIA POLITICA CLASSICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0035",
+          "nome": "POLITICA REGIONAL AFRICANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0036",
+          "nome": "PENSAMENTO POLITICO LATINO-AMERICANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0037",
+          "nome": "PARTIDOS POLITICOS E SISTEMAS ELEITORAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0042",
+          "nome": "POLITICA E MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0046",
+          "nome": "PENSAMENTO POLITICO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0047",
+          "nome": "ESTRUTURA DO PODER NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0048",
+          "nome": "POLITICA E ECONOMIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0049",
+          "nome": "MUDANCA POLITICA NA AMERICA DO SUL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0050",
+          "nome": "MUDANCA POLITICA NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0051",
+          "nome": "ESTADO E DESENVOLVIMENTO NO BRASIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0055",
+          "nome": "FUNDAMENTOS DE POLITICAS PUBLICAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0059",
+          "nome": "TEORIA E METODOS MARXISTAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "POL0060",
+          "nome": "POLITICAS PUBLICAS E TEORIA POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0014",
+          "nome": "INTRODUCAO A PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0017",
+          "nome": "PSICOLOGIA DA APRENDIZAGEM 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0021",
+          "nome": "HISTORIA  DA PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0022",
+          "nome": "HISTORIA E SISTEMAS DA PSICOLOGIA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0041",
+          "nome": "FILOSOFIA DA PSICOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PST0011",
+          "nome": "PSICOLOGIA SOCIAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0015",
+          "nome": "POLITICA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0031",
+          "nome": "ANALISE DE POLITICAS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0033",
+          "nome": "MOVIMENTOS SOCIAIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0057",
+          "nome": "POLITICA SOCIAL ESPECIAL 8 - POLITICA DISTRIBUTIVA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0065",
+          "nome": "QUESTAO URBANA E POLITICA HABITACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0066",
+          "nome": "POLITICA SOCIAL ESPECIAL 2 - AGRARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0068",
+          "nome": "INFANCIA, ADOLESCENCIA E CIDADANIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0076",
+          "nome": "SEGURIDADE SOCIAL 2 - SAUDE",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0077",
+          "nome": "POLITICA SOCIAL ESPECIAL 7 - PREVIDENCIA SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SER0085",
+          "nome": "PARTICIPACAO SOCIO-POLITICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0037",
+          "nome": "SOCIOLOGIA BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0042",
+          "nome": "INTRODUCAO A SOCIOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0044",
+          "nome": "TEORIA SOCIOLOGICA 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0045",
+          "nome": "TEORIA SOCIOLOGICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0053",
+          "nome": "TEORIAS DA SOCIALIZACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0058",
+          "nome": "SOCIOLOGIA DO CONHECIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0063",
+          "nome": "ESTRUTURA DE CLASSES E ESTRATIFICACAO SOCIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0080",
+          "nome": "SOCIOLOGIA DA CIENCIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0089",
+          "nome": "SOCIOLOGIA DA CULTURA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0092",
+          "nome": "SOCIOLOGIA DA COMUNICACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0094",
+          "nome": "SOCIOLOGIA DA IDEOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0097",
+          "nome": "METODOS SOCIOLOGICOS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0098",
+          "nome": "TECNICAS DE PESQUISA",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0099",
+          "nome": "DESENVOLVIMENTO E EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0100",
+          "nome": "SOCIOLOGIA RURAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0101",
+          "nome": "SOCIOLOGIA URBANA",
+          "ch": "60"
+        },
+        {
+          "codigo": "SOL0103",
+          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0104",
+          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "SOL0105",
+          "nome": "TEORIAS SOCIOLOGICAS MARXISTAS",
+          "ch": "90"
+        },
+        {
+          "codigo": "TEF0009",
+          "nome": "INTRODUCAO A EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0015",
+          "nome": "HISTORIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0016",
+          "nome": "HISTORIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0021",
+          "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0046",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0065",
+          "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0095",
+          "nome": "PRATICA EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0118",
+          "nome": "PERSPECTIVAS DO DESENVOLVIMENTO HUMANO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0004",
+          "nome": "TRAGEDIA GREGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0008",
+          "nome": "LITERATURA PORTUGUESA - RENASCIMENTO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0009",
+          "nome": "LITERATURA PORTUGUESA - MEDIEVALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0021",
+          "nome": "LITERATURA BRASILEIRA - ROMANTISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0022",
+          "nome": "LITERATURA BRASILEIRA - REALISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0023",
+          "nome": "LITERATURA BRASILEIRA - MODERNISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0024",
+          "nome": "LITERATURA BRASILEIRA - BARROCO E ARCADISMO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0026",
+          "nome": "LITERATURA BRASILEIRA CONTEMPORANEA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0029",
+          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0051",
+          "nome": "LITERATURA GREGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0056",
+          "nome": "LITERATURA AFRICANA EM LINGUA PORTUGUESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0067",
+          "nome": "LITERATURA HISPANO-AMERICANA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0068",
+          "nome": "LITERATURA HISPANO-AMERICANA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0069",
+          "nome": "LITERATURA HISPANO-AMERICANA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0070",
+          "nome": "LITERATURA HISPANO - AMERICANA 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0107",
+          "nome": "LITERATURA HISPANO - AMERICANA 1 - SECULOS 16,17 E 18",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0108",
+          "nome": "LITERATURA ESPANHOLA 1 - IDADE MEDIA E SIGLO DE ORO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0110",
+          "nome": "CULTURA CLASSICA 1 - GRECIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0111",
+          "nome": "CULTURA CLASSICA 2 - ROMA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0001",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0005",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0060",
+          "nome": "ELEMENTOS DE LINGUAGEM, ESTETICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0061",
+          "nome": "HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0114",
+          "nome": "HISTORIA DA ARTE 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0122",
+          "nome": "ELEMENTOS DE LINGUAGEM, ARTE E CULTURA POPULAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0129",
+          "nome": "FUNDAMENTOS DA LINGUAGEM VISUAL",
+          "ch": "90"
+        },
+        {
+          "codigo": "VIS0141",
+          "nome": "HISTORIA DA ARTE ANTIGA",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0189",
+          "nome": "HISTORIA DA ARTE 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0190",
+          "nome": "HISTORIA DA ARTE 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0257",
+          "nome": "TEORIA E HISTORIA DA ARTE",
+          "ch": "60"
+        },
+        {
+          "codigo": "VIS0294",
+          "nome": "TEORIA, CRITICA E HISTORIA DA ARTE 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "DAN0022",
+          "nome": "INTRODUCAO A ANTROPOLOGIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0084",
+          "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0088",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0132",
+          "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0090",
+          "nome": "HISTORIA ANTIGA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0091",
+          "nome": "HISTORIA MEDIEVAL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0097",
+          "nome": "HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0100",
+          "nome": "HISTORIA DO BRASIL 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0093",
+          "nome": "HISTORIA MODERNA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0099",
+          "nome": "HISTORIA DA AMERICA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0102",
+          "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0138",
+          "nome": "HISTORIA MEDIEVAL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0095",
+          "nome": "HISTORIA MODERNA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0104",
+          "nome": "HISTORIA DO BRASIL 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0106",
+          "nome": "HISTORIA CONTEMPORANEA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0107",
+          "nome": "HISTORIA CONTEMPORANEA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0129",
+          "nome": "HISTORIA DO BRASIL 4",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0003",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0028",
+          "nome": "PRATICA DE PESQUISA HISTORICA",
+          "ch": "90"
+        },
+        {
+          "codigo": "HIS0126",
+          "nome": "HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0010",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
+          "ch": "90"
+        }
+      ]
+    }
+  ]
+}
