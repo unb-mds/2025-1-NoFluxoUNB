@@ -59,13 +59,17 @@ class _AppNavbarState extends State<AppNavbar> {
                 // Botão "MEUS FLUXOGRAMAS" só aparece quando:
                 // 1. Usuário está logado
                 // 2. Usuário já fez upload do fluxograma (dadosFluxograma != null)
-                if (SharedPreferencesHelper.currentUser != null &&
-                    SharedPreferencesHelper.currentUser!.dadosFluxograma !=
-                        null) ...[
+                if (SharedPreferencesHelper.currentUser != null) ...[
                   const SizedBox(width: 16),
                   GradientUnderlineButton(
                     onPressed: () {
-                      context.go('/meu-fluxograma');
+                      if (SharedPreferencesHelper
+                              .currentUser!.dadosFluxograma !=
+                          null) {
+                        context.go('/meu-fluxograma');
+                      } else {
+                        context.go('/upload-historico');
+                      }
                     },
                     text: 'MEUS FLUXOGRAMAS',
                   ),

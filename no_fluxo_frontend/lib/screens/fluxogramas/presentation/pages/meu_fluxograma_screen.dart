@@ -26,7 +26,14 @@ import '../widgets/prerequisite_chain_dialog.dart';
 import '../widgets/prerequisite_indicator_widget.dart';
 import '../widgets/tool_modals.dart';
 import 'dart:ui';
+import 'dart:typed_data';
 import 'package:go_router/go_router.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 
 import '../widgets/materia_data_dialog_content.dart';
 
@@ -51,6 +58,9 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
   bool loading = false;
   String? errorMessage;
+
+  // Screenshot controller for PDF generation
+  final ScreenshotController screenshotController = ScreenshotController();
 
   @override
   void initState() {
@@ -164,6 +174,115 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     }
   }
 
+  Future<void> saveFluxogramAsPdf() async {
+    bool closed = false;
+    try {
+      // Show loading indicator
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      );
+
+      // Capture the widget as image
+      final Uint8List? imageBytes = await screenshotController.capture(
+        delay: const Duration(milliseconds: 500),
+        pixelRatio: 2.0,
+      );
+
+      if (imageBytes == null) {
+        throw Exception('Erro ao capturar imagem do fluxograma');
+      }
+
+      // Create PDF document
+      final pdf = pw.Document();
+
+      // Convert image to PDF format
+      final image = pw.MemoryImage(imageBytes);
+
+      pdf.addPage(
+        pw.Page(
+          pageFormat: PdfPageFormat.a4.landscape,
+          margin: const pw.EdgeInsets.all(32),
+          build: (pw.Context context) {
+            return pw.Center(
+              child: pw.Column(
+                children: [
+                  pw.Text(
+                    'Fluxograma - ${currentCourseData?.nomeCurso ?? 'Curso'}',
+                    style: pw.TextStyle(
+                      fontSize: 18,
+                      fontWeight: pw.FontWeight.bold,
+                    ),
+                  ),
+                  pw.SizedBox(height: 20),
+                  pw.Expanded(
+                    child: pw.Image(
+                      image,
+                      fit: pw.BoxFit.contain,
+                    ),
+                  ),
+                  pw.SizedBox(height: 20),
+                  pw.Text(
+                    'Gerado em: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                    style: const pw.TextStyle(
+                      fontSize: 12,
+                      color: PdfColors.grey700,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      );
+
+      // Close loading dialog
+      if (context.mounted) {
+        Navigator.of(context).pop();
+      }
+
+      // Save or share the PDF
+      await Printing.layoutPdf(
+        onLayout: (PdfPageFormat format) async => pdf.save(),
+        name:
+            'fluxograma_${currentCourseData?.nomeCurso?.replaceAll(' ', '_') ?? 'curso'}.pdf',
+      );
+
+      // Show success message
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Fluxograma salvo como PDF com sucesso!'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
+    } catch (e) {
+      if (!closed) {
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
+      }
+
+      log.severe('Erro ao salvar PDF: $e');
+
+      // Show error message
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Erro ao salvar PDF: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,7 +321,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     isAnonymous:
                                         SharedPreferencesHelper.isAnonimo,
                                     courseData: currentCourseData,
-                                    onSaveFluxograma: () {},
+                                    onSaveFluxograma: saveFluxogramAsPdf,
                                     onAddMateria: () {},
                                     onAddOptativa: () {},
                                   ),
@@ -228,18 +347,22 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       });
                                     },
                                   ),
-                                  FluxogramContainer(
-                                    courseData: currentCourseData,
-                                    zoomLevel: zoomLevel,
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
-                                    showPrereqChains: showPrereqChains,
-                                    showConnections: showConnections,
-                                    onShowPrerequisiteChain:
-                                        _showPrerequisiteChainDialog,
-                                    onBuildPrerequisiteIndicator:
-                                        _buildPrerequisiteIndicator,
-                                    onShowMateriaDialog: _showMateriaDataDialog,
+                                  Screenshot(
+                                    controller: screenshotController,
+                                    child: FluxogramContainer(
+                                      courseData: currentCourseData,
+                                      zoomLevel: zoomLevel,
+                                      isAnonymous:
+                                          SharedPreferencesHelper.isAnonimo,
+                                      showPrereqChains: showPrereqChains,
+                                      showConnections: showConnections,
+                                      onShowPrerequisiteChain:
+                                          _showPrerequisiteChainDialog,
+                                      onBuildPrerequisiteIndicator:
+                                          _buildPrerequisiteIndicator,
+                                      onShowMateriaDialog:
+                                          _showMateriaDataDialog,
+                                    ),
                                   ),
                                   ProgressSummarySection(
                                     isAnonymous:

@@ -395,8 +395,12 @@ export const FluxogramaController: EndpointController = {
 
                 logger.info(`Loaded ${outrasMatrizes?.length || 0} course matrices`);
 
-                // Corrigir: declarar disciplinasCasadas antes de qualquer uso
+                // Initialize result arrays
                 const disciplinasCasadas: any[] = [];
+                const materiasConcluidas: any[] = [];
+                const materiasPendentes: any[] = [];
+                const materiasOptativasConcluidas: any[] = [];
+                const materiasOptativasPendentes: any[] = [];
 
                 // Initialize validation data
                 const dadosValidacao = {
@@ -483,98 +487,33 @@ export const FluxogramaController: EndpointController = {
                     }
                 }
 
-                // NOVA LÓGICA: para cada matéria da matriz, verifica se foi concluída diretamente ou por equivalência
-                const materiasConcluidasDiretas: any[] = [];
-                const materiasConcluidasEquivalencia: any[] = [];
-                const materiasPendentes: any[] = [];
-                const materiasOptativasConcluidas: any[] = [];
-                const materiasOptativasPendentes: any[] = [];
+                // CLASSIFY MATCHED DISCIPLINES
+                for (const disciplinaCasada of disciplinasCasadas) {
+                    const isCompleted = disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP';
+                    const isInProgress = disciplinaCasada.status === 'MATR';
+                    const isElective = disciplinaCasada.tipo === 'optativa';
 
-                // Array de códigos de disciplinas do histórico aprovadas
-                const codigosAprovadosHistorico = disciplinasCasadas
-                    .filter(d => d.status === 'APR' || d.status === 'CUMP')
-                    .map(d => d.codigo?.replace(/\s+/g, '').toUpperCase());
-
-                for (const materiaBanco of materiasBancoList) {
-                    const obrigatoria = materiaBanco.nivel > 0;
-                    const codigoMateria = materiaBanco.materias.codigo_materia?.replace(/\s+/g, '').toUpperCase();
-                    const nomeMateria = materiaBanco.materias.nome_materia;
-                    logger.info(`[DEBUG MATRIZ] Analisando matéria da matriz: ${codigoMateria} - ${nomeMateria}`);
-                    // 1. Verifica se foi concluída diretamente
-                    const disciplinaDireta = disciplinasCasadas.find(d =>
-                        d.codigo?.replace(/\s+/g, '').toUpperCase() === codigoMateria && (d.status === 'APR' || d.status === 'CUMP')
-                    );
-                    if (disciplinaDireta) {
-                        logger.info(`[DEBUG MATRIZ] Matéria ${codigoMateria} - ${nomeMateria} concluída diretamente pelo histórico.`);
-                        const obj = {
-                            materias: {
-                                nome_materia: nomeMateria,
-                                codigo_materia: codigoMateria
-                            },
-                            status_fluxograma: 'concluida',
-                            info_historico: {
-                                codigo: disciplinaDireta.codigo,
-                                nome: disciplinaDireta.nome,
-                                status: disciplinaDireta.status
-                            }
-                        };
-                        if (obrigatoria) {
-                            materiasConcluidasDiretas.push(obj);
+                    if (isCompleted) {
+                        const completedSubject = { ...disciplinaCasada, status_fluxograma: 'concluida' };
+                        if (isElective) {
+                            materiasOptativasConcluidas.push(completedSubject);
                         } else {
-                            materiasOptativasConcluidas.push(obj);
+                            materiasConcluidas.push(completedSubject);
                         }
-                        continue;
-                    }
-                    // 2. Se não, procura equivalências
-                    const equivalenciasParaMateria = allEquivalencies?.filter(eq => eq.id_materia === materiaBanco.id_materia) || [];
-                    let encontradaEquivalencia = null;
-                    for (const eq of equivalenciasParaMateria) {
-                        const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-                        for (const codigoEq of codigosEquivalentes) {
-                            const disciplinaEquivalente = disciplinasCasadas.find(d =>
-                                d.codigo?.replace(/\s+/g, '').toUpperCase() === codigoEq && (d.status === 'APR' || d.status === 'CUMP')
-                            );
-                            if (disciplinaEquivalente) {
-                                encontradaEquivalencia = disciplinaEquivalente;
-                                break;
-                            }
-                        }
-                        if (encontradaEquivalencia) break;
-                    }
-                    if (encontradaEquivalencia) {
-                        logger.info(`[DEBUG MATRIZ] Matéria ${codigoMateria} - ${nomeMateria} concluída por equivalência (${encontradaEquivalencia.codigo} - ${encontradaEquivalencia.nome})`);
-                        const obj = {
-                            materias: {
-                                nome_materia: nomeMateria,
-                                codigo_materia: codigoMateria
-                            },
-                            status_fluxograma: 'concluida_equivalencia',
-                            info_equivalente: {
-                                codigo: encontradaEquivalencia.codigo,
-                                nome: encontradaEquivalencia.nome,
-                                status: encontradaEquivalencia.status
-                            }
-                        };
-                        if (obrigatoria) {
-                            materiasConcluidasEquivalencia.push(obj);
+                    } else if (isInProgress) {
+                        const inProgressSubject = { ...disciplinaCasada, status_fluxograma: 'em_andamento' };
+                        if (isElective) {
+                            materiasOptativasPendentes.push(inProgressSubject);
                         } else {
-                            materiasOptativasConcluidas.push(obj); // optativa cumprida por equivalência conta como concluída
+                            materiasPendentes.push(inProgressSubject);
                         }
-                        continue;
-                    }
-                    // 3. Se não, marca como pendente
-                    logger.info(`[DEBUG MATRIZ] Matéria ${codigoMateria} - ${nomeMateria} marcada como pendente.`);
-                    const objPendente = {
-                        materias: {
-                            nome_materia: nomeMateria,
-                            codigo_materia: codigoMateria
-                        },
-                        status_fluxograma: 'pendente'
-                    };
-                    if (obrigatoria) {
-                        materiasPendentes.push(objPendente);
                     } else {
-                        materiasOptativasPendentes.push(objPendente);
+                        const pendingSubject = { ...disciplinaCasada, status_fluxograma: 'pendente' };
+                        if (isElective) {
+                            materiasOptativasPendentes.push(pendingSubject);
+                        } else {
+                            materiasPendentes.push(pendingSubject);
+                        }
                     }
                 }
 
@@ -600,20 +539,6 @@ export const FluxogramaController: EndpointController = {
                     const equivalenciasParaMateria = allEquivalencies?.filter(eq =>
                         eq.id_materia === materiaObrigatoria.id_materia
                     ) || [];
-
-                    for (const eq of equivalenciasParaMateria) {
-                        const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-                        logger.info(`Equivalência para ${materiaObrigatoria.codigo}: expressão='${eq.expressao}', códigos extraídos=${JSON.stringify(codigosEquivalentes)}`);
-                        for (const codigoEq of codigosEquivalentes) {
-                            logger.info(`Comparando código da equivalência: ${codigoEq}`);
-                            const encontrada = disciplinasCasadas.find(
-                                d => d.codigo && d.codigo.replace(/\s+/g, '').toUpperCase() === codigoEq.replace(/\s+/g, '').toUpperCase() && (d.status === 'APR' || d.status === 'CUMP')
-                            );
-                            if (encontrada) {
-                                logger.info(`Encontrada equivalência: disciplina do histórico ${encontrada.codigo} para obrigatória ${materiaObrigatoria.codigo}`);
-                            }
-                        }
-                    }
 
                     const cumpridaPorEquivalencia = checkEquivalencies(
                         disciplinasCasadas,
@@ -684,7 +609,7 @@ export const FluxogramaController: EndpointController = {
 
                 // FINAL CALCULATIONS
                 const todasMateriasPendentes = [...materiasPendentes, ...materiasPendentesFinais];
-                const todasMateriasConcluidas = [...materiasConcluidasDiretas, ...materiasConcluidasEquivalencia];
+                const todasMateriasConcluidas = [...materiasConcluidas, ...materiasConcluidasPorEquivalencia];
                 const todasMateriasOptativas = optativasRestantes;
 
                 // Calculate integrated hours
@@ -704,16 +629,21 @@ export const FluxogramaController: EndpointController = {
                 logger.info(`Electives: ${todasMateriasOptativas.length}`);
                 logger.info(`Completion percentage: ${(todasMateriasConcluidas.length / (todasMateriasConcluidas.length + todasMateriasPendentes.length) * 100).toFixed(2)}%`);
 
-                // No final, retorne os novos campos para o frontend, filtrando nulls:
                 return res.status(200).json({
-                    materias_concluidas: (materiasConcluidasDiretas ?? []).filter(Boolean),
-                    materias_concluidas_equivalencia: (materiasConcluidasEquivalencia ?? []).filter(Boolean),
-                    materias_pendentes: (materiasPendentes ?? []).filter(Boolean),
-                    materias_optativas_concluidas: (materiasOptativasConcluidas ?? []).filter(Boolean),
-                    materias_optativas_pendentes: (materiasOptativasPendentes ?? []).filter(Boolean),
+                    disciplinas_casadas: disciplinasCasadas,
+                    materias_concluidas: todasMateriasConcluidas,
+                    materias_pendentes: todasMateriasPendentes,
+                    materias_optativas: todasMateriasOptativas,
                     dados_validacao: dadosValidacao,
                     curso_extraido: curso_extraido,
-                    matriz_curricular: matriz_curricular
+                    matriz_curricular: matriz_curricular,
+                    resumo: {
+                        total_disciplinas: disciplinasCasadas.length,
+                        total_obrigatorias_concluidas: todasMateriasConcluidas.length,
+                        total_obrigatorias_pendentes: todasMateriasPendentes.length,
+                        total_optativas: todasMateriasOptativas.length,
+                        percentual_conclusao_obrigatorias: todasMateriasConcluidas.length / (todasMateriasConcluidas.length + todasMateriasPendentes.length) * 100
+                    }
                 });
 
             } catch (error: any) {
