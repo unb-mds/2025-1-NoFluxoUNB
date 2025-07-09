@@ -18,6 +18,7 @@ const level = () => {
 
 // Define colors for each level
 const colors = {
+
     error: 'red',
     warn: 'yellow',
     info: 'green',
