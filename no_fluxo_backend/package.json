@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "setup-tesseract": "node scripts/setup-tesseract.js",
-    "build": "npm run setup-tesseract && tsc",
+    "build": "tsc",
+    "build-with-tesseract": "npm run setup-tesseract && tsc",
     "start": "node dist/index.js",
     "dev": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
