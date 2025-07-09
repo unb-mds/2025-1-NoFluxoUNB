@@ -220,21 +220,27 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         if git_username and git_token:
             config_backup = setup_git_credential_helper(git_username, git_token, fork_path)
         
-        # Get fork's origin URL and ensure it's clean (no embedded credentials)
+        # Ensure fork's origin URL is clean (no embedded credentials)
         try:
             fork_origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"], stderr=subprocess.PIPE).decode().strip()
-            # Remove any existing authentication from the URL
-            if '@' in fork_origin_url:
-                clean_url = 'https://' + fork_origin_url.split('@')[1]
+            log_message(f"Python: Current fork origin URL: {fork_origin_url}")
+            
+            # Always clean the URL to remove any embedded credentials
+            if '@' in fork_origin_url and 'github.com' in fork_origin_url:
+                # Extract just the github.com part
+                clean_url = 'https://github.com/' + fork_origin_url.split('github.com/')[1]
                 subprocess.run(["git", "remote", "set-url", "origin", clean_url], check=True)
-                log_message("Python: Cleaned fork's origin URL")
+                log_message(f"Python: Cleaned fork's origin URL to: {clean_url}")
+            else:
+                log_message("Python: Fork origin URL is already clean")
+                
         except subprocess.CalledProcessError as e:
-            log_message(f"Python: Warning - Could not get/set fork's origin URL: {e.stderr.decode().strip()}")
+            log_message(f"Python: Warning - Could not get fork's origin URL: {e.stderr.decode().strip() if e.stderr else str(e)}")
             # If origin doesn't exist, try to add it
             if git_username and git_token:
                 fork_url = f"https://github.com/{git_username}/2025-1-NoFluxoUNB.git"
                 subprocess.run(["git", "remote", "add", "origin", fork_url], check=True)
-                log_message("Python: Added fork's origin remote")
+                log_message(f"Python: Added fork's origin remote: {fork_url}")
             else:
                 raise Exception("No authentication provided and origin remote doesn't exist")
 
