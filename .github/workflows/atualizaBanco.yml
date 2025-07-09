@@ -20,7 +20,7 @@ jobs:
         python-version: '3.11'
 
     - name: Instalar dependências
-      run: pip install -r requirements.txt
+      run: pip install -r coleta_dados/scraping/requirements.txt
 
     - name: Executar script do Supabase
       run: python coleta_dados/scraping/integracao_banco.py
