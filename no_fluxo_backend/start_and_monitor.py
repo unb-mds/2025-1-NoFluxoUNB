@@ -36,6 +36,42 @@ def pull_updates(repo_dir, branch):
     subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
     subprocess.run(["git", "pull", "origin", branch], check=True)
 
+def update_fork_repo(fork_path, branch):
+    """Update the fork repository with the latest changes."""
+    if not fork_path or not os.path.exists(fork_path):
+        log_message(f"Python: Fork path {fork_path} does not exist. Skipping fork update.")
+        return
+    
+    try:
+        # Save current directory
+        original_dir = os.getcwd()
+        
+        # Change to fork directory
+        os.chdir(fork_path)
+        log_message(f"Python: Updating fork repository at {fork_path}")
+        
+        # Fetch latest changes from upstream/origin
+        subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        
+        # Reset and pull latest changes
+        log_message(f"Python: Performing a hard reset and pull on fork from {branch}.")
+        subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
+        subprocess.run(["git", "pull", "origin", branch], check=True)
+        
+        log_message(f"Python: Fork repository updated successfully.")
+        
+        # Return to original directory
+        os.chdir(original_dir)
+        
+    except subprocess.CalledProcessError as e:
+        log_message(f"Python: Error updating fork repository: {e}")
+        # Return to original directory even if there was an error
+        os.chdir(original_dir)
+    except Exception as e:
+        log_message(f"Python: Unexpected error updating fork repository: {e}")
+        # Return to original directory even if there was an error
+        os.chdir(original_dir)
+
 def start_process(command):
     """Start a subprocess with the given command and print logs in real time."""
     log_message(f"Python: Starting subprocess with command: {command}")
@@ -87,18 +123,27 @@ def restart_process_if_crashed(process, command):
 def main():
     parser = argparse.ArgumentParser(description='Monitor and auto-update a git repository.')
     parser.add_argument('--branch', default='main', help='Git branch to monitor (default: main)')
+    parser.add_argument('--fork-location', help='Path to fork repository that should be updated when origin changes')
     args = parser.parse_args()
 
     REPO_DIR = "./"  # Replace with the path to your repository
     START_COMMAND = "npm run build-and-start"
     CHECK_INTERVAL = 10  # Interval in seconds to check for updates
     BRANCH = args.branch
+    FORK_LOCATION = args.fork_location
 
     dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(dir)
 
     log_message(f"Python: Current working directory: {os.getcwd()}")
     log_message(f"Python: Monitoring branch: {BRANCH}")
+    
+    if FORK_LOCATION:
+        log_message(f"Python: Fork repository location: {FORK_LOCATION}")
+        if not os.path.exists(FORK_LOCATION):
+            log_message(f"Python: Warning - Fork location {FORK_LOCATION} does not exist!")
+    else:
+        log_message("Python: No fork repository specified.")
 
     process = start_process(START_COMMAND)
 
@@ -108,6 +153,11 @@ def main():
                 log_message(f"Python: New changes detected in branch {BRANCH}. Updating...")
                 stop_process(process)
                 pull_updates(REPO_DIR, BRANCH)
+                
+                # Update fork repository if specified
+                if FORK_LOCATION:
+                    update_fork_repo(FORK_LOCATION, BRANCH)
+                
                 log_message("Python: Starting the process...")
                 process = start_process(START_COMMAND)
             else:
