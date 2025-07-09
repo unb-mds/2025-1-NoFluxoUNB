@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:stack_trace/stack_trace.dart';
@@ -12,11 +14,37 @@ enum EnvironmentType {
 
 class Environment {
   static String apiUrl = "http://localhost:3000";
+  static String redirectToUrl = "http://localhost:5000";
 
   static EnvironmentType environmentType = EnvironmentType.development;
+  static bool _initialized = false;
 
   static bool _loggingInitialized = false;
   static StreamSubscription<LogRecord>? _logSubscription;
+
+  /// Initialize environment configuration. This should be called once at app startup.
+  static void initialize() {
+    if (_initialized) return;
+
+    // Check for NO_FLUXO_PROD environment variable
+    bool isProd = false;
+
+    if (!kIsWeb) {
+      // On native platforms, check environment variables
+      isProd = Platform.environment.containsKey('NO_FLUXO_PROD');
+    } else {
+      // On web, check compile-time constant
+      isProd = const bool.fromEnvironment('NO_FLUXO_PROD', defaultValue: false);
+    }
+
+    if (isProd) {
+      setEnvironmentType(EnvironmentType.production);
+    } else {
+      setEnvironmentType(EnvironmentType.development);
+    }
+
+    _initialized = true;
+  }
 
   /// Initialize logging configuration. This should be called once at app startup.
   static void initializeLogging() {
@@ -83,7 +111,17 @@ class Environment {
   }
 
   static String getApiUrl() {
+    if (!_initialized) {
+      initialize();
+    }
     return apiUrl;
+  }
+
+  static String getRedirectToUrl() {
+    if (!_initialized) {
+      initialize();
+    }
+    return redirectToUrl;
   }
 
   static void setEnvironmentType(EnvironmentType environmentType) {
@@ -91,8 +129,10 @@ class Environment {
 
     if (environmentType == EnvironmentType.development) {
       apiUrl = "http://localhost:3000";
+      redirectToUrl = "http://localhost:5000";
     } else {
-      apiUrl = "https://no-fluxo.vercel.app";
+      apiUrl = "https://srv892492.hstgr.cloud:3000";
+      redirectToUrl = "https://no-fluxo.com";
     }
   }
 

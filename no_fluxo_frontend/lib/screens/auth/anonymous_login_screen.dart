@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cache/shared_preferences_helper.dart';
 import '../../widgets/animated_background.dart';
 import '../../widgets/app_navbar.dart';
 import 'dart:async';
@@ -76,6 +77,7 @@ class AnonymousLoginScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         closed = true;
+                        SharedPreferencesHelper.isAnonimo = true;
                         Navigator.of(context).pop();
                       },
                       style: ElevatedButton.styleFrom(
@@ -100,6 +102,7 @@ class AnonymousLoginScreen extends StatelessWidget {
       ),
     );
     timer = Timer(const Duration(seconds: 2), () {
+      SharedPreferencesHelper.isAnonimo = true;
       if (!closed && context.mounted) {
         Navigator.of(context).pop();
       }

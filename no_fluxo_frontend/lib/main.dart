@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 import 'cache/shared_preferences_helper.dart';
 import 'config/size_config.dart';
+import 'environment.dart';
 import 'routes/app_router.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -12,6 +13,10 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 void main() async {
   Logger.root.level = Level.ALL;
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize environment configuration
+  Environment.initialize();
+
   await Supabase.initialize(
       url: "https://lijmhbstgdinsukovyfl.supabase.co",
       anonKey:

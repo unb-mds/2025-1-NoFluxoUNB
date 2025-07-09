@@ -6,11 +6,13 @@ import '../../data/materia_model.dart';
 import '../../../../utils/utils.dart';
 import 'course_card_widget.dart';
 import 'materia_data_dialog_content.dart';
+import 'prerequisite_connections_widget.dart';
 
-class FluxogramContainer extends StatelessWidget {
+class FluxogramContainer extends StatefulWidget {
   final CursoModel? courseData;
   final double zoomLevel;
   final bool showPrereqChains;
+  final bool showConnections;
   final Function(String, String) onShowPrerequisiteChain;
   final Function(MateriaModel) onBuildPrerequisiteIndicator;
   final Function(BuildContext, MateriaModel) onShowMateriaDialog;
@@ -20,23 +22,63 @@ class FluxogramContainer extends StatelessWidget {
     required this.courseData,
     required this.zoomLevel,
     required this.showPrereqChains,
+    required this.showConnections,
     required this.onShowPrerequisiteChain,
     required this.onBuildPrerequisiteIndicator,
     required this.onShowMateriaDialog,
   });
 
   @override
+  State<FluxogramContainer> createState() => _FluxogramContainerState();
+}
+
+class _FluxogramContainerState extends State<FluxogramContainer> {
+  String? selectedSubjectCode;
+
+  @override
   Widget build(BuildContext context) {
     // Check if there's fluxogram data to display
     bool hasFluxogramData = false;
     for (final semesterSubjects
-        in courseData?.materias ?? List<MateriaModel>.empty()) {
+        in widget.courseData?.materias ?? List<MateriaModel>.empty()) {
       hasFluxogramData = true;
       break;
     }
 
     if (!hasFluxogramData) {
       return _buildEmptyState(context);
+    }
+
+    if (widget.showConnections) {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 32),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Transform.scale(
+                scale: widget.zoomLevel,
+                child: PrerequisiteConnectionsWidget(
+                  courseData: widget.courseData,
+                  zoomLevel: widget.zoomLevel,
+                  selectedSubjectCode: selectedSubjectCode,
+                  onSubjectSelectionChanged: (subjectCode) {
+                    setState(() {
+                      selectedSubjectCode = subjectCode;
+                    });
+                  },
+                  onShowMateriaDialog: widget.onShowMateriaDialog,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
     }
 
     return Container(
@@ -51,12 +93,12 @@ class FluxogramContainer extends StatelessWidget {
               borderRadius: BorderRadius.circular(24),
             ),
             child: Transform.scale(
-              scale: zoomLevel,
+              scale: widget.zoomLevel,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   for (int semester = 1;
-                      semester <= (courseData?.semestres ?? 0);
+                      semester <= (widget.courseData?.semestres ?? 0);
                       semester++)
                     _buildSemesterColumn(semester),
                 ],
@@ -163,7 +205,7 @@ class FluxogramContainer extends StatelessWidget {
   }
 
   List<Widget> _getCoursesForSemester(int semester) {
-    final subjects = courseData?.materias
+    final subjects = widget.courseData?.materias
             .where((materia) => materia.nivel == semester)
             .toList() ??
         [];
@@ -172,11 +214,11 @@ class FluxogramContainer extends StatelessWidget {
         .map((subject) => Builder(
               builder: (context) => GestureDetector(
                 onTap: () {
-                  onShowMateriaDialog(context, subject);
+                  widget.onShowMateriaDialog(context, subject);
                 },
-                onLongPress: showPrereqChains
+                onLongPress: widget.showPrereqChains
                     ? () {
-                        onShowPrerequisiteChain(
+                        widget.onShowPrerequisiteChain(
                             subject.codigoMateria, subject.nomeMateria);
                       }
                     : null,
@@ -185,11 +227,11 @@ class FluxogramContainer extends StatelessWidget {
                     CourseCardWidget(
                       subject: subject,
                       onTap: () {
-                        onShowMateriaDialog(context, subject);
+                        widget.onShowMateriaDialog(context, subject);
                       },
                     ),
-                    if (showPrereqChains)
-                      onBuildPrerequisiteIndicator(subject) as Widget,
+                    if (widget.showPrereqChains)
+                      widget.onBuildPrerequisiteIndicator(subject) as Widget,
                   ],
                 ),
               ),

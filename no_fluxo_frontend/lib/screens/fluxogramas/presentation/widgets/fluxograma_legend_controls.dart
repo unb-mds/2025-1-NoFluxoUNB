@@ -4,15 +4,19 @@ import 'package:google_fonts/google_fonts.dart';
 class FluxogramaLegendControls extends StatelessWidget {
   final double zoomLevel;
   final bool showPrereqChains;
+  final bool showConnections;
   final ValueChanged<double> onZoomChanged;
   final ValueChanged<bool> onShowPrereqChainsChanged;
+  final ValueChanged<bool> onShowConnectionsChanged;
 
   const FluxogramaLegendControls({
     super.key,
     required this.zoomLevel,
     required this.showPrereqChains,
+    required this.showConnections,
     required this.onZoomChanged,
     required this.onShowPrereqChainsChanged,
+    required this.onShowConnectionsChanged,
   });
 
   @override
@@ -66,6 +70,26 @@ class FluxogramaLegendControls extends StatelessWidget {
                     ),
                     Text(
                       'Cadeias de Pré-requisito',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Checkbox(
+                      value: showConnections,
+                      onChanged: (value) =>
+                          onShowConnectionsChanged(value ?? false),
+                      fillColor: MaterialStateProperty.all(
+                          Colors.white.withOpacity(0.2)),
+                      checkColor: Colors.white,
+                    ),
+                    Text(
+                      'Conexões Visuais',
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: 14,

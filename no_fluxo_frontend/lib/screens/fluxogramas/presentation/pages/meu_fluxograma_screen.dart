@@ -43,6 +43,7 @@ class MeuFluxogramaScreen extends StatefulWidget {
 class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   double zoomLevel = 1.0;
   bool showPrereqChains = false;
+  bool showConnections = false;
   CursoModel? currentCourseData;
   List<CursoModel> matrizesCurriculares = [];
   PrerequisiteTree? prerequisiteTree;
@@ -206,6 +207,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                   FluxogramaLegendControls(
                                     zoomLevel: zoomLevel,
                                     showPrereqChains: showPrereqChains,
+                                    showConnections: showConnections,
                                     onZoomChanged: (newZoom) {
                                       setState(() {
                                         zoomLevel = newZoom;
@@ -216,11 +218,17 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                         showPrereqChains = value;
                                       });
                                     },
+                                    onShowConnectionsChanged: (value) {
+                                      setState(() {
+                                        showConnections = value;
+                                      });
+                                    },
                                   ),
                                   FluxogramContainer(
                                     courseData: currentCourseData,
                                     zoomLevel: zoomLevel,
                                     showPrereqChains: showPrereqChains,
+                                    showConnections: showConnections,
                                     onShowPrerequisiteChain:
                                         _showPrerequisiteChainDialog,
                                     onBuildPrerequisiteIndicator:

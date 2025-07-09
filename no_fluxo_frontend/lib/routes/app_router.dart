@@ -90,6 +90,11 @@ class AppRouter {
       final session = await safeGetSession();
       final email = session?.user.email;
 
+      if (SharedPreferencesHelper.isAnonimo) {
+        onFoundUser?.call();
+        return;
+      }
+
       if (email == null) {
         // não logado
         backToLogin?.call();

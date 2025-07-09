@@ -130,7 +130,7 @@ class AuthService {
       StreamSubscription<AuthState> subscription =
           supabase.auth.onAuthStateChange.listen((event) async {
         await supabase.auth.signInWithOAuth(OAuthProvider.google,
-            redirectTo: "http://localhost:5000/",
+            redirectTo: Environment.getRedirectToUrl(),
             queryParams: {
               "prompt": "consent",
             });
