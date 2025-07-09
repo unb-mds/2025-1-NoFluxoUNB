@@ -560,16 +560,25 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
       margin: const EdgeInsets.only(bottom: 32),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Transform.scale(
-          scale: zoomLevel,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (int semester = 1;
-                  semester <= (currentCourseData?.semestres ?? 0);
-                  semester++)
-                _buildSemesterColumn(semester),
-            ],
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.4),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: Transform.scale(
+              scale: zoomLevel,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (int semester = 1;
+                      semester <= (currentCourseData?.semestres ?? 0);
+                      semester++)
+                    _buildSemesterColumn(semester),
+                ],
+              ),
+            ),
           ),
         ),
       ),
