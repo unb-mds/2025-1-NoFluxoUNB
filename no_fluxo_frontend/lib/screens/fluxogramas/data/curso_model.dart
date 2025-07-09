@@ -105,6 +105,8 @@ class CursoModel {
   String nomeCurso;
   String matrizCurricular;
   int? totalCreditos;
+  String classificacao;
+  String tipoCurso;
   List<MateriaModel> materias;
   int semestres;
   List<EquivalenciaModel> equivalencias;
@@ -113,6 +115,8 @@ class CursoModel {
     required this.nomeCurso,
     required this.matrizCurricular,
     required this.totalCreditos,
+    required this.classificacao,
+    required this.tipoCurso,
     required this.materias,
     required this.semestres,
     this.equivalencias = const [],
@@ -122,7 +126,9 @@ class CursoModel {
     return CursoModel(
       nomeCurso: json["nome_curso"],
       matrizCurricular: json["matriz_curricular"],
-      totalCreditos: json["creditos_por_curso"],
+      totalCreditos: json["creditos"],
+      tipoCurso: json["tipo_curso"] ?? "outro",
+      classificacao: json["classificacao"] ?? "outro",
       materias: [],
       semestres: 0,
       equivalencias: [],
@@ -134,6 +140,8 @@ class CursoModel {
         nomeCurso: json["nome_curso"],
         matrizCurricular: json["matriz_curricular"],
         totalCreditos: json["creditos"],
+        tipoCurso: json["tipo_curso"],
+        classificacao: json["classificacao"],
         materias: List<MateriaModel>.from(json["materias_por_curso"]
             .map((materia) => MateriaModel.fromJson(materia))),
         semestres: 0,

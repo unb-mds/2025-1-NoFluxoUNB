@@ -33,11 +33,13 @@ class SizeConfig {
 }
 
 bool isDesktop() {
-  return SizeConfig.screenWidth >= 1025 || SizeConfig.screenWidth / SizeConfig.screenHeight >= 1;
+  return SizeConfig.screenWidth >= 1025 ||
+      SizeConfig.screenWidth / SizeConfig.screenHeight >= 1;
 }
 
 bool isTable() {
-  return SizeConfig.screenWidth >= 768 || SizeConfig.screenWidth / SizeConfig.screenHeight >= 1;
+  return SizeConfig.screenWidth >= 768 ||
+      SizeConfig.screenWidth / SizeConfig.screenHeight >= 1;
 }
 
 double getWidthToHeightRatio() {
@@ -65,5 +67,6 @@ double getProportionateScreenWidth(double inputWidth) {
 }
 
 double getProportionateFontSize(double figmaFontSize) {
-  return (figmaFontSize / SizeConfig.figmaScreenHeight) * SizeConfig.screenHeight;
+  return (figmaFontSize / SizeConfig.figmaScreenHeight) *
+      SizeConfig.screenHeight;
 }
