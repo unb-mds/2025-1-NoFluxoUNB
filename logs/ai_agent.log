@@ -2485,3 +2485,20 @@
 2025-07-09 02:49:44,738 - __main__ - INFO - ==================================================
 2025-07-09 02:49:44,764 - werkzeug - WARNING -  * Debugger is active!
 2025-07-09 02:49:44,772 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 02:51:17,757 - fsevents - DEBUG - NativeEvent(path="/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py", inode=51153346, flags=11400, id=46224394): is_file, is_inode_meta_mod, is_modified
+2025-07-09 02:51:17,757 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-07-09 02:51:17,758 - werkzeug - INFO -  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py', reloading
+2025-07-09 02:51:18,260 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 02:51:18,403 - __main__ - INFO - Logging initialized successfully
+2025-07-09 02:51:18,403 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 02:51:18,404 - __main__ - INFO - ==================================================
+2025-07-09 02:51:18,404 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 02:51:18,404 - __main__ - INFO - ==================================================
+2025-07-09 02:51:18,404 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 02:51:18,404 - __main__ - INFO - Port: 4652
+2025-07-09 02:51:18,404 - __main__ - INFO - Debug mode: True
+2025-07-09 02:51:18,404 - __main__ - INFO - Log level: 10
+2025-07-09 02:51:18,404 - __main__ - INFO - Environment: development
+2025-07-09 02:51:18,404 - __main__ - INFO - ==================================================
+2025-07-09 02:51:18,426 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 02:51:18,432 - werkzeug - INFO -  * Debugger PIN: 114-293-037
