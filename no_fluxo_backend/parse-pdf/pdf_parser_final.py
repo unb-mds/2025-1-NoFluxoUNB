@@ -9,7 +9,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image # Importar a biblioteca Pillow (PIL)
 from pdf2image import convert_from_bytes # Para converter PDF para imagem
-import pytesseract # Para o OCR
 from werkzeug.utils import secure_filename
 import unicodedata
 from datetime import datetime
@@ -44,7 +43,6 @@ def log_request_info():
 # --- Configuração do Tesseract ---
 tesseract_path = 'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
 logger.info(f'Using Tesseract path: {tesseract_path}')
-pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
 # Padrões de Expressão Regular (Regex) - Refatorados para trabalhar no texto completo
 # --- Geral ---
@@ -596,19 +594,9 @@ def upload_pdf():
         
         if not texto_total.strip():
             logger.info('No text extracted with PyPDF2, attempting OCR')
-            # Se PyPDF2 não extraiu nada, tenta OCR
-            images = convert_from_bytes(pdf_file.read(), dpi=300)
-            logger.info(f'Converted PDF to {len(images)} images for OCR')
             
-            for i, image in enumerate(images):
-                logger.info(f'Applying OCR to page {i+1}')
-                page_text = pytesseract.image_to_string(image, lang='por')
-                texto_total += page_text + "\n"
-                logger.info(f'Extracted {len(page_text)} characters via OCR from page {i+1}')
-                
-            if not texto_total.strip():
-                logger.error('OCR extraction failed - no text found')
-                return jsonify({'error': 'Nenhuma informação textual pôde ser extraída do PDF via PyPDF2 ou OCR. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido.'}), 422
+            logger.error('OCR extraction failed, not available')
+            return jsonify({'error': 'Nenhuma informação textual pôde ser extraída do PDF via PyPDF2. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido.'}), 422
         else:
             logger.info('Successfully extracted text using PyPDF2')
 
@@ -638,10 +626,7 @@ def upload_pdf():
         logger.info(f'Sending response with {len(dados_extraidos["disciplinas"])} extracted items')
         return jsonify(response_data)
 
-    except pytesseract.TesseractNotFoundError as e:
-        error_msg = f'Tesseract not found error: {str(e)}'
-        logger.error(error_msg)
-        return jsonify({'error': 'Tesseract OCR não encontrado no seu sistema. Por favor, instale-o seguindo as instruções.'}), 500
+    
     except PyPDF2.errors.PdfReadError as e:
         error_msg = f'PDF read error: {str(e)}'
         logger.error(error_msg)
