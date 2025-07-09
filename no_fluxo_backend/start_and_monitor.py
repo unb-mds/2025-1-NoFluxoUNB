@@ -37,13 +37,18 @@ def get_authenticated_url(url, username, token):
     
     # Handle HTTPS URLs
     if url.startswith('https://'):
-        # Parse the URL
+        # Parse the URL and remove any existing auth
         parsed = urllib.parse.urlparse(url)
+        netloc = parsed.netloc
+        if '@' in netloc:
+            netloc = netloc.split('@')[1]
+        
         # Quote username and token separately, ensuring special characters are properly encoded
         quoted_username = urllib.parse.quote(username, safe='')
         quoted_token = urllib.parse.quote(token, safe='')
+        
         # Reconstruct with credentials
-        authenticated_url = f"https://{quoted_username}:{quoted_token}@{parsed.netloc}{parsed.path}"
+        authenticated_url = f"https://{quoted_username}:{quoted_token}@{netloc}{parsed.path}"
         return authenticated_url
     
     # Return original URL if not HTTPS
@@ -98,6 +103,10 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         # Get fork's origin URL and update it with authentication if needed
         try:
             fork_origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"], stderr=subprocess.PIPE).decode().strip()
+            # Remove any existing authentication from the URL
+            if '@' in fork_origin_url:
+                fork_origin_url = 'https://' + fork_origin_url.split('@')[1]
+            
             if git_username and git_token:
                 authenticated_fork_url = get_authenticated_url(fork_origin_url, git_username, git_token)
                 subprocess.run(["git", "remote", "set-url", "origin", authenticated_fork_url], check=True)
