@@ -1,0 +1,116 @@
+.graffiti-wall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='brick-pattern' patternUnits='userSpaceOnUse' width='100' height='50' patternTransform='scale(2)'%3E%3Crect width='100' height='50' fill='%231a1a1a'/%3E%3Crect width='50' height='25' fill='%23222222'/%3E%3Crect x='50' y='25' width='50' height='25' fill='%23222222'/%3E%3Cpath d='M0 0 L100 0 L100 50 L0 50 Z' fill='none' stroke='%23333333' stroke-width='1'/%3E%3Cpath d='M50 0 L50 25 M0 25 L100 25' fill='none' stroke='%23333333' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23brick-pattern)'/%3E%3C/svg%3E");
+    z-index: -3;
+}
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(74, 29, 150, 0.8) 0%, 
+        rgba(225, 29, 72, 0.8) 30%, 
+        rgba(234, 88, 12, 0.8) 50%, 
+        rgba(202, 138, 4, 0.8) 70%, 
+        rgba(0, 0, 0, 0.8) 100%);
+    z-index: -2;
+    opacity: 0.7;
+}
+.cracks-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='crack' patternUnits='userSpaceOnUse' width='200' height='200'%3E%3Cpath d='M100 0 L110 50 L130 60 L100 100 L150 150 L100 200 M0 100 L50 110 L60 130 L100 100 L150 50 L200 100' stroke='%23ffffff' stroke-width='1' fill='none' stroke-opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23crack)'/%3E%3C/svg%3E");
+    z-index: -1;
+    opacity: 0.15;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.desconectado-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.wifi-icon {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 18px #8e44ad33);
+    animation: wifi-pulse 1.6s infinite alternate;
+}
+@keyframes wifi-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    60% { transform: scale(1.06); opacity: 0.92; }
+    100% { transform: scale(1.12); opacity: 0.85; }
+}
+
+.wifi-icon svg line {
+    animation: x-blink 1.2s infinite steps(2);
+}
+@keyframes x-blink {
+    0%, 80%, 100% { opacity: 1; }
+    40% { opacity: 0.3; }
+}
+
+.desconectado-text {
+    color: #fff;
+    font-size: 2.1rem;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(90deg, #43cea2 0%, #8e44ad 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.desconectado-btn {
+    margin-top: 18px;
+    padding: 14px 38px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #43cea2 0%, #8e44ad 100%);
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0 2px 12px rgba(67,202,162,0.13);
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    z-index: 3;
+}
+.desconectado-btn:hover {
+    background: linear-gradient(90deg, #8e44ad 0%, #43cea2 100%);
+    transform: scale(1.09) translateY(-2px);
+    box-shadow: 0 6px 18px rgba(67,202,162,0.18);
+    animation: btn-pulse 0.7s infinite alternate;
+}
+@keyframes btn-pulse {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.13); }
+} 
