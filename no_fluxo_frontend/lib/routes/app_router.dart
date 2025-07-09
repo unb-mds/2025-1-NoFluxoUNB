@@ -4,6 +4,7 @@ import 'package:logging/logging.dart';
 import 'package:mobile_app/widgets/router_widget.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../cache/shared_preferences_helper.dart';
+import '../environment.dart';
 import '../screens/auth/anonymous_login_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/assistente/assistente_screen.dart';
@@ -14,7 +15,7 @@ import '../screens/fluxogramas/presentation/pages/fluxogramas_index_screen.dart'
 import '../screens/fluxogramas/presentation/pages/meu_fluxograma_screen.dart';
 import '../service/auth_service.dart';
 
-final log = Logger('AppRouter');
+final log = Environment.getLogger('AppRouter');
 
 class AppRouter {
   static final List<String> routesThatNeedNoLogin = [
@@ -178,17 +179,18 @@ class AppRouter {
       debugLogDiagnostics: true,
       redirect: (BuildContext context, GoRouterState state) async {
         final currentPath = state.uri.path;
+        final queryParams =
+            state.uri.queryParameters.isNotEmpty ? '?${state.uri.query}' : '';
+
+        log.info('🧭 Navigation attempt to: $currentPath$queryParams');
 
         // Don't redirect for routes that don't need login
         if (routesThatNeedNoLogin.contains(currentPath)) {
+          log.info('✅ Route $currentPath does not require authentication');
           return null;
         }
 
         // Check session
-        final session = await safeGetSession();
-        if (session == null || SharedPreferencesHelper.currentUser == null) {
-          return '/login';
-        }
 
         return null;
       },
@@ -197,6 +199,18 @@ class AppRouter {
           path: entry.key,
           name: entry.key,
           pageBuilder: (context, state) {
+            final fullPath = state.uri.toString();
+            final pathParams = state.pathParameters.isNotEmpty
+                ? ' (params: ${state.pathParameters})'
+                : '';
+            final queryParams = state.uri.queryParameters.isNotEmpty
+                ? ' (query: ${state.uri.queryParameters})'
+                : '';
+
+            log.info(
+                '📱 Building page for route: ${entry.key}$pathParams$queryParams');
+            log.fine('🔗 Full URI: $fullPath');
+
             return NoTransitionPage(
                 key: UniqueKey(),
                 child: RouterWidget(route: entry.key, state: state));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../cache/shared_preferences_helper.dart';
@@ -7,6 +8,8 @@ import '../environment.dart';
 import '../routes/app_router.dart';
 import '../service/auth_service.dart';
 import 'splash_widget.dart';
+
+final log = Environment.getLogger('RouterWidget');
 
 class RouterWidget extends StatefulWidget {
   final String route;
@@ -22,35 +25,49 @@ class _RouterWidgetState extends State<RouterWidget> {
   bool _initialized = false;
 
   Future<void> _checkAuth() async {
-    if (widget.route == "/") {
-      print(
-          "Checking logged in, checking with google? ${widget.state.uri.queryParameters.containsKey("code")}");
+    final route = widget.route;
+    final hasGoogleCode = widget.state.uri.queryParameters.containsKey("code");
+
+    log.info('🔐 Starting auth check for route: $route');
+
+    if (route == "/") {
+      log.info(
+          '🏠 Home route detected - checking Google login: $hasGoogleCode');
 
       await AppRouter.checkLoggedIn(
         context,
-        loggedInWithGoogle:
-            widget.state.uri.queryParameters.containsKey("code"),
+        loggedInWithGoogle: hasGoogleCode,
         onFoundUser: () {
           if (mounted) {
-            context.go("/upload-historico");
+            final targetRoute = SharedPreferencesHelper.isAnonimo
+                ? "/fluxogramas"
+                : "/upload-historico";
+            log.info(
+                '👤 User found - redirecting to: $targetRoute (anonymous: ${SharedPreferencesHelper.isAnonimo})');
+            context.go(targetRoute);
           }
         },
         onUserNotFound: () {
           if (mounted) {
+            log.info('❌ User not found - redirecting to signup');
             context.go("/signup");
           }
         },
         backToLogin: () {
           if (mounted) {
+            log.info('🔙 Auth failed - redirecting to login');
             context.go("/login");
           }
         },
       );
     } else {
+      log.info('🔒 Protected route - checking authentication');
       await AppRouter.checkLoggedIn(
         context,
         onUserNotFound: () {
           if (mounted) {
+            log.warning(
+                '❌ User not found for protected route - redirecting to signup');
             context.go("/signup");
           }
         },
@@ -58,6 +75,7 @@ class _RouterWidgetState extends State<RouterWidget> {
     }
 
     if (mounted) {
+      log.info('✅ Auth check completed for route: $route');
       setState(() {
         loading = false;
       });
