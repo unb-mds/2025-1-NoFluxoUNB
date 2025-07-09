@@ -1627,3 +1627,514 @@
 2025-07-08 23:38:45,755 - __main__ - INFO - ==================================================
 2025-07-08 23:38:45,776 - werkzeug - WARNING -  * Debugger is active!
 2025-07-08 23:38:45,786 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 00:34:07,774 - __main__ - INFO - Logging initialized successfully
+2025-07-09 00:34:07,781 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 00:34:07,790 - __main__ - INFO - ==================================================
+2025-07-09 00:34:07,790 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 00:34:07,790 - __main__ - INFO - ==================================================
+2025-07-09 00:34:07,791 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 00:34:07,791 - __main__ - INFO - Port: 3000
+2025-07-09 00:34:07,791 - __main__ - INFO - Debug mode: True
+2025-07-09 00:34:07,791 - __main__ - INFO - Log level: 10
+2025-07-09 00:34:07,791 - __main__ - INFO - Environment: development
+2025-07-09 00:34:07,791 - __main__ - INFO - ==================================================
+2025-07-09 00:34:08,276 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:3000
+ * Running on http://192.168.0.118:3000
+2025-07-09 00:34:08,278 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 00:34:08,300 - werkzeug - INFO -  * Restarting with stat
+2025-07-09 00:34:10,641 - __main__ - INFO - Logging initialized successfully
+2025-07-09 00:34:10,651 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 00:34:10,656 - __main__ - INFO - ==================================================
+2025-07-09 00:34:10,657 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 00:34:10,657 - __main__ - INFO - ==================================================
+2025-07-09 00:34:10,657 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 00:34:10,657 - __main__ - INFO - Port: 3000
+2025-07-09 00:34:10,657 - __main__ - INFO - Debug mode: True
+2025-07-09 00:34:10,658 - __main__ - INFO - Log level: 10
+2025-07-09 00:34:10,658 - __main__ - INFO - Environment: development
+2025-07-09 00:34:10,658 - __main__ - INFO - ==================================================
+2025-07-09 00:34:10,791 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 00:34:10,812 - werkzeug - INFO -  * Debugger PIN: 104-302-103
+2025-07-09 00:40:17,084 - __main__ - INFO - Logging initialized successfully
+2025-07-09 00:40:17,090 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 00:40:17,092 - __main__ - INFO - ==================================================
+2025-07-09 00:40:17,093 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 00:40:17,093 - __main__ - INFO - ==================================================
+2025-07-09 00:40:17,093 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 00:40:17,093 - __main__ - INFO - Port: 4652
+2025-07-09 00:40:17,093 - __main__ - INFO - Debug mode: True
+2025-07-09 00:40:17,093 - __main__ - INFO - Log level: 10
+2025-07-09 00:40:17,093 - __main__ - INFO - Environment: development
+2025-07-09 00:40:17,093 - __main__ - INFO - ==================================================
+2025-07-09 00:40:17,212 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+2025-07-09 00:40:17,212 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 00:40:17,215 - werkzeug - INFO -  * Restarting with stat
+2025-07-09 00:40:17,820 - __main__ - INFO - Logging initialized successfully
+2025-07-09 00:40:17,821 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 00:40:17,823 - __main__ - INFO - ==================================================
+2025-07-09 00:40:17,823 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 00:40:17,823 - __main__ - INFO - ==================================================
+2025-07-09 00:40:17,823 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 00:40:17,823 - __main__ - INFO - Port: 4652
+2025-07-09 00:40:17,823 - __main__ - INFO - Debug mode: True
+2025-07-09 00:40:17,823 - __main__ - INFO - Log level: 10
+2025-07-09 00:40:17,823 - __main__ - INFO - Environment: development
+2025-07-09 00:40:17,823 - __main__ - INFO - ==================================================
+2025-07-09 00:40:17,860 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 00:40:17,889 - werkzeug - INFO -  * Debugger PIN: 104-302-103
+2025-07-09 00:41:14,172 - __main__ - DEBUG - Request: OPTIONS http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 00:41:14,173 - __main__ - DEBUG - Response: 200 for OPTIONS http://127.0.0.1:4652/assistente
+2025-07-09 00:41:14,175 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 00:41:14] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 00:41:14,221 - __main__ - DEBUG - Request: POST http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 00:41:14,221 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 00:41:14,221 - __main__ - DEBUG - Extracting data from request
+2025-07-09 00:41:14,222 - __main__ - INFO - Received materia: 'dados'
+2025-07-09 00:41:14,222 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 00:41:14,222 - __main__ - DEBUG - Removing accents from text: 'dados'
+2025-07-09 00:41:14,223 - __main__ - DEBUG - Text after accent removal: 'dados'
+2025-07-09 00:41:14,223 - __main__ - INFO - Materia processed: 'dados' -> 'DADOS'
+2025-07-09 00:41:14,223 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 00:41:14,223 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 00:41:14,223 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 00:41:14,223 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 00:41:14,223 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 00:41:14,223 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:41:14,224 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 00:41:14,224 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 00:41:14,224 - ragflow_agent_client - INFO - Starting new session for materia: 'DADOS'
+2025-07-09 00:41:14,224 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+2025-07-09 00:41:14,224 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:41:14,272 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 00:41:38,464 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3198
+2025-07-09 00:41:38,464 - ragflow_agent_client - INFO - Session request completed in 24.24 seconds
+2025-07-09 00:41:38,465 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 00:41:38,465 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 03:41:35 GMT', 'Content-Type': 'application/json', 'Content-Length': '3198', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 00:41:38,465 - ragflow_agent_client - DEBUG - No HTTP errors raised for session start request
+2025-07-09 00:41:38,465 - ragflow_agent_client - DEBUG - Session response data type: <class 'dict'>
+2025-07-09 00:41:38,465 - ragflow_agent_client - DEBUG - Session response keys: ['code', 'data']
+2025-07-09 00:41:38,465 - ragflow_agent_client - INFO - Session started successfully with ID: 8ee2ac225c7611f0b1553626e9053b6a
+2025-07-09 00:41:38,474 - __main__ - INFO - Session started successfully with ID: 8ee2ac225c7611f0b1553626e9053b6a
+2025-07-09 00:41:38,475 - __main__ - DEBUG - Analyzing materia with RAGFlow agent
+2025-07-09 00:41:38,475 - ragflow_agent_client - INFO - Starting analysis for materia: 'DADOS' with session: 8ee2ac225c7611f0b1553626e9053b6a
+2025-07-09 00:41:38,475 - ragflow_agent_client - DEBUG - Analysis payload: {
+  "question": "DADOS",
+  "session_id": "8ee2ac225c7611f0b1553626e9053b6a",
+  "stream": false
+}
+2025-07-09 00:41:38,475 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:41:38,478 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 00:41:41,588 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3328
+2025-07-09 00:41:41,592 - ragflow_agent_client - INFO - Analysis request completed in 3.12 seconds
+2025-07-09 00:41:41,592 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 00:41:41,592 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 03:41:38 GMT', 'Content-Type': 'application/json', 'Content-Length': '3328', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 00:41:41,593 - ragflow_agent_client - DEBUG - No HTTP errors raised for analysis request
+2025-07-09 00:41:41,594 - ragflow_agent_client - DEBUG - Analysis response data type: <class 'dict'>
+2025-07-09 00:41:41,595 - ragflow_agent_client - DEBUG - Analysis response keys: ['code', 'data']
+2025-07-09 00:41:41,595 - ragflow_agent_client - INFO - RAGFlow API response code: 0
+2025-07-09 00:41:41,596 - ragflow_agent_client - INFO - Analysis completed successfully
+2025-07-09 00:41:41,596 - ragflow_agent_client - INFO - Analysis completed for materia: 'DADOS'
+2025-07-09 00:41:41,605 - __main__ - DEBUG - Raw agent result received: <class 'dict'>
+2025-07-09 00:41:41,606 - __main__ - DEBUG - Formatting response
+2025-07-09 00:41:41,610 - __main__ - INFO - Response formatted successfully
+2025-07-09 00:41:41,611 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 27.39 seconds
+2025-07-09 00:41:41,612 - __main__ - DEBUG - Response: 200 for POST http://127.0.0.1:4652/assistente
+2025-07-09 00:41:41,614 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 00:41:41] "POST /assistente HTTP/1.1" 200 -
+2025-07-09 00:42:21,033 - __main__ - DEBUG - Request: OPTIONS http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 00:42:21,083 - __main__ - DEBUG - Response: 200 for OPTIONS http://127.0.0.1:4652/assistente
+2025-07-09 00:42:21,102 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 00:42:21] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 00:42:21,246 - __main__ - DEBUG - Request: POST http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 00:42:21,248 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 00:42:21,251 - __main__ - DEBUG - Extracting data from request
+2025-07-09 00:42:21,289 - __main__ - INFO - Received materia: 'dados'
+2025-07-09 00:42:21,289 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 00:42:21,289 - __main__ - DEBUG - Removing accents from text: 'dados'
+2025-07-09 00:42:21,291 - __main__ - DEBUG - Text after accent removal: 'dados'
+2025-07-09 00:42:21,292 - __main__ - INFO - Materia processed: 'dados' -> 'DADOS'
+2025-07-09 00:42:21,292 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 00:42:21,300 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 00:42:21,302 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 00:42:21,302 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 00:42:21,302 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 00:42:21,302 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:42:21,304 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 00:42:21,305 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 00:42:21,315 - ragflow_agent_client - INFO - Starting new session for materia: 'DADOS'
+2025-07-09 00:42:21,322 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+2025-07-09 00:42:21,333 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:42:21,501 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 00:42:42,266 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3074
+2025-07-09 00:42:42,278 - ragflow_agent_client - INFO - Session request completed in 20.96 seconds
+2025-07-09 00:42:42,279 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 00:42:42,279 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 03:42:39 GMT', 'Content-Type': 'application/json', 'Content-Length': '3074', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 00:42:42,279 - ragflow_agent_client - DEBUG - No HTTP errors raised for session start request
+2025-07-09 00:42:42,279 - ragflow_agent_client - DEBUG - Session response data type: <class 'dict'>
+2025-07-09 00:42:42,279 - ragflow_agent_client - DEBUG - Session response keys: ['code', 'data']
+2025-07-09 00:42:42,279 - ragflow_agent_client - INFO - Session started successfully with ID: b747712a5c7611f0b6b13626e9053b6a
+2025-07-09 00:42:42,286 - __main__ - INFO - Session started successfully with ID: b747712a5c7611f0b6b13626e9053b6a
+2025-07-09 00:42:42,288 - __main__ - DEBUG - Analyzing materia with RAGFlow agent
+2025-07-09 00:42:42,289 - ragflow_agent_client - INFO - Starting analysis for materia: 'DADOS' with session: b747712a5c7611f0b6b13626e9053b6a
+2025-07-09 00:42:42,293 - ragflow_agent_client - DEBUG - Analysis payload: {
+  "question": "DADOS",
+  "session_id": "b747712a5c7611f0b6b13626e9053b6a",
+  "stream": false
+}
+2025-07-09 00:42:42,294 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:42:42,319 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 00:42:43,270 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3204
+2025-07-09 00:42:43,272 - ragflow_agent_client - INFO - Analysis request completed in 0.98 seconds
+2025-07-09 00:42:43,273 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 00:42:43,274 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 03:42:40 GMT', 'Content-Type': 'application/json', 'Content-Length': '3204', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 00:42:43,275 - ragflow_agent_client - DEBUG - No HTTP errors raised for analysis request
+2025-07-09 00:42:43,276 - ragflow_agent_client - DEBUG - Analysis response data type: <class 'dict'>
+2025-07-09 00:42:43,276 - ragflow_agent_client - DEBUG - Analysis response keys: ['code', 'data']
+2025-07-09 00:42:43,276 - ragflow_agent_client - INFO - RAGFlow API response code: 0
+2025-07-09 00:42:43,276 - ragflow_agent_client - INFO - Analysis completed successfully
+2025-07-09 00:42:43,276 - ragflow_agent_client - INFO - Analysis completed for materia: 'DADOS'
+2025-07-09 00:42:43,278 - __main__ - DEBUG - Raw agent result received: <class 'dict'>
+2025-07-09 00:42:43,279 - __main__ - DEBUG - Formatting response
+2025-07-09 00:42:43,280 - __main__ - INFO - Response formatted successfully
+2025-07-09 00:42:43,280 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 22.03 seconds
+2025-07-09 00:42:43,281 - __main__ - DEBUG - Response: 200 for POST http://127.0.0.1:4652/assistente
+2025-07-09 00:42:43,283 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 00:42:43] "POST /assistente HTTP/1.1" 200 -
+2025-07-09 00:52:57,664 - __main__ - DEBUG - Request: OPTIONS http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 00:52:57,723 - __main__ - DEBUG - Response: 200 for OPTIONS http://127.0.0.1:4652/assistente
+2025-07-09 00:52:57,732 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 00:52:57] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 00:52:57,851 - __main__ - DEBUG - Request: POST http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 00:52:57,852 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 00:52:57,852 - __main__ - DEBUG - Extracting data from request
+2025-07-09 00:52:57,855 - __main__ - INFO - Received materia: 'dados'
+2025-07-09 00:52:57,856 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 00:52:57,856 - __main__ - DEBUG - Removing accents from text: 'dados'
+2025-07-09 00:52:57,859 - __main__ - DEBUG - Text after accent removal: 'dados'
+2025-07-09 00:52:57,859 - __main__ - INFO - Materia processed: 'dados' -> 'DADOS'
+2025-07-09 00:52:57,859 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 00:52:57,859 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 00:52:57,859 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 00:52:57,859 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 00:52:57,859 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 00:52:57,859 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:52:57,866 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 00:52:57,866 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 00:52:57,867 - ragflow_agent_client - INFO - Starting new session for materia: 'DADOS'
+2025-07-09 00:52:57,867 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+2025-07-09 00:52:57,868 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:52:57,946 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 00:53:20,178 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3257
+2025-07-09 00:53:20,202 - ragflow_agent_client - INFO - Session request completed in 22.33 seconds
+2025-07-09 00:53:20,205 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 00:53:20,211 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 03:53:17 GMT', 'Content-Type': 'application/json', 'Content-Length': '3257', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 00:53:20,216 - ragflow_agent_client - DEBUG - No HTTP errors raised for session start request
+2025-07-09 00:53:20,219 - ragflow_agent_client - DEBUG - Session response data type: <class 'dict'>
+2025-07-09 00:53:20,219 - ragflow_agent_client - DEBUG - Session response keys: ['code', 'data']
+2025-07-09 00:53:20,219 - ragflow_agent_client - INFO - Session started successfully with ID: 328f941a5c7811f0b32e3626e9053b6a
+2025-07-09 00:53:20,222 - __main__ - INFO - Session started successfully with ID: 328f941a5c7811f0b32e3626e9053b6a
+2025-07-09 00:53:20,222 - __main__ - DEBUG - Analyzing materia with RAGFlow agent
+2025-07-09 00:53:20,223 - ragflow_agent_client - INFO - Starting analysis for materia: 'DADOS' with session: 328f941a5c7811f0b32e3626e9053b6a
+2025-07-09 00:53:20,223 - ragflow_agent_client - DEBUG - Analysis payload: {
+  "question": "DADOS",
+  "session_id": "328f941a5c7811f0b32e3626e9053b6a",
+  "stream": false
+}
+2025-07-09 00:53:20,223 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 00:53:20,227 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 00:53:21,204 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3389
+2025-07-09 00:53:21,207 - ragflow_agent_client - INFO - Analysis request completed in 0.98 seconds
+2025-07-09 00:53:21,207 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 00:53:21,207 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 03:53:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '3389', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 00:53:21,207 - ragflow_agent_client - DEBUG - No HTTP errors raised for analysis request
+2025-07-09 00:53:21,208 - ragflow_agent_client - DEBUG - Analysis response data type: <class 'dict'>
+2025-07-09 00:53:21,208 - ragflow_agent_client - DEBUG - Analysis response keys: ['code', 'data']
+2025-07-09 00:53:21,208 - ragflow_agent_client - INFO - RAGFlow API response code: 0
+2025-07-09 00:53:21,208 - ragflow_agent_client - INFO - Analysis completed successfully
+2025-07-09 00:53:21,208 - ragflow_agent_client - INFO - Analysis completed for materia: 'DADOS'
+2025-07-09 00:53:21,210 - __main__ - DEBUG - Raw agent result received: <class 'dict'>
+2025-07-09 00:53:21,210 - __main__ - DEBUG - Formatting response
+2025-07-09 00:53:21,219 - __main__ - INFO - Response formatted successfully
+2025-07-09 00:53:21,220 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 23.37 seconds
+2025-07-09 00:53:21,226 - __main__ - DEBUG - Response: 200 for POST http://127.0.0.1:4652/assistente
+2025-07-09 00:53:21,238 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 00:53:21] "POST /assistente HTTP/1.1" 200 -
+2025-07-09 01:09:01,690 - __main__ - DEBUG - Request: OPTIONS http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 01:09:01,716 - __main__ - DEBUG - Response: 200 for OPTIONS http://127.0.0.1:4652/assistente
+2025-07-09 01:09:01,727 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 01:09:01] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 01:09:01,804 - __main__ - DEBUG - Request: POST http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 01:09:01,805 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 01:09:01,805 - __main__ - DEBUG - Extracting data from request
+2025-07-09 01:09:01,842 - __main__ - INFO - Received materia: 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?'
+2025-07-09 01:09:01,843 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 01:09:01,843 - __main__ - DEBUG - Removing accents from text: 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?'
+2025-07-09 01:09:01,847 - __main__ - DEBUG - Text after accent removal: 'Tenho interesse em trabalhar com dados e analise. Que materias relacionadas a ciencia de dados, estatistica e analise voce sugere?'
+2025-07-09 01:09:01,848 - __main__ - INFO - Materia processed: 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?' -> 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?'
+2025-07-09 01:09:01,848 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 01:09:01,850 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 01:09:01,851 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 01:09:01,851 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 01:09:01,851 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 01:09:01,851 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:09:01,854 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 01:09:01,855 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 01:09:01,863 - ragflow_agent_client - INFO - Starting new session for materia: 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?'
+2025-07-09 01:09:01,863 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?",
+  "stream": false
+}
+2025-07-09 01:09:01,864 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:09:01,939 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 01:09:32,983 - ragflow_agent_client - ERROR - Timeout occurred while starting session for materia: 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?'
+2025-07-09 01:09:33,016 - __main__ - ERROR - [REQUEST ERROR] Unexpected error after 31.21 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 120, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+2025-07-09 01:09:33,433 - __main__ - DEBUG - Response: 500 for POST http://127.0.0.1:4652/assistente
+2025-07-09 01:09:33,476 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 01:09:33] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+2025-07-09 01:11:16,949 - __main__ - INFO - Logging initialized successfully
+2025-07-09 01:11:16,953 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 01:11:16,955 - __main__ - INFO - ==================================================
+2025-07-09 01:11:16,955 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 01:11:16,955 - __main__ - INFO - ==================================================
+2025-07-09 01:11:16,955 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 01:11:16,955 - __main__ - INFO - Port: 4652
+2025-07-09 01:11:16,955 - __main__ - INFO - Debug mode: True
+2025-07-09 01:11:16,955 - __main__ - INFO - Log level: 10
+2025-07-09 01:11:16,955 - __main__ - INFO - Environment: development
+2025-07-09 01:11:16,955 - __main__ - INFO - ==================================================
+2025-07-09 01:11:17,078 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+2025-07-09 01:11:17,078 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 01:11:17,081 - werkzeug - INFO -  * Restarting with stat
+2025-07-09 01:11:17,637 - __main__ - INFO - Logging initialized successfully
+2025-07-09 01:11:17,638 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 01:11:17,639 - __main__ - INFO - ==================================================
+2025-07-09 01:11:17,639 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 01:11:17,639 - __main__ - INFO - ==================================================
+2025-07-09 01:11:17,639 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 01:11:17,639 - __main__ - INFO - Port: 4652
+2025-07-09 01:11:17,639 - __main__ - INFO - Debug mode: True
+2025-07-09 01:11:17,639 - __main__ - INFO - Log level: 10
+2025-07-09 01:11:17,639 - __main__ - INFO - Environment: development
+2025-07-09 01:11:17,639 - __main__ - INFO - ==================================================
+2025-07-09 01:11:17,682 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 01:11:17,705 - werkzeug - INFO -  * Debugger PIN: 104-302-103
+2025-07-09 01:11:57,992 - __main__ - DEBUG - Request: OPTIONS http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 01:11:58,009 - __main__ - DEBUG - Response: 200 for OPTIONS http://127.0.0.1:4652/assistente
+2025-07-09 01:11:58,035 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 01:11:58] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 01:11:58,141 - __main__ - DEBUG - Request: POST http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 01:11:58,142 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 01:11:58,143 - __main__ - DEBUG - Extracting data from request
+2025-07-09 01:11:58,146 - __main__ - INFO - Received materia: 'Estou interessado em inovação e tecnologia. Que matérias abordam temas como inovação, startups, tecnologias emergentes e empreendedorismo tecnológico?'
+2025-07-09 01:11:58,146 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 01:11:58,147 - __main__ - DEBUG - Removing accents from text: 'Estou interessado em inovação e tecnologia. Que matérias abordam temas como inovação, startups, tecnologias emergentes e empreendedorismo tecnológico?'
+2025-07-09 01:11:58,149 - __main__ - DEBUG - Text after accent removal: 'Estou interessado em inovacao e tecnologia. Que materias abordam temas como inovacao, startups, tecnologias emergentes e empreendedorismo tecnologico?'
+2025-07-09 01:11:58,149 - __main__ - INFO - Materia processed: 'Estou interessado em inovação e tecnologia. Que matérias abordam temas como inovação, startups, tecnologias emergentes e empreendedorismo tecnológico?' -> 'ESTOU INTERESSADO EM INOVACAO E TECNOLOGIA. QUE MATERIAS ABORDAM TEMAS COMO INOVACAO, STARTUPS, TECNOLOGIAS EMERGENTES E EMPREENDEDORISMO TECNOLOGICO?'
+2025-07-09 01:11:58,151 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 01:11:58,152 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 01:11:58,153 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 01:11:58,153 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 01:11:58,153 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 01:11:58,153 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:11:58,154 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 01:11:58,156 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 01:11:58,157 - ragflow_agent_client - INFO - Starting new session for materia: 'ESTOU INTERESSADO EM INOVACAO E TECNOLOGIA. QUE MATERIAS ABORDAM TEMAS COMO INOVACAO, STARTUPS, TECNOLOGIAS EMERGENTES E EMPREENDEDORISMO TECNOLOGICO?'
+2025-07-09 01:11:58,158 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "ESTOU INTERESSADO EM INOVACAO E TECNOLOGIA. QUE MATERIAS ABORDAM TEMAS COMO INOVACAO, STARTUPS, TECNOLOGIAS EMERGENTES E EMPREENDEDORISMO TECNOLOGICO?",
+  "stream": false
+}
+2025-07-09 01:11:58,158 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:11:58,265 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 01:12:21,762 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3543
+2025-07-09 01:12:21,775 - ragflow_agent_client - INFO - Session request completed in 23.61 seconds
+2025-07-09 01:12:21,775 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 01:12:21,776 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 04:12:18 GMT', 'Content-Type': 'application/json', 'Content-Length': '3543', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 01:12:21,776 - ragflow_agent_client - DEBUG - No HTTP errors raised for session start request
+2025-07-09 01:12:21,776 - ragflow_agent_client - DEBUG - Session response data type: <class 'dict'>
+2025-07-09 01:12:21,776 - ragflow_agent_client - DEBUG - Session response keys: ['code', 'data']
+2025-07-09 01:12:21,776 - ragflow_agent_client - INFO - Session started successfully with ID: dadf55fe5c7a11f0b3783626e9053b6a
+2025-07-09 01:12:21,787 - __main__ - INFO - Session started successfully with ID: dadf55fe5c7a11f0b3783626e9053b6a
+2025-07-09 01:12:21,787 - __main__ - DEBUG - Analyzing materia with RAGFlow agent
+2025-07-09 01:12:21,787 - ragflow_agent_client - INFO - Starting analysis for materia: 'ESTOU INTERESSADO EM INOVACAO E TECNOLOGIA. QUE MATERIAS ABORDAM TEMAS COMO INOVACAO, STARTUPS, TECNOLOGIAS EMERGENTES E EMPREENDEDORISMO TECNOLOGICO?' with session: dadf55fe5c7a11f0b3783626e9053b6a
+2025-07-09 01:12:21,787 - ragflow_agent_client - DEBUG - Analysis payload: {
+  "question": "ESTOU INTERESSADO EM INOVACAO E TECNOLOGIA. QUE MATERIAS ABORDAM TEMAS COMO INOVACAO, STARTUPS, TECNOLOGIAS EMERGENTES E EMPREENDEDORISMO TECNOLOGICO?",
+  "session_id": "dadf55fe5c7a11f0b3783626e9053b6a",
+  "stream": false
+}
+2025-07-09 01:12:21,787 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:12:21,791 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 01:12:22,593 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3673
+2025-07-09 01:12:22,593 - ragflow_agent_client - INFO - Analysis request completed in 0.81 seconds
+2025-07-09 01:12:22,593 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 01:12:22,594 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 04:12:19 GMT', 'Content-Type': 'application/json', 'Content-Length': '3673', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 01:12:22,594 - ragflow_agent_client - DEBUG - No HTTP errors raised for analysis request
+2025-07-09 01:12:22,597 - ragflow_agent_client - DEBUG - Analysis response data type: <class 'dict'>
+2025-07-09 01:12:22,597 - ragflow_agent_client - DEBUG - Analysis response keys: ['code', 'data']
+2025-07-09 01:12:22,597 - ragflow_agent_client - INFO - RAGFlow API response code: 0
+2025-07-09 01:12:22,597 - ragflow_agent_client - INFO - Analysis completed successfully
+2025-07-09 01:12:22,597 - ragflow_agent_client - INFO - Analysis completed for materia: 'ESTOU INTERESSADO EM INOVACAO E TECNOLOGIA. QUE MATERIAS ABORDAM TEMAS COMO INOVACAO, STARTUPS, TECNOLOGIAS EMERGENTES E EMPREENDEDORISMO TECNOLOGICO?'
+2025-07-09 01:12:22,598 - __main__ - DEBUG - Raw agent result received: <class 'dict'>
+2025-07-09 01:12:22,598 - __main__ - DEBUG - Formatting response
+2025-07-09 01:12:22,621 - __main__ - INFO - Response formatted successfully
+2025-07-09 01:12:22,624 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 24.48 seconds
+2025-07-09 01:12:22,633 - __main__ - DEBUG - Response: 200 for POST http://127.0.0.1:4652/assistente
+2025-07-09 01:12:22,636 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 01:12:22] "POST /assistente HTTP/1.1" 200 -
+2025-07-09 01:23:02,552 - __main__ - DEBUG - Request: OPTIONS http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 01:23:02,561 - __main__ - DEBUG - Response: 200 for OPTIONS http://127.0.0.1:4652/assistente
+2025-07-09 01:23:02,565 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 01:23:02] "OPTIONS /assistente HTTP/1.1" 200 -
+2025-07-09 01:23:02,646 - __main__ - DEBUG - Request: POST http://127.0.0.1:4652/assistente from 127.0.0.1
+2025-07-09 01:23:02,650 - __main__ - INFO - [REQUEST START] New request from IP: 127.0.0.1
+2025-07-09 01:23:02,651 - __main__ - DEBUG - Extracting data from request
+2025-07-09 01:23:02,658 - __main__ - INFO - Received materia: 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?'
+2025-07-09 01:23:02,660 - __main__ - DEBUG - Starting text preprocessing
+2025-07-09 01:23:02,661 - __main__ - DEBUG - Removing accents from text: 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?'
+2025-07-09 01:23:02,663 - __main__ - DEBUG - Text after accent removal: 'Tenho interesse em trabalhar com dados e analise. Que materias relacionadas a ciencia de dados, estatistica e analise voce sugere?'
+2025-07-09 01:23:02,663 - __main__ - INFO - Materia processed: 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?' -> 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?'
+2025-07-09 01:23:02,663 - __main__ - INFO - Starting analysis with RAGFlow client
+2025-07-09 01:23:02,664 - ragflow_agent_client - INFO - Initializing RagflowClient
+2025-07-09 01:23:02,664 - ragflow_agent_client - INFO - RAGFlow client initialized with:
+2025-07-09 01:23:02,664 - ragflow_agent_client - INFO -   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+2025-07-09 01:23:02,664 - ragflow_agent_client - INFO -   - Base URL: https://ragflow.arthrok.shop/
+2025-07-09 01:23:02,665 - ragflow_agent_client - INFO -   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:23:02,665 - ragflow_agent_client - DEBUG -   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+2025-07-09 01:23:02,665 - __main__ - DEBUG - Starting session with RAGFlow
+2025-07-09 01:23:02,667 - ragflow_agent_client - INFO - Starting new session for materia: 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?'
+2025-07-09 01:23:02,667 - ragflow_agent_client - DEBUG - Session payload: {
+  "materia": "TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?",
+  "stream": false
+}
+2025-07-09 01:23:02,669 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:23:02,692 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 01:23:30,852 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3350
+2025-07-09 01:23:30,871 - ragflow_agent_client - INFO - Session request completed in 28.20 seconds
+2025-07-09 01:23:30,873 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 01:23:30,876 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 04:23:27 GMT', 'Content-Type': 'application/json', 'Content-Length': '3350', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 01:23:30,878 - ragflow_agent_client - DEBUG - No HTTP errors raised for session start request
+2025-07-09 01:23:30,886 - ragflow_agent_client - DEBUG - Session response data type: <class 'dict'>
+2025-07-09 01:23:30,887 - ragflow_agent_client - DEBUG - Session response keys: ['code', 'data']
+2025-07-09 01:23:30,887 - ragflow_agent_client - INFO - Session started successfully with ID: 65e23e5e5c7c11f089523626e9053b6a
+2025-07-09 01:23:30,929 - __main__ - INFO - Session started successfully with ID: 65e23e5e5c7c11f089523626e9053b6a
+2025-07-09 01:23:30,929 - __main__ - DEBUG - Analyzing materia with RAGFlow agent
+2025-07-09 01:23:30,929 - ragflow_agent_client - INFO - Starting analysis for materia: 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?' with session: 65e23e5e5c7c11f089523626e9053b6a
+2025-07-09 01:23:30,930 - ragflow_agent_client - DEBUG - Analysis payload: {
+  "question": "TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?",
+  "session_id": "65e23e5e5c7c11f089523626e9053b6a",
+  "stream": false
+}
+2025-07-09 01:23:30,930 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 01:23:30,934 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 01:23:31,905 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3480
+2025-07-09 01:23:31,908 - ragflow_agent_client - INFO - Analysis request completed in 0.98 seconds
+2025-07-09 01:23:31,908 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 01:23:31,909 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 04:23:28 GMT', 'Content-Type': 'application/json', 'Content-Length': '3480', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 01:23:31,909 - ragflow_agent_client - DEBUG - No HTTP errors raised for analysis request
+2025-07-09 01:23:31,909 - ragflow_agent_client - DEBUG - Analysis response data type: <class 'dict'>
+2025-07-09 01:23:31,909 - ragflow_agent_client - DEBUG - Analysis response keys: ['code', 'data']
+2025-07-09 01:23:31,909 - ragflow_agent_client - INFO - RAGFlow API response code: 0
+2025-07-09 01:23:31,909 - ragflow_agent_client - INFO - Analysis completed successfully
+2025-07-09 01:23:31,909 - ragflow_agent_client - INFO - Analysis completed for materia: 'TENHO INTERESSE EM TRABALHAR COM DADOS E ANALISE. QUE MATERIAS RELACIONADAS A CIENCIA DE DADOS, ESTATISTICA E ANALISE VOCE SUGERE?'
+2025-07-09 01:23:31,911 - __main__ - DEBUG - Raw agent result received: <class 'dict'>
+2025-07-09 01:23:31,911 - __main__ - DEBUG - Formatting response
+2025-07-09 01:23:31,942 - __main__ - INFO - Response formatted successfully
+2025-07-09 01:23:31,943 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 29.29 seconds
+2025-07-09 01:23:31,956 - __main__ - DEBUG - Response: 200 for POST http://127.0.0.1:4652/assistente
+2025-07-09 01:23:31,962 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 01:23:31] "POST /assistente HTTP/1.1" 200 -

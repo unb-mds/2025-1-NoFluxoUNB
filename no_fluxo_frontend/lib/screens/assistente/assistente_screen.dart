@@ -13,7 +13,7 @@ class AssistenteScreen extends StatefulWidget {
   State<AssistenteScreen> createState() => _AssistenteScreenState();
 }
 
-class _AssistenteScreenState extends State<AssistenteScreen> {
+class _AssistenteScreenState extends State<AssistenteScreen> with TickerProviderStateMixin {
   final TextEditingController _chatController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [
     {
@@ -32,6 +32,33 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
   ];
   final List<String> _selectedInterests = [];
   final List<String> _selectedCourses = [];
+  
+  // Estado de loading
+  bool _isLoading = false;
+  late AnimationController _loadingController;
+  late Animation<double> _loadingAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadingController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+    _loadingAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(
+      parent: _loadingController,
+      curve: Curves.easeInOut,
+    ));
+  }
+
+  @override
+  void dispose() {
+    _loadingController.dispose();
+    super.dispose();
+  }
 
   // Função para enviar mensagem ao backend da IA
   Future<String> _enviarMensagemParaIA(String mensagem) async {
@@ -60,12 +87,327 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
       setState(() {
         _messages.add({'isUser': true, 'text': value});
         _chatController.clear();
+        _isLoading = true;
       });
+      
+      // Iniciar animação de loading
+      _loadingController.repeat();
+      
       final resposta = await _enviarMensagemParaIA(value);
+      
+      // Parar animação de loading
+      _loadingController.stop();
+      
       setState(() {
+        _isLoading = false;
         _messages.add({'isUser': false, 'text': resposta});
       });
     }
+  }
+
+  void _enviarMensagemRapida(String tag) async {
+    // Criar uma mensagem mais elaborada baseada na tag selecionada
+    String mensagem = _criarMensagemPorTag(tag);
+    
+    setState(() {
+      _messages.add({'isUser': true, 'text': mensagem});
+      _isLoading = true;
+    });
+    
+    // Iniciar animação de loading
+    _loadingController.repeat();
+    
+    final resposta = await _enviarMensagemParaIA(mensagem);
+    
+    // Parar animação de loading
+    _loadingController.stop();
+    
+    setState(() {
+      _isLoading = false;
+      _messages.add({'isUser': false, 'text': resposta});
+    });
+  }
+
+  String _criarMensagemPorTag(String tag) {
+    switch (tag.toLowerCase()) {
+      case 'programação':
+        return 'Estou interessado em matérias de programação. Quais disciplinas da UnB você recomenda para desenvolver habilidades de programação?';
+      case 'dados':
+        return 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?';
+      case 'design':
+        return 'Gostaria de aprender sobre design e experiência do usuário. Quais disciplinas da UnB abordam design, UX/UI e áreas criativas?';
+      case 'gestão':
+        return 'Quero desenvolver habilidades de gestão e liderança. Que matérias relacionadas a administração, gestão de projetos e empreendedorismo você recomenda?';
+      case 'pesquisa':
+        return 'Tenho interesse em pesquisa acadêmica e científica. Quais disciplinas podem me ajudar a desenvolver habilidades de pesquisa e metodologia científica?';
+      case 'inovação':
+        return 'Estou interessado em inovação e tecnologia. Que matérias abordam temas como inovação, startups, tecnologias emergentes e empreendedorismo tecnológico?';
+      default:
+        return 'Estou interessado em $tag. Que matérias relacionadas a essa área você recomenda?';
+    }
+  }
+
+  Widget _buildLoadingMessage() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 12, top: 4),
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              color: Color(0xFFB72EFF),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                'A',
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.1),
+                borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(4),
+                  topRight: const Radius.circular(16),
+                  bottomLeft: const Radius.circular(16),
+                  bottomRight: const Radius.circular(16),
+                ),
+              ),
+              child: Row(
+                children: [
+                  AnimatedBuilder(
+                    animation: _loadingAnimation,
+                    builder: (context, child) {
+                      return Row(
+                        children: [
+                          Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF8B5CF6),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF8B5CF6).withOpacity(
+                                0.5 + (0.5 * _loadingAnimation.value),
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF8B5CF6).withOpacity(
+                                0.3 + (0.7 * _loadingAnimation.value),
+                              ),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    'IA está pensando...',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.7),
+                      fontSize: 14,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMessage(Map<String, dynamic> msg) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (!msg['isUser'])
+            Container(
+              margin: const EdgeInsets.only(right: 12, top: 4),
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                color: Color(0xFFB72EFF),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  'A',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+                color: msg['isUser']
+                    ? const Color(0xFF8B5CF6).withOpacity(0.8)
+                    : Colors.white.withOpacity(0.1),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(msg['isUser'] ? 16 : 4),
+                  topRight: Radius.circular(msg['isUser'] ? 4 : 16),
+                  bottomLeft: const Radius.circular(16),
+                  bottomRight: const Radius.circular(16),
+                ),
+              ),
+              child: MarkdownBody(
+                data: msg['text'],
+                styleSheet: MarkdownStyleSheet(
+                  p: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  strong: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInterestTags() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 12, top: 4),
+            width: 40,
+            height: 40,
+            decoration: const BoxDecoration(
+              color: Color(0xFFB72EFF),
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: Text(
+                'A',
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.1),
+                borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(4),
+                  topRight: const Radius.circular(16),
+                  bottomLeft: const Radius.circular(16),
+                  bottomRight: const Radius.circular(16),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Você pode selecionar algumas áreas de interesse:',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: _interestTags.map((tag) {
+                      final selected = _selectedInterests.contains(tag);
+                      return MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (selected) {
+                                _selectedInterests.remove(tag);
+                              } else {
+                                _selectedInterests.add(tag);
+                              }
+                            });
+                            // Enviar automaticamente a tag selecionada como mensagem
+                            _enviarMensagemRapida(tag);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: selected
+                                  ? const Color(0xFF22C55E)
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: selected
+                                    ? const Color(0xFF22C55E)
+                                    : Colors.white.withOpacity(0.3),
+                                width: 1,
+                              ),
+                            ),
+                            child: Text(
+                              tag,
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -152,11 +494,15 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                                             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
                                             child: ListView.builder(
                                               padding: EdgeInsets.zero,
-                                              itemCount: _messages.length + (_messages.length == 1 ? 1 : 0),
+                                              itemCount: _messages.length + (_messages.length == 1 ? 1 : 0) + (_isLoading ? 1 : 0),
                                               itemBuilder: (context, index) {
                                                 if (index < _messages.length) {
                                                 final msg = _messages[index];
                                                   return _buildMessage(msg);
+                                                } else if (index == _messages.length && _messages.length == 1) {
+                                                  return _buildInterestTags();
+                                                } else if (_isLoading && index == _messages.length + (_messages.length == 1 ? 1 : 0)) {
+                                                  return _buildLoadingMessage();
                                                 } else {
                                                   return _buildInterestTags();
                                                 }
@@ -415,204 +761,42 @@ class _AssistenteScreenState extends State<AssistenteScreen> {
                                 ),
                                 // Botão fora do container do SVG
                                 const SizedBox(height: 18),
-                              SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.white.withOpacity(0.1),
-                                      padding: const EdgeInsets.symmetric(vertical: 14),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                  ),
-                                  onPressed: () {},
-                                    child: Text(
-                                      'VER FLUXOGRAMA COMPLETO',
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                      ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMessage(Map<String, dynamic> msg) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (!msg['isUser'])
-            Container(
-              margin: const EdgeInsets.only(right: 12, top: 4),
-              width: 40,
-              height: 40,
-              decoration: const BoxDecoration(
-                color: Color(0xFFB72EFF),
-                shape: BoxShape.circle,
-              ),
-              child: Center(
-                child: Text(
-                  'A',
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-                color: msg['isUser']
-                    ? const Color(0xFF8B5CF6).withOpacity(0.8)
-                    : Colors.white.withOpacity(0.1),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(msg['isUser'] ? 16 : 4),
-                  topRight: Radius.circular(msg['isUser'] ? 4 : 16),
-                  bottomLeft: const Radius.circular(16),
-                  bottomRight: const Radius.circular(16),
-                ),
-              ),
-              child: MarkdownBody(
-                data: msg['text'],
-                styleSheet: MarkdownStyleSheet(
-                  p: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                  strong: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInterestTags() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(right: 12, top: 4),
-            width: 40,
-            height: 40,
-            decoration: const BoxDecoration(
-              color: Color(0xFFB72EFF),
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Text(
-                'A',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.1),
-                borderRadius: BorderRadius.only(
-                  topLeft: const Radius.circular(4),
-                  topRight: const Radius.circular(16),
-                  bottomLeft: const Radius.circular(16),
-                  bottomRight: const Radius.circular(16),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Você pode selecionar algumas áreas de interesse:',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: _interestTags.map((tag) {
-                      final selected = _selectedInterests.contains(tag);
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (selected) {
-                              _selectedInterests.remove(tag);
-                            } else {
-                              _selectedInterests.add(tag);
-                            }
-                          });
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 6,
-                          ),
-                          decoration: BoxDecoration(
-                            color: selected
-                                ? const Color(0xFF22C55E)
-                                : Colors.transparent,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: selected
-                                  ? const Color(0xFF22C55E)
-                                  : Colors.white.withOpacity(0.3),
-                              width: 1,
-                            ),
-      ),
-      child: Text(
-                            tag,
-                            style: GoogleFonts.poppins(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+                               SizedBox(
+                                 width: double.infinity,
+                                 child: ElevatedButton(
+                                   style: ElevatedButton.styleFrom(
+                                       backgroundColor: Colors.white.withOpacity(0.1),
+                                       padding: const EdgeInsets.symmetric(vertical: 14),
+                                     shape: RoundedRectangleBorder(
+                                         borderRadius: BorderRadius.circular(8),
+                                       ),
+                                   ),
+                                   onPressed: () {},
+                                     child: Text(
+                                       'VER FLUXOGRAMA COMPLETO',
+                                       style: GoogleFonts.poppins(
+                                           color: Colors.white,
+                                         fontWeight: FontWeight.bold,
+                                         fontSize: 15,
+                                       ),
+                                     ),
+                                 ),
+                               ),
+                             ],
+                           ),
+                         ),
+                       ),
+                     ],
+                       ),
+                   ),
+                 ),
+               ),
+             ],
+           ),
+         ],
+       ),
+     );
+   }
 
   Widget _buildFluxogramPreview() {
     return CustomPaint(

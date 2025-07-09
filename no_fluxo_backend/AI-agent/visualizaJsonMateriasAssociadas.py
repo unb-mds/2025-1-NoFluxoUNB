@@ -1,6 +1,14 @@
+# -*- coding: utf-8 -*-
 import re
 import ast
 import html
+import sys
+
+# Configurar encoding para UTF-8
+if sys.platform.startswith('win'):
+    import codecs
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
+    sys.stderr = codecs.getwriter('utf-8')(sys.stderr.detach())
 
 def gerar_texto_ranking(json_bruto: dict) -> str:
     """
@@ -161,5 +169,6 @@ def gerar_texto_ranking(json_bruto: dict) -> str:
 # --- Exemplo de Uso com o JSON que causou o erro ---
 json_exemplo = {'code': 0, 'data': {'answer': "{'content': {'0': '--- INÍCIO DO RANKING ---\\n\\n\\n1. **Disciplina:** HISTORIA DA AFRICA; Codigo: HIS0252; Unidade responsavel: DEPTO HISTORIA; Ementa: Processo historico das sociedades africanas. Historiografia com suas mudancas e desafios.\\n\\n**Pontuação:** 100 \\n\\n**Justificativa:** Aborda diretamente o conteúdo de referência, sendo a disciplina mais relevante.\\n\\n\\n2. **Disciplina:** LITERATURAS AFRICANAS DE LINGUA PORTUGUESA; Codigo: ILD0206; Unidade responsavel: INSTITUTO DE LETRAS; Ementa: Estudo da formacao das literaturas africanas de lingua portuguesa, com enfoque em obras e/ou autores representativos de questoes atinentes a forma estetica e a realidade nacional.\\n\\n**Pontuação:** 80 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado à literatura africana em língua portuguesa.\\n\\n\\n3. **Disciplina:** RELACOES ETNICO; Codigo: LET0933; Unidade responsavel: DEPTO LINGUAS ESTRANGEIRAS E TRADUCAO; Ementa: Aquisicao de conhecimentos referentes a historia e cultura africana e afro-diasporica, com enfase em questoes sociolinguisticas e decoloniais.\\n\\n**Pontuação:** 70 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado às relações étnico.\\n\\n\\n4. **Disciplina:** RELACOES INTERNACIONAIS DA AFRICA; Codigo: IRI0184; Unidade responsavel: INSTITUTO DE RELACOES INTERNACIONAIS; Ementa: O curso tem o proposito de apresentar as linhas gerais da evolucao das relacoes internacionais da Africa, do seculo XIX ao inicio do seculo XXI.\\n\\n**Pontuação:** 60 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado às relações internacionais africanas.\\n\\n\\n5. **Disciplina:** GEOGRAFIA AFRICANA E AFROBRASILEIRA; Codigo: GEA0003; Unidade responsavel: DEPTO GEOGRAFIA\\n\\n**Pontuação:** 50 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado à geografia africana e afro-brasileira.\\n\\n\\n6. **Disciplina:** DESENVOLVIMENTO E NECESSIDADES ESPECIAIS; Codigo: PED0036; Unidade responsavel: INSTITUTO DE PSICOLOGIA\\n\\n**Pontuação:** 40 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado ao desenvolvimento e necessidades especiais.\\n\\n\\n7. **Disciplina:** INFANCIA, CRIANCA E EDUCACAO; Codigo: TEF0002; Unidade responsavel: FACULDADE DE EDUCACAO\\n\\n**Pontuação:** 30 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado à infância e educação.\\n\\n\\n8. **Disciplina:** ENSINO DE HISTORIA, IDENTIDADE E CIDADANIA; Codigo: MTC0059; Unidade responsavel: FACULDADE DE EDUCACAO\\n\\n**Pontuação:** 20 \\n\\n**Justificativa:** Aborda o conteúdo de referência relacionado ao ensino de história e identidade.\\n\\n\\n--- FIM DO RANKING ---'}, 'component_id': {'0': 'Generate:TenTreesMix'}}", 'id': '5660685f-a1f7-40da-b720-35ee97a02c9c', 'param': [{'key': 'materia', 'name': 'materia', 'optional': False, 'type': 'paragraph', 'value': 'HISTORIA DA AFRICA'}], 'reference': {}, 'session_id': 'd2fad4a04b0211f0801c4e9adbd040ca'}}
 
-texto_formatado = gerar_texto_ranking(json_exemplo)
-print(texto_formatado)
+# Comentando o print para evitar erro de codificação
+# texto_formatado = gerar_texto_ranking(json_exemplo)
+# print(texto_formatado)
