@@ -31,8 +31,117 @@ def setup_git_auth(username, token):
         env = os.environ.copy()
         env['GIT_USERNAME'] = username
         env['GIT_PASSWORD'] = token
+        # Set up git credential helper to use environment variables
+        env['GIT_ASKPASS'] = 'echo'
+        env['GIT_USERNAME'] = username
+        env['GIT_PASSWORD'] = token
         return env
     return None
+
+def save_git_config(repo_path):
+    """Save current git configuration that we might modify."""
+    try:
+        original_dir = os.getcwd()
+        os.chdir(repo_path)
+        
+        config_backup = {}
+        
+        # Save credential helper configuration
+        try:
+            result = subprocess.run(["git", "config", "--local", "--get", "credential.helper"], 
+                                  capture_output=True, text=True)
+            if result.returncode == 0:
+                config_backup['credential.helper'] = result.stdout.strip()
+        except:
+            pass
+        
+        # Save any credential.* configurations
+        try:
+            result = subprocess.run(["git", "config", "--local", "--get-regexp", "credential\\..*"], 
+                                  capture_output=True, text=True)
+            if result.returncode == 0:
+                for line in result.stdout.strip().split('\n'):
+                    if line:
+                        key, value = line.split(' ', 1)
+                        config_backup[key] = value
+        except:
+            pass
+        
+        os.chdir(original_dir)
+        log_message(f"Python: Saved git configuration: {list(config_backup.keys())}")
+        return config_backup
+        
+    except Exception as e:
+        log_message(f"Python: Error saving git config: {e}")
+        os.chdir(original_dir)
+        return {}
+
+def setup_git_credential_helper(username, token, repo_path):
+    """Setup git credential helper using git config."""
+    if not username or not token:
+        return None
+    
+    try:
+        # Save current config before making changes
+        config_backup = save_git_config(repo_path)
+        
+        original_dir = os.getcwd()
+        os.chdir(repo_path)
+        
+        # Set up credential helper to store credentials temporarily
+        subprocess.run(["git", "config", "--local", "credential.helper", "store"], check=True)
+        
+        # Write credentials to git credential store
+        credential_input = f"protocol=https\nhost=github.com\nusername={username}\npassword={token}\n\n"
+        process = subprocess.Popen(
+            ["git", "credential", "approve"],
+            stdin=subprocess.PIPE,
+            text=True
+        )
+        process.communicate(input=credential_input)
+        
+        os.chdir(original_dir)
+        log_message("Python: Git credential helper configured")
+        return config_backup
+        
+    except Exception as e:
+        log_message(f"Python: Error setting up git credential helper: {e}")
+        os.chdir(original_dir)
+        return {}
+
+def restore_git_config(repo_path, config_backup):
+    """Restore original git configuration."""
+    try:
+        original_dir = os.getcwd()
+        os.chdir(repo_path)
+        
+        # Clear current credential configuration
+        subprocess.run(["git", "config", "--local", "--unset", "credential.helper"], 
+                      stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        
+        # Remove any credential.* configurations we might have added
+        try:
+            result = subprocess.run(["git", "config", "--local", "--get-regexp", "credential\\..*"], 
+                                  capture_output=True, text=True)
+            if result.returncode == 0:
+                for line in result.stdout.strip().split('\n'):
+                    if line:
+                        key = line.split(' ', 1)[0]
+                        subprocess.run(["git", "config", "--local", "--unset", key], 
+                                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except:
+            pass
+        
+        # Restore original configuration
+        for key, value in config_backup.items():
+            subprocess.run(["git", "config", "--local", key, value], check=True)
+        
+        os.chdir(original_dir)
+        log_message(f"Python: Restored git configuration: {list(config_backup.keys())}")
+        
+    except Exception as e:
+        log_message(f"Python: Warning - Could not restore git config: {e}")
+        os.chdir(original_dir)
 
 def get_authenticated_url(url, username, token):
     """Convert a git URL to include authentication credentials."""
@@ -80,13 +189,14 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
     if not fork_path or not os.path.exists(fork_path):
         log_message(f"Python: Fork path {fork_path} does not exist. Skipping fork update.")
         return
-    
-    # Set up authentication if provided
-    git_env = setup_git_auth(git_username, git_token)
-    
+
+    # Initialize variables outside try block for error handling
+    config_backup = {}
+    original_dir = os.getcwd()
+    original_branch = None
+
     try:
         # Save current directory and its state
-        original_dir = os.getcwd()
         original_branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode().strip()
         
         # Get the original repo's remote URL
@@ -104,24 +214,24 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         os.chdir(fork_path)
         log_message(f"Python: Updating fork repository at {fork_path}")
         
-        # Get fork's origin URL and update it with authentication if needed
+        # Setup git credential helper for authentication and save original config
+        if git_username and git_token:
+            config_backup = setup_git_credential_helper(git_username, git_token, fork_path)
+        
+        # Get fork's origin URL and ensure it's clean (no embedded credentials)
         try:
             fork_origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"], stderr=subprocess.PIPE).decode().strip()
             # Remove any existing authentication from the URL
             if '@' in fork_origin_url:
-                fork_origin_url = 'https://' + fork_origin_url.split('@')[1]
-            
-            if git_username and git_token:
-                authenticated_fork_url = get_authenticated_url(fork_origin_url, git_username, git_token)
-                subprocess.run(["git", "remote", "set-url", "origin", authenticated_fork_url], check=True)
-                log_message("Python: Updated fork's origin URL with authentication")
+                clean_url = 'https://' + fork_origin_url.split('@')[1]
+                subprocess.run(["git", "remote", "set-url", "origin", clean_url], check=True)
+                log_message("Python: Cleaned fork's origin URL")
         except subprocess.CalledProcessError as e:
             log_message(f"Python: Warning - Could not get/set fork's origin URL: {e.stderr.decode().strip()}")
             # If origin doesn't exist, try to add it
             if git_username and git_token:
                 fork_url = f"https://github.com/{git_username}/2025-1-NoFluxoUNB.git"
-                authenticated_fork_url = get_authenticated_url(fork_url, git_username, git_token)
-                subprocess.run(["git", "remote", "add", "origin", authenticated_fork_url], check=True)
+                subprocess.run(["git", "remote", "add", "origin", fork_url], check=True)
                 log_message("Python: Added fork's origin remote")
             else:
                 raise Exception("No authentication provided and origin remote doesn't exist")
@@ -129,7 +239,6 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         # Fetch latest changes from fork's origin with full error output
         try:
             fetch_result = subprocess.run(["git", "fetch", "origin"], 
-                                        env=git_env,
                                         capture_output=True,
                                         text=True,
                                         check=True)
@@ -149,8 +258,8 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
             subprocess.run(["git", "checkout", "-b", "main"], check=True)
         
         try:
-            subprocess.run(["git", "reset", "--hard", "origin/main"], check=True, env=git_env)
-            subprocess.run(["git", "pull", "origin", "main"], check=True, env=git_env)
+            subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
+            subprocess.run(["git", "pull", "origin", "main"], check=True)
         except subprocess.CalledProcessError as e:
             log_message(f"Python: Warning - Could not reset/pull main branch: {e.stderr if hasattr(e, 'stderr') else str(e)}")
             # If we can't reset/pull, we'll just push our changes later
@@ -175,44 +284,42 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         # Push to fork's origin/main
         log_message("Python: Pushing changes to fork's main branch")
         
-        # Set up authentication if provided
-        git_env = setup_git_auth(git_username, git_token)
-        
-        if git_username and git_token:
-            # Get the current origin URL and update it with authentication
-            fork_origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"]).decode().strip()
-            authenticated_fork_url = get_authenticated_url(fork_origin_url, git_username, git_token)
-            
-            # Temporarily update the origin URL with authentication
-            subprocess.run(["git", "remote", "set-url", "origin", authenticated_fork_url], check=True)
-            
-            # Push with authentication
-            subprocess.run(["git", "push", "-f", "origin", "main"], check=True, env=git_env)
-            
-            # Restore the original URL (without credentials)
-            subprocess.run(["git", "remote", "set-url", "origin", fork_origin_url], check=True)
-        else:
-            # Push without explicit authentication (relies on system git config)
+        # Push using credential helper
+        try:
             subprocess.run(["git", "push", "-f", "origin", "main"], check=True)
+            log_message("Python: Successfully pushed to fork's main branch")
+        except subprocess.CalledProcessError as e:
+            log_message(f"Python: Error pushing to fork: {e}")
+            raise
         
         log_message(f"Python: Fork repository main branch updated successfully with content from {branch}")
         
+        # Restore original git configuration
+        if git_username and git_token:
+            restore_git_config(fork_path, config_backup)
+        
         # Return to original directory and branch
         os.chdir(original_dir)
-        if original_branch != branch:
+        if original_branch and original_branch != branch:
             subprocess.run(["git", "checkout", original_branch], check=True)
         
     except subprocess.CalledProcessError as e:
         log_message(f"Python: Error updating fork repository: {e}")
+        # Restore original git configuration even on error
+        if git_username and git_token:
+            restore_git_config(fork_path, config_backup)
         # Return to original directory even if there was an error
         os.chdir(original_dir)
-        if original_branch != branch:
+        if original_branch and original_branch != branch:
             subprocess.run(["git", "checkout", original_branch], check=True)
     except Exception as e:
         log_message(f"Python: Unexpected error updating fork repository: {e}")
+        # Restore original git configuration even on error
+        if git_username and git_token:
+            restore_git_config(fork_path, config_backup)
         # Return to original directory even if there was an error
         os.chdir(original_dir)
-        if original_branch != branch:
+        if original_branch and original_branch != branch:
             subprocess.run(["git", "checkout", original_branch], check=True)
 
 def start_process(command):
