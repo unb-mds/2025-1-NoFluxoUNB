@@ -142,9 +142,9 @@ class Environment {
       redirectToUrl = "http://localhost:5000";
       agentUrl = "http://localhost:4652";
     } else {
-      apiUrl = "https://srv892492.hstgr.cloud:3325";
+      apiUrl = "https://no-fluxo-api.shop:3325";
       redirectToUrl = "https://no-fluxo.com";
-      agentUrl = "https://srv892492.hstgr.cloud:4652";
+      agentUrl = "https://no-fluxo-api.shop:4652";
     }
   }
 

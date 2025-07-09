@@ -3100,3 +3100,37 @@
 }
 2025-07-09 11:33:09,961 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
 2025-07-09 11:33:09,962 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 11:33:33,689 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/11" 200 290
+2025-07-09 11:33:33,689 - ragflow_agent_client - INFO - Session request completed in 23.73 seconds
+2025-07-09 11:33:33,689 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 11:33:33,689 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 14:33:33 GMT', 'Content-Type': 'application/json', 'Content-Length': '290', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 11:33:33,689 - ragflow_agent_client - DEBUG - No HTTP errors raised for session start request
+2025-07-09 11:33:33,689 - ragflow_agent_client - DEBUG - Session response data type: <class 'dict'>
+2025-07-09 11:33:33,689 - ragflow_agent_client - DEBUG - Session response keys: ['code', 'data']
+2025-07-09 11:33:33,689 - ragflow_agent_client - INFO - Session started successfully with ID: a2fd58be5cd111f088ae3626e9053b6a
+2025-07-09 11:33:33,690 - __main__ - INFO - Session started successfully with ID: a2fd58be5cd111f088ae3626e9053b6a
+2025-07-09 11:33:33,690 - __main__ - DEBUG - Analyzing materia with RAGFlow agent
+2025-07-09 11:33:33,690 - ragflow_agent_client - INFO - Starting analysis for materia: 'MKMKM' with session: a2fd58be5cd111f088ae3626e9053b6a
+2025-07-09 11:33:33,690 - ragflow_agent_client - DEBUG - Analysis payload: {
+  "question": "MKMKM",
+  "session_id": "a2fd58be5cd111f088ae3626e9053b6a",
+  "stream": false
+}
+2025-07-09 11:33:33,690 - ragflow_agent_client - DEBUG - Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+2025-07-09 11:33:33,691 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+2025-07-09 11:33:33,830 - urllib3.connectionpool - DEBUG - https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/11" 200 360
+2025-07-09 11:33:33,830 - ragflow_agent_client - INFO - Analysis request completed in 0.14 seconds
+2025-07-09 11:33:33,830 - ragflow_agent_client - DEBUG - Response status code: 200
+2025-07-09 11:33:33,830 - ragflow_agent_client - DEBUG - Response headers: {'Server': 'openresty', 'Date': 'Wed, 09 Jul 2025 14:33:33 GMT', 'Content-Type': 'application/json', 'Content-Length': '360', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+2025-07-09 11:33:33,830 - ragflow_agent_client - DEBUG - No HTTP errors raised for analysis request
+2025-07-09 11:33:33,830 - ragflow_agent_client - DEBUG - Analysis response data type: <class 'dict'>
+2025-07-09 11:33:33,830 - ragflow_agent_client - DEBUG - Analysis response keys: ['code', 'data']
+2025-07-09 11:33:33,830 - ragflow_agent_client - INFO - RAGFlow API response code: 0
+2025-07-09 11:33:33,830 - ragflow_agent_client - INFO - Analysis completed successfully
+2025-07-09 11:33:33,830 - ragflow_agent_client - INFO - Analysis completed for materia: 'MKMKM'
+2025-07-09 11:33:33,832 - __main__ - DEBUG - Raw agent result received: <class 'dict'>
+2025-07-09 11:33:33,832 - __main__ - DEBUG - Formatting response
+2025-07-09 11:33:33,832 - __main__ - INFO - Response formatted successfully
+2025-07-09 11:33:33,833 - __main__ - INFO - [REQUEST SUCCESS] Request completed in 23.87 seconds
+2025-07-09 11:33:33,833 - __main__ - DEBUG - Response: 200 for POST http://localhost:4652/assistente
+2025-07-09 11:33:33,833 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2025 11:33:33] "POST /assistente HTTP/1.1" 200 -
