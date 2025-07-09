@@ -208,6 +208,7 @@ def parse_arguments():
 if __name__ == '__main__':
     args = parse_arguments()
     
+    
     # Update log level if specified via command line
     if hasattr(args, 'log_level'):
         logging.getLogger().setLevel(getattr(logging, args.log_level))
