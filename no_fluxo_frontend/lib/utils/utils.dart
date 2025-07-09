@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/config/size_config.dart';
 import 'package:mobile_app/config/app_colors.dart';
+import 'package:go_router/go_router.dart';
 
 class Utils {
   static Future<void> showCustomizedDialog(
@@ -38,5 +39,62 @@ class Utils {
   static String capitalize(String text) {
     if (text.isEmpty) return text;
     return text[0].toUpperCase() + text.substring(1).toLowerCase();
+  }
+
+  // ======================== ROUTER UTILS ========================
+  
+  /// Retorna a rota atual baseada no contexto
+  static String getCurrentRoute(BuildContext context) {
+    return GoRouterState.of(context).uri.path;
+  }
+
+  /// Verifica se está na rota especificada
+  static bool isCurrentRoute(BuildContext context, String route) {
+    return getCurrentRoute(context) == route;
+  }
+
+  /// Verifica se está em uma das rotas especificadas
+  static bool isCurrentRouteOneOf(BuildContext context, List<String> routes) {
+    final currentRoute = getCurrentRoute(context);
+    return routes.contains(currentRoute);
+  }
+
+  /// Verifica se está na rota home (/ ou /home)
+  static bool isHomeRoute(BuildContext context) {
+    return isCurrentRouteOneOf(context, ["/", "/home"]);
+  }
+
+  /// Verifica se está em uma rota de autenticação
+  static bool isAuthRoute(BuildContext context) {
+    return isCurrentRouteOneOf(context, ["/login", "/signup", "/password-recovery", "/login-anonimo"]);
+  }
+
+  /// Verifica se está em uma rota que não precisa de login
+  static bool isPublicRoute(BuildContext context) {
+    const publicRoutes = [
+      '/',
+      "",
+      "/login",
+      "/signup", 
+      "/password-recovery",
+      "/home",
+      "/login-anonimo"
+    ];
+    return isCurrentRouteOneOf(context, publicRoutes);
+  }
+
+  /// Retorna os parâmetros da rota atual
+  static Map<String, String> getCurrentRouteParams(BuildContext context) {
+    return GoRouterState.of(context).pathParameters;
+  }
+
+  /// Retorna os query parameters da rota atual
+  static Map<String, String> getCurrentRouteQuery(BuildContext context) {
+    return GoRouterState.of(context).uri.queryParameters;
+  }
+
+  /// Verifica se a rota atual começa com um determinado prefixo
+  static bool routeStartsWith(BuildContext context, String prefix) {
+    return getCurrentRoute(context).startsWith(prefix);
   }
 }

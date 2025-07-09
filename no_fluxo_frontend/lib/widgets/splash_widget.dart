@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
@@ -18,6 +19,9 @@ class _SplashWidgetState extends State<SplashWidget>
   late AnimationController _particle4Controller;
   late AnimationController _particle5Controller;
   late AnimationController _textController;
+  late AnimationController _dot1Controller;
+  late AnimationController _dot2Controller;
+  late AnimationController _dot3Controller;
 
   late Animation<double> _barAnimation;
   late Animation<double> _particle1Animation;
@@ -27,6 +31,9 @@ class _SplashWidgetState extends State<SplashWidget>
   late Animation<double> _particle5Animation;
   late Animation<double> _textOpacityAnimation;
   late Animation<double> _textSpacingAnimation;
+  late Animation<double> _dot1Animation;
+  late Animation<double> _dot2Animation;
+  late Animation<double> _dot3Animation;
 
   @override
   void initState() {
@@ -81,6 +88,22 @@ class _SplashWidgetState extends State<SplashWidget>
       vsync: this,
     );
 
+    // Dot animation controllers (0.6s each with delays)
+    _dot1Controller = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
+    _dot2Controller = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
+    _dot3Controller = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
     // Start text animation after a short delay to ensure widget is mounted
     Future.delayed(Duration.zero, () {
       if (mounted) {
@@ -118,6 +141,19 @@ class _SplashWidgetState extends State<SplashWidget>
       CurvedAnimation(parent: _textController, curve: Curves.easeInOut),
     );
 
+    // Dot animations
+    _dot1Animation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _dot1Controller, curve: Curves.easeInOut),
+    );
+
+    _dot2Animation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _dot2Controller, curve: Curves.easeInOut),
+    );
+
+    _dot3Animation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _dot3Controller, curve: Curves.easeInOut),
+    );
+
     // Start particle animations with delays
     _startParticleAnimations();
   }
@@ -142,6 +178,19 @@ class _SplashWidgetState extends State<SplashWidget>
     Future.delayed(const Duration(milliseconds: 800), () {
       if (mounted) _particle5Controller.repeat();
     });
+
+    // Start dot animations with delays
+    Future.delayed(const Duration(milliseconds: 200), () {
+      if (mounted) _dot1Controller.repeat();
+    });
+
+    Future.delayed(const Duration(milliseconds: 400), () {
+      if (mounted) _dot2Controller.repeat();
+    });
+
+    Future.delayed(const Duration(milliseconds: 600), () {
+      if (mounted) _dot3Controller.repeat();
+    });
   }
 
   @override
@@ -154,6 +203,9 @@ class _SplashWidgetState extends State<SplashWidget>
     _particle4Controller.stop();
     _particle5Controller.stop();
     _textController.stop();
+    _dot1Controller.stop();
+    _dot2Controller.stop();
+    _dot3Controller.stop();
 
     // Dispose all controllers
     _barController.dispose();
@@ -163,6 +215,9 @@ class _SplashWidgetState extends State<SplashWidget>
     _particle4Controller.dispose();
     _particle5Controller.dispose();
     _textController.dispose();
+    _dot1Controller.dispose();
+    _dot2Controller.dispose();
+    _dot3Controller.dispose();
 
     super.dispose();
   }
@@ -352,34 +407,98 @@ class _SplashWidgetState extends State<SplashWidget>
                     ),
                   ),
 
-                  // Loading Text
-                  AnimatedBuilder(
-                    animation: Listenable.merge(
-                        [_textOpacityAnimation, _textSpacingAnimation]),
-                    builder: (context, child) {
-                      return Opacity(
-                        opacity: _textOpacityAnimation.value,
-                        child: Text(
-                          'Carregando...',
-                          style: TextStyle(
-                            fontSize: 20.8, // 1.3rem ≈ 20.8px
-                            color: Colors.black,
-                            letterSpacing: _textSpacingAnimation.value,
-                            fontFamily: 'Segoe UI',
-                            fontWeight: FontWeight.normal,
-                            shadows: [
-                              Shadow(
-                                color:
-                                    const Color(0xFF3498DB).withOpacity(0.10),
-                                blurRadius: 8,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.center,
+                  // Loading Text with animated dots
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Carregando',
+                        style: GoogleFonts.poppins(
+                          fontSize: 20.8,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black.withOpacity(0.3),
+                              blurRadius: 8,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
                         ),
-                      );
-                    },
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(width: 4),
+                      // Animated dots
+                      AnimatedBuilder(
+                        animation: _dot1Animation,
+                        builder: (context, child) {
+                          return Opacity(
+                            opacity: _dot1Animation.value,
+                            child: Text(
+                              '.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 20.8,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      AnimatedBuilder(
+                        animation: _dot2Animation,
+                        builder: (context, child) {
+                          return Opacity(
+                            opacity: _dot2Animation.value,
+                            child: Text(
+                              '.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 20.8,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      AnimatedBuilder(
+                        animation: _dot3Animation,
+                        builder: (context, child) {
+                          return Opacity(
+                            opacity: _dot3Animation.value,
+                            child: Text(
+                              '.',
+                              style: GoogleFonts.poppins(
+                                fontSize: 20.8,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ],
               ),

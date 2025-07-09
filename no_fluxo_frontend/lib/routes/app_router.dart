@@ -8,8 +8,6 @@ import '../screens/auth/anonymous_login_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/assistente/assistente_screen.dart';
 import '../screens/auth/auth_page.dart';
-import '../screens/auth/login_form.dart';
-import '../screens/auth/signup_form.dart';
 import '../screens/auth/password_recovery_screen.dart';
 import '../screens/upload-historico/presentation/upload_historico_screen.dart';
 import '../screens/fluxogramas/presentation/pages/fluxogramas_index_screen.dart';
