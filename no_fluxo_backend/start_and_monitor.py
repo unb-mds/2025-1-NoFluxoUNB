@@ -144,6 +144,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         # Add or update the original repo as a remote
         log_message("Python: Setting up upstream remote with original repository")
         try:
+            
             # Try to add the remote
             subprocess.run(["git", "remote", "add", "upstream", origin_url], check=True)
         except subprocess.CalledProcessError:
