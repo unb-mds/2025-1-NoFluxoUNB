@@ -62,6 +62,7 @@ def update_fork_repo(fork_path, branch):
         # Fetch latest changes from fork's origin
         subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
+        
         # Switch to main branch in fork
         log_message("Python: Switching to main branch in fork repository")
         subprocess.run(["git", "checkout", "main"], check=True)
