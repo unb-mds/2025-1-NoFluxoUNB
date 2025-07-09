@@ -24,19 +24,7 @@ def log_message(message):
     print(message)
     logging.info(message)
 
-def setup_git_auth(username, token):
-    """Setup git authentication using environment variables for credential helper."""
-    if username and token:
-        # Set up git credentials using environment variables
-        env = os.environ.copy()
-        env['GIT_USERNAME'] = username
-        env['GIT_PASSWORD'] = token
-        # Set up git credential helper to use environment variables
-        env['GIT_ASKPASS'] = 'echo'
-        env['GIT_USERNAME'] = username
-        env['GIT_PASSWORD'] = token
-        return env
-    return None
+
 
 def save_git_config(repo_path):
     """Save current git configuration that we might modify."""
@@ -143,31 +131,7 @@ def restore_git_config(repo_path, config_backup):
         log_message(f"Python: Warning - Could not restore git config: {e}")
         os.chdir(original_dir)
 
-def get_authenticated_url(url, username, token):
-    """Convert a git URL to include authentication credentials."""
-    if not username or not token:
-        return url
-    
-    # Handle HTTPS URLs
-    if url.startswith('https://'):
-        # Parse the URL and remove any existing auth
-        parsed = urllib.parse.urlparse(url)
-        netloc = parsed.netloc
-        if '@' in netloc:
-            netloc = netloc.split('@')[1]
-        
-        # Quote username and token separately, ensuring special characters are properly encoded
-        quoted_username = urllib.parse.quote(username, safe='')
-        quoted_token = urllib.parse.quote(token, safe='')
-        
-        # Reconstruct with credentials
-        authenticated_url = f"https://{quoted_username}:{quoted_token}@{netloc}{parsed.path}"
-        return authenticated_url
-    
-    
-    
-    # Return original URL if not HTTPS
-    return url
+
 
 def check_for_updates(repo_dir, branch):
     """Check if the remote repository has new commits."""
@@ -234,7 +198,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
             else:
                 log_message("Python: Fork origin URL is already clean")
                 
-                
+
         except subprocess.CalledProcessError as e:
             log_message(f"Python: Warning - Could not get fork's origin URL: {e.stderr.decode().strip() if e.stderr else str(e)}")
             # If origin doesn't exist, try to add it
