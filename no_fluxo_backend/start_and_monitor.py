@@ -5,6 +5,7 @@ import time
 import logging
 import argparse
 from pathlib import Path
+import urllib.parse
 
 # Set up logging at the same place as the script with name process.log
 log_file = Path(__file__).parent / "process.log"
@@ -18,6 +19,32 @@ logging.basicConfig(
 def log_message(message):
     print(message)
     logging.info(message)
+
+def setup_git_auth(username, token):
+    """Setup git authentication using environment variables for credential helper."""
+    if username and token:
+        # Set up git credentials using environment variables
+        env = os.environ.copy()
+        env['GIT_USERNAME'] = username
+        env['GIT_PASSWORD'] = token
+        return env
+    return None
+
+def get_authenticated_url(url, username, token):
+    """Convert a git URL to include authentication credentials."""
+    if not username or not token:
+        return url
+    
+    # Handle HTTPS URLs
+    if url.startswith('https://'):
+        # Parse the URL
+        parsed = urllib.parse.urlparse(url)
+        # Reconstruct with credentials
+        authenticated_url = f"https://{urllib.parse.quote(username)}:{urllib.parse.quote(token)}@{parsed.netloc}{parsed.path}"
+        return authenticated_url
+    
+    # Return original URL if not HTTPS
+    return url
 
 def check_for_updates(repo_dir, branch):
     """Check if the remote repository has new commits."""
@@ -36,7 +63,7 @@ def pull_updates(repo_dir, branch):
     subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
     subprocess.run(["git", "pull", "origin", branch], check=True)
 
-def update_fork_repo(fork_path, branch):
+def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
     """Update the fork repository with the latest changes from current branch to main."""
     if not fork_path or not os.path.exists(fork_path):
         log_message(f"Python: Fork path {fork_path} does not exist. Skipping fork update.")
@@ -89,7 +116,26 @@ def update_fork_repo(fork_path, branch):
         
         # Push to fork's origin/main
         log_message("Python: Pushing changes to fork's main branch")
-        subprocess.run(["git", "push", "-f", "origin", "main"], check=True)
+        
+        # Set up authentication if provided
+        git_env = setup_git_auth(git_username, git_token)
+        
+        if git_username and git_token:
+            # Get the current origin URL and update it with authentication
+            fork_origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"]).decode().strip()
+            authenticated_fork_url = get_authenticated_url(fork_origin_url, git_username, git_token)
+            
+            # Temporarily update the origin URL with authentication
+            subprocess.run(["git", "remote", "set-url", "origin", authenticated_fork_url], check=True)
+            
+            # Push with authentication
+            subprocess.run(["git", "push", "-f", "origin", "main"], check=True, env=git_env)
+            
+            # Restore the original URL (without credentials)
+            subprocess.run(["git", "remote", "set-url", "origin", fork_origin_url], check=True)
+        else:
+            # Push without explicit authentication (relies on system git config)
+            subprocess.run(["git", "push", "-f", "origin", "main"], check=True)
         
         log_message(f"Python: Fork repository main branch updated successfully with content from {branch}")
         
@@ -163,6 +209,8 @@ def main():
     parser = argparse.ArgumentParser(description='Monitor and auto-update a git repository.')
     parser.add_argument('--branch', default='main', help='Git branch to monitor (default: main)')
     parser.add_argument('--fork-location', help='Path to fork repository that should be updated when origin changes')
+    parser.add_argument('--git-username', help='Git username for authentication (can also use GIT_USERNAME env var)')
+    parser.add_argument('--git-token', help='Git token/password for authentication (can also use GIT_TOKEN env var)')
     args = parser.parse_args()
 
     REPO_DIR = "./"  # Replace with the path to your repository
@@ -170,6 +218,10 @@ def main():
     CHECK_INTERVAL = 10  # Interval in seconds to check for updates
     BRANCH = args.branch
     FORK_LOCATION = args.fork_location
+    
+    # Get authentication credentials from args or environment variables
+    GIT_USERNAME = args.git_username or os.getenv('GIT_USERNAME')
+    GIT_TOKEN = args.git_token or os.getenv('GIT_TOKEN')
 
     dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(dir)
@@ -183,6 +235,12 @@ def main():
             log_message(f"Python: Warning - Fork location {FORK_LOCATION} does not exist!")
     else:
         log_message("Python: No fork repository specified.")
+    
+    # Log authentication status (without exposing credentials)
+    if GIT_USERNAME and GIT_TOKEN:
+        log_message(f"Python: Git authentication configured for user: {GIT_USERNAME}")
+    elif FORK_LOCATION:
+        log_message("Python: No git authentication provided - using system git config")
 
     process = start_process(START_COMMAND)
 
@@ -195,7 +253,7 @@ def main():
                 
                 # Update fork repository if specified
                 if FORK_LOCATION:
-                    update_fork_repo(FORK_LOCATION, BRANCH)
+                    update_fork_repo(FORK_LOCATION, BRANCH, GIT_USERNAME, GIT_TOKEN)
                 
                 log_message("Python: Starting the process...")
                 process = start_process(START_COMMAND)

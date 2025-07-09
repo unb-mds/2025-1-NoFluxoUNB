@@ -158,8 +158,6 @@ export const FluxogramaController: EndpointController = {
 
             const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
 
-
-
             if (error) {
                 logger.error(`Erro ao buscar fluxograma: ${error.message}`);
                 return res.status(500).json({ error: error.message });
@@ -178,10 +176,44 @@ export const FluxogramaController: EndpointController = {
                     return res.status(500).json({ error: errorEquivalencias.message });
                 }
 
+                var materias_id = [];
+
+                for (const materia of curso.materias_por_curso) {
+                    materias_id.push(materia.materias.id_materia);
+                }
+
+                // get pre-requisitos
+                const { data: preRequisitos, error: errorPreRequisitos } = await SupabaseWrapper.get()
+                    .from("pre_requisitos")
+                    .select("id_pre_requisito,id_materia,id_materia_requisito,materias:id_materia_requisito(codigo_materia,nome_materia)")
+                    .in("id_materia", materias_id);
+
+                if (errorPreRequisitos) {
+                    logger.error(`Erro ao buscar pre-requisitos: ${errorPreRequisitos.message}`);
+                    return res.status(500).json({ error: errorPreRequisitos.message });
+                }
+
+                var preRequisitosCodigosComId = [];
+
+                for (const preRequisito_ of preRequisitos) {
+                    const preRequisito: any = preRequisito_;
+
+                    if (preRequisito.id_materia_requisito) {
+                        preRequisitosCodigosComId.push({
+                            id_pre_requisito: preRequisito.id_pre_requisito,
+                            id_materia: preRequisito.id_materia,
+                            id_materia_requisito: preRequisito.id_materia_requisito,
+                            codigo_materia_requisito: preRequisito.materias.codigo_materia,
+                            nome_materia_requisito: preRequisito.materias.nome_materia
+                        });
+                    }
+                }
+
+                curso.pre_requisitos = preRequisitosCodigosComId;
+
                 curso.equivalencias = equivalencias;
             }
 
-            logger.info(`Fluxograma encontrado: ${JSON.stringify(data)}`);
             return res.status(200).json(data);
         }),
 
