@@ -3,8 +3,8 @@ name: Atualizar Banco Supabase
 
 on:
   workflow_dispatch:  # ou "push" se quiser rodar automaticamente
-  # push:
-  #   branches: [main]
+  push:
+     branches: [dev]
 
 jobs:
   rodar-script:
