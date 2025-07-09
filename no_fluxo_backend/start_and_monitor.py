@@ -136,6 +136,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         # Switch to main branch in fork
         log_message("Python: Switching to main branch in fork repository")
         try:
+            
             # Try to checkout main branch
             subprocess.run(["git", "checkout", "main"], check=True, capture_output=True, text=True)
         except subprocess.CalledProcessError as e:
