@@ -205,6 +205,8 @@ def restart_process_if_crashed(process, command):
         return None
     return process
 
+
+
 def main():
     parser = argparse.ArgumentParser(description='Monitor and auto-update a git repository.')
     parser.add_argument('--branch', default='main', help='Git branch to monitor (default: main)')
