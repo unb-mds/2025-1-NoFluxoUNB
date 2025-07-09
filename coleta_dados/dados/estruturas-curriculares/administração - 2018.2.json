@@ -1,5 +1,6 @@
 {
   "curso": "ADMINISTRAÇÃO",
+  "tipo_curso": "Bacharelado",
   "periodo_letivo_vigor": "2018.2",
   "niveis": [
     {
@@ -426,6 +427,11 @@
           "ch": "30"
         },
         {
+          "codigo": "ADM0314",
+          "nome": "ADMINISTRACAO DE RECURSOS MATERIAIS E PATRIMONIAIS",
+          "ch": "60"
+        },
+        {
           "codigo": "ADM0317",
           "nome": "ADMINISTRACAO DA QUALIDADE",
           "ch": "60"
@@ -816,6 +822,11 @@
           "ch": "60"
         },
         {
+          "codigo": "EST0060",
+          "nome": "MATEMATICA FINANCEIRA",
+          "ch": "60"
+        },
+        {
           "codigo": "EST0061",
           "nome": "INTRODUCAO A ESTATISTICA ECONOMICA",
           "ch": "60"
@@ -861,8 +872,18 @@
           "ch": "60"
         },
         {
+          "codigo": "FIL0064",
+          "nome": "ETICA",
+          "ch": "60"
+        },
+        {
           "codigo": "FIL0069",
           "nome": "INTRODUCAO A FILOSOFIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FIL0105",
+          "nome": "INICIACAO A PRATICA FILOSOFICA",
           "ch": "60"
         },
         {
@@ -946,11 +967,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LET0076",
-          "nome": "FRANCES INSTRUMENTAL 1",
-          "ch": "60"
-        },
-        {
           "codigo": "LET0101",
           "nome": "LINGUA ALEMA 1",
           "ch": "60"
@@ -983,6 +999,11 @@
         {
           "codigo": "LET0378",
           "nome": "LINGUA CHINESA 3",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0431",
+          "nome": "FRANCES 1",
           "ch": "60"
         },
         {

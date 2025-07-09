@@ -1,5 +1,6 @@
 {
   "curso": "CIÊNCIAS NATURAIS",
+  "tipo_curso": "Licenciatura",
   "periodo_letivo_vigor": "2014.1",
   "niveis": [
     {
@@ -111,11 +112,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
-          "ch": "60"
-        },
-        {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
           "ch": "60"
@@ -144,11 +140,6 @@
           "codigo": "FUP0527",
           "nome": "BOTANICA",
           "ch": "60"
-        },
-        {
-          "codigo": "FUP0537",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
-          "ch": "105"
         }
       ]
     },
@@ -166,14 +157,14 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0408",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
-          "ch": "30"
+          "codigo": "FUP0537",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
+          "ch": "105"
         },
         {
-          "codigo": "FUP0541",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 2",
-          "ch": "105"
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
         }
       ]
     },
@@ -191,8 +182,13 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0542",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
+          "codigo": "FUP0408",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "FUP0541",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 2",
           "ch": "105"
         }
       ]
@@ -205,6 +201,21 @@
           "nome": "SISTEMAS ECOLOGICOS",
           "ch": "120"
         },
+        {
+          "codigo": "FUP0542",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 3",
+          "ch": "105"
+        },
+        {
+          "codigo": "ICB0082",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
+          "ch": "30"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
         {
           "codigo": "FUP0473",
           "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
@@ -491,11 +502,6 @@
           "ch": "60"
         },
         {
-          "codigo": "ECO0019",
-          "nome": "INTRODUCAO A ECONOMIA",
-          "ch": "60"
-        },
-        {
           "codigo": "EFL0004",
           "nome": "ECOLOGIA FLORESTAL",
           "ch": "60"
@@ -731,26 +737,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0276",
-          "nome": "MATEMATICA PARA AGRONEGOCIO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FUP0278",
-          "nome": "INICIACAO A FORMACAO UNIVERSITARIA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FUP0279",
-          "nome": "EVOLUCAO DA AGRICULTURA FAMILIAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "FUP0280",
-          "nome": "ECONOMIA APLICADA AO AGRONEGOCIO 1",
-          "ch": "60"
-        },
-        {
           "codigo": "FUP0303",
           "nome": "PROJETO 1",
           "ch": "60"
@@ -758,11 +744,6 @@
         {
           "codigo": "FUP0304",
           "nome": "MATEMATICA PARA CIENCIAS NATURAIS",
-          "ch": "60"
-        },
-        {
-          "codigo": "FUP0306",
-          "nome": "SOCIOLOGIA",
           "ch": "60"
         },
         {
@@ -936,16 +917,6 @@
           "ch": "60"
         },
         {
-          "codigo": "ICB0082",
-          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
-          "ch": "30"
-        },
-        {
-          "codigo": "ICB0083",
-          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
-          "ch": "30"
-        },
-        {
           "codigo": "ICB0084",
           "nome": "TOPICOS ESPECIAIS EM ENSINO DE BIOLOGIA",
           "ch": "30"
@@ -1061,7 +1032,7 @@
           "ch": "90"
         },
         {
-          "codigo": "MAT0116",
+          "codigo": "MAT0117",
           "nome": "SEMINARIO DE TOPICOS EM MATEMATICA APLICADA",
           "ch": "60"
         },
@@ -1124,6 +1095,11 @@
           "codigo": "IFD0171",
           "nome": "FISICA 1",
           "ch": "60"
+        },
+        {
+          "codigo": "ICB0082",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0246",
@@ -1216,11 +1192,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
-          "ch": "60"
-        },
-        {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
           "ch": "60"
@@ -1246,11 +1217,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FUP0537",
-          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
-          "ch": "105"
-        },
-        {
           "codigo": "FUP0320",
           "nome": "SAUDE E AMBIENTE 1",
           "ch": "60"
@@ -1258,6 +1224,26 @@
         {
           "codigo": "FUP0363",
           "nome": "ELETROMAGNETISMO EM CIENCIAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0537",
+          "nome": "ESTAGIO SUPERVISIONADO EM ENSINO DE CIENCIAS NATURAIS 1",
+          "ch": "105"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0199",
+          "nome": "GENETICA E EVOLUCAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "FUP0350",
+          "nome": "ENSINO DE GEOCIENCIAS",
           "ch": "60"
         },
         {
@@ -1271,14 +1257,9 @@
           "ch": "105"
         },
         {
-          "codigo": "FUP0199",
-          "nome": "GENETICA E EVOLUCAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FUP0350",
-          "nome": "ENSINO DE GEOCIENCIAS",
-          "ch": "60"
+          "codigo": "FUP0302",
+          "nome": "SISTEMAS ECOLOGICOS",
+          "ch": "120"
         },
         {
           "codigo": "FUP0542",
@@ -1286,9 +1267,9 @@
           "ch": "105"
         },
         {
-          "codigo": "FUP0302",
-          "nome": "SISTEMAS ECOLOGICOS",
-          "ch": "120"
+          "codigo": "ICB0082",
+          "nome": "TOPICOS ESPECIAIS EM ENSINO DE CIENCIAS",
+          "ch": "30"
         },
         {
           "codigo": "FUP0473",

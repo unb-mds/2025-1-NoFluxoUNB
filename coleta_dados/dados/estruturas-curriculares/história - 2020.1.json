@@ -1,5 +1,6 @@
 {
   "curso": "HISTÓRIA",
+  "tipo_curso": "Licenciatura",
   "periodo_letivo_vigor": "2020.1",
   "niveis": [
     {
@@ -14,12 +15,27 @@
           "codigo": "HIS0084",
           "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
           "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         }
       ]
     },
     {
       "nivel": "2° NIVEL",
       "materias": [
+        {
+          "codigo": "HIS0205",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
+          "ch": "120"
+        },
         {
           "codigo": "HIS0250",
           "nome": "HISTORIA ANTIGA 1",
@@ -28,6 +44,11 @@
         {
           "codigo": "HIS0252",
           "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
           "ch": "60"
         }
       ]
@@ -121,11 +142,6 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0126",
-          "nome": "HISTORIA DA AMERICA 3",
-          "ch": "60"
-        },
-        {
           "codigo": "HIS0129",
           "nome": "HISTORIA DO BRASIL 4",
           "ch": "60"
@@ -136,19 +152,14 @@
       "nivel": "7° NIVEL",
       "materias": [
         {
-          "codigo": "HIS0028",
-          "nome": "PRATICA DE PESQUISA HISTORICA",
-          "ch": "90"
-        },
-        {
           "codigo": "HIS0033",
           "nome": "PROJETO DE TRABALHO DE CONCLUSAO DE CURSO",
           "ch": "120"
         },
         {
-          "codigo": "HIS0212",
-          "nome": "HISTORIOGRAFIA",
-          "ch": "60"
+          "codigo": "HIS0210",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
+          "ch": "120"
         }
       ]
     },
@@ -156,8 +167,18 @@
       "nivel": "8° NIVEL",
       "materias": [
         {
+          "codigo": "HIS0007",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
+          "ch": "165"
+        },
+        {
           "codigo": "HIS0034",
           "nome": "PESQUISA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
         }
       ]
@@ -253,26 +274,6 @@
         {
           "codigo": "CIC0064",
           "nome": "INTRODUCAO A SISTEMAS DE INFORMACOES",
-          "ch": "60"
-        },
-        {
-          "codigo": "CIC0088",
-          "nome": "COMPUTACAO BASICA",
-          "ch": "90"
-        },
-        {
-          "codigo": "CIC0090",
-          "nome": "ESTRUTURAS DE DADOS",
-          "ch": "60"
-        },
-        {
-          "codigo": "CIC0092",
-          "nome": "ORGANIZACAO DE ARQUIVOS",
-          "ch": "60"
-        },
-        {
-          "codigo": "CIC0097",
-          "nome": "BANCOS DE DADOS",
           "ch": "60"
         },
         {
@@ -391,6 +392,101 @@
           "ch": "60"
         },
         {
+          "codigo": "DEG0200",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "15"
+        },
+        {
+          "codigo": "DEG0201",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "30"
+        },
+        {
+          "codigo": "DEG0202",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "45"
+        },
+        {
+          "codigo": "DEG0203",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "DEG0205",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "DEG0206",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "120"
+        },
+        {
+          "codigo": "DEG0207",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "150"
+        },
+        {
+          "codigo": "DEG0208",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "180"
+        },
+        {
+          "codigo": "DEG0209",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "210"
+        },
+        {
+          "codigo": "DEG0210",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "240"
+        },
+        {
+          "codigo": "DEG0211",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "270"
+        },
+        {
+          "codigo": "DEG0212",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "300"
+        },
+        {
+          "codigo": "DEG0213",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "330"
+        },
+        {
+          "codigo": "DEG0214",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "360"
+        },
+        {
+          "codigo": "DEG0215",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "390"
+        },
+        {
+          "codigo": "DEG0216",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "420"
+        },
+        {
+          "codigo": "DEG0217",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "450"
+        },
+        {
+          "codigo": "DEG0218",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "480"
+        },
+        {
+          "codigo": "DEG0219",
+          "nome": "ATIVIDADE COMPLEMENTAR",
+          "ch": "510"
+        },
+        {
           "codigo": "DIN0020",
           "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
           "ch": "60"
@@ -404,11 +500,6 @@
           "codigo": "ECL0024",
           "nome": "ETOLOGIA",
           "ch": "120"
-        },
-        {
-          "codigo": "ECL0030",
-          "nome": "FUNDAMENTOS DE ECOLOGIA E EVOLUCAO",
-          "ch": "60"
         },
         {
           "codigo": "ECL0039",
@@ -431,78 +522,8 @@
           "ch": "60"
         },
         {
-          "codigo": "ECO0025",
-          "nome": "HISTORIA DO PENSAMENTO ECONOMICO",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0027",
-          "nome": "ANALISE MICROECONOMICA 1",
-          "ch": "60"
-        },
-        {
           "codigo": "ECO0032",
           "nome": "ANALISE MACROECONOMICA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0050",
-          "nome": "CONTABILIDADE NACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0099",
-          "nome": "MACROECONOMIA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0124",
-          "nome": "ECONOMIA POLITICA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0126",
-          "nome": "MICROECONOMIA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0147",
-          "nome": "CONJUNTURA ECONOMICA BRASILEIRA",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0150",
-          "nome": "TOPICOS ESPECIAIS EM HISTORIA ECONOMICA DO BRASIL",
-          "ch": "30"
-        },
-        {
-          "codigo": "ECO0159",
-          "nome": "ECONOMIA DO BRASIL CONTEMPORANEO",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0185",
-          "nome": "MICROECONOMIA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0187",
-          "nome": "ECONOMIA QUANTITATIVA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0189",
-          "nome": "MACROECONOMIA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "ECO0218",
-          "nome": "EVOLUCAO DAS IDEIAS ECONOMICAS SOCIAIS",
-          "ch": "60"
-        },
-        {
-          "codigo": "ELA0013",
-          "nome": "INTRODUCAO A METODOLOGIA DAS CIENCIAS SOCIAIS",
           "ch": "60"
         },
         {
@@ -511,43 +532,8 @@
           "ch": "90"
         },
         {
-          "codigo": "EST0023",
-          "nome": "PROBABILIDADE E ESTATISTICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "EST0030",
-          "nome": "ESTATISTICA ECONOMICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "EST0033",
-          "nome": "ESTATISTICA EXPLORATORIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "EST0034",
-          "nome": "ANALISE ESTATISTICA",
-          "ch": "90"
-        },
-        {
-          "codigo": "EST0036",
-          "nome": "TECNICAS DE AMOSTRAGEM",
-          "ch": "90"
-        },
-        {
           "codigo": "EST0046",
           "nome": "DEMOGRAFIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "EST0069",
-          "nome": "INTRODUCAO A PROBABILIDADE",
-          "ch": "60"
-        },
-        {
-          "codigo": "EST0070",
-          "nome": "METODOS ESTATISTICOS 1",
           "ch": "60"
         },
         {
@@ -558,11 +544,6 @@
         {
           "codigo": "FAC0020",
           "nome": "SOCIOLOGIA DA COMUNICACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FAR0075",
-          "nome": "EMBRIOLOGIA HUMANA",
           "ch": "60"
         },
         {
@@ -596,88 +577,8 @@
           "ch": "60"
         },
         {
-          "codigo": "FDD0002",
-          "nome": "HISTORIA DO DIREITO BRASILEIRO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0006",
-          "nome": "INTRODUCAO AO DIREITO 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0013",
-          "nome": "SOCIOLOGIA JURIDICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0019",
-          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0021",
-          "nome": "DIREITO CONSTITUCIONAL 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0131",
-          "nome": "DIREITO ROMANO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0153",
-          "nome": "PESQUISA JURIDICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0205",
-          "nome": "INTRODUCAO AO ESTUDO DO DIREITO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0207",
-          "nome": "DIREITO ROMANO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0210",
-          "nome": "TEORIA GERAL DO ESTADO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0212",
-          "nome": "ECONOMIA POLITICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0214",
-          "nome": "SOCIOLOGIA JURIDICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0216",
-          "nome": "MODELOS E PARADIGMAS DA EXPERIENCIA JURIDICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0218",
-          "nome": "TEORIA GERAL DO DIREITO PUBLICO",
-          "ch": "60"
-        },
-        {
           "codigo": "FDD0242",
           "nome": "HISTORIA DO DIREITO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0249",
-          "nome": "TEORIA GERAL DO ESTADO",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0271",
-          "nome": "INTRODUCAO A SOCIOLOGIA GERAL E JURIDICA",
           "ch": "60"
         },
         {
@@ -876,21 +777,6 @@
           "ch": "90"
         },
         {
-          "codigo": "FMD0445",
-          "nome": "FUNDAMENTOS DE PSICOPATOLOGIA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FMD0447",
-          "nome": "PSICOLOGIA MEDICA",
-          "ch": "30"
-        },
-        {
-          "codigo": "FMD0496",
-          "nome": "ANATOMIA MEDICA",
-          "ch": "180"
-        },
-        {
           "codigo": "FUP0285",
           "nome": "HISTORIA E FILOSOFIA DA CIENCIA",
           "ch": "60"
@@ -916,11 +802,6 @@
           "ch": "60"
         },
         {
-          "codigo": "GEA0010",
-          "nome": "GEOGRAFIA FISICA 1: GEOMORFOLOGIA INTERTROPICAL",
-          "ch": "90"
-        },
-        {
           "codigo": "GEA0012",
           "nome": "GEOGRAFIA AGRARIA",
           "ch": "60"
@@ -931,11 +812,6 @@
           "ch": "60"
         },
         {
-          "codigo": "GEA0017",
-          "nome": "GEOGRAFIA DO BRASIL",
-          "ch": "60"
-        },
-        {
           "codigo": "GEA0018",
           "nome": "GEOGRAFIA DO BRASIL 2",
           "ch": "60"
@@ -943,11 +819,6 @@
         {
           "codigo": "GEA0032",
           "nome": "GEOGRAFIA URBANA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEA0038",
-          "nome": "GEOMORFOLOGIA",
           "ch": "60"
         },
         {
@@ -966,29 +837,9 @@
           "ch": "90"
         },
         {
-          "codigo": "GEA0043",
-          "nome": "CARTOGRAFIA 2",
-          "ch": "60"
-        },
-        {
           "codigo": "GEA0051",
           "nome": "INTRODUCAO A CIENCIA GEOGRAFICA",
           "ch": "60"
-        },
-        {
-          "codigo": "GEA0060",
-          "nome": "CLIMATOLOGIA GERAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "GEA0089",
-          "nome": "CARTOGRAFIA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0007",
-          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
-          "ch": "165"
         },
         {
           "codigo": "HIS0012",
@@ -1024,6 +875,11 @@
           "codigo": "HIS0025",
           "nome": "HISTORIA ECONOMICA",
           "ch": "60"
+        },
+        {
+          "codigo": "HIS0028",
+          "nome": "PRATICA DE PESQUISA HISTORICA",
+          "ch": "90"
         },
         {
           "codigo": "HIS0029",
@@ -1136,11 +992,6 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0061",
-          "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 3",
-          "ch": "60"
-        },
-        {
           "codigo": "HIS0063",
           "nome": "TOPICOS ESPECIAIS EM ANTIGUIDADE 1",
           "ch": "60"
@@ -1148,11 +999,6 @@
         {
           "codigo": "HIS0070",
           "nome": "TOPICO ESPECIAL EM HISTORIA MODERNA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0072",
-          "nome": "TOPICO ESPECIAL EM HISTORIA MODERNA 3",
           "ch": "60"
         },
         {
@@ -1168,6 +1014,11 @@
         {
           "codigo": "HIS0121",
           "nome": "HISTORIA DOS PARTIDOS POLITICOS NA REPUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0126",
+          "nome": "HISTORIA DA AMERICA 3",
           "ch": "60"
         },
         {
@@ -1188,6 +1039,11 @@
         {
           "codigo": "HIS0157",
           "nome": "TOPICOS ESPECIAIS EM HISTORIA DA AMERICA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0167",
+          "nome": "TOPICOS ESPECIAIS EM HISTORIA MODERNA 1",
           "ch": "60"
         },
         {
@@ -1231,19 +1087,9 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0197",
-          "nome": "HISTORIA: NATUREZA E CULTURA",
-          "ch": "60"
-        },
-        {
           "codigo": "HIS0199",
           "nome": "TOPICO ESPECIAL EM ENSINO DE HISTORIA",
           "ch": "60"
-        },
-        {
-          "codigo": "HIS0201",
-          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
-          "ch": "90"
         },
         {
           "codigo": "HIS0202",
@@ -1256,23 +1102,18 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0205",
-          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
-          "ch": "120"
-        },
-        {
           "codigo": "HIS0207",
           "nome": "HISTORIA E HISTORIOGRAFIA DO BRASIL",
           "ch": "60"
         },
         {
-          "codigo": "HIS0210",
-          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
-          "ch": "120"
-        },
-        {
           "codigo": "HIS0211",
           "nome": "LABORATORIO DE ENSINO DE HISTORIA INDIGENA",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
           "ch": "60"
         },
         {
@@ -1288,171 +1129,6 @@
         {
           "codigo": "HIS0253",
           "nome": "TOPICOS ESPECIAIS EM HISTORIA DO BRASIL 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0008",
-          "nome": "PREPARACAO TRABALHO FINAL - GEOFISICA",
-          "ch": "30"
-        },
-        {
-          "codigo": "IGD0021",
-          "nome": "GEOLOGIA GERAL",
-          "ch": "90"
-        },
-        {
-          "codigo": "IGD0024",
-          "nome": "CRISTALOGRAFIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0036",
-          "nome": "PETROLOGIA IGNEA",
-          "ch": "135"
-        },
-        {
-          "codigo": "IGD0041",
-          "nome": "GEOLOGIA ECONOMICA",
-          "ch": "135"
-        },
-        {
-          "codigo": "IGD0047",
-          "nome": "FOTOGEOLOGIA E SENSOR REMOTO",
-          "ch": "90"
-        },
-        {
-          "codigo": "IGD0049",
-          "nome": "PALEONTOLOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0051",
-          "nome": "ESTRATIGRAFIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0142",
-          "nome": "GEOQUIMICA ANALITICA",
-          "ch": "30"
-        },
-        {
-          "codigo": "IGD0143",
-          "nome": "DESENHO TECNICO GEOLOGICO",
-          "ch": "90"
-        },
-        {
-          "codigo": "IGD0147",
-          "nome": "MAPEAMENTO GEOLOGICO 1",
-          "ch": "75"
-        },
-        {
-          "codigo": "IGD0148",
-          "nome": "GEOLOGIA ESTRUTURAL 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0151",
-          "nome": "MINERAIS E ROCHAS INDUSTRIAIS E RECURSOS MINERAIS ENERGETICOS",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0160",
-          "nome": "INTRODUCAO AO SISTEMA DE INFORMACOES GEOGRAFICAS",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0162",
-          "nome": "GEOQUIMICA GERAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0185",
-          "nome": "INTRODUCAO A MINERALOGIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0192",
-          "nome": "INTRODUCAO A FISICA DA TERRA",
-          "ch": "30"
-        },
-        {
-          "codigo": "IGD0194",
-          "nome": "MINERALOGIA",
-          "ch": "120"
-        },
-        {
-          "codigo": "IGD0195",
-          "nome": "MINERALOGIA DE NAO SILICATOS",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0198",
-          "nome": "CARTOGRAFIA E GEODESIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0200",
-          "nome": "PETROLOGIA SEDIMENTAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0203",
-          "nome": "GEOLOGIA SEDIMENTAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0210",
-          "nome": "SEDIMENTOLOGIA E ESTRATIGRAFIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0211",
-          "nome": "SEDIMENTOLOGIA 1 - PRODUTOS E PROCESSOS SEDIMENTARES",
-          "ch": "30"
-        },
-        {
-          "codigo": "IGD0244",
-          "nome": "PETROLOGIA IGNEA E METAMORFICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0251",
-          "nome": "PRINCIPIOS DE GEOFISICA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0252",
-          "nome": "PRINCIPIOS DE GEOFISICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0268",
-          "nome": "GEOLOGIA ESTRUTURAL 2 TEORICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0272",
-          "nome": "PETROLOGIA IGNEA TEORICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0276",
-          "nome": "PETROLOGIA METAMORFICA TEORICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "IGD0278",
-          "nome": "PETROLOGIA SEDIMENTAR TEORICA",
-          "ch": "45"
-        },
-        {
-          "codigo": "IQD0153",
-          "nome": "QUIMICA GERAL E INORGANICA",
-          "ch": "90"
-        },
-        {
-          "codigo": "IQD0296",
-          "nome": "FUNDAMENTOS DE FISICO-QUIMICA",
           "ch": "60"
         },
         {
@@ -1496,21 +1172,6 @@
           "ch": "60"
         },
         {
-          "codigo": "IRI0066",
-          "nome": "SISTEMA FINANCEIRO INTERNACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "IRI0168",
-          "nome": "ECONOMIA POLITICA INTERNACIONAL 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "IRI0169",
-          "nome": "ECONOMIA POLITICA INTERNACIONAL 2",
-          "ch": "60"
-        },
-        {
           "codigo": "JOR0045",
           "nome": "TEORIAS DA COMUNICACAO 1",
           "ch": "60"
@@ -1518,11 +1179,6 @@
         {
           "codigo": "JOR0050",
           "nome": "HISTORIA DA IMPRENSA",
-          "ch": "60"
-        },
-        {
-          "codigo": "JOR0078",
-          "nome": "INTRODUCAO A COMUNICACAO",
           "ch": "60"
         },
         {
@@ -1571,28 +1227,8 @@
           "ch": "30"
         },
         {
-          "codigo": "LET0072",
-          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 1",
-          "ch": "60"
-        },
-        {
           "codigo": "LET0073",
           "nome": "JAPONES 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0074",
-          "nome": "JAPONES 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0075",
-          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0077",
-          "nome": "LINGUA FRANCESA 2",
           "ch": "60"
         },
         {
@@ -1618,31 +1254,6 @@
         {
           "codigo": "LET0103",
           "nome": "LINGUA ALEMA 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0104",
-          "nome": "LINGUA ALEMA 4",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0106",
-          "nome": "LINGUA JAPONESA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0107",
-          "nome": "LINGUA JAPONESA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0108",
-          "nome": "LINGUA JAPONESA 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0109",
-          "nome": "LINGUA JAPONESA 4",
           "ch": "60"
         },
         {
@@ -1676,16 +1287,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LET0323",
-          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 4",
-          "ch": "90"
-        },
-        {
-          "codigo": "LET0324",
-          "nome": "PRATICA DO FRANCES ORAL E ESCRITO 3",
-          "ch": "90"
-        },
-        {
           "codigo": "LET0331",
           "nome": "INGLES INSTRUMENTAL 1",
           "ch": "60"
@@ -1708,26 +1309,6 @@
         {
           "codigo": "LET0340",
           "nome": "CIVILIZACAO HISPANO-AMERICANA",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0360",
-          "nome": "JAPONES 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0361",
-          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0363",
-          "nome": "JAPONES 4",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0365",
-          "nome": "PRATICA DO JAPONES ORAL E ESCRITO 4",
           "ch": "60"
         },
         {
@@ -1754,16 +1335,6 @@
           "codigo": "LET0380",
           "nome": "LINGUA ITALIANA 4",
           "ch": "60"
-        },
-        {
-          "codigo": "LET0381",
-          "nome": "JAPONES - EXPRESSAO ORAL 1",
-          "ch": "30"
-        },
-        {
-          "codigo": "LET0384",
-          "nome": "JAPONES - EXPRESSAO ESCRITA 1",
-          "ch": "30"
         },
         {
           "codigo": "LET0388",
@@ -1821,21 +1392,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0037",
-          "nome": "LINGUA PORTUGUESA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0038",
-          "nome": "LINGUA PORTUGUESA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0039",
-          "nome": "LINGUA PORTUGUESA 3",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0045",
           "nome": "INTRODUCAO A LINGUISTICA",
           "ch": "60"
@@ -1886,18 +1442,8 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0094",
-          "nome": "SOCIOLINGUISTICA DO PORTUGUES DO BRASIL",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0095",
           "nome": "INTRODUCAO A ANALISE DO DISCURSO",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0099",
-          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
           "ch": "60"
         },
         {
@@ -1921,16 +1467,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0131",
-          "nome": "SINTAXE DO PORTUGUES CONTEMPORANEO 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0135",
-          "nome": "HISTORIA DA LINGUA PORTUGUESA",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0152",
           "nome": "PORTUGUES INSTRUMENTAL 2",
           "ch": "60"
@@ -1943,41 +1479,6 @@
         {
           "codigo": "LIP0154",
           "nome": "PRATICA DE TEXTOS",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
-          "ch": "60"
-        },
-        {
-          "codigo": "MAT0022",
-          "nome": "MATEMATICA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "MAT0023",
-          "nome": "MATEMATICA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "MAT0025",
-          "nome": "CALCULO 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "MAT0026",
-          "nome": "CALCULO 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "MAT0075",
-          "nome": "CALCULO DE PROBABILIDADE 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0012",
-          "nome": "DIDATICA FUNDAMENTAL",
           "ch": "60"
         },
         {
@@ -2071,11 +1572,6 @@
           "ch": "60"
         },
         {
-          "codigo": "MTC0143",
-          "nome": "DIDATICA FUNDAMENTAL",
-          "ch": "60"
-        },
-        {
           "codigo": "MTC0147",
           "nome": "PRATICA DOCENTE E LINGUAGENS CORPORAIS",
           "ch": "60"
@@ -2111,11 +1607,6 @@
           "ch": "60"
         },
         {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
-          "ch": "60"
-        },
-        {
           "codigo": "PAD0031",
           "nome": "POLITICAS PUBLICAS DE EDUCACAO",
           "ch": "60"
@@ -2123,41 +1614,6 @@
         {
           "codigo": "PAD0074",
           "nome": "ORGANIZACAO DA EDUCACAO NO DISTRITO FEDERAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "PCL0015",
-          "nome": "PSICOLOGIA DA PERSONALIDADE 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "PCL0020",
-          "nome": "ETICA PROFISSIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "PCL0021",
-          "nome": "PSICOPATOLOGIA 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "PCL0025",
-          "nome": "FUNDAMENTOS DA PSICOTERAPIA",
-          "ch": "90"
-        },
-        {
-          "codigo": "PCL0027",
-          "nome": "TEORIAS PSICANALITICAS 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "PCL0043",
-          "nome": "PSICODRAMA",
-          "ch": "90"
-        },
-        {
-          "codigo": "PCL0061",
-          "nome": "FUNDAMENTOS DA PSICOLOGIA CLINICA",
           "ch": "60"
         },
         {
@@ -2174,11 +1630,6 @@
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
           "ch": "90"
-        },
-        {
-          "codigo": "PED0071",
-          "nome": "PSICOLOGIA: CURSO E PROFISSAO",
-          "ch": "60"
         },
         {
           "codigo": "POL0010",
@@ -2351,13 +1802,13 @@
           "ch": "60"
         },
         {
-          "codigo": "SER0074",
-          "nome": "POLITICA SOCIAL - TRABALHO",
+          "codigo": "SER0071",
+          "nome": "POLITICA SOCIAL - EDUCACAO",
           "ch": "60"
         },
         {
-          "codigo": "SOL0037",
-          "nome": "SOCIOLOGIA BRASILEIRA",
+          "codigo": "SER0074",
+          "nome": "POLITICA SOCIAL - TRABALHO",
           "ch": "60"
         },
         {
@@ -2366,78 +1817,8 @@
           "ch": "60"
         },
         {
-          "codigo": "SOL0044",
-          "nome": "TEORIA SOCIOLOGICA 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "SOL0045",
-          "nome": "TEORIA SOCIOLOGICA 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "SOL0053",
-          "nome": "TEORIAS DA SOCIALIZACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0058",
-          "nome": "SOCIOLOGIA DO CONHECIMENTO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0063",
-          "nome": "ESTRUTURA DE CLASSES E ESTRATIFICACAO SOCIAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0080",
-          "nome": "SOCIOLOGIA DA CIENCIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0089",
-          "nome": "SOCIOLOGIA DA CULTURA",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0092",
-          "nome": "SOCIOLOGIA DA COMUNICACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0094",
-          "nome": "SOCIOLOGIA DA IDEOLOGIA",
-          "ch": "60"
-        },
-        {
           "codigo": "SOL0097",
           "nome": "METODOS SOCIOLOGICOS",
-          "ch": "90"
-        },
-        {
-          "codigo": "SOL0099",
-          "nome": "DESENVOLVIMENTO E EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0100",
-          "nome": "SOCIOLOGIA RURAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0101",
-          "nome": "SOCIOLOGIA URBANA",
-          "ch": "60"
-        },
-        {
-          "codigo": "SOL0103",
-          "nome": "TEORIAS SOCIOLOGICAS CONTEMPORANEAS 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "SOL0104",
-          "nome": "TEORIAS SOCIOLOGICAS CLASSICAS",
           "ch": "90"
         },
         {
@@ -2526,11 +1907,6 @@
           "ch": "60"
         },
         {
-          "codigo": "TEF0082",
-          "nome": "FUNDAMENTOS DA EDUCACAO AMBIENTAL",
-          "ch": "60"
-        },
-        {
           "codigo": "TEF0092",
           "nome": "EDUCACAO E TRABALHO",
           "ch": "60"
@@ -2543,11 +1919,6 @@
         {
           "codigo": "TEF0095",
           "nome": "PRATICA EDUCACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0098",
-          "nome": "EDUCACAO/GESTAO AMBIENTAL",
           "ch": "60"
         },
         {
@@ -2606,11 +1977,6 @@
           "ch": "60"
         },
         {
-          "codigo": "TEL0037",
-          "nome": "LITERATURA DE LINGUA FRANCESA 1",
-          "ch": "60"
-        },
-        {
           "codigo": "TEL0051",
           "nome": "LITERATURA GREGA 1",
           "ch": "60"
@@ -2658,16 +2024,6 @@
         {
           "codigo": "TEL0111",
           "nome": "CULTURA CLASSICA 2 - ROMA",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEL0114",
-          "nome": "LITERATURA JAPONESA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEL0115",
-          "nome": "LITERATURA JAPONESA 2",
           "ch": "60"
         },
         {
@@ -2736,6 +2092,21 @@
           "ch": "60"
         },
         {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0205",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
+          "ch": "120"
+        },
+        {
           "codigo": "HIS0250",
           "nome": "HISTORIA ANTIGA 1",
           "ch": "60"
@@ -2743,6 +2114,11 @@
         {
           "codigo": "HIS0252",
           "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
           "ch": "60"
         },
         {
@@ -2816,19 +2192,9 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0126",
-          "nome": "HISTORIA DA AMERICA 3",
-          "ch": "60"
-        },
-        {
           "codigo": "HIS0129",
           "nome": "HISTORIA DO BRASIL 4",
           "ch": "60"
-        },
-        {
-          "codigo": "HIS0028",
-          "nome": "PRATICA DE PESQUISA HISTORICA",
-          "ch": "90"
         },
         {
           "codigo": "HIS0033",
@@ -2836,13 +2202,23 @@
           "ch": "120"
         },
         {
-          "codigo": "HIS0212",
-          "nome": "HISTORIOGRAFIA",
-          "ch": "60"
+          "codigo": "HIS0210",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
+          "ch": "120"
+        },
+        {
+          "codigo": "HIS0007",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
+          "ch": "165"
         },
         {
           "codigo": "HIS0034",
           "nome": "PESQUISA DE TRABALHO DE CONCLUSAO DE CURSO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
         },
         {

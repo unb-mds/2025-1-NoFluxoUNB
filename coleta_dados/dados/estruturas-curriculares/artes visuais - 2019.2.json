@@ -1,15 +1,11 @@
 {
   "curso": "ARTES VISUAIS",
+  "tipo_curso": "Licenciatura",
   "periodo_letivo_vigor": "2019.2",
   "niveis": [
     {
       "nivel": "1° NIVEL",
       "materias": [
-        {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
-          "ch": "60"
-        },
         {
           "codigo": "VIS0028",
           "nome": "HISTORIA E TEORIA DO ENSINO DAS ARTES VISUAIS",
@@ -54,6 +50,11 @@
           "codigo": "VIS0031",
           "nome": "ESTUDOS DAS VISUALIDADES INDIGENAS",
           "ch": "60"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
         }
       ]
     },
@@ -115,6 +116,11 @@
     {
       "nivel": "5° NIVEL",
       "materias": [
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
         {
           "codigo": "VIS0041",
           "nome": "ESTAGIO SUPERVISIONADO EM ARTES VISUAIS - ESPACOS MUSEAIS 1",
@@ -201,16 +207,6 @@
           "ch": "60"
         },
         {
-          "codigo": "CEN0039",
-          "nome": "ENCENACAO 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "CEN0042",
-          "nome": "DIRECAO 1",
-          "ch": "90"
-        },
-        {
           "codigo": "CEN0049",
           "nome": "HISTORIA DO TEATRO 2",
           "ch": "60"
@@ -243,26 +239,6 @@
         {
           "codigo": "CEN0067",
           "nome": "CORPO E MOVIMENTO 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0068",
-          "nome": "EXPRESSAO CORPORAL 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0069",
-          "nome": "EXPRESSAO CORPORAL 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0070",
-          "nome": "EXPRESSAO CORPORAL 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0071",
-          "nome": "EXPRESSAO CORPORAL 4",
           "ch": "60"
         },
         {
@@ -396,93 +372,8 @@
           "ch": "60"
         },
         {
-          "codigo": "CEN0133",
-          "nome": "DINAMICA DA VOZ 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0134",
-          "nome": "DINAMICA DA VOZ 2",
-          "ch": "60"
-        },
-        {
           "codigo": "CEN0135",
           "nome": "FUNDAMENTOS DA EDUCACAO ARTISTICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0139",
-          "nome": "TECNICAS DE SUPORTE CENICO 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0140",
-          "nome": "TECNICAS DE SUPORTE CENICO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0154",
-          "nome": "HISTORIA DO ENSINO DAS ARTES",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0164",
-          "nome": "POETICAS TEATRAIS",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0165",
-          "nome": "TEORIAS E PROCESSOS CRIATIVOS PARA A CENA",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0166",
-          "nome": "TEATRALIDADES BRASILEIRAS",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0167",
-          "nome": "A VOZ EM PERFORMANCE",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0168",
-          "nome": "A PALAVRA EM PERFORMANCE",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0169",
-          "nome": "VOZ E PALAVRA NA PERFORMANCE TEATRAL CONTEMPORANEA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0171",
-          "nome": "INTERPRETACAO TEATRAL 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "CEN0172",
-          "nome": "INTERPRETACAO TEATRAL 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "CEN0173",
-          "nome": "INTERPRETACAO TEATRAL 3",
-          "ch": "90"
-        },
-        {
-          "codigo": "CEN0177",
-          "nome": "MOVIMENTO E LINGUAGEM 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0178",
-          "nome": "MOVIMENTO E LINGUAGEM 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "CEN0179",
-          "nome": "MOVIMENTO E LINGUAGEM 3",
           "ch": "60"
         },
         {
@@ -761,6 +652,11 @@
           "ch": "510"
         },
         {
+          "codigo": "DIN0020",
+          "nome": "HISTORIA DA ARTE E DA TECNOLOGIA",
+          "ch": "60"
+        },
+        {
           "codigo": "DIN0047",
           "nome": "FOTOGRAFIA E VIDEO",
           "ch": "60"
@@ -861,11 +757,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FIL0068",
-          "nome": "ESTETICA",
-          "ch": "60"
-        },
-        {
           "codigo": "FIL0069",
           "nome": "INTRODUCAO A FILOSOFIA",
           "ch": "60"
@@ -873,11 +764,6 @@
         {
           "codigo": "FIL0105",
           "nome": "INICIACAO A PRATICA FILOSOFICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FIL0124",
-          "nome": "FILOSOFIA DA ARTE",
           "ch": "60"
         },
         {
@@ -901,11 +787,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FIL0158",
-          "nome": "IDEIAS FILOSOFICAS EM FORMA LITERARIA",
-          "ch": "60"
-        },
-        {
           "codigo": "FIL0166",
           "nome": "INTRODUCAO A PRATICA FILOSOFICA",
           "ch": "90"
@@ -921,23 +802,8 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0091",
-          "nome": "HISTORIA MEDIEVAL 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0093",
-          "nome": "HISTORIA MODERNA 1",
-          "ch": "60"
-        },
-        {
           "codigo": "HIS0102",
           "nome": "HISTORIA DO BRASIL 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0106",
-          "nome": "HISTORIA CONTEMPORANEA 1",
           "ch": "60"
         },
         {
@@ -1181,11 +1047,6 @@
           "ch": "60"
         },
         {
-          "codigo": "MUS0735",
-          "nome": "ELEMENTOS DE LINGUAGEM,ESTETICA E HISTORIA DA ARTE 3",
-          "ch": "60"
-        },
-        {
           "codigo": "MUS0738",
           "nome": "ESTAGIO SUPERVISIONADO EM MUSICA 2",
           "ch": "120"
@@ -1396,6 +1257,11 @@
           "ch": "60"
         },
         {
+          "codigo": "TEF0046",
+          "nome": "HISTORIA DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
           "codigo": "TEF0065",
           "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
           "ch": "60"
@@ -1463,11 +1329,6 @@
         {
           "codigo": "VIS0065",
           "nome": "DESENHO 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "VIS0067",
-          "nome": "ESCULTURA 1",
           "ch": "90"
         },
         {
@@ -1826,6 +1687,11 @@
           "ch": "60"
         },
         {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
+        },
+        {
           "codigo": "VIS0188",
           "nome": "INTRODUCAO A GRAVURA",
           "ch": "90"
@@ -1843,11 +1709,6 @@
         {
           "codigo": "VIS0054",
           "nome": "ESTUDOS VISUAIS E EDUCACAO - LINGUAGENS",
-          "ch": "60"
-        },
-        {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
           "ch": "60"
         },
         {
@@ -1889,6 +1750,11 @@
           "codigo": "VIS0031",
           "nome": "ESTUDOS DAS VISUALIDADES INDIGENAS",
           "ch": "60"
+        },
+        {
+          "codigo": "VIS0067",
+          "nome": "ESCULTURA 1",
+          "ch": "90"
         },
         {
           "codigo": "LIP0174",
@@ -1934,6 +1800,11 @@
           "codigo": "VIS0038",
           "nome": "IMAGEM, CULTURA E SOCIEDADE",
           "ch": "90"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
         },
         {
           "codigo": "VIS0041",
