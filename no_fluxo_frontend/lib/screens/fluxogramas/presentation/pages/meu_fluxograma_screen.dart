@@ -49,6 +49,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   List<CursoModel> matrizesCurriculares = [];
   PrerequisiteTree? prerequisiteTree;
   Map<String, dynamic>? prerequisiteVisualizationData;
+  bool isAnonymous = false;
 
   bool loading = false;
   String? errorMessage;
@@ -66,12 +67,20 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
     loading = true;
     try {
-      var courseName =
-          SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
-              (widget.courseName ?? '');
+      var courseName = widget.courseName ??
+          (SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
+              "");
+
+      if (courseName == "") {
+        courseName =
+            SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
+                "";
+      }
 
       final loadedCourseData =
           await MeuFluxogramaService.getCourseData(courseName);
+      isAnonymous =
+          SharedPreferencesHelper.isAnonimo || widget.courseName != null;
 
       loadedCourseData.fold(
         (error) {
@@ -80,7 +89,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         },
         (cursos) {
           matrizesCurriculares = cursos;
-          if (SharedPreferencesHelper.isAnonimo) {
+          if (isAnonymous) {
             currentCourseData = cursos[0];
           } else {
             currentCourseData = cursos.firstWhere((curso) =>
@@ -101,6 +110,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   .toList() ??
               List<DadosMateria>.from([]);
 
+
           var materiasAprovadas = listMaterias
               .where((e) =>
                   e.mencao == 'SS' || e.mencao == 'MS' || e.mencao == 'MM')
@@ -120,7 +130,6 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                       materiasCurrent.map((e) => e.codigoMateria))))
                   .toList() ??
               [];
-
           for (var materia in SharedPreferencesHelper
                   .currentUser?.dadosFluxograma?.dadosFluxograma
                   .expand((e) => e) ??
@@ -313,16 +322,14 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   FluxogramaHeader(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                     onSaveFluxograma: saveFluxogramAsImage,
                                     onAddMateria: () {},
                                     onAddOptativa: () {},
                                   ),
                                   FluxogramaLegendControls(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     zoomLevel: zoomLevel,
                                     showPrereqChains: showPrereqChains,
                                     showConnections: showConnections,
@@ -347,8 +354,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     child: FluxogramContainer(
                                       courseData: currentCourseData,
                                       zoomLevel: zoomLevel,
-                                      isAnonymous:
-                                          SharedPreferencesHelper.isAnonimo,
+                                      isAnonymous: isAnonymous,
                                       showPrereqChains: showPrereqChains,
                                       showConnections: showConnections,
                                       onShowPrerequisiteChain:
@@ -360,13 +366,11 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     ),
                                   ),
                                   ProgressSummarySection(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                   ),
                                   ProgressToolsSection(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     onShowToolModal: (title) =>
                                         _showToolModal(context, title: title),
                                   ),
