@@ -3,25 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desconectado - NoFluxo</title>
+    <title>Desconectado por Inatividade</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="desconectado.css">
 </head>
 <body>
     <div class="graffiti-wall"></div>
     <div class="gradient-overlay"></div>
     <div class="cracks-overlay"></div>
-    <div class="desconectado-container">
-        <div class="wifi-icon">
-            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="40" cy="60" r="5" fill="#ff5e62"/>
-                <path d="M25 50 Q40 40 55 50" stroke="#8e44ad" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <path d="M18 42 Q40 28 62 42" stroke="#43cea2" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <path d="M10 34 Q40 12 70 34" stroke="#f9d423" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <line x1="25" y1="25" x2="55" y2="55" stroke="#ff5e62" stroke-width="5" stroke-linecap="round"/>
+    <div class="glass-crack-overlay"></div>
+    <div class="particles"></div>
+    <div class="sparks"></div>
+    <div class="depth-layers">
+        <div class="depth-layer layer1"></div>
+        <div class="depth-layer layer2"></div>
+        <div class="depth-layer layer3"></div>
+    </div>
+    <div class="disconnect-modal" id="disconnectModal">
+        <div class="badge-inactive blinking">INATIVO</div>
+        <div class="inactivity-icon-3d">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+                <circle cx="40" cy="40" r="32" fill="#fff" fill-opacity="0.13" stroke="#ff5e62" stroke-width="4"/>
+                <circle cx="40" cy="40" r="28" fill="none" stroke="#43cea2" stroke-width="2" stroke-dasharray="8 8"/>
+                <g class="clock-group">
+                    <circle cx="40" cy="40" r="18" fill="#fff" fill-opacity="0.18" stroke="#8e44ad" stroke-width="2"/>
+                    <line x1="40" y1="40" x2="40" y2="28" stroke="#ff5e62" stroke-width="3" stroke-linecap="round" class="clock-hand"/>
+                    <line x1="40" y1="40" x2="52" y2="40" stroke="#f9d423" stroke-width="3" stroke-linecap="round" class="clock-hand2"/>
+                </g>
+                <g class="zzz-group">
+                    <text x="54" y="24" font-size="14" fill="#8e44ad" opacity="0.7" class="zzz">Z</text>
+                    <text x="60" y="16" font-size="10" fill="#43cea2" opacity="0.5" class="zzz">z</text>
+                    <text x="66" y="10" font-size="8" fill="#ff5e62" opacity="0.4" class="zzz">z</text>
+                </g>
             </svg>
         </div>
-        <span class="desconectado-text">Você foi desconectado</span>
-        <button class="desconectado-btn" onclick="window.location.reload()">Reconectar</button>
+        <h1 class="disconnect-title glitch intense-glitch">Você foi desconectado</h1>
+        <p class="disconnect-message">Por inatividade, sua sessão foi encerrada.<br>Reconectando em <span id="countdown">10</span> segundos...</p>
+        <div class="progress-outer">
+            <div class="progress-inner" id="progressBar"></div>
+        </div>
+        <button class="btn btn-primary reconnect-btn" onclick="reconnectNow()">Reconectar Agora</button>
     </div>
+    <div class="modal-shadow"></div>
+    <script>
+        // Partículas animadas com trajetórias curvas
+        const particles = document.querySelector('.particles');
+        for(let i=0;i<48;i++){
+            const p = document.createElement('div');
+            p.className = 'particle-float';
+            p.style.left = Math.random()*100+'vw';
+            p.style.top = Math.random()*100+'vh';
+            p.style.animationDuration = (2+Math.random()*6)+'s';
+            p.style.background = `radial-gradient(circle at 60% 40%, #ff5e62 0%, #43cea2 60%, #8e44ad 100%)`;
+            p.style.opacity = 0.12+Math.random()*0.22;
+            p.style.width = p.style.height = (8+Math.random()*32)+'px';
+            p.style.setProperty('--curve', (Math.random()*2-1).toFixed(2));
+            particles.appendChild(p);
+        }
+        // Faíscas animadas 3D
+        const sparks = document.querySelector('.sparks');
+        for(let i=0;i<18;i++){
+            const s = document.createElement('div');
+            s.className = 'spark';
+            s.style.left = (40+Math.random()*20)+'vw';
+            s.style.top = (60+Math.random()*10)+'vh';
+            s.style.animationDelay = (Math.random()*2)+'s';
+            s.style.setProperty('--z', Math.random()*80-40+'px');
+            sparks.appendChild(s);
+        }
+        // Contador e barra de progresso
+        let time = 10;
+        const countdown = document.getElementById('countdown');
+        const progressBar = document.getElementById('progressBar');
+        function tick(){
+            time--;
+            countdown.textContent = time;
+            progressBar.style.width = (time*10)+'%';
+            if(time>0) setTimeout(tick,1000);
+            else reconnectNow();
+        }
+        setTimeout(tick,1000);
+        function reconnectNow(){
+            document.querySelector('.disconnect-title').textContent = 'Reconectando...';
+            document.querySelector('.disconnect-message').textContent = 'Tentando restabelecer sua sessão.';
+            progressBar.style.width = '100%';
+            setTimeout(()=>location.reload(),1500);
+        }
+        // Modal rotação 3D contínua
+        let angle = 0;
+        setInterval(()=>{
+            angle += 0.2;
+            document.getElementById('disconnectModal').style.transform = `translate(-50%, -50%) perspective(800px) rotateX(8deg) rotateY(${Math.sin(angle/2)*8}deg) scale(1.04)`;
+        }, 30);
+    </script>
 </body>
 </html> 
