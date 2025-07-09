@@ -234,6 +234,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
             else:
                 log_message("Python: Fork origin URL is already clean")
                 
+                
         except subprocess.CalledProcessError as e:
             log_message(f"Python: Warning - Could not get fork's origin URL: {e.stderr.decode().strip() if e.stderr else str(e)}")
             # If origin doesn't exist, try to add it
