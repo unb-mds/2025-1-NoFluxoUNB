@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cache/shared_preferences_helper.dart';
 import '../../config/app_colors.dart';
 import 'password_recovery_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +28,7 @@ class _LoginFormState extends State<LoginForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _authService = AuthService(); // Instância do AuthService
-  
+
   bool _rememberMe = false;
   bool _obscurePassword = true;
   bool _isLoading = false; // Estado de carregamento
@@ -135,7 +136,9 @@ class _LoginFormState extends State<LoginForm> {
         setState(() {
           _emailError = 'Inclua um domínio após o "@" (ex: gmail.com).';
         });
-      } else if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
+      } else if (!parts[1].contains('.') ||
+          parts[1].startsWith('.') ||
+          parts[1].endsWith('.')) {
         setState(() {
           _emailError = 'Inclua um domínio válido após o "@" (ex: gmail.com).';
         });
@@ -180,11 +183,13 @@ class _LoginFormState extends State<LoginForm> {
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(color: const Color(0xFFFFB020)),
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 10),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(Icons.warning_amber_rounded, color: Color(0xFFFFB020), size: 28),
+                          const Icon(Icons.warning_amber_rounded,
+                              color: Color(0xFFFFB020), size: 28),
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
@@ -218,7 +223,8 @@ class _LoginFormState extends State<LoginForm> {
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
                     filled: true,
                     fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 18),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(14),
                       borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
@@ -232,7 +238,8 @@ class _LoginFormState extends State<LoginForm> {
                       borderSide: const BorderSide(color: Color(0xFF2563EB)),
                     ),
                   ),
-                  style: GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
+                  style:
+                      GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Por favor, insira seu e-mail';
@@ -244,7 +251,9 @@ class _LoginFormState extends State<LoginForm> {
                     if (parts.length != 2 || parts[1].isEmpty) {
                       return 'Inclua um domínio após o "@" (ex: gmail.com).';
                     }
-                    if (!parts[1].contains('.') || parts[1].startsWith('.') || parts[1].endsWith('.')) {
+                    if (!parts[1].contains('.') ||
+                        parts[1].startsWith('.') ||
+                        parts[1].endsWith('.')) {
                       return 'Inclua um domínio válido após o "@" (ex: gmail.com).';
                     }
                     if (!EmailValidator.validate(value)) {
@@ -270,7 +279,8 @@ class _LoginFormState extends State<LoginForm> {
                     hintStyle: GoogleFonts.poppins(color: Colors.grey[600]),
                     filled: true,
                     fillColor: Colors.white,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 18),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(14),
                       borderSide: const BorderSide(color: Color(0xFFD1D5DB)),
@@ -285,7 +295,9 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                        _obscurePassword
+                            ? Icons.visibility
+                            : Icons.visibility_off,
                         color: Colors.grey[600],
                       ),
                       onPressed: () {
@@ -295,7 +307,8 @@ class _LoginFormState extends State<LoginForm> {
                       },
                     ),
                   ),
-                  style: GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
+                  style:
+                      GoogleFonts.poppins(color: Colors.black87, fontSize: 16),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Por favor, insira sua senha';
@@ -308,35 +321,46 @@ class _LoginFormState extends State<LoginForm> {
                   children: [
                     Checkbox(
                       value: _rememberMe,
-                      onChanged: _isLoading ? null : (value) {
-                        setState(() {
-                          _rememberMe = value ?? false;
-                        });
-                      },
+                      onChanged: _isLoading
+                          ? null
+                          : (value) {
+                              setState(() {
+                                _rememberMe = value ?? false;
+                              });
+                            },
                       activeColor: const Color(0xFF2563EB),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4)),
                     ),
                     Text(
                       'Lembrar-me',
-                      style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[700]),
+                      style: GoogleFonts.poppins(
+                          fontSize: 14, color: Colors.grey[700]),
                     ),
                     const Spacer(),
                     GestureDetector(
-                      onTap: _isLoading ? null : () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const PasswordRecoveryScreen(),
-                          ),
-                        );
-                      },
+                      onTap: _isLoading
+                          ? null
+                          : () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const PasswordRecoveryScreen(),
+                                ),
+                              );
+                            },
                       child: MouseRegion(
-                        cursor: _isLoading ? SystemMouseCursors.basic : SystemMouseCursors.click,
+                        cursor: _isLoading
+                            ? SystemMouseCursors.basic
+                            : SystemMouseCursors.click,
                         child: Text(
                           'Esqueceu a senha?',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
-                            color: _isLoading ? Colors.grey[400] : const Color(0xFF6366F1),
+                            color: _isLoading
+                                ? Colors.grey[400]
+                                : const Color(0xFF6366F1),
                             decoration: TextDecoration.underline,
                           ),
                         ),
@@ -366,7 +390,8 @@ class _LoginFormState extends State<LoginForm> {
                             height: 20,
                             width: 20,
                             child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white),
                               strokeWidth: 2,
                             ),
                           )
@@ -377,15 +402,18 @@ class _LoginFormState extends State<LoginForm> {
                 // Separador "ou"
                 Row(
                   children: [
-                    const Expanded(child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
+                    const Expanded(
+                        child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Text(
                         'ou',
-                        style: GoogleFonts.poppins(color: Colors.grey[600], fontSize: 15),
+                        style: GoogleFonts.poppins(
+                            color: Colors.grey[600], fontSize: 15),
                       ),
                     ),
-                    const Expanded(child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
+                    const Expanded(
+                        child: Divider(thickness: 1, color: Color(0xFFD1D5DB))),
                   ],
                 ),
                 const SizedBox(height: 18),
@@ -422,7 +450,8 @@ class _LoginFormState extends State<LoginForm> {
                         borderRadius: BorderRadius.circular(14),
                       ),
                       elevation: 0,
-                      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 0, horizontal: 8),
                     ),
                   ),
                 ),
@@ -431,12 +460,14 @@ class _LoginFormState extends State<LoginForm> {
                 SizedBox(
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: _isLoading ? null : () {
-                      context.go('/login-anonimo');
-                    
-                    },
+                    onPressed: _isLoading
+                        ? null
+                        : () {
+                            context.go('/login-anonimo');
+                          },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: _isLoading ? Colors.grey[400] : Colors.black87,
+                      backgroundColor:
+                          _isLoading ? Colors.grey[400] : Colors.black87,
                       foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
@@ -455,7 +486,8 @@ class _LoginFormState extends State<LoginForm> {
                   child: TextButton(
                     onPressed: _isLoading ? null : widget.onToggleView,
                     style: TextButton.styleFrom(
-                      foregroundColor: _isLoading ? Colors.grey[400] : Colors.black87,
+                      foregroundColor:
+                          _isLoading ? Colors.grey[400] : Colors.black87,
                       textStyle: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -506,7 +538,8 @@ class _LoginFormState extends State<LoginForm> {
                       shape: BoxShape.circle,
                     ),
                     padding: const EdgeInsets.all(12),
-                    child: Icon(Icons.check, color: Colors.green[600], size: 32),
+                    child:
+                        Icon(Icons.check, color: Colors.green[600], size: 32),
                   ),
                   const SizedBox(height: 18),
                   Text(

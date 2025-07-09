@@ -33,15 +33,24 @@ class Environment {
       // On native platforms, check environment variables
       isProd = Platform.environment.containsKey('NO_FLUXO_PROD');
     } else {
-      // On web, check compile-time constant
+      // On web, check compile-time constant (set via --dart-define)
       isProd = const bool.fromEnvironment('NO_FLUXO_PROD', defaultValue: false);
     }
 
+    final logger = getLogger('Environment');
+    logger
+        .info('🌍 Initializing environment - isProd: $isProd, isWeb: $kIsWeb');
+
     if (isProd) {
       setEnvironmentType(EnvironmentType.production);
+      logger.info('🏭 Production environment configured');
     } else {
       setEnvironmentType(EnvironmentType.development);
+      logger.info('🧪 Development environment configured');
     }
+
+    logger.info('🔗 API URL: ${getApiUrl()}');
+    logger.info('🔄 Redirect URL: ${getRedirectToUrl()}');
 
     _initialized = true;
   }

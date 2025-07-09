@@ -12,7 +12,6 @@ class SharedPreferencesHelper {
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }
-  
 
   static UserModel? get currentUser {
     final userJson = _prefs?.getString(keyUser);
@@ -25,7 +24,7 @@ class SharedPreferencesHelper {
     }
 
     var userJsonMap = jsonDecode(userJson);
-
+    isAnonimo = false;
     var user = UserModel.fromJson(userJsonMap);
     user.token = userJsonMap["token"];
     return user;
@@ -33,6 +32,7 @@ class SharedPreferencesHelper {
 
   static set currentUser(UserModel? user) {
     if (user != null) {
+      isAnonimo = false;
       _prefs?.setString(
           keyUser,
           jsonEncode(

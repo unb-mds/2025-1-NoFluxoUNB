@@ -1008,7 +1008,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           });
         },
       );
-    } catch (e) {
+    } catch (e, st) {
+      log.severe(e, st);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Erro ao processar disciplinas: $e'),

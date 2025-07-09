@@ -91,7 +91,7 @@ class AppRouter {
       final session = await safeGetSession();
       final email = session?.user.email;
 
-      if (SharedPreferencesHelper.isAnonimo) {
+      if (SharedPreferencesHelper.isAnonimo && !loggedInWithGoogle) {
         onFoundUser?.call();
         return;
       }

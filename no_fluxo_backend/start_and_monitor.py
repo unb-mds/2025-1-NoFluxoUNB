@@ -7,22 +7,80 @@ import argparse
 from pathlib import Path
 import urllib.parse
 from dotenv import load_dotenv
+import threading
+import queue
+import gc
+import psutil
+from logging.handlers import RotatingFileHandler
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Set up logging at the same place as the script with name process.log
+# Set up logging with rotation to prevent unbounded log file growth
 log_file = Path(__file__).parent / "process.log"
-logging.basicConfig(
-    filename=log_file,
-    level=logging.INFO,
-    format="%(asctime)s - %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S"
+handler = RotatingFileHandler(
+    log_file, 
+    maxBytes=10*1024*1024,  # 10MB max file size
+    backupCount=5  # Keep 5 backup files
 )
+handler.setFormatter(logging.Formatter(
+    "%(asctime)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+))
+logging.basicConfig(
+    level=logging.INFO,
+    handlers=[handler]
+)
+
+# Global variables for thread management
+active_threads = []
+shutdown_event = threading.Event()
 
 def log_message(message):
     print(message)
     logging.info(message)
+
+def cleanup_threads():
+    """Clean up any active threads."""
+    global active_threads
+    shutdown_event.set()
+    
+    for thread in active_threads[:]:  # Create a copy of the list
+        if thread.is_alive():
+            thread.join(timeout=2.0)  # Wait up to 2 seconds for thread to finish
+        active_threads.remove(thread)
+    
+    shutdown_event.clear()
+    gc.collect()  # Force garbage collection
+
+def log_memory_usage():
+    """Log current memory usage for monitoring."""
+    try:
+        process = psutil.Process()
+        memory_info = process.memory_info()
+        memory_mb = memory_info.rss / 1024 / 1024
+        log_message(f"Python: Memory usage: {memory_mb:.2f} MB, Active threads: {len(active_threads)}")
+    except Exception as e:
+        log_message(f"Python: Error getting memory info: {e}")
+
+def run_git_command_safely(command, cwd=None, timeout=30):
+    """Run git command with proper resource cleanup and timeout."""
+    try:
+        result = subprocess.run(
+            command,
+            cwd=cwd,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            check=False  # Don't raise exception on non-zero exit
+        )
+        return result
+    except subprocess.TimeoutExpired:
+        log_message(f"Python: Git command timed out: {' '.join(command)}")
+        return None
+    except Exception as e:
+        log_message(f"Python: Error running git command {' '.join(command)}: {e}")
+        return None
 
 
 
@@ -135,20 +193,54 @@ def restore_git_config(repo_path, config_backup):
 
 def check_for_updates(repo_dir, branch):
     """Check if the remote repository has new commits."""
-    os.chdir(repo_dir)
-    subprocess.run(["git", "fetch", "origin"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    local_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).strip()
-    remote_commit = subprocess.check_output(["git", "rev-parse", f"origin/{branch}"]).strip()
-
-    return local_commit != remote_commit
+    original_dir = os.getcwd()
+    try:
+        os.chdir(repo_dir)
+        
+        # Use safe git command runner
+        fetch_result = run_git_command_safely(["git", "fetch", "origin"], cwd=repo_dir)
+        if fetch_result is None or fetch_result.returncode != 0:
+            log_message("Python: Warning - Failed to fetch from origin")
+            return False
+            
+        local_result = run_git_command_safely(["git", "rev-parse", "HEAD"], cwd=repo_dir)
+        remote_result = run_git_command_safely(["git", "rev-parse", f"origin/{branch}"], cwd=repo_dir)
+        
+        if local_result is None or remote_result is None:
+            log_message("Python: Warning - Failed to get commit hashes")
+            return False
+            
+        local_commit = local_result.stdout.strip()
+        remote_commit = remote_result.stdout.strip()
+        
+        return local_commit != remote_commit
+        
+    except Exception as e:
+        log_message(f"Python: Error checking for updates: {e}")
+        return False
+    finally:
+        os.chdir(original_dir)
 
 def pull_updates(repo_dir, branch):
     """Pull the latest changes from the remote repository."""
-    os.chdir(repo_dir)
-    log_message(f"Python: Performing a hard reset before pulling updates from {branch}.")
-    subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
-    subprocess.run(["git", "pull", "origin", branch], check=True)
+    original_dir = os.getcwd()
+    try:
+        os.chdir(repo_dir)
+        log_message(f"Python: Performing a hard reset before pulling updates from {branch}.")
+        
+        reset_result = run_git_command_safely(["git", "reset", "--hard", f"origin/{branch}"], cwd=repo_dir)
+        if reset_result is None or reset_result.returncode != 0:
+            raise Exception("Failed to reset repository")
+            
+        pull_result = run_git_command_safely(["git", "pull", "origin", branch], cwd=repo_dir)
+        if pull_result is None or pull_result.returncode != 0:
+            raise Exception("Failed to pull updates")
+            
+    except Exception as e:
+        log_message(f"Python: Error pulling updates: {e}")
+        raise
+    finally:
+        os.chdir(original_dir)
 
 def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
     """Update the fork repository with the latest changes from current branch to main."""
@@ -311,26 +403,62 @@ def start_process(command):
     return process
 
 def print_logs_in_real_time(process):
-    """Print logs from the subprocess in real time."""
+    """Print logs from the subprocess in real time with proper resource management."""
     def stream_output(stream, prefix):
-        for line in iter(stream.readline, b""):
-            if line != "":
-                message = f"{prefix}: {line}"
-                log_message(message)
+        try:
+            while not shutdown_event.is_set():
+                line = stream.readline()
+                if not line:  # End of stream
+                    break
+                if line.strip():  # Only log non-empty lines
+                    message = f"{prefix}: {line.strip()}"
+                    log_message(message)
+        except Exception as e:
+            log_message(f"Python: Error reading from {prefix}: {e}")
+        finally:
+            try:
+                stream.close()
+            except:
+                pass
     
-    # Create threads for stdout and stderr
-    import threading
-    threading.Thread(target=stream_output, args=(process.stdout, "STDOUT"), daemon=True).start()
-    threading.Thread(target=stream_output, args=(process.stderr, "STDERR"), daemon=True).start()
+    # Create threads for stdout and stderr with proper management
+    stdout_thread = threading.Thread(target=stream_output, args=(process.stdout, "STDOUT"), daemon=True)
+    stderr_thread = threading.Thread(target=stream_output, args=(process.stderr, "STDERR"), daemon=True)
+    
+    stdout_thread.start()
+    stderr_thread.start()
+    
+    active_threads.extend([stdout_thread, stderr_thread])
 
 def stop_process(process):
-    """Stop the given subprocess."""
+    """Stop the given subprocess with proper cleanup."""
     try:
         if process and process.poll() is None:  # Check if process is running
-            os.killpg(os.getpgid(process.pid), signal.SIGTERM)  # Kill the process group
-
+            # First, try graceful termination
+            os.killpg(os.getpgid(process.pid), signal.SIGTERM)
+            
+            # Wait for process to terminate gracefully
+            try:
+                process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                # Force kill if it doesn't terminate gracefully
+                log_message("Python: Process didn't terminate gracefully, force killing...")
+                os.killpg(os.getpgid(process.pid), signal.SIGKILL)
+                process.wait()
+            
+            # Clean up process resources
+            if process.stdout and not process.stdout.closed:
+                process.stdout.close()
+            if process.stderr and not process.stderr.closed:
+                process.stderr.close()
+            if process.stdin and not process.stdin.closed:
+                process.stdin.close()
+                
+        # Clean up threads after stopping process
+        cleanup_threads()
+        
     except Exception as e:
-        log_message(f"Python: Error occurred: {e}")
+        log_message(f"Python: Error stopping process: {e}")
 
 def restart_process_if_crashed(process, command):
     """Check if the process has crashed and restart it."""
@@ -390,9 +518,19 @@ def main():
         log_message("Python: No git authentication provided - using system git config")
 
     process = start_process(START_COMMAND)
+    
+    # Memory monitoring counter
+    memory_check_counter = 0
+    MEMORY_CHECK_INTERVAL = 60  # Log memory every 60 iterations (10 minutes)
 
     try:
         while True:
+            # Log memory usage periodically
+            memory_check_counter += 1
+            if memory_check_counter >= MEMORY_CHECK_INTERVAL:
+                log_memory_usage()
+                memory_check_counter = 0
+            
             if check_for_updates(REPO_DIR, BRANCH):
                 log_message(f"Python: New changes detected in branch {BRANCH}. Updating...")
                 stop_process(process)
@@ -404,6 +542,10 @@ def main():
                 
                 log_message("Python: Starting the process...")
                 process = start_process(START_COMMAND)
+                
+                # Force garbage collection after major operations
+                gc.collect()
+                log_memory_usage()
             else:
                 new_process = restart_process_if_crashed(process, START_COMMAND)
                 if new_process is None:
@@ -412,11 +554,15 @@ def main():
                     while new_process is None:
                         time.sleep(10)
                         new_process = start_process(START_COMMAND)
+                else:
+                    process = new_process
 
             time.sleep(CHECK_INTERVAL)
     except KeyboardInterrupt:
         log_message("Python: Exiting. Stopping subprocess...")
         stop_process(process)
+    finally:
+        cleanup_threads()
 
 if __name__ == "__main__":
     main()

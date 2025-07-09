@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../utils/utils.dart';
 import '../../data/curso_model.dart';
 
 class FluxogramaHeader extends StatelessWidget {
@@ -64,7 +65,7 @@ class FluxogramaHeader extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      '${courseData?.matrizCurricular} • ${courseData?.totalCreditos} créditos',
+                      '${courseData?.matrizCurricular} • ${courseData?.totalCreditos} créditos\n${Utils.capitalize(courseData?.tipoCurso ?? '')} • ${Utils.capitalize(courseData?.classificacao ?? '')}',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         color: Colors.white.withOpacity(0.7),
