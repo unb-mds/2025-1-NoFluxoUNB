@@ -2435,3 +2435,33 @@
 2025-07-09 02:39:18,717 - __main__ - INFO - ==================================================
 2025-07-09 02:39:18,742 - werkzeug - WARNING -  * Debugger is active!
 2025-07-09 02:39:18,751 - werkzeug - INFO -  * Debugger PIN: 114-293-037
+2025-07-09 02:41:25,636 - __main__ - INFO - Logging initialized successfully
+2025-07-09 02:41:25,636 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 02:41:25,637 - __main__ - INFO - ==================================================
+2025-07-09 02:41:25,637 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 02:41:25,637 - __main__ - INFO - ==================================================
+2025-07-09 02:41:25,637 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 02:41:25,637 - __main__ - INFO - Port: 4652
+2025-07-09 02:41:25,637 - __main__ - INFO - Debug mode: True
+2025-07-09 02:41:25,637 - __main__ - INFO - Log level: 10
+2025-07-09 02:41:25,637 - __main__ - INFO - Environment: development
+2025-07-09 02:41:25,637 - __main__ - INFO - ==================================================
+2025-07-09 02:41:25,678 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.1.30:4652
+2025-07-09 02:41:25,679 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-09 02:41:25,682 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2025-07-09 02:41:25,815 - __main__ - INFO - Logging initialized successfully
+2025-07-09 02:41:25,815 - __main__ - INFO - Flask application and CORS initialized
+2025-07-09 02:41:25,816 - __main__ - INFO - ==================================================
+2025-07-09 02:41:25,816 - __main__ - INFO - AI AGENT SERVER STARTUP
+2025-07-09 02:41:25,816 - __main__ - INFO - ==================================================
+2025-07-09 02:41:25,816 - __main__ - INFO - Host: 0.0.0.0
+2025-07-09 02:41:25,816 - __main__ - INFO - Port: 4652
+2025-07-09 02:41:25,816 - __main__ - INFO - Debug mode: True
+2025-07-09 02:41:25,816 - __main__ - INFO - Log level: 10
+2025-07-09 02:41:25,816 - __main__ - INFO - Environment: development
+2025-07-09 02:41:25,816 - __main__ - INFO - ==================================================
+2025-07-09 02:41:25,836 - werkzeug - WARNING -  * Debugger is active!
+2025-07-09 02:41:25,843 - werkzeug - INFO -  * Debugger PIN: 114-293-037
