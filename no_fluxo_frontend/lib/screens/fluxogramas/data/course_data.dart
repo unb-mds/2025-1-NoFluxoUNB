@@ -1,6 +1,3 @@
-
-
-
 import 'course_subject.dart';
 
 class CourseData {
