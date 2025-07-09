@@ -4,64 +4,145 @@ Obrigado pelo seu interesse em contribuir para este projeto! Suas contribuiçõe
 
 Este guia tem como objetivo fornecer um passo a passo básico para que você possa contribuir de forma eficaz.
 
-## Como Contribuir
+## Como Rodar o Projeto Localmente
 
-1.  **Reportar Issues:**
-    * Se você encontrar algum bug, tiver alguma sugestão de melhoria ou quiser propor uma nova funcionalidade, por favor, abra uma nova issue.
-    * Ao criar uma issue, seja o mais claro e detalhado possível. Inclua os passos para reproduzir o problema (se aplicável), o comportamento esperado e o comportamento real.
+Este guia detalha os passos necessários para configurar e executar o projeto em sua máquina local.
 
-2.  **Fork o Repositório:**
-    * Faça um fork do repositório para a sua conta do GitHub.
+### Pré-requisitos
 
-3.  **Clone o Repositório Forkado:**
-    ```bash
-    git clone [https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git](https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git)
-    cd NOME_DO_REPOSITORIO
-    ```
-    * Substitua `SEU_USUARIO` pelo seu nome de usuário do GitHub e `NOME_DO_REPOSITORIO` pelo nome do seu fork.
+Certifique-se de ter os seguintes softwares instalados em seu ambiente:
 
-4.  **Crie um Branch para sua Contribuição:**
-    * Crie um branch dedicado para as suas alterações. Isso ajuda a manter o seu branch principal limpo e facilita a revisão.
-    ```bash
-    git checkout -b nome-do-seu-branch
-    ```
-    * Escolha um nome de branch descritivo que reflita a sua contribuição (por exemplo, `fix-bug-login`, `add-feature-xyz`).
+* **Git:** Para clonar o repositório.
+  [Download do Git](https://git-scm.com/downloads)
+* **Python 3.x:** (Python 3.9 ou superior)
+  [Download do Python](https://www.python.org/downloads/)
+* **Flutter SDK:** (Flutter 3.19.0 ou superior)
+  [Instalação do Flutter](https://flutter.dev/docs/get-started/install)
+* **Node.js e npm/yarn:** Para gerenciar dependências do JavaScript (se aplicável para o backend ou outras ferramentas).
+  [Download do Node.js](https://nodejs.org/en/download/)
 
-5.  **Faça suas Alterações:**
-    * Implemente as alterações ou adicione o novo recurso.
-    * Siga as convenções de código do projeto (se houver).
+---
 
-6.  **Commite suas Alterações:**
-    * Faça commits com mensagens claras e concisas que expliquem o que foi alterado.
-    ```bash
-    git add .
-    git commit -m "Breve descrição da sua alteração"
-    ```
-    * Se o seu commit resolver uma issue específica, você pode referenciá-la na mensagem do commit usando `#NUMERO_DA_ISSUE` (por exemplo, `Fix: corrige problema de login #123`).
+### 1. Clonar o Repositório
 
-7.  **Faça Push para o seu Repositório Forkado:**
-    ```bash
-    git push origin nome-do-seu-branch
-    ```
+Primeiro, clone o repositório do projeto para sua máquina local usando o Git e navegue até a pasta do projeto:
 
-8.  **Crie um Pull Request (PR):**
-    * No seu repositório forkado no GitHub, clique no botão "Contribute" e depois em "Open pull request".
-    * Compare o seu branch com o branch principal do repositório original.
-    * Forneça um título claro e uma descrição detalhada do seu pull request. Explique o que a sua contribuição faz e o porquê.
-    * Se houver alguma issue relacionada, mencione-a no seu PR.
+```bash
+git clone https://github.com/unb-mds/2025-1-NoFluxoUNB.git
+cd 2025-1-NoFluxoUNB
+```
 
-9.  **Aguarde a Revisão:**
-    * Os mantenedores do projeto irão revisar o seu pull request. Esteja aberto a receber feedback e fazer as alterações necessárias.
+---
 
-10. **Após a Revisão:**
-    * Se o seu pull request for aprovado, ele será mergeado no branch principal. Parabéns, sua contribuição foi aceita!
+### 2. Configuração do Backend (Python)
 
-## Diretrizes Gerais
+Se o seu projeto tiver um backend em Python, siga estes passos:
 
-* Seja respeitoso e colaborativo em todas as suas interações.
-* Escreva código limpo e bem comentado.
-* Tente seguir os padrões de código existentes no projeto.
-* Escreva testes para suas alterações, se aplicável.
-* Mantenha seus pull requests focados em uma única alteração lógica. Pull requests grandes e com muitas alterações podem ser mais difíceis de revisar.
+#### 2.1. Criar e Ativar Ambiente Virtual
 
-Agradecemos novamente a sua disposição em contribuir!
+É altamente recomendável usar um ambiente virtual para gerenciar as dependências do Python. Execute os comandos abaixo na raiz do projeto (onde está o `venv` ou a pasta principal do backend):
+
+```bash
+python -m venv venv
+
+# Para Windows:
+.\venv\Scripts\activate
+
+# Para macOS/Linux:
+source venv/bin/activate
+```
+
+#### 2.2. Instalar Dependências
+
+Com o ambiente virtual ativado, navegue até a pasta do seu backend (ex: `backend/`) e instale todas as dependências listadas no `requirements.txt`:
+
+```bash
+cd no_fluxo_backend
+pip install -r requirements.txt
+```
+
+#### 2.3. Configuração de Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz da pasta do backend e adicione as variáveis de ambiente necessárias:
+
+```ini
+# Exemplo de variáveis para Supabase/Banco de Dados
+SUPABASE_URL=sua_url_do_supabase
+SUPABASE_KEY=sua_chave_anon_do_supabase
+# Adicione outras variáveis necessárias aqui
+```
+
+> 💡 Para conseguir acesso às chaves do `.env`, entre em contato com os desenvolvedores do projeto.
+
+#### 2.4. Instalar Dependências e Iniciar o Backend (Node.js)
+
+Se o seu backend também usa Node.js, navegue até a pasta do backend e execute:
+
+```bash
+cd no_fluxo_backend
+npm install
+npm start
+```
+
+Certifique-se de que a pasta `no_fluxo_backend` realmente é onde estão os arquivos `Node.js` e o `package.json`.
+
+---
+
+### 3. Configuração do Frontend (Flutter)
+
+#### 3.1. Navegar para a Pasta do Frontend
+
+Navegue até a pasta que contém os arquivos do seu aplicativo Flutter:
+
+```bash
+cd no_fluxo_frontend 
+```
+
+#### 3.2. Obter Dependências do Flutter e Rodar o Aplicativo
+
+Na pasta do frontend, execute os seguintes comandos:
+
+```bash
+flutter pub get
+flutter run
+```
+
+---
+
+### 4. Executando o Parser de PDF
+
+Você precisa rodar o script de parser de PDF separadamente:
+
+#### 4.1. Navegar para a Pasta de Coleta de Dados
+
+Navegue até a pasta onde o arquivo `parser_pdf.py` está localizado:
+
+```bash
+
+cd coleta_de_dados
+python3 parser_pdf.py
+
+```
+
+#### 4.2. Executar o Parser
+
+Com o ambiente virtual ativado (se aplicável ao parser), execute o arquivo Python:
+
+```bash
+
+python3 parser_pdf.py
+
+```
+
+---
+
+## Observações Finais
+
+
+* **Ambiente Virtual para o Parser:** É necessário ativar o ambiente virtual, depende das bibliotecas do `requirements.txt`.
+
+---
+
+Agradecemos novamente pelo seu interesse em contribuir com o projeto 🚀
+
+Dai em diante, crie sua própria branch e faça pull request de sua contribuição pra avaliação da equipe de desenvolvedores.
