@@ -143,7 +143,7 @@ class Environment {
       apiUrl = "http://localhost:3000";
       redirectToUrl = "http://localhost:5000";
     } else {
-      apiUrl = "https://srv892492.hstgr.cloud:3000";
+      apiUrl = "https://srv892492.hstgr.cloud:3325";
       redirectToUrl = "https://no-fluxo.com";
     }
   }
