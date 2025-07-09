@@ -32,7 +32,7 @@ A **App Platform** é a plataforma de desenvolvimento como serviço (**PaaS**) d
 ### 🛠️ Principais recursos da App Platform:
 
 - **Deploy automático via GitHub, GitLab ou diretório local**.
-- **Suporte a várias linguagens**: Node.js, Python, PHP, Go, Ruby, Docker e mais.
+- **Suporte a várias linguagens**: Node.js, Python, PHP, Go, Ruby e mais.
 - **Deploy de aplicações estáticas e dinâmicas**.
 - **SSL automático e integração com domínios personalizados**.
 - **Escalabilidade automática vertical e horizontal**.
@@ -49,7 +49,7 @@ A **App Platform** da DigitalOcean automatiza todo o processo de deploy de uma a
    A App Platform detecta a linguagem e as dependências da aplicação e configura o ambiente automaticamente.
 
 3. **Build da aplicação**  
-   Ela executa o processo de build com base no seu `Dockerfile`, `package.json`, ou outras convenções padrão (dependendo da linguagem/framework).
+   Ela executa o processo de build com base no seu `package.json` ou outras convenções padrão (dependendo da linguagem/framework).
 
 4. **Publicação**  
    Após o build, a aplicação é automaticamente publicada e disponibilizada em um domínio da DigitalOcean (ou um domínio personalizado seu).
