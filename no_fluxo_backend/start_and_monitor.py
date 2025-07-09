@@ -47,6 +47,9 @@ def update_fork_repo(fork_path, branch):
         original_dir = os.getcwd()
         original_branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode().strip()
         
+        # Get the original repo's remote URL
+        origin_url = subprocess.check_output(["git", "remote", "get-url", "origin"]).decode().strip()
+        
         # First update the current repo to make sure we have latest changes
         subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
@@ -62,17 +65,20 @@ def update_fork_repo(fork_path, branch):
         # Fetch latest changes from fork's origin
         subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         
-        
         # Switch to main branch in fork
         log_message("Python: Switching to main branch in fork repository")
         subprocess.run(["git", "checkout", "main"], check=True)
         subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
         subprocess.run(["git", "pull", "origin", "main"], check=True)
         
-        # Add the original repo as a remote if it doesn't exist
-        remotes = subprocess.check_output(["git", "remote"]).decode().split('\n')
-        if "upstream" not in remotes:
-            subprocess.run(["git", "remote", "add", "upstream", original_dir], check=True)
+        # Add or update the original repo as a remote
+        log_message("Python: Setting up upstream remote with original repository")
+        try:
+            # Try to add the remote
+            subprocess.run(["git", "remote", "add", "upstream", origin_url], check=True)
+        except subprocess.CalledProcessError:
+            # If remote already exists, update its URL
+            subprocess.run(["git", "remote", "set-url", "upstream", origin_url], check=True)
         
         # Fetch from upstream (original repo)
         subprocess.run(["git", "fetch", "upstream"], check=True)
