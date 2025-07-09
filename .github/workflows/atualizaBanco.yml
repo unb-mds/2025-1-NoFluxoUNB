@@ -23,7 +23,9 @@ jobs:
       run: pip install -r coleta_dados/scraping/requirements.txt
 
     - name: Executar script do Supabase
-      run: python coleta_dados/scraping/integracao_banco.py
+      run: | 
+        python coleta_dados/scraping/scraping_ementa.py &&
+        python coleta_dados/scraping/integracao_banco.py
       env:
         SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
