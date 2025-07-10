@@ -11,7 +11,14 @@ from visualizaJsonMateriasAssociadas import gerar_texto_ranking
 from flask_cors import CORS
 
 # Load environment variables
-load_dotenv(dotenv_path='../.env')
+# Try to load from parent directory first, then current directory
+if os.path.exists('../.env'):
+    load_dotenv(dotenv_path='../.env')
+elif os.path.exists('.env'):
+    load_dotenv(dotenv_path='.env')
+else:
+    print(".env file not found at: .env")
+    # Continue without .env file - environment variables should be set by Docker
 
 # --- Configuração de Logging ---
 def setup_logging():
@@ -21,10 +28,16 @@ def setup_logging():
     # Create logs directory if it doesn't exist
     log_dir = '../logs'
     if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
+        try:
+            os.makedirs(log_dir)
+        except PermissionError:
+            # Fallback to current directory if we can't create in parent
+            log_dir = './logs'
+            if not os.path.exists(log_dir):
+                os.makedirs(log_dir, exist_ok=True)
     
     # Configure logging format
-    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    log_format = '\b[%(levelname)s] %(message)s'
     
     # Configure root logger
     logging.basicConfig(
@@ -147,6 +160,17 @@ def analisar_materia_endpoint():
         request_duration = (datetime.now() - request_start_time).total_seconds()
         logger.error(f"[REQUEST ERROR] Unexpected error after {request_duration:.2f} seconds: {str(e)}", exc_info=True)
         return jsonify({"erro": f"Ocorreu um erro interno no servidor: {str(e)}"}), 500
+
+@app.route('/', methods=['GET'])
+def root_health_check():
+    """Root health check endpoint"""
+    logger.debug("Root health check requested")
+    return jsonify({
+        "status": "healthy",
+        "service": "AI Agent",
+        "message": "AI Agent server is running",
+        "timestamp": datetime.now().isoformat()
+    })
 
 @app.route('/health', methods=['GET'])
 def health_check():
