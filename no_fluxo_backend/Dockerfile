@@ -50,6 +50,9 @@ COPY no_fluxo_backend/scripts/ ./scripts/
 COPY no_fluxo_backend/start_and_monitor.py ./
 COPY no_fluxo_backend/docker-entrypoint.sh ./
 
+# Make entrypoint script executable immediately after copying
+RUN chmod +x docker-entrypoint.sh
+
 # Copy other necessary files  
 COPY no_fluxo_backend/*.json ./
 COPY no_fluxo_backend/env.example ./
@@ -102,4 +105,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3325/health || exit 1
 
 # Use the entrypoint script that handles conditional arguments
-CMD ["/bin/bash", "./docker-entrypoint.sh"] 
+CMD ["/bin/bash", "/no_fluxo_backend/docker-entrypoint.sh"] 
