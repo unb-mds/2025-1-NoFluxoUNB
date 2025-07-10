@@ -15,16 +15,18 @@ services:
     env_file:
       - .env
     volumes:
-      # Mount the entire repository to enable git operations
-      # This allows the monitoring system to fetch updates properly
+      # Mount the entire repository for git operations, excluding problematic directories
       - .:/app
-      # Use Docker volumes for generated/runtime data to maintain proper permissions
-      - fork_data:/app/fork_repo
-      - logs_data:/app/logs
+      # Override dist with Docker volume to maintain permissions
       - dist_data:/app/dist
+      # Persist the fork repository across container restarts
+      - fork_data:/app/fork_repo
+      # Use Docker volume for logs to maintain proper permissions
+      - logs_data:/app/logs
+      # Python local packages directory
       - python_local:/app/.local
-      # Exclude node_modules to prevent conflicts (Docker will use container's version)
-      - /app/node_modules
+      # Mount node_modules as volume to avoid permission issues and improve performance
+      - node_modules_data:/app/node_modules
     restart: unless-stopped
     logging:
       driver: "json-file"
@@ -75,4 +77,6 @@ volumes:
   dist_data:
     driver: local
   python_local:
+    driver: local
+  node_modules_data:
     driver: local 

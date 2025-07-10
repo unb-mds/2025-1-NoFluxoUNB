@@ -1,9 +1,8 @@
 node_modules
 npm-debug.log
+dist
 logs
 *.log
-.gitignore
-README.md
 .nyc_output
 coverage
 .env.local

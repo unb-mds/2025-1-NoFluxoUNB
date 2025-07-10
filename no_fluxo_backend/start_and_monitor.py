@@ -209,10 +209,16 @@ def check_for_updates(repo_dir, branch):
     try:
         os.chdir(repo_dir)
         
+        # Check git setup first
+        if not os.path.exists('.git'):
+            log_message("Python: Error - .git directory not found in repository")
+            return False
+        
         # Use safe git command runner
         fetch_result = run_git_command_safely(["git", "fetch", "origin"], cwd=repo_dir)
         if fetch_result is None or fetch_result.returncode != 0:
-            log_message("Python: Warning - Failed to fetch from origin")
+            error_msg = fetch_result.stderr if fetch_result and fetch_result.stderr else "Unknown error"
+            log_message(f"Python: Warning - Failed to fetch from origin: {error_msg.strip()}")
             return False
             
         local_result = run_git_command_safely(["git", "rev-parse", "HEAD"], cwd=repo_dir)
