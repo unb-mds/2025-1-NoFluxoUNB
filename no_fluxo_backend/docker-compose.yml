@@ -19,6 +19,8 @@ services:
       - fork_data:/app/fork_repo
       # Use Docker volume for logs to maintain proper permissions
       - logs_data:/app/logs
+      # Python local packages directory
+      - python_local:/app/.local
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3325/health"]
@@ -55,4 +57,6 @@ volumes:
   fork_data:
     driver: local
   logs_data:
+    driver: local
+  python_local:
     driver: local 

@@ -496,7 +496,12 @@ def main():
         log_message("Python: Running in Docker container, setting up pip permissions...")
         os.environ['PYTHONUSERBASE'] = '/app/.local'
         os.environ['PIP_USER'] = '1'
-        os.makedirs('/app/.local', exist_ok=True)
+        # Try to create the directory, if it fails due to permissions, continue
+        try:
+            os.makedirs('/app/.local', exist_ok=True)
+        except PermissionError:
+            # Directory should be handled by Docker volume, continue without error
+            log_message("Python: /app/.local directory will be handled by Docker volume")
     
     # Get authentication credentials from args, environment variables, or .env file
     GIT_USERNAME = args.git_username or os.getenv('GIT_USERNAME')

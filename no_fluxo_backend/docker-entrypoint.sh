@@ -42,13 +42,20 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
         cd /app
     elif [ -d "$FORK_DIR" ]; then
         echo "📁 Fork directory exists but is not a git repository, removing..."
-        rm -rf "$FORK_DIR"
+        sudo rm -rf "$FORK_DIR"
         echo "📦 Cloning fork repository..."
         
         # Clone with credentials embedded in URL
         if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_TOKEN" ]; then
+            # Ensure the URL ends with .git
+            CLEANED_FORK_URL="$FORK_URL"
+            if [[ ! "$CLEANED_FORK_URL" == *.git ]]; then
+                CLEANED_FORK_URL="${CLEANED_FORK_URL}.git"
+                echo "🔧 Added .git extension: $CLEANED_FORK_URL"
+            fi
+            
             # Extract the github.com part and add credentials
-            REPO_PATH=$(echo "$FORK_URL" | sed 's/https:\/\/github\.com\///')
+            REPO_PATH=$(echo "$CLEANED_FORK_URL" | sed 's/https:\/\/github\.com\///')
             AUTHENTICATED_URL="https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/${REPO_PATH}"
             
             git clone "$AUTHENTICATED_URL" "$FORK_DIR" 2>/dev/null
@@ -58,7 +65,7 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
                 
                 # Clean up the URL to remove embedded credentials for security
                 cd "$FORK_DIR"
-                git remote set-url origin "$FORK_URL"
+                git remote set-url origin "$CLEANED_FORK_URL"
                 
                 # Setup credential helper for future operations
                 git config credential.helper store
@@ -77,8 +84,15 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
         
         # Clone with credentials embedded in URL
         if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_TOKEN" ]; then
+            # Ensure the URL ends with .git
+            CLEANED_FORK_URL="$FORK_URL"
+            if [[ ! "$CLEANED_FORK_URL" == *.git ]]; then
+                CLEANED_FORK_URL="${CLEANED_FORK_URL}.git"
+                echo "🔧 Added .git extension: $CLEANED_FORK_URL"
+            fi
+            
             # Extract the github.com part and add credentials
-            REPO_PATH=$(echo "$FORK_URL" | sed 's/https:\/\/github\.com\///')
+            REPO_PATH=$(echo "$CLEANED_FORK_URL" | sed 's/https:\/\/github\.com\///')
             AUTHENTICATED_URL="https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/${REPO_PATH}"
             
             git clone "$AUTHENTICATED_URL" "$FORK_DIR" 2>/dev/null
@@ -88,7 +102,7 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
                 
                 # Clean up the URL to remove embedded credentials for security
                 cd "$FORK_DIR"
-                git remote set-url origin "$FORK_URL"
+                git remote set-url origin "$CLEANED_FORK_URL"
                 
                 # Setup credential helper for future operations
                 git config credential.helper store
