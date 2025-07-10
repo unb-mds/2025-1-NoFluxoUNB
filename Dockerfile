@@ -49,7 +49,8 @@ COPY no_fluxo_backend/AI-agent/ ./AI-agent/
 COPY no_fluxo_backend/parse-pdf/ ./parse-pdf/
 COPY no_fluxo_backend/scripts/ ./scripts/
 COPY no_fluxo_backend/start_and_monitor.py ./
-COPY docker-entrypoint.sh ./
+# Copy docker-entrypoint.sh to /app (parent directory)
+COPY docker-entrypoint.sh /app/
 
 # Copy other necessary files
 COPY no_fluxo_backend/*.json ./
@@ -63,10 +64,11 @@ RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN mkdir -p dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
 RUN chown -R appuser:appuser /app
 RUN chmod -R 755 /app
-RUN chmod +x docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
 
 # Ensure directories have proper permissions for runtime operations  
 RUN chmod -R 775 dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
+
 
 # Build TypeScript code as root first, then change ownership
 RUN npm run build-docker || echo "Build failed, will retry as appuser"
@@ -99,6 +101,9 @@ ENV PORT=3325
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3325/health || exit 1
+
+# Switch back to /app directory for entrypoint script
+WORKDIR /app
 
 # Use the entrypoint script that handles conditional arguments
 CMD ["/bin/bash", "./docker-entrypoint.sh"] 
