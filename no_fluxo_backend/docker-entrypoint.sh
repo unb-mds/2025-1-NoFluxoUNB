@@ -8,11 +8,11 @@ echo "📂 Working directory: $(pwd)"
 echo "🌱 Environment: ${NODE_ENV:-development}"
 echo "🌿 Branch: ${GIT_BRANCH:-main}"
 
-# Create git config directory for appuser
+# Create git config directory for appuser with proper permissions
 echo "🔧 Setting up git configuration directory..."
-mkdir -p /home/appuser
-touch /home/appuser/.gitconfig
-chown appuser:appuser /home/appuser/.gitconfig
+sudo mkdir -p /home/appuser
+sudo touch /home/appuser/.gitconfig
+sudo chown appuser:appuser /home/appuser /home/appuser/.gitconfig
 
 # Fix ownership of mounted repository for git operations
 echo "🔧 Fixing mounted repository permissions..."
