@@ -1,99 +1,142 @@
-# tests-python/test_app.py
-"""
-Testes unitários para a aplicação Flask em app.py.
-"""
-import json
+# tests_python/test_app.py
+
+import sys
+import os
 import pytest
-from unittest.mock import patch
+import json
 
-from ai_agent.app import app, remover_acentos_nativo
+# 1. Adicionar o diretório raiz do projeto ao sys.path.
+#    Subimos um nível ('..') a partir da pasta 'tests_python' para chegar à raiz.
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
 
-# O path para o mock deve ser o caminho absoluto a partir da raiz do projeto
-RAGFLOW_CLIENT_PATH = 'ai_agent.app.RagflowClient'
+# 2. Usar importações absolutas a partir da raiz do projeto.
+#    Note o novo caminho: 'no_fluxo_backend.ai_agent.app'
+from no_fluxo_backend.ai_agent.app import app as flask_app
+from no_fluxo_backend.ai_agent.app import remover_acentos_nativo
 
-MOCK_AGENT_RESULT = {
-    'code': 0,
-    'data': {
-        'answer': "{'content': {'0': '--- INÍCIO DO RANKING ---\\n1. **Disciplina:** TESTE DE SOFTWARE; Codigo: TSW001; Unidade responsavel: DEPTO TESTE\\n**Pontuação:** 100\\n**Justificativa:** Teste.'}}"
-    }
-}
+
+# --- O restante do seu código de teste permanece o mesmo ---
 
 @pytest.fixture
-def client():
-    """Cria e configura um cliente de teste para a aplicação Flask."""
-    app.config['TESTING'] = True
-    with app.test_client() as client:
-        yield client
+def app():
+    """Cria e configura uma nova instância do app para cada teste."""
+    yield flask_app
 
-def test_remover_acentos_nativo():
-    """Testa a função utilitária de remoção de acentos."""
-    assert remover_acentos_nativo("OLÁ MUNDO, Ç, Ã") == "OLA MUNDO, C, A"
 
-@patch(RAGFLOW_CLIENT_PATH)
-def test_analisar_materia_endpoint_sucesso(MockRagflowClient, client):
+@pytest.fixture
+def client(app):
+    """Um cliente de teste para o app."""
+    return app.test_client()
+
+# --- Testes de funções auxiliares ---
+@pytest.mark.parametrize("entrada, esperado", [
+    ("História da África", "Historia da Africa"),
+    ("educação", "educacao"),
+    ("texto sem acento", "texto sem acento"),
+    ("", ""),
+])
+def test_remover_acentos_nativo(entrada, esperado):
+    """Testa a função de remoção de acentos com vários casos."""
+    assert remover_acentos_nativo(entrada) == esperado
+
+
+# --- Testes de Endpoints ---
+def test_health_check_endpoints(client):
+    """Testa os endpoints de health check ('/' e '/health')."""
+    for endpoint in ['/', '/health']:
+        response = client.get(endpoint)
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data['status'] == 'healthy'
+        assert data['service'] == 'AI Agent'
+
+
+def test_analisar_materia_endpoint_sucesso(client, mocker):
     """
-    Testa o endpoint /assistente em um cenário de sucesso com a resposta 200.
+    Testa o endpoint /assistente em um cenário de sucesso, mockando as
+    dependências externas.
     """
-    mock_instance = MockRagflowClient.return_value
-    mock_instance.start_session.return_value = "fake_session_id"
-    mock_instance.analyze_materia.return_value = MOCK_AGENT_RESULT
+    # Mock do RagflowClient
+    mock_ragflow_client = mocker.patch('app.RagflowClient').return_value
+    mock_ragflow_client.start_session.return_value = "sessao_mock_123"
+    mock_ragflow_client.analyze_materia.return_value = {"code": 0, "data": "dados_mock"}
 
+    # Mock da função de formatação
+    mocker.patch('app.gerar_texto_ranking', return_value="Ranking formatado com sucesso.")
+
+    # Faz a requisição
     response = client.post(
         '/assistente',
-        data=json.dumps({'materia': 'Teste de Software'}),
+        data=json.dumps({'materia': 'História da África'}),
         content_type='application/json'
     )
 
+    # Verifica a resposta
     assert response.status_code == 200
     data = response.get_json()
-    assert 'resultado' in data
-    assert 'TESTE DE SOFTWARE' in data['resultado']
-    mock_instance.start_session.assert_called_once_with('TESTE DE SOFTWARE')
+    assert data['resultado'] == "Ranking formatado com sucesso."
 
-def test_analisar_materia_endpoint_bad_request(client):
-    """
-    Testa o endpoint /assistente com requisições inválidas (400).
-    """
-    response_no_json = client.post('/assistente', content_type='application/json')
-    assert response_no_json.status_code == 400
+    # Verifica se os mocks foram chamados
+    mock_ragflow_client.start_session.assert_called_once_with('HISTORIA DA AFRICA')
+    mock_ragflow_client.analyze_materia.assert_called_once_with(
+        'HISTORIA DA AFRICA', 'sessao_mock_123'
+    )
 
-    response_empty_materia = client.post(
+
+@pytest.mark.parametrize("payload, erro_esperado", [
+    ({}, "O campo 'materia' é obrigatório"),
+    ({'materia': None}, "O campo 'materia' não pode estar vazio."),
+    ({'materia': '  '}, "O campo 'materia' não pode estar vazio."),
+    ({'disciplina': 'invalido'}, "O campo 'materia' é obrigatório"),
+])
+def test_analisar_materia_endpoint_bad_request(client, payload, erro_esperado):
+    """
+    Testa o endpoint /assistente com vários tipos de requisições inválidas (400).
+    """
+    response = client.post(
         '/assistente',
-        data=json.dumps({'materia': ''}),
+        data=json.dumps(payload),
         content_type='application/json'
     )
-    assert response_empty_materia.status_code == 400
+    assert response.status_code == 400
+    data = response.get_json()
+    assert erro_esperado in data['erro']
 
-@patch(RAGFLOW_CLIENT_PATH)
-def test_analisar_materia_endpoint_agent_api_error(MockRagflowClient, client):
+
+def test_analisar_materia_endpoint_erro_api_ragflow(client, mocker):
     """
-    Testa o cenário onde a API do agente retorna um erro (500).
+    Testa o endpoint /assistente quando a API do RAGFlow retorna um erro.
     """
-    mock_instance = MockRagflowClient.return_value
-    mock_instance.start_session.return_value = "fake_session_id"
-    mock_instance.analyze_materia.return_value = {"code": -1, "message": "Erro no agente"}
+    mock_ragflow_client = mocker.patch('app.RagflowClient').return_value
+    mock_ragflow_client.start_session.return_value = "sessao_mock_123"
+    mock_ragflow_client.analyze_materia.return_value = {
+        "code": 1, "message": "Falha na análise"
+    }
 
     response = client.post(
         '/assistente',
-        data=json.dumps({'materia': 'teste'}),
+        data=json.dumps({'materia': 'Qualquer Coisa'}),
         content_type='application/json'
     )
 
     assert response.status_code == 500
-    assert 'Erro na API do agente: Erro no agente' in response.get_json()['erro']
+    data = response.get_json()
+    assert "Erro na API do agente: Falha na análise" in data['erro']
 
-@patch(RAGFLOW_CLIENT_PATH)
-def test_analisar_materia_endpoint_internal_server_error(MockRagflowClient, client):
+
+def test_analisar_materia_endpoint_erro_inesperado(client, mocker):
     """
-    Testa uma exceção inesperada no servidor (500).
+    Testa o endpoint /assistente quando uma exceção inesperada ocorre.
     """
-    mock_instance = MockRagflowClient.return_value
-    mock_instance.start_session.side_effect = Exception("Falha geral")
+    mocker.patch('app.remover_acentos_nativo', side_effect=Exception("Erro inesperado"))
 
     response = client.post(
         '/assistente',
-        data=json.dumps({'materia': 'teste'}),
+        data=json.dumps({'materia': 'Qualquer Coisa'}),
         content_type='application/json'
     )
+
     assert response.status_code == 500
-    assert 'Ocorreu um erro interno no servidor: Falha geral' in response.get_json()['erro']
+    data = response.get_json()
+    assert "Ocorreu um erro interno no servidor: Erro inesperado" in data['erro']
