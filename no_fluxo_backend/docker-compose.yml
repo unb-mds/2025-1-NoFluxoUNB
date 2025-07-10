@@ -17,6 +17,8 @@ services:
       - .:/app
       # Persist the fork repository across container restarts
       - fork_data:/app/fork_repo
+      # Use Docker volume for logs to maintain proper permissions
+      - logs_data:/app/logs
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3325/health"]
@@ -51,4 +53,6 @@ networks:
 
 volumes:
   fork_data:
+    driver: local
+  logs_data:
     driver: local 

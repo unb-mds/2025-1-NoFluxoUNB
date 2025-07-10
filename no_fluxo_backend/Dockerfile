@@ -56,9 +56,6 @@ COPY env.example ./
 # Build TypeScript code
 RUN npm run build
 
-# Create logs and necessary directories
-RUN mkdir -p logs uploads
-
 # Expose ports for HTTPS
 EXPOSE 3325
 EXPOSE 4652
@@ -81,6 +78,11 @@ RUN git config --global user.name "Docker Container"
 RUN chown -R appuser:appuser /app
 RUN chmod -R 755 /app
 RUN chmod +x docker-entrypoint.sh
+
+# Create logs and necessary directories with proper permissions as appuser
+RUN mkdir -p logs uploads
+RUN chown -R appuser:appuser logs uploads
+RUN chmod -R 775 logs uploads
 
 # Switch to app user
 USER appuser

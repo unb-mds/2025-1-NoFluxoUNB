@@ -84,28 +84,30 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
       );
     }
 
-    return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(24)),
-      margin: const EdgeInsets.only(bottom: 32),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.4),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Transform.scale(
-              scale: widget.zoomLevel,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (int semester = 1;
-                      semester <= (widget.courseData?.semestres ?? 0);
-                      semester++)
-                    _buildSemesterColumn(semester),
-                ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 32),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Transform.scale(
+                scale: widget.zoomLevel,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (int semester = 1;
+                        semester <= (widget.courseData?.semestres ?? 0);
+                        semester++)
+                      _buildSemesterColumn(semester),
+                  ],
+                ),
               ),
             ),
           ),

@@ -31,7 +31,6 @@ class MateriaModel {
         codigoMateria: json["codigo_materia"],
         creditos: json["carga_horaria"] / 15,
         nivel: json["nivel"] ?? 0,
-        
       );
     }
 

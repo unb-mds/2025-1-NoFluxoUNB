@@ -26,8 +26,8 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
     
     FORK_DIR="/app/fork_repo"
     
-    # Check if fork directory already exists
-    if [ -d "$FORK_DIR" ]; then
+    # Check if fork directory already exists and is a valid git repository
+    if [ -d "$FORK_DIR" ] && [ -d "$FORK_DIR/.git" ]; then
         echo "📁 Fork directory exists, pulling latest changes..."
         cd "$FORK_DIR"
         
@@ -35,11 +35,43 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
         if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_TOKEN" ]; then
             # Configure git to use credentials
             git config credential.helper store
-            echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > ~/.git-credentials
+            echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > /app/.git-credentials
         fi
         
         git pull origin main 2>/dev/null || echo "⚠️  Could not pull fork updates"
         cd /app
+    elif [ -d "$FORK_DIR" ]; then
+        echo "📁 Fork directory exists but is not a git repository, removing..."
+        rm -rf "$FORK_DIR"
+        echo "📦 Cloning fork repository..."
+        
+        # Clone with credentials embedded in URL
+        if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_TOKEN" ]; then
+            # Extract the github.com part and add credentials
+            REPO_PATH=$(echo "$FORK_URL" | sed 's/https:\/\/github\.com\///')
+            AUTHENTICATED_URL="https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/${REPO_PATH}"
+            
+            git clone "$AUTHENTICATED_URL" "$FORK_DIR" 2>/dev/null
+            
+            if [ $? -eq 0 ]; then
+                echo "✅ Fork cloned successfully"
+                
+                # Clean up the URL to remove embedded credentials for security
+                cd "$FORK_DIR"
+                git remote set-url origin "$FORK_URL"
+                
+                # Setup credential helper for future operations
+                git config credential.helper store
+                echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > /app/.git-credentials
+                cd /app
+            else
+                echo "❌ Failed to clone fork repository"
+                FORK_DIR=""
+            fi
+        else
+            echo "❌ Git credentials required for fork cloning"
+            FORK_DIR=""
+        fi
     else
         echo "📦 Cloning fork repository..."
         
@@ -60,7 +92,7 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
                 
                 # Setup credential helper for future operations
                 git config credential.helper store
-                echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > ~/.git-credentials
+                echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > /app/.git-credentials
                 cd /app
             else
                 echo "❌ Failed to clone fork repository"
