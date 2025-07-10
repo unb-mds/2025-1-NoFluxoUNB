@@ -74,8 +74,10 @@ RUN npm run build || echo "Build failed, will retry as appuser"
 
 # Set up git configuration for the container
 RUN git config --global --add safe.directory /app
+RUN git config --global --add safe.directory '*'
 RUN git config --global user.email "docker@nofluxo.com"
 RUN git config --global user.name "Docker Container"
+RUN git config --global init.defaultBranch main
 
 # Final ownership setup
 RUN chown -R appuser:appuser /app

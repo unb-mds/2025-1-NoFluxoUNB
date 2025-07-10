@@ -15,29 +15,16 @@ services:
     env_file:
       - .env
     volumes:
-      # Mount source code but preserve container's compiled output
-      - ./src:/app/src
-      - ./AI-agent:/app/AI-agent
-      - ./parse-pdf:/app/parse-pdf
-      - ./scripts:/app/scripts
-      - ./package.json:/app/package.json:ro
-      - ./package-lock.json:/app/package-lock.json:ro
-      - ./tsconfig.json:/app/tsconfig.json:ro
-      - ./nodemon.json:/app/nodemon.json:ro
-      - ./requirements.txt:/app/requirements.txt:ro
-      - ./requirements_monitor.txt:/app/requirements_monitor.txt:ro
-      - ./docker-entrypoint.sh:/app/docker-entrypoint.sh:ro
-      - ./start_and_monitor.py:/app/start_and_monitor.py:ro
-      # Mount .env file to ensure Python processes can access it
-      - ./.env:/app/.env:ro
-      # Persist the fork repository across container restarts
+      # Mount the entire repository to enable git operations
+      # This allows the monitoring system to fetch updates properly
+      - .:/app
+      # Use Docker volumes for generated/runtime data to maintain proper permissions
       - fork_data:/app/fork_repo
-      # Use Docker volume for logs to maintain proper permissions
       - logs_data:/app/logs
-      # Use Docker volume for compiled output to maintain proper permissions
       - dist_data:/app/dist
-      # Python local packages directory
       - python_local:/app/.local
+      # Exclude node_modules to prevent conflicts (Docker will use container's version)
+      - /app/node_modules
     restart: unless-stopped
     logging:
       driver: "json-file"

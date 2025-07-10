@@ -161,6 +161,17 @@ def analisar_materia_endpoint():
         logger.error(f"[REQUEST ERROR] Unexpected error after {request_duration:.2f} seconds: {str(e)}", exc_info=True)
         return jsonify({"erro": f"Ocorreu um erro interno no servidor: {str(e)}"}), 500
 
+@app.route('/', methods=['GET'])
+def root_health_check():
+    """Root health check endpoint"""
+    logger.debug("Root health check requested")
+    return jsonify({
+        "status": "healthy",
+        "service": "AI Agent",
+        "message": "AI Agent server is running",
+        "timestamp": datetime.now().isoformat()
+    })
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint"""

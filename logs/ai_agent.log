@@ -5860,3 +5860,18 @@ BrokenPipeError: [Errno 32] Broken pipe
 [INFO] ==================================================
 [WARNING]  * Debugger is active!
 [INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
