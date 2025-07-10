@@ -84,68 +84,93 @@ class CourseCardWidget extends StatelessWidget {
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Stack(
               children: [
-                Text(
-                  subject.codigoMateria,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  subject.nomeMateria,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontSize: 12,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 8),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: AppColors.containerBackground,
-                        borderRadius: BorderRadius.circular(4),
+                    Text(
+                      subject.codigoMateria,
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
                       ),
-                      child: Text(
-                        '${subject.creditos} créditos',
-                        style: GoogleFonts.poppins(
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      subject.nomeMateria,
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontSize: 12,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: AppColors.containerBackground,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            '${subject.creditos} créditos',
+                            style: GoogleFonts.poppins(
+                              color: AppColors.white,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ),
+                        // Only show mencao for non-anonymous users and when mencao exists
+                        if (subject.mencao != null &&
+                            subject.mencao != '-') ...[
+                          const Spacer(),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppColors.containerBackground,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              subject.mencao ?? 'Sem Mencao',
+                              style: GoogleFonts.poppins(
+                                color: AppColors.white,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ],
+                ),
+                // Equivalent subject icon with tooltip
+                if (subject.materiaEquivalenteCursada != null)
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Tooltip(
+                      message:
+                          'Equivalente: ${subject.materiaEquivalenteCursada?.codigoMateria} - ${subject.materiaEquivalenteCursada?.nomeMateria}${subject.materiaEquivalenteCursada?.mencao != null ? '\nMenção: ${subject.materiaEquivalenteCursada?.mencao}' : ''}${subject.materiaEquivalenteCursada?.professor != null ? '\nProfessor: ${subject.materiaEquivalenteCursada?.professor}' : ''}',
+                      child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Icon(
+                          Icons.compare_arrows,
                           color: AppColors.white,
-                          fontSize: 10,
+                          size: 16,
                         ),
                       ),
                     ),
-                    // Only show mencao for non-anonymous users and when mencao exists
-                    if (!isAnonymous &&
-                        subject.mencao != null &&
-                        subject.mencao != '-') ...[
-                      const Spacer(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.containerBackground,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          subject.mencao ?? 'Sem Mencao',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.white,
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ]
-                  ],
-                ),
+                  ),
               ],
             ),
           ),

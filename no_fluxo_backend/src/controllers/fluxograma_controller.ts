@@ -217,6 +217,8 @@ export const FluxogramaController: EndpointController = {
             return res.status(200).json(data);
         }),
 
+        
+
         "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger("FluxogramaController", "read_pdf");
             logger.info("Iniciando leitura de PDF");

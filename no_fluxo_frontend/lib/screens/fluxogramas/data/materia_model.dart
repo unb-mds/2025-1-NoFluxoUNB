@@ -8,6 +8,7 @@ class MateriaModel {
   String? status;
   String? mencao;
   String? professor;
+  MateriaModel? materiaEquivalenteCursada;
 
   MateriaModel({
     required this.ementa,
@@ -22,6 +23,18 @@ class MateriaModel {
   });
 
   factory MateriaModel.fromJson(Map<String, dynamic> json) {
+    if (json["materias"] == null) {
+      return MateriaModel(
+        ementa: json["ementa"],
+        idMateria: json["id_materia"],
+        nomeMateria: json["nome_materia"],
+        codigoMateria: json["codigo_materia"],
+        creditos: json["carga_horaria"] / 15,
+        nivel: json["nivel"] ?? 0,
+        
+      );
+    }
+
     return MateriaModel(
       ementa: json["materias"]["ementa"],
       idMateria: json["materias"]["id_materia"],

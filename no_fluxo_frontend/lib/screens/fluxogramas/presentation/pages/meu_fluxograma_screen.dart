@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -89,12 +91,12 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
       isAnonymous =
           SharedPreferencesHelper.isAnonimo || widget.courseName != null;
 
-      loadedCourseData.fold(
-        (error) {
+      await loadedCourseData.fold(
+        (error) async {
           errorMessage = error;
           return false;
         },
-        (cursos) {
+        (cursos) async {
           matrizesCurriculares = cursos;
           if (isAnonymous) {
             currentCourseData = cursos[0];
@@ -117,25 +119,62 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   .toList() ??
               List<DadosMateria>.from([]);
 
-          var materiasAprovadas = listMaterias
-              .where((e) =>
-                  e.mencao == 'SS' || e.mencao == 'MS' || e.mencao == 'MM')
-              .toList();
+          var materiasCursadasPorCodigo = Map<String, DadosMateria>.fromEntries(
+              listMaterias.map((e) => MapEntry(e.codigoMateria, e)));
 
-          var materiasCurrent =
-              listMaterias.where((e) => e.status == "MATR").toList();
+          List<MateriaModel> materiasCursadasAsMateriaModel = [];
 
-          var materiasEquivalentesAprovadas = currentCourseData?.equivalencias
-                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
-                      materiasAprovadas.map((e) => e.codigoMateria))))
-                  .toList() ??
-              [];
+          var materiasCursadasAsMateriaModelResponse =
+              await MeuFluxogramaService.getMateriasCursadasAsMateriaModel(
+                  listMaterias.map((e) => e.codigoMateria).toList(),
+                  currentCourseData?.idCurso ?? 0);
 
-          var materiasEquivalentesCurrent = currentCourseData?.equivalencias
-                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
-                      materiasCurrent.map((e) => e.codigoMateria))))
-                  .toList() ??
-              [];
+          materiasCursadasAsMateriaModelResponse.fold((l) {
+            log.severe(l, StackTrace.current);
+          }, (r) {
+            materiasCursadasAsMateriaModel = r;
+
+            for (var materia in materiasCursadasAsMateriaModel) {
+              materia.mencao =
+                  materiasCursadasPorCodigo[materia.codigoMateria]?.mencao;
+              materia.professor =
+                  materiasCursadasPorCodigo[materia.codigoMateria]?.professor;
+            }
+          });
+
+          var materiasEquivalentesAprovadas =
+              currentCourseData?.equivalencias.where((equiv) {
+                    var equivalenciaResult = equiv.isMateriaEquivalente(
+                        materiasCursadasAsMateriaModel
+                            .where((e) =>
+                                e.mencao == 'SS' ||
+                                e.mencao == 'MS' ||
+                                e.mencao == 'MM')
+                            .toList());
+                    if (equivalenciaResult.isEquivalente) {
+                      for (var v in equivalenciaResult.equivalentes) {
+                        equiv.equivalenteA = v;
+                      }
+                    }
+                    return equivalenciaResult.isEquivalente;
+                  }).toList() ??
+                  [];
+
+          var materiasEquivalentesCurrent =
+              currentCourseData?.equivalencias.where((equiv) {
+                    var equivalenciaResult = equiv.isMateriaEquivalente(
+                        materiasCursadasAsMateriaModel
+                            .where((e) => e.mencao == 'MATR')
+                            .toList());
+
+                    if (equivalenciaResult.isEquivalente) {
+                      for (var v in equivalenciaResult.equivalentes) {
+                        equiv.equivalenteA = v;
+                      }
+                    }
+                    return equivalenciaResult.isEquivalente;
+                  }).toList() ??
+                  [];
           for (var materia in SharedPreferencesHelper
                   .currentUser?.dadosFluxograma?.dadosFluxograma
                   .expand((e) => e) ??
@@ -159,11 +198,15 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           for (var materia in materiasEquivalentesAprovadas) {
             materiasPorCodigo[materia.materia.codigoMateria]?.status =
                 'completed';
+            materiasPorCodigo[materia.materia.codigoMateria]
+                ?.materiaEquivalenteCursada = materia.equivalenteA;
           }
 
           for (var materia in materiasEquivalentesCurrent) {
             materiasPorCodigo[materia.materia.codigoMateria]?.status =
                 'current';
+            materiasPorCodigo[materia.materia.codigoMateria]
+                ?.materiaEquivalenteCursada = materia.equivalenteA;
           }
 
           for (var materia
@@ -173,6 +216,9 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
               materia.mencao = materiasPorCodigo[materia.codigoMateria]?.mencao;
               materia.professor =
                   materiasPorCodigo[materia.codigoMateria]?.professor;
+              materia.materiaEquivalenteCursada =
+                  materiasPorCodigo[materia.codigoMateria]
+                      ?.materiaEquivalenteCursada;
             }
           }
 
@@ -222,7 +268,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
       // Create filename with timestamp
       final timestamp = DateTime.now().millisecondsSinceEpoch;
       final courseName =
-          currentCourseData?.nomeCurso?.replaceAll(' ', '_') ?? 'curso';
+          currentCourseData?.nomeCurso.replaceAll(' ', '_') ?? 'curso';
       final fileName = 'fluxograma_${courseName}_$timestamp.png';
 
       if (kIsWeb) {

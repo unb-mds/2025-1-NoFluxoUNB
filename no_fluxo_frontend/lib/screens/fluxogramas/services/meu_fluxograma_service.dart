@@ -23,6 +23,31 @@ class MeuFluxogramaService {
         return Left(response.body);
       }
     } catch (e) {
+      log.severe(e, StackTrace.current);
+      return Left(e.toString());
+    }
+  }
+
+  static Future<Either<String, List<MateriaModel>>>
+      getMateriasCursadasAsMateriaModel(
+          List<String> codigosMaterias, int idCurso) async {
+    try {
+      final response = await http.post(
+          Uri.parse('${Environment.apiUrl}/materias/materias-from-codigos'),
+          body: {
+            "codigos": jsonEncode(codigosMaterias),
+            "id_curso": idCurso.toString()
+          });
+
+      if (response.statusCode == 200) {
+        var json = jsonDecode(response.body);
+        return Right(List<MateriaModel>.from(
+            json.map((materia) => MateriaModel.fromJson(materia))));
+      } else {
+        return Left(response.body);
+      }
+    } catch (e) {
+      log.severe(e, StackTrace.current);
       return Left(e.toString());
     }
   }
@@ -64,7 +89,8 @@ class MeuFluxogramaService {
       } else {
         return Left(response.body);
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      log.severe(e, stackTrace);
       return Left(e.toString());
     }
   }
@@ -81,7 +107,8 @@ class MeuFluxogramaService {
       } else {
         return Left(response.body);
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      log.severe(e, stackTrace);
       return Left(e.toString());
     }
   }
@@ -102,7 +129,8 @@ class MeuFluxogramaService {
       } else {
         return Left(response.body);
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      log.severe(e, stackTrace);
       return Left(e.toString());
     }
   }

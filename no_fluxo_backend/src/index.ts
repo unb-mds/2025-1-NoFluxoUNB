@@ -14,6 +14,7 @@ import { UsersController } from './controllers/users_controller';
 import { spawn } from 'child_process';
 import path from 'path';
 import { CursosController } from './controllers/cursos_controller';
+import { MateriasController } from './controllers/materias_controller';
 
 dotenv.config();
 
@@ -123,7 +124,8 @@ const controllers: EndpointController[] = [
     FluxogramaController,
     TestesController,
     UsersController,
-    CursosController
+    CursosController,
+    MateriasController
 ];
 
 router.get('/', (req: Request, res: Response) => {
