@@ -6,9 +6,21 @@ Este diretório contém arquivos de configuração Docker para containerizar a a
 
 1. **Crie seu arquivo de ambiente:**
    ```bash
+   # Na pasta no_fluxo_backend (mesma pasta do Dockerfile)
+   cd no_fluxo_backend
    cp docker.env.example .env
    # Edite o arquivo .env com seus valores de configuração reais
    # IMPORTANTE: Configure GIT_USERNAME e GIT_TOKEN para auto-updates
+   ```
+
+   **Estrutura de arquivos:**
+   ```
+   no_fluxo_backend/
+   ├── Dockerfile              ← Aqui
+   ├── docker-compose.yml      ← Aqui  
+   ├── .env                    ← Aqui (criar a partir do .env.example)
+   ├── docker.env.example      ← Template
+   └── src/
    ```
 
 2. **Configure certificados SSL:**
@@ -52,12 +64,27 @@ Para o auto-update funcionar, configure no `.env`:
 GIT_USERNAME=seu_usuario_github
 GIT_TOKEN=seu_token_github
 GIT_BRANCH=main
+
+# Opcional: Para sincronizar com um fork
+FORK_LOCATION=/path/to/your/fork/repository
 ```
+
+**Parâmetros:**
+- `GIT_USERNAME`: Seu usuário do GitHub
+- `GIT_TOKEN`: Token de acesso pessoal do GitHub
+- `GIT_BRANCH`: Branch a monitorar (default: main)
+- `FORK_LOCATION`: *(Opcional)* Caminho para repositório fork local
 
 **Gerando um Token GitHub:**
 1. Vá em GitHub → Settings → Developer settings → Personal access tokens
 2. Gere um token com permissões de `repo`
 3. Use esse token no `GIT_TOKEN`
+
+**Fork Location (Opcional):**
+Se você tem um fork do repositório e quer que as mudanças sejam automaticamente sincronizadas:
+1. Clone seu fork em algum local do servidor
+2. Configure `FORK_LOCATION` com o caminho para esse clone
+3. O sistema automaticamente enviará updates para o branch `main` do seu fork
 
 ## 🔧 Comandos Alternativos
 

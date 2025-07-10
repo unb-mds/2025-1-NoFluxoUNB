@@ -47,6 +47,7 @@ COPY AI-agent/ ./AI-agent/
 COPY parse-pdf/ ./parse-pdf/
 COPY scripts/ ./scripts/
 COPY start_and_monitor.py ./
+COPY docker-entrypoint.sh ./
 
 # Copy other necessary files
 COPY *.json ./
@@ -79,6 +80,7 @@ RUN git config --global user.name "Docker Container"
 # Change ownership but keep git access
 RUN chown -R appuser:appuser /app
 RUN chmod -R 755 /app
+RUN chmod +x docker-entrypoint.sh
 
 # Switch to app user
 USER appuser
@@ -87,5 +89,5 @@ USER appuser
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3325/health || exit 1
 
-# Use the auto-update monitoring script (branch from environment)
-CMD ["sh", "-c", "python start_and_monitor.py --branch ${GIT_BRANCH:-main}"] 
+# Use the entrypoint script that handles conditional arguments
+CMD ["./docker-entrypoint.sh"] 

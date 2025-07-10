@@ -34,6 +34,15 @@ else
     GIT_STATUS="CONFIGURED"
 fi
 
+# Check fork location
+if grep -q "FORK_LOCATION=" .env && ! grep -q "FORK_LOCATION=$" .env; then
+    echo "✅ Fork location configured"
+    FORK_STATUS="CONFIGURED"
+else
+    echo "📝 Fork location not configured (optional)"
+    FORK_STATUS="NOT_CONFIGURED"
+fi
+
 # Check if Docker is running
 if ! docker info >/dev/null 2>&1; then
     echo "❌ Docker is not running! Please start Docker first"
@@ -44,6 +53,7 @@ echo ""
 echo "📋 Setup Summary:"
 echo "   SSL Certificates: $SSL_STATUS"
 echo "   Git Auto-Update: $GIT_STATUS"
+echo "   Fork Location: $FORK_STATUS"
 echo ""
 
 # Offer to run the container
