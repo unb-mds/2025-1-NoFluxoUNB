@@ -29,23 +29,44 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
   // Pagination constants
   static const int itemsPerPage = 6;
 
+  // Mapeamento dos filtros para os valores do banco
+  final List<Map<String, String>> filtros = [
+    {'label': 'TODOS', 'valor': ''},
+    {'label': 'EXATAS', 'valor': 'exatas'},
+    {'label': 'HUMANAS', 'valor': 'humanas'},
+    {'label': 'SAÚDE', 'valor': 'natureza'},
+  ];
+
+  String filtroSelecionado = 'TODOS';
+
   void setPage(int page) {
     setState(() {
       currentPage = page;
     });
   }
 
-  // Get filtered courses based on search text
+  // Get filtered courses based on search text and classification
   List<CursoModel> get filteredCursos {
-    if (searchText.isEmpty) {
-      return cursos;
+    var lista = cursos;
+    final filtroBanco =
+        filtros.firstWhere((f) => f['label'] == filtroSelecionado)['valor']!;
+    if (SharedPreferencesHelper.isAnonimo && filtroSelecionado != 'TODOS') {
+      lista = lista.where((curso) {
+        final c = (curso.classificacao ?? '').toLowerCase();
+        return c == filtroBanco;
+      }).toList();
     }
-    return cursos.where((curso) {
-      return curso.nomeCurso.toLowerCase().contains(searchText.toLowerCase()) ||
-          curso.matrizCurricular
-              .toLowerCase()
-              .contains(searchText.toLowerCase());
-    }).toList();
+    if (searchText.isNotEmpty) {
+      lista = lista.where((curso) {
+        return curso.nomeCurso
+                .toLowerCase()
+                .contains(searchText.toLowerCase()) ||
+            curso.matrizCurricular
+                .toLowerCase()
+                .contains(searchText.toLowerCase());
+      }).toList();
+    }
+    return lista;
   }
 
   // Get paginated courses for current page
@@ -364,24 +385,35 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                             // Filtros
                                             Flexible(
                                               flex: isWide ? 4 : 0,
-                                              child: Row(
-                                                mainAxisAlignment: isWide
-                                                    ? MainAxisAlignment.end
-                                                    : MainAxisAlignment.center,
-                                                children: [
-                                                  _buildFilterButton(
-                                                      'TODOS', true),
-                                                  const SizedBox(width: 10),
-                                                  _buildFilterButton(
-                                                      'EXATAS', false),
-                                                  const SizedBox(width: 10),
-                                                  _buildFilterButton(
-                                                      'HUMANAS', false),
-                                                  const SizedBox(width: 10),
-                                                  _buildFilterButton(
-                                                      'SAÚDE', false),
-                                                ],
-                                              ),
+                                              child: SharedPreferencesHelper
+                                                      .isAnonimo
+                                                  ? SingleChildScrollView(
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      child: Row(
+                                                        mainAxisAlignment: isWide
+                                                            ? MainAxisAlignment
+                                                                .end
+                                                            : MainAxisAlignment
+                                                                .center,
+                                                        children: List.generate(
+                                                          filtros.length,
+                                                          (i) => Row(
+                                                            children: [
+                                                              _buildFilterButton(
+                                                                  filtros[i][
+                                                                      'label']!),
+                                                              if (i !=
+                                                                  filtros.length -
+                                                                      1)
+                                                                const SizedBox(
+                                                                    width: 10),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
+                                                  : const SizedBox.shrink(),
                                             ),
                                           ],
                                         );
@@ -488,7 +520,8 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
     );
   }
 
-  Widget _buildFilterButton(String text, bool isActive) {
+  Widget _buildFilterButton(String label) {
+    final isActive = filtroSelecionado == label;
     return AnimatedContainer(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
@@ -518,12 +551,15 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
         child: InkWell(
           borderRadius: BorderRadius.circular(32),
           onTap: () {
-            // Implementar lógica de filtro
+            setState(() {
+              filtroSelecionado = label;
+              currentPage = 1;
+            });
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
             child: Text(
-              text,
+              label,
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
