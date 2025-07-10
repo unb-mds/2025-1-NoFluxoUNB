@@ -4,12 +4,11 @@ import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/app_navbar.dart';
 import '../../../../widgets/graffiti_background.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../widgets/premium_hover_button.dart';
 import 'dart:ui';
 import 'package:go_router/go_router.dart';
 import '../../data/curso_model.dart';
 import '../../services/meu_fluxograma_service.dart';
-import 'meu_fluxograma_screen.dart';
 
 class FluxogramasIndexScreen extends StatefulWidget {
   const FluxogramasIndexScreen({super.key});
@@ -25,19 +24,141 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
   bool loaded = false;
   String? errorFound;
   List<CursoModel> cursos = [];
+  Set<String> classificacoesUnicas = {};
 
   // Pagination constants
   static const int itemsPerPage = 6;
 
-  // Mapeamento dos filtros para os valores do banco
-  final List<Map<String, String>> filtros = [
-    {'label': 'TODOS', 'valor': ''},
-    {'label': 'EXATAS', 'valor': 'exatas'},
-    {'label': 'HUMANAS', 'valor': 'humanas'},
-    {'label': 'SAÚDE', 'valor': 'natureza'},
-  ];
-
   String filtroSelecionado = 'TODOS';
+
+  // Getter para filtros dinâmicos baseados nas classificações do banco
+  List<Map<String, String>> get filtrosDinamicos {
+    List<Map<String, String>> filtros = [
+      {'label': 'TODOS', 'valor': ''},
+    ];
+
+    // Adicionar as classificações únicas encontradas nos cursos
+    for (String classificacao in classificacoesUnicas) {
+      if (classificacao.isNotEmpty) {
+        filtros.add({
+          'label': classificacao.toUpperCase(),
+          'valor': classificacao.toLowerCase(),
+        });
+      }
+    }
+
+    return filtros;
+  }
+
+  // Cores dinâmicas baseadas no número de classificações
+  List<Color> _getCoresParaClassificacao(String classificacao, int index) {
+    // Cores diferentes para cada categoria
+    Map<String, List<Color>> coresPorCategoria = {
+      'TODOS': [
+        const Color(0xFF6366F1),
+        const Color(0xFF7C3AED)
+      ], // Roxo padrão
+      'EXATAS': [
+        const Color(0xFF4A1D96),
+        const Color(0xFFE11D48)
+      ], // Roxo escuro para rosa
+      'HUMANAS': [
+        const Color(0xFF3B82F6),
+        const Color(0xFF1D4ED8)
+      ], // Azul vibrante
+      'SAÚDE': [
+        const Color(0xFF059669),
+        const Color(0xFF0EA5E9)
+      ], // Verde para azul
+      'NATUREZA': [
+        const Color(0xFF059669),
+        const Color(0xFF0EA5E9)
+      ], // Verde para azul
+      'CIÊNCIAS EXATAS E DA TERRA': [
+        const Color(0xFF8B5CF6),
+        const Color(0xFFFB7185)
+      ], // Violeta para rosa
+      'ENGENHARIAS': [
+        const Color(0xFFFB923C),
+        const Color(0xFFFACC15)
+      ], // Laranja para amarelo
+      'CIÊNCIAS BIOLÓGICAS': [
+        const Color(0xFF4ADE80),
+        const Color(0xFF38BDF8)
+      ], // Verde para azul claro
+      'CIÊNCIAS DA SAÚDE': [
+        const Color(0xFF059669),
+        const Color(0xFF0EA5E9)
+      ], // Verde para azul
+      'CIÊNCIAS AGRÁRIAS': [
+        const Color(0xFF92400E),
+        const Color(0xFFA16207)
+      ], // Marrom terra
+      'CIÊNCIAS SOCIAIS APLICADAS': [
+        const Color(0xFFEA580C),
+        const Color(0xFFCA8A04)
+      ], // Laranja
+      'CIÊNCIAS HUMANAS': [
+        const Color(0xFFDC2626),
+        const Color(0xFFEF4444)
+      ], // Vermelho
+      'LINGUÍSTICA, LETRAS E ARTES': [
+        const Color(0xFF7C3AED),
+        const Color(0xFF9333EA)
+      ], // Roxo
+    };
+
+    // Primeiro tenta encontrar a classificação exata
+    String classificacaoUpper = classificacao.toUpperCase();
+    if (coresPorCategoria.containsKey(classificacaoUpper)) {
+      return coresPorCategoria[classificacaoUpper]!;
+    }
+
+    // Verificações alternativas para garantir que encontre as cores
+    if (classificacaoUpper.contains('HUMANAS') ||
+        classificacaoUpper.contains('CIÊNCIAS HUMANAS')) {
+      return [
+        const Color(0xFF3B82F6),
+        const Color(0xFF1D4ED8)
+      ]; // Azul vibrante
+    }
+
+    if (classificacaoUpper.contains('AGRÁRIAS') ||
+        classificacaoUpper.contains('AGRÁRIA')) {
+      return [const Color(0xFF92400E), const Color(0xFFA16207)]; // Marrom terra
+    }
+
+    // Cores de fallback baseadas no index para classificações não mapeadas
+    List<List<Color>> coresFallback = [
+      [const Color(0xFF6366F1), const Color(0xFF7C3AED)], // Roxo padrão
+      [
+        const Color(0xFF4A1D96),
+        const Color(0xFFE11D48)
+      ], // Roxo escuro para rosa
+      [
+        const Color(0xFF3B82F6),
+        const Color(0xFF1D4ED8)
+      ], // Azul vibrante (HUMANAS)
+      [const Color(0xFF059669), const Color(0xFF0EA5E9)], // Verde para azul
+      [const Color(0xFF8B5CF6), const Color(0xFFFB7185)], // Violeta para rosa
+      [
+        const Color(0xFFFB923C),
+        const Color(0xFFFACC15)
+      ], // Laranja para amarelo
+      [
+        const Color(0xFF4ADE80),
+        const Color(0xFF38BDF8)
+      ], // Verde para azul claro
+      [
+        const Color(0xFF92400E),
+        const Color(0xFFA16207)
+      ], // Marrom terra (AGRÁRIAS)
+      [const Color(0xFFDC2626), const Color(0xFFEF4444)], // Vermelho
+      [const Color(0xFF7C3AED), const Color(0xFF9333EA)], // Roxo
+    ];
+
+    return coresFallback[index % coresFallback.length];
+  }
 
   void setPage(int page) {
     setState(() {
@@ -48,14 +169,15 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
   // Get filtered courses based on search text and classification
   List<CursoModel> get filteredCursos {
     var lista = cursos;
-    final filtroBanco =
-        filtros.firstWhere((f) => f['label'] == filtroSelecionado)['valor']!;
-    if (SharedPreferencesHelper.isAnonimo && filtroSelecionado != 'TODOS') {
+
+    // Aplicar filtro por classificação se não for "TODOS"
+    if (filtroSelecionado != 'TODOS') {
       lista = lista.where((curso) {
-        final c = (curso.classificacao).toLowerCase();
-        return c == filtroBanco;
+        return curso.classificacao.toLowerCase() ==
+            filtroSelecionado.toLowerCase();
       }).toList();
     }
+
     if (searchText.isNotEmpty) {
       lista = lista.where((curso) {
         return curso.nomeCurso
@@ -124,6 +246,10 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           if (!uniqueCursos.contains(curso.nomeCurso)) {
             uniqueCursos.add(curso.nomeCurso);
             actualCursos.add(curso);
+            // Extrair classificações únicas
+            if (curso.classificacao.isNotEmpty) {
+              classificacoesUnicas.add(curso.classificacao);
+            }
           }
         }
 
@@ -165,9 +291,8 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
             var gridCards = paginatedCursos
                 .map((curso) => CourseCard(
                       title: curso.nomeCurso,
-                      subtitle: Utils.capitalize(curso.tipoCurso) +
-                          " * " +
-                          Utils.capitalize(curso.classificacao),
+                      tipoCurso: Utils.capitalize(curso.tipoCurso),
+                      classificacao: Utils.capitalize(curso.classificacao),
                       credits: curso.totalCreditos.toString() + " créditos",
                       fluxograma: SizedBox(
                         width: 300,
@@ -451,35 +576,32 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                             // Filtros
                                             Flexible(
                                               flex: isWide ? 4 : 0,
-                                              child: SharedPreferencesHelper
-                                                      .isAnonimo
-                                                  ? SingleChildScrollView(
-                                                      scrollDirection:
-                                                          Axis.horizontal,
-                                                      child: Row(
-                                                        mainAxisAlignment: isWide
-                                                            ? MainAxisAlignment
-                                                                .end
-                                                            : MainAxisAlignment
-                                                                .center,
-                                                        children: List.generate(
-                                                          filtros.length,
-                                                          (i) => Row(
-                                                            children: [
-                                                              _buildFilterButton(
-                                                                  filtros[i][
-                                                                      'label']!),
-                                                              if (i !=
-                                                                  filtros.length -
-                                                                      1)
-                                                                const SizedBox(
-                                                                    width: 10),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    )
-                                                  : const SizedBox.shrink(),
+                                              child: SingleChildScrollView(
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                child: Row(
+                                                  mainAxisAlignment: isWide
+                                                      ? MainAxisAlignment.end
+                                                      : MainAxisAlignment
+                                                          .center,
+                                                  children: List.generate(
+                                                    filtrosDinamicos.length,
+                                                    (i) => Row(
+                                                      children: [
+                                                        _buildPremiumFilterButton(
+                                                            filtrosDinamicos[i]
+                                                                ['label']!),
+                                                        if (i !=
+                                                            filtrosDinamicos
+                                                                    .length -
+                                                                1)
+                                                          const SizedBox(
+                                                              width: 10),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         );
@@ -586,55 +708,22 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
     );
   }
 
-  Widget _buildFilterButton(String label) {
+  Widget _buildPremiumFilterButton(String label) {
     final isActive = filtroSelecionado == label;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      curve: Curves.easeInOut,
-      decoration: BoxDecoration(
-        gradient: isActive
-            ? const LinearGradient(
-                colors: [Color(0xFF6366F1), Color(0xFF7C3AED)])
-            : null,
-        color: isActive ? null : Colors.white.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(32),
-        border: Border.all(
-          color: isActive ? Colors.transparent : Colors.white.withOpacity(0.18),
-          width: 2,
-        ),
-        boxShadow: isActive
-            ? [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.18),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ]
-            : [],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(32),
-          onTap: () {
-            setState(() {
-              filtroSelecionado = label;
-              currentPage = 1;
-            });
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-            child: Text(
-              label,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-              ),
-            ),
-          ),
-        ),
-      ),
+
+    // Usar mapeamento direto sempre, sem depender do índice
+    final colors = _getCoresParaClassificacao(label, 0);
+
+    return PremiumHoverButton(
+      label: label,
+      isActive: isActive,
+      colors: colors,
+      onTap: () {
+        setState(() {
+          filtroSelecionado = label;
+          currentPage = 1;
+        });
+      },
     );
   }
 
@@ -768,7 +857,9 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
 
 class CourseCard extends StatelessWidget {
   final String title;
-  final String subtitle;
+  final String? subtitle; // Manter para compatibilidade
+  final String? tipoCurso;
+  final String? classificacao;
   final String credits;
   final Widget fluxograma;
   final bool isTranslucent;
@@ -778,7 +869,9 @@ class CourseCard extends StatelessWidget {
   const CourseCard({
     super.key,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
+    this.tipoCurso,
+    this.classificacao,
     required this.credits,
     required this.fluxograma,
     this.isTranslucent = false,
@@ -800,13 +893,34 @@ class CourseCard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          subtitle,
-          style: GoogleFonts.poppins(
-            color: const Color(0xFFD1D5DB),
-            fontSize: 15,
+        // Se tipoCurso e classificacao são fornecidos separadamente
+        if (tipoCurso != null && classificacao != null) ...[
+          Text(
+            tipoCurso!,
+            style: GoogleFonts.poppins(
+              color: const Color(0xFFD1D5DB),
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
+          const SizedBox(height: 4),
+          Text(
+            classificacao!,
+            style: GoogleFonts.poppins(
+              color: const Color(0xFFD1D5DB),
+              fontSize: 15,
+            ),
+          ),
+        ]
+        // Se apenas subtitle for fornecido (modo compatibilidade)
+        else if (subtitle != null)
+          Text(
+            subtitle!,
+            style: GoogleFonts.poppins(
+              color: const Color(0xFFD1D5DB),
+              fontSize: 15,
+            ),
+          ),
         const SizedBox(height: 16),
         Expanded(child: Center(child: fluxograma)),
         const SizedBox(height: 16),
@@ -846,6 +960,7 @@ class CourseCard extends StatelessWidget {
         ),
       ],
     );
+
     return isTranslucent
         ? ClipRRect(
             borderRadius: BorderRadius.circular(20),
