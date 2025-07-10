@@ -28,6 +28,8 @@ services:
       - ./requirements_monitor.txt:/app/requirements_monitor.txt:ro
       - ./docker-entrypoint.sh:/app/docker-entrypoint.sh:ro
       - ./start_and_monitor.py:/app/start_and_monitor.py:ro
+      # Mount .env file to ensure Python processes can access it
+      - ./.env:/app/.env:ro
       # Persist the fork repository across container restarts
       - fork_data:/app/fork_repo
       # Use Docker volume for logs to maintain proper permissions

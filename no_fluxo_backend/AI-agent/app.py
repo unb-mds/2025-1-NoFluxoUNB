@@ -11,7 +11,14 @@ from visualizaJsonMateriasAssociadas import gerar_texto_ranking
 from flask_cors import CORS
 
 # Load environment variables
-load_dotenv(dotenv_path='../.env')
+# Try to load from parent directory first, then current directory
+if os.path.exists('../.env'):
+    load_dotenv(dotenv_path='../.env')
+elif os.path.exists('.env'):
+    load_dotenv(dotenv_path='.env')
+else:
+    print(".env file not found at: .env")
+    # Continue without .env file - environment variables should be set by Docker
 
 # --- Configuração de Logging ---
 def setup_logging():
@@ -21,7 +28,13 @@ def setup_logging():
     # Create logs directory if it doesn't exist
     log_dir = '../logs'
     if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
+        try:
+            os.makedirs(log_dir)
+        except PermissionError:
+            # Fallback to current directory if we can't create in parent
+            log_dir = './logs'
+            if not os.path.exists(log_dir):
+                os.makedirs(log_dir, exist_ok=True)
     
     # Configure logging format
     log_format = '\b[%(levelname)s] %(message)s'

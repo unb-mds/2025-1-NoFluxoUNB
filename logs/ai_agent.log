@@ -5845,3 +5845,18 @@ BrokenPipeError: [Errno 32] Broken pipe
 [INFO] [REQUEST SUCCESS] Request completed in 26.22 seconds
 [DEBUG] Response: 200 for POST http://localhost:4652/assistente
 [INFO] 127.0.0.1 - - [10/Jul/2025 14:21:13] "POST /assistente HTTP/1.1" 200 -
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/AI-agent/app.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024

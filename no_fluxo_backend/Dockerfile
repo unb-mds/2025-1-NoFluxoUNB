@@ -53,6 +53,7 @@ COPY docker-entrypoint.sh ./
 # Copy other necessary files
 COPY *.json ./
 COPY env.example ./
+COPY .env ./
 
 # Create non-root user but keep some root permissions for git operations
 RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
@@ -60,13 +61,13 @@ RUN usermod -aG sudo appuser
 RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Create necessary directories with proper permissions
-RUN mkdir -p dist logs uploads fork_repo
+RUN mkdir -p dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
 RUN chown -R appuser:appuser /app
 RUN chmod -R 755 /app
 RUN chmod +x docker-entrypoint.sh
 
-# Ensure dist directory has proper permissions for TypeScript compilation
-RUN chmod -R 775 dist logs uploads fork_repo
+# Ensure directories have proper permissions for runtime operations  
+RUN chmod -R 775 dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
 
 # Build TypeScript code as root first, then change ownership
 RUN npm run build || echo "Build failed, will retry as appuser"
