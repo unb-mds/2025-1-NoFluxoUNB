@@ -79,7 +79,9 @@ class SobreNosSection extends StatelessWidget {
                   fontSize: 15,
                 ),
                 children: [
-                  TextSpan(text: title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  TextSpan(
+                      text: title,
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
                   TextSpan(text: ' $desc'),
                 ],
               ),
@@ -92,16 +94,49 @@ class SobreNosSection extends StatelessWidget {
 
   Widget _membrosGrid(bool isWide) {
     final membros = [
-      _membroCard('Guilherme Gusmão', 'https://avatars.githubusercontent.com/gusmoles'),
-      _membroCard('Vitor Marconi', 'https://avatars.githubusercontent.com/Vitor-Trancoso'),
-      _membroCard('Gustavo Choueiri', 'https://avatars.githubusercontent.com/staann'),
-      _membroCard('Felipe Lopes', 'https://avatars.githubusercontent.com/darkymeubem'),
-      _membroCard('Vinícius Pereira', 'https://avatars.githubusercontent.com/Vinicius-Ribeiro04'),
-      _membroCard('Arthur Fernandes', 'https://avatars.githubusercontent.com/hisarxt'),
-      _membroCard('Erick Alves', 'https://avatars.githubusercontent.com/erickaalves'),
-      _membroCard('Arthur Ramalho', 'https://avatars.githubusercontent.com/ArthurNRamalho'),
+      _membroCard(
+          'Guilherme Gusmão', 'https://avatars.githubusercontent.com/gusmoles'),
+      _membroCard('Vitor Marconi',
+          'https://avatars.githubusercontent.com/Vitor-Trancoso'),
+      _membroCard(
+          'Gustavo Choueiri', 'https://avatars.githubusercontent.com/staann'),
+      _membroCard(
+          'Felipe Lopes', 'https://avatars.githubusercontent.com/darkymeubem'),
+      _membroCard('Vinícius Pereira',
+          'https://avatars.githubusercontent.com/Vinicius-Ribeiro04'),
+      _membroCard(
+          'Arthur Fernandes', 'https://avatars.githubusercontent.com/hisarxt'),
+      _membroCard(
+          'Erick Alves', 'https://avatars.githubusercontent.com/erickaalves'),
+      _membroCard('Arthur Ramalho',
+          'https://avatars.githubusercontent.com/ArthurNRamalho'),
     ];
-    // Primeira linha: 4 cards, segunda linha: 3 cards centralizados
+    final screenWidth = WidgetsBinding.instance.window.physicalSize.width /
+        WidgetsBinding.instance.window.devicePixelRatio;
+    final isMobile = screenWidth < 700;
+    if (isMobile) {
+      // Em mobile, 4 linhas com 2 integrantes por linha, alinhados em altura
+      List<Widget> linhas = [];
+      for (int i = 0; i < membros.length; i += 2) {
+        linhas.add(
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(child: membros[i]),
+                  const SizedBox(width: 8),
+                  Expanded(child: membros[i + 1]),
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+      return Column(children: linhas);
+    }
+    // Desktop/tablet: mantém o layout original
     return Column(
       children: [
         Wrap(
@@ -145,6 +180,12 @@ class _MembroCardState extends State<MembroCard> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 700;
+    final cardSize = isMobile ? 180.0 : 280.0;
+    final imageSize = isMobile ? 100.0 : 100.0;
+    final nameFontSize = isMobile ? 18.0 : 22.0;
+    final roleFontSize = isMobile ? 14.0 : 16.0;
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -153,8 +194,11 @@ class _MembroCardState extends State<MembroCard> {
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
         child: Container(
-          width: 280,
-          height: 280,
+          width: cardSize,
+          // Altura dinâmica em mobile, fixa só no desktop
+          constraints: isMobile
+              ? BoxConstraints(minHeight: 200)
+              : BoxConstraints.tightFor(height: cardSize),
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.1),
@@ -167,20 +211,20 @@ class _MembroCardState extends State<MembroCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 100,
-                height: 100,
+                width: imageSize,
+                height: imageSize,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
+                  borderRadius: BorderRadius.circular(imageSize / 2),
                   child: Image.network(
                     widget.githubUrl,
-                    width: 100,
-                    height: 100,
+                    width: imageSize,
+                    height: imageSize,
                     fit: BoxFit.cover,
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;
                       return Container(
-                        width: 100,
-                        height: 100,
+                        width: imageSize,
+                        height: imageSize,
                         color: Colors.grey[800],
                         child: Center(
                           child: CircularProgressIndicator(
@@ -194,23 +238,23 @@ class _MembroCardState extends State<MembroCard> {
                       );
                     },
                     errorBuilder: (context, error, stackTrace) {
-                      print('Erro ao carregar imagem: $error');
                       return Container(
-                        width: 100,
-                        height: 100,
+                        width: imageSize,
+                        height: imageSize,
                         color: Colors.grey[800],
-                        child: const Icon(Icons.person, size: 50, color: Colors.white),
+                        child: const Icon(Icons.person,
+                            size: 30, color: Colors.white),
                       );
                     },
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: isMobile ? 12 : 24),
               Text(
                 widget.nome,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 22,
+                  fontSize: nameFontSize,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'PermanentMarker',
                 ),
@@ -218,12 +262,12 @@ class _MembroCardState extends State<MembroCard> {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: isMobile ? 4 : 8),
               Text(
                 'Desenvolvedor',
                 style: GoogleFonts.poppins(
                   color: const Color.fromARGB(255, 174, 173, 173),
-                  fontSize: 16,
+                  fontSize: roleFontSize,
                   fontWeight: FontWeight.w400,
                   letterSpacing: 0.5,
                 ),
@@ -247,6 +291,12 @@ class _AnimatedSobreNosCardState extends State<_AnimatedSobreNosCard> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 700;
+    final cardPadding = isMobile ? 16.0 : 32.0;
+    final mainFontSize = isMobile ? 13.0 : 18.0;
+    final featureFontSize = isMobile ? 11.0 : 15.0;
+    final maxCardWidth = isMobile ? screenWidth - 32 : 1200.0;
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
@@ -254,88 +304,107 @@ class _AnimatedSobreNosCardState extends State<_AnimatedSobreNosCard> {
         scale: _isHovered ? 1.03 : 1.0,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 32),
-          padding: const EdgeInsets.all(32),
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.10),
-            borderRadius: BorderRadius.circular(24),
-            border: Border.all(color: Colors.white.withOpacity(0.2)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.15),
-                blurRadius: 16,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                  style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 18,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: maxCardWidth),
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 32),
+              padding: EdgeInsets.all(cardPadding),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.10),
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(color: Colors.white.withOpacity(0.2)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.15),
+                    blurRadius: 16,
+                    offset: const Offset(0, 4),
                   ),
-                  children: const [
-                    TextSpan(text: 'O NoFluxoUnB é criado na disciplina de Métodos de Desenvolvimento de Software ministrada pela professora Carla Rocha, com a proposta de desenvolver um software inovador para a comunidade. Nossa proposta foi desenvolver um software que facilita o planejamento acadêmico dos estudantes da UnB, oferecendo um fluxograma interativo, intuitivo e de fácil uso. Visualize matérias equivalentes, selecione disciplinas futuras e receba recomendações personalizadas com inteligência artificial.'),
-                  ],
-                ),
+                ],
               ),
-              const SizedBox(height: 12),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.chat_bubble_outline, color: Colors.white70, size: 18),
-                  const SizedBox(width: 6),
-                  Text(
-                    'Observação: ',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 14,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.bold,
+                  RichText(
+                    textAlign: TextAlign.justify,
+                    text: TextSpan(
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: mainFontSize,
+                      ),
+                      children: const [
+                        TextSpan(
+                            text:
+                                'O NoFluxoUnB é criado na disciplina de Métodos de Desenvolvimento de Software ministrada pela professora Carla Rocha, com a proposta de desenvolver um software inovador para a comunidade. Nossa proposta foi desenvolver um software que facilita o planejamento acadêmico dos estudantes da UnB, oferecendo um fluxograma interativo, intuitivo e de fácil uso. Visualize matérias equivalentes, selecione disciplinas futuras e receba recomendações personalizadas com inteligência artificial.'),
+                      ],
                     ),
                   ),
-                  Flexible(
-                    child: Text(
-                      'Inicialmente disponível para cursos da FGA/UnB, com perspectiva de expansão!',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: 14,
-                        fontStyle: FontStyle.italic,
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.chat_bubble_outline,
+                          color: Colors.white70, size: 18),
+                      const SizedBox(width: 6),
+                      Text(
+                        'Observação: ',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: isMobile ? 11.0 : 14.0,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                      Flexible(
+                        child: Text(
+                          'Inicialmente disponível para cursos da FGA/UnB, com perspectiva de expansão!',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: isMobile ? 11.0 : 14.0,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 18),
+                  Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        _featureItem(
+                            'UX moderna:',
+                            'Interface visual clara, responsiva e fácil de navegar.',
+                            featureFontSize),
+                        _featureItem(
+                            'Inteligência Artificial:',
+                            'Sugestão de disciplinas alinhadas aos interesses do estudante.',
+                            featureFontSize),
+                        _featureItem(
+                            'Personalização:',
+                            'Planejamento acadêmico inteligente e eficiente, adaptado ao perfil do aluno.',
+                            featureFontSize),
+                      ],
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 18),
-              Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    _featureItem('UX moderna:', 'Interface visual clara, responsiva e fácil de navegar.'),
-                    _featureItem('Inteligência Artificial:', 'Sugestão de disciplinas alinhadas aos interesses do estudante.'),
-                    _featureItem('Personalização:', 'Planejamento acadêmico inteligente e eficiente, adaptado ao perfil do aluno.'),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _featureItem(String title, String desc) {
+  Widget _featureItem(String title, String desc, double fontSize) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 700;
+    final maxTextWidth = isMobile ? screenWidth - 80 : 800.0;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             width: 28,
@@ -353,19 +422,23 @@ class _AnimatedSobreNosCardState extends State<_AnimatedSobreNosCard> {
               child: Icon(Icons.check, color: Colors.white, size: 18),
             ),
           ),
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 800),
-            child: RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 15,
+          Flexible(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: maxTextWidth),
+              child: RichText(
+                textAlign: TextAlign.left,
+                text: TextSpan(
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: fontSize,
+                  ),
+                  children: [
+                    TextSpan(
+                        text: title,
+                        style: const TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(text: ' $desc'),
+                  ],
                 ),
-                children: [
-                  TextSpan(text: title, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: ' $desc'),
-                ],
               ),
             ),
           ),
@@ -373,4 +446,4 @@ class _AnimatedSobreNosCardState extends State<_AnimatedSobreNosCard> {
       ),
     );
   }
-} 
+}
