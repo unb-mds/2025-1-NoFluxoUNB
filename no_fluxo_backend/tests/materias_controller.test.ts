@@ -1,9 +1,9 @@
-import { MateriasController } from '../materias_controller';
+import { MateriasController } from '../src/controllers/materias_controller';
 import { Request, Response } from 'express';
-import { SupabaseWrapper } from '../../supabase_wrapper';
+import { SupabaseWrapper } from '../src/supabase_wrapper';
 
 // Mock do SupabaseWrapper
-jest.mock('../../supabase_wrapper', () => {
+jest.mock('../src/supabase_wrapper', () => {
   const mockIn = jest.fn();
   const mockSelect = jest.fn(() => ({
     in: mockIn,
@@ -27,6 +27,7 @@ describe('MateriasController', () => {
   let mockResponse: Partial<Response>;
   let statusSpy: jest.SpyInstance;
   let jsonSpy: jest.SpyInstance;
+  let mockIn: jest.Mock;
 
   beforeEach(() => {
     mockRequest = {};
@@ -36,6 +37,8 @@ describe('MateriasController', () => {
     };
     statusSpy = jest.spyOn(mockResponse, 'status');
     jsonSpy = jest.spyOn(mockResponse, 'json');
+    // Pega o mockIn do mock
+    mockIn = (SupabaseWrapper.get().from('materias').select('*') as any).in;
   });
 
   afterEach(() => {
@@ -56,8 +59,7 @@ describe('MateriasController', () => {
     mockRequest.body = { codes: ['FGA0001', 'FGA0002'] };
     const mockData = [{ codigo_materia: 'FGA0001', nome_materia: 'Materia 1' }];
 
-    // Mock the return value of the 'in' method
-    (SupabaseWrapper.get().from('materias').select('*').in as jest.Mock).mockResolvedValueOnce({
+    mockIn.mockResolvedValueOnce({
       data: mockData,
       error: null,
     });
@@ -69,15 +71,14 @@ describe('MateriasController', () => {
     expect(jsonSpy).toHaveBeenCalledWith(mockData);
     expect(SupabaseWrapper.get().from).toHaveBeenCalledWith('materias');
     expect(SupabaseWrapper.get().from('materias').select).toHaveBeenCalledWith('*');
-    expect(SupabaseWrapper.get().from('materias').select('*').in).toHaveBeenCalledWith('codigo_materia', ['FGA0001', 'FGA0002']);
+    expect(mockIn).toHaveBeenCalledWith('codigo_materia', ['FGA0001', 'FGA0002']);
   });
 
   it('should return 500 if Supabase returns an error', async () => {
     mockRequest.body = { codes: ['FGA0001'] };
     const mockError = { message: 'Database error' };
 
-    // Mock the return value of the 'in' method
-    (SupabaseWrapper.get().from('materias').select('*').in as jest.Mock).mockResolvedValueOnce({
+    mockIn.mockResolvedValueOnce({
       data: null,
       error: mockError,
     });
