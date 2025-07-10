@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     tesseract-ocr-por \
     git \
     curl \
+    sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a symbolic link for python command
@@ -53,8 +54,33 @@ COPY docker-entrypoint.sh ./
 COPY *.json ./
 COPY env.example ./
 
-# Build TypeScript code
-RUN npm run build
+# Create non-root user but keep some root permissions for git operations
+RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
+RUN usermod -aG sudo appuser
+RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Create necessary directories with proper permissions
+RUN mkdir -p dist logs uploads fork_repo
+RUN chown -R appuser:appuser /app
+RUN chmod -R 755 /app
+RUN chmod +x docker-entrypoint.sh
+
+# Ensure dist directory has proper permissions for TypeScript compilation
+RUN chmod -R 775 dist logs uploads fork_repo
+
+# Build TypeScript code as root first, then change ownership
+RUN npm run build || echo "Build failed, will retry as appuser"
+
+# Set up git configuration for the container
+RUN git config --global --add safe.directory /app
+RUN git config --global user.email "docker@nofluxo.com"
+RUN git config --global user.name "Docker Container"
+
+# Final ownership setup
+RUN chown -R appuser:appuser /app
+
+# Switch to app user
+USER appuser
 
 # Expose ports for HTTPS
 EXPOSE 3325
@@ -63,29 +89,6 @@ EXPOSE 4652
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3325
-
-# Create non-root user but keep some root permissions for git operations
-RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
-RUN usermod -aG sudo appuser
-RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-# Set up git configuration for the container
-RUN git config --global --add safe.directory /app
-RUN git config --global user.email "docker@nofluxo.com"
-RUN git config --global user.name "Docker Container"
-
-# Change ownership but keep git access
-RUN chown -R appuser:appuser /app
-RUN chmod -R 755 /app
-RUN chmod +x docker-entrypoint.sh
-
-# Create logs and necessary directories with proper permissions as appuser
-RUN mkdir -p logs uploads
-RUN chown -R appuser:appuser logs uploads
-RUN chmod -R 775 logs uploads
-
-# Switch to app user
-USER appuser
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \

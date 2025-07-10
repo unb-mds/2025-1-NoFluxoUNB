@@ -250,7 +250,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: SplashWidget(),
           );
         },
       );

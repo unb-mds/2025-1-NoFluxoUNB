@@ -42,7 +42,7 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
         cd /app
     elif [ -d "$FORK_DIR" ]; then
         echo "📁 Fork directory exists but is not a git repository, removing..."
-        sudo rm -rf "$FORK_DIR"
+        rm -rf "$FORK_DIR" 2>/dev/null || echo "⚠️  Could not remove fork directory, continuing..."
         echo "📦 Cloning fork repository..."
         
         # Clone with credentials embedded in URL

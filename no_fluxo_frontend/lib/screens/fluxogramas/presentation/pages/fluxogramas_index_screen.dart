@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/widgets/splash_widget.dart';
 import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/app_navbar.dart';
@@ -281,7 +282,7 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           future: loadData(),
           builder: (context, asyncSnapshot) {
             if (!asyncSnapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: SplashWidget());
             }
 
             if (errorFound != null) {
