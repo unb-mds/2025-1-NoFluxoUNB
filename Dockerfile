@@ -62,18 +62,8 @@ RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Create necessary directories with proper permissions
 RUN mkdir -p dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
-RUN chown -R appuser:appuser /app
-RUN chmod -R 755 /app
-RUN chmod +x /app/docker-entrypoint.sh
 
-# Ensure directories have proper permissions for runtime operations  
-RUN chmod -R 775 dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
-
-
-# Build TypeScript code as root first, then change ownership
-RUN npm run build-docker || echo "Build failed, will retry as appuser"
-
-# Set up git configuration for the container
+# Set up git configuration for the container (before changing ownership)
 RUN git config --global --add safe.directory /app
 RUN git config --global --add safe.directory '/app/*'
 RUN git config --global --add safe.directory '*'
@@ -81,7 +71,19 @@ RUN git config --global user.email "docker@nofluxo.com"
 RUN git config --global user.name "Docker Container"
 RUN git config --global init.defaultBranch main
 
-# Final ownership setup
+# Change ownership and set permissions
+RUN chown -R appuser:appuser /app
+RUN chmod -R 755 /app
+RUN chmod +x /app/docker-entrypoint.sh
+
+# Ensure directories have proper permissions for runtime operations  
+RUN chmod -R 775 /app/dist /app/logs /app/uploads /app/fork_repo /app/no_fluxo_backend/AI-agent/logs /app/no_fluxo_backend/parse-pdf/logs
+
+
+# Build TypeScript code as root first, then change ownership
+RUN npm run build-docker || echo "Build failed, will retry as appuser"
+
+# Final ownership setup after build
 RUN chown -R appuser:appuser /app
 
 # Switch to app user
