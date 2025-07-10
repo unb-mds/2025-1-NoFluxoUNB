@@ -20,18 +20,28 @@ load_dotenv()
 log_dir = Path(__file__).parent / "logs"
 log_dir.mkdir(exist_ok=True)  # Create logs directory if it doesn't exist
 log_file = log_dir / "process.log"
-handler = RotatingFileHandler(
+
+# File handler for persistent logs
+file_handler = RotatingFileHandler(
     log_file, 
     maxBytes=10*1024*1024,  # 10MB max file size
     backupCount=5  # Keep 5 backup files
 )
-handler.setFormatter(logging.Formatter(
+file_handler.setFormatter(logging.Formatter(
     "%(asctime)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S"
 ))
+
+# Console handler for Docker logs visibility
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(logging.Formatter(
+    "%(asctime)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+))
+
 logging.basicConfig(
     level=logging.INFO,
-    handlers=[handler]
+    handlers=[file_handler, console_handler]
 )
 
 # Global variables for thread management

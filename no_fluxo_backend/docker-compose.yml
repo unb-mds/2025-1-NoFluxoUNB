@@ -10,6 +10,8 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3325
+      - PYTHONUNBUFFERED=1  # Ensure Python output is not buffered
+      - PYTHONIOENCODING=utf-8  # Set proper encoding for Python output
     env_file:
       - .env
     volumes:
@@ -35,6 +37,11 @@ services:
       # Python local packages directory
       - python_local:/app/.local
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3325/health"]
       interval: 30s
@@ -59,6 +66,11 @@ services:
     depends_on:
       - no-fluxo-backend
     restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "2"
     networks:
       - no-fluxo-network
 
