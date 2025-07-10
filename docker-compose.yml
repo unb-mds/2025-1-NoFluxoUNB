@@ -3,8 +3,8 @@ version: '3.8'
 services:
   no-fluxo-backend:
     build:
-      context: ../
-      dockerfile: no_fluxo_backend/Dockerfile
+      context: .
+      dockerfile: Dockerfile
     container_name: no-fluxo-backend
     # No ports exposed - nginx handles external traffic
     environment:
@@ -14,20 +14,20 @@ services:
       - PYTHONIOENCODING=utf-8  # Set proper encoding for Python output
       - GIT_DISCOVERY_ACROSS_FILESYSTEM=1  # Allow git to work across filesystem boundaries
     env_file:
-      - .env
+      - no_fluxo_backend/.env
     volumes:
       # Mount the entire repository for git operations (includes .git automatically)
-      - ../:/app
+      - .:/app
       # Override dist with Docker volume to maintain permissions
-      - dist_data:/app/dist
+      - dist_data:/app/no_fluxo_backend/dist
       # Persist the fork repository across container restarts
       - fork_data:/app/fork_repo
       # Use Docker volume for logs to maintain proper permissions
-      - logs_data:/app/logs
+      - logs_data:/app/no_fluxo_backend/logs
       # Python local packages directory
       - python_local:/app/.local
       # Mount node_modules as volume to avoid permission issues and improve performance
-      - node_modules_data:/app/node_modules
+      - node_modules_data:/app/no_fluxo_backend/node_modules
     restart: unless-stopped
     logging:
       driver: "json-file"

@@ -36,8 +36,8 @@ else
     echo "⚠️  .git directory not found - auto-updates will not work"
 fi
 
-# Fix ownership of other critical directories
-sudo chown -R appuser:appuser /app/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
+# Fix ownership of backend directories
+sudo chown -R appuser:appuser /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
 
 # Configure git for mounted volumes
 echo "🔧 Configuring git for mounted directories..."
@@ -90,8 +90,8 @@ else
     echo "⚠️  Git repository not found"
 fi
 
-# Build the command with conditional arguments
-COMMAND="python start_and_monitor.py --branch ${GIT_BRANCH:-main}"
+# Build the command with conditional arguments (working from backend directory)
+COMMAND="cd /app/no_fluxo_backend && python start_and_monitor.py --branch ${GIT_BRANCH:-main}"
 
 # Add git credentials if provided
 if [ -n "$GIT_USERNAME" ]; then

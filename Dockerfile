@@ -20,10 +20,11 @@ RUN apt-get update && apt-get install -y \
 # Create a symbolic link for python command
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# Copy package files for Node.js dependencies
-COPY no_fluxo_backend/package*.json ./
+# Copy package files for Node.js dependencies (from backend directory)
+COPY no_fluxo_backend/package*.json ./no_fluxo_backend/
 
 # Install Node.js dependencies
+WORKDIR /app/no_fluxo_backend
 RUN npm install
 
 # Copy Python requirements files
@@ -48,15 +49,10 @@ COPY no_fluxo_backend/AI-agent/ ./AI-agent/
 COPY no_fluxo_backend/parse-pdf/ ./parse-pdf/
 COPY no_fluxo_backend/scripts/ ./scripts/
 COPY no_fluxo_backend/start_and_monitor.py ./
-COPY no_fluxo_backend/docker-entrypoint.sh ./
+COPY docker-entrypoint.sh ./
 
-# Make entrypoint script executable immediately after copying
-RUN chmod +x docker-entrypoint.sh
-
-# Copy other necessary files  
+# Copy other necessary files
 COPY no_fluxo_backend/*.json ./
-COPY no_fluxo_backend/env.example ./
-# Note: .env file is provided via volume mount from docker-compose
 
 # Create non-root user but keep some root permissions for git operations
 RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
@@ -73,7 +69,7 @@ RUN chmod +x docker-entrypoint.sh
 RUN chmod -R 775 dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
 
 # Build TypeScript code as root first, then change ownership
-RUN npm run build || echo "Build failed, will retry as appuser"
+RUN npm run build-docker || echo "Build failed, will retry as appuser"
 
 # Set up git configuration for the container
 RUN git config --global --add safe.directory /app
@@ -105,4 +101,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3325/health || exit 1
 
 # Use the entrypoint script that handles conditional arguments
-CMD ["/bin/bash", "/no_fluxo_backend/docker-entrypoint.sh"] 
+CMD ["/bin/bash", "./docker-entrypoint.sh"] 

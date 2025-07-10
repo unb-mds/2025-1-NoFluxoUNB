@@ -563,7 +563,8 @@ def main():
     parser.add_argument('--git-token', help='Git token/password for authentication (can also use GIT_TOKEN in .env)')
     args = parser.parse_args()
 
-    # Determine repository directory - should be the mounted volume root
+    # Determine repository directory - should be the mounted volume root  
+    # Since we're running from /app/no_fluxo_backend but .git is at /app
     REPO_DIR = "/app" if os.path.exists('/app/.git') else "../"
     START_COMMAND = "npm run build-and-start"
     CHECK_INTERVAL = 10  # Interval in seconds to check for updates
@@ -584,7 +585,7 @@ def main():
                              check=False, capture_output=True)
                 log_message("Python: Applied ownership fix for git directory")
         except Exception as e:
-            log_message(f"Python: Could not fix git permissions: {e}")
+            log_message(f"Python: Could not fix git permissions: {e} ")
             log_message("Python: Continuing with limited git functionality")
     
     # Fix Python package installation permissions in Docker
