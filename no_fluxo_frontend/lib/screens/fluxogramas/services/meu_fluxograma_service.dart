@@ -85,4 +85,25 @@ class MeuFluxogramaService {
       return Left(e.toString());
     }
   }
+
+  static Future<Either<String, bool>> deleteFluxogramaUser(
+      String userId, String token) async {
+    try {
+      final response = await http.delete(
+        Uri.parse('${Environment.apiUrl}/fluxograma/delete-fluxograma'),
+        headers: {
+          'user-id': userId,
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
+      if (response.statusCode == 200) {
+        return const Right(true);
+      } else {
+        return Left(response.body);
+      }
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
 }

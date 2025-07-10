@@ -189,6 +189,18 @@ controllers.forEach(controller => {
                     }
                 });
                 break;
+            case RequestType.DELETE:
+                router.delete(routePath, async (req: Request, res: Response) => {
+                    try {
+                        logger.http(`\b[DELETE][${routePath}]`);
+                        await callback(req, res);
+                        logger.http(`\b[DELETE][${routePath}] completed successfully`);
+                    } catch (error) {
+                        logger.error(`\b[DELETE][${routePath}] Error: ${error}`);
+                        res.status(500).json({ error: 'Internal server error' });
+                    }
+                });
+                break;
             default:
                 logger.warn(`Unhandled request type: ${method} for route ${routePath}`);
                 break;

@@ -29,6 +29,7 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:universal_html/html.dart' as html;
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/materia_data_dialog_content.dart';
 
@@ -345,6 +346,74 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     onAddMateria: () {},
                                     onAddOptativa: () {},
                                   ),
+                                  if (!isAnonymous) ...[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        ElevatedButton.icon(
+                                          onPressed: () async {
+                                            final user = SharedPreferencesHelper
+                                                .currentUser;
+                                            if (user == null) return;
+                                            final result =
+                                                await MeuFluxogramaService
+                                                    .deleteFluxogramaUser(
+                                                        user.idUser.toString(),
+                                                        user.token ?? '');
+                                            result.fold((l) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                      'Erro ao remover fluxograma: ' +
+                                                          l),
+                                                  backgroundColor: Colors.red,
+                                                ),
+                                              );
+                                            }, (r) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      'Fluxograma removido com sucesso!'),
+                                                  backgroundColor: Colors.green,
+                                                ),
+                                              );
+                                              context.go('/upload-historico');
+                                            });
+                                          },
+                                          icon: const Icon(
+                                            Icons.refresh,
+                                            color: Colors.white,
+                                            size: 22,
+                                          ),
+                                          label: Text(
+                                            'ENVIAR FLUXOGRAMA NOVAMENTE',
+                                            style: GoogleFonts.poppins(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 28, vertical: 14),
+                                            backgroundColor:
+                                                const Color(0xFFFF3CA5),
+                                            foregroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                            ),
+                                            elevation: 8,
+                                            shadowColor:
+                                                Colors.black.withOpacity(0.3),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 16),
+                                  ],
                                   FluxogramaLegendControls(
                                     isAnonymous: isAnonymous,
                                     zoomLevel: zoomLevel,
