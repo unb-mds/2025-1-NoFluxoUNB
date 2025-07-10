@@ -463,16 +463,10 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                   FluxogramaLegendControls(
                                     isAnonymous: isAnonymous,
                                     zoomLevel: zoomLevel,
-                                    showPrereqChains: showPrereqChains,
                                     showConnections: showConnections,
                                     onZoomChanged: (newZoom) {
                                       setState(() {
                                         zoomLevel = newZoom;
-                                      });
-                                    },
-                                    onShowPrereqChainsChanged: (value) {
-                                      setState(() {
-                                        showPrereqChains = value;
                                       });
                                     },
                                     onShowConnectionsChanged: (value) {
@@ -487,12 +481,9 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       courseData: currentCourseData,
                                       zoomLevel: zoomLevel,
                                       isAnonymous: isAnonymous,
-                                      showPrereqChains: showPrereqChains,
                                       showConnections: showConnections,
                                       onShowPrerequisiteChain:
                                           _showPrerequisiteChainDialog,
-                                      onBuildPrerequisiteIndicator:
-                                          _buildPrerequisiteIndicator,
                                       onShowMateriaDialog:
                                           _showMateriaDataDialog,
                                     ),
@@ -549,14 +540,6 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     Utils.showCustomizedDialog(
       context: context,
       child: MateriaDataDialogContent(materia: materia),
-    );
-  }
-
-  /// Build prerequisite indicator for course cards
-  Widget _buildPrerequisiteIndicator(MateriaModel subject) {
-    return PrerequisiteIndicatorWidget(
-      subject: subject,
-      getPrerequisiteChainData: _getPrerequisiteChainData,
     );
   }
 }

@@ -97,12 +97,117 @@ class CursoModel {
 
     curso.semestres = maxSemestre;
 
+    // Populate prerequisites for all materias
+    curso.populatePrerequisites();
+
     return curso;
   }
 
   /// Build prerequisite tree for this course
   PrerequisiteTree buildPrerequisiteTree() {
     return PrerequisiteTree.fromCourse(this);
+  }
+
+  /// Populate prerequisites for all materias using the prerequisite tree
+  void populatePrerequisites() {
+    // Clear existing prerequisites
+    for (var materia in materias) {
+      materia.prerequisitos.clear();
+    }
+
+    // Build prerequisite relationships using the existing preRequisitos data
+    Map<String, List<String>> prerequisiteMap = {};
+
+    // Create a map from materia code to materia object for quick lookup
+    Map<String, MateriaModel> materiaMap = {};
+    for (var materia in materias) {
+      materiaMap[materia.codigoMateria] = materia;
+    }
+
+    // Build prerequisite map from preRequisitos data
+    for (var preReq in preRequisitos) {
+      String materiaCode = '';
+      String prerequisiteCode = preReq.codigoMateriaRequisito;
+
+      // Find the materia that has this prerequisite
+      var targetMateria = materias.firstWhere(
+          (m) => m.idMateria == preReq.idMateria,
+          orElse: () =>
+              throw Exception('Materia not found for id: ${preReq.idMateria}'));
+      materiaCode = targetMateria.codigoMateria;
+
+      if (!prerequisiteMap.containsKey(materiaCode)) {
+        prerequisiteMap[materiaCode] = [];
+      }
+      prerequisiteMap[materiaCode]!.add(prerequisiteCode);
+    }
+
+    // Populate prerequisites for each materia
+    for (var materia in materias) {
+      var directPrerequisites = prerequisiteMap[materia.codigoMateria] ?? [];
+
+      // Add direct prerequisites
+      for (var prereqCode in directPrerequisites) {
+        if (materiaMap.containsKey(prereqCode)) {
+          materia.prerequisitos.add(materiaMap[prereqCode]!);
+        }
+      }
+
+      // Add indirect prerequisites (prerequisites of prerequisites)
+      Set<String> allPrerequisites = {};
+      _collectAllPrerequisites(
+          materia.codigoMateria, prerequisiteMap, allPrerequisites);
+
+      // Add all prerequisites to the materia (avoiding duplicates)
+      Set<String> existingCodes =
+          materia.prerequisitos.map((m) => m.codigoMateria).toSet();
+      for (var prereqCode in allPrerequisites) {
+        if (materiaMap.containsKey(prereqCode) &&
+            !existingCodes.contains(prereqCode)) {
+          materia.prerequisitos.add(materiaMap[prereqCode]!);
+        }
+      }
+    }
+  }
+
+  /// Helper method to recursively collect all prerequisites
+  void _collectAllPrerequisites(String materiaCode,
+      Map<String, List<String>> prerequisiteMap, Set<String> collected) {
+    var directPrereqs = prerequisiteMap[materiaCode] ?? [];
+
+    for (var prereqCode in directPrereqs) {
+      if (!collected.contains(prereqCode)) {
+        collected.add(prereqCode);
+        // Recursively collect prerequisites of this prerequisite
+        _collectAllPrerequisites(prereqCode, prerequisiteMap, collected);
+      }
+    }
+  }
+
+  /// Get only direct prerequisites for a materia
+  List<MateriaModel> getDirectPrerequisites(String materiaCode) {
+    Map<String, MateriaModel> materiaMap = {};
+    for (var materia in materias) {
+      materiaMap[materia.codigoMateria] = materia;
+    }
+
+    List<MateriaModel> directPrereqs = [];
+
+    for (var preReq in preRequisitos) {
+      var targetMateria = materias.firstWhere(
+          (m) => m.idMateria == preReq.idMateria,
+          orElse: () =>
+              throw Exception('Materia not found for id: ${preReq.idMateria}'));
+
+      if (targetMateria.codigoMateria == materiaCode) {
+        var prerequisiteMateria = materiaMap[preReq.codigoMateriaRequisito];
+        if (prerequisiteMateria != null) {
+          directPrereqs.add(prerequisiteMateria);
+        }
+      }
+    }
+
+    return directPrereqs;
   }
 
   /// Get prerequisite visualization data for a specific subject

@@ -443,9 +443,12 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildPrerequisiteItem("CIC0002", "Estruturas de Dados", true),
-                _buildPrerequisiteItem("CIC0091", "Orientação a Objetos", true),
-                _buildPrerequisiteItem("MAT0026", "Cálculo 2", false),
+                for (var prerequisito in widget.materia.prerequisitos)
+                  _buildPrerequisiteItem(
+                      prerequisito.codigoMateria,
+                      prerequisito.nomeMateria,
+                      prerequisito.status == 'completed',
+                      prerequisito.status == 'current'),
               ],
             ),
           ),
@@ -567,15 +570,23 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
     );
   }
 
-  Widget _buildPrerequisiteItem(String codigo, String nome, bool concluido) {
+  Widget _buildPrerequisiteItem(
+      String codigo, String nome, bool concluido, bool isCurrent) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           Icon(
-            concluido ? Icons.check_circle : Icons.cancel,
-            color:
-                concluido ? const Color(0xFF22C55E) : const Color(0xFFEF4444),
+            isCurrent
+                ? Icons.check_circle
+                : concluido
+                    ? Icons.check_circle
+                    : Icons.cancel,
+            color: isCurrent
+                ? const Color(0xFF22C55E)
+                : concluido
+                    ? const Color(0xFF22C55E)
+                    : const Color(0xFFEF4444),
             size: 20,
           ),
           const SizedBox(width: 12),

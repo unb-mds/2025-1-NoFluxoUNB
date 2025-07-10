@@ -23,6 +23,40 @@ class MateriaModel {
     required this.creditos,
   });
 
+  /// Get prerequisite codes as a list of strings
+  List<String> getPrerequisiteCodes() {
+    return prerequisitos.map((materia) => materia.codigoMateria).toList();
+  }
+
+  /// Get prerequisite names as a list of strings
+  List<String> getPrerequisiteNames() {
+    return prerequisitos.map((materia) => materia.nomeMateria).toList();
+  }
+
+  /// Check if this materia has any prerequisites
+  bool hasPrerequisites() {
+    return prerequisitos.isNotEmpty;
+  }
+
+  /// Check if a specific materia is a prerequisite for this one
+  bool hasPrerequisite(String codigoMateria) {
+    return prerequisitos
+        .any((materia) => materia.codigoMateria == codigoMateria);
+  }
+
+  /// Get the total number of prerequisite credits
+  int getTotalPrerequisiteCredits() {
+    return prerequisitos.fold(0, (sum, materia) => sum + materia.creditos);
+  }
+
+  /// Check if this materia can be taken based on completed prerequisite codes
+  bool canBeTaken(Set<String> completedMateriasCodes) {
+    if (!hasPrerequisites()) return true;
+
+    return prerequisitos.every((prerequisite) =>
+        completedMateriasCodes.contains(prerequisite.codigoMateria));
+  }
+
   factory MateriaModel.fromJson(Map<String, dynamic> json) {
     if (json["materias"] == null) {
       return MateriaModel(

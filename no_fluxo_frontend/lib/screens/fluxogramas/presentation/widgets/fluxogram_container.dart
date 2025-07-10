@@ -11,21 +11,17 @@ import 'prerequisite_connections_widget.dart';
 class FluxogramContainer extends StatefulWidget {
   final CursoModel? courseData;
   final double zoomLevel;
-  final bool showPrereqChains;
   final bool showConnections;
   final bool isAnonymous;
   final Function(String, String) onShowPrerequisiteChain;
-  final Function(MateriaModel) onBuildPrerequisiteIndicator;
   final Function(BuildContext, MateriaModel) onShowMateriaDialog;
 
   const FluxogramContainer({
     super.key,
     required this.courseData,
     required this.zoomLevel,
-    required this.showPrereqChains,
     required this.showConnections,
     required this.onShowPrerequisiteChain,
-    required this.onBuildPrerequisiteIndicator,
     required this.onShowMateriaDialog,
     this.isAnonymous = false,
   });
@@ -225,7 +221,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                 onTap: () {
                   widget.onShowMateriaDialog(context, subject);
                 },
-                onLongPress: widget.showPrereqChains && !widget.isAnonymous
+                onLongPress: !widget.isAnonymous
                     ? () {
                         widget.onShowPrerequisiteChain(
                             subject.codigoMateria, subject.nomeMateria);
@@ -240,8 +236,6 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                         widget.onShowMateriaDialog(context, subject);
                       },
                     ),
-                    if (widget.showPrereqChains && !widget.isAnonymous)
-                      widget.onBuildPrerequisiteIndicator(subject) as Widget,
                   ],
                 ),
               ),

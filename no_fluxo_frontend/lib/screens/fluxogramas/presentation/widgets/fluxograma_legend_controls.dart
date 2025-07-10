@@ -5,20 +5,16 @@ import '../../../../cache/shared_preferences_helper.dart';
 
 class FluxogramaLegendControls extends StatelessWidget {
   final double zoomLevel;
-  final bool showPrereqChains;
   final bool showConnections;
   final bool isAnonymous;
   final ValueChanged<double> onZoomChanged;
-  final ValueChanged<bool> onShowPrereqChainsChanged;
   final ValueChanged<bool> onShowConnectionsChanged;
 
   const FluxogramaLegendControls({
     super.key,
     required this.zoomLevel,
-    required this.showPrereqChains,
     required this.showConnections,
     required this.onZoomChanged,
-    required this.onShowPrereqChainsChanged,
     required this.onShowConnectionsChanged,
     this.isAnonymous = false,
   });
@@ -67,7 +63,7 @@ class FluxogramaLegendControls extends StatelessWidget {
                   isDashed: true,
                 ),
                 // Only show prerequisite chains for logged-in users
-                if (!isAnonymous)
+                /* if (!isAnonymous)
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -87,7 +83,7 @@ class FluxogramaLegendControls extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
+                  ), */
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
