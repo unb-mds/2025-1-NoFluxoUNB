@@ -8,12 +8,32 @@ echo "📂 Working directory: $(pwd)"
 echo "🌱 Environment: ${NODE_ENV:-development}"
 echo "🌿 Branch: ${GIT_BRANCH:-main}"
 
+# Create git config directory for appuser
+echo "🔧 Setting up git configuration directory..."
+mkdir -p /home/appuser
+touch /home/appuser/.gitconfig
+chown appuser:appuser /home/appuser/.gitconfig
+
 # Fix ownership of mounted repository for git operations
 echo "🔧 Fixing mounted repository permissions..."
 if [ -d "/app/.git" ]; then
-    # Only fix ownership of .git directory if it exists
+    # Check if .git directory has content
+    GIT_CONTENT_COUNT=$(find /app/.git -type f 2>/dev/null | wc -l)
+    echo "🔍 Found $GIT_CONTENT_COUNT files in .git directory"
+    
+    if [ "$GIT_CONTENT_COUNT" -lt 5 ]; then
+        echo "⚠️  .git directory appears incomplete (only $GIT_CONTENT_COUNT files)"
+        echo "💡 This usually means the host repository is not properly initialized"
+        echo "💡 Please ensure you run 'git init' and have commits in the host repository"
+    else
+        echo "✅ .git directory appears to have content"
+    fi
+    
+    # Fix ownership of .git directory
     sudo chown -R appuser:appuser /app/.git
     echo "✅ Fixed .git directory ownership"
+else
+    echo "⚠️  .git directory not found - auto-updates will not work"
 fi
 
 # Fix ownership of other critical directories
@@ -26,32 +46,44 @@ git config --global --add safe.directory '/app/*'
 git config --global --add safe.directory '*'
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
+# Set basic git configuration if not set
+git config --global user.email "docker@nofluxo.com" 2>/dev/null || true
+git config --global user.name "Docker Container" 2>/dev/null || true
+
 # Verify git setup and debug permissions
 if [ -d "/app/.git" ]; then
     echo "✅ Git repository found"
     cd /app
     
-    # Debug git directory permissions
+    # Debug git directory permissions and content
     echo "🔍 Git directory info:"
     ls -la .git/ | head -5
+    echo "🔍 Git directory file count: $(find .git -type f 2>/dev/null | wc -l)"
     echo "🔍 Current user: $(whoami)"
     echo "🔍 Current user ID: $(id)"
     
-    # Test git operations
+    # Test git operations with detailed output
     if git status --porcelain > /dev/null 2>&1; then
         echo "✅ Git operations working"
         echo "📋 Current branch: $(git branch --show-current 2>/dev/null || echo 'unknown')"
         echo "📋 Git status: $(git status --porcelain | wc -l) changed files"
     else
-        echo "⚠️  Git operations still have issues, attempting additional fixes..."
-        # Additional ownership fix
-        sudo chown -R appuser:appuser /app
-        # Try again
-        if git status --porcelain > /dev/null 2>&1; then
-            echo "✅ Git operations fixed after additional ownership changes"
-        else
-            echo "❌ Git operations still failing - will continue but auto-updates may not work"
+        echo "⚠️  Git operations still have issues, checking repository structure..."
+        
+        # Check for essential git files
+        if [ ! -f ".git/HEAD" ]; then
+            echo "❌ .git/HEAD file missing - repository may be corrupted"
         fi
+        if [ ! -d ".git/refs" ]; then
+            echo "❌ .git/refs directory missing - repository may be corrupted"
+        fi
+        if [ ! -f ".git/config" ]; then
+            echo "❌ .git/config file missing - repository may be corrupted"
+        fi
+        
+        echo "💡 Please check that your host repository is properly initialized:"
+        echo "   cd $(pwd) && git status"
+        echo "❌ Auto-updates will not work due to git repository issues"
     fi
     cd -
 else
