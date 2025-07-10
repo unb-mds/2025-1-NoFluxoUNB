@@ -60,8 +60,8 @@ RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
 RUN usermod -aG sudo appuser
 RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-# Create necessary directories with proper permissions
-RUN mkdir -p dist logs uploads fork_repo AI-agent/logs parse-pdf/logs
+# Create necessary directories with proper permissions (using full paths)
+RUN mkdir -p /app/dist /app/logs /app/uploads /app/fork_repo ./AI-agent/logs ./parse-pdf/logs
 
 # Set up git configuration for the container (before changing ownership)
 RUN git config --global --add safe.directory /app
