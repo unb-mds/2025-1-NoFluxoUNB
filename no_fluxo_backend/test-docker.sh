@@ -34,12 +34,12 @@ else
     GIT_STATUS="CONFIGURED"
 fi
 
-# Check fork location
-if grep -q "FORK_LOCATION=" .env && ! grep -q "FORK_LOCATION=$" .env; then
-    echo "✅ Fork location configured"
+# Check fork URL
+if grep -q "FORK_URL=" .env && ! grep -q "FORK_URL=$" .env; then
+    echo "✅ Fork URL configured"
     FORK_STATUS="CONFIGURED"
 else
-    echo "📝 Fork location not configured (optional)"
+    echo "📝 Fork URL not configured (optional)"
     FORK_STATUS="NOT_CONFIGURED"
 fi
 
@@ -53,7 +53,7 @@ echo ""
 echo "📋 Setup Summary:"
 echo "   SSL Certificates: $SSL_STATUS"
 echo "   Git Auto-Update: $GIT_STATUS"
-echo "   Fork Location: $FORK_STATUS"
+echo "   Fork URL: $FORK_STATUS"
 echo ""
 
 # Offer to run the container

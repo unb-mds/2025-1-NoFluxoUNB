@@ -66,25 +66,31 @@ GIT_TOKEN=seu_token_github
 GIT_BRANCH=main
 
 # Opcional: Para sincronizar com um fork
-FORK_LOCATION=/path/to/your/fork/repository
+FORK_URL=https://github.com/yourusername/2025-1-NoFluxoUNB.git
 ```
 
 **Parâmetros:**
 - `GIT_USERNAME`: Seu usuário do GitHub
 - `GIT_TOKEN`: Token de acesso pessoal do GitHub
 - `GIT_BRANCH`: Branch a monitorar (default: main)
-- `FORK_LOCATION`: *(Opcional)* Caminho para repositório fork local
+- `FORK_URL`: *(Opcional)* URL do seu repositório fork no GitHub
 
 **Gerando um Token GitHub:**
 1. Vá em GitHub → Settings → Developer settings → Personal access tokens
 2. Gere um token com permissões de `repo`
 3. Use esse token no `GIT_TOKEN`
 
-**Fork Location (Opcional):**
+**Fork URL (Opcional):**
 Se você tem um fork do repositório e quer que as mudanças sejam automaticamente sincronizadas:
-1. Clone seu fork em algum local do servidor
-2. Configure `FORK_LOCATION` com o caminho para esse clone
-3. O sistema automaticamente enviará updates para o branch `main` do seu fork
+1. Crie um fork do repositório no GitHub (botão "Fork")
+2. Configure `FORK_URL` com a URL do seu fork (ex: `https://github.com/seuusuario/2025-1-NoFluxoUNB.git`)
+3. O container automaticamente clonará seu fork em `/app/fork_repo` e enviará updates para o branch `main`
+
+**Vantagens da abordagem com FORK_URL:**
+- ✅ **Automático**: O fork é clonado automaticamente no container
+- ✅ **Self-contained**: Não precisa montar diretórios externos
+- ✅ **Seguro**: Usa as credenciais Git já configuradas
+- ✅ **Limpo**: O fork fica isolado dentro do container
 
 ## 🔧 Comandos Alternativos
 
@@ -193,6 +199,24 @@ O script irá:
 - **API Principal**: `https://no-fluxo-api.shop/` (ou `https://localhost:443/`)
 - **AI Agent**: `https://no-fluxo-api.shop:4652/assistente`
 - **Redirecionamento HTTP**: `http://no-fluxo-api.shop/` → `https://no-fluxo-api.shop/`
+
+### Logs de Inicialização (com Fork):
+```bash
+🐳 NoFluxo Docker Container Starting...
+📂 Working directory: /app
+🌱 Environment: production
+🌿 Branch: main
+🍴 Fork URL configured: https://github.com/yourusername/2025-1-NoFluxoUNB.git
+📦 Cloning fork repository...
+✅ Fork cloned successfully
+🎯 Using fork location: /app/fork_repo
+🚀 Starting with command: python start_and_monitor.py --branch main --git-username "user" --git-token "***" --fork-location "/app/fork_repo"
+```
+
+### Fork Repository:
+- **Localização**: `/app/fork_repo` (dentro do container)
+- **Persistência**: Volume Docker `fork_data` para manter entre restarts
+- **Atualização**: Sincronização automática quando mudanças são detectadas
 
 ### Logs em Tempo Real:
 ```bash

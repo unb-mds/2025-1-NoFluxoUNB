@@ -13,12 +13,10 @@ services:
     env_file:
       - .env
     volumes:
-      # Mount the entire repository for git operations
+      # Mount the main repository for git operations and builds
       - .:/app
-      # Mount git config for authentication (if exists)
-      - ~/.gitconfig:/home/appuser/.gitconfig:ro
-      # Mount SSH keys for git operations (if exists)
-      - ~/.ssh:/home/appuser/.ssh:ro
+      # Persist the fork repository across container restarts
+      - fork_data:/app/fork_repo
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3325/health"]
@@ -49,4 +47,8 @@ services:
 
 networks:
   no-fluxo-network:
-    driver: bridge 
+    driver: bridge
+
+volumes:
+  fork_data:
+    driver: local 

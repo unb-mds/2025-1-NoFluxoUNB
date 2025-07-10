@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Docker entrypoint script for NoFluxo Backend
-# Handles conditional arguments based on environment variables
+# Handles conditional arguments and fork repository cloning
 
 echo "🐳 NoFluxo Docker Container Starting..."
 echo "📂 Working directory: $(pwd)"
@@ -20,12 +20,67 @@ if [ -n "$GIT_TOKEN" ]; then
     COMMAND="$COMMAND --git-token \"$GIT_TOKEN\""
 fi
 
-# Add fork location if provided
-if [ -n "$FORK_LOCATION" ] && [ "$FORK_LOCATION" != "" ]; then
-    echo "🍴 Fork location configured: $FORK_LOCATION"
-    COMMAND="$COMMAND --fork-location \"$FORK_LOCATION\""
+# Handle fork repository cloning
+if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
+    echo "🍴 Fork URL configured: $FORK_URL"
+    
+    FORK_DIR="/app/fork_repo"
+    
+    # Check if fork directory already exists
+    if [ -d "$FORK_DIR" ]; then
+        echo "📁 Fork directory exists, pulling latest changes..."
+        cd "$FORK_DIR"
+        
+        # Setup git credentials for this repository
+        if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_TOKEN" ]; then
+            # Configure git to use credentials
+            git config credential.helper store
+            echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > ~/.git-credentials
+        fi
+        
+        git pull origin main 2>/dev/null || echo "⚠️  Could not pull fork updates"
+        cd /app
+    else
+        echo "📦 Cloning fork repository..."
+        
+        # Clone with credentials embedded in URL
+        if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_TOKEN" ]; then
+            # Extract the github.com part and add credentials
+            REPO_PATH=$(echo "$FORK_URL" | sed 's/https:\/\/github\.com\///')
+            AUTHENTICATED_URL="https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/${REPO_PATH}"
+            
+            git clone "$AUTHENTICATED_URL" "$FORK_DIR" 2>/dev/null
+            
+            if [ $? -eq 0 ]; then
+                echo "✅ Fork cloned successfully"
+                
+                # Clean up the URL to remove embedded credentials for security
+                cd "$FORK_DIR"
+                git remote set-url origin "$FORK_URL"
+                
+                # Setup credential helper for future operations
+                git config credential.helper store
+                echo "https://${GIT_USERNAME}:${GIT_TOKEN}@github.com" > ~/.git-credentials
+                cd /app
+            else
+                echo "❌ Failed to clone fork repository"
+                FORK_DIR=""
+            fi
+        else
+            echo "❌ Git credentials required for fork cloning"
+            FORK_DIR=""
+        fi
+    fi
+    
+    # Add fork location to command if cloning was successful
+    if [ -n "$FORK_DIR" ] && [ -d "$FORK_DIR" ]; then
+        echo "🎯 Using fork location: $FORK_DIR"
+        COMMAND="$COMMAND --fork-location \"$FORK_DIR\""
+    else
+        echo "⚠️  Fork cloning failed, continuing without fork sync"
+    fi
 else
-    echo "📝 No fork location configured (updates will only affect main repo)"
+    echo "📝 No fork URL configured (updates will only affect main repo)"
 fi
 
 echo "🚀 Starting with command: $COMMAND"
