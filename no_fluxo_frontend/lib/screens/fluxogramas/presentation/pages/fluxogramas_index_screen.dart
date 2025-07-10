@@ -52,7 +52,7 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
         filtros.firstWhere((f) => f['label'] == filtroSelecionado)['valor']!;
     if (SharedPreferencesHelper.isAnonimo && filtroSelecionado != 'TODOS') {
       lista = lista.where((curso) {
-        final c = (curso.classificacao ?? '').toLowerCase();
+        final c = (curso.classificacao).toLowerCase();
         return c == filtroBanco;
       }).toList();
     }

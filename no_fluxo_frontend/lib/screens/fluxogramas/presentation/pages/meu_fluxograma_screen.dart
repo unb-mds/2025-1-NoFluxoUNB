@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart';
@@ -77,6 +78,11 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                 "";
       }
 
+      if (courseName == "") {
+        context.go("/upload-historico");
+        return false;
+      }
+
       final loadedCourseData =
           await MeuFluxogramaService.getCourseData(courseName);
       isAnonymous =
@@ -109,7 +115,6 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   .expand((e) => e)
                   .toList() ??
               List<DadosMateria>.from([]);
-
 
           var materiasAprovadas = listMaterias
               .where((e) =>
@@ -160,12 +165,24 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                 'current';
           }
 
+          for (var materia
+              in currentCourseData?.materias ?? List<MateriaModel>.from([])) {
+            if (materiasPorCodigo.containsKey(materia.codigoMateria)) {
+              materia.status = materiasPorCodigo[materia.codigoMateria]?.status;
+              materia.mencao = materiasPorCodigo[materia.codigoMateria]?.mencao;
+              materia.professor =
+                  materiasPorCodigo[materia.codigoMateria]?.professor;
+            }
+          }
+
           // Build prerequisite tree and visualization data
           if (currentCourseData != null) {
             prerequisiteTree = currentCourseData!.buildPrerequisiteTree();
             prerequisiteVisualizationData =
                 currentCourseData!.getAllPrerequisiteVisualizationData();
           }
+
+          // update data
         },
       );
 
