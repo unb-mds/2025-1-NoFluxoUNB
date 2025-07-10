@@ -17,7 +17,7 @@ from logging.handlers import RotatingFileHandler
 load_dotenv()
 
 # Set up logging with rotation to prevent unbounded log file growth
-log_file = Path(__file__).parent / "process.log"
+log_file = Path(__file__).parent / "logs" / "process.log"
 handler = RotatingFileHandler(
     log_file, 
     maxBytes=10*1024*1024,  # 10MB max file size

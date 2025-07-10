@@ -83,7 +83,9 @@ else
     echo "📝 No fork URL configured (updates will only affect main repo)"
 fi
 
-echo "🚀 Starting with command: $COMMAND"
+# Mask the token in the output for security
+MASKED_COMMAND=$(echo "$COMMAND" | sed 's/--git-token "[^"]*"/--git-token "***"/g')
+echo "🚀 Starting with command: $MASKED_COMMAND"
 echo "============================================"
 
 # Execute the command
