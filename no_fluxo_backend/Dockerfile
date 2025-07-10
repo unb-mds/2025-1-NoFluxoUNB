@@ -50,10 +50,10 @@ COPY no_fluxo_backend/scripts/ ./scripts/
 COPY no_fluxo_backend/start_and_monitor.py ./
 COPY no_fluxo_backend/docker-entrypoint.sh ./
 
-# Copy other necessary files
+# Copy other necessary files  
 COPY no_fluxo_backend/*.json ./
 COPY no_fluxo_backend/env.example ./
-COPY no_fluxo_backend/.env ./
+# Note: .env file is provided via volume mount from docker-compose
 
 # Create non-root user but keep some root permissions for git operations
 RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
