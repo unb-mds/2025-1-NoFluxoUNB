@@ -90,4 +90,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3325/health || exit 1
 
 # Use the entrypoint script that handles conditional arguments
-CMD ["./docker-entrypoint.sh"] 
+CMD ["/bin/bash", "./docker-entrypoint.sh"] 
