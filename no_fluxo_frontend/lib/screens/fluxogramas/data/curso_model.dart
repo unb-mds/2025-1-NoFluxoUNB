@@ -5,17 +5,20 @@ class EquivalenciaModel {
   String expressao;
   int idMateria;
   MateriaModel materia;
+  int? idCurso;
 
   EquivalenciaModel({
     required this.expressao,
     required this.idMateria,
     required this.materia,
+    this.idCurso,
   });
 
   factory EquivalenciaModel.fromJson(Map<String, dynamic> json) {
     return EquivalenciaModel(
       expressao: json["expressao"],
       idMateria: json["id_materia"],
+      idCurso: json["id_curso"],
       materia: MateriaModel.fromJson(json),
     );
   }
