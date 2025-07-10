@@ -85,6 +85,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
     }
 
     return Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(24)),
       margin: const EdgeInsets.only(bottom: 32),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,

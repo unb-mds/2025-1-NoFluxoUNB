@@ -13,8 +13,12 @@ services:
     env_file:
       - .env
     volumes:
-      - ./logs:/app/logs
-      - ./uploads:/app/uploads
+      # Mount the entire repository for git operations
+      - .:/app
+      # Mount git config for authentication (if exists)
+      - ~/.gitconfig:/home/appuser/.gitconfig:ro
+      # Mount SSH keys for git operations (if exists)
+      - ~/.ssh:/home/appuser/.ssh:ro
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3325/health"]
@@ -29,12 +33,14 @@ services:
     image: nginx:alpine
     container_name: no-fluxo-nginx
     ports:
-      - "3325:443"   # Main backend HTTPS
-      - "4652:4652"  # AI Agent HTTPS  
+      - "80:80"       # HTTP (for redirects)
+      - "443:443"     # Main backend HTTPS (standard port)
+      - "4652:4652"   # AI Agent HTTPS  
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./ssl/cert.pem:/etc/ssl/certs/cert.pem
-      - ./ssl/key.pem:/etc/ssl/private/key.pem
+      # Mount your actual Let's Encrypt certificates
+      - /etc/letsencrypt/live/no-fluxo-api.shop/fullchain.pem:/etc/ssl/certs/cert.pem:ro
+      - /etc/letsencrypt/live/no-fluxo-api.shop/privkey.pem:/etc/ssl/private/key.pem:ro
     depends_on:
       - no-fluxo-backend
     restart: unless-stopped

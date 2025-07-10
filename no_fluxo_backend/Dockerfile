@@ -41,7 +41,7 @@ RUN pip3 install -r requirements.txt && \
 COPY tsconfig.json ./
 COPY nodemon.json ./
 
-# Copy source code
+# Copy source code (as root to avoid permission issues)
 COPY src/ ./src/
 COPY AI-agent/ ./AI-agent/
 COPY parse-pdf/ ./parse-pdf/
@@ -55,8 +55,8 @@ COPY env.example ./
 # Build TypeScript code
 RUN npm run build
 
-# Create logs directory
-RUN mkdir -p logs
+# Create logs and necessary directories
+RUN mkdir -p logs uploads
 
 # Expose ports for HTTPS
 EXPOSE 3325
@@ -66,14 +66,26 @@ EXPOSE 4652
 ENV NODE_ENV=production
 ENV PORT=3325
 
-# Create non-root user for security
-RUN groupadd -r appuser && useradd -r -g appuser appuser
+# Create non-root user but keep some root permissions for git operations
+RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
+RUN usermod -aG sudo appuser
+RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Set up git configuration for the container
+RUN git config --global --add safe.directory /app
+RUN git config --global user.email "docker@nofluxo.com"
+RUN git config --global user.name "Docker Container"
+
+# Change ownership but keep git access
 RUN chown -R appuser:appuser /app
+RUN chmod -R 755 /app
+
+# Switch to app user
 USER appuser
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:3325/health || exit 1
 
-# Start the application using the monitor script
-CMD ["python", "start_and_monitor.py"] 
+# Use the auto-update monitoring script (branch from environment)
+CMD ["sh", "-c", "python start_and_monitor.py --branch ${GIT_BRANCH:-main}"] 

@@ -489,6 +489,13 @@ def main():
     BRANCH = args.branch
     FORK_LOCATION = args.fork_location
     
+    # Fix Python package installation permissions in Docker
+    if os.path.exists('/app') and os.path.exists('/.dockerenv'):
+        log_message("Python: Running in Docker container, setting up pip permissions...")
+        os.environ['PYTHONUSERBASE'] = '/app/.local'
+        os.environ['PIP_USER'] = '1'
+        os.makedirs('/app/.local', exist_ok=True)
+    
     # Get authentication credentials from args, environment variables, or .env file
     GIT_USERNAME = args.git_username or os.getenv('GIT_USERNAME')
     GIT_TOKEN = args.git_token or os.getenv('GIT_TOKEN')

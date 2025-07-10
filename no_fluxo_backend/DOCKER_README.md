@@ -1,31 +1,67 @@
 # Configuração Docker para o Backend No Fluxo
 
-Este diretório contém arquivos de configuração Docker para containerizar a aplicação backend do No Fluxo com **HTTPS por padrão**.
+Este diretório contém arquivos de configuração Docker para containerizar a aplicação backend do No Fluxo com **HTTPS por padrão** e **auto-updates automáticos**.
 
 ## Início Rápido
 
 1. **Crie seu arquivo de ambiente:**
    ```bash
-   cp env.example .env
+   cp docker.env.example .env
    # Edite o arquivo .env com seus valores de configuração reais
+   # IMPORTANTE: Configure GIT_USERNAME e GIT_TOKEN para auto-updates
    ```
 
-2. **Gere certificados SSL para desenvolvimento:**
+2. **Configure certificados SSL:**
+
+   **Para Produção (Let's Encrypt):**
    ```bash
-   # Linux/Mac
+   # Seus certificados já existem em:
+   # /etc/letsencrypt/live/no-fluxo-api.shop/fullchain.pem
+   # /etc/letsencrypt/live/no-fluxo-api.shop/privkey.pem
+   # O docker-compose.yml já está configurado para usar esses caminhos
+   ```
+
+   **Para Desenvolvimento:**
+   ```bash
+   # Gere certificados auto-assinados
    chmod +x generate-ssl.sh
    ./generate-ssl.sh
-   
-   # Windows
-   generate-ssl.bat
    ```
 
-3. **Construir e executar:**
+3. **Construir e executar com auto-updates:**
    ```bash
    docker-compose up --build
    ```
 
-3. **Ou construir e executar manualmente:**
+## 🔄 Como Funciona o Auto-Update
+
+O container monitora o repositório Git a cada 10 segundos e:
+
+1. **Detecta mudanças** no branch configurado (default: main)
+2. **Para os serviços** graciosamente  
+3. **Puxa as atualizações** do repositório
+4. **Reinstala dependências** se necessário
+5. **Reconstrói o projeto** TypeScript
+6. **Reinicia os serviços** automaticamente
+
+### Configuração do Git
+
+Para o auto-update funcionar, configure no `.env`:
+
+```env
+GIT_USERNAME=seu_usuario_github
+GIT_TOKEN=seu_token_github
+GIT_BRANCH=main
+```
+
+**Gerando um Token GitHub:**
+1. Vá em GitHub → Settings → Developer settings → Personal access tokens
+2. Gere um token com permissões de `repo`
+3. Use esse token no `GIT_TOKEN`
+
+## 🔧 Comandos Alternativos
+
+**Executar manualmente:**
    ```bash
    # Construir a imagem
    docker build -t no-fluxo-backend .
@@ -107,4 +143,53 @@ Quick summary for production:
 
 ## Logs
 
-Os logs são persistidos no diretório `./logs` na máquina host. 
+Os logs são persistidos no diretório `./logs` na máquina host.
+
+## 🚀 Quick Test
+
+Para testar rapidamente a configuração:
+
+```bash
+# Execute o script de teste
+./test-docker.sh
+```
+
+O script irá:
+- ✅ Verificar se o .env está configurado
+- ✅ Verificar certificados SSL
+- ✅ Verificar credenciais Git
+- ✅ Oferecer para iniciar os containers
+
+## 📊 Status do Container
+
+### URLs de Acesso:
+- **API Principal**: `https://no-fluxo-api.shop/` (ou `https://localhost:443/`)
+- **AI Agent**: `https://no-fluxo-api.shop:4652/assistente`
+- **Redirecionamento HTTP**: `http://no-fluxo-api.shop/` → `https://no-fluxo-api.shop/`
+
+### Logs em Tempo Real:
+```bash
+# Ver logs de todos os serviços
+docker-compose logs -f
+
+# Ver logs apenas do backend
+docker-compose logs -f no-fluxo-backend
+
+# Ver logs apenas do nginx
+docker-compose logs -f nginx
+```
+
+### Comandos Úteis:
+```bash
+# Reiniciar containers
+docker-compose restart
+
+# Parar containers
+docker-compose down
+
+# Rebuild completo
+docker-compose down && docker-compose up --build
+
+# Ver status dos containers
+docker-compose ps
+``` 
