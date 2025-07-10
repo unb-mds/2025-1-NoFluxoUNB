@@ -78,6 +78,10 @@ def log_memory_usage():
 def run_git_command_safely(command, cwd=None, timeout=30):
     """Run git command with proper resource cleanup and timeout."""
     try:
+        log_message(f"Python: Executing git command: {' '.join(command)}")
+        log_message(f"Python: Working directory: {cwd or os.getcwd()}")
+        log_message(f"Python: Environment GIT_DISCOVERY_ACROSS_FILESYSTEM: {os.getenv('GIT_DISCOVERY_ACROSS_FILESYSTEM', 'Not set')}")
+        
         result = subprocess.run(
             command,
             cwd=cwd,
@@ -86,6 +90,13 @@ def run_git_command_safely(command, cwd=None, timeout=30):
             timeout=timeout,
             check=False  # Don't raise exception on non-zero exit
         )
+        
+        log_message(f"Python: Git command exit code: {result.returncode}")
+        if result.stdout.strip():
+            log_message(f"Python: Git stdout: {result.stdout.strip()}")
+        if result.stderr.strip():
+            log_message(f"Python: Git stderr: {result.stderr.strip()}")
+            
         return result
     except subprocess.TimeoutExpired:
         log_message(f"Python: Git command timed out: {' '.join(command)}")
@@ -207,11 +218,37 @@ def check_for_updates(repo_dir, branch):
     """Check if the remote repository has new commits."""
     original_dir = os.getcwd()
     try:
+        log_message(f"Python: === Starting git update check ===")
+        log_message(f"Python: Original directory: {original_dir}")
+        log_message(f"Python: Target repo directory: {repo_dir}")
+        
         os.chdir(repo_dir)
+        current_dir = os.getcwd()
+        log_message(f"Python: Changed to directory: {current_dir}")
+        
+        # Debug directory contents
+        try:
+            contents = os.listdir('.')
+            git_in_contents = '.git' in contents
+            log_message(f"Python: Directory contains .git: {git_in_contents}")
+            if git_in_contents:
+                git_stat = os.stat('.git')
+                log_message(f"Python: .git directory stats: mode={oct(git_stat.st_mode)}, uid={git_stat.st_uid}, gid={git_stat.st_gid}")
+        except Exception as e:
+            log_message(f"Python: Error checking directory contents: {e}")
         
         # Check git setup first
         if not os.path.exists('.git'):
             log_message("Python: Error - .git directory not found in repository")
+            return False
+            
+        # Test basic git operations
+        log_message("Python: Testing basic git operations...")
+        test_result = run_git_command_safely(["git", "rev-parse", "--git-dir"], cwd=repo_dir)
+        if test_result and test_result.returncode == 0:
+            log_message(f"Python: Git directory found at: {test_result.stdout.strip()}")
+        else:
+            log_message("Python: Basic git operations failed")
             return False
         
         # Use safe git command runner
@@ -536,11 +573,33 @@ def main():
     log_message(f"Python: Repository directory: {REPO_DIR}")
     log_message(f"Python: Monitoring branch: {BRANCH}")
     
+    # Set git environment variables
+    os.environ['GIT_DISCOVERY_ACROSS_FILESYSTEM'] = '1'
+    log_message(f"Python: Set GIT_DISCOVERY_ACROSS_FILESYSTEM=1")
+    
     # Check if git repository is accessible
-    if os.path.exists(os.path.join(REPO_DIR, '.git')):
+    git_path = os.path.join(REPO_DIR, '.git')
+    if os.path.exists(git_path):
         log_message("Python: Git repository found and accessible")
+        try:
+            # Get detailed info about the git directory
+            stat_info = os.stat(git_path)
+            log_message(f"Python: Git directory ownership - UID: {stat_info.st_uid}, GID: {stat_info.st_gid}")
+            log_message(f"Python: Git directory permissions: {oct(stat_info.st_mode)}")
+            
+            # Test if we can read git config
+            git_config_path = os.path.join(git_path, 'config')
+            if os.path.exists(git_config_path):
+                log_message("Python: Git config file found")
+            else:
+                log_message("Python: Warning - Git config file not found")
+                
+        except Exception as e:
+            log_message(f"Python: Error checking git directory details: {e}")
     else:
         log_message("Python: Warning - Git repository not found or not accessible")
+        log_message(f"Python: Checked path: {git_path}")
+        log_message(f"Python: Current user UID: {os.getuid()}, GID: {os.getgid()}")
     
     if FORK_LOCATION:
         log_message(f"Python: Fork repository location: {FORK_LOCATION}")
