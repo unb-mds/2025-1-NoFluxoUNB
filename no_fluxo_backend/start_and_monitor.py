@@ -564,7 +564,7 @@ def main():
     args = parser.parse_args()
 
     # Determine repository directory - should be the mounted volume root
-    REPO_DIR = "/app" if os.path.exists('/app/.git') else "./"
+    REPO_DIR = "/app" if os.path.exists('/app/.git') else "../"
     START_COMMAND = "npm run build-and-start"
     CHECK_INTERVAL = 10  # Interval in seconds to check for updates
     BRANCH = args.branch

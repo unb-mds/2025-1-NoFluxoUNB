@@ -21,16 +21,16 @@ RUN apt-get update && apt-get install -y \
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Copy package files for Node.js dependencies
-COPY package*.json ./
+COPY no_fluxo_backend/package*.json ./
 
 # Install Node.js dependencies
 RUN npm install
 
 # Copy Python requirements files
-COPY requirements.txt ./
-COPY requirements_monitor.txt ./
-COPY AI-agent/requirements.txt ./AI-agent/requirements.txt
-COPY parse-pdf/requirements.txt ./parse-pdf/requirements.txt
+COPY no_fluxo_backend/requirements.txt ./
+COPY no_fluxo_backend/requirements_monitor.txt ./
+COPY no_fluxo_backend/AI-agent/requirements.txt ./AI-agent/requirements.txt
+COPY no_fluxo_backend/parse-pdf/requirements.txt ./parse-pdf/requirements.txt
 
 # Install Python dependencies
 RUN pip3 install -r requirements.txt && \
@@ -39,21 +39,21 @@ RUN pip3 install -r requirements.txt && \
     pip3 install -r parse-pdf/requirements.txt
 
 # Copy TypeScript configuration
-COPY tsconfig.json ./
-COPY nodemon.json ./
+COPY no_fluxo_backend/tsconfig.json ./
+COPY no_fluxo_backend/nodemon.json ./
 
 # Copy source code (as root to avoid permission issues)
-COPY src/ ./src/
-COPY AI-agent/ ./AI-agent/
-COPY parse-pdf/ ./parse-pdf/
-COPY scripts/ ./scripts/
-COPY start_and_monitor.py ./
-COPY docker-entrypoint.sh ./
+COPY no_fluxo_backend/src/ ./src/
+COPY no_fluxo_backend/AI-agent/ ./AI-agent/
+COPY no_fluxo_backend/parse-pdf/ ./parse-pdf/
+COPY no_fluxo_backend/scripts/ ./scripts/
+COPY no_fluxo_backend/start_and_monitor.py ./
+COPY no_fluxo_backend/docker-entrypoint.sh ./
 
 # Copy other necessary files
-COPY *.json ./
-COPY env.example ./
-COPY .env ./
+COPY no_fluxo_backend/*.json ./
+COPY no_fluxo_backend/env.example ./
+COPY no_fluxo_backend/.env ./
 
 # Create non-root user but keep some root permissions for git operations
 RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
