@@ -30,7 +30,17 @@ ragflowAgentProcess.stdout.on('data', (data) => {
 });
 
 ragflowAgentProcess.stderr.on('data', (data) => {
-    logger.error(`\b[RAGFlow Agent] ${data}`);
+    var dataString = data.toString();
+    if (dataString[0] == "[") {
+        dataString = "\b" + dataString;
+    }
+    if (dataString.toLowerCase().includes("info")) {
+        logger.info(`\b[RAGFlow Agent] ${data}`);
+    } else if (dataString.toLowerCase().includes("warning")) {
+        logger.warn(`\b[RAGFlow Agent] ${data}`);
+    } else {
+        logger.error(`\b[RAGFlow Agent] ${data}`);
+    }
 });
 
 ragflowAgentProcess.on('close', (code) => {
@@ -49,7 +59,17 @@ pythonProcess.stdout.on('data', (data) => {
 });
 
 pythonProcess.stderr.on('data', (data) => {
-    logger.error(`\b[PDF Parser] ${data}`);
+    var dataString = data.toString();
+    if (dataString[0] == "[") {
+        dataString = "\b" + dataString;
+    }
+    if (dataString.toLowerCase().includes("info")) {
+        logger.info(`\b[PDF Parser] ${data}`);
+    } else if (dataString.toLowerCase().includes("warning")) {
+        logger.warn(`\b[PDF Parser] ${data}`);
+    } else {
+        logger.error(`\b[PDF Parser] ${data}`);
+    }
 });
 
 pythonProcess.on('close', (code) => {
@@ -74,6 +94,12 @@ process.on('SIGINT', () => {
     cleanup();
     process.exit(0);
 });
+
+process.on('SIGTERM', () => {
+    cleanup();
+    process.exit(0);
+});
+
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
@@ -159,6 +185,18 @@ controllers.forEach(controller => {
                         logger.http(`\b[PUT][${routePath}] completed successfully`);
                     } catch (error) {
                         logger.error(`\b[PUT][${routePath}] Error: ${error}`);
+                        res.status(500).json({ error: 'Internal server error' });
+                    }
+                });
+                break;
+            case RequestType.DELETE:
+                router.delete(routePath, async (req: Request, res: Response) => {
+                    try {
+                        logger.http(`\b[DELETE][${routePath}]`);
+                        await callback(req, res);
+                        logger.http(`\b[DELETE][${routePath}] completed successfully`);
+                    } catch (error) {
+                        logger.error(`\b[DELETE][${routePath}] Error: ${error}`);
                         res.status(500).json({ error: 'Internal server error' });
                     }
                 });

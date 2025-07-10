@@ -24,7 +24,7 @@ def setup_logging():
         os.makedirs(log_dir)
     
     # Configure logging format
-    log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    log_format = '\b[%(levelname)s] %(message)s'
     
     # Configure root logger
     logging.basicConfig(
