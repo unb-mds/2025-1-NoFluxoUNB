@@ -226,7 +226,7 @@ def check_for_updates(repo_dir, branch):
         current_dir = os.getcwd()
         log_message(f"Python: Changed to directory: {current_dir}")
         
-        # Debug directory contents
+        # Debug directory contents and permissions
         try:
             contents = os.listdir('.')
             git_in_contents = '.git' in contents
@@ -234,6 +234,13 @@ def check_for_updates(repo_dir, branch):
             if git_in_contents:
                 git_stat = os.stat('.git')
                 log_message(f"Python: .git directory stats: mode={oct(git_stat.st_mode)}, uid={git_stat.st_uid}, gid={git_stat.st_gid}")
+                # Check current user permissions
+                import pwd
+                current_user = pwd.getpwuid(os.getuid())
+                log_message(f"Python: Current user: {current_user.pw_name} (uid={os.getuid()}, gid={os.getgid()})")
+                # Check if user can read .git directory
+                git_accessible = os.access('.git', os.R_OK | os.X_OK)
+                log_message(f"Python: .git directory accessible: {git_accessible}")
         except Exception as e:
             log_message(f"Python: Error checking directory contents: {e}")
         
@@ -242,13 +249,31 @@ def check_for_updates(repo_dir, branch):
             log_message("Python: Error - .git directory not found in repository")
             return False
             
-        # Test basic git operations
+        # Test basic git operations with better error handling
         log_message("Python: Testing basic git operations...")
         test_result = run_git_command_safely(["git", "rev-parse", "--git-dir"], cwd=repo_dir)
         if test_result and test_result.returncode == 0:
             log_message(f"Python: Git directory found at: {test_result.stdout.strip()}")
         else:
-            log_message("Python: Basic git operations failed")
+            error_msg = test_result.stderr if test_result and test_result.stderr else "Unknown git error"
+            log_message(f"Python: Basic git operations failed: {error_msg.strip()}")
+            # Try to diagnose the issue
+            log_message("Python: Attempting to diagnose git repository issues...")
+            try:
+                # Check if it's a bare repository
+                bare_check = run_git_command_safely(["git", "config", "--get", "core.bare"], cwd=repo_dir)
+                if bare_check and bare_check.returncode == 0:
+                    log_message(f"Python: Repository is bare: {bare_check.stdout.strip()}")
+                
+                # Check git configuration
+                config_check = run_git_command_safely(["git", "config", "--list"], cwd=repo_dir)
+                if config_check and config_check.returncode == 0:
+                    config_lines = len(config_check.stdout.strip().split('\n'))
+                    log_message(f"Python: Git config has {config_lines} entries")
+                else:
+                    log_message("Python: Cannot read git configuration")
+            except Exception as e:
+                log_message(f"Python: Error during git diagnosis: {e}")
             return False
         
         # Use safe git command runner
@@ -544,6 +569,23 @@ def main():
     CHECK_INTERVAL = 10  # Interval in seconds to check for updates
     BRANCH = args.branch
     FORK_LOCATION = args.fork_location
+    
+    # Try to fix git permissions if running in Docker with mounted volumes
+    if os.path.exists('/.dockerenv') and os.path.exists('/app/.git'):
+        log_message("Python: Docker environment detected, checking git permissions...")
+        try:
+            # Test if we can access git
+            test_result = subprocess.run(['git', 'status', '--porcelain'], 
+                                       cwd='/app', capture_output=True, text=True, timeout=5)
+            if test_result.returncode != 0:
+                log_message("Python: Git permission issue detected, attempting to fix...")
+                # Try to fix ownership (requires sudo access which is configured in Dockerfile)
+                subprocess.run(['sudo', 'chown', '-R', 'appuser:appuser', '/app/.git'], 
+                             check=False, capture_output=True)
+                log_message("Python: Applied ownership fix for git directory")
+        except Exception as e:
+            log_message(f"Python: Could not fix git permissions: {e}")
+            log_message("Python: Continuing with limited git functionality")
     
     # Fix Python package installation permissions in Docker
     if os.path.exists('/app') and os.path.exists('/.dockerenv'):

@@ -16,10 +16,8 @@ services:
     env_file:
       - .env
     volumes:
-      # Mount the entire repository for git operations, excluding problematic directories
+      # Mount the entire repository for git operations (includes .git automatically)
       - .:/app
-      # Explicitly mount .git directory for git operations
-      - ./.git:/app/.git
       # Override dist with Docker volume to maintain permissions
       - dist_data:/app/dist
       # Persist the fork repository across container restarts

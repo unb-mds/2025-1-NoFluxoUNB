@@ -8,6 +8,17 @@ echo "📂 Working directory: $(pwd)"
 echo "🌱 Environment: ${NODE_ENV:-development}"
 echo "🌿 Branch: ${GIT_BRANCH:-main}"
 
+# Fix ownership of mounted repository for git operations
+echo "🔧 Fixing mounted repository permissions..."
+if [ -d "/app/.git" ]; then
+    # Only fix ownership of .git directory if it exists
+    sudo chown -R appuser:appuser /app/.git
+    echo "✅ Fixed .git directory ownership"
+fi
+
+# Fix ownership of other critical directories
+sudo chown -R appuser:appuser /app/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
+
 # Configure git for mounted volumes
 echo "🔧 Configuring git for mounted directories..."
 git config --global --add safe.directory /app
@@ -15,11 +26,33 @@ git config --global --add safe.directory '/app/*'
 git config --global --add safe.directory '*'
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
-# Verify git setup
+# Verify git setup and debug permissions
 if [ -d "/app/.git" ]; then
     echo "✅ Git repository found"
     cd /app
-    git status --porcelain > /dev/null 2>&1 && echo "✅ Git operations working" || echo "⚠️  Git operations may have issues"
+    
+    # Debug git directory permissions
+    echo "🔍 Git directory info:"
+    ls -la .git/ | head -5
+    echo "🔍 Current user: $(whoami)"
+    echo "🔍 Current user ID: $(id)"
+    
+    # Test git operations
+    if git status --porcelain > /dev/null 2>&1; then
+        echo "✅ Git operations working"
+        echo "📋 Current branch: $(git branch --show-current 2>/dev/null || echo 'unknown')"
+        echo "📋 Git status: $(git status --porcelain | wc -l) changed files"
+    else
+        echo "⚠️  Git operations still have issues, attempting additional fixes..."
+        # Additional ownership fix
+        sudo chown -R appuser:appuser /app
+        # Try again
+        if git status --porcelain > /dev/null 2>&1; then
+            echo "✅ Git operations fixed after additional ownership changes"
+        else
+            echo "❌ Git operations still failing - will continue but auto-updates may not work"
+        fi
+    fi
     cd -
 else
     echo "⚠️  Git repository not found"
