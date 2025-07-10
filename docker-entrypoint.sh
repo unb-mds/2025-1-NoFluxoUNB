@@ -36,8 +36,9 @@ else
     echo "⚠️  .git directory not found - auto-updates will not work"
 fi
 
-# Fix ownership of backend directories
-sudo chown -R appuser:appuser /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
+# Fix ownership of all log directories  
+sudo chown -R appuser:appuser /app/logs /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
+sudo chmod 775 /app/logs 2>/dev/null || echo "📝 /app/logs directory setup"
 
 # Configure git for mounted volumes
 echo "🔧 Configuring git for mounted directories..."

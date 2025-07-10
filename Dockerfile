@@ -83,8 +83,10 @@ RUN chmod -R 775 /app/dist /app/logs /app/uploads /app/fork_repo /app/no_fluxo_b
 # Build TypeScript code as root first, then change ownership
 RUN npm run build-docker || echo "Build failed, will retry as appuser"
 
-# Final ownership setup after build
+# Final ownership setup after build - ensure all directories are owned by appuser
 RUN chown -R appuser:appuser /app
+RUN chmod 775 /app/logs /app/dist /app/uploads /app/fork_repo
+RUN chmod 775 /app/no_fluxo_backend/AI-agent/logs /app/no_fluxo_backend/parse-pdf/logs
 
 # Switch to app user
 USER appuser
