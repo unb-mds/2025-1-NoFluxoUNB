@@ -78,10 +78,6 @@ def log_memory_usage():
 def run_git_command_safely(command, cwd=None, timeout=30):
     """Run git command with proper resource cleanup and timeout."""
     try:
-        log_message(f"Python: Executing git command: {' '.join(command)}")
-        log_message(f"Python: Working directory: {cwd or os.getcwd()}")
-        log_message(f"Python: Environment GIT_DISCOVERY_ACROSS_FILESYSTEM: {os.getenv('GIT_DISCOVERY_ACROSS_FILESYSTEM', 'Not set')}")
-        
         result = subprocess.run(
             command,
             cwd=cwd,
@@ -91,11 +87,9 @@ def run_git_command_safely(command, cwd=None, timeout=30):
             check=False  # Don't raise exception on non-zero exit
         )
         
-        log_message(f"Python: Git command exit code: {result.returncode}")
-        if result.stdout.strip():
-            log_message(f"Python: Git stdout: {result.stdout.strip()}")
-        if result.stderr.strip():
-            log_message(f"Python: Git stderr: {result.stderr.strip()}")
+        # Only log errors or important failures
+        if result.returncode != 0 and result.stderr.strip():
+            log_message(f"Python: Git command failed: {' '.join(command)} - {result.stderr.strip()}")
             
         return result
     except subprocess.TimeoutExpired:
@@ -137,7 +131,6 @@ def save_git_config(repo_path):
             pass
         
         os.chdir(original_dir)
-        log_message(f"Python: Saved git configuration: {list(config_backup.keys())}")
         return config_backup
         
     except Exception as e:
@@ -170,7 +163,6 @@ def setup_git_credential_helper(username, token, repo_path):
         process.communicate(input=credential_input)
         
         os.chdir(original_dir)
-        log_message("Python: Git credential helper configured")
         return config_backup
         
     except Exception as e:
@@ -206,7 +198,6 @@ def restore_git_config(repo_path, config_backup):
             subprocess.run(["git", "config", "--local", key, value], check=True)
         
         os.chdir(original_dir)
-        log_message(f"Python: Restored git configuration: {list(config_backup.keys())}")
         
     except Exception as e:
         log_message(f"Python: Warning - Could not restore git config: {e}")
@@ -218,62 +209,17 @@ def check_for_updates(repo_dir, branch):
     """Check if the remote repository has new commits."""
     original_dir = os.getcwd()
     try:
-        log_message(f"Python: === Starting git update check ===")
-        log_message(f"Python: Original directory: {original_dir}")
-        log_message(f"Python: Target repo directory: {repo_dir}")
-        
         os.chdir(repo_dir)
-        current_dir = os.getcwd()
-        log_message(f"Python: Changed to directory: {current_dir}")
-        
-        # Debug directory contents and permissions
-        try:
-            contents = os.listdir('.')
-            git_in_contents = '.git' in contents
-            log_message(f"Python: Directory contains .git: {git_in_contents}")
-            if git_in_contents:
-                git_stat = os.stat('.git')
-                log_message(f"Python: .git directory stats: mode={oct(git_stat.st_mode)}, uid={git_stat.st_uid}, gid={git_stat.st_gid}")
-                # Check current user permissions
-                import pwd
-                current_user = pwd.getpwuid(os.getuid())
-                log_message(f"Python: Current user: {current_user.pw_name} (uid={os.getuid()}, gid={os.getgid()})")
-                # Check if user can read .git directory
-                git_accessible = os.access('.git', os.R_OK | os.X_OK)
-                log_message(f"Python: .git directory accessible: {git_accessible}")
-        except Exception as e:
-            log_message(f"Python: Error checking directory contents: {e}")
         
         # Check git setup first
         if not os.path.exists('.git'):
             log_message("Python: Error - .git directory not found in repository")
             return False
             
-        # Test basic git operations with better error handling
-        log_message("Python: Testing basic git operations...")
+        # Test basic git operations
         test_result = run_git_command_safely(["git", "rev-parse", "--git-dir"], cwd=repo_dir)
-        if test_result and test_result.returncode == 0:
-            log_message(f"Python: Git directory found at: {test_result.stdout.strip()}")
-        else:
-            error_msg = test_result.stderr if test_result and test_result.stderr else "Unknown git error"
-            log_message(f"Python: Basic git operations failed: {error_msg.strip()}")
-            # Try to diagnose the issue
-            log_message("Python: Attempting to diagnose git repository issues...")
-            try:
-                # Check if it's a bare repository
-                bare_check = run_git_command_safely(["git", "config", "--get", "core.bare"], cwd=repo_dir)
-                if bare_check and bare_check.returncode == 0:
-                    log_message(f"Python: Repository is bare: {bare_check.stdout.strip()}")
-                
-                # Check git configuration
-                config_check = run_git_command_safely(["git", "config", "--list"], cwd=repo_dir)
-                if config_check and config_check.returncode == 0:
-                    config_lines = len(config_check.stdout.strip().split('\n'))
-                    log_message(f"Python: Git config has {config_lines} entries")
-                else:
-                    log_message("Python: Cannot read git configuration")
-            except Exception as e:
-                log_message(f"Python: Error during git diagnosis: {e}")
+        if test_result is None or test_result.returncode != 0:
+            log_message("Python: Git repository not accessible - auto-updates disabled")
             return False
         
         # Use safe git command runner
@@ -573,32 +519,26 @@ def main():
     
     # Try to fix git permissions if running in Docker with mounted volumes
     if os.path.exists('/.dockerenv') and os.path.exists('/app/.git'):
-        log_message("Python: Docker environment detected, checking git permissions...")
         try:
             # Test if we can access git
             test_result = subprocess.run(['git', 'status', '--porcelain'], 
                                        cwd='/app', capture_output=True, text=True, timeout=5)
             if test_result.returncode != 0:
-                log_message("Python: Git permission issue detected, attempting to fix...")
                 # Try to fix ownership (requires sudo access which is configured in Dockerfile)
                 subprocess.run(['sudo', 'chown', '-R', 'appuser:appuser', '/app/.git'], 
                              check=False, capture_output=True)
-                log_message("Python: Applied ownership fix for git directory")
-        except Exception as e:
-            log_message(f"Python: Could not fix git permissions: {e} ")
-            log_message("Python: Continuing with limited git functionality")
+        except Exception:
+            pass  # Continue silently
     
     # Fix Python package installation permissions in Docker
     if os.path.exists('/app') and os.path.exists('/.dockerenv'):
-        log_message("Python: Running in Docker container, setting up pip permissions...")
         os.environ['PYTHONUSERBASE'] = '/app/.local'
         os.environ['PIP_USER'] = '1'
         # Try to create the directory, if it fails due to permissions, continue
         try:
             os.makedirs('/app/.local', exist_ok=True)
         except PermissionError:
-            # Directory should be handled by Docker volume, continue without error
-            log_message("Python: /app/.local directory will be handled by Docker volume")
+            pass  # Directory should be handled by Docker volume
     
     # Get authentication credentials from args, environment variables, or .env file
     GIT_USERNAME = args.git_username or os.getenv('GIT_USERNAME')
@@ -612,44 +552,20 @@ def main():
     dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(dir)
 
-    log_message(f"Python: Current working directory: {os.getcwd()}")
-    log_message(f"Python: Repository directory: {REPO_DIR}")
     log_message(f"Python: Monitoring branch: {BRANCH}")
     
     # Set git environment variables
     os.environ['GIT_DISCOVERY_ACROSS_FILESYSTEM'] = '1'
-    log_message(f"Python: Set GIT_DISCOVERY_ACROSS_FILESYSTEM=1")
     
     # Check if git repository is accessible
     git_path = os.path.join(REPO_DIR, '.git')
     if os.path.exists(git_path):
-        log_message("Python: Git repository found and accessible")
-        try:
-            # Get detailed info about the git directory
-            stat_info = os.stat(git_path)
-            log_message(f"Python: Git directory ownership - UID: {stat_info.st_uid}, GID: {stat_info.st_gid}")
-            log_message(f"Python: Git directory permissions: {oct(stat_info.st_mode)}")
-            
-            # Test if we can read git config
-            git_config_path = os.path.join(git_path, 'config')
-            if os.path.exists(git_config_path):
-                log_message("Python: Git config file found")
-            else:
-                log_message("Python: Warning - Git config file not found")
-                
-        except Exception as e:
-            log_message(f"Python: Error checking git directory details: {e}")
+        log_message("Python: Git auto-update enabled")
     else:
-        log_message("Python: Warning - Git repository not found or not accessible")
-        log_message(f"Python: Checked path: {git_path}")
-        log_message(f"Python: Current user UID: {os.getuid()}, GID: {os.getgid()}")
+        log_message("Python: Git repository not found - auto-updates disabled")
     
-    if FORK_LOCATION:
-        log_message(f"Python: Fork repository location: {FORK_LOCATION}")
-        if not os.path.exists(FORK_LOCATION):
-            log_message(f"Python: Warning - Fork location {FORK_LOCATION} does not exist!")
-    else:
-        log_message("Python: No fork repository specified.")
+    if FORK_LOCATION and not os.path.exists(FORK_LOCATION):
+        log_message(f"Python: Warning - Fork location {FORK_LOCATION} does not exist!")
     
     # Log authentication status (without exposing credentials)
     if GIT_USERNAME and GIT_TOKEN:
