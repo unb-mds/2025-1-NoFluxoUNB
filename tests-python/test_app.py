@@ -1,4 +1,4 @@
-# tests/test_app.py
+# tests-python/test_app.py
 """
 Testes unitários para a aplicação Flask em app.py.
 """
