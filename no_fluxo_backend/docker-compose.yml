@@ -12,6 +12,7 @@ services:
       - PORT=3325
       - PYTHONUNBUFFERED=1  # Ensure Python output is not buffered
       - PYTHONIOENCODING=utf-8  # Set proper encoding for Python output
+      - GIT_DISCOVERY_ACROSS_FILESYSTEM=1  # Allow git to work across filesystem boundaries
     env_file:
       - .env
     volumes:

@@ -8,6 +8,23 @@ echo "📂 Working directory: $(pwd)"
 echo "🌱 Environment: ${NODE_ENV:-development}"
 echo "🌿 Branch: ${GIT_BRANCH:-main}"
 
+# Configure git for mounted volumes
+echo "🔧 Configuring git for mounted directories..."
+git config --global --add safe.directory /app
+git config --global --add safe.directory '/app/*'
+git config --global --add safe.directory '*'
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+
+# Verify git setup
+if [ -d "/app/.git" ]; then
+    echo "✅ Git repository found"
+    cd /app
+    git status --porcelain > /dev/null 2>&1 && echo "✅ Git operations working" || echo "⚠️  Git operations may have issues"
+    cd -
+else
+    echo "⚠️  Git repository not found"
+fi
+
 # Build the command with conditional arguments
 COMMAND="python start_and_monitor.py --branch ${GIT_BRANCH:-main}"
 

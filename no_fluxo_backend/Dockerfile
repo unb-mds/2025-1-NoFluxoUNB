@@ -74,6 +74,7 @@ RUN npm run build || echo "Build failed, will retry as appuser"
 
 # Set up git configuration for the container
 RUN git config --global --add safe.directory /app
+RUN git config --global --add safe.directory '/app/*'
 RUN git config --global --add safe.directory '*'
 RUN git config --global user.email "docker@nofluxo.com"
 RUN git config --global user.name "Docker Container"
@@ -84,6 +85,9 @@ RUN chown -R appuser:appuser /app
 
 # Switch to app user
 USER appuser
+
+# Set git environment variables for runtime
+ENV GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 # Expose ports for HTTPS
 EXPOSE 3325
