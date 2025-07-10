@@ -209,9 +209,27 @@ def check_for_updates(repo_dir, branch):
     try:
         os.chdir(repo_dir)
         
-        # Check git setup first
+        # Check git setup first with detailed debugging
+        current_dir = os.getcwd()
+        log_message(f"Python: Checking for updates in directory: {current_dir}")
+        log_message(f"Python: Repository directory argument: {repo_dir}")
+        
+        # List contents to debug
+        try:
+            contents = os.listdir('.')
+            log_message(f"Python: Directory contents: {contents}")
+        except Exception as e:
+            log_message(f"Python: Error listing directory contents: {e}")
+        
         if not os.path.exists('.git'):
             log_message("Python: Error - .git directory not found in repository")
+            # Try to find .git in parent directories
+            for i in range(3):  # Check up to 3 parent directories
+                parent_path = '../' * (i + 1)
+                git_path = os.path.join(parent_path, '.git')
+                if os.path.exists(git_path):
+                    log_message(f"Python: Found .git directory at: {os.path.abspath(git_path)}")
+                    break
             return False
         
         # Use safe git command runner
@@ -501,7 +519,8 @@ def main():
     parser.add_argument('--git-token', help='Git token/password for authentication (can also use GIT_TOKEN in .env)')
     args = parser.parse_args()
 
-    REPO_DIR = "./"  # Replace with the path to your repository
+    # Determine repository directory - should be the mounted volume root
+    REPO_DIR = "/app" if os.path.exists('/app/.git') else "./"
     START_COMMAND = "npm run build-and-start"
     CHECK_INTERVAL = 10  # Interval in seconds to check for updates
     BRANCH = args.branch
@@ -531,8 +550,20 @@ def main():
     dir = os.path.dirname(os.path.abspath(__file__))
     os.chdir(dir)
 
+    log_message(f"Python: Script location: {__file__}")
+    log_message(f"Python: Script directory: {dir}")
     log_message(f"Python: Current working directory: {os.getcwd()}")
+    log_message(f"Python: Repository directory: {REPO_DIR}")
     log_message(f"Python: Monitoring branch: {BRANCH}")
+    
+    # Debug: Check if .git exists in various locations
+    git_locations = ['.git', '/app/.git', '../.git', '../../.git']
+    for git_path in git_locations:
+        if os.path.exists(git_path):
+            log_message(f"Python: Found .git at: {os.path.abspath(git_path)}")
+            break
+    else:
+        log_message("Python: Warning - No .git directory found in expected locations")
     
     if FORK_LOCATION:
         log_message(f"Python: Fork repository location: {FORK_LOCATION}")

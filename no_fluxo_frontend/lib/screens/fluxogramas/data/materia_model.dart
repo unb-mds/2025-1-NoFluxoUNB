@@ -9,6 +9,7 @@ class MateriaModel {
   String? mencao;
   String? professor;
   MateriaModel? materiaEquivalenteCursada;
+  List<MateriaModel> prerequisitos = [];
 
   MateriaModel({
     required this.ementa,
