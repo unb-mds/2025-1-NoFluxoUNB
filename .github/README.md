@@ -1,139 +1,103 @@
-# GitHub Actions - Testes Automatizados
+# 📚 NoFluxoUnB
 
-Este diretório contém os workflows do GitHub Actions para automatizar os testes do projeto No Fluxo.
+Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na disciplina de Métodos de Desenvolvimento de Software (MDS - 2025/1 - FGA/UnB).
 
-## Workflows Disponíveis
+---
 
-### 1. `all-tests.yml`
-Workflow principal que executa todos os testes (TypeScript e Python) em paralelo.
 
-**Triggers:**
-- Push para branches `main` e `develop`
-- Pull requests para branches `main` e `develop`
 
-**Jobs:**
-- `typescript-tests`: Executa testes TypeScript, ESLint e type checking
-- `python-tests`: Executa testes Python com pytest
-- `test-results`: Gera resumo dos resultados
+![License](https://img.shields.io/github/license/unb-mds/2025-1-NoFluxoUNB)
+![Issues](https://img.shields.io/github/issues/unb-mds/2025-1-NoFluxoUNB)
+![Contributors](https://img.shields.io/github/contributors/unb-mds/2025-1-NoFluxoUNB)
+![Stars](https://img.shields.io/github/stars/unb-mds/2025-1-NoFluxoUNB?style=social)
+![Views](https://komarev.com/ghpvc/?username=unb-mds&label=views&color=green)
+![Forks](https://img.shields.io/github/forks/unb-mds/2025-1-NoFluxoUNB?style=social)
+![Last Commit](https://img.shields.io/github/last-commit/unb-mds/2025-1-NoFluxoUNB)
 
-### 2. `typescript-tests.yml`
-Workflow específico para testes TypeScript.
+![Flutter](https://img.shields.io/badge/flutter-3.19.0-blue)
+![Supabase](https://img.shields.io/badge/supabase-1.0.0-brightgreen)
+![TypeScript](https://img.shields.io/badge/typescript-5.3.0-blue)
+![DigitalOcean](https://img.shields.io/badge/digitalocean-cloud-blue)
+![Vercel](https://img.shields.io/badge/vercel-deploy-black)
+![GitHub](https://img.shields.io/badge/github-repository-blue)
+![GitHub Actions](https://img.shields.io/badge/github_actions-v2.0.0-2088FF)
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![HTML](https://img.shields.io/badge/html-5-orange)
 
-**Triggers:**
-- Push/PR que afetam arquivos em `no_fluxo_backend/` ou `tests-ts/`
+![GitHub Projects](https://img.shields.io/badge/github-projects-90a1b2)
 
-**Funcionalidades:**
-- Type checking
-- ESLint
-- Jest tests
-- Coverage reports
-- Suporte a múltiplas versões do Node.js (18.x, 20.x)
+# Acesse nosso projeto
 
-### 3. `python-tests.yml`
-Workflow específico para testes Python.
+[https://no-fluxo.com](https://no-fluxo.com)
 
-**Triggers:**
-- Push/PR que afetam arquivos em `tests-python/`, `coleta_dados/` ou `ai_agent/`
 
-**Funcionalidades:**
-- Instalação de dependências do sistema (tesseract, poppler)
-- Testes com pytest
-- Coverage reports
-- Suporte a múltiplas versões do Python (3.9, 3.10, 3.11)
+## 1. 📌 Visão Geral
 
-## Como Usar
+O projeto **NoFluxoUNB** tem como objetivo facilitar o planejamento acadêmico dos estudantes da UnB ao oferecer um fluxograma interativo, intuitivo e de fácil uso. Nossa aplicação busca resolver a dificuldade frequente dos alunos em identificar matérias equivalentes e organizar suas disciplinas futuras de maneira eficiente.
 
-### Execução Local
-Para executar todos os testes localmente:
+Com uma experiência de usuário (UX) aprimorada, o produto permite:
 
-```bash
-./run_all_tests.sh
-```
+- 🎯 **Visualizar de forma simples e interativa as matérias equivalentes** no fluxograma oficial do curso.
+- 🎓 **Selecionar disciplinas futuras** para montar um planejamento personalizado.
+- 🤖 Usar **inteligência artificial** para recomendar disciplinas alinhadas aos interesses pessoais, como desenvolvimento de games ou outras áreas específicas, com base nas ementas e informações dos cursos da UnB.
 
-### Execução Manual no GitHub
-1. Vá para a aba "Actions" no repositório
-2. Selecione o workflow desejado
-3. Clique em "Run workflow"
-4. Escolha a branch e clique em "Run workflow"
+Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e personalizado**, simplificando seu percurso até a conclusão do curso.
 
-### Configuração de Secrets
-Para que os workflows funcionem corretamente, configure os seguintes secrets no repositório:
+---
 
-- `CODECOV_TOKEN`: Token do Codecov para upload de coverage (opcional)
+## 2. 🧩 Links Importantes
 
-## Estrutura dos Testes
+- 🧩 [Protótipo de alta fidelidade](https://www.figma.com/design/uy5ZwJGkuzjRaeREouMSlI/-arquivado--Prototipo-e-IDV-No-FLX-UnB?node-id=0-1&p=f&t=wMKM19zNX9jK3v7F-0)  
+- 🗺️ [Story Map Público](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764599792494680&cot=14)  
+- 📋 [Board do Projeto no GitHub](https://github.com/orgs/unb-mds/projects/29)
+- 📑 [Requisitos](https://github.com/unb-mds/2025-1-NoFluxoUNB/blob/main/documentacao/requisitos.md)
+- 🏗️ [Arquitetura](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626773503994&cot=14)
+- 🧾 [Backlog](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764626757911762&cot=14)
+- 🧾 [PBB](https://miro.com/app/board/uXjVIhMvxAo=/?moveToWidget=3458764633740818264&cot=14)
+ 
+## 3. Como Rodar o Projeto Localmente
 
-### TypeScript Tests
-- **Localização**: `no_fluxo_backend/tests-ts/`
-- **Framework**: Jest
-- **Configuração**: `no_fluxo_backend/package.json`
-- **Comandos**:
-  - `npm test`: Executa testes
-  - `npm run test:coverage`: Executa testes com coverage
-  - `npm run lint`: Executa ESLint
-  - `npm run type-check`: Executa type checking
+Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md)
 
-### Python Tests
-- **Localização**: `tests-python/`
-- **Framework**: pytest
-- **Configuração**: `tests-python/pytest.ini`
-- **Comandos**:
-  - `pytest`: Executa testes
-  - `pytest --cov=.`: Executa testes com coverage
+ ## 4. 👥 Equipe
 
-## Coverage Reports
+Squad 03 – MDS 2025/1 – FGA/UnB
 
-Os workflows geram relatórios de coverage que são enviados para o Codecov:
-
-- **TypeScript**: Coverage dos controllers e utilitários
-- **Python**: Coverage dos módulos de scraping e processamento
-
-## Troubleshooting
-
-### Problemas Comuns
-
-1. **Testes falhando no CI mas passando localmente**
-   - Verifique se todas as dependências estão instaladas
-   - Confirme se as variáveis de ambiente estão configuradas
-
-2. **Erros de ESLint**
-   - Execute `npm run lint:fix` localmente para corrigir automaticamente
-   - Verifique a configuração em `.eslintrc.js`
-
-3. **Erros de TypeScript**
-   - Execute `npm run type-check` localmente
-   - Verifique se todos os tipos estão corretos
-
-4. **Erros de Python**
-   - Verifique se todas as dependências estão em `requirements.txt`
-   - Confirme se o pytest está instalado
-
-### Logs e Debugging
-
-- Os logs completos estão disponíveis na aba "Actions" do GitHub
-- Cada job tem logs detalhados que podem ser expandidos
-- Use `set -x` nos scripts para debug detalhado
-
-## Contribuindo
-
-Para adicionar novos testes:
-
-1. **TypeScript**: Adicione arquivos `.test.ts` em `no_fluxo_backend/tests-ts/`
-2. **Python**: Adicione arquivos `test_*.py` em `tests-python/`
-3. **Atualize os workflows** se necessário
-4. **Teste localmente** antes de fazer push
-
-## Configuração Avançada
-
-### Cache
-Os workflows usam cache para acelerar a execução:
-- **Node.js**: Cache do npm baseado no `package-lock.json`
-- **Python**: Cache do pip baseado no `requirements.txt`
-
-### Matrix Testing
-- **TypeScript**: Testado em Node.js 18.x e 20.x
-- **Python**: Testado em Python 3.9, 3.10 e 3.11
-
-### Coverage Thresholds
-- **TypeScript**: Configurado no Jest
-- **Python**: Configurado no pytest.ini (70% mínimo) 
+<table>
+   <tr>
+     <td align="center">
+       <img src="https://github.com/ArthurNRamalho.png" width="100px;" style="border-radius: 10px;" alt="Arthur Nogueira Ramalho"/><br />
+       <a href="#">Arthur Nogueira Ramalho</a>
+     </td>
+     <td align="center">
+       <img src="https://github.com/gusmoles.png" width="100px;" style="border-radius: 10px;" alt="Guilherme Gusmão Nepomuceno"/><br />
+       <a href="#">Guilherme Gusmão Nepomuceno</a>
+     </td>
+     <td align="center">
+       <img src="https://github.com/Vitor-Trancoso.png" width="100px;" height="100px" style="border-radius: 10px;" alt="Vitor Marconi T. Albuquerque"/><br />
+       <a href="#">Vitor Marconi T. Albuquerque</a>
+     </td>
+     <td align="center">
+       <img src="https://github.com/staann.png" width="100px;" style="border-radius: 10px;" alt="Gustavo Choueiri"/><br />
+       <a href="#">Gustavo Choueiri</a>
+     </td>
+   </tr>
+   <tr>
+     <td align="center">
+       <img src="https://github.com/darkymeubem.png" width="100px;" style="border-radius: 10px;" alt="Felipe Lopes Pedroza"/><br />
+       <a href="#">Felipe Lopes Pedroza</a>
+     </td>
+     <td align="center">
+       <img src="https://github.com/Vinicius-Ribeiro04.png" width="100px;" style="border-radius: 10px;" alt="Vinícius Pereira Ribeiro"/><br />
+       <a href="#">Vinícius Pereira Ribeiro</a>
+     </td>
+     <td align="center">
+       <img src="https://github.com/hisarxt.png" width="100px;" style="border-radius: 10px;" alt="Arthur Fernandes Alencar"/><br />
+       <a href="#">Arthur Fernandes Alencar</a>
+     </td>
+     <td align="center">
+       <img src="https://github.com/erickaalves.png" width="100px;" style="border-radius: 10px;" alt="Erick Alves dos Santos"/><br />
+       <a href="#">Erick Alves dos Santos</a>
+     </td>
+   </tr>
+ </table>
