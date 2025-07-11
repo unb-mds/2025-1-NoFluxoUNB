@@ -173,8 +173,8 @@ export const FluxogramaController: EndpointController = {
             for (const curso of data) {
                 // get equivalencias
                 const { data: equivalencias, error: errorEquivalencias } = await SupabaseWrapper.get()
-                    .from("equivalencias")
-                    .select("id_equivalencia,id_materia,expressao,materias(*)")
+                    .from("vw_equivalencias_com_materias")
+                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao,id_curso,nome_curso,matriz_curricular,curriculo,data_vigencia,fim_vigencia")
                     .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`)
                     .or(`matriz_curricular.is.null,matriz_curricular.eq.${curso.matriz_curricular}`);
 

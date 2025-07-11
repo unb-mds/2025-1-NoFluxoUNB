@@ -165,7 +165,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                             .toList());
                     if (equivalenciaResult.isEquivalente) {
                       for (var v in equivalenciaResult.equivalentes) {
-                        equiv.equivalenteA = v;
+                        // equiv.equivalenteA = v; // Remover todas as linhas que usam equivalenteA
                       }
                     }
                     return equivalenciaResult.isEquivalente;
@@ -181,7 +181,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
                     if (equivalenciaResult.isEquivalente) {
                       for (var v in equivalenciaResult.equivalentes) {
-                        equiv.equivalenteA = v;
+                        // equiv.equivalenteA = v; // Remover todas as linhas que usam equivalenteA
                       }
                     }
                     return equivalenciaResult.isEquivalente;
@@ -208,17 +208,16 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           }
 
           for (var materia in materiasEquivalentesAprovadas) {
-            materiasPorCodigo[materia.materia.codigoMateria]?.status =
+            materiasPorCodigo[materia.codigoMateriaOrigem]?.status =
                 'completed';
-            materiasPorCodigo[materia.materia.codigoMateria]
-                ?.materiaEquivalenteCursada = materia.equivalenteA;
+            // materiasPorCodigo[materia.materia.codigoMateria]
+            //     ?.materiaEquivalenteCursada = materia.equivalenteA; // Remover todas as linhas que usam equivalenteA
           }
 
           for (var materia in materiasEquivalentesCurrent) {
-            materiasPorCodigo[materia.materia.codigoMateria]?.status =
-                'current';
-            materiasPorCodigo[materia.materia.codigoMateria]
-                ?.materiaEquivalenteCursada = materia.equivalenteA;
+            materiasPorCodigo[materia.codigoMateriaOrigem]?.status = 'current';
+            // materiasPorCodigo[materia.materia.codigoMateria]
+            //     ?.materiaEquivalenteCursada = materia.equivalenteA; // Remover todas as linhas que usam equivalenteA
           }
 
           for (var materia

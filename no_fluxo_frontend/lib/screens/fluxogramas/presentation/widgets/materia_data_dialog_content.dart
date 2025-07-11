@@ -565,27 +565,45 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
         children: [
           _buildInfoCard(
             title: "Disciplinas Equivalentes",
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildEquivalencyItem("CIC0097", "Bancos de Dados", "Atual"),
-                _buildEquivalencyItem(
-                    "CIC0120", "Sistemas de Banco de Dados", "Antiga"),
-                _buildEquivalencyItem(
-                    "INF0110", "Banco de Dados I", "Outro Curso"),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-          _buildInfoCard(
-            title: "Observações",
-            child: Text(
-              "Esta disciplina substitui as antigas CIC0120 e INF0110. Alunos que cursaram essas disciplinas não precisam cursar CIC0097.",
-              style: TextStyle(
-                fontSize: getProportionateFontSize(14),
-                color: Colors.white.withOpacity(0.8),
-                height: 1.5,
-              ),
+            child: Builder(
+              builder: (context) {
+                final equivalencias = widget.curso.equivalencias
+                    .where((e) =>
+                        e.codigoMateriaOrigem == widget.materia.codigoMateria)
+                    .toList();
+                if (equivalencias.isEmpty) {
+                  return Text(
+                    "Nenhuma equivalência cadastrada para esta disciplina.",
+                    style: TextStyle(
+                      fontSize: getProportionateFontSize(14),
+                      color: Colors.white.withOpacity(0.6),
+                      fontStyle: FontStyle.italic,
+                    ),
+                  );
+                } else {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: equivalencias.map((e) {
+                      return Row(
+                        children: [
+                          Icon(Icons.compare_arrows,
+                              color: Colors.amber, size: 20),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              "${e.codigoMateriaEquivalente} - ${e.nomeMateriaEquivalente}",
+                              style: TextStyle(
+                                fontSize: getProportionateFontSize(14),
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }).toList(),
+                  );
+                }
+              },
             ),
           ),
         ],
