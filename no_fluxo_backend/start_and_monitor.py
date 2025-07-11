@@ -292,41 +292,28 @@ def check_for_updates(repo_dir, branch):
 def pull_updates(repo_dir, branch):
     """Pull the latest changes from the remote repository.
     
-    Uses Docker-safe strategies when running in containers to handle mounted files.
-    In local development, uses simple git pull to avoid interfering with workflow.
+    Stashes local changes, pulls updates, and falls back to hard reset if needed.
     """
     original_dir = os.getcwd()
     try:
         os.chdir(repo_dir)
         log_message(f"Python: Pulling updates from {branch}.")
         
-        # Use Docker-safe update strategy if running in container
-        if os.path.exists('/.dockerenv'):
-            # First, try to stash any local changes to avoid conflicts
-            # If stash fails due to mounted file permissions, continue anyway
-            stash_result = run_git_command_safely(["git", "stash", "push", "-m", "Auto-stash before update"], cwd=repo_dir)
-            if stash_result and stash_result.returncode != 0:
-                log_message("Python: Stash failed due to mounted file permissions, continuing with pull...")
-        else:
-            # In local development, just do a simple pull
-            stash_result = None
+        # Stash any local changes to avoid conflicts
+        stash_result = run_git_command_safely(["git", "stash", "push", "-m", "Auto-stash before update"], cwd=repo_dir)
+        if stash_result and stash_result.returncode != 0:
+            log_message("Python: Warning - Could not stash changes, continuing with pull...")
         
         # Pull the latest changes
         pull_result = run_git_command_safely(["git", "pull", "origin", branch], cwd=repo_dir)
         if pull_result is None or pull_result.returncode != 0:
-            if os.path.exists('/.dockerenv'):
-                # If pull fails in Docker, try to reset specific directories only (not mounted files)
-                log_message("Python: Pull failed, attempting selective reset of backend code...")
-                
-                # Reset only the backend code directories, not the root files
-                reset_result = run_git_command_safely(["git", "checkout", f"origin/{branch}", "--", "no_fluxo_backend/"], cwd=repo_dir)
-                if reset_result is None or reset_result.returncode != 0:
-                    log_message("Python: Warning - Could not reset backend code, continuing with existing files")
-                else:
-                    log_message("Python: Successfully updated backend code")
+            # If pull fails, try a hard reset to force update
+            log_message("Python: Pull failed, attempting hard reset...")
+            reset_result = run_git_command_safely(["git", "reset", "--hard", f"origin/{branch}"], cwd=repo_dir)
+            if reset_result is None or reset_result.returncode != 0:
+                log_message("Python: Warning - Could not update repository, continuing with existing files")
             else:
-                # In local development, just log the failure and continue
-                log_message("Python: Warning - Git pull failed in local development mode, continuing with existing files")
+                log_message("Python: Successfully updated via hard reset")
         else:
             log_message("Python: Successfully pulled updates")
             
@@ -339,10 +326,7 @@ def pull_updates(repo_dir, branch):
         
 
 def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
-    """Update the fork repository with the latest changes from current branch to main.
-    
-    In Docker containers, uses safe operations to avoid conflicts with mounted files.
-    """
+    """Update the fork repository with the latest changes from current branch to main."""
     if not fork_path or not os.path.exists(fork_path):
         log_message(f"Python: Fork path {fork_path} does not exist. Skipping fork update.")
         return
@@ -361,16 +345,8 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         
         # First update the current repo to make sure we have latest changes
         subprocess.run(["git", "fetch", "origin"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        
-        # Use Docker-safe update strategy if running in container
-        if os.path.exists('/.dockerenv'):
-            # In Docker, avoid hard reset that would conflict with mounted files
-            # Just fetch to get the latest commit info
-            log_message("Python: Docker environment - skipping hard reset to avoid mounted file conflicts")
-        else:
-            # In local development, do normal reset and pull
-            subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
-            subprocess.run(["git", "pull", "origin", branch], check=True)
+        subprocess.run(["git", "reset", "--hard", f"origin/{branch}"], check=True)
+        subprocess.run(["git", "pull", "origin", branch], check=True)
         
         # Get the latest commit hash from current branch
         current_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode().strip()
@@ -477,32 +453,22 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
         
     except subprocess.CalledProcessError as e:
         log_message(f"Python: Error updating fork repository: {e}")
-        if os.path.exists('/.dockerenv'):
-            log_message("Python: Fork update failed in Docker - this is likely due to mounted file permissions, continuing...")
         # Restore original git configuration even on error
         if git_username and git_token:
             restore_git_config(fork_path, config_backup)
         # Return to original directory even if there was an error
-        try:
-            os.chdir(original_dir)
-            if original_branch and original_branch != branch:
-                subprocess.run(["git", "checkout", original_branch], check=False)  # Don't crash if this fails
-        except:
-            pass  # Don't crash on cleanup failures
+        os.chdir(original_dir)
+        if original_branch and original_branch != branch:
+            subprocess.run(["git", "checkout", original_branch], check=True)
     except Exception as e:
         log_message(f"Python: Unexpected error updating fork repository: {e}")
-        if os.path.exists('/.dockerenv'):
-            log_message("Python: Fork update failed in Docker - continuing with main process...")
         # Restore original git configuration even on error
         if git_username and git_token:
             restore_git_config(fork_path, config_backup)
         # Return to original directory even if there was an error
-        try:
-            os.chdir(original_dir)
-            if original_branch and original_branch != branch:
-                subprocess.run(["git", "checkout", original_branch], check=False)  # Don't crash if this fails
-        except:
-            pass  # Don't crash on cleanup failures
+        os.chdir(original_dir)
+        if original_branch and original_branch != branch:
+            subprocess.run(["git", "checkout", original_branch], check=True)
 
 def start_process(command):
     """Start a subprocess with the given command and print logs in real time."""
@@ -651,10 +617,7 @@ def main():
     # Check if git repository is accessible
     git_path = os.path.join(REPO_DIR, '.git')
     if os.path.exists(git_path):
-        log_message("Python: Git auto-update enabled")
-        # Setup git to ignore mounted files only in Docker containers
-        if os.path.exists('/.dockerenv'):
-            setup_git_ignore_mounted_files(REPO_DIR)
+        log_message("Python: Git auto-update enabled for all files")
     else:
         log_message("Python: Git repository not found - auto-updates disabled")
     

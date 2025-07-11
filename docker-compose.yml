@@ -17,7 +17,7 @@ services:
       - no_fluxo_backend/.env
     volumes:
       # Mount the entire repository for git operations (includes .git automatically)
-      - .:/app
+      - .:/app:rw  # Make the mount read-write
       # Override dist with Docker volume to maintain permissions
       - dist_data:/app/no_fluxo_backend/dist
       # Persist the fork repository across container restarts

@@ -36,9 +36,14 @@ else
     echo "⚠️  .git directory not found - auto-updates will not work"
 fi
 
-# Fix ownership of all log directories  
+# Fix ownership of all directories including mounted files
 sudo chown -R appuser:appuser /app/logs /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
 sudo chmod 775 /app/logs 2>/dev/null || echo "📝 /app/logs directory setup"
+
+# Fix ownership of key files that need to be updatable by git
+echo "🔧 Fixing ownership of git-managed files..."
+sudo chown appuser:appuser /app/docker-compose.yml /app/nginx.conf /app/view-logs.sh /app/test-env.sh /app/test-git.sh /app/Dockerfile 2>/dev/null || echo "📝 Some files don't exist yet (normal)"
+sudo chmod 664 /app/docker-compose.yml /app/nginx.conf /app/view-logs.sh /app/test-env.sh /app/test-git.sh /app/Dockerfile 2>/dev/null || echo "📝 File permissions setup"
 
 # Configure git for mounted volumes
 echo "🔧 Configuring git for mounted directories..."
