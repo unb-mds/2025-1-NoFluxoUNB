@@ -26,7 +26,7 @@ if docker ps | grep -q no-fluxo-backend; then
     echo "📁 Container file system check:"
     docker exec no-fluxo-backend ls -la /app/.env 2>/dev/null && echo "✅ .env file exists in container" || echo "❌ .env file missing in container"
     docker exec no-fluxo-backend ls -la /app/logs 2>/dev/null && echo "✅ logs directory exists in container" || echo "❌ logs directory missing in container"
-    docker exec no-fluxo-backend ls -la /app/AI-agent/logs 2>/dev/null && echo "✅ AI-agent logs directory exists" || echo "❌ AI-agent logs directory missing"
+    docker exec no-fluxo-backend ls -la /app/ai_agent/logs 2>/dev/null && echo "✅ ai_agent logs directory exists" || echo "❌ ai_agent logs directory missing"
     
     echo ""
     echo "🔧 Container environment variables:"

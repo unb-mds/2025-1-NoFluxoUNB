@@ -30,13 +30,13 @@ RUN npm install
 # Copy Python requirements files
 COPY no_fluxo_backend/requirements.txt ./
 COPY no_fluxo_backend/requirements_monitor.txt ./
-COPY no_fluxo_backend/AI-agent/requirements.txt ./AI-agent/requirements.txt
+COPY no_fluxo_backend/ai_agent/requirements.txt ./ai_agent/requirements.txt
 COPY no_fluxo_backend/parse-pdf/requirements.txt ./parse-pdf/requirements.txt
 
 # Install Python dependencies
 RUN pip3 install -r requirements.txt && \
     pip3 install -r requirements_monitor.txt && \
-    pip3 install -r AI-agent/requirements.txt && \
+    pip3 install -r ai_agent/requirements.txt && \
     pip3 install -r parse-pdf/requirements.txt
 
 # Copy TypeScript configuration
@@ -45,7 +45,7 @@ COPY no_fluxo_backend/nodemon.json ./
 
 # Copy source code
 COPY no_fluxo_backend/src/ ./src/
-COPY no_fluxo_backend/AI-agent/ ./AI-agent/
+COPY no_fluxo_backend/ai_agent/ ./ai_agent/
 COPY no_fluxo_backend/parse-pdf/ ./parse-pdf/
 COPY no_fluxo_backend/scripts/ ./scripts/
 COPY no_fluxo_backend/start_and_monitor.py ./
@@ -56,7 +56,7 @@ COPY docker-entrypoint.sh /app/
 COPY no_fluxo_backend/*.json ./
 
 # Create necessary directories
-RUN mkdir -p /app/dist /app/logs /app/uploads /app/fork_repo ./AI-agent/logs ./parse-pdf/logs
+RUN mkdir -p /app/dist /app/logs /app/uploads /app/fork_repo ./ai_agent/logs ./parse-pdf/logs
 
 # Set up git configuration for the container
 RUN git config --global --add safe.directory /app

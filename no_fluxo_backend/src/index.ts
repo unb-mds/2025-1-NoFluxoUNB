@@ -22,7 +22,7 @@ SupabaseWrapper.init();
 logger.info('Supabase client initialized');
 
 // start the ragflow agent server
-const ragflowAgentProcess = spawn('python', ['AI-agent/app.py', "--port", "4652"], {
+const ragflowAgentProcess = spawn('python', ['ai_agent/app.py', "--port", "4652"], {
     cwd: path.join(__dirname, '..')
 });
 
