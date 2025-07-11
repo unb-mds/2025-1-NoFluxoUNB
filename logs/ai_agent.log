@@ -5905,3 +5905,2152 @@ BrokenPipeError: [Errno 32] Broken pipe
 [INFO] ==================================================
 [WARNING]  * Debugger is active!
 [INFO]  * Debugger PIN: 860-727-024
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:20:25] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3003
+[INFO] Session request completed in 23.12 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:20:47 GMT', 'Content-Type': 'application/json', 'Content-Length': '3003', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 392b61c25df511f0988a3626e9053b6a
+[INFO] Session started successfully with ID: 392b61c25df511f0988a3626e9053b6a
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 392b61c25df511f0988a3626e9053b6a
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "392b61c25df511f0988a3626e9053b6a",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3133
+[INFO] Analysis request completed in 0.76 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:20:48 GMT', 'Content-Type': 'application/json', 'Content-Length': '3133', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 23.93 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:20:49] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:21:22] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3198
+[INFO] Session request completed in 23.69 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:21:45 GMT', 'Content-Type': 'application/json', 'Content-Length': '3198', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 5b4925dc5df511f0bfb23626e9053b6a
+[INFO] Session started successfully with ID: 5b4925dc5df511f0bfb23626e9053b6a
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 5b4925dc5df511f0bfb23626e9053b6a
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "5b4925dc5df511f0bfb23626e9053b6a",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3328
+[INFO] Analysis request completed in 0.48 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:21:46 GMT', 'Content-Type': 'application/json', 'Content-Length': '3328', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 24.18 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:21:47] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:29:00] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3187
+[INFO] Session request completed in 21.47 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:29:21 GMT', 'Content-Type': 'application/json', 'Content-Length': '3187', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 6bfad19a5df611f090da3626e9053b6a
+[INFO] Session started successfully with ID: 6bfad19a5df611f090da3626e9053b6a
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 6bfad19a5df611f090da3626e9053b6a
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "6bfad19a5df611f090da3626e9053b6a",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3317
+[INFO] Analysis request completed in 0.65 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:29:21 GMT', 'Content-Type': 'application/json', 'Content-Length': '3317', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 22.15 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:29:22] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:32:46] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3003
+[INFO] Session request completed in 22.56 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:33:08 GMT', 'Content-Type': 'application/json', 'Content-Length': '3003', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: f2bed12c5df611f0937a3626e9053b6a
+[INFO] Session started successfully with ID: f2bed12c5df611f0937a3626e9053b6a
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: f2bed12c5df611f0937a3626e9053b6a
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "f2bed12c5df611f0937a3626e9053b6a",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3133
+[INFO] Analysis request completed in 0.43 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 01:33:08 GMT', 'Content-Type': 'application/json', 'Content-Length': '3133', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 23.00 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:33:09] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:44:37] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 30.81 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:45:08] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:46:24] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'dados'
+[DEBUG] Text after accent removal: 'dados'
+[INFO] Materia processed: 'dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 31.22 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:46:55] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:49:21] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 31.06 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:49:53] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:54:56] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 30.91 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:55:27] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:55:48] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'dados'
+[DEBUG] Text after accent removal: 'dados'
+[INFO] Materia processed: 'dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 31.81 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:56:20] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:57:53] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 32.04 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 22:58:25] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:03:07] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 30.89 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:03:38] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:05:52] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 31.02 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:06:23] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:08:51] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Timeout occurred while starting session for materia: 'DADOS'
+[ERROR] [REQUEST ERROR] Unexpected error after 30.96 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 565, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 1395, in getresponse
+    response.begin()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 325, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\http\client.py", line 286, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1314, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1166, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Read timed out. (read timeout=30)
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:09:22] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:19:21] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Request exception during session start: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+[ERROR] [REQUEST ERROR] Unexpected error after 0.79 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1382, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:19:22] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:22:12] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[ERROR] Request exception during session start: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+[ERROR] [REQUEST ERROR] Unexpected error after 0.66 seconds: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1104, in _create
+    self.do_handshake()
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\ssl.py", line 1382, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\app.py", line 133, in analisar_materia_endpoint
+    session_id = client.start_session(materia_processada)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Vinícius\Faculdade\MDS\2025-1-NoFluxoUNB\no_fluxo_backend\AI-agent\ragflow_agent_client.py", line 43, in start_session
+    resp = requests.post(self.url, headers=self.headers, json=payload, timeout=30)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vinic\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\requests\adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='ragflow.arthrok.shop', port=443): Max retries exceeded with url: //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+[DEBUG] Response: 500 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:22:13] "[35m[1mPOST /assistente HTTP/1.1[0m" 500 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:37:40] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3257
+[INFO] Session request completed in 23.83 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:38:03 GMT', 'Content-Type': 'application/json', 'Content-Length': '3257', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 03c1f5405e0011f09bde1a26d63db6af
+[INFO] Session started successfully with ID: 03c1f5405e0011f09bde1a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 03c1f5405e0011f09bde1a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "03c1f5405e0011f09bde1a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3389
+[INFO] Analysis request completed in 0.68 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:38:04 GMT', 'Content-Type': 'application/json', 'Content-Length': '3389', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 24.61 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:38:05] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:38:41] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'CERVEJA'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'CERVEJA'
+[DEBUG] Text after accent removal: 'CERVEJA'
+[INFO] Materia processed: 'CERVEJA' -> 'CERVEJA'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'CERVEJA'
+[DEBUG] Session payload: {
+  "materia": "CERVEJA",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3199
+[INFO] Session request completed in 21.21 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:39:01 GMT', 'Content-Type': 'application/json', 'Content-Length': '3199', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 28013c0e5e0011f0a16d1a26d63db6af
+[INFO] Session started successfully with ID: 28013c0e5e0011f0a16d1a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'CERVEJA' with session: 28013c0e5e0011f0a16d1a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "CERVEJA",
+  "session_id": "28013c0e5e0011f0a16d1a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3329
+[INFO] Analysis request completed in 0.89 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:39:02 GMT', 'Content-Type': 'application/json', 'Content-Length': '3329', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'CERVEJA'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 22.13 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:39:03] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:41:33] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3464
+[INFO] Session request completed in 22.86 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:41:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '3464', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 8ea36bda5e0011f0a56b1a26d63db6af
+[INFO] Session started successfully with ID: 8ea36bda5e0011f0a56b1a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 8ea36bda5e0011f0a56b1a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "8ea36bda5e0011f0a56b1a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3594
+[INFO] Analysis request completed in 0.78 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:41:56 GMT', 'Content-Type': 'application/json', 'Content-Length': '3594', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 23.68 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:41:57] "POST /assistente HTTP/1.1" 200 -
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\visualizaJsonMateriasAssociadas.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\visualizaJsonMateriasAssociadas.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\visualizaJsonMateriasAssociadas.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:52:01] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3117
+[INFO] Session request completed in 21.61 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:52:22 GMT', 'Content-Type': 'application/json', 'Content-Length': '3117', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 0531d2fe5e0211f0ac1d1a26d63db6af
+[INFO] Session started successfully with ID: 0531d2fe5e0211f0ac1d1a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 0531d2fe5e0211f0ac1d1a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "0531d2fe5e0211f0ac1d1a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3247
+[INFO] Analysis request completed in 0.46 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:52:23 GMT', 'Content-Type': 'application/json', 'Content-Length': '3247', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 22.09 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:52:24] "POST /assistente HTTP/1.1" 200 -
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\app.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\visualizaJsonMateriasAssociadas.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:58:09] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3093
+[INFO] Session request completed in 18.49 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:58:27 GMT', 'Content-Type': 'application/json', 'Content-Length': '3093', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: e081cbc05e0211f0b8701a26d63db6af
+[INFO] Session started successfully with ID: e081cbc05e0211f0b8701a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: e081cbc05e0211f0b8701a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "e081cbc05e0211f0b8701a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3223
+[INFO] Analysis request completed in 0.75 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:58:28 GMT', 'Content-Type': 'application/json', 'Content-Length': '3223', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully (JSON list)
+[INFO] [REQUEST SUCCESS] Request completed in 19.27 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:58:28] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:59:19] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3318
+[INFO] Session request completed in 19.92 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:59:39 GMT', 'Content-Type': 'application/json', 'Content-Length': '3318', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 0ac5e8945e0311f0a8861a26d63db6af
+[INFO] Session started successfully with ID: 0ac5e8945e0311f0a8861a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 0ac5e8945e0311f0a8861a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "0ac5e8945e0311f0a8861a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3450
+[INFO] Analysis request completed in 0.74 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 02:59:40 GMT', 'Content-Type': 'application/json', 'Content-Length': '3450', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully (JSON list)
+[INFO] [REQUEST SUCCESS] Request completed in 20.71 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [10/Jul/2025 23:59:40] "POST /assistente HTTP/1.1" 200 -
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\app.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[INFO]  * Detected change in 'C:\\Vinícius\\Faculdade\\MDS\\2025-1-NoFluxoUNB\\no_fluxo_backend\\AI-agent\\visualizaJsonMateriasAssociadas.py', reloading
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 00:07:38] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3285
+[INFO] Session request completed in 21.32 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 03:07:59 GMT', 'Content-Type': 'application/json', 'Content-Length': '3285', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 33deb8405e0411f0b65f1a26d63db6af
+[INFO] Session started successfully with ID: 33deb8405e0411f0b65f1a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 33deb8405e0411f0b65f1a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "33deb8405e0411f0b65f1a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3415
+[INFO] Analysis request completed in 0.53 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 03:08:00 GMT', 'Content-Type': 'application/json', 'Content-Length': '3415', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 21.87 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 00:08:00] "POST /assistente HTTP/1.1" 200 -
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 00:09:41] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Gestão'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Gestão'
+[DEBUG] Text after accent removal: 'Gestao'
+[INFO] Materia processed: 'Gestão' -> 'GESTAO'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'GESTAO'
+[DEBUG] Session payload: {
+  "materia": "GESTAO",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3041
+[INFO] Session request completed in 24.96 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 03:10:05 GMT', 'Content-Type': 'application/json', 'Content-Length': '3041', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 7cdfe9925e0411f0afc51a26d63db6af
+[INFO] Session started successfully with ID: 7cdfe9925e0411f0afc51a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'GESTAO' with session: 7cdfe9925e0411f0afc51a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "GESTAO",
+  "session_id": "7cdfe9925e0411f0afc51a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3165
+[INFO] Analysis request completed in 0.74 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 03:10:06 GMT', 'Content-Type': 'application/json', 'Content-Length': '3165', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'GESTAO'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 25.73 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 00:10:07] "POST /assistente HTTP/1.1" 200 -
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.1.47:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.1.47:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024

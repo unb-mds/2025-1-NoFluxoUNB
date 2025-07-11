@@ -6,6 +6,8 @@ import '../../widgets/animated_background.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'dart:math';
+import 'dart:async';
 
 class AssistenteScreen extends StatefulWidget {
   const AssistenteScreen({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class _AssistenteScreenState extends State<AssistenteScreen>
     {
       'isUser': false,
       'text':
-          'Olá! Sou o assistente NoFluxo. Estou aqui para te ajudar a encontrar matérias interessantes para adicionar ao seu fluxograma.\nMe conte quais áreas você tem interesse ou quais habilidades gostaria de desenvolver!'
+          'Olá! Sou o assistente NoFluxo. Estou aqui para te ajudar a encontrar matérias interessantes para adicionar ao seu fluxograma.\nMe conte quais áreas você tem interesse ou quais habilidades gostaria de desenvolver! Tente ser o mais curto possível na sua mensagem, para que eu consiga entender melhor o que você quer.'
     }
   ];
   final List<String> _interestTags = [
@@ -39,6 +41,21 @@ class _AssistenteScreenState extends State<AssistenteScreen>
   bool _isLoading = false;
   late AnimationController _loadingController;
   late Animation<double> _loadingAnimation;
+
+  final List<String> curiosidades = [
+    "🐙 Polvo tem três corações\nDois bombeiam sangue para as guelras, e um para o resto do corpo. Quando ele nada, o coração principal para de bater!",
+    "☕ Cafeína pode ser encontrada em mais de 60 plantas diferentes\nAlém do café, também tem cafeína no chá, cacau, guaraná, e até em algumas folhas que você provavelmente nunca ouviu falar.",
+    "🚀 Astronautas crescem até 5 cm no espaço\nA gravidade menor faz a coluna se expandir temporariamente. Quando voltam pra Terra, voltam ao tamanho normal.",
+    "🧬 Você compartilha cerca de 60% do seu DNA com uma banana\nPor mais maluco que pareça, somos todos parte da mesma grande árvore da vida. 🍌",
+    "🎨 A cor rosa não existe no espectro de luz visível\nEla é uma ilusão criada pelo cérebro como uma mistura de vermelho e azul — que nem se tocam no arco-íris.",
+    "🐶 Cães conseguem sentir o cheiro do tempo\nEles percebem a passagem do tempo com base na concentração de cheiros no ambiente. Meio como se 'cheirassem o passado'.",
+    "🔢 O símbolo \"@\" tem diferentes nomes no mundo\nNo Brasil é \"arroba\", mas na Alemanha é \"Klammeraffe\" (macaco-aranha), e em Israel é chamado de \"strudel\".",
+    "🌎 A Terra é mais redonda do que uma bola de sinuca oficial\nSe você escalasse a Terra para o tamanho de uma bola de sinuca, ela seria mais lisa que a bola!",
+    "🧠 Seu cérebro consome cerca de 20% da sua energia\nMesmo representando só uns 2% do seu peso corporal total.",
+    "📷 A primeira foto de um ser humano foi tirada por acaso\nFoi em 1838, por Louis Daguerre. A rua estava vazia, mas um homem parado engraxando os sapatos ficou tempo suficiente para aparecer.",
+  ];
+  int? _curiosidadeIndex;
+  Timer? _curiosidadeTimer;
 
   @override
   void initState() {
@@ -83,6 +100,24 @@ class _AssistenteScreenState extends State<AssistenteScreen>
     }
   }
 
+  void _startCuriosidadeTimer() {
+    _curiosidadeTimer?.cancel();
+    _curiosidadeIndex = Random().nextInt(curiosidades.length);
+    _curiosidadeTimer = Timer.periodic(const Duration(seconds: 7), (_) {
+      setState(() {
+        int novoIndex;
+        do {
+          novoIndex = Random().nextInt(curiosidades.length);
+        } while (novoIndex == _curiosidadeIndex && curiosidades.length > 1);
+        _curiosidadeIndex = novoIndex;
+      });
+    });
+  }
+
+  void _stopCuriosidadeTimer() {
+    _curiosidadeTimer?.cancel();
+  }
+
   void _enviarMensagem() async {
     final value = _chatController.text.trim();
     if (value.isNotEmpty) {
@@ -90,66 +125,66 @@ class _AssistenteScreenState extends State<AssistenteScreen>
         _messages.add({'isUser': true, 'text': value});
         _chatController.clear();
         _isLoading = true;
+        _curiosidadeIndex = null;
       });
-
-      // Iniciar animação de loading
+      _startCuriosidadeTimer();
       _loadingController.repeat();
 
       final resposta = await _enviarMensagemParaIA(value);
 
-      // Parar animação de loading
       _loadingController.stop();
 
       setState(() {
         _isLoading = false;
         _messages.add({'isUser': false, 'text': resposta});
       });
+      _stopCuriosidadeTimer();
     }
   }
 
   void _enviarMensagemRapida(String tag) async {
-    // Criar uma mensagem mais elaborada baseada na tag selecionada
     String mensagem = _criarMensagemPorTag(tag);
 
     setState(() {
       _messages.add({'isUser': true, 'text': mensagem});
       _isLoading = true;
+      _curiosidadeIndex = null;
     });
-
-    // Iniciar animação de loading
+    _startCuriosidadeTimer();
     _loadingController.repeat();
 
     final resposta = await _enviarMensagemParaIA(mensagem);
 
-    // Parar animação de loading
     _loadingController.stop();
 
     setState(() {
       _isLoading = false;
       _messages.add({'isUser': false, 'text': resposta});
     });
+    _stopCuriosidadeTimer();
   }
 
   String _criarMensagemPorTag(String tag) {
     switch (tag.toLowerCase()) {
       case 'programação':
-        return 'Estou interessado em matérias de programação. Quais disciplinas da UnB você recomenda para desenvolver habilidades de programação?';
+        return 'Programação';
       case 'dados':
-        return 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?';
+        return 'Dados';
       case 'design':
-        return 'Gostaria de aprender sobre design e experiência do usuário. Quais disciplinas da UnB abordam design, UX/UI e áreas criativas?';
+        return 'Design';
       case 'gestão':
-        return 'Quero desenvolver habilidades de gestão e liderança. Que matérias relacionadas a administração, gestão de projetos e empreendedorismo você recomenda?';
+        return 'Gestão';
       case 'pesquisa':
-        return 'Tenho interesse em pesquisa acadêmica e científica. Quais disciplinas podem me ajudar a desenvolver habilidades de pesquisa e metodologia científica?';
+        return 'Pesquisa';
       case 'inovação':
-        return 'Estou interessado em inovação e tecnologia. Que matérias abordam temas como inovação, startups, tecnologias emergentes e empreendedorismo tecnológico?';
+        return 'Inovação';
       default:
         return 'Estou interessado em $tag. Que matérias relacionadas a essa área você recomenda?';
     }
   }
 
   Widget _buildLoadingMessage() {
+    final curiosidade = curiosidades[_curiosidadeIndex ?? 0];
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
@@ -186,53 +221,76 @@ class _AssistenteScreenState extends State<AssistenteScreen>
                   bottomRight: const Radius.circular(16),
                 ),
               ),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AnimatedBuilder(
-                    animation: _loadingAnimation,
-                    builder: (context, child) {
-                      return Row(
-                        children: [
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8B5CF6),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8B5CF6).withOpacity(
-                                0.5 + (0.5 * _loadingAnimation.value),
+                  Row(
+                    children: [
+                      AnimatedBuilder(
+                        animation: _loadingAnimation,
+                        builder: (context, child) {
+                          return Row(
+                            children: [
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6),
+                                  shape: BoxShape.circle,
+                                ),
                               ),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8B5CF6).withOpacity(
-                                0.3 + (0.7 * _loadingAnimation.value),
+                              const SizedBox(width: 4),
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6).withOpacity(
+                                    0.5 + (0.5 * _loadingAnimation.value),
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
                               ),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                              const SizedBox(width: 4),
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6).withOpacity(
+                                    0.3 + (0.7 * _loadingAnimation.value),
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                      const SizedBox(width: 12),
+                      Text(
+                        'IA está pensando...',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white.withOpacity(0.7),
+                          fontSize: 14,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(height: 10),
                   Text(
-                    'IA está pensando...',
+                    'Você sabia?',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.8),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    curiosidade,
                     style: GoogleFonts.poppins(
                       color: Colors.white.withOpacity(0.7),
-                      fontSize: 14,
+                      fontSize: 12,
                       fontStyle: FontStyle.italic,
                     ),
                   ),
