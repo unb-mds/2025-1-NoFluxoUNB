@@ -8,42 +8,23 @@ echo "📂 Working directory: $(pwd)"
 echo "🌱 Environment: ${NODE_ENV:-development}"
 echo "🌿 Branch: ${GIT_BRANCH:-main}"
 
-# Create git config directory for appuser with proper permissions
-echo "🔧 Setting up git configuration directory..."
-sudo mkdir -p /home/appuser
-sudo touch /home/appuser/.gitconfig
-sudo chown appuser:appuser /home/appuser /home/appuser/.gitconfig
+# Fix ownership and permissions of ALL mounted files to prevent git issues
+echo "🔧 Fixing all mounted file permissions..."
+cd /app
 
-# Fix ownership of mounted repository for git operations
-echo "🔧 Fixing mounted repository permissions..."
-if [ -d "/app/.git" ]; then
-    # Check if .git directory has content
-    GIT_CONTENT_COUNT=$(find /app/.git -type f 2>/dev/null | wc -l)
-    echo "🔍 Found $GIT_CONTENT_COUNT files in .git directory"
-    
-    if [ "$GIT_CONTENT_COUNT" -lt 5 ]; then
-        echo "⚠️  .git directory appears incomplete (only $GIT_CONTENT_COUNT files)"
-        echo "💡 This usually means the host repository is not properly initialized"
-        echo "💡 Please ensure you run 'git init' and have commits in the host repository"
-    else
-        echo "✅ .git directory appears to have content"
-    fi
-    
-    # Fix ownership of .git directory
-    sudo chown -R appuser:appuser /app/.git
-    echo "✅ Fixed .git directory ownership"
-else
-    echo "⚠️  .git directory not found - auto-updates will not work"
-fi
+# Fix ownership of the entire mounted directory
+chown -R root:root /app 2>/dev/null || echo "📝 Some files may not be owned by root (normal)"
 
-# Fix ownership of all directories including mounted files
-sudo chown -R appuser:appuser /app/logs /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories don't exist yet (normal)"
-sudo chmod 775 /app/logs 2>/dev/null || echo "📝 /app/logs directory setup"
+# Fix permissions specifically for git-managed files that need to be writable
+echo "🔧 Setting write permissions for git-managed files..."
+chmod 666 docker-compose.yml nginx.conf view-logs.sh test-env.sh test-git.sh Dockerfile 2>/dev/null || echo "📝 Some files don't exist yet (normal)"
 
-# Fix ownership of key files that need to be updatable by git
-echo "🔧 Fixing ownership of git-managed files..."
-sudo chown appuser:appuser /app/docker-compose.yml /app/nginx.conf /app/view-logs.sh /app/test-env.sh /app/test-git.sh /app/Dockerfile 2>/dev/null || echo "📝 Some files don't exist yet (normal)"
-sudo chmod 664 /app/docker-compose.yml /app/nginx.conf /app/view-logs.sh /app/test-env.sh /app/test-git.sh /app/Dockerfile 2>/dev/null || echo "📝 File permissions setup"
+# Fix permissions for directories
+chmod -R 755 /app 2>/dev/null || echo "📝 Directory permissions setup"
+
+# Create necessary directories with proper permissions
+mkdir -p /app/logs /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Some directories already exist"
+chmod 775 /app/logs /app/no_fluxo_backend/logs /app/fork_repo 2>/dev/null || echo "📝 Directory permissions setup"
 
 # Configure git for mounted volumes
 echo "🔧 Configuring git for mounted directories..."
@@ -55,6 +36,22 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 # Set basic git configuration if not set
 git config --global user.email "docker@nofluxo.com" 2>/dev/null || true
 git config --global user.name "Docker Container" 2>/dev/null || true
+
+# Set git pull configuration to avoid warnings
+git config --global pull.rebase false 2>/dev/null || true
+
+# Fix .git directory permissions if it exists
+if [ -d "/app/.git" ]; then
+    echo "🔧 Fixing .git directory permissions..."
+    chown -R root:root /app/.git
+    chmod -R 755 /app/.git
+    
+    # Make sure git index and other critical files are writable
+    chmod 644 /app/.git/index 2>/dev/null || echo "📝 Git index file setup"
+    chmod 644 /app/.git/HEAD 2>/dev/null || echo "📝 Git HEAD file setup"
+    chmod -R 644 /app/.git/refs 2>/dev/null || echo "📝 Git refs setup"
+    chmod -R 644 /app/.git/objects 2>/dev/null || echo "📝 Git objects setup"
+fi
 
 # Verify git setup and debug permissions
 if [ -d "/app/.git" ]; then
@@ -206,21 +203,18 @@ if [ -n "$FORK_URL" ] && [ "$FORK_URL" != "" ]; then
         fi
     fi
     
-    # Add fork location to command if cloning was successful
+    # Add fork location to the command if successfully set up
     if [ -n "$FORK_DIR" ] && [ -d "$FORK_DIR" ]; then
-        echo "🎯 Using fork location: $FORK_DIR"
         COMMAND="$COMMAND --fork-location \"$FORK_DIR\""
-    else
-        echo "⚠️  Fork cloning failed, continuing without fork sync"
+        echo "✅ Fork repository will be synced"
     fi
 else
-    echo "📝 No fork URL configured (updates will only affect main repo)"
+    echo "📝 No fork URL configured, skipping fork setup"
 fi
 
-# Mask the token in the output for security
-MASKED_COMMAND=$(echo "$COMMAND" | sed 's/--git-token "[^"]*"/--git-token "***"/g')
-echo "🚀 Starting with command: $MASKED_COMMAND"
-echo "============================================"
+# Fix any remaining permission issues before starting
+echo "🔧 Final permission fixes..."
+chmod 666 /app/docker-compose.yml /app/nginx.conf /app/view-logs.sh /app/test-env.sh /app/test-git.sh /app/Dockerfile 2>/dev/null || echo "📝 Some files don't exist yet (normal)"
 
-# Execute the command
-eval $COMMAND 
+echo "🚀 Starting application with command: $COMMAND"
+exec bash -c "$COMMAND" 
