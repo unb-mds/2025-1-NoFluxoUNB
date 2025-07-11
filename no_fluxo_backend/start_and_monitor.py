@@ -336,6 +336,7 @@ def pull_updates(repo_dir, branch):
         log_message("Python: Continuing with existing code despite update failure")
     finally:
         os.chdir(original_dir)
+        
 
 def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
     """Update the fork repository with the latest changes from current branch to main.
