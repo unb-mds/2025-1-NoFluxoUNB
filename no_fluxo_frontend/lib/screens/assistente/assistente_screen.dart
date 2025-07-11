@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/environment.dart';
 import '../../widgets/app_navbar.dart';
 import '../../widgets/animated_background.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'dart:math';
+import 'dart:async';
 
 class AssistenteScreen extends StatefulWidget {
   const AssistenteScreen({Key? key}) : super(key: key);
@@ -13,13 +16,14 @@ class AssistenteScreen extends StatefulWidget {
   State<AssistenteScreen> createState() => _AssistenteScreenState();
 }
 
-class _AssistenteScreenState extends State<AssistenteScreen> with TickerProviderStateMixin {
+class _AssistenteScreenState extends State<AssistenteScreen>
+    with TickerProviderStateMixin {
   final TextEditingController _chatController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [
     {
       'isUser': false,
       'text':
-          'Olá! Sou o assistente NoFluxo. Estou aqui para te ajudar a encontrar matérias interessantes para adicionar ao seu fluxograma.\nMe conte quais áreas você tem interesse ou quais habilidades gostaria de desenvolver!'
+          'Olá! Sou o assistente NoFluxo. Estou aqui para te ajudar a encontrar matérias interessantes para adicionar ao seu fluxograma.\nMe conte quais áreas você tem interesse ou quais habilidades gostaria de desenvolver! Tente ser o mais curto possível na sua mensagem, para que eu consiga entender melhor o que você quer.'
     }
   ];
   final List<String> _interestTags = [
@@ -32,11 +36,26 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
   ];
   final List<String> _selectedInterests = [];
   final List<String> _selectedCourses = [];
-  
+
   // Estado de loading
   bool _isLoading = false;
   late AnimationController _loadingController;
   late Animation<double> _loadingAnimation;
+
+  final List<String> curiosidades = [
+    "🐙 Polvo tem três corações\nDois bombeiam sangue para as guelras, e um para o resto do corpo. Quando ele nada, o coração principal para de bater!",
+    "☕ Cafeína pode ser encontrada em mais de 60 plantas diferentes\nAlém do café, também tem cafeína no chá, cacau, guaraná, e até em algumas folhas que você provavelmente nunca ouviu falar.",
+    "🚀 Astronautas crescem até 5 cm no espaço\nA gravidade menor faz a coluna se expandir temporariamente. Quando voltam pra Terra, voltam ao tamanho normal.",
+    "🧬 Você compartilha cerca de 60% do seu DNA com uma banana\nPor mais maluco que pareça, somos todos parte da mesma grande árvore da vida. 🍌",
+    "🎨 A cor rosa não existe no espectro de luz visível\nEla é uma ilusão criada pelo cérebro como uma mistura de vermelho e azul — que nem se tocam no arco-íris.",
+    "🐶 Cães conseguem sentir o cheiro do tempo\nEles percebem a passagem do tempo com base na concentração de cheiros no ambiente. Meio como se 'cheirassem o passado'.",
+    "🔢 O símbolo \"@\" tem diferentes nomes no mundo\nNo Brasil é \"arroba\", mas na Alemanha é \"Klammeraffe\" (macaco-aranha), e em Israel é chamado de \"strudel\".",
+    "🌎 A Terra é mais redonda do que uma bola de sinuca oficial\nSe você escalasse a Terra para o tamanho de uma bola de sinuca, ela seria mais lisa que a bola!",
+    "🧠 Seu cérebro consome cerca de 20% da sua energia\nMesmo representando só uns 2% do seu peso corporal total.",
+    "📷 A primeira foto de um ser humano foi tirada por acaso\nFoi em 1838, por Louis Daguerre. A rua estava vazia, mas um homem parado engraxando os sapatos ficou tempo suficiente para aparecer.",
+  ];
+  int? _curiosidadeIndex;
+  Timer? _curiosidadeTimer;
 
   @override
   void initState() {
@@ -63,7 +82,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
   // Função para enviar mensagem ao backend da IA
   Future<String> _enviarMensagemParaIA(String mensagem) async {
     // Troque o IP abaixo pelo IP do seu backend se necessário
-    final url = Uri.parse('http://127.0.0.1:4652/assistente');
+    final url = Uri.parse('${Environment.agentUrl}/assistente');
     try {
       final response = await http.post(
         url,
@@ -81,6 +100,24 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
     }
   }
 
+  void _startCuriosidadeTimer() {
+    _curiosidadeTimer?.cancel();
+    _curiosidadeIndex = Random().nextInt(curiosidades.length);
+    _curiosidadeTimer = Timer.periodic(const Duration(seconds: 7), (_) {
+      setState(() {
+        int novoIndex;
+        do {
+          novoIndex = Random().nextInt(curiosidades.length);
+        } while (novoIndex == _curiosidadeIndex && curiosidades.length > 1);
+        _curiosidadeIndex = novoIndex;
+      });
+    });
+  }
+
+  void _stopCuriosidadeTimer() {
+    _curiosidadeTimer?.cancel();
+  }
+
   void _enviarMensagem() async {
     final value = _chatController.text.trim();
     if (value.isNotEmpty) {
@@ -88,66 +125,66 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
         _messages.add({'isUser': true, 'text': value});
         _chatController.clear();
         _isLoading = true;
+        _curiosidadeIndex = null;
       });
-      
-      // Iniciar animação de loading
+      _startCuriosidadeTimer();
       _loadingController.repeat();
-      
+
       final resposta = await _enviarMensagemParaIA(value);
-      
-      // Parar animação de loading
+
       _loadingController.stop();
-      
+
       setState(() {
         _isLoading = false;
         _messages.add({'isUser': false, 'text': resposta});
       });
+      _stopCuriosidadeTimer();
     }
   }
 
   void _enviarMensagemRapida(String tag) async {
-    // Criar uma mensagem mais elaborada baseada na tag selecionada
     String mensagem = _criarMensagemPorTag(tag);
-    
+
     setState(() {
       _messages.add({'isUser': true, 'text': mensagem});
       _isLoading = true;
+      _curiosidadeIndex = null;
     });
-    
-    // Iniciar animação de loading
+    _startCuriosidadeTimer();
     _loadingController.repeat();
-    
+
     final resposta = await _enviarMensagemParaIA(mensagem);
-    
-    // Parar animação de loading
+
     _loadingController.stop();
-    
+
     setState(() {
       _isLoading = false;
       _messages.add({'isUser': false, 'text': resposta});
     });
+    _stopCuriosidadeTimer();
   }
 
   String _criarMensagemPorTag(String tag) {
     switch (tag.toLowerCase()) {
       case 'programação':
-        return 'Estou interessado em matérias de programação. Quais disciplinas da UnB você recomenda para desenvolver habilidades de programação?';
+        return 'Programação';
       case 'dados':
-        return 'Tenho interesse em trabalhar com dados e análise. Que matérias relacionadas a ciência de dados, estatística e análise você sugere?';
+        return 'Dados';
       case 'design':
-        return 'Gostaria de aprender sobre design e experiência do usuário. Quais disciplinas da UnB abordam design, UX/UI e áreas criativas?';
+        return 'Design';
       case 'gestão':
-        return 'Quero desenvolver habilidades de gestão e liderança. Que matérias relacionadas a administração, gestão de projetos e empreendedorismo você recomenda?';
+        return 'Gestão';
       case 'pesquisa':
-        return 'Tenho interesse em pesquisa acadêmica e científica. Quais disciplinas podem me ajudar a desenvolver habilidades de pesquisa e metodologia científica?';
+        return 'Pesquisa';
       case 'inovação':
-        return 'Estou interessado em inovação e tecnologia. Que matérias abordam temas como inovação, startups, tecnologias emergentes e empreendedorismo tecnológico?';
+        return 'Inovação';
       default:
         return 'Estou interessado em $tag. Que matérias relacionadas a essa área você recomenda?';
     }
   }
 
   Widget _buildLoadingMessage() {
+    final curiosidade = curiosidades[_curiosidadeIndex ?? 0];
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Row(
@@ -184,53 +221,76 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                   bottomRight: const Radius.circular(16),
                 ),
               ),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AnimatedBuilder(
-                    animation: _loadingAnimation,
-                    builder: (context, child) {
-                      return Row(
-                        children: [
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8B5CF6),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8B5CF6).withOpacity(
-                                0.5 + (0.5 * _loadingAnimation.value),
+                  Row(
+                    children: [
+                      AnimatedBuilder(
+                        animation: _loadingAnimation,
+                        builder: (context, child) {
+                          return Row(
+                            children: [
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6),
+                                  shape: BoxShape.circle,
+                                ),
                               ),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF8B5CF6).withOpacity(
-                                0.3 + (0.7 * _loadingAnimation.value),
+                              const SizedBox(width: 4),
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6).withOpacity(
+                                    0.5 + (0.5 * _loadingAnimation.value),
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
                               ),
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ],
-                      );
-                    },
+                              const SizedBox(width: 4),
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF8B5CF6).withOpacity(
+                                    0.3 + (0.7 * _loadingAnimation.value),
+                                  ),
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                      const SizedBox(width: 12),
+                      Text(
+                        'IA está pensando...',
+                        style: GoogleFonts.poppins(
+                          color: Colors.white.withOpacity(0.7),
+                          fontSize: 14,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(height: 10),
                   Text(
-                    'IA está pensando...',
+                    'Você sabia?',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white.withOpacity(0.8),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    curiosidade,
                     style: GoogleFonts.poppins(
                       color: Colors.white.withOpacity(0.7),
-                      fontSize: 14,
+                      fontSize: 12,
                       fontStyle: FontStyle.italic,
                     ),
                   ),
@@ -272,7 +332,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
+              decoration: BoxDecoration(
                 color: msg['isUser']
                     ? const Color(0xFF8B5CF6).withOpacity(0.8)
                     : Colors.white.withOpacity(0.1),
@@ -284,6 +344,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                 ),
               ),
               child: MarkdownBody(
+                styleSheetTheme: MarkdownStyleSheetBaseTheme.cupertino,
                 data: msg['text'],
                 styleSheet: MarkdownStyleSheet(
                   p: GoogleFonts.poppins(
@@ -295,6 +356,99 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
+                  em: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  a: GoogleFonts.poppins(
+                    color: const Color(0xFF60A5FA),
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                  ),
+                  h1: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h2: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h3: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h4: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h5: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h6: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  code: GoogleFonts.jetBrainsMono(
+                    color: const Color(0xFF22C55E),
+                    fontSize: 14,
+                    backgroundColor: Colors.black.withOpacity(0.3),
+                  ),
+                  blockquote: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  del: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 16,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                  listBullet: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  tableHead: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  tableBody: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  tableCellsDecoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                  ),
+                  tableBorder: TableBorder.all(
+                    color: Colors.white.withOpacity(0.2),
+                    width: 1,
+                  ),
+                  tableCellsPadding: const EdgeInsets.all(8),
+                  codeblockDecoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  blockquoteDecoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(
+                        color: const Color(0xFF8B5CF6),
+                        width: 4,
+                      ),
+                    ),
+                  ),
+                  blockquotePadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  codeblockPadding: const EdgeInsets.all(12),
                 ),
               ),
             ),
@@ -423,38 +577,39 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
               Expanded(
                 child: SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-                  child: Row(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 24),
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                      children: [
                         // Chat principal (2/3)
-                      Expanded(
-                        flex: 2,
+                        Expanded(
+                          flex: 2,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               // Header do chat
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ASSISTENTE ',
-                                      style: GoogleFonts.permanentMarker(
-                                        color: Colors.white,
+                                children: [
+                                  Text(
+                                    'ASSISTENTE ',
+                                    style: GoogleFonts.permanentMarker(
+                                      color: Colors.white,
                                       fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 2,
-                                      ),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 2,
                                     ),
-                                    Text(
-                                      'NOFLUXO',
-                                      style: GoogleFonts.permanentMarker(
+                                  ),
+                                  Text(
+                                    'NOFLUXO',
+                                    style: GoogleFonts.permanentMarker(
                                       color: const Color(0xFFFF277E),
                                       fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 2,
-                                      ),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 2,
                                     ),
+                                  ),
                                   const SizedBox(width: 16),
                                   Container(
                                     width: 10,
@@ -462,7 +617,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                     decoration: const BoxDecoration(
                                       color: Colors.green,
                                       shape: BoxShape.circle,
-                                ),
+                                    ),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
@@ -478,8 +633,9 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                               // Chat Container
                               Expanded(
                                 child: Center(
-                                    child: Container(
-                                    constraints: const BoxConstraints(maxWidth: 900),
+                                  child: Container(
+                                    constraints:
+                                        const BoxConstraints(maxWidth: 900),
                                     decoration: BoxDecoration(
                                       color: Colors.white.withOpacity(0.07),
                                       borderRadius: BorderRadius.circular(18),
@@ -487,21 +643,34 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                         color: Colors.white.withOpacity(0.08),
                                       ),
                                     ),
-                                      child: Column(
-                                        children: [
-                                          Expanded(
+                                    child: Column(
+                                      children: [
+                                        Expanded(
                                           child: Padding(
-                                            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 24, horizontal: 24),
                                             child: ListView.builder(
                                               padding: EdgeInsets.zero,
-                                              itemCount: _messages.length + (_messages.length == 1 ? 1 : 0) + (_isLoading ? 1 : 0),
+                                              itemCount: _messages.length +
+                                                  (_messages.length == 1
+                                                      ? 1
+                                                      : 0) +
+                                                  (_isLoading ? 1 : 0),
                                               itemBuilder: (context, index) {
                                                 if (index < _messages.length) {
-                                                final msg = _messages[index];
+                                                  final msg = _messages[index];
                                                   return _buildMessage(msg);
-                                                } else if (index == _messages.length && _messages.length == 1) {
+                                                } else if (index ==
+                                                        _messages.length &&
+                                                    _messages.length == 1) {
                                                   return _buildInterestTags();
-                                                } else if (_isLoading && index == _messages.length + (_messages.length == 1 ? 1 : 0)) {
+                                                } else if (_isLoading &&
+                                                    index ==
+                                                        _messages.length +
+                                                            (_messages.length ==
+                                                                    1
+                                                                ? 1
+                                                                : 0)) {
                                                   return _buildLoadingMessage();
                                                 } else {
                                                   return _buildInterestTags();
@@ -511,46 +680,58 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                           ),
                                         ),
                                         // Campo de input colado na base
-                                                Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20, vertical: 12),
                                           decoration: BoxDecoration(
                                             border: Border(
                                               top: BorderSide(
-                                                color: Colors.white.withOpacity(0.08),
-                                                      ),
-                                                    ),
-                                                  ),
+                                                color: Colors.white
+                                                    .withOpacity(0.08),
+                                              ),
+                                            ),
+                                          ),
                                           child: Row(
                                             children: [
-                                                Expanded(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                    color: Colors.white.withOpacity(0.08),
-                                                    borderRadius: BorderRadius.circular(24),
+                                              Expanded(
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white
+                                                        .withOpacity(0.08),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
                                                     border: Border.all(
-                                                      color: Colors.white.withOpacity(0.18),
-                                                                ),
-                                                              ),
+                                                      color: Colors.white
+                                                          .withOpacity(0.18),
+                                                    ),
+                                                  ),
                                                   child: TextField(
                                                     controller: _chatController,
                                                     style: GoogleFonts.poppins(
-                                                        color: Colors.white,
+                                                      color: Colors.white,
                                                       fontSize: 16,
                                                     ),
                                                     decoration: InputDecoration(
-                                                      hintText: 'Digite sua mensagem...',
-                                                      hintStyle: GoogleFonts.poppins(
+                                                      hintText:
+                                                          'Digite sua mensagem...',
+                                                      hintStyle:
+                                                          GoogleFonts.poppins(
                                                         color: Colors.white54,
                                                         fontSize: 16,
                                                       ),
                                                       border: InputBorder.none,
-                                                      contentPadding: const EdgeInsets.symmetric(
+                                                      contentPadding:
+                                                          const EdgeInsets
+                                                              .symmetric(
                                                         horizontal: 20,
                                                         vertical: 16,
                                                       ),
                                                     ),
                                                     onSubmitted: (value) {
-                                                      if (value.trim().isNotEmpty) {
+                                                      if (value
+                                                          .trim()
+                                                          .isNotEmpty) {
                                                         _enviarMensagem();
                                                       }
                                                     },
@@ -559,32 +740,40 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                               ),
                                               const SizedBox(width: 10),
                                               GestureDetector(
-                                                    onTap: () {
-                                                  final value = _chatController.text.trim();
-                                                      if (value.isNotEmpty) {
-                                                        _enviarMensagem();
-                                                      }
-                                                    },
-                                                      child: Container(
+                                                onTap: () {
+                                                  final value = _chatController
+                                                      .text
+                                                      .trim();
+                                                  if (value.isNotEmpty) {
+                                                    _enviarMensagem();
+                                                  }
+                                                },
+                                                child: Container(
                                                   width: 48,
                                                   height: 48,
                                                   decoration: BoxDecoration(
-                                                    gradient: const LinearGradient(
-                                                      colors: [Color(0xFF8B5CF6), Color(0xFFEC4899)],
+                                                    gradient:
+                                                        const LinearGradient(
+                                                      colors: [
+                                                        Color(0xFF8B5CF6),
+                                                        Color(0xFFEC4899)
+                                                      ],
                                                     ),
-                                                    borderRadius: BorderRadius.circular(24),
-                                                        ),
-                                                        child: const Icon(
-                                                            Icons.send,
-                                                            color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
+                                                  ),
+                                                  child: const Icon(
+                                                    Icons.send,
+                                                    color: Colors.white,
                                                     size: 24,
-                                                    ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -594,13 +783,13 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                         ),
                         const SizedBox(width: 8),
                         // Painel lateral (1/3)
-                      Expanded(
-                        flex: 1,
+                        Expanded(
+                          flex: 1,
                           child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisSize: MainAxisSize.min,
-                            children: [
+                              children: [
                                 // Matérias Selecionadas
                                 Container(
                                   width: 500,
@@ -614,13 +803,14 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
                                         'Matérias Selecionadas',
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
-                                              fontSize: 20,
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                         ),
                                         textAlign: TextAlign.center,
@@ -628,59 +818,71 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                       const SizedBox(height: 16),
                                       if (_selectedCourses.isEmpty)
                                         Column(
-                                                  children: [
+                                          children: [
                                             Icon(
                                               Icons.menu_book,
-                                              color: Colors.white.withOpacity(0.5),
+                                              color:
+                                                  Colors.white.withOpacity(0.5),
                                               size: 48,
                                             ),
-                                                    const SizedBox(height: 8),
+                                            const SizedBox(height: 8),
                                             Text(
-                                                        'Nenhuma matéria selecionada',
+                                              'Nenhuma matéria selecionada',
                                               style: GoogleFonts.poppins(
-                                                color: Colors.white.withOpacity(0.5),
+                                                color: Colors.white
+                                                    .withOpacity(0.5),
                                                 fontSize: 14,
-                                                ),
+                                              ),
                                             ),
                                           ],
                                         )
                                       else
                                         Column(
-                                          children: _selectedCourses.map((course) => 
-                                            Container(
-                                              margin: const EdgeInsets.only(bottom: 8),
-                                              padding: const EdgeInsets.all(12),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white.withOpacity(0.1),
-                                                borderRadius: BorderRadius.circular(8),
-                                              ),
-                                              child: Row(
-                                                children: [
-                                                  Expanded(
-                                                    child: Text(
-                                                      course,
-                                                      style: GoogleFonts.poppins(
-                                                        color: Colors.white,
-                                                        fontSize: 14,
-                                                      ),
-                                                    ),
+                                          children: _selectedCourses
+                                              .map(
+                                                (course) => Container(
+                                                  margin: const EdgeInsets.only(
+                                                      bottom: 8),
+                                                  padding:
+                                                      const EdgeInsets.all(12),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white
+                                                        .withOpacity(0.1),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
                                                   ),
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                              setState(() {
-                                                        _selectedCourses.remove(course);
-                                                              });
-                                                            },
-                                                    child: Icon(
-                                                      Icons.close,
-                                                      color: Colors.white.withOpacity(0.7),
-                                                      size: 20,
-                                                    ),
+                                                  child: Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: Text(
+                                                          course,
+                                                          style: GoogleFonts
+                                                              .poppins(
+                                                            color: Colors.white,
+                                                            fontSize: 14,
                                                           ),
-                                                ],
-                                              ),
-                                      ),
-                                          ).toList(),
+                                                        ),
+                                                      ),
+                                                      GestureDetector(
+                                                        onTap: () {
+                                                          setState(() {
+                                                            _selectedCourses
+                                                                .remove(course);
+                                                          });
+                                                        },
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          color: Colors.white
+                                                              .withOpacity(0.7),
+                                                          size: 20,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              )
+                                              .toList(),
                                         ),
                                       const SizedBox(height: 16),
                                       SizedBox(
@@ -688,25 +890,32 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.transparent,
-                                            padding: const EdgeInsets.symmetric(vertical: 14),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 14),
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(8),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
                                             ),
                                           ),
                                           onPressed: () {},
                                           child: Container(
                                             width: double.infinity,
-                                            padding: const EdgeInsets.symmetric(vertical: 12),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 12),
                                             decoration: BoxDecoration(
                                               gradient: const LinearGradient(
-                                                colors: [Color(0xFF8B5CF6), Color(0xFFEC4899)],
+                                                colors: [
+                                                  Color(0xFF8B5CF6),
+                                                  Color(0xFFEC4899)
+                                                ],
                                               ),
-                                              borderRadius: BorderRadius.circular(8),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
                                             ),
                                             child: Text(
                                               'ADICIONAR AO FLUXOGRAMA',
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
+                                              style: GoogleFonts.poppins(
+                                                color: Colors.white,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,
                                               ),
@@ -730,7 +939,8 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Seu Fluxograma',
@@ -738,14 +948,15 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                           color: Colors.white,
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 16),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 16),
                                       Container(
                                         padding: const EdgeInsets.all(12),
                                         decoration: BoxDecoration(
                                           color: Colors.black.withOpacity(0.5),
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
                                         ),
                                         child: SingleChildScrollView(
                                           scrollDirection: Axis.horizontal,
@@ -761,42 +972,44 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                 ),
                                 // Botão fora do container do SVG
                                 const SizedBox(height: 18),
-                               SizedBox(
-                                 width: double.infinity,
-                                 child: ElevatedButton(
-                                   style: ElevatedButton.styleFrom(
-                                       backgroundColor: Colors.white.withOpacity(0.1),
-                                       padding: const EdgeInsets.symmetric(vertical: 14),
-                                     shape: RoundedRectangleBorder(
-                                         borderRadius: BorderRadius.circular(8),
-                                       ),
-                                   ),
-                                   onPressed: () {},
-                                     child: Text(
-                                       'VER FLUXOGRAMA COMPLETO',
-                                       style: GoogleFonts.poppins(
-                                           color: Colors.white,
-                                         fontWeight: FontWeight.bold,
-                                         fontSize: 15,
-                                       ),
-                                     ),
-                                 ),
-                               ),
-                             ],
-                           ),
-                         ),
-                       ),
-                     ],
-                       ),
-                   ),
-                 ),
-               ),
-             ],
-           ),
-         ],
-       ),
-     );
-   }
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Colors.white.withOpacity(0.1),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 14),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Text(
+                                      'VER FLUXOGRAMA COMPLETO',
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildFluxogramPreview() {
     return CustomPaint(
@@ -820,28 +1033,48 @@ class _FluxogramPreviewPainter extends CustomPainter {
     _drawText(canvas, '4º Semestre', const Offset(50, 230), 12);
 
     // Semester 1 - Completed (green)
-    _drawSubjectBox(canvas, 'Algoritmos', const Offset(60, 55), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Cálculo 1', const Offset(150, 55), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'APC', const Offset(240, 55), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Introdução ES', const Offset(330, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Algoritmos', const Offset(60, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Cálculo 1', const Offset(150, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'APC', const Offset(240, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(canvas, 'Introdução ES', const Offset(330, 55),
+        const Color(0xFF4ADE80));
 
     // Semester 2 - Completed (green)
-    _drawSubjectBox(canvas, 'EDA', const Offset(60, 125), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Cálculo 2', const Offset(150, 125), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'OO', const Offset(240, 125), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Requisitos', const Offset(330, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'EDA', const Offset(60, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Cálculo 2', const Offset(150, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'OO', const Offset(240, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Requisitos', const Offset(330, 125), const Color(0xFF4ADE80));
 
     // Semester 3 - Current (purple/red)
-    _drawSubjectBox(canvas, 'Projeto 1', const Offset(60, 195), const Color(0xFFA78BFA));
-    _drawSubjectBox(canvas, 'Métodos', const Offset(150, 195), const Color(0xFFA78BFA));
-    _drawSubjectBox(canvas, 'Arquitetura', const Offset(240, 195), const Color(0xFFA78BFA));
-    _drawSubjectBox(canvas, 'Bancos de Dados', const Offset(330, 195), const Color(0xFFFB7185));
+    _drawSubjectBox(
+        canvas, 'Projeto 1', const Offset(60, 195), const Color(0xFFA78BFA));
+    _drawSubjectBox(
+        canvas, 'Métodos', const Offset(150, 195), const Color(0xFFA78BFA));
+    _drawSubjectBox(
+        canvas, 'Arquitetura', const Offset(240, 195), const Color(0xFFA78BFA));
+    _drawSubjectBox(canvas, 'Bancos de Dados', const Offset(330, 195),
+        const Color(0xFFFB7185));
 
     // Semester 4 - Future (gray)
-    _drawSubjectBox(canvas, 'Projeto 2', const Offset(60, 265), const Color(0xFF475569), opacity: 0.4);
-    _drawSubjectBox(canvas, 'Qualidade', const Offset(150, 265), const Color(0xFF475569), opacity: 0.4);
-    _drawSubjectBox(canvas, 'Testes', const Offset(240, 265), const Color(0xFF475569), opacity: 0.4);
-    _drawSubjectBox(canvas, 'GPP', const Offset(330, 265), const Color(0xFF475569), opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'Projeto 2', const Offset(60, 265), const Color(0xFF475569),
+        opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'Qualidade', const Offset(150, 265), const Color(0xFF475569),
+        opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'Testes', const Offset(240, 265), const Color(0xFF475569),
+        opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'GPP', const Offset(330, 265), const Color(0xFF475569),
+        opacity: 0.4);
 
     // Connection lines
     for (int i = 0; i < 4; i++) {
@@ -864,7 +1097,8 @@ class _FluxogramPreviewPainter extends CustomPainter {
     }
   }
 
-  void _drawSubjectBox(Canvas canvas, String text, Offset center, Color color, {double opacity = 0.8}) {
+  void _drawSubjectBox(Canvas canvas, String text, Offset center, Color color,
+      {double opacity = 0.8}) {
     final rect = Rect.fromCenter(
       center: center,
       width: 80,
@@ -895,7 +1129,8 @@ class _FluxogramPreviewPainter extends CustomPainter {
     _drawText(canvas, text, center, 10, opacity: opacity);
   }
 
-  void _drawText(Canvas canvas, String text, Offset center, double fontSize, {double opacity = 1.0}) {
+  void _drawText(Canvas canvas, String text, Offset center, double fontSize,
+      {double opacity = 1.0}) {
     final textPainter = TextPainter(
       text: TextSpan(
         text: text,

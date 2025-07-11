@@ -14,6 +14,7 @@ import { UsersController } from './controllers/users_controller';
 import { spawn } from 'child_process';
 import path from 'path';
 import { CursosController } from './controllers/cursos_controller';
+import { MateriasController } from './controllers/materias_controller';
 
 dotenv.config();
 
@@ -21,7 +22,7 @@ SupabaseWrapper.init();
 logger.info('Supabase client initialized');
 
 // start the ragflow agent server
-const ragflowAgentProcess = spawn('python', ['AI-agent/app.py', "--port", "4652"], {
+const ragflowAgentProcess = spawn('python', ['ai_agent/app.py', "--port", "4652"], {
     cwd: path.join(__dirname, '..')
 });
 
@@ -30,7 +31,17 @@ ragflowAgentProcess.stdout.on('data', (data) => {
 });
 
 ragflowAgentProcess.stderr.on('data', (data) => {
-    logger.error(`\b[RAGFlow Agent] ${data}`);
+    var dataString = data.toString();
+    if (dataString[0] == "[") {
+        dataString = "\b" + dataString;
+    }
+    if (dataString.toLowerCase().includes("info")) {
+        logger.info(`\b[RAGFlow Agent] ${data}`);
+    } else if (dataString.toLowerCase().includes("warning")) {
+        logger.warn(`\b[RAGFlow Agent] ${data}`);
+    } else {
+        logger.error(`\b[RAGFlow Agent] ${data}`);
+    }
 });
 
 ragflowAgentProcess.on('close', (code) => {
@@ -49,7 +60,17 @@ pythonProcess.stdout.on('data', (data) => {
 });
 
 pythonProcess.stderr.on('data', (data) => {
-    logger.error(`\b[PDF Parser] ${data}`);
+    var dataString = data.toString();
+    if (dataString[0] == "[") {
+        dataString = "\b" + dataString;
+    }
+    if (dataString.toLowerCase().includes("info")) {
+        logger.info(`\b[PDF Parser] ${data}`);
+    } else if (dataString.toLowerCase().includes("warning")) {
+        logger.warn(`\b[PDF Parser] ${data}`);
+    } else {
+        logger.error(`\b[PDF Parser] ${data}`);
+    }
 });
 
 pythonProcess.on('close', (code) => {
@@ -75,6 +96,12 @@ process.on('SIGINT', () => {
     process.exit(0);
 });
 
+process.on('SIGTERM', () => {
+    cleanup();
+    process.exit(0);
+});
+
+
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
     logger.error('Uncaught Exception:', err);
@@ -89,14 +116,46 @@ process.on('unhandledRejection', (reason, promise) => {
     process.exit(1);
 });
 
+
+
 const router = express.Router();
 
 const controllers: EndpointController[] = [
     FluxogramaController,
     TestesController,
     UsersController,
-    CursosController
+    CursosController,
+    MateriasController
 ];
+router.get('/', (req: Request, res: Response) => {
+    logger.info(`\b[GET][/]`);
+
+    res.json({
+        status: 'online',
+        timestamp: new Date().toISOString(),
+        version: '1.0.0',
+        serverInfo: {
+            nodeVersion: process.version,
+            platform: process.platform,
+            memoryUsage: process.memoryUsage(),
+            uptime: process.uptime()
+        },
+        endpoints: controllers.map(controller => ({
+            name: controller.name,
+            description: `${controller.name} API endpoints`,
+            routes: Object.keys(controller.routes).map(route => ({
+                path: `/${controller.name}/${route}`,
+                method: controller.routes[route].key,
+                fullPath: `${req.protocol}://${req.get('host')}/${controller.name}/${route}`
+            })),
+            totalRoutes: Object.keys(controller.routes).length
+        })),
+        documentation: {
+            swagger: `${req.protocol}://${req.get('host')}/api-docs`,
+            postman: `${req.protocol}://${req.get('host')}/postman-collection`
+        }
+    });
+});
 
 controllers.forEach(controller => {
     Object.keys(controller.routes).forEach(route_name => {
@@ -140,6 +199,18 @@ controllers.forEach(controller => {
                         logger.http(`\b[PUT][${routePath}] completed successfully`);
                     } catch (error) {
                         logger.error(`\b[PUT][${routePath}] Error: ${error}`);
+                        res.status(500).json({ error: 'Internal server error' });
+                    }
+                });
+                break;
+            case RequestType.DELETE:
+                router.delete(routePath, async (req: Request, res: Response) => {
+                    try {
+                        logger.http(`\b[DELETE][${routePath}]`);
+                        await callback(req, res);
+                        logger.http(`\b[DELETE][${routePath}] completed successfully`);
+                    } catch (error) {
+                        logger.error(`\b[DELETE][${routePath}] Error: ${error}`);
                         res.status(500).json({ error: 'Internal server error' });
                     }
                 });

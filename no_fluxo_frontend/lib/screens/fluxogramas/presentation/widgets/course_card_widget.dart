@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../cache/shared_preferences_helper.dart';
 import '../../data/materia_model.dart';
 import '../../../../config/app_colors.dart';
 
@@ -7,12 +8,14 @@ class CourseCardWidget extends StatelessWidget {
   final MateriaModel subject;
   final VoidCallback? onTap;
   final bool isAnonymous;
+  final List<MateriaModel>? allSubjects; // Para verificar pré-requisitos
 
   const CourseCardWidget({
     super.key,
     required this.subject,
     this.onTap,
     this.isAnonymous = false,
+    this.allSubjects,
   });
 
   @override
@@ -22,17 +25,26 @@ class CourseCardWidget extends StatelessWidget {
 
     // For anonymous users, only show completed, optative, and future statuses
     String displayStatus = subject.status ?? 'future';
-    if (isAnonymous && subject.status == 'current') {
+    if (isAnonymous &&
+        subject.status == 'current' &&
+        SharedPreferencesHelper.isAnonimo) {
       displayStatus = 'future';
     }
+
+    // Check if this subject can be taken (prerequisites completed)
+    bool canBeTaken = _canSubjectBeTaken();
 
     switch (displayStatus) {
       case 'completed':
         startColor = AppColors.completedStart;
         endColor = AppColors.completedEnd;
         break;
+      case "can_be_next":
+        startColor = AppColors.readyStart;
+        endColor = AppColors.readyEnd;
+        break;
       case 'selected':
-        if (isAnonymous) {
+        if (isAnonymous && SharedPreferencesHelper.isAnonimo) {
           // For anonymous users, treat selected as future
           startColor = AppColors.futureStart;
           endColor = AppColors.futureEnd;
@@ -41,13 +53,23 @@ class CourseCardWidget extends StatelessWidget {
           endColor = AppColors.selectedEnd;
         }
         break;
+      case 'current':
+        startColor = AppColors.currentStart;
+        endColor = AppColors.currentEnd;
+        break;
       case 'optative':
         startColor = AppColors.optativeStart;
         endColor = AppColors.optativeEnd;
         break;
-      default: // future or current (treated as future for anonymous)
-        startColor = AppColors.futureStart;
-        endColor = AppColors.futureEnd;
+      default:
+        // Check if prerequisites are completed for future subjects
+        if (canBeTaken && displayStatus == 'future' && !isAnonymous) {
+          startColor = AppColors.readyStart;
+          endColor = AppColors.readyEnd;
+        } else {
+          startColor = AppColors.futureStart;
+          endColor = AppColors.futureEnd;
+        }
     }
 
     return Container(
@@ -77,66 +99,69 @@ class CourseCardWidget extends StatelessWidget {
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Stack(
               children: [
-                Text(
-                  subject.codigoMateria,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  subject.nomeMateria,
-                  style: GoogleFonts.poppins(
-                    color: AppColors.white,
-                    fontSize: 12,
-                  ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                const SizedBox(height: 8),
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: AppColors.containerBackground,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Text(
-                        '${subject.creditos} créditos',
-                        style: GoogleFonts.poppins(
-                          color: AppColors.white,
-                          fontSize: 10,
-                        ),
+                    Text(
+                      subject.codigoMateria,
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
                       ),
                     ),
-                    // Only show mencao for non-anonymous users and when mencao exists
-                    if (!isAnonymous &&
-                        subject.mencao != null &&
-                        subject.mencao != '-') ...[
-                      const Spacer(),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.containerBackground,
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          subject.mencao ?? 'Sem Mencao',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.white,
-                            fontSize: 10,
+                    const SizedBox(height: 4),
+                    Text(
+                      subject.nomeMateria,
+                      style: GoogleFonts.poppins(
+                        color: AppColors.white,
+                        fontSize: 12,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 4),
+                          decoration: BoxDecoration(
+                            color: AppColors.containerBackground,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            '${subject.creditos} créditos',
+                            style: GoogleFonts.poppins(
+                              color: AppColors.white,
+                              fontSize: 10,
+                            ),
                           ),
                         ),
-                      ),
-                    ]
+                        // Only show mencao for non-anonymous users and when mencao exists
+                        if (subject.mencao != null &&
+                            subject.mencao != '-') ...[
+                          const Spacer(),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppColors.containerBackground,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Text(
+                              subject.mencao ?? 'Sem Mencao',
+                              style: GoogleFonts.poppins(
+                                color: AppColors.white,
+                                fontSize: 10,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
                   ],
                 ),
               ],
@@ -145,5 +170,17 @@ class CourseCardWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Verifica se a matéria será liberada após a conclusão das matérias em curso
+  /// (simulação de conclusão das matérias roxas)
+  bool _canSubjectBeTaken() {
+    if (subject.status == 'completed' ||
+        subject.status == 'current' ||
+        subject.status == 'selected') {
+      return false;
+    }
+
+    return !subject.hasAnyPrerequisitesNotCompletedOrCurrent();
   }
 }

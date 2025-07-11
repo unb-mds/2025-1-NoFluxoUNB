@@ -1,4 +1,4 @@
-import PyPDF2
+import fitz  # PyMuPDF
 import re
 import json
 import io
@@ -22,7 +22,7 @@ if sys.platform.startswith('win'):
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='[%(asctime)s][%(levelname)s][PDF Parser] %(message)s',
+    format='\b[%(levelname)s] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 logger = logging.getLogger(__name__)
@@ -52,39 +52,49 @@ padrao_curriculo = re.compile(r'(\d{4}[\./]\d+(?:\s*-\s*\d{4}\.\d)?)', re.MULTIL
 padrao_curso = re.compile(r'Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)', re.IGNORECASE | re.MULTILINE)
 
 # --- Padrão alternativo para curso (formato novo) ---
-padrao_curso_alt = re.compile(r'^([A-ZÀ-Ÿ\s]+(?:DE\s+[A-ZÀ-Ÿ\s]+)*)/[A-Z]+ - [A-ZÀ-Ÿ\s]+ - [A-ZÀ-Ÿ]+', re.MULTILINE | re.IGNORECASE)
+padrao_curso_alt = re.compile(r'^([A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+', re.MULTILINE | re.IGNORECASE)
 
-# --- Padrão principal para disciplinas regulares (duas linhas) - Formato original ---
-padrao_disciplina_linha1 = re.compile(
-    r'(\d{4}\.\d)\s+([*&#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-Ÿ\s0-9]+?)\s*$',
+# --- Padrão para curso no novo formato ---
+padrao_curso_novo = re.compile(r'Curso:\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+', re.MULTILINE | re.IGNORECASE)
+
+# --- Padrões para novo formato SIGAA com PyMuPDF ---
+# Captura nome da disciplina (linha separada) - mais flexível, incluindo hífens e outros caracteres
+padrao_nome_disciplina = re.compile(
+    r'^([A-ZÀ-ÿ][A-ZÀ-ÿ\s0-9\-]+(?:DE\s+[A-ZÀ-ÿ\s0-9\-]*)*(?:\s+[A-ZÀ-ÿ\s0-9\-]*)*)\s*$',
     re.MULTILINE | re.IGNORECASE
 )
 
-# Linha 2: professor, carga horária, turma, frequência, nota, menção, situação
-padrao_disciplina_linha2 = re.compile(
-    r'(?:Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)?\s*([A-ZÀ-Ÿ\s\.]+?)\s*\((\d+)h\)\s*'
-    r'(\d+)\s+(\d+|\-\-)\s+(\d+(?:,\d+)?|\-\-)\s+(SS|MS|MM|MI|II|SR|\-)\s+(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC)',
+# Captura ano/período (cada campo em linha separada)
+padrao_ano_periodo = re.compile(r'^(\d{4}\.\d)$', re.MULTILINE)
+
+# Captura código da disciplina
+padrao_codigo_disciplina = re.compile(r'^([A-Z]{2,}\d{3,})$', re.MULTILINE)
+
+# Captura situação da disciplina
+padrao_situacao = re.compile(r'^(MATR|APR|REP|REPF|REPMF|CANC|DISP|TRANC)$', re.MULTILINE)
+
+# Captura menção
+padrao_mencao = re.compile(r'^(SS|MS|MM|MI|II|SR|\-)$', re.MULTILINE)
+
+# Captura turma (letras e números)
+padrao_turma = re.compile(r'^([A-Z0-9]{1,3})$', re.MULTILINE)
+
+# Captura carga horária
+padrao_carga_horaria = re.compile(r'^(\d{1,3})$', re.MULTILINE)
+
+# Captura frequência
+padrao_frequencia = re.compile(r'^(\d{1,3}[,\.]\d+|--|\d{1,3})$', re.MULTILINE)
+
+# Captura informações do professor com carga horária
+padrao_professor = re.compile(
+    r'(?:Dr\.|Dra\.|MSc\.|Prof\.|Professor|Professora)?\s*([A-ZÀ-ÿ\s\.]+?)\s*\((\d+)h\)',
     re.IGNORECASE
 )
 
-# --- Novo padrão para formato alternativo (nome na primeira linha, dados na segunda) ---
-padrao_disciplina_alt_linha1 = re.compile(
-    r'(\d{4}\.\d)([A-ZÀ-Ÿ\s0-9]+(?:DE\s+[A-ZÀ-Ÿ\s0-9]*)*)\s*$',
-    re.MULTILINE | re.IGNORECASE
-)
+# Padrão para símbolos especiais que indicam tipo de componente
+padrao_simbolos = re.compile(r'^([*&#e@§%]+)\s*$', re.MULTILINE)
 
-padrao_disciplina_alt_linha2 = re.compile(
-    r'(?:Dr\.|Dra\.|MSc\.|Prof\.)?\s*([A-ZÀ-Ÿ\s\.]+?)\s*\((\d+)h\)\s*'
-    r'([A-Z0-9]+)\s+(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC)\s+([A-Z]{2,}\d{3,})\s+'
-    r'(\d+)\s+(\d+(?:[,\.]\d+)?|\-\-)\s+(SS|MS|MM|MI|II|SR|\-)',
-    re.IGNORECASE
-)
 
-# --- Padrão para disciplinas CUMP (formato: ano prefixo codigo nome carga -- -- - CUMP) ---
-padrao_disciplina_cump = re.compile(
-    r'(\d{4}\.\d)\s+([*&#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-Ÿ\s0-9]+?)\s+(\d+)\s+\-\-\s+\-\-\s+\-\s+CUMP',
-    re.MULTILINE | re.IGNORECASE
-)
 
 # --- Padrão para equivalências ---
 padrao_equivalencias = re.compile(
@@ -98,23 +108,95 @@ padrao_pendentes_novo = re.compile(
     re.MULTILINE | re.IGNORECASE
 )
 
+# --- Padrão específico para disciplinas pendentes SIGAA ---
+padrao_pendentes_sigaa = re.compile(
+    r'^\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9]+?)\s+(\d+)\s+h\s+([A-Z]{2,}\d{3,})(?:\s+(Matriculado|Matriculado em Equivalente))?$',
+    re.MULTILINE | re.IGNORECASE
+)
+
 # --- Padrão para pendências (lista de status) ---
 padrao_pendencias = re.compile(r'\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b', re.IGNORECASE)
+
+# --- Padrão para matriz curricular específica do formato SIGAA ---
+padrao_matriz_sigaa = re.compile(r'Ano/Período de Integralização[:\s]*(\d+/\d+)\s*-', re.MULTILINE | re.IGNORECASE)
+
+# --- Padrão para currículo no novo formato ---
+padrao_curriculo_novo = re.compile(r'Currículo:\s*\n(\d+/\d+)\s*-\s*(\d{4}\.\d)', re.MULTILINE | re.IGNORECASE)
+
+# --- Padrão para suspensões ---
+padrao_suspensoes = re.compile(r'Suspensões:\s*\n((?:\d{4}\.\d(?:\s*,\s*\d{4}\.\d)*)?)', re.MULTILINE | re.IGNORECASE)
+
+def extract_structured_text(text_dict):
+    """
+    Extrai texto estruturado de um dicionário de texto do PyMuPDF
+    Organiza os spans de texto por posição para formar linhas coerentes
+    """
+    if not text_dict or 'blocks' not in text_dict:
+        return ""
+    
+    lines = []
+    
+    for block in text_dict['blocks']:
+        if 'lines' not in block:
+            continue
+            
+        for line in block['lines']:
+            if 'spans' not in line:
+                continue
+                
+            # Coletar todos os spans da linha ordenados por posição X
+            spans = []
+            for span in line['spans']:
+                if 'text' in span and span['text'].strip():
+                    spans.append({
+                        'text': span['text'],
+                        'x': span['bbox'][0],  # posição X
+                        'y': span['bbox'][1],  # posição Y
+                        'font': span.get('font', ''),
+                        'size': span.get('size', 0)
+                    })
+            
+            # Ordenar spans por posição X (da esquerda para direita)
+            spans.sort(key=lambda s: s['x'])
+            
+            # Combinar spans em uma linha, adicionando espaços quando necessário
+            line_text = ""
+            last_x = 0
+            
+            for span in spans:
+                text = span['text']
+                x = span['x']
+                
+                # Adicionar espaçamento baseado na distância entre spans
+                if line_text and x > last_x + 10:  # 10 pontos de distância mínima
+                    # Calcular número aproximado de espaços baseado na distância
+                    spaces_needed = max(1, int((x - last_x) / 6))  # ~6 pontos por espaço
+                    line_text += " " * min(spaces_needed, 10)  # máximo 10 espaços
+                
+                line_text += text
+                last_x = x + len(text) * 6  # estimativa da largura do texto
+            
+            if line_text.strip():
+                lines.append((line['bbox'][1], line_text.strip()))  # (Y position, text)
+    
+    # Ordenar linhas por posição Y (de cima para baixo)
+    lines.sort(key=lambda l: l[0])
+    
+    # Combinar todas as linhas
+    return '\n'.join([line[1] for line in lines])
 
 def normalizar(s):
     return unicodedata.normalize('NFKD', s).encode('ASCII', 'ignore').decode('ASCII').upper()
 
 def extrair_curso(texto):
     """
-    Extrai o nome do curso usando regex otimizado - funciona com ambos os formatos
+    Extrai o nome do curso usando regex otimizado para formato PyMuPDF
     """
-    # Tenta o padrão original com regex
-    match_curso = padrao_curso.search(texto)
-    if match_curso:
-        curso = match_curso.group(1).strip()
-        # Limpa sufixos desnecessários como "/FCTE - BACHARELADO - DIURNO"
-        curso = re.split(r'/|-', curso)[0].strip()
-        print(f"[CURSO] Curso extraído (padrão original): {curso}")
+    # Tenta o padrão específico do novo formato estruturado
+    match_curso_novo = padrao_curso_novo.search(texto)
+    if match_curso_novo:
+        curso = match_curso_novo.group(1).strip()
+        print(f"[CURSO] Curso extraído (padrão novo): {curso}")
         return curso
     
     # Tenta o padrão alternativo (novo formato)
@@ -122,6 +204,15 @@ def extrair_curso(texto):
     if match_curso_alt:
         curso = match_curso_alt.group(1).strip()
         print(f"[CURSO] Curso extraído (padrão alternativo): {curso}")
+        return curso
+    
+    # Tenta o padrão original com regex
+    match_curso = padrao_curso.search(texto)
+    if match_curso:
+        curso = match_curso.group(1).strip()
+        # Limpa sufixos desnecessários como "/FCTE - BACHARELADO - DIURNO"
+        curso = re.split(r'/|-', curso)[0].strip()
+        print(f"[CURSO] Curso extraído (padrão original): {curso}")
         return curso
     
     # Fallback: busca linha por linha como antes (caso regex não funcione)
@@ -134,8 +225,8 @@ def extrair_curso(texto):
             print(f"[CURSO] Curso extraído (fallback): {curso}")
             return curso
         
-        # Procura por linhas que parecem ser nomes de curso
-        if re.match(r'^[A-ZÀ-Ÿ\s]+(?:DE\s+[A-ZÀ-Ÿ\s]+)*/[A-Z]+ - [A-ZÀ-Ÿ\s]+ - [A-ZÀ-Ÿ]+', linha):
+        # Procura por linhas que parecem ser nomes de curso com o novo padrão
+        if re.match(r'^[A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+', linha):
             curso = linha.split('/')[0].strip()
             print(f"[CURSO] Curso extraído (busca direta): {curso}")
             return curso
@@ -171,11 +262,56 @@ def limpar_nome_disciplina(nome):
     
     return nome_limpo
 
+# Função para extrair suspensões
+def extrair_suspensoes(texto):
+    """
+    Extrai as suspensões do histórico escolar
+    Retorna uma lista com os períodos de suspensão
+    """
+    # Primeiro, tenta o padrão específico de suspensões
+    match_suspensoes = padrao_suspensoes.search(texto)
+    if match_suspensoes:
+        suspensoes_str = match_suspensoes.group(1)
+        if suspensoes_str and suspensoes_str.strip():
+            # Divide as suspensões por vírgula e limpa espaços
+            suspensoes = [s.strip() for s in suspensoes_str.split(',') if s.strip()]
+            print(f"[SUSPENSÕES] Suspensões extraídas: {suspensoes}")
+            return suspensoes
+    
+    # Fallback: busca linha por linha
+    linhas = texto.splitlines()
+    for i, linha in enumerate(linhas):
+        norm = normalizar(linha)
+        if "SUSPENSOES" in norm or "SUSPENSÃO" in norm:
+            # Tenta extrair da mesma linha
+            suspensoes_na_linha = re.findall(r'\d{4}\.\d', linha)
+            if suspensoes_na_linha:
+                print(f"[SUSPENSÕES] Suspensões extraídas (mesma linha): {suspensoes_na_linha}")
+                return suspensoes_na_linha
+            
+            # Se não encontrar, tenta na próxima linha
+            if i + 1 < len(linhas):
+                prox = linhas[i + 1]
+                suspensoes_prox = re.findall(r'\d{4}\.\d', prox)
+                if suspensoes_prox:
+                    print(f"[SUSPENSÕES] Suspensões extraídas (linha seguinte): {suspensoes_prox}")
+                    return suspensoes_prox
+    
+    print("[AVISO] Suspensões não encontradas no PDF")
+    return []
+
 # Função para extrair matriz curricular
 def extrair_matriz_curricular(texto):
+    # Primeiro, tenta o padrão específico do novo formato estruturado
+    match_curriculo_novo = padrao_curriculo_novo.search(texto)
+    if match_curriculo_novo:
+        matriz = match_curriculo_novo.group(2)  # Pega a parte ano.período
+        print(f"[MATRIZ] Matriz Curricular extraída (padrão novo): {matriz}")
+        return matriz
+    
     linhas = texto.splitlines()
     
-    # Primeiro, tenta encontrar o padrão específico "número/número - ano.período"
+    # Segundo, tenta encontrar o padrão específico "número/número - ano.período"
     # que é o formato padrão da matriz curricular da UnB
     padrao_matriz_especifico = re.compile(r'(\d+/\d+\s*-\s*(\d{4}\.\d))', re.MULTILINE)
     match_especifico = padrao_matriz_especifico.search(texto)
@@ -300,10 +436,69 @@ def calcular_numero_semestre(disciplinas):
     
     return 1  # Se não encontrou nenhum semestre cursado, assume primeiro semestre
 
+def processar_disciplina_encontrada(nome, ano_periodo, turma, situacao, codigo, carga_h, freq, mencao, linhas, start_idx, disciplinas_list):
+    """
+    Processa uma disciplina encontrada e adiciona aos dados
+    Retorna True se processada com sucesso, False se ignorada
+    """
+    
+    # Ignorar matérias com menções II, MI e SR
+    if mencao.upper() in ['II', 'MI', 'SR']:
+        print(f"  -> Ignorando disciplina com menção {mencao}: {codigo} - {nome.strip()[:30]}...")
+        return False
+    
+    # Procurar símbolos e professor nas próximas linhas
+    simbolos = ""
+    professor = ""
+    carga_h_prof = ""
+    
+    for j in range(start_idx, min(len(linhas), start_idx + 4)):
+        linha_extra = linhas[j].strip()
+        
+        # Procurar por símbolos
+        match_simb = padrao_simbolos.search(linha_extra)
+        if match_simb:
+            simbolos = match_simb.group(1)
+            continue
+        
+        # Procurar por professor
+        match_prof = padrao_professor.search(linha_extra)
+        if match_prof:
+            professor = match_prof.group(1)
+            carga_h_prof = match_prof.group(2)
+            break
+    
+    # Usar a carga horária do professor se disponível, senão usar a da disciplina
+    carga_final = carga_h_prof if carga_h_prof else carga_h
+    
+    disciplina_data = {
+        "tipo_dado": "Disciplina Regular",
+        "nome": limpar_nome_disciplina(nome.strip()),
+        "status": situacao,
+        "mencao": mencao if mencao != '-' else '-',
+        "creditos": int(int(carga_final) / 15) if carga_final and carga_final.isdigit() else 0,
+        "codigo": codigo,
+        "carga_horaria": int(carga_final) if carga_final and carga_final.isdigit() else 0,
+        "ano_periodo": ano_periodo,
+        "prefixo": simbolos,
+        "professor": limpar_nome_professor(professor.strip()) if professor else "",
+        "turma": turma,
+        "frequencia": freq if freq != '--' else None,
+        "nota": None  # No novo formato, usa menção em vez de nota
+    }
+    disciplinas_list.append(disciplina_data)
+    print(f"  -> Disciplina: {codigo} - {nome.strip()[:30]}... (Status: {situacao})")
+    return True
+
 def extrair_dados_academicos(texto_total):
     """
     Extrai todos os dados acadêmicos do texto usando regex patterns otimizados
     Funciona com ambos os formatos de histórico escolar
+    
+    Nota: Ignora automaticamente disciplinas com menções II, MI e SR:
+    - II: Incomparável por Infrequência
+    - MI: Média Insuficiente  
+    - SR: Sem Rendimento
     """
     print("\n=== INICIANDO EXTRAÇÃO COM REGEX OTIMIZADO ===")
     
@@ -315,6 +510,7 @@ def extrair_dados_academicos(texto_total):
     # Extrair informações básicas
     curso = extrair_curso(texto_total)
     matriz_curricular = extrair_matriz_curricular(texto_total)
+    suspensoes = extrair_suspensoes(texto_total)
     
     # Extrair IRA e MP (aceita vírgula ou ponto como separador decimal)
     ira_match = padrao_ira.search(texto_total)
@@ -337,123 +533,167 @@ def extrair_dados_academicos(texto_total):
     if ira:
         disciplinas.append({"IRA": "IRA", "valor": ira})
     
-    # Extrair disciplinas regulares (processamento de duas linhas)
-    linhas = texto_total.splitlines()
+    # Extrair disciplinas usando processamento linha por linha (mais eficiente)
     disciplinas_encontradas = 0
+    disciplinas_ignoradas = 0
     
-    print("[DISCIPLINAS] Processando formato original...")
-    for i, linha in enumerate(linhas):
-        # Buscar linha 1 (disciplina) - formato original
-        match_linha1 = padrao_disciplina_linha1.search(linha)
-        if match_linha1 and i + 1 < len(linhas):
-            # Buscar linha 2 (professor e dados) na próxima linha
-            linha_seguinte = linhas[i + 1]
-            match_linha2 = padrao_disciplina_linha2.search(linha_seguinte)
+    print("[DISCIPLINAS] Processando novo formato SIGAA com PyMuPDF...")
+    
+    # Capturar dados de disciplinas linha por linha (novo formato estruturado)
+    linhas = texto_total.splitlines()
+    print(f"[DEBUG] Total de linhas a processar: {len(linhas)}")
+    
+    i = 0
+    while i < len(linhas):
+        if i % 100 == 0:  # Progress indicator every 100 lines
+            print(f"[DEBUG] Processadas {i}/{len(linhas)} linhas...")
+        
+        linha = linhas[i].strip()
+        
+        # Primeiro, verificar se a linha atual é ano/período (padrão alternativo)
+        ano_periodo_match = padrao_ano_periodo.search(linha)
+        if ano_periodo_match and i + 7 < len(linhas):
+            ano_periodo = ano_periodo_match.group(1)
             
-            if match_linha2:
-                # Extrair dados da linha 1
-                ano_periodo, prefixo, codigo, nome = match_linha1.groups()
+            # Verificar se a próxima linha é nome da disciplina
+            nome_match = padrao_nome_disciplina.search(linhas[i+1].strip())
+            if nome_match:
+                nome = nome_match.group(1)
+                print(f"[DEBUG] Disciplina encontrada (padrão alternativo) na linha {i}: {repr(linha)} -> {repr(linhas[i+1])}")
                 
-                # Extrair dados da linha 2
-                professor, carga_h, turma, freq, nota, mencao, situacao = match_linha2.groups()
-                
-                disciplina_data = {
-                    "tipo_dado": "Disciplina Regular",
-                    "nome": limpar_nome_disciplina(nome.strip()),
-                    "status": situacao,
-                    "mencao": mencao if mencao != '-' else '-',
-                    "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-                    "codigo": codigo,
-                    "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-                    "ano_periodo": ano_periodo,
-                    "prefixo": prefixo,
-                    "professor": limpar_nome_professor(professor.strip()),
-                    "turma": turma,
-                    "frequencia": freq if freq != '--' else None,
-                    "nota": nota if nota != '--' else None
-                }
-                disciplinas.append(disciplina_data)
-                disciplinas_encontradas += 1
-                print(f"  -> Disciplina (formato original): {codigo} - {nome.strip()[:30]}... (Status: {situacao})")
-    
-    # Se não encontrou disciplinas no formato original, tenta o formato alternativo
-    if disciplinas_encontradas == 0:
-        print("[DISCIPLINAS] Tentando formato alternativo...")
-        
-        # Debug: procurar por padrões que indicam o formato alternativo
-        sample_lines = []
-        for i, linha in enumerate(linhas[:20]):  # Primeiras 20 linhas para debug
-            if re.search(r'\d{4}\.\d[A-ZÀ-Ÿ]', linha):
-                sample_lines.append((i, linha))
-        
-        print(f"[DEBUG] Encontradas {len(sample_lines)} linhas com padrão alternativo nas primeiras 20:")
-        for line_num, line_content in sample_lines[:3]:  # Mostrar apenas as primeiras 3
-            print(f"  Linha {line_num}: {repr(line_content[:80])}")
-        
-        for i, linha in enumerate(linhas):
-            # Buscar linha 1 (ano/período + nome da disciplina) - formato alternativo
-            match_alt_linha1 = padrao_disciplina_alt_linha1.search(linha)
-            if match_alt_linha1 and i + 1 < len(linhas):
-                linha_seguinte = linhas[i + 1]
-                
-                print(f"[DEBUG] Linha {i}: {repr(linha[:80])}")
-                print(f"[DEBUG] Linha {i+1}: {repr(linha_seguinte[:80])}")
-                
-                # Buscar linha 2 (professor, dados) na próxima linha
-                match_alt_linha2 = padrao_disciplina_alt_linha2.search(linha_seguinte)
-                
-                if match_alt_linha2:
-                    # Extrair dados da linha 1
-                    ano_periodo, nome = match_alt_linha1.groups()
+                # Verificar o restante do padrão
+                try:
+                    # Linha i+2: turma
+                    turma_match = padrao_turma.search(linhas[i+2].strip())
+                    if not turma_match:
+                        i += 1
+                        continue
+                    turma = turma_match.group(1)
                     
-                    # Extrair dados da linha 2
-                    professor, carga_h, turma, situacao, codigo, carga_h2, freq, mencao = match_alt_linha2.groups()
+                    # Linha i+3: situação
+                    situacao_match = padrao_situacao.search(linhas[i+3].strip())
+                    if not situacao_match:
+                        i += 1
+                        continue
+                    situacao = situacao_match.group(1)
                     
-                    print(f"[DEBUG] Match encontrado: {codigo} - {nome[:30]}")
+                    # Linha i+4: código
+                    codigo_match = padrao_codigo_disciplina.search(linhas[i+4].strip())
+                    if not codigo_match:
+                        i += 1
+                        continue
+                    codigo = codigo_match.group(1)
                     
-                    disciplina_data = {
-                        "tipo_dado": "Disciplina Regular",
-                        "nome": limpar_nome_disciplina(nome.strip()),
-                        "status": situacao,
-                        "mencao": mencao if mencao != '-' else '-',
-                        "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-                        "codigo": codigo,
-                        "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-                        "ano_periodo": ano_periodo,
-                        "prefixo": "",
-                        "professor": limpar_nome_professor(professor.strip()),
-                        "turma": turma,
-                        "frequencia": freq if freq != '--' else None,
-                        "nota": None  # Nota não está disponível neste formato, usar mencao
-                    }
-                    disciplinas.append(disciplina_data)
-                    disciplinas_encontradas += 1
-                    print(f"  -> Disciplina (formato alternativo): {codigo} - {nome.strip()[:30]}... (Status: {situacao})")
+                    # Linha i+5: carga horária
+                    carga_match = padrao_carga_horaria.search(linhas[i+5].strip())
+                    if not carga_match:
+                        i += 1
+                        continue
+                    carga_h = carga_match.group(1)
+                    
+                    # Linha i+6: frequência
+                    freq_match = padrao_frequencia.search(linhas[i+6].strip())
+                    if not freq_match:
+                        i += 1
+                        continue
+                    freq = freq_match.group(1)
+                    
+                    # Linha i+7: menção
+                    mencao_match = padrao_mencao.search(linhas[i+7].strip())
+                    if not mencao_match:
+                        i += 1
+                        continue
+                    mencao = mencao_match.group(1)
+                    
+                    # Processar disciplina encontrada
+                    if not processar_disciplina_encontrada(nome, ano_periodo, turma, situacao, codigo, carga_h, freq, mencao, linhas, i+8, disciplinas):
+                        disciplinas_ignoradas += 1
+                    else:
+                        disciplinas_encontradas += 1
+                    
+                    i += 8
+                    continue
+                    
+                except (IndexError, AttributeError):
+                    pass
+        
+        # Segundo, procurar por nome da disciplina (padrão original)
+        match_nome = padrao_nome_disciplina.search(linha)
+        if match_nome and i + 8 < len(linhas):  # Verificar se há linhas suficientes
+            nome = match_nome.group(1)
+            
+            # Verificar se as próximas linhas seguem o padrão esperado
+            try:
+                # Linha i+1: ano/período
+                ano_periodo_match = padrao_ano_periodo.search(linhas[i+1].strip())
+                if not ano_periodo_match:
+                    i += 1
+                    continue
+                ano_periodo = ano_periodo_match.group(1)
+                
+                # Linha i+2: turma
+                turma_match = padrao_turma.search(linhas[i+2].strip())
+                if not turma_match:
+                    i += 1
+                    continue
+                turma = turma_match.group(1)
+                
+                # Linha i+3: situação
+                situacao_match = padrao_situacao.search(linhas[i+3].strip())
+                if not situacao_match:
+                    i += 1
+                    continue
+                situacao = situacao_match.group(1)
+                
+                print(f"[DEBUG] Disciplina encontrada (padrão original) na linha {i}: {nome[:30]}...")
+                
+                # Linha i+4: código
+                codigo_match = padrao_codigo_disciplina.search(linhas[i+4].strip())
+                if not codigo_match:
+                    i += 1
+                    continue
+                codigo = codigo_match.group(1)
+                
+                # Linha i+5: carga horária
+                carga_match = padrao_carga_horaria.search(linhas[i+5].strip())
+                if not carga_match:
+                    i += 1
+                    continue
+                carga_h = carga_match.group(1)
+                
+                # Linha i+6: frequência
+                freq_match = padrao_frequencia.search(linhas[i+6].strip())
+                if not freq_match:
+                    i += 1
+                    continue
+                freq = freq_match.group(1)
+                
+                # Linha i+7: menção
+                mencao_match = padrao_mencao.search(linhas[i+7].strip())
+                if not mencao_match:
+                    i += 1
+                    continue
+                mencao = mencao_match.group(1)
+                
+                # Processar disciplina encontrada
+                if not processar_disciplina_encontrada(nome, ano_periodo, turma, situacao, codigo, carga_h, freq, mencao, linhas, i+8, disciplinas):
+                    disciplinas_ignoradas += 1
                 else:
-                    print(f"[DEBUG] Linha 2 não fez match: {repr(linha_seguinte[:80])}")
+                    disciplinas_encontradas += 1
+                
+                # Pular para depois desta disciplina completa
+                i += 8
+                continue
+                
+            except (IndexError, AttributeError):
+                # Se houver erro ao processar, continuar para próxima linha
+                pass
+        
+        i += 1
     
     print(f"[DISCIPLINAS] Encontradas {disciplinas_encontradas} disciplinas regulares")
-    
-    # Extrair disciplinas CUMP
-    disciplinas_cump = padrao_disciplina_cump.findall(texto_total)
-    print(f"[CUMP] Encontradas {len(disciplinas_cump)} disciplinas CUMP")
-    
-    for disc in disciplinas_cump:
-        ano_periodo, prefixo, codigo, nome, carga_h = disc
-        
-        disciplina_data = {
-            "tipo_dado": "Disciplina CUMP",
-            "nome": limpar_nome_disciplina(nome.strip()),
-            "status": 'CUMP',
-            "mencao": '-',
-            "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-            "codigo": codigo,
-            "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-            "ano_periodo": ano_periodo,
-            "prefixo": prefixo
-        }
-        disciplinas.append(disciplina_data)
-        print(f"  -> CUMP: {codigo} - {nome.strip()[:30]}...")
+    if disciplinas_ignoradas > 0:
+        print(f"[DISCIPLINAS] Ignoradas {disciplinas_ignoradas} disciplinas com menções II, MI ou SR")
     
     # Extrair disciplinas pendentes (formato novo)
     disciplinas_pendentes = padrao_pendentes_novo.findall(texto_total)
@@ -524,7 +764,8 @@ def extrair_dados_academicos(texto_total):
         'media_ponderada': mp,
         'ira': ira,
         'semestre_atual': semestre_atual,
-        'numero_semestre': numero_semestre
+        'numero_semestre': numero_semestre,
+        'suspensoes': suspensoes
     }
 
 def limpar_nome_professor(nome):
@@ -576,29 +817,36 @@ def upload_pdf():
 
     texto_total = ""
     try:
-        # Tentar extração de texto normal com PyPDF2 primeiro
-        logger.info('Attempting text extraction with PyPDF2')
-        pdf_content_stream = io.BytesIO(pdf_file.read())
+        # Tentar extração de texto com PyMuPDF usando posicionamento
+        logger.info('Attempting text extraction with PyMuPDF positional extraction')
+        pdf_bytes = pdf_file.read()
         pdf_file.seek(0)
-        leitor = PyPDF2.PdfReader(pdf_content_stream)
+        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
         
-        logger.info(f'PDF has {len(leitor.pages)} pages')
+        logger.info(f'PDF has {doc.page_count} pages')
         
-        # Tenta extrair texto de todas as páginas
-        for i, pagina in enumerate(leitor.pages):
-            logger.info(f'Processing page {i+1}')
-            pagina_texto = pagina.extract_text()
-            if pagina_texto:
-                texto_total += pagina_texto + "\n"
-                logger.info(f'Extracted {len(pagina_texto)} characters from page {i+1}')
+        # Extrair texto de todas as páginas usando posicionamento
+        for page_num in range(doc.page_count):
+            logger.info(f'Processing page {page_num + 1}')
+            page = doc[page_num]
+            
+            # Extrair texto com informações de posição
+            text_dict = page.get_text("dict")
+            page_text = extract_structured_text(text_dict)
+            
+            if page_text:
+                texto_total += page_text + "\n"
+                logger.info(f'Extracted {len(page_text)} characters from page {page_num + 1}')
+        
+        doc.close()
         
         if not texto_total.strip():
-            logger.info('No text extracted with PyPDF2, attempting OCR')
+            logger.info('No text extracted with PyMuPDF, attempting OCR')
             
             logger.error('OCR extraction failed, not available')
-            return jsonify({'error': 'Nenhuma informação textual pôde ser extraída do PDF via PyPDF2. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido.'}), 422
+            return jsonify({'error': 'Nenhuma informação textual pôde ser extraída do PDF via PyMuPDF. O PDF pode ser uma imagem de baixa qualidade, estar vazio ou corrompido.'}), 422
         else:
-            logger.info('Successfully extracted text using PyPDF2')
+            logger.info('Successfully extracted text using PyMuPDF')
 
         print("\n--- Texto Completo Extraído (Primeiras 500 chars) ---")
         print(texto_total[:500] + "..." if len(texto_total) > 500 else texto_total)
@@ -621,16 +869,19 @@ def upload_pdf():
             'extracted_data': dados_extraidos['disciplinas'],
             'equivalencias_pdf': dados_extraidos['equivalencias'],
             'semestre_atual': dados_extraidos['semestre_atual'],
-            'numero_semestre': dados_extraidos['numero_semestre']
+            'numero_semestre': dados_extraidos['numero_semestre'],
+            'suspensoes': dados_extraidos['suspensoes']
         }
         logger.info(f'Sending response with {len(dados_extraidos["disciplinas"])} extracted items')
         return jsonify(response_data)
 
     
-    except PyPDF2.errors.PdfReadError as e:
-        error_msg = f'PDF read error: {str(e)}'
-        logger.error(error_msg)
-        return jsonify({'error': f'Erro ao ler o PDF. Certifique-se de que é um PDF válido e não está corrompido: {str(e)}'}), 400
+    except Exception as pdf_error:
+        # Handle PyMuPDF specific errors
+        if "fitz" in str(type(pdf_error)) or "mupdf" in str(pdf_error).lower():
+            error_msg = f'PDF read error: {str(pdf_error)}'
+            logger.error(error_msg)
+            return jsonify({'error': f'Erro ao ler o PDF. Certifique-se de que é um PDF válido e não está corrompido: {str(pdf_error)}'}), 400
     except Exception as e:
         error_msg = f'Unexpected error: {str(e)}'
         logger.error(error_msg)

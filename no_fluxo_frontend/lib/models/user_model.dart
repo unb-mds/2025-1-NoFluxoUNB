@@ -5,12 +5,20 @@ class DadosMateria {
   String mencao;
   String professor;
   String status;
+  String? anoPeriodo;
+  String? frequencia;
+  String? tipoDado;
+  String? turma;
 
   DadosMateria({
     required this.codigoMateria,
     required this.mencao,
     required this.professor,
     required this.status,
+    this.anoPeriodo,
+    this.frequencia,
+    this.tipoDado,
+    this.turma,
   });
 
   factory DadosMateria.fromJson(Map<String, dynamic> json) {
@@ -18,6 +26,10 @@ class DadosMateria {
       codigoMateria: json['codigo'],
       mencao: json['mencao'],
       professor: json['professor'],
+      anoPeriodo: json['ano_periodo'],
+      frequencia: json['frequencia'],
+      tipoDado: json['tipo_dado'],
+      turma: json['turma'],
       status: json['status'] ?? '-',
     );
   }
@@ -28,7 +40,26 @@ class DadosMateria {
       'mencao': mencao,
       'professor': professor,
       'status': status,
+      'ano_periodo': anoPeriodo,
+      'frequencia': frequencia,
+      'tipo_dado': tipoDado,
+      'turma': turma,
     };
+  }
+
+  bool isMateriaCursada() {
+    return status == 'APR' || status == 'CUMP';
+  }
+
+  bool isMateriaAprovada() {
+    return mencao == 'SS' ||
+        mencao == 'MM' ||
+        mencao == 'MS' ||
+        (status == "APR" && mencao != "-" || status == "CUMP");
+  }
+
+  bool isMateriaCurrent() {
+    return status == 'MATR';
   }
 }
 
@@ -36,6 +67,9 @@ class DadosFluxogramaUser {
   String nomeCurso;
   double ira;
   String matricula;
+  int horasIntegralizadas;
+  List<String> suspensoes;
+  String anoAtual;
   String matrizCurricular;
   int semestreAtual;
   List<List<DadosMateria>> dadosFluxograma;
@@ -45,7 +79,10 @@ class DadosFluxogramaUser {
     required this.ira,
     required this.dadosFluxograma,
     required this.matricula,
+    required this.horasIntegralizadas,
+    required this.suspensoes,
     required this.semestreAtual,
+    required this.anoAtual,
     required this.matrizCurricular,
   });
 
@@ -55,7 +92,10 @@ class DadosFluxogramaUser {
       ira: json['ira'],
       matricula: json['matricula'],
       semestreAtual: json['semestre_atual'],
+      anoAtual: json['ano_atual'],
       matrizCurricular: json['matriz_curricular'],
+      horasIntegralizadas: json['horas_integralizadas'],
+      suspensoes: List<String>.from(json['suspensoes'] ?? []),
       dadosFluxograma: List<List<DadosMateria>>.from(json['dados_fluxograma']
           .map((e) =>
               List<DadosMateria>.from(e.map((e) => DadosMateria.fromJson(e))))),
@@ -69,6 +109,9 @@ class DadosFluxogramaUser {
       'matricula': matricula,
       'matriz_curricular': matrizCurricular,
       'semestre_atual': semestreAtual,
+      'ano_atual': anoAtual,
+      'horas_integralizadas': horasIntegralizadas,
+      'suspensoes': suspensoes,
       'dados_fluxograma': dadosFluxograma
           .map((e) => e.map((e) => e.toJson()).toList())
           .toList(),

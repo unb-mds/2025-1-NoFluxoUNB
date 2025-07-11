@@ -1,106 +1,6 @@
 import 'materia_model.dart';
 import 'prerequisite_tree_model.dart';
-
-class EquivalenciaModel {
-  String expressao;
-  int idMateria;
-  MateriaModel materia;
-
-  EquivalenciaModel({
-    required this.expressao,
-    required this.idMateria,
-    required this.materia,
-  });
-
-  factory EquivalenciaModel.fromJson(Map<String, dynamic> json) {
-    return EquivalenciaModel(
-      expressao: json["expressao"],
-      idMateria: json["id_materia"],
-      materia: MateriaModel.fromJson(json),
-    );
-  }
-
-  bool isMateriaEquivalente(Set<String> materias) {
-    return _evaluateExpression(expressao.trim(), materias);
-  }
-
-  bool _evaluateExpression(String expression, Set<String> materias) {
-    if (expression.isEmpty) return false;
-
-    // Remove outer parentheses if they exist and encompass the entire expression
-    expression = _removeOuterParentheses(expression);
-
-    // Find the main operator (OU has lower precedence than E)
-    int? orIndex = _findMainOperator(expression, 'OU');
-    if (orIndex != null) {
-      String left = expression.substring(0, orIndex).trim();
-      String right = expression.substring(orIndex + 2).trim();
-      return _evaluateExpression(left, materias) ||
-          _evaluateExpression(right, materias);
-    }
-
-    // Find AND operator
-    int? andIndex = _findMainOperator(expression, 'E');
-    if (andIndex != null) {
-      String left = expression.substring(0, andIndex).trim();
-      String right = expression.substring(andIndex + 1).trim();
-      return _evaluateExpression(left, materias) &&
-          _evaluateExpression(right, materias);
-    }
-
-    // If no operators found, it should be a subject code
-    String subjectCode = expression.trim();
-
-    return materias.contains(subjectCode);
-  }
-
-  String _removeOuterParentheses(String expression) {
-    String trimmed = expression.trim();
-    if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
-      // Check if these parentheses actually encompass the entire expression
-      int count = 0;
-      for (int i = 0; i < trimmed.length; i++) {
-        if (trimmed[i] == '(') count++;
-        if (trimmed[i] == ')') count--;
-        if (count == 0 && i < trimmed.length - 1) {
-          // Parentheses close before the end, so they don't encompass everything
-          return trimmed;
-        }
-      }
-      // They do encompass everything, remove them
-      return trimmed.substring(1, trimmed.length - 1).trim();
-    }
-    return trimmed;
-  }
-
-  int? _findMainOperator(String expression, String operator) {
-    int parenthesesCount = 0;
-    int operatorLength = operator.length;
-
-    for (int i = expression.length - operatorLength; i >= 0; i--) {
-      // Count parentheses from right to left
-      if (expression[i] == ')') parenthesesCount++;
-      if (expression[i] == '(') parenthesesCount--;
-
-      // Check if we found the operator at the top level (outside parentheses)
-      if (parenthesesCount == 0 &&
-          i + operatorLength <= expression.length &&
-          expression.substring(i, i + operatorLength) == operator) {
-        // Make sure it's a whole word (surrounded by spaces or parentheses)
-        bool validBefore =
-            i == 0 || expression[i - 1] == ' ' || expression[i - 1] == ')';
-        bool validAfter = i + operatorLength == expression.length ||
-            expression[i + operatorLength] == ' ' ||
-            expression[i + operatorLength] == '(';
-
-        if (validBefore && validAfter) {
-          return i;
-        }
-      }
-    }
-    return null;
-  }
-}
+import 'equivalencia_model.dart';
 
 class PreRequisitoModel {
   int idPreRequisito;
@@ -128,9 +28,36 @@ class PreRequisitoModel {
   }
 }
 
+class CoRequisitoModel {
+  int idCoRequisito;
+  int idMateria;
+  int idMateriaCoRequisito;
+  String codigoMateriaCoRequisito;
+  String nomeMateriaCoRequisito;
+
+  CoRequisitoModel({
+    required this.idCoRequisito,
+    required this.idMateria,
+    required this.idMateriaCoRequisito,
+    required this.codigoMateriaCoRequisito,
+    required this.nomeMateriaCoRequisito,
+  });
+
+  factory CoRequisitoModel.fromJson(Map<String, dynamic> json) {
+    return CoRequisitoModel(
+      idCoRequisito: json["id_co_requisito"],
+      idMateria: json["id_materia"],
+      idMateriaCoRequisito: json["id_materia_corequisito"],
+      codigoMateriaCoRequisito: json["codigo_materia_corequisito"],
+      nomeMateriaCoRequisito: json["nome_materia_corequisito"],
+    );
+  }
+}
+
 class CursoModel {
   String nomeCurso;
   String matrizCurricular;
+  int idCurso;
   int? totalCreditos;
   String classificacao;
   String tipoCurso;
@@ -138,10 +65,12 @@ class CursoModel {
   int semestres;
   List<EquivalenciaModel> equivalencias;
   List<PreRequisitoModel> preRequisitos;
+  List<CoRequisitoModel> coRequisitos;
 
   CursoModel({
     required this.nomeCurso,
     required this.matrizCurricular,
+    required this.idCurso,
     required this.totalCreditos,
     required this.classificacao,
     required this.tipoCurso,
@@ -149,12 +78,14 @@ class CursoModel {
     required this.semestres,
     this.equivalencias = const [],
     this.preRequisitos = const [],
+    this.coRequisitos = const [],
   });
 
   factory CursoModel.fromMinimalJson(Map<String, dynamic> json) {
     return CursoModel(
       nomeCurso: json["nome_curso"],
       matrizCurricular: json["matriz_curricular"],
+      idCurso: json["id_curso"],
       totalCreditos: json["creditos"],
       tipoCurso: json["tipo_curso"] ?? "outro",
       classificacao: json["classificacao"] ?? "outro",
@@ -162,27 +93,28 @@ class CursoModel {
       semestres: 0,
       equivalencias: [],
       preRequisitos: [],
+      coRequisitos: [],
     );
   }
 
   factory CursoModel.fromJson(Map<String, dynamic> json) {
     var curso = CursoModel(
-        nomeCurso: json["nome_curso"],
-        matrizCurricular: json["matriz_curricular"],
-        totalCreditos: json["creditos"],
-        tipoCurso: json["tipo_curso"],
-        classificacao: json["classificacao"],
-        materias: List<MateriaModel>.from(json["materias_por_curso"]
-            .map((materia) => MateriaModel.fromJson(materia))),
-        semestres: 0,
-        equivalencias: json["equivalencias"] != null
-            ? List<EquivalenciaModel>.from(json["equivalencias"]
-                .map((equiv) => EquivalenciaModel.fromJson(equiv)))
-            : [],
-        preRequisitos: json["pre_requisitos"] != null
-            ? List<PreRequisitoModel>.from(json["pre_requisitos"].map(
-                (preRequisito) => PreRequisitoModel.fromJson(preRequisito)))
-            : []);
+      nomeCurso: json["nome_curso"],
+      matrizCurricular: json["matriz_curricular"],
+      idCurso: json["id_curso"],
+      totalCreditos: json["creditos"],
+      tipoCurso: json["tipo_curso"],
+      classificacao: json["classificacao"],
+      materias: List<MateriaModel>.from(json["materias_por_curso"]
+          .map((materia) => MateriaModel.fromJson(materia))),
+      semestres: 0,
+      equivalencias: json["equivalencias"] != null
+          ? List<EquivalenciaModel>.from(json["equivalencias"]
+              .map((equiv) => EquivalenciaModel.fromJson(equiv)))
+          : [],
+      preRequisitos: [],
+      coRequisitos: [],
+    );
 
     int maxSemestre = 0;
     for (var materia in curso.materias) {
@@ -191,7 +123,45 @@ class CursoModel {
       }
     }
 
+    var preRequisitos = json["pre_requisitos"] != null
+        ? List<PreRequisitoModel>.from(json["pre_requisitos"]
+            .map((preRequisito) => PreRequisitoModel.fromJson(preRequisito)))
+        : List<PreRequisitoModel>.from([]);
+
+    var preRequisitosInCurso = List<PreRequisitoModel>.from([]);
+
+    var materiasInCursoFromCodigo = Set<String>.from(curso.materias
+        .where((materia) => materia.nivel != 0)
+        .map((materia) => materia.codigoMateria));
+
+    for (var preRequisito in preRequisitos) {
+      if (materiasInCursoFromCodigo
+          .contains(preRequisito.codigoMateriaRequisito)) {
+        preRequisitosInCurso.add(preRequisito);
+      }
+    }
+
+    curso.preRequisitos = preRequisitosInCurso;
+
+    var coRequisitos = json["co_requisitos"] != null
+        ? List<CoRequisitoModel>.from(json["co_requisitos"]
+            .map((coRequisito) => CoRequisitoModel.fromJson(coRequisito)))
+        : List<CoRequisitoModel>.from([]);
+    var coRequisitosInCurso = List<CoRequisitoModel>.from([]);
+    var materiasInCursoFromCodigoCoReq = Set<String>.from(
+        curso.materias.map((materia) => materia.codigoMateria));
+    for (var coRequisito in coRequisitos) {
+      if (materiasInCursoFromCodigoCoReq
+          .contains(coRequisito.codigoMateriaCoRequisito)) {
+        coRequisitosInCurso.add(coRequisito);
+      }
+    }
+    curso.coRequisitos = coRequisitosInCurso;
+
     curso.semestres = maxSemestre;
+
+    // Populate prerequisites for all materias
+    curso.populatePrerequisites();
 
     return curso;
   }
@@ -199,6 +169,108 @@ class CursoModel {
   /// Build prerequisite tree for this course
   PrerequisiteTree buildPrerequisiteTree() {
     return PrerequisiteTree.fromCourse(this);
+  }
+
+  /// Populate prerequisites for all materias using the prerequisite tree
+  void populatePrerequisites() {
+    // Clear existing prerequisites
+    for (var materia in materias) {
+      materia.preRequisitos.clear();
+    }
+
+    // Build prerequisite relationships using the existing preRequisitos data
+    Map<String, List<String>> prerequisiteMap = {};
+
+    // Create a map from materia code to materia object for quick lookup
+    Map<String, MateriaModel> materiaMap = {};
+    for (var materia in materias) {
+      materiaMap[materia.codigoMateria] = materia;
+    }
+
+    // Build prerequisite map from preRequisitos data
+    for (var preReq in preRequisitos) {
+      String materiaCode = '';
+      String prerequisiteCode = preReq.codigoMateriaRequisito;
+
+      // Find the materia that has this prerequisite
+      var targetMateria = materias.firstWhere(
+          (m) => m.idMateria == preReq.idMateria,
+          orElse: () =>
+              throw Exception('Materia not found for id: ${preReq.idMateria}'));
+      materiaCode = targetMateria.codigoMateria;
+
+      if (!prerequisiteMap.containsKey(materiaCode)) {
+        prerequisiteMap[materiaCode] = [];
+      }
+      prerequisiteMap[materiaCode]!.add(prerequisiteCode);
+    }
+
+    // Populate prerequisites for each materia
+    for (var materia in materias) {
+      var directPrerequisites = prerequisiteMap[materia.codigoMateria] ?? [];
+
+      // Add direct prerequisites
+      for (var prereqCode in directPrerequisites) {
+        if (materiaMap.containsKey(prereqCode)) {
+          materia.preRequisitos.add(materiaMap[prereqCode]!);
+        }
+      }
+
+      // Add indirect prerequisites (prerequisites of prerequisites)
+      Set<String> allPrerequisites = {};
+      _collectAllPrerequisites(
+          materia.codigoMateria, prerequisiteMap, allPrerequisites);
+
+      // Add all prerequisites to the materia (avoiding duplicates)
+      Set<String> existingCodes =
+          materia.preRequisitos.map((m) => m.codigoMateria).toSet();
+      for (var prereqCode in allPrerequisites) {
+        if (materiaMap.containsKey(prereqCode) &&
+            !existingCodes.contains(prereqCode)) {
+          materia.preRequisitos.add(materiaMap[prereqCode]!);
+        }
+      }
+    }
+  }
+
+  /// Helper method to recursively collect all prerequisites
+  void _collectAllPrerequisites(String materiaCode,
+      Map<String, List<String>> prerequisiteMap, Set<String> collected) {
+    var directPrereqs = prerequisiteMap[materiaCode] ?? [];
+
+    for (var prereqCode in directPrereqs) {
+      if (!collected.contains(prereqCode)) {
+        collected.add(prereqCode);
+        // Recursively collect prerequisites of this prerequisite
+        _collectAllPrerequisites(prereqCode, prerequisiteMap, collected);
+      }
+    }
+  }
+
+  /// Get only direct prerequisites for a materia
+  List<MateriaModel> getDirectPrerequisites(String materiaCode) {
+    Map<String, MateriaModel> materiaMap = {};
+    for (var materia in materias) {
+      materiaMap[materia.codigoMateria] = materia;
+    }
+
+    List<MateriaModel> directPrereqs = [];
+
+    for (var preReq in preRequisitos) {
+      var targetMateria = materias.firstWhere(
+          (m) => m.idMateria == preReq.idMateria,
+          orElse: () =>
+              throw Exception('Materia not found for id: ${preReq.idMateria}'));
+
+      if (targetMateria.codigoMateria == materiaCode) {
+        var prerequisiteMateria = materiaMap[preReq.codigoMateriaRequisito];
+        if (prerequisiteMateria != null) {
+          directPrereqs.add(prerequisiteMateria);
+        }
+      }
+    }
+
+    return directPrereqs;
   }
 
   /// Get prerequisite visualization data for a specific subject

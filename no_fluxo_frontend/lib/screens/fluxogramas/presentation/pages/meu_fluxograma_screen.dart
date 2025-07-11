@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:dartz/dartz.dart' show Left;
+import 'package:go_router/go_router.dart';
+
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart';
 import '../../../../utils/utils.dart';
@@ -11,31 +11,39 @@ import '../../../../widgets/graffiti_background.dart';
 import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../models/user_model.dart';
 import '../../../../widgets/splash_widget.dart';
-import '../../data/course_data.dart';
-import '../../data/course_subject.dart';
+
 import '../../data/materia_model.dart';
 import '../../data/prerequisite_tree_model.dart';
 import '../../services/meu_fluxograma_service.dart';
-import '../widgets/course_card_widget.dart';
+
 import '../widgets/fluxograma_header.dart';
 import '../widgets/fluxograma_legend_controls.dart';
 import '../widgets/progress_summary_section.dart';
 import '../widgets/progress_tools_section.dart';
 import '../widgets/fluxogram_container.dart';
 import '../widgets/prerequisite_chain_dialog.dart';
-import '../widgets/prerequisite_indicator_widget.dart';
 import '../widgets/tool_modals.dart';
-import 'dart:ui';
-import 'dart:typed_data';
-import 'package:go_router/go_router.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
+import '../widgets/optativas_modal.dart';
+import '../widgets/optativas_adicionadas_section.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:universal_html/html.dart' as html;
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/materia_data_dialog_content.dart';
+
+// Modelo para optativas adicionadas
+class OptativaAdicionada {
+  final MateriaModel materia;
+  final int semestre;
+
+  OptativaAdicionada({
+    required this.materia,
+    required this.semestre,
+  });
+}
 
 var log = Environment.getLogger("MeuFluxogramaScreen");
 
@@ -55,16 +63,48 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   List<CursoModel> matrizesCurriculares = [];
   PrerequisiteTree? prerequisiteTree;
   Map<String, dynamic>? prerequisiteVisualizationData;
+  bool isAnonymous = false;
+  bool isInteractingWithFluxogram = false;
+  bool showOptativasModal = false;
+  List<OptativaAdicionada> optativasAdicionadas = [];
 
   bool loading = false;
   String? errorMessage;
 
-  // Screenshot controller for PDF generation
   final ScreenshotController screenshotController = ScreenshotController();
+  final GlobalKey _fluxogramContainerKey = GlobalKey();
+  final GlobalKey _fluxogramContentKey = GlobalKey();
+
+  // Scroll controllers for centering before screenshot
+  ScrollController? _currentHorizontalScrollController;
+  ScrollController? _currentVerticalScrollController;
 
   @override
   void initState() {
     super.initState();
+  }
+
+  // Função para obter dimensões responsivas
+  double _getResponsiveFontSize(BuildContext context,
+      {double baseSize = 16.0}) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return baseSize * 0.8; // Mobile
+    if (screenWidth < 900) return baseSize * 0.9; // Tablet
+    return baseSize; // Desktop
+  }
+
+  double _getResponsiveSpacing(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 12.0; // Mobile
+    if (screenWidth < 900) return 16.0; // Tablet
+    return 24.0; // Desktop
+  }
+
+  double _getResponsivePadding(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 16.0; // Mobile
+    if (screenWidth < 900) return 20.0; // Tablet
+    return 24.0; // Desktop
   }
 
   Future<bool> loadCourseData() async {
@@ -72,21 +112,34 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
     loading = true;
     try {
-      var courseName =
-          SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
-              (widget.courseName ?? '');
+      var courseName = widget.courseName ??
+          (SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
+              "");
+
+      if (courseName == "") {
+        courseName =
+            SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
+                "";
+      }
+
+      if (courseName == "") {
+        context.go("/upload-historico");
+        return false;
+      }
 
       final loadedCourseData =
           await MeuFluxogramaService.getCourseData(courseName);
+      isAnonymous =
+          SharedPreferencesHelper.isAnonimo || widget.courseName != null;
 
-      loadedCourseData.fold(
-        (error) {
+      await loadedCourseData.fold(
+        (error) async {
           errorMessage = error;
           return false;
         },
-        (cursos) {
+        (cursos) async {
           matrizesCurriculares = cursos;
-          if (SharedPreferencesHelper.isAnonimo) {
+          if (isAnonymous) {
             currentCourseData = cursos[0];
           } else {
             currentCourseData = cursos.firstWhere((curso) =>
@@ -107,26 +160,62 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   .toList() ??
               List<DadosMateria>.from([]);
 
-          var materiasAprovadas = listMaterias
-              .where((e) =>
-                  e.mencao == 'SS' || e.mencao == 'MS' || e.mencao == 'MM')
-              .toList();
+          var materiasCursadasPorCodigo = Map<String, DadosMateria>.fromEntries(
+              listMaterias.map((e) => MapEntry(e.codigoMateria, e)));
 
-          var materiasCurrent =
-              listMaterias.where((e) => e.status == "MATR").toList();
+          List<MateriaModel> materiasCursadasAsMateriaModel = [];
 
-          var materiasEquivalentesAprovadas = currentCourseData?.equivalencias
-                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
-                      materiasAprovadas.map((e) => e.codigoMateria))))
-                  .toList() ??
-              [];
+          var materiasCursadasAsMateriaModelResponse =
+              await MeuFluxogramaService.getMateriasCursadasAsMateriaModel(
+                  listMaterias.map((e) => e.codigoMateria).toList(),
+                  currentCourseData?.idCurso ?? 0);
 
-          var materiasEquivalentesCurrent = currentCourseData?.equivalencias
-                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
-                      materiasCurrent.map((e) => e.codigoMateria))))
-                  .toList() ??
-              [];
+          materiasCursadasAsMateriaModelResponse.fold((l) {
+            log.severe(l, StackTrace.current);
+          }, (r) {
+            materiasCursadasAsMateriaModel = r;
 
+            for (var materia in materiasCursadasAsMateriaModel) {
+              materia.mencao =
+                  materiasCursadasPorCodigo[materia.codigoMateria]?.mencao;
+              materia.professor =
+                  materiasCursadasPorCodigo[materia.codigoMateria]?.professor;
+            }
+          });
+
+          var materiasEquivalentesAprovadas =
+              currentCourseData?.equivalencias.where((equiv) {
+                    var equivalenciaResult = equiv.isMateriaEquivalente(
+                        materiasCursadasAsMateriaModel
+                            .where((e) =>
+                                e.mencao == 'SS' ||
+                                e.mencao == 'MS' ||
+                                e.mencao == 'MM')
+                            .toList());
+                    if (equivalenciaResult.isEquivalente) {
+                      for (var v in equivalenciaResult.equivalentes) {
+                        // equiv.equivalenteA = v;
+                      }
+                    }
+                    return equivalenciaResult.isEquivalente;
+                  }).toList() ??
+                  [];
+
+          var materiasEquivalentesCurrent =
+              currentCourseData?.equivalencias.where((equiv) {
+                    var equivalenciaResult = equiv.isMateriaEquivalente(
+                        materiasCursadasAsMateriaModel
+                            .where((e) => e.mencao == 'MATR')
+                            .toList());
+
+                    if (equivalenciaResult.isEquivalente) {
+                      for (var v in equivalenciaResult.equivalentes) {
+                        // equiv.equivalenteA = v; // Remover todas as linhas que usam equivalenteA
+                      }
+                    }
+                    return equivalenciaResult.isEquivalente;
+                  }).toList() ??
+                  [];
           for (var materia in SharedPreferencesHelper
                   .currentUser?.dadosFluxograma?.dadosFluxograma
                   .expand((e) => e) ??
@@ -148,13 +237,26 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           }
 
           for (var materia in materiasEquivalentesAprovadas) {
-            materiasPorCodigo[materia.materia.codigoMateria]?.status =
+            materiasPorCodigo[materia.codigoMateriaOrigem]?.status =
                 'completed';
+            // materiasPorCodigo[materia.materia.codigoMateria]
+            //     ?.materiaEquivalenteCursada = materia.equivalenteA; // Remover todas as linhas que usam equivalenteA
           }
 
           for (var materia in materiasEquivalentesCurrent) {
-            materiasPorCodigo[materia.materia.codigoMateria]?.status =
-                'current';
+            materiasPorCodigo[materia.codigoMateriaOrigem]?.status = 'current';
+            // materiasPorCodigo[materia.materia.codigoMateria]
+            //     ?.materiaEquivalenteCursada = materia.equivalenteA; // Remover todas as linhas que usam equivalenteA
+          }
+
+          for (var materia
+              in currentCourseData?.materias ?? List<MateriaModel>.from([])) {
+            if (materiasPorCodigo.containsKey(materia.codigoMateria)) {
+              materia.status = materiasPorCodigo[materia.codigoMateria]?.status;
+              materia.mencao = materiasPorCodigo[materia.codigoMateria]?.mencao;
+              materia.professor =
+                  materiasPorCodigo[materia.codigoMateria]?.professor;
+            }
           }
 
           // Build prerequisite tree and visualization data
@@ -163,6 +265,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
             prerequisiteVisualizationData =
                 currentCourseData!.getAllPrerequisiteVisualizationData();
           }
+
+          // update data
         },
       );
 
@@ -174,8 +278,10 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     }
   }
 
-  Future<void> saveFluxogramAsPdf() async {
-    bool closed = false;
+  Future<void> saveFluxogramAsImage() async {
+    bool dialogClosed = false;
+    double originalZoomLevel = zoomLevel; // Salvar zoom original
+
     try {
       // Show loading indicator
       showDialog(
@@ -183,99 +289,127 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: SplashWidget(),
           );
         },
       );
 
-      // Capture the widget as image
+      // Centralizar scroll antes de calcular zoom
+      await _centerFluxogramScroll();
+
+      // Aguardar scroll se posicionar
+      await Future.delayed(const Duration(milliseconds: 400));
+
+      // Calcular zoom ótimo baseado nas dimensões reais
+      double optimalZoomLevel = _calculateOptimalScreenshotZoom();
+
+      // Aplicar zoom ótimo temporariamente
+      setState(() {
+        zoomLevel = optimalZoomLevel;
+      });
+
+      // Aguardar um pouco para o layout se ajustar
+      await Future.delayed(const Duration(milliseconds: 800));
+
+      // Capture the widget as image com qualidade melhorada
       final Uint8List? imageBytes = await screenshotController.capture(
         delay: const Duration(milliseconds: 500),
-        pixelRatio: 2.0,
+        pixelRatio: 3.0, // Aumentar qualidade da imagem
       );
+
+      // Restaurar zoom original
+      setState(() {
+        zoomLevel = originalZoomLevel;
+      });
 
       if (imageBytes == null) {
         throw Exception('Erro ao capturar imagem do fluxograma');
       }
 
-      // Create PDF document
-      final pdf = pw.Document();
+      // Create filename with timestamp
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final courseName =
+          currentCourseData?.nomeCurso.replaceAll(' ', '_') ?? 'curso';
+      final fileName = 'fluxograma_${courseName}_$timestamp.png';
 
-      // Convert image to PDF format
-      final image = pw.MemoryImage(imageBytes);
+      if (kIsWeb) {
+        // Web platform - use browser download
+        final blob = html.Blob([imageBytes]);
+        final url = html.Url.createObjectUrlFromBlob(blob);
+        html.AnchorElement(href: url)
+          ..setAttribute('download', fileName)
+          ..click();
+        html.Url.revokeObjectUrl(url);
 
-      pdf.addPage(
-        pw.Page(
-          pageFormat: PdfPageFormat.a4.landscape,
-          margin: const pw.EdgeInsets.all(32),
-          build: (pw.Context context) {
-            return pw.Center(
-              child: pw.Column(
-                children: [
-                  pw.Text(
-                    'Fluxograma - ${currentCourseData?.nomeCurso ?? 'Curso'}',
-                    style: pw.TextStyle(
-                      fontSize: 18,
-                      fontWeight: pw.FontWeight.bold,
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Expanded(
-                    child: pw.Image(
-                      image,
-                      fit: pw.BoxFit.contain,
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Text(
-                    'Gerado em: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                    style: const pw.TextStyle(
-                      fontSize: 12,
-                      color: PdfColors.grey700,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      );
+        // Close loading dialog
+        dialogClosed = true;
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
 
-      // Close loading dialog
-      if (context.mounted) {
-        Navigator.of(context).pop();
-      }
+        // Show success message
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Fluxograma baixado: $fileName'),
+              backgroundColor: Colors.green,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
+      } else {
+        // Mobile platforms - save to device storage
+        Directory? directory;
+        if (Platform.isAndroid) {
+          directory = await getExternalStorageDirectory();
+        } else {
+          directory = await getApplicationDocumentsDirectory();
+        }
 
-      // Save or share the PDF
-      await Printing.layoutPdf(
-        onLayout: (PdfPageFormat format) async => pdf.save(),
-        name:
-            'fluxograma_${currentCourseData?.nomeCurso?.replaceAll(' ', '_') ?? 'curso'}.pdf',
-      );
+        if (directory == null) {
+          throw Exception('Não foi possível acessar o diretório de downloads');
+        }
 
-      // Show success message
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Fluxograma salvo como PDF com sucesso!'),
-            backgroundColor: Colors.green,
-          ),
-        );
+        final filePath = '${directory.path}/$fileName';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        // Close loading dialog
+        dialogClosed = true;
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
+
+        // Show success message
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Fluxograma salvo em: $fileName'),
+              backgroundColor: Colors.green,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
       }
     } catch (e) {
-      if (!closed) {
+      // Restaurar zoom original em caso de erro
+      setState(() {
+        zoomLevel = originalZoomLevel;
+      });
+
+      if (!dialogClosed) {
         if (context.mounted) {
           Navigator.of(context).pop();
         }
       }
 
-      log.severe('Erro ao salvar PDF: $e');
+      log.severe('Erro ao salvar imagem: $e');
 
       // Show error message
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao salvar PDF: $e'),
+            content: Text('Erro ao salvar imagem: $e'),
             backgroundColor: Colors.red,
           ),
         );
@@ -283,8 +417,138 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     }
   }
 
+  /// Calcula o zoom ideal baseado no número de semestres do curso
+  double _calculateOptimalZoom() {
+    if (currentCourseData == null) return 0.7;
+
+    final int totalSemestres = currentCourseData!.semestres;
+    final int totalMaterias = currentCourseData!.materias.length;
+
+    // Calcular densidade média de matérias por semestre
+    final double densidadeMedia = totalMaterias / totalSemestres;
+
+    // Lógica de zoom baseada no número de semestres e densidade
+    double baseZoom;
+
+    if (totalSemestres <= 8) {
+      baseZoom = 0.85; // Cursos menores - zoom maior
+    } else if (totalSemestres <= 10) {
+      baseZoom = 0.7; // Cursos médios
+    } else if (totalSemestres <= 12) {
+      baseZoom = 0.6; // Cursos grandes
+    } else {
+      baseZoom = 0.5; // Cursos muito grandes
+    }
+
+    // Ajustar baseado na densidade de matérias
+    if (densidadeMedia > 8) {
+      baseZoom -= 0.1; // Muitas matérias por semestre
+    } else if (densidadeMedia > 6) {
+      baseZoom -= 0.05; // Densidade média-alta
+    }
+
+    // Ajustar baseado no total de matérias
+    if (totalMaterias > 60) {
+      baseZoom -= 0.1; // Fluxogramas muito densos
+    } else if (totalMaterias > 45) {
+      baseZoom -= 0.05; // Fluxogramas densos
+    }
+
+    // Garantir que o zoom não fique muito baixo
+    return baseZoom.clamp(0.35, 0.9);
+  }
+
+  /// Calcula o zoom ótimo para screenshot baseado nas dimensões reais do container e conteúdo
+  double _calculateOptimalScreenshotZoom() {
+    try {
+      // Obter as dimensões do container
+      final containerRenderBox = _fluxogramContainerKey.currentContext
+          ?.findRenderObject() as RenderBox?;
+      if (containerRenderBox == null) return 0.5;
+
+      // Obter as dimensões do conteúdo (sem zoom aplicado)
+      final contentRenderBox =
+          _fluxogramContentKey.currentContext?.findRenderObject() as RenderBox?;
+      if (contentRenderBox == null) return 0.5;
+
+      final containerSize = containerRenderBox.size;
+      final contentSize = contentRenderBox.size;
+
+      // Calcular o padding do container (32px cada lado)
+      const containerPadding = 64.0; // 32px horizontal + 32px horizontal
+      const containerPaddingVertical = 64.0; // 32px vertical + 32px vertical
+
+      // Dimensões úteis do container (sem padding)
+      final availableWidth = containerSize.width - containerPadding;
+      final availableHeight = containerSize.height - containerPaddingVertical;
+
+      // Calcular o zoom baseado na razão de aspecto
+      final scaleX = availableWidth / contentSize.width;
+      final scaleY = availableHeight / contentSize.height;
+
+      // Usar o menor dos dois para garantir que não corte
+      double optimalZoom = scaleX < scaleY ? scaleX : scaleY;
+
+      // Adicionar uma pequena margem de segurança (95% do zoom ótimo)
+      optimalZoom *= 0.45;
+
+      // Garantir limites mínimo e máximo
+      return optimalZoom.clamp(0.1, 2.0);
+    } catch (e) {
+      log.warning('Erro ao calcular zoom ótimo: $e');
+      // Fallback para zoom baseado em semestres
+      return _calculateOptimalZoom();
+    }
+  }
+
+  /// Centers the fluxogram scroll position for optimal screenshot framing
+  Future<void> _centerFluxogramScroll() async {
+    try {
+      if (_currentHorizontalScrollController != null &&
+          _currentHorizontalScrollController!.hasClients) {
+        // Calculate center position for horizontal scroll
+        final maxScrollExtent =
+            _currentHorizontalScrollController!.position.maxScrollExtent;
+        final centerPosition = maxScrollExtent / 2;
+
+        await _currentHorizontalScrollController!.animateTo(
+          centerPosition,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+
+      if (_currentVerticalScrollController != null &&
+          _currentVerticalScrollController!.hasClients) {
+        // Calculate center position for vertical scroll
+        final maxScrollExtent =
+            _currentVerticalScrollController!.position.maxScrollExtent;
+        final centerPosition = maxScrollExtent / 2;
+
+        await _currentVerticalScrollController!.animateTo(
+          centerPosition,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    } catch (e) {
+      log.warning('Erro ao centralizar scroll: $e');
+    }
+  }
+
+  /// Callback to receive scroll controllers from FluxogramContainer
+  void _onScrollControllersReady(
+      ScrollController horizontal, ScrollController vertical) {
+    _currentHorizontalScrollController = horizontal;
+    _currentVerticalScrollController = vertical;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsivePadding = _getResponsivePadding(context);
+    final responsiveSpacing = _getResponsiveSpacing(context);
+
     return Scaffold(
       body: FutureBuilder(
           future: loadCourseData(),
@@ -309,36 +573,112 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                       const AppNavbar(isFluxogramasPage: true),
                       Expanded(
                         child: SingleChildScrollView(
+                          physics: isInteractingWithFluxogram
+                              ? const NeverScrollableScrollPhysics()
+                              : const AlwaysScrollableScrollPhysics(),
                           child: Center(
                             child: Container(
-                              constraints: const BoxConstraints(maxWidth: 1280),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 24, vertical: 48),
+                              constraints: BoxConstraints(
+                                  maxWidth: isMobile ? double.infinity : 1280),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: responsivePadding,
+                                  vertical: isMobile ? 24 : 48),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   FluxogramaHeader(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
-                                    onSaveFluxograma: saveFluxogramAsPdf,
-                                    onAddMateria: () {},
-                                    onAddOptativa: () {},
+                                    onSaveFluxograma: saveFluxogramAsImage,
+                                    onAddOptativa: () {
+                                      setState(() {
+                                        showOptativasModal = true;
+                                      });
+                                    },
                                   ),
+                                  if (!isAnonymous) ...[
+                                    SizedBox(height: responsiveSpacing),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        ElevatedButton.icon(
+                                          onPressed: () async {
+                                            final user = SharedPreferencesHelper
+                                                .currentUser;
+                                            if (user == null) return;
+                                            final result =
+                                                await MeuFluxogramaService
+                                                    .deleteFluxogramaUser(
+                                                        user.idUser.toString(),
+                                                        user.token ?? '');
+                                            result.fold((l) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                      'Erro ao remover fluxograma: ' +
+                                                          l),
+                                                  backgroundColor: Colors.red,
+                                                ),
+                                              );
+                                            }, (r) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      'Fluxograma removido com sucesso!'),
+                                                  backgroundColor: Colors.green,
+                                                ),
+                                              );
+                                              context.go('/upload-historico');
+                                            });
+                                          },
+                                          icon: Icon(
+                                            Icons.refresh,
+                                            color: Colors.white,
+                                            size: _getResponsiveFontSize(
+                                                context,
+                                                baseSize: 22),
+                                          ),
+                                          label: Text(
+                                            isMobile
+                                                ? 'REENVIAR'
+                                                : 'ENVIAR FLUXOGRAMA NOVAMENTE',
+                                            style: GoogleFonts.poppins(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: _getResponsiveFontSize(
+                                                  context,
+                                                  baseSize: 16),
+                                            ),
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: isMobile ? 16 : 28,
+                                                vertical: isMobile ? 10 : 14),
+                                            backgroundColor:
+                                                const Color(0xFFFF3CA5),
+                                            foregroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                            ),
+                                            elevation: 8,
+                                            shadowColor:
+                                                Colors.black.withOpacity(0.3),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: responsiveSpacing),
+                                  ],
                                   FluxogramaLegendControls(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     zoomLevel: zoomLevel,
-                                    showPrereqChains: showPrereqChains,
                                     showConnections: showConnections,
                                     onZoomChanged: (newZoom) {
                                       setState(() {
                                         zoomLevel = newZoom;
-                                      });
-                                    },
-                                    onShowPrereqChainsChanged: (value) {
-                                      setState(() {
-                                        showPrereqChains = value;
                                       });
                                     },
                                     onShowConnectionsChanged: (value) {
@@ -347,34 +687,65 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       });
                                     },
                                   ),
-                                  Screenshot(
-                                    controller: screenshotController,
-                                    child: FluxogramContainer(
-                                      courseData: currentCourseData,
-                                      zoomLevel: zoomLevel,
-                                      isAnonymous:
-                                          SharedPreferencesHelper.isAnonimo,
-                                      showPrereqChains: showPrereqChains,
-                                      showConnections: showConnections,
-                                      onShowPrerequisiteChain:
-                                          _showPrerequisiteChainDialog,
-                                      onBuildPrerequisiteIndicator:
-                                          _buildPrerequisiteIndicator,
-                                      onShowMateriaDialog:
-                                          _showMateriaDataDialog,
+                                  SizedBox(height: responsiveSpacing),
+                                  MouseRegion(
+                                    onEnter: (_) {
+                                      /* setState(() {
+                                        isInteractingWithFluxogram = true;
+                                      }); */
+                                    },
+                                    onExit: (_) {
+                                      /* setState(() {
+                                        isInteractingWithFluxogram = false;
+                                      }); */
+                                    },
+                                    child: Screenshot(
+                                      controller: screenshotController,
+                                      child: FluxogramContainer(
+                                        zoomLevel: zoomLevel,
+                                        courseData: currentCourseData,
+                                        isAnonymous: isAnonymous,
+                                        showConnections: showConnections,
+                                        containerKey: _fluxogramContainerKey,
+                                        contentKey: _fluxogramContentKey,
+                                        onScrollControllersReady:
+                                            _onScrollControllersReady,
+                                        onShowPrerequisiteChain:
+                                            _showPrerequisiteChainDialog,
+                                        onShowMateriaDialog:
+                                            _showMateriaDataDialog,
+                                      ),
                                     ),
                                   ),
+                                  SizedBox(height: responsiveSpacing * 2),
                                   ProgressSummarySection(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                   ),
+                                  SizedBox(height: responsiveSpacing),
+                                  OptativasAdicionadasSection(
+                                    optativasAdicionadas: optativasAdicionadas
+                                        .map((opt) => opt.materia)
+                                        .toList(),
+                                    onOptativaClicked: (materia) {
+                                      // Encontrar a optativa adicionada correspondente
+                                      final optativaAdicionada =
+                                          optativasAdicionadas.firstWhere(
+                                        (opt) =>
+                                            opt.materia.codigoMateria ==
+                                            materia.codigoMateria,
+                                      );
+                                      _showOptativaDataDialog(
+                                          context, optativaAdicionada);
+                                    },
+                                  ),
+                                  SizedBox(height: responsiveSpacing),
                                   ProgressToolsSection(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     onShowToolModal: (title) =>
                                         _showToolModal(context, title: title),
                                   ),
+                                  SizedBox(height: responsiveSpacing),
                                 ],
                               ),
                             ),
@@ -384,6 +755,57 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                     ],
                   ),
                 ),
+                // Modal de optativas
+                if (showOptativasModal)
+                  OptativasModal(
+                    optativasDisponiveis: currentCourseData?.materias
+                            .where((materia) => materia.nivel == 0)
+                            .toList() ??
+                        [],
+                    onOptativaSelecionada: (optativa, semestre) {
+                      // Verificar se a optativa já foi adicionada
+                      bool jaAdicionada = optativasAdicionadas.any((opt) =>
+                          opt.materia.codigoMateria == optativa.codigoMateria);
+
+                      if (jaAdicionada) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'A optativa ${optativa.codigoMateria} já foi adicionada!',
+                            ),
+                            backgroundColor: Colors.orange,
+                          ),
+                        );
+                        setState(() {
+                          showOptativasModal = false;
+                        });
+                        return;
+                      }
+
+                      setState(() {
+                        optativasAdicionadas.add(OptativaAdicionada(
+                          materia: optativa,
+                          semestre: semestre,
+                        ));
+                        showOptativasModal = false;
+                      });
+
+                      // Mostrar mensagem de sucesso
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Optativa ${optativa.codigoMateria} - ${optativa.nomeMateria} adicionada ao ${semestre}º semestre!',
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    },
+                    onCancelOptativa: () {
+                      setState(() {
+                        showOptativasModal = false;
+                      });
+                    },
+                  ),
               ],
             );
           }),
@@ -417,15 +839,140 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   void _showMateriaDataDialog(BuildContext context, MateriaModel materia) {
     Utils.showCustomizedDialog(
       context: context,
-      child: MateriaDataDialogContent(materia: materia),
+      child:
+          MateriaDataDialogContent(materia: materia, curso: currentCourseData!),
     );
   }
 
-  /// Build prerequisite indicator for course cards
-  Widget _buildPrerequisiteIndicator(MateriaModel subject) {
-    return PrerequisiteIndicatorWidget(
-      subject: subject,
-      getPrerequisiteChainData: _getPrerequisiteChainData,
+  /// Mostrar dialog de optativa quando clicada
+  void _showOptativaDataDialog(
+      BuildContext context, OptativaAdicionada optativa) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsivePadding = _getResponsivePadding(context);
+
+    Utils.showCustomizedDialog(
+      context: context,
+      child: Container(
+        padding: EdgeInsets.all(responsivePadding),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              optativa.materia.codigoMateria,
+              style: GoogleFonts.poppins(
+                fontSize: _getResponsiveFontSize(context, baseSize: 20),
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: _getResponsiveSpacing(context) / 2),
+            Text(
+              optativa.materia.nomeMateria,
+              style: GoogleFonts.poppins(
+                fontSize: _getResponsiveFontSize(context, baseSize: 16),
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: _getResponsiveSpacing(context)),
+            Text(
+              'Créditos: ${optativa.materia.creditos}',
+              style: GoogleFonts.poppins(
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            SizedBox(height: _getResponsiveSpacing(context) / 2),
+            Text(
+              'Semestre: ${optativa.semestre}º',
+              style: GoogleFonts.poppins(
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            SizedBox(height: _getResponsiveSpacing(context)),
+            Text(
+              'Ementa:',
+              style: GoogleFonts.poppins(
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: _getResponsiveSpacing(context) / 4),
+            Text(
+              optativa.materia.ementa,
+              style: GoogleFonts.poppins(
+                fontSize: _getResponsiveFontSize(context, baseSize: 12),
+                color: Colors.white.withOpacity(0.8),
+              ),
+            ),
+            SizedBox(height: _getResponsiveSpacing(context) * 1.5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    _removerOptativa(optativa);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red.shade600,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isMobile ? 12 : 16,
+                      vertical: isMobile ? 8 : 12,
+                    ),
+                  ),
+                  child: Text(
+                    'Remover',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: _getResponsiveFontSize(context, baseSize: 12),
+                    ),
+                  ),
+                ),
+                SizedBox(width: _getResponsiveSpacing(context) / 2),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey.shade700,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isMobile ? 12 : 16,
+                      vertical: isMobile ? 8 : 12,
+                    ),
+                  ),
+                  child: Text(
+                    'Fechar',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: _getResponsiveFontSize(context, baseSize: 12),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Remover optativa da lista
+  void _removerOptativa(OptativaAdicionada optativa) {
+    setState(() {
+      optativasAdicionadas.removeWhere(
+          (opt) => opt.materia.codigoMateria == optativa.materia.codigoMateria);
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Optativa ${optativa.materia.codigoMateria} removida com sucesso!',
+        ),
+        backgroundColor: Colors.orange,
+      ),
     );
   }
 }

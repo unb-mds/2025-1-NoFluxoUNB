@@ -14,6 +14,28 @@ class ProgressSummarySection extends StatelessWidget {
     this.isAnonymous = false,
   });
 
+  // Função para obter dimensões responsivas
+  double _getResponsiveFontSize(BuildContext context, {double baseSize = 16.0}) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return baseSize * 0.8; // Mobile
+    if (screenWidth < 900) return baseSize * 0.9; // Tablet
+    return baseSize; // Desktop
+  }
+
+  double _getResponsiveSpacing(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 12.0; // Mobile
+    if (screenWidth < 900) return 16.0; // Tablet
+    return 24.0; // Desktop
+  }
+
+  double _getResponsivePadding(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 16.0; // Mobile
+    if (screenWidth < 900) return 20.0; // Tablet
+    return 24.0; // Desktop
+  }
+
   @override
   Widget build(BuildContext context) {
     // Don't show progress summary for anonymous users
@@ -21,80 +43,126 @@ class ProgressSummarySection extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsiveSpacing = _getResponsiveSpacing(context);
+
     return Container(
-      margin: const EdgeInsets.only(bottom: 32),
-      child: Row(
+      margin: EdgeInsets.only(bottom: isMobile ? 24 : 32),
+      child: isMobile 
+          ? _buildMobileLayout(context, responsiveSpacing)
+          : _buildDesktopLayout(context, responsiveSpacing),
+    );
+  }
+
+  Widget _buildMobileLayout(BuildContext context, double spacing) {
+    return Column(
+      children: [
+        // Credits Progress
+        _buildCreditsProgressCard(context),
+        SizedBox(height: spacing),
+
+        // Current Semester
+        _buildCurrentSemesterCard(context),
+        SizedBox(height: spacing),
+
+        // Recommendations
+        _buildRecommendationsCard(context),
+      ],
+    );
+  }
+
+  Widget _buildDesktopLayout(BuildContext context, double spacing) {
+    return Row(
+      children: [
+        // Credits Progress
+        Expanded(
+          child: _buildCreditsProgressCard(context),
+        ),
+        SizedBox(width: spacing),
+
+        // Current Semester
+        Expanded(
+          child: _buildCurrentSemesterCard(context),
+        ),
+        SizedBox(width: spacing),
+
+        // Recommendations
+        Expanded(
+          child: _buildRecommendationsCard(context),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCreditsProgressCard(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(_getResponsivePadding(context)),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Credits Progress
-          Expanded(
-            child: _buildCreditsProgressCard(),
+          Row(
+            children: [
+              Icon(
+                Icons.school, 
+                color: const Color(0xFF8B5CF6), 
+                size: _getResponsiveFontSize(context, baseSize: 24)
+              ),
+              SizedBox(width: _getResponsiveSpacing(context) / 2),
+              Expanded(
+                child: Text(
+                  'Progresso de Créditos',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: _getResponsiveFontSize(context, baseSize: 20),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 24),
-
-          // Current Semester
-          Expanded(
-            child: _buildCurrentSemesterCard(),
+          SizedBox(height: _getResponsiveSpacing(context) * 2),
+          // Mensagem "Em breve"
+          Center(
+            child: Column(
+              children: [
+                Icon(
+                  Icons.construction,
+                  color: const Color(0xFF8B5CF6),
+                  size: _getResponsiveFontSize(context, baseSize: 48),
+                ),
+                SizedBox(height: _getResponsiveSpacing(context)),
+                Text(
+                  'Em breve',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: _getResponsiveFontSize(context, baseSize: 18),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: _getResponsiveSpacing(context) / 2),
+                Text(
+                  'Funcionalidade em desenvolvimento',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: _getResponsiveFontSize(context, baseSize: 14),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
-          const SizedBox(width: 24),
-
-          // Recommendations
-          Expanded(
-            child: _buildRecommendationsCard(context),
-          ),
+          SizedBox(height: _getResponsiveSpacing(context) * 2),
         ],
       ),
     );
   }
 
-  Widget _buildCreditsProgressCard() {
-    // Calculate credits progress
-    final obrigatorias = courseData?.totalCreditos ?? 160;
-    final optativas = courseData?.totalCreditos ?? 24;
-    final livre = courseData?.totalCreditos ?? 24;
-
-    int currentObrigatorias = 0;
-    int currentOptativas = 0;
-    int currentLivre = 0;
-
-    final totalCurrent = currentObrigatorias + currentOptativas + currentLivre;
-    final totalRequired = obrigatorias + optativas + livre;
-
-    return _buildProgressCard(
-      'Progresso de Créditos',
-      Icons.school,
-      const Color(0xFF8B5CF6),
-      [
-        {
-          'label': 'Obrigatórias',
-          'progress':
-              totalRequired > 0 ? currentObrigatorias / obrigatorias : 0.0,
-          'current': currentObrigatorias,
-          'total': obrigatorias
-        },
-        {
-          'label': 'Optativas',
-          'progress': optativas > 0 ? currentOptativas / optativas : 0.0,
-          'current': currentOptativas,
-          'total': optativas
-        },
-        {
-          'label': 'Módulo Livre',
-          'progress': livre > 0 ? currentLivre / livre : 0.0,
-          'current': currentLivre,
-          'total': livre
-        },
-        {
-          'label': 'Total',
-          'progress': totalRequired > 0 ? totalCurrent / totalRequired : 0.0,
-          'current': totalCurrent,
-          'total': totalRequired,
-          'isTotal': true
-        },
-      ],
-    );
-  }
-
-  Widget _buildCurrentSemesterCard() {
+  Widget _buildCurrentSemesterCard(BuildContext context) {
     final currentUser = SharedPreferencesHelper.currentUser;
     int currentSemester = 1;
 
@@ -120,8 +188,11 @@ class ProgressSummarySection extends StatelessWidget {
         .where((s) => s.status == 'selected')
         .fold<int>(0, (sum, subject) => sum + subject.creditos);
 
+    final responsivePadding = _getResponsivePadding(context);
+    final responsiveSpacing = _getResponsiveSpacing(context);
+
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(responsivePadding),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.3),
         borderRadius: BorderRadius.circular(8),
@@ -133,27 +204,27 @@ class ProgressSummarySection extends StatelessWidget {
             'Semestre Atual: ${currentSemester}º',
             style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: _getResponsiveFontSize(context, baseSize: 20),
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 16),
-          _buildInfoRow('Total de Matérias', '${currentSubjects.length}'),
-          _buildInfoRow('Créditos', '$currentCredits'),
-          _buildInfoRow('Carga Horária Semanal',
+          SizedBox(height: responsiveSpacing),
+          _buildInfoRow(context, 'Total de Matérias', '${currentSubjects.length}'),
+          _buildInfoRow(context, 'Créditos', '$currentCredits'),
+          _buildInfoRow(context, 'Carga Horária Semanal',
               '${(currentCredits * 2.5).round()} horas'),
-          const SizedBox(height: 16),
+          SizedBox(height: responsiveSpacing),
           Text(
             'Próximo Semestre',
             style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: _getResponsiveFontSize(context, baseSize: 16),
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 8),
-          _buildInfoRow('Matérias Selecionadas', '$selectedSubjects'),
-          _buildInfoRow('Créditos Planejados', '$plannedCredits'),
+          SizedBox(height: responsiveSpacing / 2),
+          _buildInfoRow(context, 'Matérias Selecionadas', '$selectedSubjects'),
+          _buildInfoRow(context, 'Créditos Planejados', '$plannedCredits'),
         ],
       ),
     );
@@ -174,8 +245,12 @@ class ProgressSummarySection extends StatelessWidget {
           'Com base no seu perfil, recomendamos consultar o assistente de IA para sugestões personalizadas.',
     });
 
+    final responsivePadding = _getResponsivePadding(context);
+    final responsiveSpacing = _getResponsiveSpacing(context);
+    final isMobile = MediaQuery.of(context).size.width < 600;
+
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(responsivePadding),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.3),
         borderRadius: BorderRadius.circular(8),
@@ -187,122 +262,57 @@ class ProgressSummarySection extends StatelessWidget {
             'Recomendações',
             style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 20,
+              fontSize: _getResponsiveFontSize(context, baseSize: 20),
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: responsiveSpacing),
           ...recommendations.map((rec) =>
-              _buildRecommendationItem(rec['title']!, rec['description']!)),
-          const SizedBox(height: 16),
+              _buildRecommendationItem(context, rec['title']!, rec['description']!)),
+          SizedBox(height: responsiveSpacing),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton.icon(
-              onPressed: () => context.go('/assistente'),
-              icon: const Icon(Icons.lightbulb_outline, color: Colors.white),
-              label: Text(
-                'VER ASSISTENTE DE IA',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ).copyWith(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildProgressCard(String title, IconData icon, Color color,
-      List<Map<String, dynamic>> progressItems) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(icon, color: color, size: 24),
-              const SizedBox(width: 8),
-              Text(
-                title,
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          ...progressItems.map((item) => _buildProgressItem(item)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildProgressItem(Map<String, dynamic> item) {
-    final isTotal = item['isTotal'] ?? false;
-    final height = isTotal ? 12.0 : 10.0;
-
-    return Container(
-      margin: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                item['label'],
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: isTotal ? 14 : 12,
-                  fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
-                ),
-              ),
-              Text(
-                '${item['current']}/${item['total']} créditos',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: isTotal ? 14 : 12,
-                  fontWeight: isTotal ? FontWeight.bold : FontWeight.normal,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 4),
-          Container(
-            width: double.infinity,
-            height: height,
-            decoration: BoxDecoration(
-              color: Colors.grey[700],
-              borderRadius: BorderRadius.circular(height / 2),
-            ),
-            child: FractionallySizedBox(
-              alignment: Alignment.centerLeft,
-              widthFactor: item['progress'],
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: isTotal
-                        ? [const Color(0xFFEC4899), const Color(0xFFDB2777)]
-                        : [const Color(0xFF4ADE80), const Color(0xFF22C55E)],
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF8B5CF6).withOpacity(0.3),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
                   ),
-                  borderRadius: BorderRadius.circular(height / 2),
+                ],
+              ),
+              child: ElevatedButton.icon(
+                onPressed: () => context.go('/assistente'),
+                icon: Icon(
+                  Icons.psychology, 
+                  color: Colors.white,
+                  size: _getResponsiveFontSize(context, baseSize: 20),
+                ),
+                label: Text(
+                  isMobile ? 'ASSISTENTE DE IA' : 'FALAR COM ASSISTENTE',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: _getResponsiveFontSize(context, baseSize: 12),
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  padding: EdgeInsets.symmetric(
+                    vertical: isMobile ? 10 : 12,
+                    horizontal: isMobile ? 12 : 16,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             ),
@@ -312,24 +322,30 @@ class ProgressSummarySection extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoRow(String label, String value) {
+  Widget _buildInfoRow(BuildContext context, String label, String value) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.only(bottom: isMobile ? 6 : 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            label,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 14,
+          Flexible(
+            child: Text(
+              label,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
+              ),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
+          SizedBox(width: 8),
           Text(
             value,
             style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: _getResponsiveFontSize(context, baseSize: 14),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -338,10 +354,13 @@ class ProgressSummarySection extends StatelessWidget {
     );
   }
 
-  Widget _buildRecommendationItem(String title, String description) {
+  Widget _buildRecommendationItem(BuildContext context, String title, String description) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsiveSpacing = _getResponsiveSpacing(context);
+
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(12),
+      margin: EdgeInsets.only(bottom: isMobile ? 8 : 12),
+      padding: EdgeInsets.all(isMobile ? 10 : 12),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.3),
         borderRadius: BorderRadius.circular(8),
@@ -353,16 +372,16 @@ class ProgressSummarySection extends StatelessWidget {
             title,
             style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 14,
+              fontSize: _getResponsiveFontSize(context, baseSize: 14),
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: isMobile ? 2 : 4),
           Text(
             description,
             style: GoogleFonts.poppins(
               color: Colors.white.withOpacity(0.8),
-              fontSize: 12,
+              fontSize: _getResponsiveFontSize(context, baseSize: 12),
             ),
           ),
         ],

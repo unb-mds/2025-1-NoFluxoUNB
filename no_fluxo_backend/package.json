@@ -5,11 +5,17 @@
   "main": "dist/index.js",
   "scripts": {
     "setup-tesseract": "node scripts/setup-tesseract.js",
-    "build": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && tsc",
+    "build": "pip install -r ai_agent/requirements.txt && pip install -r parse-pdf/requirements.txt && tsc",
+    "build-docker": "pip install --user -r ai_agent/requirements.txt && pip install --user -r parse-pdf/requirements.txt && tsc",
     "build-and-start": "npm run build && npm run start",
     "start": "node dist/index.js",
-    "dev": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && nodemon src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pip install -r ai_agent/requirements.txt && pip install -r parse-pdf/requirements.txt && nodemon src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts tests-ts/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts tests-ts/**/*.ts --fix",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "typescript",
@@ -39,10 +45,35 @@
     "@types/express": "^4.17.21",
     "@types/express-fileupload": "^1.4.1",
     "@types/form-data": "^2.2.1",
+    "@types/jest": "^29.5.8",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.0.2",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/tests-ts/**/*.test.ts",
+      "<rootDir>/src/**/__tests__/**/*.test.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ],
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
   }
 }

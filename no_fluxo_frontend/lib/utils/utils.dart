@@ -3,7 +3,18 @@ import 'package:mobile_app/config/size_config.dart';
 import 'package:mobile_app/config/app_colors.dart';
 import 'package:go_router/go_router.dart';
 
+class Pair<T, U> {
+  final T first;
+  final U second;
+
+  Pair(this.first, this.second);
+}
+
+
 class Utils {
+
+  
+
   static Future<void> showCustomizedDialog(
       {required BuildContext context,
       required Widget child,

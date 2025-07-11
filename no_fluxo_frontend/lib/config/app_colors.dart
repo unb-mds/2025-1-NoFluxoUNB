@@ -30,6 +30,10 @@ class AppColors {
   static const Color optativeStart = Color(0xFF3B82F6);
   static const Color optativeEnd = Color(0xFF1D4ED8);
 
+  // Ready Subject Colors (prerequisites completed)
+  static const Color readyStart = Color(0xFFF59E0B);
+  static const Color readyEnd = Color(0xFFD97706);
+
   // Future Subject Colors (with opacity)
   static Color get futureStart => white.withOpacity(0.1);
   static Color get futureEnd => white.withOpacity(0.1);
