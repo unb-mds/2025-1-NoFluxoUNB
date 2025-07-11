@@ -155,6 +155,9 @@ class _PremiumHoverButtonState extends State<PremiumHoverButton>
             return Transform.scale(
               scale: _scaleAnimation.value,
               child: Container(
+                constraints: const BoxConstraints(
+                  minHeight: 48,
+                ),
                 decoration: BoxDecoration(
                   gradient: widget.isActive
                       ? LinearGradient(colors: widget.colors)
@@ -206,13 +209,13 @@ class _PremiumHoverButtonState extends State<PremiumHoverButton>
                       // Conteúdo principal
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 22, vertical: 12),
+                            horizontal: 32, vertical: 18),
                         child: Text(
                           widget.label,
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                            fontSize: 18,
                           ),
                         ),
                       ),

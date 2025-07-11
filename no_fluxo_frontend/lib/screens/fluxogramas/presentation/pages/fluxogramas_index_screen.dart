@@ -575,31 +575,108 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                               ),
                                             ),
                                             // Filtros
-                                            Flexible(
-                                              flex: isWide ? 4 : 0,
-                                              child: SingleChildScrollView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                child: Row(
-                                                  mainAxisAlignment: isWide
-                                                      ? MainAxisAlignment.end
-                                                      : MainAxisAlignment
-                                                          .center,
-                                                  children: List.generate(
-                                                    filtrosDinamicos.length,
-                                                    (i) => Row(
-                                                      children: [
-                                                        _buildPremiumFilterButton(
-                                                            filtrosDinamicos[i]
-                                                                ['label']!),
-                                                        if (i !=
-                                                            filtrosDinamicos
-                                                                    .length -
-                                                                1)
-                                                          const SizedBox(
-                                                              width: 10),
-                                                      ],
+                                            Container(
+                                              constraints: const BoxConstraints(
+                                                  maxWidth: 400),
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 18,
+                                                      vertical: 4),
+                                              decoration: BoxDecoration(
+                                                gradient: const LinearGradient(
+                                                  colors: [
+                                                    Color(0xFF6366F1),
+                                                    Color(0xFFFF3CA5)
+                                                  ],
+                                                  begin: Alignment.centerLeft,
+                                                  end: Alignment.centerRight,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(40),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(0.18),
+                                                    blurRadius: 12,
+                                                    offset: Offset(0, 4),
+                                                  ),
+                                                ],
+                                                border: Border.all(
+                                                  color: Colors.white
+                                                      .withOpacity(0.18),
+                                                  width: 2,
+                                                ),
+                                              ),
+                                              child:
+                                                  DropdownButtonHideUnderline(
+                                                child: Theme(
+                                                  data: Theme.of(context)
+                                                      .copyWith(
+                                                    canvasColor:
+                                                        const Color(0xFF18122B),
+                                                  ),
+                                                  child: DropdownButton<String>(
+                                                    value: filtroSelecionado,
+                                                    isExpanded: true,
+                                                    icon: const Icon(
+                                                        Icons
+                                                            .arrow_drop_down_circle_rounded,
+                                                        color: Colors.white,
+                                                        size: 28),
+                                                    style: GoogleFonts
+                                                        .permanentMarker(
+                                                      color: Colors.white,
+                                                      fontSize: 20,
+                                                      letterSpacing: 1.2,
                                                     ),
+                                                    dropdownColor:
+                                                        const Color(0xFF18122B),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
+                                                    items: filtrosDinamicos
+                                                        .map((filtro) {
+                                                      return DropdownMenuItem<
+                                                          String>(
+                                                        value: filtro['label'],
+                                                        child: Container(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .symmetric(
+                                                                  vertical: 10,
+                                                                  horizontal:
+                                                                      8),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        18),
+                                                          ),
+                                                          child: Text(
+                                                            filtro['label']!,
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 16,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }).toList(),
+                                                    onChanged: (String? value) {
+                                                      if (value != null) {
+                                                        setState(() {
+                                                          filtroSelecionado =
+                                                              value;
+                                                          currentPage = 1;
+                                                        });
+                                                      }
+                                                    },
                                                   ),
                                                 ),
                                               ),
