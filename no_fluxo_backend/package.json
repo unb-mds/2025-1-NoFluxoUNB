@@ -12,8 +12,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix",
+    "lint": "eslint src/**/*.ts tests-ts/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts tests-ts/**/*.ts --fix",
     "type-check": "tsc --noEmit"
   },
   "keywords": [
@@ -60,8 +60,8 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "testMatch": [
-      "../tests-ts/**/*.test.ts",
-      "**/tests/**/*.test.ts"
+      "<rootDir>/tests-ts/**/*.test.ts",
+      "<rootDir>/src/**/__tests__/**/*.test.ts"
     ],
     "collectCoverageFrom": [
       "src/**/*.ts",

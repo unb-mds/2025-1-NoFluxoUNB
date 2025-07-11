@@ -25,5 +25,4 @@ module.exports = {
     'no-var': 'error',
     'no-console': 'warn',
   },
-  ignorePatterns: ['dist/', 'node_modules/', 'coverage/'],
 }; 
