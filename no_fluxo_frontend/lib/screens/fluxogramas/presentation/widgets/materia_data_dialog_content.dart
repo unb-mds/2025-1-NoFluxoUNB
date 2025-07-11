@@ -97,235 +97,266 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF1A1A1A),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.1),
-          width: 1,
+    // Responsividade
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600;
+    final isTablet = screenWidth >= 600 && screenWidth < 900;
+    // ALTERAÇÃO: largura do modal = 90% da tela em mobile/tablet, 900px no desktop
+    final modalWidth = (isMobile || isTablet) ? screenWidth * 0.9 : 900.0;
+    final dialogPadding = isMobile ? 2.0 : 24.0;
+    final headerFontSize = isMobile ? 18.0 : isTablet ? 20.0 : 24.0;
+    final tabFontSize = isMobile ? 12.0 : 14.0;
+    final infoFontSize = isMobile ? 12.0 : 14.0;
+    final buttonFontSize = isMobile ? 12.0 : 14.0;
+    final buttonPaddingH = isMobile ? 12.0 : 20.0;
+    final buttonPaddingV = isMobile ? 8.0 : 12.0;
+    final buttonText = modalWidth < 350 ? "ADICIONAR" : "ADICIONAR AO PRÓXIMO SEMESTRE";
+
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: modalWidth,
+          maxHeight: screenWidth < 700 ? MediaQuery.of(context).size.height * 0.98 : 700,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.5),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Header com gradiente
-          Container(
-            padding: const EdgeInsets.all(24),
+        child: Material(
+          color: Colors.transparent,
+          child: Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  const Color(0xFF4A1D96).withOpacity(0.8),
-                  const Color(0xFFE11D48).withOpacity(0.8),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
+              color: const Color(0xFF1A1A1A),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: Colors.white.withOpacity(0.1),
+                width: 1,
               ),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(16),
-                topRight: Radius.circular(16),
-              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  blurRadius: 20,
+                  offset: const Offset(0, 10),
+                ),
+              ],
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "${widget.materia.codigoMateria} - ${widget.materia.nomeMateria}",
-                        style: TextStyle(
-                          fontSize: getProportionateFontSize(24),
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          shadows: [
-                            Shadow(
-                              color: Colors.black.withOpacity(0.5),
-                              offset: const Offset(2, 2),
-                              blurRadius: 4,
-                            ),
-                          ],
-                        ),
-                      ),
+                // Header com gradiente
+                Container(
+                  padding: EdgeInsets.all(dialogPadding),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        const Color(0xFF4A1D96).withOpacity(0.8),
+                        const Color(0xFFE11D48).withOpacity(0.8),
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: _getStatusColor(),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: _getStatusColor().withOpacity(0.3),
-                            blurRadius: 8,
-                            offset: const Offset(0, 0),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      topRight: Radius.circular(16),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              "${widget.materia.codigoMateria} - ${widget.materia.nomeMateria}",
+                              style: TextStyle(
+                                fontSize: headerFontSize,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black.withOpacity(0.5),
+                                    offset: const Offset(2, 2),
+                                    blurRadius: 4,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: isMobile ? 8 : 12,
+                              vertical: isMobile ? 4 : 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: _getStatusColor(),
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: _getStatusColor().withOpacity(0.3),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 0),
+                                ),
+                              ],
+                            ),
+                            child: Text(
+                              _getStatusText(),
+                              style: TextStyle(
+                                fontSize: tabFontSize,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ],
                       ),
-                      child: Text(
-                        _getStatusText(),
+                      SizedBox(height: isMobile ? 4 : 8),
+                      Text(
+                        "Departamento de Ciência da Computação",
                         style: TextStyle(
-                          fontSize: getProportionateFontSize(12),
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          fontSize: infoFontSize,
+                          color: Colors.white.withOpacity(0.8),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  "Departamento de Ciência da Computação",
-                  style: TextStyle(
-                    fontSize: getProportionateFontSize(14),
-                    color: Colors.white.withOpacity(0.8),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
 
-          // Tabs
-          Container(
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Color(0xFF374151),
-                  width: 1,
-                ),
-              ),
-            ),
-            child: TabBar(
-              physics: const NeverScrollableScrollPhysics(),
-              controller: _tabController,
-              indicatorColor: const Color(0xFFE11D48),
-              indicatorWeight: 3,
-              labelColor: Colors.white,
-              unselectedLabelColor: Colors.white.withOpacity(0.6),
-              labelStyle: TextStyle(
-                fontSize: getProportionateFontSize(14),
-                fontWeight: FontWeight.bold,
-              ),
-              tabs: const [
-                Tab(text: "Informações"),
-                Tab(text: "Pré-requisitos"),
-                Tab(text: "Equivalências"),
-              ],
-            ),
-          ),
-
-          // Tab Content
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(24),
-              child: TabBarView(
-                physics: const NeverScrollableScrollPhysics(),
-                controller: _tabController,
-                children: [
-                  _buildInformationTab(),
-                  _buildPrerequisitesTab(),
-                  _buildEquivalenciesTab(),
-                ],
-              ),
-            ),
-          ),
-
-          // Action Buttons\
-          Container(
-            padding: const EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(16),
-                bottomRight: Radius.circular(16),
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF374151),
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 12,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                // Tabs
+                Container(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Color(0xFF374151),
+                        width: 1,
+                      ),
                     ),
                   ),
-                  child: Text(
-                    "FECHAR",
-                    style: TextStyle(
-                      fontSize: getProportionateFontSize(14),
+                  child: TabBar(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: _tabController,
+                    indicatorColor: const Color(0xFFE11D48),
+                    indicatorWeight: 3,
+                    labelColor: Colors.white,
+                    unselectedLabelColor: Colors.white.withOpacity(0.6),
+                    labelStyle: TextStyle(
+                      fontSize: tabFontSize,
                       fontWeight: FontWeight.bold,
                     ),
+                    tabs: const [
+                      Tab(text: "Informações"),
+                      Tab(text: "Pré-requisitos"),
+                      Tab(text: "Equivalências"),
+                    ],
                   ),
                 ),
-                // Only show "Add to next semester" button for logged-in users
-                if (!widget.isAnonymous) ...[
-                  const SizedBox(width: 12),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [Color(0xFF8B5CF6), Color(0xFFE11D48)],
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Implementar ação de adicionar ao próximo semestre
-                        Navigator.of(context).pop();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content:
-                                Text("Matéria adicionada ao próximo semestre!"),
-                            backgroundColor: Color(0xFF22C55E),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        shadowColor: Colors.transparent,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 12,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      child: Text(
-                        "ADICIONAR AO PRÓXIMO SEMESTRE",
-                        style: TextStyle(
-                          fontSize: getProportionateFontSize(14),
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+
+                // Tab Content
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(dialogPadding),
+                    child: TabBarView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: _tabController,
+                      children: [
+                        _buildInformationTab(infoFontSize, isMobile),
+                        _buildPrerequisitesTab(infoFontSize, isMobile),
+                        _buildEquivalenciesTab(infoFontSize, isMobile),
+                      ],
                     ),
                   ),
-                ],
+                ),
+
+                // Action Buttons
+                Container(
+                  padding: EdgeInsets.all(dialogPadding),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF374151),
+                            foregroundColor: Colors.white,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: buttonPaddingH,
+                              vertical: buttonPaddingV,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          child: Text(
+                            "FECHAR",
+                            style: TextStyle(
+                              fontSize: buttonFontSize,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                      if (!widget.isAnonymous) ...[
+                        SizedBox(width: isMobile ? 8 : 12),
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Color(0xFF8B5CF6), Color(0xFFE11D48)],
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content:
+                                        Text("Matéria adicionada ao próximo semestre!"),
+                                    backgroundColor: Color(0xFF22C55E),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: buttonPaddingH,
+                                  vertical: buttonPaddingV,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                              child: Text(
+                                buttonText,
+                                style: TextStyle(
+                                  fontSize: buttonFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.visible,
+                                maxLines: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
 
-  Widget _buildInformationTab() {
+  Widget _buildInformationTab(double fontSize, bool isMobile) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -338,14 +369,14 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                   ? widget.materia.ementa
                   : "Informações sobre banco de dados, modelagem, linguagens de definição e manipulação de dados, projeto de banco de dados, armazenamento e indexação.",
               style: TextStyle(
-                fontSize: getProportionateFontSize(14),
+                fontSize: fontSize,
                 color: Colors.white.withOpacity(0.8),
                 height: 1.5,
               ),
             ),
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           // Grid com informações básicas
           Row(
@@ -363,7 +394,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                   ),
                 ),
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
               Expanded(
                 child: _buildInfoCard(
                   title: "Período Ideal",
@@ -380,7 +411,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
             ],
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           // Professores (se disponível)
           if (widget.materia.professor != null) ...[
@@ -389,12 +420,12 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
               child: Text(
                 widget.materia.professor!,
                 style: TextStyle(
-                  fontSize: getProportionateFontSize(14),
+                  fontSize: fontSize,
                   color: Colors.white.withOpacity(0.8),
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
           ],
 
           // Menção (se disponível) - only for logged-in users
@@ -418,7 +449,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
           ],
 
           /*  // Horários disponíveis (exemplo)
@@ -438,7 +469,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
     );
   }
 
-  Widget _buildPrerequisitesTab() {
+  Widget _buildPrerequisitesTab(double fontSize, bool isMobile) {
     return SingleChildScrollView(
       child: Builder(builder: (context) {
         var materiasPorNivel = <int, List<MateriaModel>>{};
@@ -482,7 +513,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             _buildInfoCard(
               title: "Correquisitos",
               child: Builder(
@@ -534,7 +565,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                                   : const Color(0xFFEF4444),
                               size: 20,
                             ),
-                            const SizedBox(width: 12),
+                            SizedBox(width: 12),
                             Expanded(
                               child: Text(
                                 "${materiaCoreq.codigoMateria} - ${materiaCoreq.nomeMateria} (Nível ${materiaCoreq.nivel})",
@@ -558,7 +589,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
     );
   }
 
-  Widget _buildEquivalenciesTab() {
+  Widget _buildEquivalenciesTab(double fontSize, bool isMobile) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -588,7 +619,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                         children: [
                           Icon(Icons.compare_arrows,
                               color: Colors.amber, size: 20),
-                          const SizedBox(width: 12),
+                          SizedBox(width: 12),
                           Expanded(
                             child: Text(
                               "${e.codigoMateriaEquivalente} - ${e.nomeMateriaEquivalente}",
@@ -634,7 +665,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           child,
         ],
       ),
@@ -696,7 +727,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                     : const Color(0xFFEF4444),
             size: 20,
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12),
           Expanded(
             child: Text(
               "$codigo - $nome",

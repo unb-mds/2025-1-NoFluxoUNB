@@ -12,15 +12,41 @@ class OptativasAdicionadasSection extends StatelessWidget {
     required this.onOptativaClicked,
   });
 
+  // Função para obter dimensões responsivas
+  double _getResponsiveFontSize(BuildContext context, {double baseSize = 16.0}) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return baseSize * 0.8; // Mobile
+    if (screenWidth < 900) return baseSize * 0.9; // Tablet
+    return baseSize; // Desktop
+  }
+
+  double _getResponsiveSpacing(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 12.0; // Mobile
+    if (screenWidth < 900) return 16.0; // Tablet
+    return 20.0; // Desktop
+  }
+
+  double _getResponsivePadding(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 16.0; // Mobile
+    if (screenWidth < 900) return 20.0; // Tablet
+    return 24.0; // Desktop
+  }
+
   @override
   Widget build(BuildContext context) {
     if (optativasAdicionadas.isEmpty) {
       return const SizedBox.shrink();
     }
 
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsivePadding = _getResponsivePadding(context);
+    final responsiveSpacing = _getResponsiveSpacing(context);
+
     return Container(
-      margin: const EdgeInsets.only(top: 32),
-      padding: const EdgeInsets.all(24),
+      margin: EdgeInsets.only(top: isMobile ? 24 : 32),
+      padding: EdgeInsets.all(responsivePadding),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.3),
         borderRadius: BorderRadius.circular(16),
@@ -35,7 +61,7 @@ class OptativasAdicionadasSection extends StatelessWidget {
           Text(
             'OPTATIVAS ADICIONADAS',
             style: GoogleFonts.permanentMarker(
-              fontSize: 24,
+              fontSize: _getResponsiveFontSize(context, baseSize: 24),
               color: Colors.white,
               shadows: [
                 Shadow(
@@ -46,20 +72,20 @@ class OptativasAdicionadasSection extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: responsiveSpacing),
           Text(
             'Matérias optativas que você adicionou ao seu fluxograma:',
             style: GoogleFonts.poppins(
-              fontSize: 14,
+              fontSize: _getResponsiveFontSize(context, baseSize: 14),
               color: Colors.white.withOpacity(0.7),
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: responsiveSpacing),
           Wrap(
-            spacing: 16,
-            runSpacing: 16,
+            spacing: responsiveSpacing,
+            runSpacing: responsiveSpacing,
             children: optativasAdicionadas.map((optativa) {
-              return _buildOptativaCard(optativa);
+              return _buildOptativaCard(context, optativa);
             }).toList(),
           ),
         ],
@@ -67,9 +93,24 @@ class OptativasAdicionadasSection extends StatelessWidget {
     );
   }
 
-  Widget _buildOptativaCard(MateriaModel optativa) {
+  Widget _buildOptativaCard(BuildContext context, MateriaModel optativa) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final isTablet = MediaQuery.of(context).size.width >= 600 && MediaQuery.of(context).size.width < 900;
+    
+    // Largura responsiva dos cards
+    double cardWidth;
+    if (isMobile) {
+      cardWidth = MediaQuery.of(context).size.width - 64; // Largura total menos padding
+    } else if (isTablet) {
+      cardWidth = 240;
+    } else {
+      cardWidth = 280;
+    }
+
+    final responsivePadding = _getResponsivePadding(context);
+
     return Container(
-      width: 280,
+      width: cardWidth,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [
@@ -94,25 +135,28 @@ class OptativasAdicionadasSection extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           onTap: () => onOptativaClicked(optativa),
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(isMobile ? 12 : 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      optativa.codigoMateria,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                    Flexible(
+                      child: Text(
+                        optativa.codigoMateria,
+                        style: GoogleFonts.poppins(
+                          fontSize: _getResponsiveFontSize(context, baseSize: 14),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isMobile ? 6 : 8,
+                        vertical: isMobile ? 3 : 4,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.2),
@@ -121,28 +165,28 @@ class OptativasAdicionadasSection extends StatelessWidget {
                       child: Text(
                         '${optativa.creditos} créditos',
                         style: GoogleFonts.poppins(
-                          fontSize: 10,
+                          fontSize: _getResponsiveFontSize(context, baseSize: 10),
                           color: Colors.white,
                         ),
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: isMobile ? 6 : 8),
                 Text(
                   optativa.nomeMateria,
                   style: GoogleFonts.poppins(
-                    fontSize: 12,
+                    fontSize: _getResponsiveFontSize(context, baseSize: 12),
                     color: Colors.white,
                   ),
-                  maxLines: 2,
+                  maxLines: isMobile ? 1 : 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: isMobile ? 6 : 8),
                 Text(
                   'Clique para ver detalhes',
                   style: GoogleFonts.poppins(
-                    fontSize: 10,
+                    fontSize: _getResponsiveFontSize(context, baseSize: 10),
                     color: Colors.white.withOpacity(0.7),
                     fontStyle: FontStyle.italic,
                   ),

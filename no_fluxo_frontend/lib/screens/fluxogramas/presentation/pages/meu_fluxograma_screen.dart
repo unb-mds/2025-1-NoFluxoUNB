@@ -78,6 +78,28 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     super.initState();
   }
 
+  // Função para obter dimensões responsivas
+  double _getResponsiveFontSize(BuildContext context, {double baseSize = 16.0}) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return baseSize * 0.8; // Mobile
+    if (screenWidth < 900) return baseSize * 0.9; // Tablet
+    return baseSize; // Desktop
+  }
+
+  double _getResponsiveSpacing(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 12.0; // Mobile
+    if (screenWidth < 900) return 16.0; // Tablet
+    return 24.0; // Desktop
+  }
+
+  double _getResponsivePadding(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) return 16.0; // Mobile
+    if (screenWidth < 900) return 20.0; // Tablet
+    return 24.0; // Desktop
+  }
+
   Future<bool> loadCourseData() async {
     if (loading) return false;
 
@@ -425,6 +447,10 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsivePadding = _getResponsivePadding(context);
+    final responsiveSpacing = _getResponsiveSpacing(context);
+
     return Scaffold(
       body: FutureBuilder(
           future: loadCourseData(),
@@ -454,9 +480,12 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                               : const AlwaysScrollableScrollPhysics(),
                           child: Center(
                             child: Container(
-                              constraints: const BoxConstraints(maxWidth: 1280),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 24, vertical: 48),
+                              constraints: BoxConstraints(
+                                maxWidth: isMobile ? double.infinity : 1280
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: responsivePadding, 
+                                  vertical: isMobile ? 24 : 48),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
@@ -471,6 +500,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     },
                                   ),
                                   if (!isAnonymous) ...[
+                                    SizedBox(height: responsiveSpacing),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
@@ -506,22 +536,23 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                               context.go('/upload-historico');
                                             });
                                           },
-                                          icon: const Icon(
+                                          icon: Icon(
                                             Icons.refresh,
                                             color: Colors.white,
-                                            size: 22,
+                                            size: _getResponsiveFontSize(context, baseSize: 22),
                                           ),
                                           label: Text(
-                                            'ENVIAR FLUXOGRAMA NOVAMENTE',
+                                            isMobile ? 'REENVIAR' : 'ENVIAR FLUXOGRAMA NOVAMENTE',
                                             style: GoogleFonts.poppins(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: 16,
+                                              fontSize: _getResponsiveFontSize(context, baseSize: 16),
                                             ),
                                           ),
                                           style: ElevatedButton.styleFrom(
-                                            padding: const EdgeInsets.symmetric(
-                                                horizontal: 28, vertical: 14),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: isMobile ? 16 : 28, 
+                                                vertical: isMobile ? 10 : 14),
                                             backgroundColor:
                                                 const Color(0xFFFF3CA5),
                                             foregroundColor: Colors.white,
@@ -536,7 +567,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                         ),
                                       ],
                                     ),
-                                    const SizedBox(height: 16),
+                                    SizedBox(height: responsiveSpacing),
                                   ],
                                   FluxogramaLegendControls(
                                     isAnonymous: isAnonymous,
@@ -553,6 +584,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       });
                                     },
                                   ),
+                                  SizedBox(height: responsiveSpacing),
                                   MouseRegion(
                                     onEnter: (_) {
                                       /* setState(() {
@@ -578,10 +610,12 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       ),
                                     ),
                                   ),
+                                  SizedBox(height: responsiveSpacing * 2),
                                   ProgressSummarySection(
                                     isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                   ),
+                                  SizedBox(height: responsiveSpacing),
                                   OptativasAdicionadasSection(
                                     optativasAdicionadas: optativasAdicionadas
                                         .map((opt) => opt.materia)
@@ -598,11 +632,13 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                           context, optativaAdicionada);
                                     },
                                   ),
+                                  SizedBox(height: responsiveSpacing),
                                   ProgressToolsSection(
                                     isAnonymous: isAnonymous,
                                     onShowToolModal: (title) =>
                                         _showToolModal(context, title: title),
                                   ),
+                                  SizedBox(height: responsiveSpacing),
                                 ],
                               ),
                             ),
@@ -704,10 +740,13 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   /// Mostrar dialog de optativa quando clicada
   void _showOptativaDataDialog(
       BuildContext context, OptativaAdicionada optativa) {
+    final isMobile = MediaQuery.of(context).size.width < 600;
+    final responsivePadding = _getResponsivePadding(context);
+
     Utils.showCustomizedDialog(
       context: context,
       child: Container(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(responsivePadding),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -715,53 +754,53 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
             Text(
               optativa.materia.codigoMateria,
               style: GoogleFonts.poppins(
-                fontSize: 20,
+                fontSize: _getResponsiveFontSize(context, baseSize: 20),
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: _getResponsiveSpacing(context) / 2),
             Text(
               optativa.materia.nomeMateria,
               style: GoogleFonts.poppins(
-                fontSize: 16,
+                fontSize: _getResponsiveFontSize(context, baseSize: 16),
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: _getResponsiveSpacing(context)),
             Text(
               'Créditos: ${optativa.materia.creditos}',
               style: GoogleFonts.poppins(
-                fontSize: 14,
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
                 color: Colors.white.withOpacity(0.7),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: _getResponsiveSpacing(context) / 2),
             Text(
               'Semestre: ${optativa.semestre}º',
               style: GoogleFonts.poppins(
-                fontSize: 14,
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
                 color: Colors.white.withOpacity(0.7),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: _getResponsiveSpacing(context)),
             Text(
               'Ementa:',
               style: GoogleFonts.poppins(
-                fontSize: 14,
+                fontSize: _getResponsiveFontSize(context, baseSize: 14),
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 4),
+            SizedBox(height: _getResponsiveSpacing(context) / 4),
             Text(
               optativa.materia.ementa,
               style: GoogleFonts.poppins(
-                fontSize: 12,
+                fontSize: _getResponsiveFontSize(context, baseSize: 12),
                 color: Colors.white.withOpacity(0.8),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: _getResponsiveSpacing(context) * 1.5),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -772,26 +811,36 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red.shade600,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isMobile ? 12 : 16,
+                      vertical: isMobile ? 8 : 12,
+                    ),
                   ),
                   child: Text(
                     'Remover',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: _getResponsiveFontSize(context, baseSize: 12),
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: _getResponsiveSpacing(context) / 2),
                 ElevatedButton(
                   onPressed: () => Navigator.of(context).pop(),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey.shade700,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isMobile ? 12 : 16,
+                      vertical: isMobile ? 8 : 12,
+                    ),
                   ),
                   child: Text(
                     'Fechar',
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: _getResponsiveFontSize(context, baseSize: 12),
                     ),
                   ),
                 ),

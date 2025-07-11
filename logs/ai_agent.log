@@ -8504,3 +8504,375 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='ragflow.arthrok.shop', p
 [INFO] ==================================================
 [WARNING]  * Debugger is active!
 [INFO]  * Debugger PIN: 860-727-024
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 01:45:51] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 594
+[INFO] Session request completed in 8.25 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 04:45:59 GMT', 'Content-Type': 'application/json', 'Content-Length': '594', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: ec5a0fac5e1111f0afbc1a26d63db6af
+[INFO] Session started successfully with ID: ec5a0fac5e1111f0afbc1a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: ec5a0fac5e1111f0afbc1a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "ec5a0fac5e1111f0afbc1a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 671
+[INFO] Analysis request completed in 0.90 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 04:46:00 GMT', 'Content-Type': 'application/json', 'Content-Length': '671', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 9.18 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 01:46:01] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 01:47:33] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 609
+[INFO] Session request completed in 7.76 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 04:47:40 GMT', 'Content-Type': 'application/json', 'Content-Length': '609', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 28f659d45e1211f095b61a26d63db6af
+[INFO] Session started successfully with ID: 28f659d45e1211f095b61a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 28f659d45e1211f095b61a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "28f659d45e1211f095b61a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 687
+[INFO] Analysis request completed in 1.11 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 04:47:42 GMT', 'Content-Type': 'application/json', 'Content-Length': '687', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 8.89 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 01:47:42] "POST /assistente HTTP/1.1" 200 -
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 01:56:39] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 609
+[INFO] Session request completed in 8.83 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 04:56:47 GMT', 'Content-Type': 'application/json', 'Content-Length': '609', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 6e2066b65e1311f0be721a26d63db6af
+[INFO] Session started successfully with ID: 6e2066b65e1311f0be721a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 6e2066b65e1311f0be721a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "6e2066b65e1311f0be721a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 687
+[INFO] Analysis request completed in 0.86 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 04:56:48 GMT', 'Content-Type': 'application/json', 'Content-Length': '687', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 9.73 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 01:56:49] "POST /assistente HTTP/1.1" 200 -
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.0.118:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Logging initialized successfully
+[INFO] Flask application and CORS initialized
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: 10
+[INFO] Environment: development
+[INFO] ==================================================
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 104-302-103
+[DEBUG] Request: OPTIONS http://localhost:4652/assistente from 127.0.0.1
+[DEBUG] Response: 200 for OPTIONS http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 03:35:21] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] Request: POST http://localhost:4652/assistente from 127.0.0.1
+[INFO] [REQUEST START] New request from IP: 127.0.0.1
+[DEBUG] Extracting data from request
+[INFO] Received materia: 'Dados'
+[DEBUG] Starting text preprocessing
+[DEBUG] Removing accents from text: 'Dados'
+[DEBUG] Text after accent removal: 'Dados'
+[INFO] Materia processed: 'Dados' -> 'DADOS'
+[INFO] Starting analysis with RAGFlow client
+[INFO] Initializing RagflowClient
+[INFO] RAGFlow client initialized with:
+[INFO]   - Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   - Base URL: https://ragflow.arthrok.shop/
+[INFO]   - Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG]   - Headers: {
+  "Authorization": "Bearer ***",
+  "Content-Type": "application/json"
+}
+[DEBUG] Starting session with RAGFlow
+[INFO] Starting new session for materia: 'DADOS'
+[DEBUG] Session payload: {
+  "materia": "DADOS",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 609
+[INFO] Session request completed in 4.38 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 06:35:25 GMT', 'Content-Type': 'application/json', 'Content-Length': '609', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for session start request
+[DEBUG] Session response data type: <class 'dict'>
+[DEBUG] Session response keys: ['code', 'data']
+[INFO] Session started successfully with ID: 38481ecc5e2111f09bb61a26d63db6af
+[INFO] Session started successfully with ID: 38481ecc5e2111f09bb61a26d63db6af
+[DEBUG] Analyzing materia with RAGFlow agent
+[INFO] Starting analysis for materia: 'DADOS' with session: 38481ecc5e2111f09bb61a26d63db6af
+[DEBUG] Analysis payload: {
+  "question": "DADOS",
+  "session_id": "38481ecc5e2111f09bb61a26d63db6af",
+  "stream": false
+}
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 687
+[INFO] Analysis request completed in 0.91 seconds
+[DEBUG] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 06:35:26 GMT', 'Content-Type': 'application/json', 'Content-Length': '687', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] No HTTP errors raised for analysis request
+[DEBUG] Analysis response data type: <class 'dict'>
+[DEBUG] Analysis response keys: ['code', 'data']
+[INFO] RAGFlow API response code: 0
+[INFO] Analysis completed successfully
+[INFO] Analysis completed for materia: 'DADOS'
+[DEBUG] Raw agent result received: <class 'dict'>
+[DEBUG] Formatting response
+[INFO] Response formatted successfully
+[INFO] [REQUEST SUCCESS] Request completed in 5.32 seconds
+[DEBUG] Response: 200 for POST http://localhost:4652/assistente
+[INFO] 127.0.0.1 - - [11/Jul/2025 03:35:27] "POST /assistente HTTP/1.1" 200 -
