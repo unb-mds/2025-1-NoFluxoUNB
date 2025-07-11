@@ -54,6 +54,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   PrerequisiteTree? prerequisiteTree;
   Map<String, dynamic>? prerequisiteVisualizationData;
   bool isAnonymous = false;
+  bool isInteractingWithFluxogram = false;
 
   bool loading = false;
   String? errorMessage;
@@ -377,6 +378,9 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                       const AppNavbar(isFluxogramasPage: true),
                       Expanded(
                         child: SingleChildScrollView(
+                          physics: isInteractingWithFluxogram
+                              ? const NeverScrollableScrollPhysics()
+                              : const AlwaysScrollableScrollPhysics(),
                           child: Center(
                             child: Container(
                               constraints: const BoxConstraints(maxWidth: 1280),
@@ -475,17 +479,28 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       });
                                     },
                                   ),
-                                  Screenshot(
-                                    controller: screenshotController,
-                                    child: FluxogramContainer(
-                                      courseData: currentCourseData,
-                                      zoomLevel: zoomLevel,
-                                      isAnonymous: isAnonymous,
-                                      showConnections: showConnections,
-                                      onShowPrerequisiteChain:
-                                          _showPrerequisiteChainDialog,
-                                      onShowMateriaDialog:
-                                          _showMateriaDataDialog,
+                                  MouseRegion(
+                                    onEnter: (_) {
+                                      setState(() {
+                                        isInteractingWithFluxogram = true;
+                                      });
+                                    },
+                                    onExit: (_) {
+                                      setState(() {
+                                        isInteractingWithFluxogram = false;
+                                      });
+                                    },
+                                    child: Screenshot(
+                                      controller: screenshotController,
+                                      child: FluxogramContainer(
+                                        courseData: currentCourseData,
+                                        isAnonymous: isAnonymous,
+                                        showConnections: showConnections,
+                                        onShowPrerequisiteChain:
+                                            _showPrerequisiteChainDialog,
+                                        onShowMateriaDialog:
+                                            _showMateriaDataDialog,
+                                      ),
                                     ),
                                   ),
                                   ProgressSummarySection(
