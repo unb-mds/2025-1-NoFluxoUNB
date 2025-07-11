@@ -271,18 +271,24 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       builder: (context) {
         return Dialog(
           backgroundColor: Colors.white,
-          insetPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          child: ConstrainedBox(
+          insetPadding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width > 600 ? 40 : 16,
+            vertical: MediaQuery.of(context).size.height > 800 ? 40 : 16,
+          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final isTablet = MediaQuery.of(context).size.width > 600;
+              final isMobile = MediaQuery.of(context).size.width <= 600;
+              
+              return ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: 700,
+                  maxWidth: isTablet ? 700 : double.infinity,
               maxHeight: MediaQuery.of(context).size.height * 0.9,
             ),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                    padding: EdgeInsets.all(isMobile ? 16.0 : 24.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -292,28 +298,31 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Expanded(
+                            Expanded(
                           child: Text(
                             'Como obter seu histórico acadêmico',
                             style: TextStyle(
-                              fontSize: 26,
+                                  fontSize: isMobile ? 20 : 26,
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF1A202C),
                             ),
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.close,
-                              color: Colors.grey[500], size: 28),
+                              icon: Icon(
+                                Icons.close,
+                                color: Colors.grey[500],
+                                size: isMobile ? 24 : 28,
+                              ),
                           onPressed: () => Navigator.of(context).pop(),
                           splashRadius: 22,
                           tooltip: 'Fechar',
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                        SizedBox(height: isMobile ? 16 : 8),
                     // Passo 1
-                    const _PassoHistorico(
+                        _PassoHistorico(
                       titulo: '1º PASSO - Acesse o SIGAA',
                       descricao: Text.rich(
                         TextSpan(
@@ -330,56 +339,72 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                             TextSpan(
                                 text: ' com seu login e senha institucional.'),
                           ],
-                          style:
-                              TextStyle(color: Color(0xFF1A202C), fontSize: 16),
+                              style: TextStyle(
+                                color: Color(0xFF1A202C),
+                                fontSize: isMobile ? 14 : 16,
+                              ),
                         ),
                       ),
                       imagem: 'assets/help/tela_de_cadastro.png',
                       alt: 'Tela de login do SIGAA',
+                          isMobile: isMobile,
                     ),
                     // Passo 2
-                    const _PassoHistorico(
+                        _PassoHistorico(
                       titulo: '2º PASSO - Selecione "Emitir Histórico"',
                       descricao: Text(
                         'No menu lateral, clique em Ensino e depois em Emitir Histórico.',
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xFF1A202C)),
+                            style: TextStyle(
+                              fontSize: isMobile ? 14 : 16,
+                              color: Color(0xFF1A202C),
+                            ),
                       ),
                       imagem: 'assets/help/emitir_historico.png',
                       alt: 'Menu Emitir Histórico no SIGAA',
+                          isMobile: isMobile,
                     ),
                     // Passo 3
-                    const _PassoHistorico(
-                      titulo:
-                          '3º PASSO - Faça o upload do PDF para o NoFluxoUNB',
+                        _PassoHistorico(
+                          titulo: '3º PASSO - Faça o upload do PDF para o NoFluxoUNB',
                       descricao: Text(
                         'Salve o arquivo PDF gerado em seu computador e faça o upload nesta página.',
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xFF1A202C)),
+                            style: TextStyle(
+                              fontSize: isMobile ? 14 : 16,
+                              color: Color(0xFF1A202C),
+                            ),
                       ),
                       imagem: 'assets/help/historico_baixado.png',
                       alt: 'Exemplo de histórico acadêmico gerado',
+                          isMobile: isMobile,
                     ),
-                    const SizedBox(height: 24),
+                        SizedBox(height: isMobile ? 16 : 24),
                     Center(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF1B469B),
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 32, vertical: 14),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: isMobile ? 24 : 32,
+                                vertical: isMobile ? 12 : 14,
+                              ),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
                         ),
                         onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('Entendi',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 18)),
+                            child: Text(
+                              'Entendi',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: isMobile ? 16 : 18,
+                              ),
+                            ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
+              );
+            },
           ),
         );
       },
@@ -395,30 +420,36 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           // Fundo animado com círculos coloridos borrados
           const AnimatedBackground(),
           SafeArea(
-            child: SingleChildScrollView(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
               child: Column(
                 children: [
                   const AppNavbar(),
-                  SizedBox(height: 32),
+                      SizedBox(height: _getResponsiveHeight(context, 32)),
                   Center(
                     child: Container(
                       width: double.infinity,
-                      margin: const EdgeInsets.symmetric(horizontal: 300),
+                          margin: EdgeInsets.symmetric(
+                            horizontal: _getResponsiveHorizontalMargin(context),
+                          ),
                       child: _buildUploadContainer(),
                     ),
                   ),
-                  const SizedBox(height: 32),
+                      SizedBox(height: _getResponsiveHeight(context, 32)),
                   if (_uploadState == UploadState.initial)
                     Center(
                       child: _buildHelpButton(),
                     ),
-                  SizedBox(height: 32),
+                      SizedBox(height: _getResponsiveHeight(context, 32)),
                   if (_disciplinasCasadas != null) ...[
-                    const SizedBox(height: 24),
+                        SizedBox(height: _getResponsiveHeight(context, 24)),
                     _buildResultadoProcessamento(),
                   ],
                 ],
               ),
+                );
+              },
             ),
           ),
         ],
@@ -426,24 +457,59 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     );
   }
 
+  // Métodos auxiliares para responsividade
+  double _getResponsiveHorizontalMargin(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth > 1200) {
+      return 300;
+    } else if (screenWidth > 800) {
+      return 100;
+    } else if (screenWidth > 600) {
+      return 50;
+    } else {
+      return 16;
+    }
+  }
+
+  double _getResponsiveHeight(BuildContext context, double baseHeight) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    if (screenHeight < 600) {
+      return baseHeight * 0.7;
+    } else if (screenHeight < 800) {
+      return baseHeight * 0.85;
+    }
+    return baseHeight;
+  }
+
+  double _getResponsiveFontSize(BuildContext context, double baseFontSize) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 400) {
+      return baseFontSize * 0.8;
+    } else if (screenWidth < 600) {
+      return baseFontSize * 0.9;
+    }
+    return baseFontSize;
+  }
+
   Widget _buildHelpButton() {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double maxWidth = 350;
-        EdgeInsets padding =
-            const EdgeInsets.symmetric(horizontal: 24, vertical: 12);
-        double fontSize = 16;
-        if (constraints.maxWidth < 500) {
-          maxWidth = constraints.maxWidth * 0.95;
-          padding = const EdgeInsets.symmetric(horizontal: 8, vertical: 10);
-          fontSize = 14;
-        }
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
+        double maxWidth = isMobile ? screenWidth * 0.9 : (isTablet ? 500 : 800);
+        EdgeInsets padding = isMobile 
+            ? const EdgeInsets.symmetric(horizontal: 16, vertical: 10)
+            : const EdgeInsets.symmetric(horizontal: 24, vertical: 12);
+        double fontSize = isMobile ? 14 : (isTablet ? 15 : 16);
+        
         return AnimatedBuilder(
           animation: _pulseAnimation,
           builder: (context, child) {
             return Center(
               child: Container(
-                constraints: const BoxConstraints(maxWidth: 800),
+                constraints: BoxConstraints(maxWidth: maxWidth),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [Color(0xFF7B2FF2), Color(0xFFF357A8)],
@@ -466,10 +532,14 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                       padding: padding,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.help_outline,
-                              color: Colors.white, size: 20),
-                          const SizedBox(width: 8),
+                          Icon(
+                            Icons.help_outline,
+                            color: Colors.white,
+                            size: isMobile ? 18 : 20,
+                          ),
+                          SizedBox(width: isMobile ? 6 : 8),
                           Flexible(
                             child: Text(
                               'Como obter seu histórico acadêmico?',
@@ -479,7 +549,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                                 fontSize: fontSize,
                               ),
                               overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
+                              maxLines: isMobile ? 2 : 1,
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ],
@@ -498,28 +569,27 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   Widget _buildUploadContainer() {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double maxWidth = 600;
-        double horizontalPadding = 32;
-        if (constraints.maxWidth < 700) {
-          maxWidth = constraints.maxWidth * 0.95;
-          horizontalPadding = 16;
-        }
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
+        double maxWidth = isMobile ? screenWidth * 0.95 : (isTablet ? 600 : 700);
+        double horizontalPadding = isMobile ? 16 : (isTablet ? 24 : 32);
+        
         return Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: maxWidth,
-            ),
+            constraints: BoxConstraints(maxWidth: maxWidth),
             child: AnimatedBuilder(
               animation: _hoverAnimation,
               builder: (context, child) {
                 return Transform.translate(
                   offset: Offset(0, -5 * _hoverAnimation.value),
                   child: DottedBorder(
-                    options: const RoundedRectDottedBorderOptions(
+                    options: RoundedRectDottedBorderOptions(
                       color: Colors.white,
-                      strokeWidth: 2,
-                      radius: Radius.circular(16),
-                      dashPattern: [8, 6],
+                      strokeWidth: isMobile ? 1.5 : 2,
+                      radius: Radius.circular(isMobile ? 12 : 16),
+                      dashPattern: isMobile ? [6, 4] : [8, 6],
                       padding: EdgeInsets.zero,
                     ),
                     child: Container(
@@ -527,7 +597,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                       decoration: BoxDecoration(
                         color: Colors.white
                             .withOpacity(0.15 + (0.1 * _hoverAnimation.value)),
-                        borderRadius: BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(isMobile ? 12 : 16),
                       ),
                       child: _buildUploadContent(),
                     ),
@@ -553,6 +623,12 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   }
 
   Widget _buildInitialState() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
     return MouseRegion(
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
@@ -568,65 +644,79 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                 return Transform.scale(
                   scale: _pulseAnimation.value,
                   child: Container(
-                    width: 80,
-                    height: 80,
+                        width: isMobile ? 60 : (isTablet ? 70 : 80),
+                        height: isMobile ? 60 : (isTablet ? 70 : 80),
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(40),
+                          borderRadius: BorderRadius.circular(
+                            isMobile ? 30 : (isTablet ? 35 : 40),
                     ),
-                    child: const Icon(
+                        ),
+                        child: Icon(
                       Icons.cloud_upload_outlined,
                       color: Colors.white,
-                      size: 40,
+                          size: isMobile ? 30 : (isTablet ? 35 : 40),
                     ),
                   ),
                 );
               },
             ),
-            const SizedBox(height: 24),
+                SizedBox(height: isMobile ? 16 : (isTablet ? 20 : 24)),
 
             // Texto principal
-            const Text(
+                Text(
               'Arraste seu histórico acadêmico aqui',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
+                    fontSize: isMobile ? 18 : (isTablet ? 20 : 24),
                 fontWeight: FontWeight.w600,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+                SizedBox(height: isMobile ? 12 : (isTablet ? 14 : 16)),
 
             // Texto "ou"
-            const Text(
+                Text(
               'ou',
               style: TextStyle(
                 color: Colors.white70,
-                fontSize: 16,
+                    fontSize: isMobile ? 14 : (isTablet ? 15 : 16),
               ),
             ),
-            const SizedBox(height: 16),
+                SizedBox(height: isMobile ? 12 : (isTablet ? 14 : 16)),
 
             // Botão de seleção com animação hover
             _buildUploadButton(),
-            const SizedBox(height: 16),
+                SizedBox(height: isMobile ? 12 : (isTablet ? 14 : 16)),
 
             // Formatos aceitos
-            const Text(
+                Text(
               'Somente arquivos PDF são aceitos',
               style: TextStyle(
                 color: Colors.white70,
-                fontSize: 14,
+                    fontSize: isMobile ? 12 : (isTablet ? 13 : 14),
               ),
               textAlign: TextAlign.center,
             ),
           ],
         ),
       ),
+        );
+      },
     );
   }
 
   Widget _buildUploadButton() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
+        double buttonWidth = isMobile ? screenWidth * 0.7 : (isTablet ? 280 : 320);
+        double fontSize = isMobile ? 14 : (isTablet ? 15 : 16);
+        double iconSize = isMobile ? 18 : (isTablet ? 20 : 24);
+        
     return MouseRegion(
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
@@ -636,14 +726,18 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           return Transform.translate(
             offset: Offset(0, -2 * _hoverAnimation.value),
             child: SizedBox(
-              width: 240,
+                  width: buttonWidth,
               child: ElevatedButton.icon(
                 onPressed: _pickFile,
-                icon: const Icon(Icons.upload_file, color: Colors.white),
-                label: const Text(
+                    icon: Icon(
+                      Icons.upload_file,
+                      color: Colors.white,
+                      size: iconSize,
+                    ),
+                    label: Text(
                   'Selecionar Histórico',
                   style: TextStyle(
-                    fontSize: 16,
+                        fontSize: fontSize,
                     color: Colors.white,
                     fontWeight: FontWeight.w500,
                   ),
@@ -654,7 +748,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                     const Color(0xFF0056b3),
                     _hoverAnimation.value,
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                      padding: EdgeInsets.symmetric(
+                        vertical: isMobile ? 12 : (isTablet ? 14 : 16),
+                      ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -665,32 +761,40 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           );
         },
       ),
+        );
+      },
     );
   }
 
   Widget _buildUploadingState() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         // Título
-        const Text(
+            Text(
           'Processando seu histórico...',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+                fontSize: isMobile ? 16 : (isTablet ? 18 : 20),
             fontWeight: FontWeight.w600,
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 24),
+            SizedBox(height: isMobile ? 16 : (isTablet ? 20 : 24)),
 
         // Barra de progresso com animação de gradiente
         Container(
           width: double.infinity,
-          height: 16,
+              height: isMobile ? 12 : (isTablet ? 14 : 16),
           decoration: BoxDecoration(
             color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(isMobile ? 6 : 8),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.06),
@@ -700,7 +804,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
             ],
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(isMobile ? 6 : 8),
             child: Stack(
               children: [
                 // Barra de progresso base
@@ -732,7 +836,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                           ),
                         ),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(isMobile ? 6 : 8),
                           child: LinearProgressIndicator(
                             value: _progress / 100,
                             backgroundColor: Colors.transparent,
@@ -749,22 +853,30 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
             ),
           ),
         ),
-        const SizedBox(height: 16),
+            SizedBox(height: isMobile ? 12 : (isTablet ? 14 : 16)),
 
         // Texto de progresso
         Text(
           '${_progress.toInt()}%',
-          style: const TextStyle(
+              style: TextStyle(
             color: Colors.white,
-            fontSize: 16,
+                fontSize: isMobile ? 14 : (isTablet ? 15 : 16),
             fontWeight: FontWeight.w500,
           ),
         ),
       ],
+        );
+      },
     );
   }
 
   Widget _buildSuccessState() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
     return FadeTransition(
       opacity: _fadeAnimation,
       child: Column(
@@ -772,108 +884,114 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         children: [
           // Card de sucesso com borda pontilhada branca
           DottedBorder(
-            options: const RoundedRectDottedBorderOptions(
+                options: RoundedRectDottedBorderOptions(
               color: Colors.white,
-              strokeWidth: 2,
-              radius: Radius.circular(20),
-              dashPattern: [8, 6],
+                  strokeWidth: isMobile ? 1.5 : 2,
+                  radius: Radius.circular(isMobile ? 16 : 20),
+                  dashPattern: isMobile ? [6, 4] : [8, 6],
               padding: EdgeInsets.zero,
             ),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 36),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isMobile ? 20 : (isTablet ? 26 : 32),
+                    vertical: isMobile ? 24 : (isTablet ? 30 : 36),
+                  ),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.85),
-                borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(isMobile ? 16 : 20),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   // Ícone de sucesso com círculo verde
                   Container(
-                    width: 64,
-                    height: 64,
+                        width: isMobile ? 48 : (isTablet ? 56 : 64),
+                        height: isMobile ? 48 : (isTablet ? 56 : 64),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
                           color: Colors.greenAccent,
-                          width: 4,
+                            width: isMobile ? 3 : 4,
                           style: BorderStyle.solid,
-                          strokeAlign: BorderSide.strokeAlignOutside),
+                            strokeAlign: BorderSide.strokeAlignOutside,
+                          ),
                       color: Colors.transparent,
                     ),
-                    child: const Center(
+                        child: Center(
                       child: Icon(
                         Icons.check,
                         color: Colors.greenAccent,
-                        size: 40,
+                            size: isMobile ? 24 : (isTablet ? 32 : 40),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 24),
+                      SizedBox(height: isMobile ? 16 : (isTablet ? 20 : 24)),
                   // Título
-                  const Text(
+                      Text(
                     'Histórico processado com sucesso!',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 24,
+                          fontSize: isMobile ? 18 : (isTablet ? 20 : 24),
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 12),
+                      SizedBox(height: isMobile ? 8 : (isTablet ? 10 : 12)),
                   // Subtítulo
-                  const Text(
+                      Text(
                     'Seu fluxograma personalizado está sendo gerado.',
                     style: TextStyle(
                       color: Colors.white70,
-                      fontSize: 16,
+                          fontSize: isMobile ? 14 : (isTablet ? 15 : 16),
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 10),
+                      SizedBox(height: isMobile ? 16 : (isTablet ? 18 : 20)),
                   // Botão azul destacado com animação hover
                   _buildContinueButton(),
                 ],
               ),
             ),
           ),
-          const SizedBox(height: 32),
+              SizedBox(height: isMobile ? 20 : (isTablet ? 26 : 32)),
           // Exibição do arquivo selecionado com animação hover
           if (_fileName != null) _buildFileItem(),
         ],
       ),
+        );
+      },
     );
   }
 
   Widget _buildFileItem() {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double fontSize = 15;
-        double iconSize = 22;
-        EdgeInsets contentPadding =
-            const EdgeInsets.symmetric(horizontal: 10, vertical: 8);
-        if (constraints.maxWidth < 400) {
-          fontSize = 13;
-          iconSize = 18;
-          contentPadding =
-              const EdgeInsets.symmetric(horizontal: 6, vertical: 6);
-        }
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
+        double fontSize = isMobile ? 13 : (isTablet ? 14 : 15);
+        double iconSize = isMobile ? 18 : (isTablet ? 20 : 22);
+        EdgeInsets contentPadding = isMobile
+            ? const EdgeInsets.symmetric(horizontal: 8, vertical: 6)
+            : const EdgeInsets.symmetric(horizontal: 10, vertical: 8);
+        
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Arquivo selecionado:',
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontSize: isMobile ? 14 : (isTablet ? 15 : 16),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: isMobile ? 6 : 8),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.18),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(isMobile ? 10 : 12),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.10),
@@ -886,9 +1004,14 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: Icon(Icons.insert_drive_file_rounded,
-                        color: Colors.white, size: iconSize),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isMobile ? 2.0 : 4.0,
+                    ),
+                    child: Icon(
+                      Icons.insert_drive_file_rounded,
+                      color: Colors.white,
+                      size: iconSize,
+                    ),
                   ),
                   Expanded(
                     child: Text(
@@ -935,6 +1058,10 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   Widget _buildContinueButton() {
     return LayoutBuilder(
       builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
         return MouseRegion(
           onEnter: (_) => _onHover(true),
           onExit: (_) => _onHover(false),
@@ -944,12 +1071,13 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
               return Transform.translate(
                 offset: Offset(0, -2 * _hoverAnimation.value),
                 child: SizedBox(
+                  width: double.infinity,
                   child: ElevatedButton.icon(
                     onPressed: _continueToFlowchart,
-                    label: const Text(
+                    label: Text(
                       'Continuar para o Fluxograma',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: isMobile ? 14 : (isTablet ? 15 : 16),
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                         letterSpacing: 0.1,
@@ -962,13 +1090,15 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                         const Color(0xFF0056b3),
                         _hoverAnimation.value,
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      padding: EdgeInsets.symmetric(
+                        vertical: isMobile ? 10 : (isTablet ? 11 : 12),
+                      ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
                       elevation: 4 + (2 * _hoverAnimation.value),
                       shadowColor: Colors.transparent,
-                      minimumSize: const Size.fromHeight(48),
+                      minimumSize: Size.fromHeight(isMobile ? 40 : 48),
                     ),
                   ),
                 ),
@@ -1028,50 +1158,78 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   }
 
   void _mostrarDialogoSelecaoCurso(Map<String, dynamic> errorData) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        
     final cursosList = (errorData['cursos_disponiveis'] is List)
         ? errorData['cursos_disponiveis']
         : (errorData['cursos_disponiveis'] != null
             ? [errorData['cursos_disponiveis']]
             : []);
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
+        
         return AlertDialog(
-          title: const Text('Selecione seu curso'),
+          title: Text(
+            'Selecione seu curso',
+            style: TextStyle(
+              fontSize: isMobile ? 16 : 18,
+            ),
+          ),
           content: SizedBox(
-            width: double.maxFinite,
+            width: isMobile ? double.maxFinite : 400,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  errorData['message'] ??
-                      'Por favor, selecione o curso correto:',
-                  style: const TextStyle(fontSize: 16),
+                  errorData['message'] ?? 'Por favor, selecione o curso correto:',
+                  style: TextStyle(
+                    fontSize: isMobile ? 14 : 16,
+                  ),
                 ),
                 if (errorData['palavras_chave_encontradas'] != null) ...[
-                  const SizedBox(height: 8),
+                  SizedBox(height: isMobile ? 6 : 8),
                   Text(
                     'Palavras-chave encontradas: ${(errorData['palavras_chave_encontradas'] as List).join(', ')}',
-                    style: const TextStyle(
-                      fontSize: 12,
+                    style: TextStyle(
+                      fontSize: isMobile ? 10 : 12,
                       color: Colors.grey,
                       fontStyle: FontStyle.italic,
                     ),
                   ),
                 ],
-                const SizedBox(height: 16),
+                SizedBox(height: isMobile ? 12 : 16),
                 Flexible(
+                  child: Container(
+                    constraints: BoxConstraints(
+                      maxHeight: MediaQuery.of(context).size.height * 0.4,
+                    ),
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: cursosList.length,
                     itemBuilder: (context, index) {
                       final curso = cursosList[index];
                       return ListTile(
-                        title: Text(curso['nome_curso'] ?? ''),
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: isMobile ? 8 : 16,
+                            vertical: isMobile ? 4 : 8,
+                          ),
+                          title: Text(
+                            curso['nome_curso'] ?? '',
+                            style: TextStyle(
+                              fontSize: isMobile ? 14 : 16,
+                            ),
+                          ),
                         subtitle: curso['matriz_curricular'] != null
-                            ? Text('Matriz: ${curso['matriz_curricular']}')
+                              ? Text(
+                                  'Matriz: ${curso['matriz_curricular']}',
+                                  style: TextStyle(
+                                    fontSize: isMobile ? 12 : 14,
+                                  ),
+                                )
                             : null,
                         onTap: () {
                           Navigator.of(context).pop();
@@ -1079,6 +1237,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                         },
                       );
                     },
+                    ),
                   ),
                 ),
               ],
@@ -1090,7 +1249,12 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                 Navigator.of(context).pop();
                 _resetUpload();
               },
-              child: const Text('Cancelar'),
+              child: Text(
+                'Cancelar',
+                style: TextStyle(
+                  fontSize: isMobile ? 14 : 16,
+                ),
+              ),
             ),
           ],
         );
@@ -1111,6 +1275,12 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
   }
 
   Widget _buildResultadoProcessamento() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
     final disciplinasEncontradas = _disciplinasCasadas!
         .where((d) =>
             d['encontrada_no_banco'] == true ||
@@ -1124,11 +1294,13 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         .toList();
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      padding: const EdgeInsets.all(16),
+          margin: EdgeInsets.symmetric(
+            horizontal: isMobile ? 16 : (isTablet ? 32 : 48),
+          ),
+          padding: EdgeInsets.all(isMobile ? 12 : (isTablet ? 14 : 16)),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(isMobile ? 8 : 12),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1138,114 +1310,147 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 18,
+                  fontSize: isMobile ? 16 : (isTablet ? 17 : 18),
             ),
           ),
-          const SizedBox(height: 12),
+              SizedBox(height: isMobile ? 8 : (isTablet ? 10 : 12)),
 
           // Resumo geral
-          Text(
+              _buildInfoText(
             '📋 Total de disciplinas processadas: ${_disciplinasCasadas!.length}',
-            style: TextStyle(color: Colors.white),
+                Colors.white,
+                isMobile,
           ),
-          Text(
+              _buildInfoText(
             '✅ Disciplinas encontradas no banco: ${disciplinasEncontradas.length}',
-            style: TextStyle(color: Colors.green),
+                Colors.green,
+                isMobile,
           ),
-          Text(
+              _buildInfoText(
             '❌ Disciplinas não encontradas: ${disciplinasNaoEncontradas.length}',
-            style: TextStyle(color: Colors.orange),
+                Colors.orange,
+                isMobile,
           ),
 
           if (_materiasOptativas != null) ...[
-            const SizedBox(height: 8),
-            Text(
+                SizedBox(height: isMobile ? 6 : 8),
+                _buildInfoText(
               '🎯 Matérias optativas: ${_materiasOptativas!.length}',
-              style: TextStyle(color: Colors.purple),
+                  Colors.purple,
+                  isMobile,
             ),
           ],
 
-          Text(
+              _buildInfoText(
             '👨‍🏫 Disciplinas com professor: ${_disciplinasCasadas!.where((d) => d['professor'] != null && d['professor'].toString().isNotEmpty).length}',
-            style: TextStyle(color: Colors.indigo),
+                Colors.indigo,
+                isMobile,
           ),
 
           if (_dadosValidacao != null) ...[
-            const SizedBox(height: 8),
-            Text(
+                SizedBox(height: isMobile ? 6 : 8),
+                _buildInfoText(
               '🎓 Curso: ${_dadosValidacao!['curso_extraido'] ?? 'N/A'}',
-              style: TextStyle(color: Colors.cyan),
+                  Colors.cyan,
+                  isMobile,
             ),
-            Text(
+                _buildInfoText(
               '📋 Matriz: ${_dadosValidacao!['matriz_curricular'] ?? 'N/A'}',
-              style: TextStyle(color: Colors.cyan),
+                  Colors.cyan,
+                  isMobile,
             ),
-            Text(
+                _buildInfoText(
               '📊 IRA: ${_dadosValidacao!['ira']?.toStringAsFixed(2) ?? 'N/A'}',
-              style: TextStyle(color: Colors.blue),
+                  Colors.blue,
+                  isMobile,
             ),
-            Text(
+                _buildInfoText(
               '📈 Média ponderada: ${_dadosValidacao!['media_ponderada']?.toStringAsFixed(2) ?? 'N/A'}',
-              style: TextStyle(color: Colors.blue),
+                  Colors.blue,
+                  isMobile,
             ),
-            Text(
+                _buildInfoText(
               '📊 Frequência: ${_dadosValidacao!['frequencia_geral']?.toStringAsFixed(2) ?? 'N/A'}%',
-              style: TextStyle(color: Colors.blue),
+                  Colors.blue,
+                  isMobile,
             ),
-            Text(
+                _buildInfoText(
               '⏱️ Horas integralizadas: ${_dadosValidacao!['horas_integralizadas']}h',
-              style: TextStyle(color: Colors.blue),
+                  Colors.blue,
+                  isMobile,
             ),
             if (_dadosValidacao!['pendencias'] != null &&
                 _dadosValidacao!['pendencias'] is List &&
                 _dadosValidacao!['pendencias'].isNotEmpty)
-              Text(
+                  _buildInfoText(
                 '⚠️ Pendências: ${(_dadosValidacao!['pendencias'] as List).join(', ')}',
-                style: TextStyle(color: Colors.orange),
+                    Colors.orange,
+                    isMobile,
               ),
           ],
 
-          const SizedBox(height: 16),
+              SizedBox(height: isMobile ? 12 : (isTablet ? 14 : 16)),
 
           // Lista de disciplinas encontradas
           if (disciplinasEncontradas.isNotEmpty) ...[
             _buildDisciplinasList(
-              titulo:
-                  '✅ Disciplinas Encontradas (${disciplinasEncontradas.length})',
+                  titulo: '✅ Disciplinas Encontradas (${disciplinasEncontradas.length})',
               disciplinas: disciplinasEncontradas,
               cor: Colors.green,
               isFound: true,
             ),
-            const SizedBox(height: 12),
+                SizedBox(height: isMobile ? 8 : (isTablet ? 10 : 12)),
           ],
 
           // Lista de disciplinas não encontradas
           if (disciplinasNaoEncontradas.isNotEmpty) ...[
             _buildDisciplinasList(
-              titulo:
-                  '❌ Disciplinas Não Encontradas (${disciplinasNaoEncontradas.length})',
+                  titulo: '❌ Disciplinas Não Encontradas (${disciplinasNaoEncontradas.length})',
               disciplinas: disciplinasNaoEncontradas,
               cor: Colors.orange,
               isFound: false,
             ),
-            const SizedBox(height: 12),
+                SizedBox(height: isMobile ? 8 : (isTablet ? 10 : 12)),
           ],
 
-          const SizedBox(height: 8),
-          Text(
+              SizedBox(height: isMobile ? 6 : 8),
+              _buildInfoText(
             '💡 Dica: Verifique o console para mais detalhes',
-            style: TextStyle(color: Colors.white70, fontSize: 12),
+                Colors.white70,
+                isMobile,
+                fontSize: isMobile ? 10 : 12,
           ),
-          const SizedBox(height: 4),
-          Text(
+              SizedBox(height: isMobile ? 2 : 4),
+              _buildInfoText(
             '🎯 Processamento automático: Curso e matriz extraídos do PDF',
-            style: TextStyle(
-              color: Colors.green,
-              fontSize: 12,
+                Colors.green,
+                isMobile,
+                fontSize: isMobile ? 10 : 12,
               fontWeight: FontWeight.w500,
             ),
-          ),
         ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildInfoText(
+    String text,
+    Color color,
+    bool isMobile, {
+    double? fontSize,
+    FontWeight? fontWeight,
+  }) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: isMobile ? 2 : 4),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: color,
+          fontSize: fontSize ?? (isMobile ? 12 : 14),
+          fontWeight: fontWeight,
+        ),
       ),
     );
   }
@@ -1256,7 +1461,14 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     required Color cor,
     required bool isFound,
   }) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery.of(context).size.width;
+        final isMobile = screenWidth <= 600;
+        final isTablet = screenWidth > 600 && screenWidth <= 1024;
+        
     disciplinas.sort((a, b) => a['nivel'].compareTo(b['nivel']));
+        
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -1265,7 +1477,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           style: TextStyle(
             color: cor,
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+                fontSize: isMobile ? 14 : (isTablet ? 15 : 16),
           ),
         ),
         iconColor: cor,
@@ -1280,8 +1492,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         ),
         children: [
           Container(
-            constraints:
-                BoxConstraints(maxHeight: getProportionateScreenHeight(500)),
+                constraints: BoxConstraints(
+                  maxHeight: isMobile ? 300 : (isTablet ? 400 : 500),
+                ),
             child: Scrollbar(
               child: ListView.builder(
                 shrinkWrap: true,
@@ -1289,9 +1502,11 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                 itemBuilder: (context, index) {
                   final disciplina = disciplinas[index];
                   return Container(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
-                    padding: const EdgeInsets.all(8),
+                        margin: EdgeInsets.symmetric(
+                          vertical: isMobile ? 1 : 2,
+                          horizontal: isMobile ? 4 : 8,
+                        ),
+                        padding: EdgeInsets.all(isMobile ? 6 : 8),
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(6),
@@ -1304,18 +1519,18 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                                fontSize: isMobile ? 12 : (isTablet ? 13 : 14),
                           ),
                         ),
                         if (disciplina['situacao'] != null) ...[
-                          const SizedBox(height: 4),
+                              SizedBox(height: isMobile ? 2 : 4),
                           Row(
                             children: [
                               Text(
                                 'Situação: ',
                                 style: TextStyle(
                                   color: Colors.white70,
-                                  fontSize: 12,
+                                      fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                                 ),
                               ),
                               Text(
@@ -1327,7 +1542,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                                           .contains('aprovado')
                                       ? Colors.green
                                       : Colors.orange,
-                                  fontSize: 12,
+                                      fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -1336,14 +1551,16 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                         ],
                         if (disciplina['creditos'] != null ||
                             disciplina['nivel'] != null) ...[
-                          const SizedBox(height: 4),
-                          Row(spacing: 16, children: [
+                              SizedBox(height: isMobile ? 2 : 4),
+                              Wrap(
+                                spacing: isMobile ? 8 : 16,
+                                children: [
                             if (disciplina['creditos'] != null) ...[
                               Text(
                                 'Créditos: ${disciplina['creditos']}',
                                 style: TextStyle(
                                   color: Colors.white70,
-                                  fontSize: 12,
+                                        fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                                 ),
                               ),
                             ],
@@ -1352,7 +1569,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                                 'Nível: ${disciplina['nivel'] == 0 ? 'Optativa' : disciplina['nivel']}',
                                 style: TextStyle(
                                   color: Colors.white70,
-                                  fontSize: 12,
+                                        fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                                 ),
                               ),
                             ],
@@ -1361,31 +1578,32 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                                 'Mencao: ${disciplina['mencao']}',
                                 style: TextStyle(
                                   color: Colors.white70,
-                                  fontSize: 12,
+                                        fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                                 ),
                               ),
                             ],
-                          ]),
+                                ],
+                              ),
                         ],
                         if (disciplina['professor'] != null &&
                             disciplina['professor'].toString().isNotEmpty) ...[
-                          const SizedBox(height: 4),
+                              SizedBox(height: isMobile ? 2 : 4),
                           Text(
                             'Professor: ${disciplina['professor']}',
                             style: TextStyle(
                               color: Colors.white70,
-                              fontSize: 12,
+                                  fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                             ),
                           ),
                         ],
                         if (!isFound &&
                             disciplina['motivo_nao_encontrada'] != null) ...[
-                          const SizedBox(height: 4),
+                              SizedBox(height: isMobile ? 2 : 4),
                           Text(
                             'Motivo: ${disciplina['motivo_nao_encontrada']}',
                             style: TextStyle(
                               color: Colors.red.shade300,
-                              fontSize: 12,
+                                  fontSize: isMobile ? 10 : (isTablet ? 11 : 12),
                               fontStyle: FontStyle.italic,
                             ),
                           ),
@@ -1399,6 +1617,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
           ),
         ],
       ),
+        );
+      },
     );
   }
 }
@@ -1408,35 +1628,37 @@ class _PassoHistorico extends StatelessWidget {
   final Widget descricao;
   final String imagem;
   final String alt;
+  final bool isMobile;
 
   const _PassoHistorico({
     required this.titulo,
     required this.descricao,
     required this.imagem,
     required this.alt,
+    required this.isMobile,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 32.0),
+      padding: EdgeInsets.only(bottom: isMobile ? 24.0 : 32.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             titulo,
-            style: const TextStyle(
+            style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 18,
+              fontSize: isMobile ? 16 : 18,
               color: Color(0xFF1A202C),
             ),
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: isMobile ? 4 : 6),
           descricao,
-          const SizedBox(height: 12),
+          SizedBox(height: isMobile ? 8 : 12),
           Center(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(isMobile ? 8 : 12),
               child: Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black12),
@@ -1450,17 +1672,20 @@ class _PassoHistorico extends StatelessWidget {
                 ),
                 child: Image.asset(
                   imagem,
-                  width: 400,
+                  width: isMobile ? 280 : 400,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) => Container(
                     color: Colors.grey[200],
-                    width: 400,
-                    height: 180,
+                    width: isMobile ? 280 : 400,
+                    height: isMobile ? 140 : 180,
                     alignment: Alignment.center,
                     child: Text(
                       'Imagem não encontrada:\n$imagem',
                       textAlign: TextAlign.center,
-                      style: const TextStyle(color: Colors.red),
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: isMobile ? 12 : 14,
+                      ),
                     ),
                   ),
                 ),
