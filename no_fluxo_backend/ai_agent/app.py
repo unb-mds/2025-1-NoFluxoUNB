@@ -6,8 +6,8 @@ import logging
 from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
-from .ragflow_agent_client import RagflowClient
-from .visualizaJsonMateriasAssociadas import gerar_texto_ranking
+from ragflow_agent_client import RagflowClient
+from visualizaJsonMateriasAssociadas import gerar_texto_ranking
 from flask_cors import CORS
 
 # Load environment variables

@@ -3,7 +3,7 @@ import requests
 import json
 import logging
 from datetime import datetime
-from .config import RAGFLOW_API_KEY, RAGFLOW_BASE_URL, RAGFLOW_AGENT_ID
+from config import RAGFLOW_API_KEY, RAGFLOW_BASE_URL, RAGFLOW_AGENT_ID
 #import formataResposta
 
 # Configure logger for this module
