@@ -32,7 +32,7 @@ The Docker configuration has been moved to the **repository root** to properly a
     ├── .env.example            # Environment template
     ├── start_and_monitor.py    # Auto-update monitoring script
     ├── src/                    # TypeScript source code
-    ├── AI-agent/               # AI agent code
+    ├── ai_agent/               # AI agent code
     └── ...                     # Other backend files
 ```
 

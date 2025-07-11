@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:no_fluxo_backend/ai_agent/app.py
+=======
+>>>>>>> e230dc46013b11b69eea88dddfc80240c5a9aa54
 # app.py (Versão com Flask)
 import unicodedata
 import argparse
@@ -256,6 +259,7 @@ if __name__ == '__main__':
         app.run(host=args.host, port=args.port, debug=args.debug)
     except Exception as e:
         logger.error(f"Failed to start server: {str(e)}", exc_info=True)
+<<<<<<< HEAD
 =======
 # app.py (Versão com Flask)
 import unicodedata
@@ -515,4 +519,6 @@ if __name__ == '__main__':
     except Exception as e:
         logger.error(f"Failed to start server: {str(e)}", exc_info=True)
 >>>>>>> origin/dev:no_fluxo_backend/AI-agent/app.py
+=======
+>>>>>>> e230dc46013b11b69eea88dddfc80240c5a9aa54
         exit(1)

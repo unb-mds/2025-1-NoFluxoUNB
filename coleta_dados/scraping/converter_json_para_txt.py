@@ -7,6 +7,9 @@ Este arquivo visa converter o .json obtido do arquivo '01_extrair_turmas_sigaa.p
 '''
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e230dc46013b11b69eea88dddfc80240c5a9aa54
 
 # Caminho onde estão seus arquivos .json
 #entrada = "dados_finais"
@@ -28,9 +31,12 @@ else:
 os.makedirs(saida, exist_ok=True)
 
 # Campos que você quer extrair (edite conforme necessário)
+<<<<<<< HEAD
 =======
 # Campos que você quer extrair (podem ser importados por outros módulos)
 >>>>>>> origin/dev
+=======
+>>>>>>> e230dc46013b11b69eea88dddfc80240c5a9aa54
 campos = [
     "disciplina",
     "codigo",
