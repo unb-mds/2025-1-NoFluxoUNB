@@ -438,7 +438,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
   Widget _buildPrerequisitesTab() {
     return SingleChildScrollView(
       child: Builder(builder: (context) {
-        var materiasPorNivel = Map<int, List<MateriaModel>>();
+        var materiasPorNivel = <int, List<MateriaModel>>{};
 
         for (var materia in widget.materia.preRequisitos) {
           if (!materiasPorNivel.containsKey(materia.nivel)) {
@@ -446,6 +446,8 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
           }
           materiasPorNivel[materia.nivel]!.add(materia);
         }
+
+        var materiasPorNivelList = materiasPorNivel.keys.toList();
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -455,7 +457,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  for (var nivel in materiasPorNivel.keys) ...[
+                  for (var nivel in materiasPorNivelList) ...[
                     Text(
                       "Nível $nivel",
                       style: TextStyle(
