@@ -99,8 +99,9 @@ class CursoModel {
 
     var preRequisitosInCurso = List<PreRequisitoModel>.from([]);
 
-    var materiasInCursoFromCodigo = Set<String>.from(
-        curso.materias.map((materia) => materia.codigoMateria));
+    var materiasInCursoFromCodigo = Set<String>.from(curso.materias
+        .where((materia) => materia.nivel != 0)
+        .map((materia) => materia.codigoMateria));
 
     for (var preRequisito in preRequisitos) {
       if (materiasInCursoFromCodigo

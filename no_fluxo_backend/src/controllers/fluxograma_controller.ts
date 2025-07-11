@@ -93,6 +93,8 @@ function processMatchedDiscipline(
     disciplinasCasadas: any[],
     logger: any
 ): any {
+    logger.debug(`Processing matched discipline: "${disciplina.nome}" (ID: ${materiaBanco.id_materia}, Level: ${materiaBanco.nivel}, Status: ${disciplina.status})`);
+
     // Check for existing discipline with same ID
     const existingIndex = disciplinasCasadas.findIndex((d: any) => d.id_materia === materiaBanco.id_materia);
 
@@ -109,13 +111,18 @@ function processMatchedDiscipline(
         const currentPriority = getStatusPriority(existing.status);
         const newPriority = getStatusPriority(disciplina.status);
 
+        logger.debug(`Found existing discipline "${disciplina.nome}" - Current priority: ${currentPriority} (${existing.status}), New priority: ${newPriority} (${disciplina.status})`);
+
         if (newPriority > currentPriority) {
             disciplinasCasadas[existingIndex] = disciplinaCasada;
             logger.info(`Updating status for "${disciplina.nome}": ${existing.status} → ${disciplina.status}`);
+        } else {
+            logger.debug(`Keeping existing status for "${disciplina.nome}": ${existing.status} (priority ${currentPriority} >= ${newPriority})`);
         }
         return disciplinasCasadas[existingIndex];
     } else {
         disciplinasCasadas.push(disciplinaCasada);
+        logger.debug(`Added new discipline "${disciplina.nome}" to disciplinasCasadas array (total: ${disciplinasCasadas.length})`);
         return disciplinaCasada;
     }
 }
@@ -217,7 +224,7 @@ export const FluxogramaController: EndpointController = {
             return res.status(200).json(data);
         }),
 
-        
+
 
         "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger("FluxogramaController", "read_pdf");
@@ -262,7 +269,8 @@ export const FluxogramaController: EndpointController = {
 
         "casar_disciplinas": new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger("FluxogramaController", "casar_disciplinas");
-            logger.info("Iniciando casamento de disciplinas");
+            const startTime = Date.now();
+            logger.info("=== DISCIPLINE MATCHING STARTED ===");
 
             try {
                 const { dados_extraidos } = req.body;
@@ -272,6 +280,10 @@ export const FluxogramaController: EndpointController = {
                     return res.status(400).json({ error: "Dados extraídos são obrigatórios" });
                 }
 
+                // Log input data summary
+                logger.info("=== INPUT DATA SUMMARY ===");
+                logger.info(`Total extracted data items: ${dados_extraidos.extracted_data?.length || 0}`);
+
                 // Extract basic information
                 const curso_extraido = dados_extraidos.curso_extraido;
                 const matriz_curricular = dados_extraidos.matriz_curricular;
@@ -280,6 +292,18 @@ export const FluxogramaController: EndpointController = {
 
                 logger.info(`Curso extraído do PDF: "${curso_extraido}"`);
                 logger.info(`Matriz curricular extraída: "${matriz_curricular}"`);
+                logger.info(`Media ponderada: ${media_ponderada || 'Not available'}`);
+                logger.info(`Frequência geral: ${frequencia_geral || 'Not available'}`);
+
+                // Count different types of disciplines
+                const disciplinaRegular = dados_extraidos.extracted_data?.filter((item: any) => item.tipo_dado === 'Disciplina Regular')?.length || 0;
+                const disciplinaCump = dados_extraidos.extracted_data?.filter((item: any) => item.tipo_dado === 'Disciplina CUMP')?.length || 0;
+                const otherItems = dados_extraidos.extracted_data?.filter((item: any) => item.tipo_dado !== 'Disciplina Regular' && item.tipo_dado !== 'Disciplina CUMP')?.length || 0;
+
+                logger.info(`Disciplinas Regular: ${disciplinaRegular}`);
+                logger.info(`Disciplinas CUMP: ${disciplinaCump}`);
+                logger.info(`Other items: ${otherItems}`);
+                logger.info("=== END INPUT SUMMARY ===");
 
                 if (!curso_extraido) {
                     logger.warn("Curso não foi extraído do PDF automaticamente");
@@ -428,14 +452,29 @@ export const FluxogramaController: EndpointController = {
                 }
 
                 // MAIN DISCIPLINE MATCHING LOOP - OPTIMIZED
+                logger.info(`Starting discipline matching for ${dados_extraidos.extracted_data.length} extracted items`);
+                let processedCount = 0;
+                let foundCount = 0;
+                let notFoundCount = 0;
+
                 for (const disciplina of dados_extraidos.extracted_data) {
                     if (disciplina.tipo_dado === 'Disciplina Regular' || disciplina.tipo_dado === 'Disciplina CUMP') {
+                        processedCount++;
+                        logger.info(`Processing discipline ${processedCount}: "${disciplina.nome}" (${disciplina.codigo}) - Status: ${disciplina.status}`);
 
                         // 1. Try to match with primary matrix
+                        logger.debug(`Attempting to match "${disciplina.nome}" with primary matrix`);
                         let materiaBanco = findSubjectMatch(disciplina, materiasObrigatorias, materiasOptativas);
+
+                        if (materiaBanco) {
+                            logger.info(`✓ Subject "${disciplina.nome}" found in primary matrix - ID: ${materiaBanco.id_materia}, Level: ${materiaBanco.nivel}`);
+                        } else {
+                            logger.debug(`✗ Subject "${disciplina.nome}" not found in primary matrix`);
+                        }
 
                         // 2. Try to match with other matrices (pre-loaded, no DB query)
                         if (!materiaBanco && outrasMatrizes) {
+                            logger.debug(`Attempting to match "${disciplina.nome}" with other matrices (${outrasMatrizes.length} matrices)`);
                             for (const matriz of outrasMatrizes) {
                                 if (matriz.matriz_curricular === curso.matriz_curricular) continue;
 
@@ -444,14 +483,18 @@ export const FluxogramaController: EndpointController = {
 
                                 materiaBanco = findSubjectMatch(disciplina, obrig, opt);
                                 if (materiaBanco) {
-                                    logger.info(`Subject '${disciplina.nome}' found in other matrix: ${matriz.matriz_curricular}`);
+                                    logger.info(`✓ Subject "${disciplina.nome}" found in other matrix: ${matriz.matriz_curricular} - ID: ${materiaBanco.id_materia}`);
                                     break;
                                 }
+                            }
+                            if (!materiaBanco) {
+                                logger.debug(`✗ Subject "${disciplina.nome}" not found in any other matrix`);
                             }
                         }
 
                         // 3. Try to match with equivalencies (pre-loaded, no DB query)
                         if (!materiaBanco && allEquivalencies) {
+                            logger.debug(`Attempting to match "${disciplina.nome}" with equivalencies (${allEquivalencies.length} equivalencies)`);
                             const equivalenciasMatch = allEquivalencies.filter(eq =>
                                 eq.expressao && (
                                     eq.expressao.includes(disciplina.codigo) ||
@@ -460,6 +503,7 @@ export const FluxogramaController: EndpointController = {
                             );
 
                             if (equivalenciasMatch.length > 0) {
+                                logger.debug(`Found ${equivalenciasMatch.length} potential equivalencies for "${disciplina.nome}"`);
                                 // Find the target subject from the equivalency
                                 const targetMateria = materiasBancoList.find((m: any) =>
                                     m.id_materia === equivalenciasMatch[0].id_materia
@@ -467,15 +511,22 @@ export const FluxogramaController: EndpointController = {
 
                                 if (targetMateria) {
                                     materiaBanco = targetMateria;
-                                    logger.info(`Subject '${disciplina.nome}' matched by equivalency`);
+                                    logger.info(`✓ Subject "${disciplina.nome}" matched by equivalency - Target: ${targetMateria.materias.nome_materia} (ID: ${targetMateria.id_materia})`);
+                                } else {
+                                    logger.debug(`✗ Equivalency target not found for "${disciplina.nome}"`);
                                 }
+                            } else {
+                                logger.debug(`✗ No equivalencies found for "${disciplina.nome}"`);
                             }
                         }
 
                         // Process the match
                         if (materiaBanco) {
+                            foundCount++;
+                            logger.info(`Processing matched discipline "${disciplina.nome}" - Type: ${materiaBanco.nivel === 0 ? 'elective' : 'mandatory'}`);
                             processMatchedDiscipline(disciplina, materiaBanco, disciplinasCasadas, logger);
                         } else {
+                            notFoundCount++;
                             // Subject not found
                             disciplinasCasadas.push({
                                 ...disciplina,
@@ -484,42 +535,73 @@ export const FluxogramaController: EndpointController = {
                                 nivel: null,
                                 tipo: 'nao_encontrada'
                             });
-                            logger.warn(`Subject not found: ${disciplina.nome}`);
+                            logger.warn(`✗ Subject not found: "${disciplina.nome}" (${disciplina.codigo})`);
                         }
                     }
                 }
 
+                logger.info(`Discipline matching completed - Processed: ${processedCount}, Found: ${foundCount}, Not found: ${notFoundCount}`)
+
                 // CLASSIFY MATCHED DISCIPLINES
+                logger.info(`Classifying ${disciplinasCasadas.length} matched disciplines`);
+                let completedCount = 0;
+                let inProgressCount = 0;
+                let pendingCount = 0;
+                let electivesCount = 0;
+                let mandatoryCount = 0;
+
                 for (const disciplinaCasada of disciplinasCasadas) {
                     const isCompleted = disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP';
                     const isInProgress = disciplinaCasada.status === 'MATR';
                     const isElective = disciplinaCasada.tipo === 'optativa';
 
+                    logger.debug(`Classifying discipline: "${disciplinaCasada.nome}" (Status: ${disciplinaCasada.status}, Type: ${disciplinaCasada.tipo}, ID: ${disciplinaCasada.id_materia})`);
+                    logger.debug(`  - isCompleted: ${isCompleted}, isInProgress: ${isInProgress}, isElective: ${isElective}`);
+
+                    if (isElective) {
+                        electivesCount++;
+                    } else {
+                        mandatoryCount++;
+                    }
+
                     if (isCompleted) {
+                        completedCount++;
                         const completedSubject = { ...disciplinaCasada, status_fluxograma: 'concluida' };
                         if (isElective) {
                             materiasOptativasConcluidas.push(completedSubject);
+                            logger.debug(`✓ Elective completed: "${disciplinaCasada.nome}" (${disciplinaCasada.codigo}) - Added to materiasOptativasConcluidas`);
                         } else {
                             materiasConcluidas.push(completedSubject);
+                            logger.debug(`✓ Mandatory completed: "${disciplinaCasada.nome}" (${disciplinaCasada.codigo}) - Added to materiasConcluidas`);
                         }
                     } else if (isInProgress) {
+                        inProgressCount++;
                         const inProgressSubject = { ...disciplinaCasada, status_fluxograma: 'em_andamento' };
                         if (isElective) {
                             materiasOptativasPendentes.push(inProgressSubject);
+                            logger.debug(`⏳ Elective in progress: "${disciplinaCasada.nome}" (${disciplinaCasada.codigo}) - Added to materiasOptativasPendentes`);
                         } else {
                             materiasPendentes.push(inProgressSubject);
+                            logger.debug(`⏳ Mandatory in progress: "${disciplinaCasada.nome}" (${disciplinaCasada.codigo}) - Added to materiasPendentes`);
                         }
                     } else {
+                        pendingCount++;
                         const pendingSubject = { ...disciplinaCasada, status_fluxograma: 'pendente' };
                         if (isElective) {
                             materiasOptativasPendentes.push(pendingSubject);
+                            logger.debug(`⏸️ Elective pending: "${disciplinaCasada.nome}" (${disciplinaCasada.codigo}) - Added to materiasOptativasPendentes`);
                         } else {
                             materiasPendentes.push(pendingSubject);
+                            logger.debug(`⏸️ Mandatory pending: "${disciplinaCasada.nome}" (${disciplinaCasada.codigo}) - Added to materiasPendentes`);
                         }
                     }
                 }
 
+                logger.info(`Classification completed - Completed: ${completedCount}, In Progress: ${inProgressCount}, Pending: ${pendingCount}`);
+                logger.info(`Subject types - Mandatory: ${mandatoryCount}, Electives: ${electivesCount}`)
+
                 // FIND MANDATORY SUBJECTS NOT IN TRANSCRIPT
+                logger.info(`Finding mandatory subjects not in transcript (${materiasObrigatorias.length} mandatory subjects total)`);
                 const materiasObrigatoriasNaoEncontradas = materiasObrigatorias.filter((materiaBanco: any) => {
                     return !disciplinasCasadas.some((disc: any) => disc.id_materia === materiaBanco.id_materia);
                 }).map((materiaBanco: any) => ({
@@ -533,14 +615,22 @@ export const FluxogramaController: EndpointController = {
                     status_fluxograma: 'nao_cursada'
                 }));
 
+                logger.info(`Found ${materiasObrigatoriasNaoEncontradas.length} mandatory subjects not in transcript`);
+
                 // PROCESS EQUIVALENCIES FOR MISSING MANDATORY SUBJECTS
+                logger.info(`Processing equivalencies for ${materiasObrigatoriasNaoEncontradas.length} missing mandatory subjects`);
                 const materiasConcluidasPorEquivalencia: any[] = [];
                 const materiasPendentesFinais: any[] = [];
+                let equivalenciesProcessed = 0;
+                let equivalenciesFound = 0;
 
                 for (const materiaObrigatoria of materiasObrigatoriasNaoEncontradas) {
+                    equivalenciesProcessed++;
                     const equivalenciasParaMateria = allEquivalencies?.filter(eq =>
                         eq.id_materia === materiaObrigatoria.id_materia
                     ) || [];
+
+                    logger.debug(`Processing equivalencies for mandatory subject "${materiaObrigatoria.nome}" (${materiaObrigatoria.codigo}) - Found ${equivalenciasParaMateria.length} equivalencies`);
 
                     const cumpridaPorEquivalencia = checkEquivalencies(
                         disciplinasCasadas,
@@ -550,6 +640,7 @@ export const FluxogramaController: EndpointController = {
                     );
 
                     if (cumpridaPorEquivalencia) {
+                        equivalenciesFound++;
                         // Encontrar a disciplina do histórico usada como equivalência
                         let encontrada = null;
                         for (const eq of equivalenciasParaMateria) {
@@ -565,19 +656,28 @@ export const FluxogramaController: EndpointController = {
                             codigo_equivalente: encontrada ? encontrada.codigo : undefined,
                             nome_equivalente: encontrada ? encontrada.nome : undefined
                         });
+                        logger.info(`✓ Mandatory subject "${materiaObrigatoria.nome}" completed by equivalency with "${encontrada?.nome}" (${encontrada?.codigo})`);
                     } else {
                         materiasPendentesFinais.push(materiaObrigatoria);
+                        logger.debug(`✗ Mandatory subject "${materiaObrigatoria.nome}" remains pending - no equivalency found`);
                     }
                 }
 
+                logger.info(`Equivalencies processing completed - Processed: ${equivalenciesProcessed}, Found: ${equivalenciesFound}`)
+
                 // PROCESS ELECTIVES THAT MIGHT BE EQUIVALENCIES FOR MANDATORY SUBJECTS
                 const optativasParaProcessar = [...materiasOptativasConcluidas, ...materiasOptativasPendentes];
+                logger.info(`Processing ${optativasParaProcessar.length} electives that might be equivalencies for mandatory subjects`);
                 const optativasRestantes: any[] = [];
+                let electivesProcessed = 0;
+                let electivesMarkedAsEquivalency = 0;
 
                 for (const disciplinaOptativa of optativasParaProcessar) {
+                    electivesProcessed++;
                     let marcadaComoEquivalencia = false;
 
                     if (allEquivalencies) {
+                        logger.debug(`Processing elective "${disciplinaOptativa.nome}" (${disciplinaOptativa.codigo}) for equivalency potential`);
                         for (const eq of allEquivalencies) {
                             if (!eq.expressao || !eq.expressao.toUpperCase().includes(disciplinaOptativa.codigo)) continue;
 
@@ -590,6 +690,7 @@ export const FluxogramaController: EndpointController = {
                             );
 
                             if (encontrada) {
+                                electivesMarkedAsEquivalency++;
                                 materiasConcluidasPorEquivalencia.push({
                                     ...obrigatoria,
                                     status_fluxograma: 'concluida_equivalencia',
@@ -597,7 +698,7 @@ export const FluxogramaController: EndpointController = {
                                     codigo_equivalente: disciplinaOptativa.codigo,
                                     nome_equivalente: disciplinaOptativa.nome
                                 });
-                                logger.info(`Elective '${disciplinaOptativa.nome}' marked as equivalency for mandatory '${obrigatoria.nome}'`);
+                                logger.info(`✓ Elective "${disciplinaOptativa.nome}" marked as equivalency for mandatory "${obrigatoria.nome}"`);
                                 marcadaComoEquivalencia = true;
                                 break;
                             }
@@ -606,30 +707,72 @@ export const FluxogramaController: EndpointController = {
 
                     if (!marcadaComoEquivalencia) {
                         optativasRestantes.push(disciplinaOptativa);
+                        logger.debug(`✗ Elective "${disciplinaOptativa.nome}" remains as regular elective`);
                     }
                 }
 
+                logger.info(`Electives processing completed - Processed: ${electivesProcessed}, Marked as equivalency: ${electivesMarkedAsEquivalency}, Remaining electives: ${optativasRestantes.length}`)
+
                 // FINAL CALCULATIONS
+                logger.info("Starting final calculations and summary");
                 const todasMateriasPendentes = [...materiasPendentes, ...materiasPendentesFinais];
                 const todasMateriasConcluidas = [...materiasConcluidas, ...materiasConcluidasPorEquivalencia];
                 const todasMateriasOptativas = optativasRestantes;
 
+                logger.info(`Final arrays consolidated:`);
+                logger.info(`- Pending mandatory: ${todasMateriasPendentes.length}`);
+                logger.info(`- Completed mandatory: ${todasMateriasConcluidas.length}`);
+                logger.info(`- Remaining electives: ${todasMateriasOptativas.length}`);
+
+                // Log detailed contents of each array
+                logger.debug("=== DETAILED FINAL ARRAYS ===");
+                logger.debug(`Pending mandatory subjects (${todasMateriasPendentes.length}):`);
+                todasMateriasPendentes.forEach((materia, index) => {
+                    logger.debug(`  ${index + 1}. "${materia.nome}" (${materia.codigo}) - Status: ${materia.status || 'N/A'}, FluxoStatus: ${materia.status_fluxograma || 'N/A'}`);
+                });
+
+                logger.debug(`Completed mandatory subjects (${todasMateriasConcluidas.length}):`);
+                todasMateriasConcluidas.forEach((materia, index) => {
+                    logger.debug(`  ${index + 1}. "${materia.nome}" (${materia.codigo}) - Status: ${materia.status || 'N/A'}, FluxoStatus: ${materia.status_fluxograma || 'N/A'}`);
+                });
+
+                logger.debug(`Remaining electives (${todasMateriasOptativas.length}):`);
+                todasMateriasOptativas.forEach((materia, index) => {
+                    logger.debug(`  ${index + 1}. "${materia.nome}" (${materia.codigo}) - Status: ${materia.status || 'N/A'}, FluxoStatus: ${materia.status_fluxograma || 'N/A'}`);
+                });
+                logger.debug("=== END DETAILED ARRAYS ===");
+
                 // Calculate integrated hours
                 let horasIntegralizadas = 0;
+                let disciplinasComCargaHoraria = 0;
                 for (const disciplina of disciplinasCasadas) {
                     if ((disciplina.status === 'APR' || disciplina.status === 'CUMP') && disciplina.carga_horaria) {
                         horasIntegralizadas += disciplina.carga_horaria;
+                        disciplinasComCargaHoraria++;
                     }
                 }
                 dadosValidacao.horas_integralizadas = horasIntegralizadas;
 
+                logger.info(`Hours calculation: ${horasIntegralizadas} hours from ${disciplinasComCargaHoraria} disciplines`);
+
                 // Final summary
-                logger.info("Processing summary:");
-                logger.info(`Total disciplines: ${disciplinasCasadas.length}`);
+                const completionPercentage = (todasMateriasConcluidas.length / (todasMateriasConcluidas.length + todasMateriasPendentes.length) * 100);
+                logger.info("=== PROCESSING SUMMARY ===");
+                logger.info(`Total disciplines processed: ${disciplinasCasadas.length}`);
                 logger.info(`Completed mandatory: ${todasMateriasConcluidas.length}`);
                 logger.info(`Pending mandatory: ${todasMateriasPendentes.length}`);
                 logger.info(`Electives: ${todasMateriasOptativas.length}`);
-                logger.info(`Completion percentage: ${(todasMateriasConcluidas.length / (todasMateriasConcluidas.length + todasMateriasPendentes.length) * 100).toFixed(2)}%`);
+                logger.info(`Completion percentage: ${completionPercentage.toFixed(2)}%`);
+                logger.info(`Integrated hours: ${horasIntegralizadas}`);
+                logger.info(`IRA: ${dadosValidacao.ira || 'Not available'}`);
+                logger.info(`Weighted average: ${dadosValidacao.media_ponderada || 'Not available'}`);
+                logger.info(`General frequency: ${dadosValidacao.frequencia_geral || 'Not available'}`);
+                logger.info("=== END SUMMARY ===");
+
+                const endTime = Date.now();
+                const processingTime = endTime - startTime;
+                logger.info(`=== DISCIPLINE MATCHING COMPLETED ===`);
+                logger.info(`Total processing time: ${processingTime}ms (${(processingTime / 1000).toFixed(2)}s)`);
 
                 return res.status(200).json({
                     disciplinas_casadas: disciplinasCasadas,
@@ -649,7 +792,10 @@ export const FluxogramaController: EndpointController = {
                 });
 
             } catch (error: any) {
+                const endTime = Date.now();
+                const processingTime = endTime - startTime;
                 logger.error(`Erro ao casar disciplinas: ${error.message}`);
+                logger.error(`Error occurred after ${processingTime}ms of processing`);
                 return res.status(500).json({ error: error.message || "Erro ao casar disciplinas" });
             }
         }),
