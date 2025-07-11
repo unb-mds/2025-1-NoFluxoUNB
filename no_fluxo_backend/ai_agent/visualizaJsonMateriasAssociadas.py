@@ -5,11 +5,12 @@ import html
 import sys
 
 # Configurar encoding para UTF-8
+'''
 if sys.platform.startswith('win'):
     import codecs
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
     sys.stderr = codecs.getwriter('utf-8')(sys.stderr.detach())
-
+'''
 def gerar_texto_ranking(json_bruto: dict) -> str:
     """
     Parser universal que extrai, limpa e formata um ranking de disciplinas com Markdown.

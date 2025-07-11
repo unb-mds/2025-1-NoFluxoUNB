@@ -6,8 +6,8 @@ import logging
 from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
-from ragflow_agent_client import RagflowClient
-from visualizaJsonMateriasAssociadas import gerar_texto_ranking
+from .ragflow_agent_client import RagflowClient
+from .visualizaJsonMateriasAssociadas import gerar_texto_ranking
 from flask_cors import CORS
 
 # Load environment variables
@@ -105,7 +105,7 @@ def analisar_materia_endpoint():
         logger.debug("Extracting data from request")
         dados_requisicao = request.get_json()
 
-        if not dados_requisicao:
+        if dados_requisicao is None:
             logger.warning("Request body is empty or not valid JSON")
             return jsonify({"erro": "Corpo da requisição deve ser um JSON válido."}), 400
 
