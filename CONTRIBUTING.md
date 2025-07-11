@@ -81,7 +81,7 @@ Se o seu backend também usa Node.js, navegue até a pasta do backend e execute:
 ```bash
 cd no_fluxo_backend
 npm install
-npm start
+npm run dev
 ```
 
 Certifique-se de que a pasta `no_fluxo_backend` realmente é onde estão os arquivos `Node.js` e o `package.json`.
@@ -106,35 +106,6 @@ Na pasta do frontend, execute os seguintes comandos:
 flutter pub get
 flutter run
 ```
-
----
-
-### 4. Executando o Parser de PDF
-
-Você precisa rodar o script de parser de PDF separadamente:
-
-#### 4.1. Navegar para a Pasta de Coleta de Dados
-
-Navegue até a pasta onde o arquivo `parser_pdf.py` está localizado:
-
-```bash
-
-cd coleta_de_dados
-python3 parser_pdf.py
-
-```
-
-#### 4.2. Executar o Parser
-
-Com o ambiente virtual ativado (se aplicável ao parser), execute o arquivo Python:
-
-```bash
-
-python3 parser_pdf.py
-
-```
-
----
 
 ## Observações Finais
 
