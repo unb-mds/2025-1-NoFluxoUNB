@@ -58,12 +58,12 @@ def test_analisar_materia_endpoint_sucesso(client, mocker):
     dependências externas.
     """
     # Mock do RagflowClient
-    mock_ragflow_client = mocker.patch('app.RagflowClient').return_value
+    mock_ragflow_client = mocker.patch('no_fluxo_backend.ai_agent.app.RagflowClient').return_value
     mock_ragflow_client.start_session.return_value = "sessao_mock_123"
     mock_ragflow_client.analyze_materia.return_value = {"code": 0, "data": "dados_mock"}
 
     # Mock da função de formatação
-    mocker.patch('app.gerar_texto_ranking', return_value="Ranking formatado com sucesso.")
+    mocker.patch('no_fluxo_backend.ai_agent.app.gerar_texto_ranking', return_value="Ranking formatado com sucesso.")
 
     # Faz a requisição
     response = client.post(
@@ -108,7 +108,7 @@ def test_analisar_materia_endpoint_erro_api_ragflow(client, mocker):
     """
     Testa o endpoint /assistente quando a API do RAGFlow retorna um erro.
     """
-    mock_ragflow_client = mocker.patch('app.RagflowClient').return_value
+    mock_ragflow_client = mocker.patch('no_fluxo_backend.ai_agent.app.RagflowClient').return_value
     mock_ragflow_client.start_session.return_value = "sessao_mock_123"
     mock_ragflow_client.analyze_materia.return_value = {
         "code": 1, "message": "Falha na análise"
@@ -129,7 +129,7 @@ def test_analisar_materia_endpoint_erro_inesperado(client, mocker):
     """
     Testa o endpoint /assistente quando uma exceção inesperada ocorre.
     """
-    mocker.patch('app.remover_acentos_nativo', side_effect=Exception("Erro inesperado"))
+    mocker.patch('no_fluxo_backend.ai_agent.app.remover_acentos_nativo', side_effect=Exception("Erro inesperado"))
 
     response = client.post(
         '/assistente',

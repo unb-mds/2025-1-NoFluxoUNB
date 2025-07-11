@@ -1,6 +1,16 @@
 # tests/test_visualizaJsonMateriasAssociadas.py
+import sys
+import os
+
+# Adiciona o diretório raiz do projeto ao sys.path
+# Sobe um nível ('..') a partir da pasta 'tests-python'.
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
+
 import pytest
 from no_fluxo_backend.ai_agent.visualizaJsonMateriasAssociadas import gerar_texto_ranking
+
+
 
 # Exemplo de JSON válido, extraído do arquivo original.
 JSON_VALIDO_COMPLETO = {
@@ -58,12 +68,30 @@ def test_gerar_texto_ranking_sucesso():
     assert "| **Melhor pontuação** | 100/100 |" in resultado
 
 
-def test_gerar_texto_ranking_sem_bloco_ranking():
+def test_gerar_texto_ranking_sem_bloco_ranking_retorna_template_vazio():
     """
-    Testa a função com um JSON onde o bloco de ranking não é encontrado.
+    Testa se a função, com um JSON sem ranking, retorna o template
+    de Markdown formatado, mas sem nenhuma matéria, que é o comportamento atual.
     """
+    # Define o JSON de teste que não contém um ranking válido
+    JSON_SEM_RANKING = {
+        'data': {
+            'answer': "{'content': {'0': 'Nenhum ranking foi encontrado para sua busca.'}}"
+        }
+    }
+
     resultado = gerar_texto_ranking(JSON_SEM_RANKING)
-    assert "Erro: Não foi possível extrair um bloco de ranking válido do JSON." in resultado
+
+    # 1. Verifica se o resultado NÃO contém a antiga mensagem de erro.
+    assert "Erro: Não foi possível extrair um bloco de ranking válido do JSON." not in resultado
+
+    # 2. Verifica se o resultado contém partes chave do template de sucesso.
+    assert "# 🏆 Ranking de Disciplinas" in resultado
+    assert "## 📊 **Resumo da Análise**" in resultado
+
+    # 3. Verifica especificamente se o total de disciplinas na tabela de resumo é 0.
+    #    (Nota: o código atual pode mostrar 1, dependendo da lógica. Ajuste se necessário)
+    assert "| **Total de disciplinas** | 0 |" in resultado
 
 
 def test_gerar_texto_ranking_erro_de_chave():

@@ -5,11 +5,13 @@ from unittest.mock import MagicMock
 
 # Define as variáveis de configuração antes de importar o cliente
 import os
+import sys
 os.environ['RAGFLOW_API_KEY'] = 'test_key'
 os.environ['RAGFLOW_BASE_URL'] = 'http://fake-url.com'
 os.environ['RAGFLOW_AGENT_ID'] = 'test_agent'
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
 
 from no_fluxo_backend.ai_agent.ragflow_agent_client import RagflowClient
 
