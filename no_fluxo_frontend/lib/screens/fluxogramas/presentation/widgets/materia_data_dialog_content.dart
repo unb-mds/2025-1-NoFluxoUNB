@@ -450,7 +450,8 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
           materiasPorNivel[materia.nivel]!.add(materia);
         }
 
-        var materiasPorNivelList = materiasPorNivel.keys.toList();
+        var materiasPorNivelList = materiasPorNivel.keys.toList()
+          ..sort((a, b) => a.compareTo(b));
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
