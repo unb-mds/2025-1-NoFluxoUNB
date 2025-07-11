@@ -18,25 +18,50 @@ class EquivalenciaResult {
 }
 
 class EquivalenciaModel {
-  String expressao;
-  int idMateria;
-  MateriaModel materia;
-  int? idCurso;
-  MateriaModel? equivalenteA;
+  final int idEquivalencia;
+  final String codigoMateriaOrigem;
+  final String nomeMateriaOrigem;
+  final String codigoMateriaEquivalente;
+  final String nomeMateriaEquivalente;
+  final String expressao;
+  final int? idCurso;
+  final String? nomeCurso;
+  final String? matrizCurricular;
+  final String? curriculo;
+  final String? dataVigencia;
+  final String? fimVigencia;
 
   EquivalenciaModel({
+    required this.idEquivalencia,
+    required this.codigoMateriaOrigem,
+    required this.nomeMateriaOrigem,
+    required this.codigoMateriaEquivalente,
+    required this.nomeMateriaEquivalente,
     required this.expressao,
-    required this.idMateria,
-    required this.materia,
     this.idCurso,
+    this.nomeCurso,
+    this.matrizCurricular,
+    this.curriculo,
+    this.dataVigencia,
+    this.fimVigencia,
   });
 
   factory EquivalenciaModel.fromJson(Map<String, dynamic> json) {
     return EquivalenciaModel(
-      expressao: json["expressao"],
-      idMateria: json["id_materia"],
+      idEquivalencia: json["id_equivalencia"] ?? 0,
+      codigoMateriaOrigem: json["codigo_materia_origem"]?.toString() ?? '',
+      nomeMateriaOrigem: json["nome_materia_origem"]?.toString() ?? '',
+      codigoMateriaEquivalente:
+          json["codigo_materia_equivalente"]?.toString() ?? '',
+      nomeMateriaEquivalente:
+          json["nome_materia_equivalente"]?.toString() ?? '',
+      expressao: json["expressao"]?.toString() ?? '',
       idCurso: json["id_curso"],
-      materia: MateriaModel.fromJson(json),
+      nomeCurso: json["nome_curso"]?.toString() ?? '',
+      matrizCurricular: json["matriz_curricular"]?.toString() ?? '',
+      curriculo: json["curriculo"]?.toString() ?? '',
+      dataVigencia: json["data_vigencia"]?.toString() ?? '',
+      fimVigencia: json["fim_vigencia"]?.toString() ?? '',
     );
   }
 

@@ -165,7 +165,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                             .toList());
                     if (equivalenciaResult.isEquivalente) {
                       for (var v in equivalenciaResult.equivalentes) {
-                        equiv.equivalenteA = v;
+                        // equiv.equivalenteA = v; // Remover todas as linhas que usam equivalenteA
                       }
                     }
                     return equivalenciaResult.isEquivalente;
@@ -181,7 +181,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
                     if (equivalenciaResult.isEquivalente) {
                       for (var v in equivalenciaResult.equivalentes) {
-                        equiv.equivalenteA = v;
+                        // equiv.equivalenteA = v; // Remover todas as linhas que usam equivalenteA
                       }
                     }
                     return equivalenciaResult.isEquivalente;
@@ -208,17 +208,16 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           }
 
           for (var materia in materiasEquivalentesAprovadas) {
-            materiasPorCodigo[materia.materia.codigoMateria]?.status =
+            materiasPorCodigo[materia.codigoMateriaOrigem]?.status =
                 'completed';
-            materiasPorCodigo[materia.materia.codigoMateria]
-                ?.materiaEquivalenteCursada = materia.equivalenteA;
+            // materiasPorCodigo[materia.materia.codigoMateria]
+            //     ?.materiaEquivalenteCursada = materia.equivalenteA; // Remover todas as linhas que usam equivalenteA
           }
 
           for (var materia in materiasEquivalentesCurrent) {
-            materiasPorCodigo[materia.materia.codigoMateria]?.status =
-                'current';
-            materiasPorCodigo[materia.materia.codigoMateria]
-                ?.materiaEquivalenteCursada = materia.equivalenteA;
+            materiasPorCodigo[materia.codigoMateriaOrigem]?.status = 'current';
+            // materiasPorCodigo[materia.materia.codigoMateria]
+            //     ?.materiaEquivalenteCursada = materia.equivalenteA; // Remover todas as linhas que usam equivalenteA
           }
 
           for (var materia
@@ -228,9 +227,6 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
               materia.mencao = materiasPorCodigo[materia.codigoMateria]?.mencao;
               materia.professor =
                   materiasPorCodigo[materia.codigoMateria]?.professor;
-              materia.materiaEquivalenteCursada =
-                  materiasPorCodigo[materia.codigoMateria]
-                      ?.materiaEquivalenteCursada;
             }
           }
 
@@ -255,6 +251,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
   Future<void> saveFluxogramAsImage() async {
     bool dialogClosed = false;
+    double originalZoomLevel = zoomLevel; // Salvar zoom original
+
     try {
       // Show loading indicator
       showDialog(
@@ -267,11 +265,27 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         },
       );
 
-      // Capture the widget as image
+      // Calcular zoom automático baseado no número de semestres
+      double autoZoomLevel = _calculateOptimalZoom();
+
+      // Aplicar zoom automático temporariamente
+      setState(() {
+        zoomLevel = autoZoomLevel;
+      });
+
+      // Aguardar um pouco para o layout se ajustar
+      await Future.delayed(const Duration(milliseconds: 800));
+
+      // Capture the widget as image com qualidade melhorada
       final Uint8List? imageBytes = await screenshotController.capture(
         delay: const Duration(milliseconds: 500),
-        pixelRatio: 2.0,
+        pixelRatio: 3.0, // Aumentar qualidade da imagem
       );
+
+      // Restaurar zoom original
+      setState(() {
+        zoomLevel = originalZoomLevel;
+      });
 
       if (imageBytes == null) {
         throw Exception('Erro ao capturar imagem do fluxograma');
@@ -343,6 +357,11 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         }
       }
     } catch (e) {
+      // Restaurar zoom original em caso de erro
+      setState(() {
+        zoomLevel = originalZoomLevel;
+      });
+
       if (!dialogClosed) {
         if (context.mounted) {
           Navigator.of(context).pop();
@@ -361,6 +380,47 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         );
       }
     }
+  }
+
+  /// Calcula o zoom ideal baseado no número de semestres do curso
+  double _calculateOptimalZoom() {
+    if (currentCourseData == null) return 0.7;
+
+    final int totalSemestres = currentCourseData!.semestres;
+    final int totalMaterias = currentCourseData!.materias.length;
+
+    // Calcular densidade média de matérias por semestre
+    final double densidadeMedia = totalMaterias / totalSemestres;
+
+    // Lógica de zoom baseada no número de semestres e densidade
+    double baseZoom;
+
+    if (totalSemestres <= 8) {
+      baseZoom = 0.85; // Cursos menores - zoom maior
+    } else if (totalSemestres <= 10) {
+      baseZoom = 0.7; // Cursos médios
+    } else if (totalSemestres <= 12) {
+      baseZoom = 0.6; // Cursos grandes
+    } else {
+      baseZoom = 0.5; // Cursos muito grandes
+    }
+
+    // Ajustar baseado na densidade de matérias
+    if (densidadeMedia > 8) {
+      baseZoom -= 0.1; // Muitas matérias por semestre
+    } else if (densidadeMedia > 6) {
+      baseZoom -= 0.05; // Densidade média-alta
+    }
+
+    // Ajustar baseado no total de matérias
+    if (totalMaterias > 60) {
+      baseZoom -= 0.1; // Fluxogramas muito densos
+    } else if (totalMaterias > 45) {
+      baseZoom -= 0.05; // Fluxogramas densos
+    }
+
+    // Garantir que o zoom não fique muito baixo
+    return baseZoom.clamp(0.35, 0.9);
   }
 
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/gestures.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/curso_model.dart';
@@ -32,6 +34,20 @@ class FluxogramContainer extends StatefulWidget {
 
 class _FluxogramContainerState extends State<FluxogramContainer> {
   String? selectedSubjectCode;
+  final ScrollController _scrollController = ScrollController();
+  final ScrollController _connectionsScrollController = ScrollController();
+  final ScrollController _verticalScrollController = ScrollController();
+  final ScrollController _connectionsVerticalScrollController =
+      ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _connectionsScrollController.dispose();
+    _verticalScrollController.dispose();
+    _connectionsVerticalScrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,28 +66,45 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
     if (widget.showConnections) {
       return Container(
         margin: const EdgeInsets.only(bottom: 32),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Center(
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Transform.scale(
-                scale: widget.zoomLevel,
-                child: PrerequisiteConnectionsWidget(
-                  courseData: widget.courseData,
-                  zoomLevel: widget.zoomLevel,
-                  selectedSubjectCode: selectedSubjectCode,
-                  isAnonymous: widget.isAnonymous,
-                  onSubjectSelectionChanged: (subjectCode) {
-                    setState(() {
-                      selectedSubjectCode = subjectCode;
-                    });
-                  },
-                  onShowMateriaDialog: widget.onShowMateriaDialog,
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            scrollbars: false,
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+            },
+          ),
+          child: SingleChildScrollView(
+            controller: _connectionsVerticalScrollController,
+            scrollDirection: Axis.vertical,
+            physics: const BouncingScrollPhysics(),
+            child: SingleChildScrollView(
+              controller: _connectionsScrollController,
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              child: Center(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Transform.scale(
+                    scale: widget.zoomLevel,
+                    child: PrerequisiteConnectionsWidget(
+                      courseData: widget.courseData,
+                      zoomLevel: widget.zoomLevel,
+                      selectedSubjectCode: selectedSubjectCode,
+                      isAnonymous: widget.isAnonymous,
+                      onSubjectSelectionChanged: (subjectCode) {
+                        setState(() {
+                          selectedSubjectCode = subjectCode;
+                        });
+                      },
+                      onShowMateriaDialog: widget.onShowMateriaDialog,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -84,25 +117,42 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
       borderRadius: BorderRadius.circular(24),
       child: Container(
         margin: const EdgeInsets.only(bottom: 32),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Center(
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Transform.scale(
-                scale: widget.zoomLevel,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (int semester = 1;
-                        semester <= (widget.courseData?.semestres ?? 0);
-                        semester++)
-                      _buildSemesterColumn(semester),
-                  ],
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            scrollbars: false,
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+            },
+          ),
+          child: SingleChildScrollView(
+            controller: _verticalScrollController,
+            scrollDirection: Axis.vertical,
+            physics: const BouncingScrollPhysics(),
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              child: Center(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Transform.scale(
+                    scale: widget.zoomLevel,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        for (int semester = 1;
+                            semester <= (widget.courseData?.semestres ?? 0);
+                            semester++)
+                          _buildSemesterColumn(semester),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -232,6 +282,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                     CourseCardWidget(
                       subject: subject,
                       isAnonymous: widget.isAnonymous,
+                      allSubjects: widget.courseData?.materias,
                       onTap: () {
                         widget.onShowMateriaDialog(context, subject);
                       },

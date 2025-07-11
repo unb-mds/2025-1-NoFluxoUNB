@@ -43,10 +43,10 @@ class ProgressToolsSection extends StatelessWidget {
                   'Calculadora de IRA',
                   Icons.calculate,
                   'Simule seu IRA com base em notas futuras',
-                  'Calcular IRA',
+                  'Em breve',
                   const Color(0xFF8B5CF6),
                   const Color(0xFF7C3AED),
-                  () => onShowToolModal('Calculadora de IRA'),
+                  null, // Desabilitar botão
                 ),
               ),
               const SizedBox(width: 16),
@@ -55,10 +55,10 @@ class ProgressToolsSection extends StatelessWidget {
                   'Progresso do Curso',
                   Icons.bar_chart,
                   'Visualize seu progresso detalhado',
-                  'Ver Progresso',
+                  'Em breve',
                   const Color(0xFF3B82F6),
                   const Color(0xFF1D4ED8),
-                  () => onShowToolModal('Progresso do Curso'),
+                  null, // Desabilitar botão
                 ),
               ),
               const SizedBox(width: 16),
@@ -67,10 +67,10 @@ class ProgressToolsSection extends StatelessWidget {
                   'Integralização',
                   Icons.info_outline,
                   'Verifique requisitos para formatura',
-                  'Verificar',
+                  'Em breve',
                   const Color(0xFF22C55E),
                   const Color(0xFF16A34A),
-                  () => onShowToolModal('Integralização'),
+                  null, // Desabilitar botão
                 ),
               ),
               const SizedBox(width: 16),
@@ -79,10 +79,10 @@ class ProgressToolsSection extends StatelessWidget {
                   'Mudança de Curso',
                   Icons.swap_horiz,
                   'Simule aproveitamento em outro curso',
-                  'Simular',
+                  'Em breve',
                   const Color(0xFFF59E0B),
                   const Color(0xFFD97706),
-                  () => onShowToolModal('Mudança de Curso'),
+                  null, // Desabilitar botão
                 ),
               ),
             ],
@@ -95,70 +95,78 @@ class ProgressToolsSection extends StatelessWidget {
   Widget _buildToolCard(String title, IconData icon, String description,
       String buttonText, Color startColor, Color endColor,
       [VoidCallback? onPressed]) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [startColor.withOpacity(0.2), endColor.withOpacity(0.2)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+    // Verificar se o botão está desabilitado (onPressed é null)
+    bool isDisabled = onPressed == null;
+
+    return Tooltip(
+      message:
+          isDisabled ? 'Esta funcionalidade estará disponível em breve!' : '',
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [startColor.withOpacity(0.2), endColor.withOpacity(0.2)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: startColor.withOpacity(0.3),
+            width: 1,
+          ),
         ),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          color: startColor.withOpacity(0.3),
-          width: 1,
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(icon, color: startColor, size: 24),
-              const SizedBox(width: 8),
-              Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(icon, color: startColor, size: 24),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              description,
+              style: GoogleFonts.poppins(
+                color: Colors.white.withOpacity(0.8),
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(height: 12),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: onPressed,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      isDisabled ? startColor.withOpacity(0.5) : startColor,
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
                 child: Text(
-                  title,
+                  buttonText,
                   style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 16,
+                    color: Colors.white.withOpacity(isDisabled ? 0.8 : 1.0),
+                    fontSize: 12,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Text(
-            description,
-            style: GoogleFonts.poppins(
-              color: Colors.white.withOpacity(0.8),
-              fontSize: 12,
             ),
-          ),
-          const SizedBox(height: 12),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: onPressed,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: startColor,
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: Text(
-                buttonText,
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -369,6 +369,7 @@ class _PrerequisiteConnectionsWidgetState
                       widget.onShowMateriaDialog(context, subject);
                     },
                     isAnonymous: widget.isAnonymous,
+                    allSubjects: widget.courseData?.materias,
                   ),
                 ),
               ),
@@ -783,6 +784,7 @@ class EnhancedCourseCardWidget extends StatelessWidget {
   final bool isHovered;
   final VoidCallback? onTap;
   final bool isAnonymous;
+  final List<MateriaModel>? allSubjects;
 
   const EnhancedCourseCardWidget({
     super.key,
@@ -792,6 +794,7 @@ class EnhancedCourseCardWidget extends StatelessWidget {
     this.isHovered = false,
     this.onTap,
     this.isAnonymous = false,
+    this.allSubjects,
   });
 
   @override
@@ -812,6 +815,7 @@ class EnhancedCourseCardWidget extends StatelessWidget {
         subject: subject,
         onTap: onTap,
         isAnonymous: isAnonymous,
+        allSubjects: allSubjects,
       ),
     );
   }

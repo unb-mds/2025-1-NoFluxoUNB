@@ -47,50 +47,63 @@ class ProgressSummarySection extends StatelessWidget {
   }
 
   Widget _buildCreditsProgressCard() {
-    // Calculate credits progress
-    final obrigatorias = courseData?.totalCreditos ?? 160;
-    final optativas = courseData?.totalCreditos ?? 24;
-    final livre = courseData?.totalCreditos ?? 24;
-
-    int currentObrigatorias = 0;
-    int currentOptativas = 0;
-    int currentLivre = 0;
-
-    final totalCurrent = currentObrigatorias + currentOptativas + currentLivre;
-    final totalRequired = obrigatorias + optativas + livre;
-
-    return _buildProgressCard(
-      'Progresso de Créditos',
-      Icons.school,
-      const Color(0xFF8B5CF6),
-      [
-        {
-          'label': 'Obrigatórias',
-          'progress':
-              totalRequired > 0 ? currentObrigatorias / obrigatorias : 0.0,
-          'current': currentObrigatorias,
-          'total': obrigatorias
-        },
-        {
-          'label': 'Optativas',
-          'progress': optativas > 0 ? currentOptativas / optativas : 0.0,
-          'current': currentOptativas,
-          'total': optativas
-        },
-        {
-          'label': 'Módulo Livre',
-          'progress': livre > 0 ? currentLivre / livre : 0.0,
-          'current': currentLivre,
-          'total': livre
-        },
-        {
-          'label': 'Total',
-          'progress': totalRequired > 0 ? totalCurrent / totalRequired : 0.0,
-          'current': totalCurrent,
-          'total': totalRequired,
-          'isTotal': true
-        },
-      ],
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.school, color: const Color(0xFF8B5CF6), size: 24),
+              const SizedBox(width: 8),
+              Text(
+                'Progresso de Créditos',
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 32),
+          // Mensagem "Em breve"
+          Center(
+            child: Column(
+              children: [
+                Icon(
+                  Icons.construction,
+                  color: const Color(0xFF8B5CF6),
+                  size: 48,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'Em breve',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Funcionalidade em desenvolvimento',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: 14,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 32),
+        ],
+      ),
     );
   }
 
@@ -197,24 +210,42 @@ class ProgressSummarySection extends StatelessWidget {
           const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton.icon(
-              onPressed: () => context.go('/assistente'),
-              icon: const Icon(Icons.lightbulb_outline, color: Colors.white),
-              label: Text(
-                'VER ASSISTENTE DE IA',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF8B5CF6), Color(0xFF7C3AED)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF8B5CF6).withOpacity(0.3),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+              child: ElevatedButton.icon(
+                onPressed: () => context.go('/assistente'),
+                icon:
+                    const Icon(Icons.psychology, color: Colors.white, size: 20),
+                label: Text(
+                  'FALAR COM ASSISTENTE',
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
                 ),
-              ).copyWith(
-                backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
               ),
             ),
           ),
