@@ -335,6 +335,7 @@ def update_fork_repo(fork_path, branch, git_username=None, git_token=None):
     config_backup = {}
     original_dir = os.getcwd()
     original_branch = None
+    
 
     try:
         # Save current directory and its state
