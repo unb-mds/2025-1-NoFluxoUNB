@@ -48,10 +48,10 @@ def test_config_variaveis_ausentes(clean_env, mocker):
     # garantindo que o .env não seja lido do disco neste teste.
     mocker.patch('dotenv.load_dotenv')
 
-    # Agora, o ValueError será lançado como esperado
+
     with pytest.raises(ValueError) as excinfo:
         importlib.reload(config)
 
-    # Opcional, mas recomendado: verificar a mensagem de erro
+
     error_msg = str(excinfo.value)
     assert "Missing required configuration variables" in error_msg

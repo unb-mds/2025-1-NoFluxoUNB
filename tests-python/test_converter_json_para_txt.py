@@ -125,8 +125,3 @@ class TestProcessoPrincipal(unittest.TestCase):
         )
         handle.write.assert_called_once_with(conteudo_esperado)
 
-
-#if __name__ == '__main__':
-    #unittest.main(argv=['first-arg-is-ignored'], exit=False)
-
-# tem algum erro que impede o pytest de encontrar as funcoes a serem testadas

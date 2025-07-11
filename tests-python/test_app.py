@@ -16,8 +16,6 @@ from no_fluxo_backend.ai_agent.app import app as flask_app
 from no_fluxo_backend.ai_agent.app import remover_acentos_nativo
 
 
-# --- O restante do seu código de teste permanece o mesmo ---
-
 @pytest.fixture
 def app():
     """Cria e configura uma nova instância do app para cada teste."""
