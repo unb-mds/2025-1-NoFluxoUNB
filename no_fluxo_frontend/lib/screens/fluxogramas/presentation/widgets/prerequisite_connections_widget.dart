@@ -36,6 +36,7 @@ class _PrerequisiteConnectionsWidgetState
   Map<String, List<String>> _subjectDependents = {};
   Map<String, List<String>> _subjectPrerequisites = {};
   Map<String, Set<String>> _subjectCompleteChains = {};
+  Map<String, List<String>> _subjectCoRequisites = {}; // NOVO
   final GlobalKey _stackKey = GlobalKey();
 
   // Add hover state
@@ -83,6 +84,7 @@ class _PrerequisiteConnectionsWidgetState
     _subjectDependents.clear();
     _subjectPrerequisites.clear();
     _subjectCompleteChains.clear();
+    _subjectCoRequisites.clear(); // NOVO
     _cardKeys.clear();
 
     if (widget.courseData == null) return;
@@ -102,6 +104,10 @@ class _PrerequisiteConnectionsWidgetState
       completeChain.addAll(node.getAllPrerequisitesCodes());
       completeChain.addAll(node.getAllDependentsCodes());
       _subjectCompleteChains[subjectCode] = completeChain;
+
+      // Preencher co-requisitos
+      _subjectCoRequisites[subjectCode] =
+          node.getAllCoRequisitesCodes().toList();
     }
   }
 
@@ -169,6 +175,7 @@ class _PrerequisiteConnectionsWidgetState
     String? activeSubjectCode =
         _hoveredSubjectCode ?? widget.selectedSubjectCode;
     List<String> activeConnections = [];
+    List<String> coRequisiteConnections = [];
     bool isHoverMode = _hoveredSubjectCode != null;
 
     if (activeSubjectCode != null) {
@@ -176,9 +183,11 @@ class _PrerequisiteConnectionsWidgetState
         // For hover, show complete prerequisite chain (both directions)
         activeConnections =
             _subjectCompleteChains[activeSubjectCode]?.toList() ?? [];
+        coRequisiteConnections = _subjectCoRequisites[activeSubjectCode] ?? [];
       } else {
         // For selection, show forward chain only
         activeConnections = _subjectDependents[activeSubjectCode] ?? [];
+        coRequisiteConnections = _subjectCoRequisites[activeSubjectCode] ?? [];
       }
     }
 
@@ -213,6 +222,7 @@ class _PrerequisiteConnectionsWidgetState
                       isHoverMode: isHoverMode,
                       prerequisites:
                           _subjectPrerequisites[activeSubjectCode] ?? [],
+                      coRequisites: coRequisiteConnections, // NOVO
                     ),
                   ),
                 ),
@@ -375,6 +385,7 @@ class PrerequisiteConnectionsPainter extends CustomPainter {
   final String selectedSubjectCode;
   final List<String> connections;
   final List<String> prerequisites;
+  final List<String> coRequisites; // NOVO
   final Map<String, GlobalKey> cardKeys;
   final double zoomLevel;
   final GlobalKey stackKey;
@@ -388,11 +399,12 @@ class PrerequisiteConnectionsPainter extends CustomPainter {
     required this.zoomLevel,
     required this.stackKey,
     this.isHoverMode = false,
+    this.coRequisites = const [], // NOVO
   });
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (connections.isEmpty) return;
+    if (connections.isEmpty && coRequisites.isEmpty) return;
 
     final selectedCardKey = cardKeys[selectedSubjectCode];
     if (selectedCardKey?.currentContext == null) return;
@@ -405,7 +417,38 @@ class PrerequisiteConnectionsPainter extends CustomPainter {
     final stackRenderBox =
         stackKey.currentContext?.findRenderObject() as RenderBox?;
     if (stackRenderBox == null) {
-      return _paintWithGlobalCoordinates(canvas, size);
+      return;
+    }
+
+    // Desenhar co-requisitos (linha verde)
+    for (final coReqCode in coRequisites) {
+      final coReqCardKey = cardKeys[coReqCode];
+      if (coReqCardKey?.currentContext == null) continue;
+      final coReqRenderBox =
+          coReqCardKey!.currentContext!.findRenderObject() as RenderBox?;
+      if (coReqRenderBox == null) continue;
+      final selectedLocalPosition = stackRenderBox
+          .globalToLocal(selectedRenderBox.localToGlobal(Offset.zero));
+      final selectedSize = selectedRenderBox.size;
+      final selectedCenter = Offset(
+        selectedLocalPosition.dx + selectedSize.width / 2,
+        selectedLocalPosition.dy + selectedSize.height / 2,
+      );
+      final coReqLocalPosition = stackRenderBox
+          .globalToLocal(coReqRenderBox.localToGlobal(Offset.zero));
+      final coReqSize = coReqRenderBox.size;
+      final coReqCenter = Offset(
+        coReqLocalPosition.dx + coReqSize.width / 2,
+        coReqLocalPosition.dy + coReqSize.height / 2,
+      );
+      final paint = Paint()
+        ..color = Colors.green
+        ..strokeWidth = 2.5 * zoomLevel
+        ..style = PaintingStyle.stroke;
+      final path = Path()
+        ..moveTo(selectedCenter.dx, selectedCenter.dy)
+        ..lineTo(coReqCenter.dx, coReqCenter.dy);
+      canvas.drawPath(path, paint);
     }
 
     if (isHoverMode) {

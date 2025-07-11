@@ -636,7 +636,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   void _showMateriaDataDialog(BuildContext context, MateriaModel materia) {
     Utils.showCustomizedDialog(
       context: context,
-      child: MateriaDataDialogContent(materia: materia),
+      child:
+          MateriaDataDialogContent(materia: materia, curso: currentCourseData!),
     );
   }
 

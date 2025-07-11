@@ -7,6 +7,7 @@ class PrerequisiteTreeNode {
   final List<PrerequisiteTreeNode> prerequisites; // Direct prerequisites
   final List<PrerequisiteTreeNode>
       dependents; // Subjects that depend on this one
+  final List<PrerequisiteTreeNode> coRequisites; // Direct co-requisites
   final int depth; // Distance from root (subjects with no prerequisites)
   final bool isRoot; // Has no prerequisites
   final bool isLeaf; // No subjects depend on this one
@@ -15,6 +16,7 @@ class PrerequisiteTreeNode {
     required this.materia,
     this.prerequisites = const [],
     this.dependents = const [],
+    this.coRequisites = const [],
     this.depth = 0,
     this.isRoot = false,
     this.isLeaf = true,
@@ -25,6 +27,7 @@ class PrerequisiteTreeNode {
     MateriaModel? materia,
     List<PrerequisiteTreeNode>? prerequisites,
     List<PrerequisiteTreeNode>? dependents,
+    List<PrerequisiteTreeNode>? coRequisites,
     int? depth,
     bool? isRoot,
     bool? isLeaf,
@@ -33,6 +36,7 @@ class PrerequisiteTreeNode {
       materia: materia ?? this.materia,
       prerequisites: prerequisites ?? this.prerequisites,
       dependents: dependents ?? this.dependents,
+      coRequisites: coRequisites ?? this.coRequisites,
       depth: depth ?? this.depth,
       isRoot: isRoot ?? this.isRoot,
       isLeaf: isLeaf ?? this.isLeaf,
@@ -57,6 +61,15 @@ class PrerequisiteTreeNode {
       allDependents.addAll(dependent.getAllDependentsCodes());
     }
     return allDependents;
+  }
+
+  /// Get all co-requisite subjects recursively (flat, not recursive by default)
+  Set<String> getAllCoRequisitesCodes() {
+    Set<String> allCoReqs = {};
+    for (var coReq in coRequisites) {
+      allCoReqs.add(coReq.materia.codigoMateria);
+    }
+    return allCoReqs;
   }
 
   /// Check if this subject can be taken given completed subjects
@@ -124,6 +137,7 @@ class PrerequisiteTree {
         materia: materia,
         prerequisites: [],
         dependents: [],
+        coRequisites: [],
         isRoot: true,
         isLeaf: true,
       );
@@ -153,6 +167,27 @@ class PrerequisiteTree {
           isLeaf: false,
         );
         nodes[prereqCode] = updatedPrereqNode;
+      }
+    }
+
+    // Build co-requisite relationships
+    for (var coreq in curso.coRequisitos) {
+      var materiaCode = _getMateriaCodeById(curso.materias, coreq.idMateria);
+      var coreqCode = coreq.codigoMateriaCoRequisito;
+      if (materiaCode != null &&
+          nodes.containsKey(materiaCode) &&
+          nodes.containsKey(coreqCode)) {
+        var materiaNode = nodes[materiaCode]!;
+        var coreqNode = nodes[coreqCode]!;
+        // Add co-requisite relationship (bidirectional)
+        var updatedMateriaNode = materiaNode.copyWith(
+          coRequisites: [...materiaNode.coRequisites, coreqNode],
+        );
+        nodes[materiaCode] = updatedMateriaNode;
+        var updatedCoreqNode = coreqNode.copyWith(
+          coRequisites: [...coreqNode.coRequisites, materiaNode],
+        );
+        nodes[coreqCode] = updatedCoreqNode;
       }
     }
 

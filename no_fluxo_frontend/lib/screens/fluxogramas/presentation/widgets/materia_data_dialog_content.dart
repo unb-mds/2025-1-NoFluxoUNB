@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/config/size_config.dart';
 import 'package:mobile_app/config/app_colors.dart';
 import 'package:mobile_app/screens/fluxogramas/data/materia_model.dart';
+import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart'; // Added import for CursoModel
 
 class MateriaDataDialogContent extends StatefulWidget {
   const MateriaDataDialogContent({
     super.key,
     required this.materia,
+    required this.curso, // NOVO
     this.isAnonymous = false,
   });
 
   final MateriaModel materia;
+  final CursoModel curso; // NOVO
   final bool isAnonymous;
 
   @override
@@ -482,13 +485,71 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
             const SizedBox(height: 16),
             _buildInfoCard(
               title: "Correquisitos",
-              child: Text(
-                "Nenhum correquisito para esta disciplina.",
-                style: TextStyle(
-                  fontSize: getProportionateFontSize(14),
-                  color: Colors.white.withOpacity(0.6),
-                  fontStyle: FontStyle.italic,
-                ),
+              child: Builder(
+                builder: (context) {
+                  final coreqs = widget.curso.coRequisitos
+                      .where((c) => c.idMateria == widget.materia.idMateria)
+                      .toList();
+                  if (coreqs.isEmpty) {
+                    return Text(
+                      "Nenhum correquisito para esta disciplina.",
+                      style: TextStyle(
+                        fontSize: getProportionateFontSize(14),
+                        color: Colors.white.withOpacity(0.6),
+                        fontStyle: FontStyle.italic,
+                      ),
+                    );
+                  } else {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: coreqs.map((c) {
+                        final materiaCoreq = widget.curso.materias.firstWhere(
+                          (m) => m.codigoMateria == c.codigoMateriaCoRequisito,
+                          orElse: () => MateriaModel(
+                            ementa: '',
+                            idMateria: 0,
+                            nomeMateria: c.nomeMateriaCoRequisito,
+                            codigoMateria: c.codigoMateriaCoRequisito,
+                            nivel: 0,
+                            creditos: 0,
+                          ),
+                        );
+                        if (materiaCoreq == null) {
+                          return Text(
+                            "${c.codigoMateriaCoRequisito} - ${c.nomeMateriaCoRequisito}",
+                            style: TextStyle(
+                              fontSize: getProportionateFontSize(14),
+                              color: Colors.white,
+                            ),
+                          );
+                        }
+                        return Row(
+                          children: [
+                            Icon(
+                              materiaCoreq.status == 'completed'
+                                  ? Icons.check_circle
+                                  : Icons.cancel,
+                              color: materiaCoreq.status == 'completed'
+                                  ? const Color(0xFF22C55E)
+                                  : const Color(0xFFEF4444),
+                              size: 20,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                "${materiaCoreq.codigoMateria} - ${materiaCoreq.nomeMateria} (Nível ${materiaCoreq.nivel})",
+                                style: TextStyle(
+                                  fontSize: getProportionateFontSize(14),
+                                  color: Colors.white.withOpacity(0.8),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
+                    );
+                  }
+                },
               ),
             ),
           ],

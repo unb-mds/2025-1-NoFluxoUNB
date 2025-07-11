@@ -218,6 +218,32 @@ export const FluxogramaController: EndpointController = {
 
                 curso.pre_requisitos = preRequisitosCodigosComId;
 
+                // get co-requisitos
+                const { data: coRequisitos, error: errorCoRequisitos } = await SupabaseWrapper.get()
+                    .from("co_requisitos")
+                    .select("id_co_requisito,id_materia,id_materia_corequisito,materias:id_materia_corequisito(codigo_materia,nome_materia)")
+                    .in("id_materia", materias_id);
+
+                if (errorCoRequisitos) {
+                    logger.error(`Erro ao buscar co-requisitos: ${errorCoRequisitos.message}`);
+                    return res.status(500).json({ error: errorCoRequisitos.message });
+                }
+
+                var coRequisitosCodigosComId = [];
+                for (const coRequisito_ of coRequisitos) {
+                    const coRequisito: any = coRequisito_;
+                    if (coRequisito.id_materia_corequisito) {
+                        coRequisitosCodigosComId.push({
+                            id_co_requisito: coRequisito.id_co_requisito,
+                            id_materia: coRequisito.id_materia,
+                            id_materia_corequisito: coRequisito.id_materia_corequisito,
+                            codigo_materia_corequisito: coRequisito.materias.codigo_materia,
+                            nome_materia_corequisito: coRequisito.materias.nome_materia
+                        });
+                    }
+                }
+                curso.co_requisitos = coRequisitosCodigosComId;
+
                 curso.equivalencias = equivalencias;
             }
 
