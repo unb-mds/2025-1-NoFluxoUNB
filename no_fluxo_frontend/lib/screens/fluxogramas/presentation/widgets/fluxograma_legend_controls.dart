@@ -49,23 +49,13 @@ class FluxogramaLegendControls extends StatelessWidget {
                     'Em Curso',
                   ),
                   _buildLegendItem(
-                    const Color(0xFFFB7185),
-                    const Color(0xFFE11D48),
-                    'Selecionadas',
+                    const Color(0xFFF59E0B),
+                    const Color(0xFFD97706),
+                    'Cursar no próximo semestre	',
                   ),
                 ],
-                // Always show visual connections - agora como botão padrão
-                _buildLegendItem(
-                  showConnections
-                      ? const Color(0xFF60A5FA)
-                      : Colors.white.withOpacity(0.2),
-                  showConnections
-                      ? const Color(0xFF3B82F6)
-                      : Colors.white.withOpacity(0.2),
-                  'Conexões Visuais',
-                  isClickable: true,
-                  onTap: () => onShowConnectionsChanged(!showConnections),
-                ),
+                // Toggle para conexões visuais - com melhor distinção visual
+                _buildConnectionsToggle(),
               ],
             ),
           ),
@@ -107,6 +97,62 @@ class FluxogramaLegendControls extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildConnectionsToggle() {
+    return Tooltip(
+      message: showConnections
+          ? 'Ocultar conexões entre disciplinas (hover/clique para ver pré-requisitos e próximas matérias)'
+          : 'Mostrar conexões visuais entre disciplinas (hover/clique para ver pré-requisitos e próximas matérias)',
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () => onShowConnectionsChanged(!showConnections),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6),
+              color: showConnections
+                  ? const Color(0xFF3B82F6).withOpacity(0.2)
+                  : Colors.transparent,
+              border: Border.all(
+                color: showConnections
+                    ? const Color(0xFF3B82F6)
+                    : Colors.white.withOpacity(0.3),
+                width: 1.5,
+              ),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  showConnections
+                      ? Icons.account_tree
+                      : Icons.account_tree_outlined,
+                  color: showConnections
+                      ? const Color(0xFF60A5FA)
+                      : Colors.white.withOpacity(0.7),
+                  size: 18,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  'Conexões Visuais',
+                  style: GoogleFonts.poppins(
+                    color: showConnections
+                        ? const Color(0xFF60A5FA)
+                        : Colors.white.withOpacity(0.7),
+                    fontSize: 14,
+                    fontWeight:
+                        showConnections ? FontWeight.w500 : FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

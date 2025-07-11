@@ -8,12 +8,14 @@ class CourseCardWidget extends StatelessWidget {
   final MateriaModel subject;
   final VoidCallback? onTap;
   final bool isAnonymous;
+  final List<MateriaModel>? allSubjects; // Para verificar pré-requisitos
 
   const CourseCardWidget({
     super.key,
     required this.subject,
     this.onTap,
     this.isAnonymous = false,
+    this.allSubjects,
   });
 
   @override
@@ -28,6 +30,9 @@ class CourseCardWidget extends StatelessWidget {
         SharedPreferencesHelper.isAnonimo) {
       displayStatus = 'future';
     }
+
+    // Check if this subject can be taken (prerequisites completed)
+    bool canBeTaken = _canSubjectBeTaken();
 
     switch (displayStatus) {
       case 'completed':
@@ -53,8 +58,14 @@ class CourseCardWidget extends StatelessWidget {
         endColor = AppColors.optativeEnd;
         break;
       default: // future or current (treated as future for anonymous)
-        startColor = AppColors.futureStart;
-        endColor = AppColors.futureEnd;
+        // Check if prerequisites are completed for future subjects
+        if (canBeTaken && displayStatus == 'future' && !isAnonymous) {
+          startColor = AppColors.readyStart;
+          endColor = AppColors.readyEnd;
+        } else {
+          startColor = AppColors.futureStart;
+          endColor = AppColors.futureEnd;
+        }
     }
 
     return Container(
@@ -177,5 +188,38 @@ class CourseCardWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Verifica se a matéria será liberada após a conclusão das matérias em curso
+  /// (simulação de conclusão das matérias roxas)
+  bool _canSubjectBeTaken() {
+    if (allSubjects == null || !subject.hasPrerequisites()) {
+      return false;
+    }
+
+    // Se a matéria já foi concluída, cursada ou está sendo cursada, não precisa verificar
+    if (subject.status == 'completed' ||
+        subject.status == 'current' ||
+        subject.status == 'selected') {
+      return false;
+    }
+
+    // SIMULAÇÃO: Considerar matérias em curso como se fossem concluídas
+    for (MateriaModel prerequisite in subject.preRequisitos) {
+      var prerequisiteInList = allSubjects!.firstWhere(
+        (materia) => materia.codigoMateria == prerequisite.codigoMateria,
+        orElse: () => prerequisite,
+      );
+
+      // Simular: se está em curso (current), considerar como se fosse ser concluída
+      bool willBeCompleted = prerequisiteInList.status == 'completed' ||
+          prerequisiteInList.status == 'current';
+
+      if (!willBeCompleted) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
