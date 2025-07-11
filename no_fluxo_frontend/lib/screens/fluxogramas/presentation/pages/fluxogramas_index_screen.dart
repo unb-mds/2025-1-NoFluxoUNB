@@ -10,6 +10,21 @@ import 'dart:ui';
 import 'package:go_router/go_router.dart';
 import '../../data/curso_model.dart';
 import '../../services/meu_fluxograma_service.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'dart:math';
+
+const _hoverGradient = LinearGradient(
+  colors: [Color(0xFF7C3AED), Color(0xFFFF3CA5)],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+);
+const List<BoxShadow> _hoverShadow = [
+  BoxShadow(
+    color: Color(0x55FF3CA5),
+    blurRadius: 16,
+    offset: Offset(0, 4),
+  ),
+];
 
 class FluxogramasIndexScreen extends StatefulWidget {
   const FluxogramasIndexScreen({super.key});
@@ -31,6 +46,7 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
   static const int itemsPerPage = 6;
 
   String filtroSelecionado = 'TODOS';
+  final GlobalKey _dropdownKey = GlobalKey();
 
   // Getter para filtros dinâmicos baseados nas classificações do banco
   List<Map<String, String>> get filtrosDinamicos {
@@ -575,135 +591,132 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                               ),
                                             ),
                                             // Filtros
-                                            LayoutBuilder(
-                                              builder: (context, constraints) {
-                                                return Container(
-                                                  constraints: BoxConstraints(
-                                                      maxWidth: 400),
-                                                  padding: const EdgeInsets
-                                                      .symmetric(
-                                                      horizontal: 18,
-                                                      vertical: 4),
-                                                  decoration: BoxDecoration(
-                                                    gradient:
-                                                        const LinearGradient(
-                                                      colors: [
-                                                        Color(0xFF6366F1),
-                                                        Color(0xFFFF3CA5)
-                                                      ],
-                                                      begin:
-                                                          Alignment.centerLeft,
-                                                      end:
-                                                          Alignment.centerRight,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            40),
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: Colors.black
-                                                            .withOpacity(0.18),
-                                                        blurRadius: 12,
-                                                        offset: Offset(0, 4),
-                                                      ),
-                                                    ],
-                                                    border: Border.all(
-                                                      color: Colors.white
-                                                          .withOpacity(0.18),
-                                                      width: 2,
-                                                    ),
-                                                  ),
-                                                  child:
-                                                      DropdownButtonHideUnderline(
-                                                    child: Theme(
-                                                      data: Theme.of(context)
-                                                          .copyWith(
-                                                        canvasColor:
-                                                            const Color(
-                                                                0xFF18122B),
-                                                      ),
-                                                      child: DropdownButton<
-                                                          String>(
-                                                        value:
-                                                            filtroSelecionado,
-                                                        isExpanded: true,
-                                                        icon: const Icon(
+                                            _AnimatedGradientDropdownBar(
+                                              dropdownKey: _dropdownKey,
+                                              child: Builder(
+                                                builder: (context) {
+                                                  double dropdownWidth = 0;
+                                                  final RenderBox? box =
+                                                      _dropdownKey
+                                                              .currentContext
+                                                              ?.findRenderObject()
+                                                          as RenderBox?;
+                                                  if (box != null) {
+                                                    dropdownWidth =
+                                                        box.size.width;
+                                                  }
+                                                  return DropdownButtonHideUnderline(
+                                                    child:
+                                                        DropdownButton2<String>(
+                                                      value: filtroSelecionado,
+                                                      isExpanded: true,
+                                                      iconStyleData:
+                                                          const IconStyleData(
+                                                        icon: Icon(
                                                             Icons
                                                                 .arrow_drop_down_circle_rounded,
                                                             color: Colors.white,
                                                             size: 28),
-                                                        style: GoogleFonts
-                                                            .permanentMarker(
-                                                          color: Colors.white,
-                                                          fontSize: 20,
-                                                          letterSpacing: 1.2,
-                                                        ),
-                                                        dropdownColor:
-                                                            const Color(
-                                                                0xFF18122B),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(24),
-                                                        menuMaxHeight: 400,
-                                                        items: filtrosDinamicos
-                                                            .map((filtro) {
-                                                          return DropdownMenuItem<
-                                                              String>(
-                                                            value:
-                                                                filtro['label'],
-                                                            child: Container(
-                                                              width: constraints
-                                                                      .maxWidth -
-                                                                  36, // padding horizontal do container
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .symmetric(
-                                                                      vertical:
-                                                                          10,
-                                                                      horizontal:
-                                                                          8),
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            18),
-                                                              ),
-                                                              child: Text(
-                                                                filtro[
-                                                                    'label']!,
-                                                                style:
-                                                                    GoogleFonts
-                                                                        .poppins(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  fontSize: 16,
-                                                                ),
-                                                                overflow:
-                                                                    TextOverflow
-                                                                        .ellipsis,
-                                                              ),
+                                                        iconSize: 28,
+                                                        iconEnabledColor:
+                                                            Colors.white,
+                                                      ),
+                                                      style: GoogleFonts
+                                                          .permanentMarker(
+                                                        color: Colors.white,
+                                                        fontSize: 20,
+                                                        letterSpacing: 1.2,
+                                                      ),
+                                                      dropdownStyleData:
+                                                          DropdownStyleData(
+                                                        width: dropdownWidth > 0
+                                                            ? dropdownWidth
+                                                            : null,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF232136),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(24),
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.18),
+                                                              blurRadius: 12,
+                                                              offset:
+                                                                  Offset(0, 4),
                                                             ),
-                                                          );
-                                                        }).toList(),
-                                                        onChanged:
-                                                            (String? value) {
-                                                          if (value != null) {
-                                                            setState(() {
-                                                              filtroSelecionado =
-                                                                  value;
-                                                              currentPage = 1;
-                                                            });
-                                                          }
-                                                        },
+                                                          ],
+                                                        ),
+                                                        elevation: 8,
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                      ),
+                                                      onMenuStateChange: (isOpen) =>
+                                                          DropdownOpenedNotification(
+                                                                  isOpen)
+                                                              .dispatch(
+                                                                  context),
+                                                      menuItemStyleData:
+                                                          const MenuItemStyleData(
+                                                        height: 48,
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 16),
+                                                      ),
+                                                      items: filtrosDinamicos
+                                                          .map((filtro) {
+                                                        return DropdownMenuItem<
+                                                            String>(
+                                                          value:
+                                                              filtro['label'],
+                                                          child:
+                                                              _SimpleDropdownItem(
+                                                            label: filtro[
+                                                                'label']!,
+                                                            isSelected:
+                                                                filtroSelecionado ==
+                                                                    filtro[
+                                                                        'label'],
+                                                          ),
+                                                        );
+                                                      }).toList(),
+                                                      onChanged:
+                                                          (String? value) {
+                                                        if (value != null) {
+                                                          setState(() {
+                                                            filtroSelecionado =
+                                                                value;
+                                                            currentPage = 1;
+                                                          });
+                                                          // setStateDropdown(
+                                                          //     () {}); // Forçar rebuild para atualizar largura
+                                                        }
+                                                      },
+                                                      buttonStyleData:
+                                                          const ButtonStyleData(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Colors
+                                                              .transparent,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                        overlayColor:
+                                                            MaterialStatePropertyAll(
+                                                                Colors
+                                                                    .transparent),
                                                       ),
                                                     ),
-                                                  ),
-                                                );
-                                              },
+                                                  );
+                                                },
+                                              ),
                                             ),
                                           ],
                                         );
@@ -1185,4 +1198,127 @@ class _PaginationButton extends StatelessWidget {
       ),
     );
   }
+}
+
+// Item customizado para o dropdown, com gradiente animado no hover/selecionado
+class _SimpleDropdownItem extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+  const _SimpleDropdownItem({required this.label, required this.isSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+      child: Text(
+        label,
+        style: GoogleFonts.poppins(
+          color: Colors.white,
+          fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+          fontSize: 16,
+        ),
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
+  }
+}
+
+// Substituir o Container/StatefulBuilder da dropbar por um widget animado que mantém o gradiente enquanto o dropdown está aberto
+class _AnimatedGradientDropdownBar extends StatefulWidget {
+  final Widget child;
+  final Key? dropdownKey;
+  const _AnimatedGradientDropdownBar({required this.child, this.dropdownKey});
+
+  @override
+  State<_AnimatedGradientDropdownBar> createState() =>
+      _AnimatedGradientDropdownBarState();
+}
+
+class _AnimatedGradientDropdownBarState
+    extends State<_AnimatedGradientDropdownBar>
+    with SingleTickerProviderStateMixin {
+  bool _isHovered = false;
+  bool _isDropdownOpen = false;
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    );
+  }
+
+  void setDropdownOpen(bool open) {
+    setState(() {
+      _isDropdownOpen = open;
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final shouldAnimate = _isHovered || _isDropdownOpen;
+    if (shouldAnimate) {
+      _controller.repeat();
+    } else {
+      _controller.reset();
+      _controller.stop();
+    }
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          final t = _controller.value;
+          final gradient = LinearGradient(
+            colors: [Color(0xFF7C3AED), Color(0xFFFF3CA5)],
+            begin: Alignment(-1 + 2 * t, 0),
+            end: Alignment(1 + 2 * t, 0),
+          );
+          return Container(
+            key: widget.dropdownKey,
+            constraints: const BoxConstraints(maxWidth: 400),
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+            decoration: BoxDecoration(
+              gradient: shouldAnimate ? gradient : null,
+              color: shouldAnimate ? null : const Color(0xFF232136),
+              borderRadius: BorderRadius.circular(32),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.12),
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
+              ],
+              border: Border.all(
+                color: Colors.white.withOpacity(0.10),
+                width: 1.5,
+              ),
+            ),
+            child: NotificationListener<DropdownOpenedNotification>(
+              onNotification: (notification) {
+                setDropdownOpen(notification.opened);
+                return true;
+              },
+              child: widget.child,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// Notificação customizada para saber se o dropdown está aberto
+class DropdownOpenedNotification extends Notification {
+  final bool opened;
+  DropdownOpenedNotification(this.opened);
 }
