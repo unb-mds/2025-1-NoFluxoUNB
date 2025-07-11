@@ -34,9 +34,9 @@ interface EquivalenciaData {
     id_equivalencia: number;
     codigo_materia_origem: string;
     nome_materia_origem: string;
+    codigo_materia_equivalente: string;
+    nome_materia_equivalente: string;
     expressao: string;
-    codigos_equivalentes: string[];
-    nomes_equivalentes: string[];
     id_curso?: number;
     nome_curso?: string;
     matriz_curricular?: string;
@@ -183,7 +183,7 @@ export const FluxogramaController: EndpointController = {
                 // get equivalencias
                 const { data: equivalencias, error: errorEquivalencias } = await SupabaseWrapper.get()
                     .from("vw_equivalencias_com_materias")
-                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,expressao,codigos_equivalentes,nomes_equivalentes,id_curso,nome_curso,matriz_curricular,curriculo,data_vigencia,fim_vigencia")
+                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao,id_curso,nome_curso,matriz_curricular,curriculo,data_vigencia,fim_vigencia")
                     .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`)
                     .or(`matriz_curricular.is.null,matriz_curricular.eq.${curso.matriz_curricular}`);
 
@@ -443,7 +443,7 @@ export const FluxogramaController: EndpointController = {
                 // PRE-LOAD all equivalencies to avoid database queries in loops
                 const { data: allEquivalencies } = await SupabaseWrapper.get()
                     .from("vw_equivalencias_com_materias")
-                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,expressao,codigos_equivalentes,nomes_equivalentes")
+                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao")
                     .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
 
                 logger.info(`Loaded ${allEquivalencies?.length || 0} equivalencies`);

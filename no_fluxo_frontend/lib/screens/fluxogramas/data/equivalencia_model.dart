@@ -21,9 +21,9 @@ class EquivalenciaModel {
   final int idEquivalencia;
   final String codigoMateriaOrigem;
   final String nomeMateriaOrigem;
+  final String codigoMateriaEquivalente;
+  final String nomeMateriaEquivalente;
   final String expressao;
-  final List<String> codigosEquivalentes;
-  final List<String> nomesEquivalentes;
   final int? idCurso;
   final String? nomeCurso;
   final String? matrizCurricular;
@@ -35,9 +35,9 @@ class EquivalenciaModel {
     required this.idEquivalencia,
     required this.codigoMateriaOrigem,
     required this.nomeMateriaOrigem,
+    required this.codigoMateriaEquivalente,
+    required this.nomeMateriaEquivalente,
     required this.expressao,
-    required this.codigosEquivalentes,
-    required this.nomesEquivalentes,
     this.idCurso,
     this.nomeCurso,
     this.matrizCurricular,
@@ -47,30 +47,15 @@ class EquivalenciaModel {
   });
 
   factory EquivalenciaModel.fromJson(Map<String, dynamic> json) {
-    // Converter arrays do JSON para List<String>
-    List<String> codigosEquivalentes = [];
-    if (json["codigos_equivalentes"] != null) {
-      if (json["codigos_equivalentes"] is List) {
-        codigosEquivalentes = List<String>.from(
-            json["codigos_equivalentes"].map((x) => x?.toString() ?? ''));
-      }
-    }
-
-    List<String> nomesEquivalentes = [];
-    if (json["nomes_equivalentes"] != null) {
-      if (json["nomes_equivalentes"] is List) {
-        nomesEquivalentes = List<String>.from(
-            json["nomes_equivalentes"].map((x) => x?.toString() ?? ''));
-      }
-    }
-
     return EquivalenciaModel(
       idEquivalencia: json["id_equivalencia"] ?? 0,
       codigoMateriaOrigem: json["codigo_materia_origem"]?.toString() ?? '',
       nomeMateriaOrigem: json["nome_materia_origem"]?.toString() ?? '',
+      codigoMateriaEquivalente:
+          json["codigo_materia_equivalente"]?.toString() ?? '',
+      nomeMateriaEquivalente:
+          json["nome_materia_equivalente"]?.toString() ?? '',
       expressao: json["expressao"]?.toString() ?? '',
-      codigosEquivalentes: codigosEquivalentes,
-      nomesEquivalentes: nomesEquivalentes,
       idCurso: json["id_curso"],
       nomeCurso: json["nome_curso"]?.toString() ?? '',
       matrizCurricular: json["matriz_curricular"]?.toString() ?? '',
