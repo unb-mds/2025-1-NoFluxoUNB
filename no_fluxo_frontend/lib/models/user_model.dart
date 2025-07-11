@@ -68,7 +68,7 @@ class DadosFluxogramaUser {
   double ira;
   String matricula;
   int horasIntegralizadas;
-
+  List<String> suspensoes;
   String anoAtual;
   String matrizCurricular;
   int semestreAtual;
@@ -80,6 +80,7 @@ class DadosFluxogramaUser {
     required this.dadosFluxograma,
     required this.matricula,
     required this.horasIntegralizadas,
+    required this.suspensoes,
     required this.semestreAtual,
     required this.anoAtual,
     required this.matrizCurricular,
@@ -94,6 +95,7 @@ class DadosFluxogramaUser {
       anoAtual: json['ano_atual'],
       matrizCurricular: json['matriz_curricular'],
       horasIntegralizadas: json['horas_integralizadas'],
+      suspensoes: List<String>.from(json['suspensoes'] ?? []),
       dadosFluxograma: List<List<DadosMateria>>.from(json['dados_fluxograma']
           .map((e) =>
               List<DadosMateria>.from(e.map((e) => DadosMateria.fromJson(e))))),
@@ -109,6 +111,7 @@ class DadosFluxogramaUser {
       'semestre_atual': semestreAtual,
       'ano_atual': anoAtual,
       'horas_integralizadas': horasIntegralizadas,
+      'suspensoes': suspensoes,
       'dados_fluxograma': dadosFluxograma
           .map((e) => e.map((e) => e.toJson()).toList())
           .toList(),

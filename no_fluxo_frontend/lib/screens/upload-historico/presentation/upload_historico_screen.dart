@@ -214,6 +214,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       DadosFluxogramaUser dadosFluxograma = DadosFluxogramaUser(
           nomeCurso: "",
           ira: 0,
+          suspensoes: [],
           anoAtual: "",
           dadosFluxograma: [],
           matricula: "",
@@ -228,6 +229,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       dadosFluxograma.matrizCurricular = _dadosExtraidos!["matriz_curricular"];
 
       dadosFluxograma.ira = _dadosExtraidos!["media_ponderada"];
+
+      dadosFluxograma.suspensoes =
+          List<String>.from(_dadosExtraidos!["suspensoes"] ?? []);
 
       dadosFluxograma.semestreAtual = _dadosExtraidos!["numero_semestre"];
 

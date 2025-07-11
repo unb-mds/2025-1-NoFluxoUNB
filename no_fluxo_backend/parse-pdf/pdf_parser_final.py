@@ -869,7 +869,8 @@ def upload_pdf():
             'extracted_data': dados_extraidos['disciplinas'],
             'equivalencias_pdf': dados_extraidos['equivalencias'],
             'semestre_atual': dados_extraidos['semestre_atual'],
-            'numero_semestre': dados_extraidos['numero_semestre']
+            'numero_semestre': dados_extraidos['numero_semestre'],
+            'suspensoes': dados_extraidos['suspensoes']
         }
         logger.info(f'Sending response with {len(dados_extraidos["disciplinas"])} extracted items')
         return jsonify(response_data)
