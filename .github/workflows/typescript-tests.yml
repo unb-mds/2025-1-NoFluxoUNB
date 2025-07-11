@@ -2,7 +2,7 @@ name: TypeScript Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, dev ]
     paths:
       - 'no_fluxo_backend/**'
       - 'tests-ts/**'
