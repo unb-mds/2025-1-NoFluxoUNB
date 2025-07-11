@@ -2,9 +2,9 @@ name: Security and Code Quality
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, dev ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, dev ]
   schedule:
     # Executa semanalmente às 2h da manhã de domingo
     - cron: '0 2 * * 0'
