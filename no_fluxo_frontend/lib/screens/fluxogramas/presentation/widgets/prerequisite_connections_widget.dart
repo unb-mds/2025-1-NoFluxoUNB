@@ -517,10 +517,8 @@ class PrerequisiteConnectionsPainter extends CustomPainter {
       // Draw main line
       canvas.drawPath(path, mainPaint);
 
-      // Draw arrow
-      if (isPrerequisite) {
-        _drawArrow(canvas, controlPoint1, selectedCenter, mainPaint);
-      } else {
+      // Draw arrow only for dependents (teal connections), not for prerequisites (purple connections)
+      if (!isPrerequisite) {
         _drawArrow(canvas, controlPoint2, connectionCenter, mainPaint);
       }
     }
