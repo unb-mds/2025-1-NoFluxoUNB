@@ -4,6 +4,8 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 
 ---
 
+
+
 ![License](https://img.shields.io/github/license/unb-mds/2025-1-NoFluxoUNB)
 ![Issues](https://img.shields.io/github/issues/unb-mds/2025-1-NoFluxoUNB)
 ![Contributors](https://img.shields.io/github/contributors/unb-mds/2025-1-NoFluxoUNB)
@@ -23,6 +25,11 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 ![HTML](https://img.shields.io/badge/html-5-orange)
 
 ![GitHub Projects](https://img.shields.io/badge/github-projects-90a1b2)
+
+# Acesse nosso projeto
+
+[https://no-fluxo.com](https://no-fluxo.com)
+
 
 ## 1. 📌 Visão Geral
 
