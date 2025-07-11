@@ -43,7 +43,7 @@ RUN pip3 install -r requirements.txt && \
 COPY no_fluxo_backend/tsconfig.json ./
 COPY no_fluxo_backend/nodemon.json ./
 
-# Copy source code (as root to avoid permission issues)
+# Copy source code
 COPY no_fluxo_backend/src/ ./src/
 COPY no_fluxo_backend/AI-agent/ ./AI-agent/
 COPY no_fluxo_backend/parse-pdf/ ./parse-pdf/
@@ -55,15 +55,10 @@ COPY docker-entrypoint.sh /app/
 # Copy other necessary files
 COPY no_fluxo_backend/*.json ./
 
-# Create non-root user but keep some root permissions for git operations
-RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
-RUN usermod -aG sudo appuser
-RUN echo 'appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-# Create necessary directories with proper permissions (using full paths)
+# Create necessary directories
 RUN mkdir -p /app/dist /app/logs /app/uploads /app/fork_repo ./AI-agent/logs ./parse-pdf/logs
 
-# Set up git configuration for the container (before changing ownership)
+# Set up git configuration for the container
 RUN git config --global --add safe.directory /app
 RUN git config --global --add safe.directory '/app/*'
 RUN git config --global --add safe.directory '*'
@@ -71,25 +66,14 @@ RUN git config --global user.email "docker@nofluxo.com"
 RUN git config --global user.name "Docker Container"
 RUN git config --global init.defaultBranch main
 
-# Change ownership and set permissions
-RUN chown -R appuser:appuser /app
-RUN chmod -R 755 /app
+# Make docker-entrypoint.sh executable
 RUN chmod +x /app/docker-entrypoint.sh
 
-# Ensure directories have proper permissions for runtime operations  
-RUN chmod -R 775 /app/dist /app/logs /app/uploads /app/fork_repo /app/no_fluxo_backend/AI-agent/logs /app/no_fluxo_backend/parse-pdf/logs
+# Set permissions on directories
+RUN chmod -R 755 /app
 
-
-# Build TypeScript code as root first, then change ownership
-RUN npm run build-docker || echo "Build failed, will retry as appuser"
-
-# Final ownership setup after build - ensure all directories are owned by appuser
-RUN chown -R appuser:appuser /app
-RUN chmod 775 /app/logs /app/dist /app/uploads /app/fork_repo
-RUN chmod 775 /app/no_fluxo_backend/AI-agent/logs /app/no_fluxo_backend/parse-pdf/logs
-
-# Switch to app user
-USER appuser
+# Build TypeScript code
+RUN npm run build-docker || echo "Build failed, will retry later"
 
 # Set git environment variables for runtime
 ENV GIT_DISCOVERY_ACROSS_FILESYSTEM=1
@@ -109,5 +93,6 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
 # Switch back to /app directory for entrypoint script
 WORKDIR /app
 
+# Run as root to avoid any permission issues with mounted files
 # Use the entrypoint script that handles conditional arguments
 CMD ["/bin/bash", "./docker-entrypoint.sh"] 
