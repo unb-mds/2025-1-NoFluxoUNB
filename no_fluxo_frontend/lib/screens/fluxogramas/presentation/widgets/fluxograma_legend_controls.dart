@@ -53,33 +53,18 @@ class FluxogramaLegendControls extends StatelessWidget {
                     const Color(0xFFE11D48),
                     'Selecionadas',
                   ),
-                  _buildLegendItem(
-                    Colors.white.withOpacity(0.1),
-                    Colors.white.withOpacity(0.1),
-                    'Futuras',
-                    isDashed: true,
-                  ),
                 ],
-                // Always show visual connections
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Checkbox(
-                      value: showConnections,
-                      onChanged: (value) =>
-                          onShowConnectionsChanged(value ?? false),
-                      fillColor: MaterialStateProperty.all(
-                          Colors.white.withOpacity(0.2)),
-                      checkColor: Colors.white,
-                    ),
-                    Text(
-                      'Conexões Visuais',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+                // Always show visual connections - agora como botão padrão
+                _buildLegendItem(
+                  showConnections
+                      ? const Color(0xFF60A5FA)
+                      : Colors.white.withOpacity(0.2),
+                  showConnections
+                      ? const Color(0xFF3B82F6)
+                      : Colors.white.withOpacity(0.2),
+                  'Conexões Visuais',
+                  isClickable: true,
+                  onTap: () => onShowConnectionsChanged(!showConnections),
                 ),
               ],
             ),
@@ -127,8 +112,8 @@ class FluxogramaLegendControls extends StatelessWidget {
   }
 
   Widget _buildLegendItem(Color startColor, Color endColor, String label,
-      {bool isDashed = false}) {
-    return Row(
+      {bool isDashed = false, bool isClickable = false, VoidCallback? onTap}) {
+    Widget legendContent = Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
@@ -160,5 +145,21 @@ class FluxogramaLegendControls extends StatelessWidget {
         ),
       ],
     );
+
+    if (isClickable && onTap != null) {
+      return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(4),
+            color: Colors.transparent,
+          ),
+          child: legendContent,
+        ),
+      );
+    }
+
+    return legendContent;
   }
 }
