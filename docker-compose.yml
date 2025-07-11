@@ -48,7 +48,7 @@ services:
     container_name: no-fluxo-nginx
     ports:
       - "80:80"       # HTTP (for redirects)
-      - "443:443"     # Main backend HTTPS (standard port)
+      - "3325:3325"   # Backend HTTPS (main port)
       - "4652:4652"   # AI Agent HTTPS  
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
