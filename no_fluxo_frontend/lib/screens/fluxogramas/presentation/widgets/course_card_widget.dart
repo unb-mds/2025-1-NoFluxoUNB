@@ -181,6 +181,6 @@ class CourseCardWidget extends StatelessWidget {
       return false;
     }
 
-    return subject.hasAnyPrerequisitesNotCompletedOrCurrent();
+    return !subject.hasAnyPrerequisitesNotCompletedOrCurrent();
   }
 }

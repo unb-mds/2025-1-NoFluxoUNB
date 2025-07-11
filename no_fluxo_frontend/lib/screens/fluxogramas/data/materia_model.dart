@@ -53,7 +53,7 @@ class MateriaModel {
           }
         }
       }
-      return preRequisitosCumpridos.isEmpty;
+      return preRequisitosCumpridos.isNotEmpty;
     }
 
     return false;

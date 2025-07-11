@@ -8876,3 +8876,633 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='ragflow.arthrok.shop', p
 [INFO] [REQUEST SUCCESS] Request completed in 5.32 seconds
 [DEBUG] Response: 200 for POST http://localhost:4652/assistente
 [INFO] 127.0.0.1 - - [11/Jul/2025 03:35:27] "POST /assistente HTTP/1.1" 200 -
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 28363
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/ai_agent/check_connection.py', reloading
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 31108
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/ai_agent/check_connection.py', reloading
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 31191
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/ai_agent/config.py', reloading
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 33366
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/ai_agent/direct_test.py', reloading
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 36424
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/ai_agent/direct_test.py', reloading
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 36541
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO]  * Detected change in '/Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend/ai_agent/ragflow_agent_client.py', reloading
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 40985
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 42883
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://192.168.1.47:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 42898
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 860-727-024
+[DEBUG] INCOMING REQUEST: OPTIONS http://localhost:4652/assistente
+[DEBUG]   Client: 127.0.0.1
+[DEBUG]   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+[DEBUG]   Content-Type: None
+[DEBUG] OUTGOING RESPONSE: 200 for OPTIONS http://localhost:4652/assistente
+[DEBUG]   Response size: Unknown
+[INFO] 127.0.0.1 - - [11/Jul/2025 04:03:25] "OPTIONS /assistente HTTP/1.1" 200 -
+[DEBUG] INCOMING REQUEST: POST http://localhost:4652/assistente
+[DEBUG]   Client: 127.0.0.1
+[DEBUG]   User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+[DEBUG]   Content-Type: application/json; charset=utf-8
+[INFO] ============================================================
+[INFO] [req_20250711_040325_154063] NEW REQUEST START
+[INFO] [req_20250711_040325_154063] Client IP: 127.0.0.1
+[INFO] [req_20250711_040325_154063] Timestamp: 2025-07-11T04:03:25.154063
+[INFO] [req_20250711_040325_154063] Method: POST
+[INFO] [req_20250711_040325_154063] URL: http://localhost:4652/assistente
+[INFO] [req_20250711_040325_154063] User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+[INFO] ============================================================
+[INFO] [req_20250711_040325_154063] STEP 1: Extracting request data
+[DEBUG] [req_20250711_040325_154063] Request headers: {'Host': 'localhost:4652', 'Connection': 'keep-alive', 'Content-Length': '16', 'Sec-Ch-Ua-Platform': '"macOS"', 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"', 'Content-Type': 'application/json; charset=utf-8', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:5000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:5000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'en-US,en;q=0.9'}
+[DEBUG] [req_20250711_040325_154063] Request content type: application/json; charset=utf-8
+[DEBUG] [req_20250711_040325_154063] Request content length: 16
+[DEBUG] [req_20250711_040325_154063] Raw request data type: <class 'dict'>
+[DEBUG] [req_20250711_040325_154063] Request JSON keys: ['materia']
+[INFO] [req_20250711_040325_154063] Extracted materia: 'oi' (type: <class 'str'>, length: 2)
+[INFO] [req_20250711_040325_154063] STEP 1 COMPLETED: Request data extraction successful
+[INFO] [req_20250711_040325_154063] STEP 2: Starting input preprocessing
+[DEBUG] [req_20250711_040325_154063] Original materia before preprocessing: 'oi'
+[DEBUG] FUNCTION ENTRY: remover_acentos_nativo(texto='oi', type=<class 'str'>)
+[DEBUG] Starting accent removal process for text: 'oi' (length: 2)
+[DEBUG] Step 1: Normalizing text to NFD format
+[DEBUG] NFD normalized text: 'oi' (length: 2)
+[DEBUG] Step 2: Removing combining characters (accents)
+[DEBUG] Text after accent removal: 'oi' (length: 2)
+[DEBUG] No accent removal was needed (text unchanged)
+[DEBUG] FUNCTION EXIT: remover_acentos_nativo() - completed successfully
+[INFO] [req_20250711_040325_154063] Text preprocessing completed:
+[INFO] [req_20250711_040325_154063]   Original: 'oi'
+[INFO] [req_20250711_040325_154063]   Processed: 'OI'
+[DEBUG] [req_20250711_040325_154063] Character count - Original: 2, Processed: 2
+[INFO] [req_20250711_040325_154063] STEP 2 COMPLETED: Input preprocessing successful
+[INFO] [req_20250711_040325_154063] STEP 3: Starting RAGFlow analysis
+[DEBUG] [req_20250711_040325_154063] Initializing RAGFlow client
+[INFO] ==================================================
+[INFO] RAGFlow CLIENT INITIALIZATION
+[INFO] ==================================================
+[DEBUG] FUNCTION ENTRY: RagflowClient.__init__()
+[DEBUG] Input agent_id parameter: b15eb35451ea11f0b5a95ad2adb20365
+[INFO] Validating RAGFlow client configuration...
+[INFO] Configuration validation successful
+[INFO] RAGFlow client configuration:
+[INFO]   Agent ID: b15eb35451ea11f0b5a95ad2adb20365
+[INFO]   Base URL: https://ragflow.arthrok.shop/
+[INFO]   Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[INFO]   API Key: SET (length: 40)
+[DEBUG] Request headers prepared:
+[DEBUG]   Headers: {
+    "Authorization": "Bearer ***",
+    "Content-Type": "application/json"
+}
+[INFO] RAGFlow client initialized successfully
+[DEBUG] FUNCTION EXIT: RagflowClient.__init__()
+[INFO] [req_20250711_040325_154063] RAGFlow client initialized successfully
+[INFO] [req_20250711_040325_154063] STEP 3.1: Starting RAGFlow session
+[INFO] ========================================
+[INFO] STARTING NEW RAGFlow SESSION
+[INFO] ========================================
+[DEBUG] FUNCTION ENTRY: start_session()
+[INFO] Input materia: 'OI' (type: <class 'str'>, length: 2)
+[DEBUG] STEP 1: Input validation
+[DEBUG] Validated materia: 'OI'
+[DEBUG] STEP 2: Preparing session payload
+[INFO] Session request details:
+[INFO]   Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[INFO]   Method: POST
+[INFO]   Payload size: 34 bytes
+[DEBUG]   Payload content: {
+  "materia": "OI",
+  "stream": false
+}
+[DEBUG] STEP 3: Making HTTP request to RAGFlow
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Request timeout: 30 seconds
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3295
+[INFO] HTTP request completed in 26.22 seconds
+[DEBUG] STEP 4: Analyzing HTTP response
+[INFO] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 07:03:51 GMT', 'Content-Type': 'application/json', 'Content-Length': '3295', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] Response size: 3295 bytes
+[DEBUG] Response encoding: utf-8
+[DEBUG] STEP 5: Validating HTTP status
+[DEBUG] HTTP status validation successful - no HTTP errors
+[DEBUG] STEP 6: Parsing JSON response
+[DEBUG] JSON parsing successful
+[DEBUG] Response data type: <class 'dict'>
+[DEBUG] Response keys: ['code', 'data']
+[DEBUG]   code: int
+[DEBUG]   data: dict with keys ['answer', 'id', 'param', 'reference', 'session_id']
+[DEBUG] STEP 7: Extracting session ID
+[DEBUG] Data section type: <class 'dict'>
+[INFO] Session ID extracted successfully: 239fa23e5e2511f09c081a26d63db6af
+[DEBUG] Session ID validation passed (length: 32)
+[INFO] ==============================
+[INFO] SESSION START SUCCESSFUL
+[INFO] Session ID: 239fa23e5e2511f09c081a26d63db6af
+[INFO] Total duration: 26.22 seconds
+[INFO] ==============================
+[DEBUG] FUNCTION EXIT: start_session() - success
+[INFO] [req_20250711_040325_154063] RAGFlow session started successfully:
+[INFO] [req_20250711_040325_154063]   Session ID: 239fa23e5e2511f09c081a26d63db6af
+[INFO] [req_20250711_040325_154063]   Session creation time: 26.22 seconds
+[INFO] [req_20250711_040325_154063] STEP 3.2: Starting materia analysis
+[INFO] ========================================
+[INFO] STARTING RAGFlow ANALYSIS
+[INFO] ========================================
+[DEBUG] FUNCTION ENTRY: analyze_materia()
+[INFO] Input materia: 'OI' (type: <class 'str'>, length: 2)
+[INFO] Session ID: 239fa23e5e2511f09c081a26d63db6af
+[DEBUG] STEP 1: Input validation
+[DEBUG] Validated materia: 'OI'
+[DEBUG] Validated session_id: '239fa23e5e2511f09c081a26d63db6af'
+[DEBUG] STEP 2: Preparing analysis payload
+[INFO] Analysis request details:
+[INFO]   Endpoint: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[INFO]   Method: POST
+[INFO]   Payload size: 85 bytes
+[DEBUG]   Payload content: {
+  "question": "OI",
+  "session_id": "239fa23e5e2511f09c081a26d63db6af",
+  "stream": false
+}
+[DEBUG] STEP 3: Making HTTP request to RAGFlow
+[DEBUG] Making POST request to: https://ragflow.arthrok.shop//api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions
+[DEBUG] Request timeout: 60 seconds
+[DEBUG] Starting new HTTPS connection (1): ragflow.arthrok.shop:443
+[DEBUG] https://ragflow.arthrok.shop:443 "POST //api/v1/agents/b15eb35451ea11f0b5a95ad2adb20365/completions HTTP/1.1" 200 3425
+[INFO] HTTP request completed in 0.36 seconds
+[DEBUG] STEP 4: Analyzing HTTP response
+[INFO] Response status code: 200
+[DEBUG] Response headers: {'Server': 'openresty', 'Date': 'Fri, 11 Jul 2025 07:03:51 GMT', 'Content-Type': 'application/json', 'Content-Length': '3425', 'Connection': 'keep-alive', 'X-Served-By': 'ragflow.arthrok.shop'}
+[DEBUG] Response size: 3425 bytes
+[DEBUG] Response encoding: utf-8
+[DEBUG] STEP 5: Validating HTTP status
+[DEBUG] HTTP status validation successful - no HTTP errors
+[DEBUG] STEP 6: Parsing JSON response
+[DEBUG] JSON parsing successful
+[DEBUG] Response data type: <class 'dict'>
+[DEBUG] Response keys: ['code', 'data']
+[DEBUG]   code: int = 0
+[DEBUG]   data: dict with keys ['answer', 'id', 'param', 'reference', 'session_id']
+[DEBUG] STEP 7: Validating API response code
+[INFO] RAGFlow API response code: 0
+[INFO] API response indicates success (code: 0)
+[INFO] ==============================
+[INFO] ANALYSIS COMPLETED SUCCESSFULLY
+[INFO] Materia: 'OI'
+[INFO] Session ID: 239fa23e5e2511f09c081a26d63db6af
+[INFO] Total duration: 0.36 seconds
+[INFO] Response code: 0
+[INFO] ==============================
+[DEBUG] FUNCTION ENTRY: _log_response_summary(operation='Analysis')
+[DEBUG] Analysis response summary:
+[DEBUG]   Response type: <class 'dict'>
+[DEBUG]   Number of keys: 2
+[DEBUG]   Top-level keys: ['code', 'data']
+[DEBUG]   code: 0
+[DEBUG]   data: dict with keys ['answer', 'id', 'param', 'reference', 'session_id']
+[DEBUG]   Data section analysis:
+[DEBUG]     Data type: <class 'dict'>
+[DEBUG]     Data keys: ['answer', 'id', 'param', 'reference', 'session_id']
+[DEBUG]     Data size: 5 items
+[DEBUG] FUNCTION EXIT: _log_response_summary()
+[DEBUG] FUNCTION EXIT: analyze_materia() - success
+[INFO] [req_20250711_040325_154063] RAGFlow analysis completed:
+[INFO] [req_20250711_040325_154063]   Analysis time: 0.36 seconds
+[DEBUG] [req_20250711_040325_154063] Raw agent result type: <class 'dict'>
+[DEBUG] [req_20250711_040325_154063] Raw agent result keys: ['code', 'data']
+[DEBUG] [req_20250711_040325_154063] RAGFlow API response code: 0
+[INFO] [req_20250711_040325_154063] STEP 3 COMPLETED: RAGFlow analysis successful
+[INFO] [req_20250711_040325_154063] STEP 4: Starting response formatting
+[DEBUG] [req_20250711_040325_154063] Calling gerar_texto_ranking with agent result
+[INFO] [req_20250711_040325_154063] Response formatting completed:
+[INFO] [req_20250711_040325_154063]   Formatting time: 0.00 seconds
+[DEBUG] [req_20250711_040325_154063] Formatted response type: <class 'str'>
+[DEBUG] [req_20250711_040325_154063] Formatted response length: 4123
+[INFO] [req_20250711_040325_154063] STEP 4 COMPLETED: Response formatting successful
+[INFO] [req_20250711_040325_154063] REQUEST COMPLETED SUCCESSFULLY:
+[INFO] [req_20250711_040325_154063]   Total request time: 26.59 seconds
+[INFO] [req_20250711_040325_154063]   Session creation: 26.22s
+[INFO] [req_20250711_040325_154063]   Analysis: 0.36s
+[INFO] [req_20250711_040325_154063]   Formatting: 0.00s
+[INFO] [req_20250711_040325_154063] Sending successful response to client
+[DEBUG] OUTGOING RESPONSE: 200 for POST http://localhost:4652/assistente
+[DEBUG]   Response size: 5215
+[INFO] 127.0.0.1 - - [11/Jul/2025 04:03:51] "POST /assistente HTTP/1.1" 200 -
