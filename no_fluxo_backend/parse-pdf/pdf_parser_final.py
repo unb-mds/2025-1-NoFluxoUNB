@@ -56,13 +56,13 @@ padrao_curso_alt = re.compile(r'^([A-ZÀ-Ÿ\s]+(?:DE\s+[A-ZÀ-Ÿ\s]+)*)/[A-Z]+ -
 
 # --- Padrão para formato específico do SIGAA (linha única) ---
 padrao_disciplina_sigaa = re.compile(
-    r'(\d{4}\.\d)\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9\-]+?)\s+(\d+)\s+(MATR|APR|REP|REPF|REPMF|CANC|DISP|TRANC)\s+([A-Z]{2,}\d{3,})\s+(\d+)\s+(\d+,\d+|\d+\.\d+|--)\s+(-|[A-Z]{1,2})\s*([*&#e@§%]?)$',
+    r'(\d{4}\.\d)\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9]+?)\s+(\d+)\s+(MATR|APR|REP|REPF|REPMF|CANC|DISP|TRANC)\s+([A-Z]{2,}\d{3,})\s+(\d+)\s+(\d+,\d+|\d+\.\d+|--)\s+(-|[A-Z]{1,2})\s*([*&#e@§%]?)$',
     re.MULTILINE | re.IGNORECASE
 )
 
 # --- Padrão principal para disciplinas regulares (duas linhas) - Formato original ---
 padrao_disciplina_linha1 = re.compile(
-    r'(\d{4}\.\d)\s+([*&#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-Ÿ\s0-9\-]+?)\s*$',
+    r'(\d{4}\.\d)\s+([*&#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-Ÿ\s0-9]+?)\s*$',
     re.MULTILINE | re.IGNORECASE
 )
 
@@ -75,7 +75,7 @@ padrao_disciplina_linha2 = re.compile(
 
 # --- Novo padrão para formato alternativo (nome na primeira linha, dados na segunda) ---
 padrao_disciplina_alt_linha1 = re.compile(
-    r'(\d{4}\.\d)([A-ZÀ-Ÿ\s0-9\-]+(?:DE\s+[A-ZÀ-Ÿ\s0-9\-]*)*)\s*$',
+    r'(\d{4}\.\d)([A-ZÀ-Ÿ\s0-9]+(?:DE\s+[A-ZÀ-Ÿ\s0-9]*)*)\s*$',
     re.MULTILINE | re.IGNORECASE
 )
 
@@ -88,38 +88,25 @@ padrao_disciplina_alt_linha2 = re.compile(
 
 # --- Padrão para disciplinas CUMP (formato: ano prefixo codigo nome carga -- -- - CUMP) ---
 padrao_disciplina_cump = re.compile(
-    r'(\d{4}\.\d)\s+([*&#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-Ÿ\s0-9\-]+?)\s+(\d+)\s+\-\-\s+\-\-\s+\-\s+CUMP',
+    r'(\d{4}\.\d)\s+([*&#e@§%]?)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-Ÿ\s0-9]+?)\s+(\d+)\s+\-\-\s+\-\-\s+\-\s+CUMP',
     re.MULTILINE | re.IGNORECASE
 )
 
 # --- Padrão para equivalências ---
 padrao_equivalencias = re.compile(
-    r'Cumpriu\s+([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9\-]+?)\s*\((\d+)h\)\s*através\s*de\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9\-]+?)\s*\((\d+)h\)',
+    r'Cumpriu\s+([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9]+?)\s*\((\d+)h\)\s*através\s*de\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9]+?)\s*\((\d+)h\)',
     re.MULTILINE | re.IGNORECASE
 )
 
 # --- Padrão para disciplinas pendentes (formato novo) ---
-# Padrão principal para disciplinas pendentes - formato normal
 padrao_pendentes_novo = re.compile(
-    r'^\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9\-]+?)\s+(\d+)\s*h\s+([A-Z]{2,}\d{3,})(?:\s+(Matriculado|Matriculado em Equivalente))?\s*$',
-    re.MULTILINE | re.IGNORECASE
-)
-
-# Padrão especial para disciplinas pendentes com status no meio da linha
-padrao_pendentes_especial = re.compile(
-    r'^\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9\-]+?)\s+(Matriculado em Equivalente)\s+(\d+)\s*h\s+([A-Z]{2,}\d{3,})\s*$',
-    re.MULTILINE | re.IGNORECASE
-)
-
-# Padrão para casos especiais (ENADE, CADEIA DE SELETIVIDADE, etc.)
-padrao_pendentes_especiais_diversos = re.compile(
-    r'^\s+((?:ENADE|CADEIA DE SELETIVIDADE)[A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9\(\):\/-]+?)\s+(\d+)\s*h\s+([A-Z-]+)(?:\s+(PENDENTE|Matriculado))?\s*$',
+    r'^\s+([A-ZÀ-Ÿ\s0-9]+(?:DE\s+[A-ZÀ-Ÿ\s0-9]*)*)\s+(\d+)\s*h\s+([A-Z]{2,}\d{3,})(?:\s+(Matriculado|Matriculado em Equivalente))?',
     re.MULTILINE | re.IGNORECASE
 )
 
 # --- Padrão específico para disciplinas pendentes SIGAA ---
 padrao_pendentes_sigaa = re.compile(
-    r'^\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9\-]+?)\s+(\d+)\s+h\s+([A-Z]{2,}\d{3,})(?:\s+(Matriculado|Matriculado em Equivalente))?$',
+    r'^\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9]+?)\s+(\d+)\s+h\s+([A-Z]{2,}\d{3,})(?:\s+(Matriculado|Matriculado em Equivalente))?$',
     re.MULTILINE | re.IGNORECASE
 )
 
@@ -375,40 +362,9 @@ def extrair_dados_academicos(texto_total):
     disciplinas_encontradas = 0
     disciplinas_ignoradas = 0
     
-    print("[DISCIPLINAS] Processando disciplinas...")
+    print("[DISCIPLINAS] Processando formato original...")
     for i, linha in enumerate(linhas):
-        # Primeiro, tenta o formato SIGAA (linha única)
-        match_sigaa = padrao_disciplina_sigaa.search(linha)
-        if match_sigaa:
-            ano_periodo, nome, turma, status, codigo, carga_h, nota, mencao, prefixo = match_sigaa.groups()
-            
-            # Ignorar matérias com menções II, MI e SR
-            if mencao.upper() in ['II', 'MI', 'SR']:
-                print(f"  -> Ignorando disciplina SIGAA com menção {mencao}: {codigo} - {nome.strip()[:30]}...")
-                disciplinas_ignoradas += 1
-                continue
-            
-            disciplina_data = {
-                "tipo_dado": "Disciplina Regular",
-                "nome": limpar_nome_disciplina(nome.strip()),
-                "status": status,
-                "mencao": mencao if mencao != '-' else '-',
-                "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-                "codigo": codigo,
-                "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-                "ano_periodo": ano_periodo,
-                "prefixo": prefixo,
-                "professor": "N/A",  # Não disponível no formato SIGAA
-                "turma": turma,
-                "frequencia": None,
-                "nota": nota if nota != '--' else None
-            }
-            disciplinas.append(disciplina_data)
-            disciplinas_encontradas += 1
-            print(f"  -> Disciplina SIGAA: {codigo} - {nome.strip()[:30]}... (Status: {status})")
-            continue
-        
-        # Se não é SIGAA, tenta o formato de duas linhas
+        # Buscar linha 1 (disciplina) - formato original
         match_linha1 = padrao_disciplina_linha1.search(linha)
         if match_linha1 and i + 1 < len(linhas):
             # Buscar linha 2 (professor e dados) na próxima linha
@@ -445,7 +401,7 @@ def extrair_dados_academicos(texto_total):
                 }
                 disciplinas.append(disciplina_data)
                 disciplinas_encontradas += 1
-                print(f"  -> Disciplina (duas linhas): {codigo} - {nome.strip()[:30]}... (Status: {situacao})")
+                print(f"  -> Disciplina (formato original): {codigo} - {nome.strip()[:30]}... (Status: {situacao})")
     
     # Se não encontrou disciplinas no formato original, tenta o formato alternativo
     if disciplinas_encontradas == 0:
@@ -535,13 +491,12 @@ def extrair_dados_academicos(texto_total):
         print(f"  -> CUMP: {codigo} - {nome.strip()[:30]}...")
     
     # Extrair disciplinas pendentes (formato novo)
-    # Primeiro, tenta o padrão normal (status no final ou sem status)
     disciplinas_pendentes = padrao_pendentes_novo.findall(texto_total)
-    print(f"[PENDENTES] Encontradas {len(disciplinas_pendentes)} disciplinas pendentes (formato normal)")
+    print(f"[PENDENTES] Encontradas {len(disciplinas_pendentes)} disciplinas pendentes (formato novo)")
     
     for pend in disciplinas_pendentes:
         nome, carga_h, codigo = pend[:3]
-        status_matricula = pend[3] if len(pend) > 3 and pend[3] else None
+        status_matricula = pend[3] if len(pend) > 3 else None
         
         status = 'MATR' if status_matricula else 'PENDENTE'
         
@@ -555,59 +510,10 @@ def extrair_dados_academicos(texto_total):
             "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
             "ano_periodo": "",
             "prefixo": "",
-            "observacao": status_matricula if status_matricula else ""
+            "observacao": status_matricula
         }
         disciplinas.append(disciplina_data)
-        print(f"  -> Pendente (normal): {codigo} - {nome.strip()[:30]}... (Status: {status})")
-    
-    # Segundo, tenta o padrão especial (status no meio da linha)
-    disciplinas_pendentes_especiais = padrao_pendentes_especial.findall(texto_total)
-    print(f"[PENDENTES] Encontradas {len(disciplinas_pendentes_especiais)} disciplinas pendentes (formato especial)")
-    
-    for pend in disciplinas_pendentes_especiais:
-        nome, status_matricula, carga_h, codigo = pend
-        
-        status = 'MATR' if status_matricula else 'PENDENTE'
-        
-        disciplina_data = {
-            "tipo_dado": "Disciplina Pendente",
-            "nome": limpar_nome_disciplina(nome.strip()),
-            "status": status,
-            "mencao": '-',
-            "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-            "codigo": codigo,
-            "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-            "ano_periodo": "",
-            "prefixo": "",
-            "observacao": status_matricula if status_matricula else ""
-        }
-        disciplinas.append(disciplina_data)
-        print(f"  -> Pendente (especial): {codigo} - {nome.strip()[:30]}... (Status: {status})")
-    
-    # Terceiro, tenta casos especiais (ENADE, CADEIA DE SELETIVIDADE, etc.)
-    disciplinas_pendentes_diversos = padrao_pendentes_especiais_diversos.findall(texto_total)
-    print(f"[PENDENTES] Encontradas {len(disciplinas_pendentes_diversos)} disciplinas pendentes (casos especiais)")
-    
-    for pend in disciplinas_pendentes_diversos:
-        nome, carga_h, codigo = pend[:3]
-        status_matricula = pend[3] if len(pend) > 3 and pend[3] else None
-        
-        status = 'MATR' if status_matricula and 'Matriculado' in status_matricula else 'PENDENTE'
-        
-        disciplina_data = {
-            "tipo_dado": "Disciplina Pendente",
-            "nome": limpar_nome_disciplina(nome.strip()),
-            "status": status,
-            "mencao": '-',
-            "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-            "codigo": codigo,
-            "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-            "ano_periodo": "",
-            "prefixo": "",
-            "observacao": status_matricula if status_matricula else ""
-        }
-        disciplinas.append(disciplina_data)
-        print(f"  -> Pendente (especial diverso): {codigo} - {nome.strip()[:30]}... (Status: {status})")
+        print(f"  -> Pendente: {codigo} - {nome.strip()[:30]}... (Status: {status})")
     
     # Extrair equivalências
     equivalencias = []
@@ -625,51 +531,6 @@ def extrair_dados_academicos(texto_total):
             "ch_equivalente": ch_equivalente
         })
         print(f"  -> Equivalência: {codigo_cumpriu} ← {codigo_equivalente}")
-        
-        # Adicionar a disciplina equivalente cursada como disciplina regular
-        disciplina_equivalente = {
-            "tipo_dado": "Disciplina Regular",
-            "nome": limpar_nome_disciplina(nome_equivalente.strip()),
-            "status": "APR",  # Consideramos aprovada pois foi usada para equivalência
-            "mencao": "SS",   # Atribuímos SS (Superior) por padrão
-            "creditos": int(int(ch_equivalente) / 15) if ch_equivalente.isdigit() else 0,
-            "codigo": codigo_equivalente,
-            "carga_horaria": int(ch_equivalente) if ch_equivalente.isdigit() else 0,
-            "ano_periodo": "N/A",  # Não temos essa informação na equivalência
-            "prefixo": "",
-            "professor": "N/A",
-            "turma": "N/A",
-            "frequencia": None,
-            "nota": None,
-            "observacao": f"Equivalência para {codigo_cumpriu}"
-        }
-        disciplinas.append(disciplina_equivalente)
-        disciplinas_encontradas += 1
-        print(f"  -> Adicionada disciplina equivalente: {codigo_equivalente} - {nome_equivalente.strip()[:30]}... (APR por equivalência)")
-        
-        # Adicionar a disciplina cumprida como disciplina regular (se não existir)
-        # Verificar se já não foi adicionada
-        codigos_existentes = [d.get('codigo') for d in disciplinas if isinstance(d, dict) and d.get('codigo')]
-        if codigo_cumpriu not in codigos_existentes:
-            disciplina_cumprida = {
-                "tipo_dado": "Disciplina Regular",
-                "nome": limpar_nome_disciplina(nome_cumpriu.strip()),
-                "status": "CUMP",  # Status de cumprida por equivalência
-                "mencao": "SS",    # Atribuímos SS (Superior) por padrão
-                "creditos": int(int(ch_cumpriu) / 15) if ch_cumpriu.isdigit() else 0,
-                "codigo": codigo_cumpriu,
-                "carga_horaria": int(ch_cumpriu) if ch_cumpriu.isdigit() else 0,
-                "ano_periodo": "N/A",  # Não temos essa informação na equivalência
-                "prefixo": "",
-                "professor": "N/A",
-                "turma": "N/A",
-                "frequencia": None,
-                "nota": None,
-                "observacao": f"Cumprida através de {codigo_equivalente}"
-            }
-            disciplinas.append(disciplina_cumprida)
-            disciplinas_encontradas += 1
-            print(f"  -> Adicionada disciplina cumprida: {codigo_cumpriu} - {nome_cumpriu.strip()[:30]}... (CUMP)")
     
     # Extrair pendências (apenas contar ocorrências)
     pendencias = padrao_pendencias.findall(texto_total)
@@ -688,26 +549,7 @@ def extrair_dados_academicos(texto_total):
     numero_semestre = calcular_numero_semestre(disciplinas)
     print(f"[SEMESTRE] Número do semestre calculado: {numero_semestre}º semestre")
     
-    print(f"=== EXTRAÇÃO CONCLUÍDA: {len(disciplinas)} itens extraídos ===")
-    print(f"[RESUMO] Disciplinas regulares encontradas: {disciplinas_encontradas}")
-    print(f"[RESUMO] Total de itens extraídos: {len(disciplinas)}")
-    print(f"[RESUMO] Equivalências processadas: {len(equivalencias)}")
-    
-    # Mostrar detalhes das disciplinas regulares extraídas
-    disciplinas_regulares = [d for d in disciplinas if isinstance(d, dict) and d.get("tipo_dado") == "Disciplina Regular"]
-    if disciplinas_regulares:
-        print(f"\n[DISCIPLINAS REGULARES EXTRAÍDAS] Total: {len(disciplinas_regulares)}")
-        print("-" * 80)
-        for i, disc in enumerate(disciplinas_regulares, 1):
-            codigo = disc.get('codigo', 'N/A')
-            nome = disc.get('nome', 'N/A')[:40] + "..." if len(disc.get('nome', '')) > 40 else disc.get('nome', 'N/A')
-            status = disc.get('status', 'N/A')
-            mencao = disc.get('mencao', 'N/A')
-            periodo = disc.get('ano_periodo', 'N/A')
-            print(f"{i:2d}. {codigo} - {nome:<43} | Status: {status:<5} | Menção: {mencao:<3} | Período: {periodo}")
-        print("-" * 80)
-    
-    print("=====================================\n")
+    print(f"=== EXTRAÇÃO CONCLUÍDA: {len(disciplinas)} itens extraídos ===\n")
     
     return {
         'disciplinas': disciplinas,
