@@ -205,6 +205,46 @@ def restore_git_config(repo_path, config_backup):
 
 
 
+def setup_git_ignore_mounted_files(repo_dir):
+    """Configure git to ignore mounted files that shouldn't be updated.
+    
+    This function is Docker-specific and only runs inside containers.
+    """
+    try:
+        # Files that are mounted from host and shouldn't be updated by container
+        mounted_files = [
+            "docker-compose.yml",
+            "nginx.conf", 
+            "view-logs.sh",
+            "test-env.sh",
+            "test-git.sh",
+            "Dockerfile"
+        ]
+        
+        for file in mounted_files:
+            if os.path.exists(os.path.join(repo_dir, file)):
+                # Use git update-index to assume these files are unchanged
+                run_git_command_safely(["git", "update-index", "--assume-unchanged", file], cwd=repo_dir)
+                
+    except Exception as e:
+        log_message(f"Python: Warning - Could not setup git ignore for mounted files: {e}")
+
+def cleanup_git_stashes(repo_dir):
+    """Clean up old git stashes to prevent accumulation.
+    
+    This function is Docker-specific and only runs inside containers.
+    """
+    try:
+        # Check how many stashes we have
+        stash_list = run_git_command_safely(["git", "stash", "list"], cwd=repo_dir)
+        if stash_list and stash_list.returncode == 0:
+            stash_count = len(stash_list.stdout.strip().split('\n')) if stash_list.stdout.strip() else 0
+            if stash_count > 10:  # Only clean up if we have more than 10 stashes
+                log_message(f"Python: Cleaning up {stash_count} git stashes")
+                run_git_command_safely(["git", "stash", "clear"], cwd=repo_dir)
+    except Exception as e:
+        log_message(f"Python: Warning - Could not clean up git stashes: {e}")
+
 def check_for_updates(repo_dir, branch):
     """Check if the remote repository has new commits."""
     original_dir = os.getcwd()
@@ -221,6 +261,8 @@ def check_for_updates(repo_dir, branch):
         if test_result is None or test_result.returncode != 0:
             log_message("Python: Git repository not accessible - auto-updates disabled")
             return False
+            
+
         
         # Use safe git command runner
         fetch_result = run_git_command_safely(["git", "fetch", "origin"], cwd=repo_dir)
@@ -248,23 +290,47 @@ def check_for_updates(repo_dir, branch):
         os.chdir(original_dir)
 
 def pull_updates(repo_dir, branch):
-    """Pull the latest changes from the remote repository."""
+    """Pull the latest changes from the remote repository.
+    
+    Uses Docker-safe strategies when running in containers to handle mounted files.
+    In local development, uses simple git pull to avoid interfering with workflow.
+    """
     original_dir = os.getcwd()
     try:
         os.chdir(repo_dir)
-        log_message(f"Python: Performing a hard reset before pulling updates from {branch}.")
+        log_message(f"Python: Pulling updates from {branch}.")
         
-        reset_result = run_git_command_safely(["git", "reset", "--hard", f"origin/{branch}"], cwd=repo_dir)
-        if reset_result is None or reset_result.returncode != 0:
-            raise Exception("Failed to reset repository")
-            
+        # Use Docker-safe update strategy if running in container
+        if os.path.exists('/.dockerenv'):
+            # First, try to stash any local changes to avoid conflicts
+            stash_result = run_git_command_safely(["git", "stash", "push", "-m", "Auto-stash before update"], cwd=repo_dir)
+        else:
+            # In local development, just do a simple pull
+            stash_result = None
+        
+        # Pull the latest changes
         pull_result = run_git_command_safely(["git", "pull", "origin", branch], cwd=repo_dir)
         if pull_result is None or pull_result.returncode != 0:
-            raise Exception("Failed to pull updates")
+            if os.path.exists('/.dockerenv'):
+                # If pull fails in Docker, try to reset specific directories only (not mounted files)
+                log_message("Python: Pull failed, attempting selective reset of backend code...")
+                
+                # Reset only the backend code directories, not the root files
+                reset_result = run_git_command_safely(["git", "checkout", f"origin/{branch}", "--", "no_fluxo_backend/"], cwd=repo_dir)
+                if reset_result is None or reset_result.returncode != 0:
+                    log_message("Python: Warning - Could not reset backend code, continuing with existing files")
+                else:
+                    log_message("Python: Successfully updated backend code")
+            else:
+                # In local development, just log the failure and continue
+                log_message("Python: Warning - Git pull failed in local development mode, continuing with existing files")
+        else:
+            log_message("Python: Successfully pulled updates")
             
     except Exception as e:
         log_message(f"Python: Error pulling updates: {e}")
-        raise
+        # Don't raise exception, just log and continue
+        log_message("Python: Continuing with existing code despite update failure")
     finally:
         os.chdir(original_dir)
 
@@ -561,6 +627,9 @@ def main():
     git_path = os.path.join(REPO_DIR, '.git')
     if os.path.exists(git_path):
         log_message("Python: Git auto-update enabled")
+        # Setup git to ignore mounted files only in Docker containers
+        if os.path.exists('/.dockerenv'):
+            setup_git_ignore_mounted_files(REPO_DIR)
     else:
         log_message("Python: Git repository not found - auto-updates disabled")
     
@@ -578,6 +647,10 @@ def main():
     # Memory monitoring counter
     memory_check_counter = 0
     MEMORY_CHECK_INTERVAL = 60  # Log memory every 60 iterations (10 minutes)
+    
+    # Git cleanup counter
+    git_cleanup_counter = 0
+    GIT_CLEANUP_INTERVAL = 360  # Clean up git stashes every 360 iterations (1 hour)
 
     try:
         while True:
@@ -586,6 +659,12 @@ def main():
             if memory_check_counter >= MEMORY_CHECK_INTERVAL:
                 log_memory_usage()
                 memory_check_counter = 0
+            
+            # Clean up git stashes periodically (only in Docker containers)
+            git_cleanup_counter += 1
+            if git_cleanup_counter >= GIT_CLEANUP_INTERVAL and os.path.exists('/.dockerenv'):
+                cleanup_git_stashes(REPO_DIR)
+                git_cleanup_counter = 0
             
             if check_for_updates(REPO_DIR, BRANCH):
                 log_message(f"Python: New changes detected in branch {BRANCH}. Updating...")
