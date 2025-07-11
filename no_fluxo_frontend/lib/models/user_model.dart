@@ -91,10 +91,10 @@ class DadosFluxogramaUser {
       nomeCurso: json['nome_curso'],
       ira: json['ira'],
       matricula: json['matricula'],
-      semestreAtual: json['semestre_atual'],
-      anoAtual: json['ano_atual'],
+      semestreAtual: json['semestre_atual'] ?? 0,
+      anoAtual: json['ano_atual'] ?? "",
       matrizCurricular: json['matriz_curricular'],
-      horasIntegralizadas: json['horas_integralizadas'],
+      horasIntegralizadas: json['horas_integralizadas'] ?? 0,
       suspensoes: List<String>.from(json['suspensoes'] ?? []),
       dadosFluxograma: List<List<DadosMateria>>.from(json['dados_fluxograma']
           .map((e) =>
