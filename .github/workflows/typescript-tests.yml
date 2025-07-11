@@ -1,0 +1,67 @@
+name: TypeScript Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'no_fluxo_backend/**'
+      - 'tests-ts/**'
+      - '.github/workflows/typescript-tests.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'no_fluxo_backend/**'
+      - 'tests-ts/**'
+      - '.github/workflows/typescript-tests.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: no_fluxo_backend/package-lock.json
+        
+    - name: Install dependencies
+      run: |
+        cd no_fluxo_backend
+        npm ci
+        
+    - name: Run TypeScript type check
+      run: |
+        cd no_fluxo_backend
+        npm run type-check
+        
+    - name: Run ESLint
+      run: |
+        cd no_fluxo_backend
+        npm run lint
+        
+    - name: Run tests
+      run: |
+        cd no_fluxo_backend
+        npm test
+        
+    - name: Run tests with coverage
+      run: |
+        cd no_fluxo_backend
+        npm run test:coverage
+        
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        directory: no_fluxo_backend/coverage
+        flags: typescript
+        name: typescript-coverage
+        fail_ci_if_error: false 

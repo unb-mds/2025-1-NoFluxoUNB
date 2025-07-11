@@ -10,12 +10,19 @@ Este arquivo visa converter o .json obtido do arquivo '01_extrair_turmas_sigaa.p
 # Caminho onde estão seus arquivos .json
 #entrada = "dados_finais"
 #saida = "chunks_finais2"
-if len(sys.argv) < 3:
-    print("Erro: Forneça os nomes das pastas de entrada e saída como argumentos.")
-    print("Uso: python script_json_para_txt.py <pasta_de_entrada> <pasta_de_saida>")
-    sys.exit(1)
-entrada = sys.argv[1]
-saida = sys.argv[2]
+
+# Só executa se for chamado diretamente
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Erro: Forneça os nomes das pastas de entrada e saída como argumentos.")
+        print("Uso: python script_json_para_txt.py <pasta_de_entrada> <pasta_de_saida>")
+        sys.exit(1)
+    entrada = sys.argv[1]
+    saida = sys.argv[2]
+else:
+    # Valores padrão para quando importado
+    entrada = "dados_finais"
+    saida = "chunks_finais2"
 
 os.makedirs(saida, exist_ok=True)
 
