@@ -28,6 +28,32 @@ class PreRequisitoModel {
   }
 }
 
+class CoRequisitoModel {
+  int idCoRequisito;
+  int idMateria;
+  int idMateriaCoRequisito;
+  String codigoMateriaCoRequisito;
+  String nomeMateriaCoRequisito;
+
+  CoRequisitoModel({
+    required this.idCoRequisito,
+    required this.idMateria,
+    required this.idMateriaCoRequisito,
+    required this.codigoMateriaCoRequisito,
+    required this.nomeMateriaCoRequisito,
+  });
+
+  factory CoRequisitoModel.fromJson(Map<String, dynamic> json) {
+    return CoRequisitoModel(
+      idCoRequisito: json["id_co_requisito"],
+      idMateria: json["id_materia"],
+      idMateriaCoRequisito: json["id_materia_corequisito"],
+      codigoMateriaCoRequisito: json["codigo_materia_corequisito"],
+      nomeMateriaCoRequisito: json["nome_materia_corequisito"],
+    );
+  }
+}
+
 class CursoModel {
   String nomeCurso;
   String matrizCurricular;
@@ -39,6 +65,7 @@ class CursoModel {
   int semestres;
   List<EquivalenciaModel> equivalencias;
   List<PreRequisitoModel> preRequisitos;
+  List<CoRequisitoModel> coRequisitos;
 
   CursoModel({
     required this.nomeCurso,
@@ -51,6 +78,7 @@ class CursoModel {
     required this.semestres,
     this.equivalencias = const [],
     this.preRequisitos = const [],
+    this.coRequisitos = const [],
   });
 
   factory CursoModel.fromMinimalJson(Map<String, dynamic> json) {
@@ -65,25 +93,28 @@ class CursoModel {
       semestres: 0,
       equivalencias: [],
       preRequisitos: [],
+      coRequisitos: [],
     );
   }
 
   factory CursoModel.fromJson(Map<String, dynamic> json) {
     var curso = CursoModel(
-        nomeCurso: json["nome_curso"],
-        matrizCurricular: json["matriz_curricular"],
-        idCurso: json["id_curso"],
-        totalCreditos: json["creditos"],
-        tipoCurso: json["tipo_curso"],
-        classificacao: json["classificacao"],
-        materias: List<MateriaModel>.from(json["materias_por_curso"]
-            .map((materia) => MateriaModel.fromJson(materia))),
-        semestres: 0,
-        equivalencias: json["equivalencias"] != null
-            ? List<EquivalenciaModel>.from(json["equivalencias"]
-                .map((equiv) => EquivalenciaModel.fromJson(equiv)))
-            : [],
-        preRequisitos: []);
+      nomeCurso: json["nome_curso"],
+      matrizCurricular: json["matriz_curricular"],
+      idCurso: json["id_curso"],
+      totalCreditos: json["creditos"],
+      tipoCurso: json["tipo_curso"],
+      classificacao: json["classificacao"],
+      materias: List<MateriaModel>.from(json["materias_por_curso"]
+          .map((materia) => MateriaModel.fromJson(materia))),
+      semestres: 0,
+      equivalencias: json["equivalencias"] != null
+          ? List<EquivalenciaModel>.from(json["equivalencias"]
+              .map((equiv) => EquivalenciaModel.fromJson(equiv)))
+          : [],
+      preRequisitos: [],
+      coRequisitos: [],
+    );
 
     int maxSemestre = 0;
     for (var materia in curso.materias) {
@@ -110,6 +141,21 @@ class CursoModel {
     }
 
     curso.preRequisitos = preRequisitosInCurso;
+
+    var coRequisitos = json["co_requisitos"] != null
+        ? List<CoRequisitoModel>.from(json["co_requisitos"]
+            .map((coRequisito) => CoRequisitoModel.fromJson(coRequisito)))
+        : List<CoRequisitoModel>.from([]);
+    var coRequisitosInCurso = List<CoRequisitoModel>.from([]);
+    var materiasInCursoFromCodigoCoReq = Set<String>.from(
+        curso.materias.map((materia) => materia.codigoMateria));
+    for (var coRequisito in coRequisitos) {
+      if (materiasInCursoFromCodigoCoReq
+          .contains(coRequisito.codigoMateriaCoRequisito)) {
+        coRequisitosInCurso.add(coRequisito);
+      }
+    }
+    curso.coRequisitos = coRequisitosInCurso;
 
     curso.semestres = maxSemestre;
 
