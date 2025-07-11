@@ -130,8 +130,9 @@ class AuthService {
       StreamSubscription<AuthState> subscription =
           supabase.auth.onAuthStateChange.listen((event) async {
         await supabase.auth.signInWithOAuth(OAuthProvider.google,
-            redirectTo: Environment.getRedirectToUrl(),
+            redirectTo: Environment.redirectToUrl,
             queryParams: {
+              "redirect_to": Environment.redirectToUrl,
               "prompt": "consent",
             });
 

@@ -6,6 +6,7 @@
   "scripts": {
     "setup-tesseract": "node scripts/setup-tesseract.js",
     "build": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && tsc",
+    "build-docker": "pip install --user -r AI-agent/requirements.txt && pip install --user -r parse-pdf/requirements.txt && tsc",
     "build-and-start": "npm run build && npm run start",
     "start": "node dist/index.js",
     "dev": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && nodemon src/index.ts",

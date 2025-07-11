@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:logging/logging.dart';
+import 'package:mobile_app/config/size_config.dart';
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/upload-historico/services/upload_historico_service.dart';
 import '../../../cache/shared_preferences_helper.dart';
@@ -1248,6 +1249,7 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     required Color cor,
     required bool isFound,
   }) {
+    disciplinas.sort((a, b) => a['nivel'].compareTo(b['nivel']));
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -1271,7 +1273,8 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
         ),
         children: [
           Container(
-            constraints: BoxConstraints(maxHeight: 300),
+            constraints:
+                BoxConstraints(maxHeight: getProportionateScreenHeight(500)),
             child: Scrollbar(
               child: ListView.builder(
                 shrinkWrap: true,
@@ -1327,28 +1330,35 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                         if (disciplina['creditos'] != null ||
                             disciplina['nivel'] != null) ...[
                           const SizedBox(height: 4),
-                          Row(
-                            children: [
-                              if (disciplina['creditos'] != null) ...[
-                                Text(
-                                  'Créditos: ${disciplina['creditos']}',
-                                  style: TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 12,
-                                  ),
+                          Row(spacing: 16, children: [
+                            if (disciplina['creditos'] != null) ...[
+                              Text(
+                                'Créditos: ${disciplina['creditos']}',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 12,
                                 ),
-                                const SizedBox(width: 16),
-                              ],
-                              if (disciplina['nivel'] != null)
-                                Text(
-                                  'Nível: ${disciplina['nivel']}',
-                                  style: TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 12,
-                                  ),
-                                ),
+                              ),
                             ],
-                          ),
+                            if (disciplina['nivel'] != null) ...[
+                              Text(
+                                'Nível: ${disciplina['nivel'] == 0 ? 'Optativa' : disciplina['nivel']}',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                            if (disciplina['mencao'] != null) ...[
+                              Text(
+                                'Mencao: ${disciplina['mencao']}',
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ]),
                         ],
                         if (disciplina['professor'] != null &&
                             disciplina['professor'].toString().isNotEmpty) ...[

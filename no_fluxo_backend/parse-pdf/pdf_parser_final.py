@@ -22,7 +22,7 @@ if sys.platform.startswith('win'):
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='[%(asctime)s][%(levelname)s][PDF Parser] %(message)s',
+    format='\b[%(levelname)s] %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 logger = logging.getLogger(__name__)
@@ -53,6 +53,12 @@ padrao_curso = re.compile(r'Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)', re
 
 # --- Padrão alternativo para curso (formato novo) ---
 padrao_curso_alt = re.compile(r'^([A-ZÀ-Ÿ\s]+(?:DE\s+[A-ZÀ-Ÿ\s]+)*)/[A-Z]+ - [A-ZÀ-Ÿ\s]+ - [A-ZÀ-Ÿ]+', re.MULTILINE | re.IGNORECASE)
+
+# --- Padrão para formato específico do SIGAA (linha única) ---
+padrao_disciplina_sigaa = re.compile(
+    r'(\d{4}\.\d)\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9]+?)\s+(\d+)\s+(MATR|APR|REP|REPF|REPMF|CANC|DISP|TRANC)\s+([A-Z]{2,}\d{3,})\s+(\d+)\s+(\d+,\d+|\d+\.\d+|--)\s+(-|[A-Z]{1,2})\s*([*&#e@§%]?)$',
+    re.MULTILINE | re.IGNORECASE
+)
 
 # --- Padrão principal para disciplinas regulares (duas linhas) - Formato original ---
 padrao_disciplina_linha1 = re.compile(
@@ -98,8 +104,17 @@ padrao_pendentes_novo = re.compile(
     re.MULTILINE | re.IGNORECASE
 )
 
+# --- Padrão específico para disciplinas pendentes SIGAA ---
+padrao_pendentes_sigaa = re.compile(
+    r'^\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9]+?)\s+(\d+)\s+h\s+([A-Z]{2,}\d{3,})(?:\s+(Matriculado|Matriculado em Equivalente))?$',
+    re.MULTILINE | re.IGNORECASE
+)
+
 # --- Padrão para pendências (lista de status) ---
 padrao_pendencias = re.compile(r'\b(APR|CANC|DISP|MATR|REP|REPF|REPMF|TRANC|CUMP)\b', re.IGNORECASE)
+
+# --- Padrão para matriz curricular específica do formato SIGAA ---
+padrao_matriz_sigaa = re.compile(r'Ano/Período de Integralização[:\s]*(\d+/\d+)\s*-', re.MULTILINE | re.IGNORECASE)
 
 def normalizar(s):
     return unicodedata.normalize('NFKD', s).encode('ASCII', 'ignore').decode('ASCII').upper()
@@ -304,6 +319,11 @@ def extrair_dados_academicos(texto_total):
     """
     Extrai todos os dados acadêmicos do texto usando regex patterns otimizados
     Funciona com ambos os formatos de histórico escolar
+    
+    Nota: Ignora automaticamente disciplinas com menções II, MI e SR:
+    - II: Incomparável por Infrequência
+    - MI: Média Insuficiente  
+    - SR: Sem Rendimento
     """
     print("\n=== INICIANDO EXTRAÇÃO COM REGEX OTIMIZADO ===")
     
@@ -340,6 +360,7 @@ def extrair_dados_academicos(texto_total):
     # Extrair disciplinas regulares (processamento de duas linhas)
     linhas = texto_total.splitlines()
     disciplinas_encontradas = 0
+    disciplinas_ignoradas = 0
     
     print("[DISCIPLINAS] Processando formato original...")
     for i, linha in enumerate(linhas):
@@ -356,6 +377,12 @@ def extrair_dados_academicos(texto_total):
                 
                 # Extrair dados da linha 2
                 professor, carga_h, turma, freq, nota, mencao, situacao = match_linha2.groups()
+                
+                # Ignorar matérias com menções II, MI e SR
+                if mencao.upper() in ['II', 'MI', 'SR']:
+                    print(f"  -> Ignorando disciplina com menção {mencao}: {codigo} - {nome.strip()[:30]}...")
+                    disciplinas_ignoradas += 1
+                    continue
                 
                 disciplina_data = {
                     "tipo_dado": "Disciplina Regular",
@@ -411,6 +438,12 @@ def extrair_dados_academicos(texto_total):
                     
                     print(f"[DEBUG] Match encontrado: {codigo} - {nome[:30]}")
                     
+                    # Ignorar matérias com menções II, MI e SR
+                    if mencao.upper() in ['II', 'MI', 'SR']:
+                        print(f"  -> Ignorando disciplina com menção {mencao}: {codigo} - {nome.strip()[:30]}...")
+                        disciplinas_ignoradas += 1
+                        continue
+                    
                     disciplina_data = {
                         "tipo_dado": "Disciplina Regular",
                         "nome": limpar_nome_disciplina(nome.strip()),
@@ -433,6 +466,8 @@ def extrair_dados_academicos(texto_total):
                     print(f"[DEBUG] Linha 2 não fez match: {repr(linha_seguinte[:80])}")
     
     print(f"[DISCIPLINAS] Encontradas {disciplinas_encontradas} disciplinas regulares")
+    if disciplinas_ignoradas > 0:
+        print(f"[DISCIPLINAS] Ignoradas {disciplinas_ignoradas} disciplinas com menções II, MI ou SR")
     
     # Extrair disciplinas CUMP
     disciplinas_cump = padrao_disciplina_cump.findall(texto_total)

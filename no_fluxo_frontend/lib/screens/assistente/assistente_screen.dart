@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/environment.dart';
 import '../../widgets/app_navbar.dart';
 import '../../widgets/animated_background.dart';
 import 'dart:convert';
@@ -13,7 +14,8 @@ class AssistenteScreen extends StatefulWidget {
   State<AssistenteScreen> createState() => _AssistenteScreenState();
 }
 
-class _AssistenteScreenState extends State<AssistenteScreen> with TickerProviderStateMixin {
+class _AssistenteScreenState extends State<AssistenteScreen>
+    with TickerProviderStateMixin {
   final TextEditingController _chatController = TextEditingController();
   final List<Map<String, dynamic>> _messages = [
     {
@@ -32,7 +34,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
   ];
   final List<String> _selectedInterests = [];
   final List<String> _selectedCourses = [];
-  
+
   // Estado de loading
   bool _isLoading = false;
   late AnimationController _loadingController;
@@ -63,7 +65,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
   // Função para enviar mensagem ao backend da IA
   Future<String> _enviarMensagemParaIA(String mensagem) async {
     // Troque o IP abaixo pelo IP do seu backend se necessário
-    final url = Uri.parse('http://127.0.0.1:4652/assistente');
+    final url = Uri.parse('${Environment.agentUrl}/assistente');
     try {
       final response = await http.post(
         url,
@@ -89,15 +91,15 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
         _chatController.clear();
         _isLoading = true;
       });
-      
+
       // Iniciar animação de loading
       _loadingController.repeat();
-      
+
       final resposta = await _enviarMensagemParaIA(value);
-      
+
       // Parar animação de loading
       _loadingController.stop();
-      
+
       setState(() {
         _isLoading = false;
         _messages.add({'isUser': false, 'text': resposta});
@@ -108,20 +110,20 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
   void _enviarMensagemRapida(String tag) async {
     // Criar uma mensagem mais elaborada baseada na tag selecionada
     String mensagem = _criarMensagemPorTag(tag);
-    
+
     setState(() {
       _messages.add({'isUser': true, 'text': mensagem});
       _isLoading = true;
     });
-    
+
     // Iniciar animação de loading
     _loadingController.repeat();
-    
+
     final resposta = await _enviarMensagemParaIA(mensagem);
-    
+
     // Parar animação de loading
     _loadingController.stop();
-    
+
     setState(() {
       _isLoading = false;
       _messages.add({'isUser': false, 'text': resposta});
@@ -272,7 +274,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
+              decoration: BoxDecoration(
                 color: msg['isUser']
                     ? const Color(0xFF8B5CF6).withOpacity(0.8)
                     : Colors.white.withOpacity(0.1),
@@ -284,6 +286,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                 ),
               ),
               child: MarkdownBody(
+                styleSheetTheme: MarkdownStyleSheetBaseTheme.cupertino,
                 data: msg['text'],
                 styleSheet: MarkdownStyleSheet(
                   p: GoogleFonts.poppins(
@@ -295,6 +298,99 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
+                  em: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  a: GoogleFonts.poppins(
+                    color: const Color(0xFF60A5FA),
+                    fontSize: 16,
+                    decoration: TextDecoration.underline,
+                  ),
+                  h1: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h2: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h3: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h4: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h5: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  h6: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  code: GoogleFonts.jetBrainsMono(
+                    color: const Color(0xFF22C55E),
+                    fontSize: 14,
+                    backgroundColor: Colors.black.withOpacity(0.3),
+                  ),
+                  blockquote: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  del: GoogleFonts.poppins(
+                    color: Colors.white.withOpacity(0.6),
+                    fontSize: 16,
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                  listBullet: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  tableHead: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  tableBody: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                  tableCellsDecoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                  ),
+                  tableBorder: TableBorder.all(
+                    color: Colors.white.withOpacity(0.2),
+                    width: 1,
+                  ),
+                  tableCellsPadding: const EdgeInsets.all(8),
+                  codeblockDecoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  blockquoteDecoration: BoxDecoration(
+                    border: Border(
+                      left: BorderSide(
+                        color: const Color(0xFF8B5CF6),
+                        width: 4,
+                      ),
+                    ),
+                  ),
+                  blockquotePadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  codeblockPadding: const EdgeInsets.all(12),
                 ),
               ),
             ),
@@ -423,38 +519,39 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
               Expanded(
                 child: SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
-                  child: Row(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 24),
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                      children: [
                         // Chat principal (2/3)
-                      Expanded(
-                        flex: 2,
+                        Expanded(
+                          flex: 2,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               // Header do chat
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ASSISTENTE ',
-                                      style: GoogleFonts.permanentMarker(
-                                        color: Colors.white,
+                                children: [
+                                  Text(
+                                    'ASSISTENTE ',
+                                    style: GoogleFonts.permanentMarker(
+                                      color: Colors.white,
                                       fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 2,
-                                      ),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 2,
                                     ),
-                                    Text(
-                                      'NOFLUXO',
-                                      style: GoogleFonts.permanentMarker(
+                                  ),
+                                  Text(
+                                    'NOFLUXO',
+                                    style: GoogleFonts.permanentMarker(
                                       color: const Color(0xFFFF277E),
                                       fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 2,
-                                      ),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 2,
                                     ),
+                                  ),
                                   const SizedBox(width: 16),
                                   Container(
                                     width: 10,
@@ -462,7 +559,7 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                     decoration: const BoxDecoration(
                                       color: Colors.green,
                                       shape: BoxShape.circle,
-                                ),
+                                    ),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
@@ -478,8 +575,9 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                               // Chat Container
                               Expanded(
                                 child: Center(
-                                    child: Container(
-                                    constraints: const BoxConstraints(maxWidth: 900),
+                                  child: Container(
+                                    constraints:
+                                        const BoxConstraints(maxWidth: 900),
                                     decoration: BoxDecoration(
                                       color: Colors.white.withOpacity(0.07),
                                       borderRadius: BorderRadius.circular(18),
@@ -487,21 +585,34 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                         color: Colors.white.withOpacity(0.08),
                                       ),
                                     ),
-                                      child: Column(
-                                        children: [
-                                          Expanded(
+                                    child: Column(
+                                      children: [
+                                        Expanded(
                                           child: Padding(
-                                            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 24, horizontal: 24),
                                             child: ListView.builder(
                                               padding: EdgeInsets.zero,
-                                              itemCount: _messages.length + (_messages.length == 1 ? 1 : 0) + (_isLoading ? 1 : 0),
+                                              itemCount: _messages.length +
+                                                  (_messages.length == 1
+                                                      ? 1
+                                                      : 0) +
+                                                  (_isLoading ? 1 : 0),
                                               itemBuilder: (context, index) {
                                                 if (index < _messages.length) {
-                                                final msg = _messages[index];
+                                                  final msg = _messages[index];
                                                   return _buildMessage(msg);
-                                                } else if (index == _messages.length && _messages.length == 1) {
+                                                } else if (index ==
+                                                        _messages.length &&
+                                                    _messages.length == 1) {
                                                   return _buildInterestTags();
-                                                } else if (_isLoading && index == _messages.length + (_messages.length == 1 ? 1 : 0)) {
+                                                } else if (_isLoading &&
+                                                    index ==
+                                                        _messages.length +
+                                                            (_messages.length ==
+                                                                    1
+                                                                ? 1
+                                                                : 0)) {
                                                   return _buildLoadingMessage();
                                                 } else {
                                                   return _buildInterestTags();
@@ -511,46 +622,58 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                           ),
                                         ),
                                         // Campo de input colado na base
-                                                Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20, vertical: 12),
                                           decoration: BoxDecoration(
                                             border: Border(
                                               top: BorderSide(
-                                                color: Colors.white.withOpacity(0.08),
-                                                      ),
-                                                    ),
-                                                  ),
+                                                color: Colors.white
+                                                    .withOpacity(0.08),
+                                              ),
+                                            ),
+                                          ),
                                           child: Row(
                                             children: [
-                                                Expanded(
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                    color: Colors.white.withOpacity(0.08),
-                                                    borderRadius: BorderRadius.circular(24),
+                                              Expanded(
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white
+                                                        .withOpacity(0.08),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
                                                     border: Border.all(
-                                                      color: Colors.white.withOpacity(0.18),
-                                                                ),
-                                                              ),
+                                                      color: Colors.white
+                                                          .withOpacity(0.18),
+                                                    ),
+                                                  ),
                                                   child: TextField(
                                                     controller: _chatController,
                                                     style: GoogleFonts.poppins(
-                                                        color: Colors.white,
+                                                      color: Colors.white,
                                                       fontSize: 16,
                                                     ),
                                                     decoration: InputDecoration(
-                                                      hintText: 'Digite sua mensagem...',
-                                                      hintStyle: GoogleFonts.poppins(
+                                                      hintText:
+                                                          'Digite sua mensagem...',
+                                                      hintStyle:
+                                                          GoogleFonts.poppins(
                                                         color: Colors.white54,
                                                         fontSize: 16,
                                                       ),
                                                       border: InputBorder.none,
-                                                      contentPadding: const EdgeInsets.symmetric(
+                                                      contentPadding:
+                                                          const EdgeInsets
+                                                              .symmetric(
                                                         horizontal: 20,
                                                         vertical: 16,
                                                       ),
                                                     ),
                                                     onSubmitted: (value) {
-                                                      if (value.trim().isNotEmpty) {
+                                                      if (value
+                                                          .trim()
+                                                          .isNotEmpty) {
                                                         _enviarMensagem();
                                                       }
                                                     },
@@ -559,32 +682,40 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                               ),
                                               const SizedBox(width: 10),
                                               GestureDetector(
-                                                    onTap: () {
-                                                  final value = _chatController.text.trim();
-                                                      if (value.isNotEmpty) {
-                                                        _enviarMensagem();
-                                                      }
-                                                    },
-                                                      child: Container(
+                                                onTap: () {
+                                                  final value = _chatController
+                                                      .text
+                                                      .trim();
+                                                  if (value.isNotEmpty) {
+                                                    _enviarMensagem();
+                                                  }
+                                                },
+                                                child: Container(
                                                   width: 48,
                                                   height: 48,
                                                   decoration: BoxDecoration(
-                                                    gradient: const LinearGradient(
-                                                      colors: [Color(0xFF8B5CF6), Color(0xFFEC4899)],
+                                                    gradient:
+                                                        const LinearGradient(
+                                                      colors: [
+                                                        Color(0xFF8B5CF6),
+                                                        Color(0xFFEC4899)
+                                                      ],
                                                     ),
-                                                    borderRadius: BorderRadius.circular(24),
-                                                        ),
-                                                        child: const Icon(
-                                                            Icons.send,
-                                                            color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24),
+                                                  ),
+                                                  child: const Icon(
+                                                    Icons.send,
+                                                    color: Colors.white,
                                                     size: 24,
-                                                    ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -594,13 +725,13 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                         ),
                         const SizedBox(width: 8),
                         // Painel lateral (1/3)
-                      Expanded(
-                        flex: 1,
+                        Expanded(
+                          flex: 1,
                           child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisSize: MainAxisSize.min,
-                            children: [
+                              children: [
                                 // Matérias Selecionadas
                                 Container(
                                   width: 500,
@@ -614,13 +745,14 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Text(
                                         'Matérias Selecionadas',
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
-                                              fontSize: 20,
+                                        style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.bold,
                                         ),
                                         textAlign: TextAlign.center,
@@ -628,59 +760,71 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                       const SizedBox(height: 16),
                                       if (_selectedCourses.isEmpty)
                                         Column(
-                                                  children: [
+                                          children: [
                                             Icon(
                                               Icons.menu_book,
-                                              color: Colors.white.withOpacity(0.5),
+                                              color:
+                                                  Colors.white.withOpacity(0.5),
                                               size: 48,
                                             ),
-                                                    const SizedBox(height: 8),
+                                            const SizedBox(height: 8),
                                             Text(
-                                                        'Nenhuma matéria selecionada',
+                                              'Nenhuma matéria selecionada',
                                               style: GoogleFonts.poppins(
-                                                color: Colors.white.withOpacity(0.5),
+                                                color: Colors.white
+                                                    .withOpacity(0.5),
                                                 fontSize: 14,
-                                                ),
+                                              ),
                                             ),
                                           ],
                                         )
                                       else
                                         Column(
-                                          children: _selectedCourses.map((course) => 
-                                            Container(
-                                              margin: const EdgeInsets.only(bottom: 8),
-                                              padding: const EdgeInsets.all(12),
-                                              decoration: BoxDecoration(
-                                                color: Colors.white.withOpacity(0.1),
-                                                borderRadius: BorderRadius.circular(8),
-                                              ),
-                                              child: Row(
-                                                children: [
-                                                  Expanded(
-                                                    child: Text(
-                                                      course,
-                                                      style: GoogleFonts.poppins(
-                                                        color: Colors.white,
-                                                        fontSize: 14,
-                                                      ),
-                                                    ),
+                                          children: _selectedCourses
+                                              .map(
+                                                (course) => Container(
+                                                  margin: const EdgeInsets.only(
+                                                      bottom: 8),
+                                                  padding:
+                                                      const EdgeInsets.all(12),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white
+                                                        .withOpacity(0.1),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
                                                   ),
-                                                  GestureDetector(
-                                                    onTap: () {
-                                                              setState(() {
-                                                        _selectedCourses.remove(course);
-                                                              });
-                                                            },
-                                                    child: Icon(
-                                                      Icons.close,
-                                                      color: Colors.white.withOpacity(0.7),
-                                                      size: 20,
-                                                    ),
+                                                  child: Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: Text(
+                                                          course,
+                                                          style: GoogleFonts
+                                                              .poppins(
+                                                            color: Colors.white,
+                                                            fontSize: 14,
                                                           ),
-                                                ],
-                                              ),
-                                      ),
-                                          ).toList(),
+                                                        ),
+                                                      ),
+                                                      GestureDetector(
+                                                        onTap: () {
+                                                          setState(() {
+                                                            _selectedCourses
+                                                                .remove(course);
+                                                          });
+                                                        },
+                                                        child: Icon(
+                                                          Icons.close,
+                                                          color: Colors.white
+                                                              .withOpacity(0.7),
+                                                          size: 20,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              )
+                                              .toList(),
                                         ),
                                       const SizedBox(height: 16),
                                       SizedBox(
@@ -688,25 +832,32 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Colors.transparent,
-                                            padding: const EdgeInsets.symmetric(vertical: 14),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 14),
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(8),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
                                             ),
                                           ),
                                           onPressed: () {},
                                           child: Container(
                                             width: double.infinity,
-                                            padding: const EdgeInsets.symmetric(vertical: 12),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 12),
                                             decoration: BoxDecoration(
                                               gradient: const LinearGradient(
-                                                colors: [Color(0xFF8B5CF6), Color(0xFFEC4899)],
+                                                colors: [
+                                                  Color(0xFF8B5CF6),
+                                                  Color(0xFFEC4899)
+                                                ],
                                               ),
-                                              borderRadius: BorderRadius.circular(8),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
                                             ),
                                             child: Text(
                                               'ADICIONAR AO FLUXOGRAMA',
-                                          style: GoogleFonts.poppins(
-                                              color: Colors.white,
+                                              style: GoogleFonts.poppins(
+                                                color: Colors.white,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 15,
                                               ),
@@ -730,7 +881,8 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Seu Fluxograma',
@@ -738,14 +890,15 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                           color: Colors.white,
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 16),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 16),
                                       Container(
                                         padding: const EdgeInsets.all(12),
                                         decoration: BoxDecoration(
                                           color: Colors.black.withOpacity(0.5),
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
                                         ),
                                         child: SingleChildScrollView(
                                           scrollDirection: Axis.horizontal,
@@ -761,42 +914,44 @@ class _AssistenteScreenState extends State<AssistenteScreen> with TickerProvider
                                 ),
                                 // Botão fora do container do SVG
                                 const SizedBox(height: 18),
-                               SizedBox(
-                                 width: double.infinity,
-                                 child: ElevatedButton(
-                                   style: ElevatedButton.styleFrom(
-                                       backgroundColor: Colors.white.withOpacity(0.1),
-                                       padding: const EdgeInsets.symmetric(vertical: 14),
-                                     shape: RoundedRectangleBorder(
-                                         borderRadius: BorderRadius.circular(8),
-                                       ),
-                                   ),
-                                   onPressed: () {},
-                                     child: Text(
-                                       'VER FLUXOGRAMA COMPLETO',
-                                       style: GoogleFonts.poppins(
-                                           color: Colors.white,
-                                         fontWeight: FontWeight.bold,
-                                         fontSize: 15,
-                                       ),
-                                     ),
-                                 ),
-                               ),
-                             ],
-                           ),
-                         ),
-                       ),
-                     ],
-                       ),
-                   ),
-                 ),
-               ),
-             ],
-           ),
-         ],
-       ),
-     );
-   }
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor:
+                                          Colors.white.withOpacity(0.1),
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 14),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Text(
+                                      'VER FLUXOGRAMA COMPLETO',
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildFluxogramPreview() {
     return CustomPaint(
@@ -820,28 +975,48 @@ class _FluxogramPreviewPainter extends CustomPainter {
     _drawText(canvas, '4º Semestre', const Offset(50, 230), 12);
 
     // Semester 1 - Completed (green)
-    _drawSubjectBox(canvas, 'Algoritmos', const Offset(60, 55), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Cálculo 1', const Offset(150, 55), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'APC', const Offset(240, 55), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Introdução ES', const Offset(330, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Algoritmos', const Offset(60, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Cálculo 1', const Offset(150, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'APC', const Offset(240, 55), const Color(0xFF4ADE80));
+    _drawSubjectBox(canvas, 'Introdução ES', const Offset(330, 55),
+        const Color(0xFF4ADE80));
 
     // Semester 2 - Completed (green)
-    _drawSubjectBox(canvas, 'EDA', const Offset(60, 125), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Cálculo 2', const Offset(150, 125), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'OO', const Offset(240, 125), const Color(0xFF4ADE80));
-    _drawSubjectBox(canvas, 'Requisitos', const Offset(330, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'EDA', const Offset(60, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Cálculo 2', const Offset(150, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'OO', const Offset(240, 125), const Color(0xFF4ADE80));
+    _drawSubjectBox(
+        canvas, 'Requisitos', const Offset(330, 125), const Color(0xFF4ADE80));
 
     // Semester 3 - Current (purple/red)
-    _drawSubjectBox(canvas, 'Projeto 1', const Offset(60, 195), const Color(0xFFA78BFA));
-    _drawSubjectBox(canvas, 'Métodos', const Offset(150, 195), const Color(0xFFA78BFA));
-    _drawSubjectBox(canvas, 'Arquitetura', const Offset(240, 195), const Color(0xFFA78BFA));
-    _drawSubjectBox(canvas, 'Bancos de Dados', const Offset(330, 195), const Color(0xFFFB7185));
+    _drawSubjectBox(
+        canvas, 'Projeto 1', const Offset(60, 195), const Color(0xFFA78BFA));
+    _drawSubjectBox(
+        canvas, 'Métodos', const Offset(150, 195), const Color(0xFFA78BFA));
+    _drawSubjectBox(
+        canvas, 'Arquitetura', const Offset(240, 195), const Color(0xFFA78BFA));
+    _drawSubjectBox(canvas, 'Bancos de Dados', const Offset(330, 195),
+        const Color(0xFFFB7185));
 
     // Semester 4 - Future (gray)
-    _drawSubjectBox(canvas, 'Projeto 2', const Offset(60, 265), const Color(0xFF475569), opacity: 0.4);
-    _drawSubjectBox(canvas, 'Qualidade', const Offset(150, 265), const Color(0xFF475569), opacity: 0.4);
-    _drawSubjectBox(canvas, 'Testes', const Offset(240, 265), const Color(0xFF475569), opacity: 0.4);
-    _drawSubjectBox(canvas, 'GPP', const Offset(330, 265), const Color(0xFF475569), opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'Projeto 2', const Offset(60, 265), const Color(0xFF475569),
+        opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'Qualidade', const Offset(150, 265), const Color(0xFF475569),
+        opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'Testes', const Offset(240, 265), const Color(0xFF475569),
+        opacity: 0.4);
+    _drawSubjectBox(
+        canvas, 'GPP', const Offset(330, 265), const Color(0xFF475569),
+        opacity: 0.4);
 
     // Connection lines
     for (int i = 0; i < 4; i++) {
@@ -864,7 +1039,8 @@ class _FluxogramPreviewPainter extends CustomPainter {
     }
   }
 
-  void _drawSubjectBox(Canvas canvas, String text, Offset center, Color color, {double opacity = 0.8}) {
+  void _drawSubjectBox(Canvas canvas, String text, Offset center, Color color,
+      {double opacity = 0.8}) {
     final rect = Rect.fromCenter(
       center: center,
       width: 80,
@@ -895,7 +1071,8 @@ class _FluxogramPreviewPainter extends CustomPainter {
     _drawText(canvas, text, center, 10, opacity: opacity);
   }
 
-  void _drawText(Canvas canvas, String text, Offset center, double fontSize, {double opacity = 1.0}) {
+  void _drawText(Canvas canvas, String text, Offset center, double fontSize,
+      {double opacity = 1.0}) {
     final textPainter = TextPainter(
       text: TextSpan(
         text: text,

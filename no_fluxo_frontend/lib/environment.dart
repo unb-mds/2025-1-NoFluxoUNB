@@ -15,6 +15,7 @@ enum EnvironmentType {
 class Environment {
   static String apiUrl = "http://localhost:3000";
   static String redirectToUrl = "http://localhost:5000";
+  static String agentUrl = "http://localhost:4652";
 
   static EnvironmentType environmentType = EnvironmentType.development;
   static bool _initialized = false;
@@ -50,7 +51,7 @@ class Environment {
     }
 
     _initialized = true;
-    
+
     logger.info('🔗 API URL: $apiUrl');
     logger.info('🔄 Redirect URL: $redirectToUrl');
   }
@@ -139,9 +140,11 @@ class Environment {
     if (environmentType == EnvironmentType.development) {
       apiUrl = "http://localhost:3000";
       redirectToUrl = "http://localhost:5000";
+      agentUrl = "http://localhost:4652";
     } else {
-      apiUrl = "https://srv892492.hstgr.cloud:3000";
+      apiUrl = "https://no-fluxo-api.shop:3325";
       redirectToUrl = "https://no-fluxo.com";
+      agentUrl = "https://no-fluxo-api.shop:4652";
     }
   }
 

@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_app/widgets/splash_widget.dart';
 import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/app_navbar.dart';
 import '../../../../widgets/graffiti_background.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../widgets/premium_hover_button.dart';
 import 'dart:ui';
 import 'package:go_router/go_router.dart';
 import '../../data/curso_model.dart';
 import '../../services/meu_fluxograma_service.dart';
-import 'meu_fluxograma_screen.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'dart:math';
+
+const _hoverGradient = LinearGradient(
+  colors: [Color(0xFF7C3AED), Color(0xFFFF3CA5)],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+);
+const List<BoxShadow> _hoverShadow = [
+  BoxShadow(
+    color: Color(0x55FF3CA5),
+    blurRadius: 16,
+    offset: Offset(0, 4),
+  ),
+];
 
 class FluxogramasIndexScreen extends StatefulWidget {
   const FluxogramasIndexScreen({super.key});
@@ -25,9 +40,142 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
   bool loaded = false;
   String? errorFound;
   List<CursoModel> cursos = [];
+  Set<String> classificacoesUnicas = {};
 
   // Pagination constants
   static const int itemsPerPage = 6;
+
+  String filtroSelecionado = 'TODOS';
+  final GlobalKey _dropdownKey = GlobalKey();
+
+  // Getter para filtros dinâmicos baseados nas classificações do banco
+  List<Map<String, String>> get filtrosDinamicos {
+    List<Map<String, String>> filtros = [
+      {'label': 'TODOS', 'valor': ''},
+    ];
+
+    // Adicionar as classificações únicas encontradas nos cursos
+    for (String classificacao in classificacoesUnicas) {
+      if (classificacao.isNotEmpty) {
+        filtros.add({
+          'label': classificacao.toUpperCase(),
+          'valor': classificacao.toLowerCase(),
+        });
+      }
+    }
+
+    return filtros;
+  }
+
+  // Cores dinâmicas baseadas no número de classificações
+  List<Color> _getCoresParaClassificacao(String classificacao, int index) {
+    // Cores diferentes para cada categoria
+    Map<String, List<Color>> coresPorCategoria = {
+      'TODOS': [
+        const Color(0xFF6366F1),
+        const Color(0xFF7C3AED)
+      ], // Roxo padrão
+      'EXATAS': [
+        const Color(0xFF4A1D96),
+        const Color(0xFFE11D48)
+      ], // Roxo escuro para rosa
+      'HUMANAS': [
+        const Color(0xFF3B82F6),
+        const Color(0xFF1D4ED8)
+      ], // Azul vibrante
+      'SAÚDE': [
+        const Color(0xFF059669),
+        const Color(0xFF0EA5E9)
+      ], // Verde para azul
+      'NATUREZA': [
+        const Color(0xFF059669),
+        const Color(0xFF0EA5E9)
+      ], // Verde para azul
+      'CIÊNCIAS EXATAS E DA TERRA': [
+        const Color(0xFF8B5CF6),
+        const Color(0xFFFB7185)
+      ], // Violeta para rosa
+      'ENGENHARIAS': [
+        const Color(0xFFFB923C),
+        const Color(0xFFFACC15)
+      ], // Laranja para amarelo
+      'CIÊNCIAS BIOLÓGICAS': [
+        const Color(0xFF4ADE80),
+        const Color(0xFF38BDF8)
+      ], // Verde para azul claro
+      'CIÊNCIAS DA SAÚDE': [
+        const Color(0xFF059669),
+        const Color(0xFF0EA5E9)
+      ], // Verde para azul
+      'CIÊNCIAS AGRÁRIAS': [
+        const Color(0xFF92400E),
+        const Color(0xFFA16207)
+      ], // Marrom terra
+      'CIÊNCIAS SOCIAIS APLICADAS': [
+        const Color(0xFFEA580C),
+        const Color(0xFFCA8A04)
+      ], // Laranja
+      'CIÊNCIAS HUMANAS': [
+        const Color(0xFFDC2626),
+        const Color(0xFFEF4444)
+      ], // Vermelho
+      'LINGUÍSTICA, LETRAS E ARTES': [
+        const Color(0xFF7C3AED),
+        const Color(0xFF9333EA)
+      ], // Roxo
+    };
+
+    // Primeiro tenta encontrar a classificação exata
+    String classificacaoUpper = classificacao.toUpperCase();
+    if (coresPorCategoria.containsKey(classificacaoUpper)) {
+      return coresPorCategoria[classificacaoUpper]!;
+    }
+
+    // Verificações alternativas para garantir que encontre as cores
+    if (classificacaoUpper.contains('HUMANAS') ||
+        classificacaoUpper.contains('CIÊNCIAS HUMANAS')) {
+      return [
+        const Color(0xFF3B82F6),
+        const Color(0xFF1D4ED8)
+      ]; // Azul vibrante
+    }
+
+    if (classificacaoUpper.contains('AGRÁRIAS') ||
+        classificacaoUpper.contains('AGRÁRIA')) {
+      return [const Color(0xFF92400E), const Color(0xFFA16207)]; // Marrom terra
+    }
+
+    // Cores de fallback baseadas no index para classificações não mapeadas
+    List<List<Color>> coresFallback = [
+      [const Color(0xFF6366F1), const Color(0xFF7C3AED)], // Roxo padrão
+      [
+        const Color(0xFF4A1D96),
+        const Color(0xFFE11D48)
+      ], // Roxo escuro para rosa
+      [
+        const Color(0xFF3B82F6),
+        const Color(0xFF1D4ED8)
+      ], // Azul vibrante (HUMANAS)
+      [const Color(0xFF059669), const Color(0xFF0EA5E9)], // Verde para azul
+      [const Color(0xFF8B5CF6), const Color(0xFFFB7185)], // Violeta para rosa
+      [
+        const Color(0xFFFB923C),
+        const Color(0xFFFACC15)
+      ], // Laranja para amarelo
+      [
+        const Color(0xFF4ADE80),
+        const Color(0xFF38BDF8)
+      ], // Verde para azul claro
+      [
+        const Color(0xFF92400E),
+        const Color(0xFFA16207)
+      ], // Marrom terra (AGRÁRIAS)
+      [const Color(0xFFDC2626), const Color(0xFFEF4444)], // Vermelho
+      [const Color(0xFF7C3AED), const Color(0xFF9333EA)], // Roxo
+    ];
+
+    return coresFallback[index % coresFallback.length];
+  }
 
   void setPage(int page) {
     setState(() {
@@ -35,17 +183,29 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
     });
   }
 
-  // Get filtered courses based on search text
+  // Get filtered courses based on search text and classification
   List<CursoModel> get filteredCursos {
-    if (searchText.isEmpty) {
-      return cursos;
+    var lista = cursos;
+
+    // Aplicar filtro por classificação se não for "TODOS"
+    if (filtroSelecionado != 'TODOS') {
+      lista = lista.where((curso) {
+        return curso.classificacao.toLowerCase() ==
+            filtroSelecionado.toLowerCase();
+      }).toList();
     }
-    return cursos.where((curso) {
-      return curso.nomeCurso.toLowerCase().contains(searchText.toLowerCase()) ||
-          curso.matrizCurricular
-              .toLowerCase()
-              .contains(searchText.toLowerCase());
-    }).toList();
+
+    if (searchText.isNotEmpty) {
+      lista = lista.where((curso) {
+        return curso.nomeCurso
+                .toLowerCase()
+                .contains(searchText.toLowerCase()) ||
+            curso.matrizCurricular
+                .toLowerCase()
+                .contains(searchText.toLowerCase());
+      }).toList();
+    }
+    return lista;
   }
 
   // Get paginated courses for current page
@@ -103,6 +263,10 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           if (!uniqueCursos.contains(curso.nomeCurso)) {
             uniqueCursos.add(curso.nomeCurso);
             actualCursos.add(curso);
+            // Extrair classificações únicas
+            if (curso.classificacao.isNotEmpty) {
+              classificacoesUnicas.add(curso.classificacao);
+            }
           }
         }
 
@@ -134,7 +298,7 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
           future: loadData(),
           builder: (context, asyncSnapshot) {
             if (!asyncSnapshot.hasData) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: SplashWidget());
             }
 
             if (errorFound != null) {
@@ -144,9 +308,8 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
             var gridCards = paginatedCursos
                 .map((curso) => CourseCard(
                       title: curso.nomeCurso,
-                      subtitle: Utils.capitalize(curso.tipoCurso) +
-                          " * " +
-                          Utils.capitalize(curso.classificacao),
+                      tipoCurso: Utils.capitalize(curso.tipoCurso),
+                      classificacao: Utils.capitalize(curso.classificacao),
                       credits: curso.totalCreditos.toString() + " créditos",
                       fluxograma: SizedBox(
                         width: 300,
@@ -272,6 +435,72 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                                   Colors.black.withOpacity(0.3),
                                             ),
                                           ),
+                                          const SizedBox(height: 16),
+                                          ElevatedButton.icon(
+                                            onPressed: () async {
+                                              final user =
+                                                  SharedPreferencesHelper
+                                                      .currentUser;
+                                              if (user == null) return;
+                                              final result =
+                                                  await MeuFluxogramaService
+                                                      .deleteFluxogramaUser(
+                                                          user.idUser
+                                                              .toString(),
+                                                          user.token ?? '');
+                                              result.fold((l) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                        'Erro ao remover fluxograma: ' +
+                                                            l),
+                                                    backgroundColor: Colors.red,
+                                                  ),
+                                                );
+                                              }, (r) {
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  const SnackBar(
+                                                    content: Text(
+                                                        'Fluxograma removido com sucesso!'),
+                                                    backgroundColor:
+                                                        Colors.green,
+                                                  ),
+                                                );
+                                                context.go('/upload-historico');
+                                              });
+                                            },
+                                            icon: const Icon(
+                                              Icons.refresh,
+                                              color: Colors.white,
+                                              size: 22,
+                                            ),
+                                            label: Text(
+                                              'ENVIAR FLUXOGRAMA NOVAMENTE',
+                                              style: GoogleFonts.poppins(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18,
+                                              ),
+                                            ),
+                                            style: ElevatedButton.styleFrom(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 36,
+                                                      vertical: 18),
+                                              backgroundColor:
+                                                  const Color(0xFFFF3CA5),
+                                              foregroundColor: Colors.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
+                                              ),
+                                              elevation: 8,
+                                              shadowColor:
+                                                  Colors.black.withOpacity(0.3),
+                                            ),
+                                          ),
                                         ]
                                       ],
                                     ),
@@ -362,25 +591,131 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
                                               ),
                                             ),
                                             // Filtros
-                                            Flexible(
-                                              flex: isWide ? 4 : 0,
-                                              child: Row(
-                                                mainAxisAlignment: isWide
-                                                    ? MainAxisAlignment.end
-                                                    : MainAxisAlignment.center,
-                                                children: [
-                                                  _buildFilterButton(
-                                                      'TODOS', true),
-                                                  const SizedBox(width: 10),
-                                                  _buildFilterButton(
-                                                      'EXATAS', false),
-                                                  const SizedBox(width: 10),
-                                                  _buildFilterButton(
-                                                      'HUMANAS', false),
-                                                  const SizedBox(width: 10),
-                                                  _buildFilterButton(
-                                                      'SAÚDE', false),
-                                                ],
+                                            _AnimatedGradientDropdownBar(
+                                              dropdownKey: _dropdownKey,
+                                              child: Builder(
+                                                builder: (context) {
+                                                  double dropdownWidth = 0;
+                                                  final RenderBox? box =
+                                                      _dropdownKey
+                                                              .currentContext
+                                                              ?.findRenderObject()
+                                                          as RenderBox?;
+                                                  if (box != null) {
+                                                    dropdownWidth =
+                                                        box.size.width;
+                                                  }
+                                                  return DropdownButtonHideUnderline(
+                                                    child:
+                                                        DropdownButton2<String>(
+                                                      value: filtroSelecionado,
+                                                      isExpanded: true,
+                                                      iconStyleData:
+                                                          const IconStyleData(
+                                                        icon: Icon(
+                                                            Icons
+                                                                .arrow_drop_down_circle_rounded,
+                                                            color: Colors.white,
+                                                            size: 28),
+                                                        iconSize: 28,
+                                                        iconEnabledColor:
+                                                            Colors.white,
+                                                      ),
+                                                      style: GoogleFonts
+                                                          .permanentMarker(
+                                                        color: Colors.white,
+                                                        fontSize: 20,
+                                                        letterSpacing: 1.2,
+                                                      ),
+                                                      dropdownStyleData:
+                                                          DropdownStyleData(
+                                                        width: dropdownWidth > 0
+                                                            ? dropdownWidth
+                                                            : null,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFF232136),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(24),
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.18),
+                                                              blurRadius: 12,
+                                                              offset:
+                                                                  Offset(0, 4),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        elevation: 8,
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                      ),
+                                                      onMenuStateChange: (isOpen) =>
+                                                          DropdownOpenedNotification(
+                                                                  isOpen)
+                                                              .dispatch(
+                                                                  context),
+                                                      menuItemStyleData:
+                                                          const MenuItemStyleData(
+                                                        height: 48,
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 16),
+                                                      ),
+                                                      items: filtrosDinamicos
+                                                          .map((filtro) {
+                                                        return DropdownMenuItem<
+                                                            String>(
+                                                          value:
+                                                              filtro['label'],
+                                                          child:
+                                                              _SimpleDropdownItem(
+                                                            label: filtro[
+                                                                'label']!,
+                                                            isSelected:
+                                                                filtroSelecionado ==
+                                                                    filtro[
+                                                                        'label'],
+                                                          ),
+                                                        );
+                                                      }).toList(),
+                                                      onChanged:
+                                                          (String? value) {
+                                                        if (value != null) {
+                                                          setState(() {
+                                                            filtroSelecionado =
+                                                                value;
+                                                            currentPage = 1;
+                                                          });
+                                                          // setStateDropdown(
+                                                          //     () {}); // Forçar rebuild para atualizar largura
+                                                        }
+                                                      },
+                                                      buttonStyleData:
+                                                          const ButtonStyleData(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Colors
+                                                              .transparent,
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                        overlayColor:
+                                                            MaterialStatePropertyAll(
+                                                                Colors
+                                                                    .transparent),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ],
@@ -488,51 +823,22 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
     );
   }
 
-  Widget _buildFilterButton(String text, bool isActive) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 200),
-      curve: Curves.easeInOut,
-      decoration: BoxDecoration(
-        gradient: isActive
-            ? const LinearGradient(
-                colors: [Color(0xFF6366F1), Color(0xFF7C3AED)])
-            : null,
-        color: isActive ? null : Colors.white.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(32),
-        border: Border.all(
-          color: isActive ? Colors.transparent : Colors.white.withOpacity(0.18),
-          width: 2,
-        ),
-        boxShadow: isActive
-            ? [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.18),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ]
-            : [],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(32),
-          onTap: () {
-            // Implementar lógica de filtro
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-            child: Text(
-              text,
-              style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-              ),
-            ),
-          ),
-        ),
-      ),
+  Widget _buildPremiumFilterButton(String label) {
+    final isActive = filtroSelecionado == label;
+
+    // Usar mapeamento direto sempre, sem depender do índice
+    final colors = _getCoresParaClassificacao(label, 0);
+
+    return PremiumHoverButton(
+      label: label,
+      isActive: isActive,
+      colors: colors,
+      onTap: () {
+        setState(() {
+          filtroSelecionado = label;
+          currentPage = 1;
+        });
+      },
     );
   }
 
@@ -666,7 +972,9 @@ class _FluxogramasIndexScreenState extends State<FluxogramasIndexScreen> {
 
 class CourseCard extends StatelessWidget {
   final String title;
-  final String subtitle;
+  final String? subtitle; // Manter para compatibilidade
+  final String? tipoCurso;
+  final String? classificacao;
   final String credits;
   final Widget fluxograma;
   final bool isTranslucent;
@@ -676,7 +984,9 @@ class CourseCard extends StatelessWidget {
   const CourseCard({
     super.key,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
+    this.tipoCurso,
+    this.classificacao,
     required this.credits,
     required this.fluxograma,
     this.isTranslucent = false,
@@ -698,13 +1008,34 @@ class CourseCard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          subtitle,
-          style: GoogleFonts.poppins(
-            color: const Color(0xFFD1D5DB),
-            fontSize: 15,
+        // Se tipoCurso e classificacao são fornecidos separadamente
+        if (tipoCurso != null && classificacao != null) ...[
+          Text(
+            tipoCurso!,
+            style: GoogleFonts.poppins(
+              color: const Color(0xFFD1D5DB),
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
+          const SizedBox(height: 4),
+          Text(
+            classificacao!,
+            style: GoogleFonts.poppins(
+              color: const Color(0xFFD1D5DB),
+              fontSize: 15,
+            ),
+          ),
+        ]
+        // Se apenas subtitle for fornecido (modo compatibilidade)
+        else if (subtitle != null)
+          Text(
+            subtitle!,
+            style: GoogleFonts.poppins(
+              color: const Color(0xFFD1D5DB),
+              fontSize: 15,
+            ),
+          ),
         const SizedBox(height: 16),
         Expanded(child: Center(child: fluxograma)),
         const SizedBox(height: 16),
@@ -744,6 +1075,7 @@ class CourseCard extends StatelessWidget {
         ),
       ],
     );
+
     return isTranslucent
         ? ClipRRect(
             borderRadius: BorderRadius.circular(20),
@@ -866,4 +1198,127 @@ class _PaginationButton extends StatelessWidget {
       ),
     );
   }
+}
+
+// Item customizado para o dropdown, com gradiente animado no hover/selecionado
+class _SimpleDropdownItem extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+  const _SimpleDropdownItem({required this.label, required this.isSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+      child: Text(
+        label,
+        style: GoogleFonts.poppins(
+          color: Colors.white,
+          fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+          fontSize: 16,
+        ),
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
+  }
+}
+
+// Substituir o Container/StatefulBuilder da dropbar por um widget animado que mantém o gradiente enquanto o dropdown está aberto
+class _AnimatedGradientDropdownBar extends StatefulWidget {
+  final Widget child;
+  final Key? dropdownKey;
+  const _AnimatedGradientDropdownBar({required this.child, this.dropdownKey});
+
+  @override
+  State<_AnimatedGradientDropdownBar> createState() =>
+      _AnimatedGradientDropdownBarState();
+}
+
+class _AnimatedGradientDropdownBarState
+    extends State<_AnimatedGradientDropdownBar>
+    with SingleTickerProviderStateMixin {
+  bool _isHovered = false;
+  bool _isDropdownOpen = false;
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    );
+  }
+
+  void setDropdownOpen(bool open) {
+    setState(() {
+      _isDropdownOpen = open;
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final shouldAnimate = _isHovered || _isDropdownOpen;
+    if (shouldAnimate) {
+      _controller.repeat();
+    } else {
+      _controller.reset();
+      _controller.stop();
+    }
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          final t = _controller.value;
+          final gradient = LinearGradient(
+            colors: [Color(0xFF7C3AED), Color(0xFFFF3CA5)],
+            begin: Alignment(-1 + 2 * t, 0),
+            end: Alignment(1 + 2 * t, 0),
+          );
+          return Container(
+            key: widget.dropdownKey,
+            constraints: const BoxConstraints(maxWidth: 400),
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+            decoration: BoxDecoration(
+              gradient: shouldAnimate ? gradient : null,
+              color: shouldAnimate ? null : const Color(0xFF232136),
+              borderRadius: BorderRadius.circular(32),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.12),
+                  blurRadius: 8,
+                  offset: Offset(0, 2),
+                ),
+              ],
+              border: Border.all(
+                color: Colors.white.withOpacity(0.10),
+                width: 1.5,
+              ),
+            ),
+            child: NotificationListener<DropdownOpenedNotification>(
+              onNotification: (notification) {
+                setDropdownOpen(notification.opened);
+                return true;
+              },
+              child: widget.child,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// Notificação customizada para saber se o dropdown está aberto
+class DropdownOpenedNotification extends Notification {
+  final bool opened;
+  DropdownOpenedNotification(this.opened);
 }

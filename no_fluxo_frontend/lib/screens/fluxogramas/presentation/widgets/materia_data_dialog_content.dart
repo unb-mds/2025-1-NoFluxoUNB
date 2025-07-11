@@ -202,6 +202,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
               ),
             ),
             child: TabBar(
+              physics: const NeverScrollableScrollPhysics(),
               controller: _tabController,
               indicatorColor: const Color(0xFFE11D48),
               indicatorWeight: 3,
@@ -224,6 +225,7 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
             child: Container(
               padding: const EdgeInsets.all(24),
               child: TabBarView(
+                physics: const NeverScrollableScrollPhysics(),
                 controller: _tabController,
                 children: [
                   _buildInformationTab(),
@@ -435,34 +437,60 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
 
   Widget _buildPrerequisitesTab() {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildInfoCard(
-            title: "Pré-requisitos Obrigatórios",
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildPrerequisiteItem("CIC0002", "Estruturas de Dados", true),
-                _buildPrerequisiteItem("CIC0091", "Orientação a Objetos", true),
-                _buildPrerequisiteItem("MAT0026", "Cálculo 2", false),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-          _buildInfoCard(
-            title: "Correquisitos",
-            child: Text(
-              "Nenhum correquisito para esta disciplina.",
-              style: TextStyle(
-                fontSize: getProportionateFontSize(14),
-                color: Colors.white.withOpacity(0.6),
-                fontStyle: FontStyle.italic,
+      child: Builder(builder: (context) {
+        var materiasPorNivel = Map<int, List<MateriaModel>>();
+
+        for (var materia in widget.materia.preRequisitos) {
+          if (!materiasPorNivel.containsKey(materia.nivel)) {
+            materiasPorNivel[materia.nivel] = [];
+          }
+          materiasPorNivel[materia.nivel]!.add(materia);
+        }
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildInfoCard(
+              title: "Pré-requisitos Obrigatórios",
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var nivel in materiasPorNivel.keys) ...[
+                    Text(
+                      "Nível $nivel",
+                      style: TextStyle(
+                        fontSize: getProportionateFontSize(16),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    for (var prerequisito in materiasPorNivel[nivel]!
+                      ..sort(
+                          (a, b) => a.codigoMateria.compareTo(b.codigoMateria)))
+                      _buildPrerequisiteItem(
+                          prerequisito.codigoMateria,
+                          prerequisito.nomeMateria,
+                          prerequisito.status == 'completed',
+                          prerequisito.status == 'current'),
+                  ]
+                ],
               ),
             ),
-          ),
-        ],
-      ),
+            const SizedBox(height: 16),
+            _buildInfoCard(
+              title: "Correquisitos",
+              child: Text(
+                "Nenhum correquisito para esta disciplina.",
+                style: TextStyle(
+                  fontSize: getProportionateFontSize(14),
+                  color: Colors.white.withOpacity(0.6),
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+          ],
+        );
+      }),
     );
   }
 
@@ -567,15 +595,23 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
     );
   }
 
-  Widget _buildPrerequisiteItem(String codigo, String nome, bool concluido) {
+  Widget _buildPrerequisiteItem(
+      String codigo, String nome, bool concluido, bool isCurrent) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           Icon(
-            concluido ? Icons.check_circle : Icons.cancel,
-            color:
-                concluido ? const Color(0xFF22C55E) : const Color(0xFFEF4444),
+            isCurrent
+                ? Icons.check_circle
+                : concluido
+                    ? Icons.check_circle
+                    : Icons.cancel,
+            color: isCurrent
+                ? const Color(0xFF22C55E)
+                : concluido
+                    ? const Color(0xFF22C55E)
+                    : const Color(0xFFEF4444),
             size: 20,
           ),
           const SizedBox(width: 12),

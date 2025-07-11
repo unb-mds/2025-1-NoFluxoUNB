@@ -11,21 +11,17 @@ import 'prerequisite_connections_widget.dart';
 class FluxogramContainer extends StatefulWidget {
   final CursoModel? courseData;
   final double zoomLevel;
-  final bool showPrereqChains;
   final bool showConnections;
   final bool isAnonymous;
   final Function(String, String) onShowPrerequisiteChain;
-  final Function(MateriaModel) onBuildPrerequisiteIndicator;
   final Function(BuildContext, MateriaModel) onShowMateriaDialog;
 
   const FluxogramContainer({
     super.key,
     required this.courseData,
     required this.zoomLevel,
-    required this.showPrereqChains,
     required this.showConnections,
     required this.onShowPrerequisiteChain,
-    required this.onBuildPrerequisiteIndicator,
     required this.onShowMateriaDialog,
     this.isAnonymous = false,
   });
@@ -84,27 +80,30 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
       );
     }
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 32),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
-            decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.4),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Transform.scale(
-              scale: widget.zoomLevel,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (int semester = 1;
-                      semester <= (widget.courseData?.semestres ?? 0);
-                      semester++)
-                    _buildSemesterColumn(semester),
-                ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 32),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Transform.scale(
+                scale: widget.zoomLevel,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (int semester = 1;
+                        semester <= (widget.courseData?.semestres ?? 0);
+                        semester++)
+                      _buildSemesterColumn(semester),
+                  ],
+                ),
               ),
             ),
           ),
@@ -222,7 +221,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                 onTap: () {
                   widget.onShowMateriaDialog(context, subject);
                 },
-                onLongPress: widget.showPrereqChains && !widget.isAnonymous
+                onLongPress: !widget.isAnonymous
                     ? () {
                         widget.onShowPrerequisiteChain(
                             subject.codigoMateria, subject.nomeMateria);
@@ -237,8 +236,6 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                         widget.onShowMateriaDialog(context, subject);
                       },
                     ),
-                    if (widget.showPrereqChains && !widget.isAnonymous)
-                      widget.onBuildPrerequisiteIndicator(subject) as Widget,
                   ],
                 ),
               ),
