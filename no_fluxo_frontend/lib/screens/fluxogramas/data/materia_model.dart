@@ -8,7 +8,6 @@ class MateriaModel {
   String? status;
   String? mencao;
   String? professor;
-  MateriaModel? materiaEquivalenteCursada;
   List<MateriaModel> preRequisitos = [];
 
   MateriaModel({

@@ -227,9 +227,6 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
               materia.mencao = materiasPorCodigo[materia.codigoMateria]?.mencao;
               materia.professor =
                   materiasPorCodigo[materia.codigoMateria]?.professor;
-              materia.materiaEquivalenteCursada =
-                  materiasPorCodigo[materia.codigoMateria]
-                      ?.materiaEquivalenteCursada;
             }
           }
 

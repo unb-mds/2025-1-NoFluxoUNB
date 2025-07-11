@@ -160,28 +160,6 @@ class CourseCardWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Equivalent subject icon with tooltip
-                if (subject.materiaEquivalenteCursada != null)
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Tooltip(
-                      message:
-                          'Equivalente: ${subject.materiaEquivalenteCursada?.codigoMateria} - ${subject.materiaEquivalenteCursada?.nomeMateria}${subject.materiaEquivalenteCursada?.mencao != null ? '\nMenção: ${subject.materiaEquivalenteCursada?.mencao}' : ''}${subject.materiaEquivalenteCursada?.professor != null ? '\nProfessor: ${subject.materiaEquivalenteCursada?.professor}' : ''}',
-                      child: Container(
-                        padding: const EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Icon(
-                          Icons.compare_arrows,
-                          color: AppColors.white,
-                          size: 16,
-                        ),
-                      ),
-                    ),
-                  ),
               ],
             ),
           ),

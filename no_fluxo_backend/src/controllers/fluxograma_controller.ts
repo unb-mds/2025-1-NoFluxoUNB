@@ -32,8 +32,17 @@ interface MateriasBanco {
 
 interface EquivalenciaData {
     id_equivalencia: number;
-    id_materia: number;
+    codigo_materia_origem: string;
+    nome_materia_origem: string;
     expressao: string;
+    codigos_equivalentes: string[];
+    nomes_equivalentes: string[];
+    id_curso?: number;
+    nome_curso?: string;
+    matriz_curricular?: string;
+    curriculo?: string;
+    data_vigencia?: string;
+    fim_vigencia?: string;
 }
 
 // Helper function to extract subject codes from equivalency expressions
@@ -174,7 +183,7 @@ export const FluxogramaController: EndpointController = {
                 // get equivalencias
                 const { data: equivalencias, error: errorEquivalencias } = await SupabaseWrapper.get()
                     .from("vw_equivalencias_com_materias")
-                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao,id_curso,nome_curso,matriz_curricular,curriculo,data_vigencia,fim_vigencia")
+                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,expressao,codigos_equivalentes,nomes_equivalentes,id_curso,nome_curso,matriz_curricular,curriculo,data_vigencia,fim_vigencia")
                     .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`)
                     .or(`matriz_curricular.is.null,matriz_curricular.eq.${curso.matriz_curricular}`);
 
@@ -433,8 +442,8 @@ export const FluxogramaController: EndpointController = {
 
                 // PRE-LOAD all equivalencies to avoid database queries in loops
                 const { data: allEquivalencies } = await SupabaseWrapper.get()
-                    .from("equivalencias")
-                    .select("id_equivalencia,id_materia,expressao")
+                    .from("vw_equivalencias_com_materias")
+                    .select("id_equivalencia,codigo_materia_origem,nome_materia_origem,expressao,codigos_equivalentes,nomes_equivalentes")
                     .or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
 
                 logger.info(`Loaded ${allEquivalencies?.length || 0} equivalencies`);
@@ -532,7 +541,7 @@ export const FluxogramaController: EndpointController = {
                                 logger.debug(`Found ${equivalenciasMatch.length} potential equivalencies for "${disciplina.nome}"`);
                                 // Find the target subject from the equivalency
                                 const targetMateria = materiasBancoList.find((m: any) =>
-                                    m.id_materia === equivalenciasMatch[0].id_materia
+                                    m.materias.codigo_materia === equivalenciasMatch[0].codigo_materia_origem
                                 );
 
                                 if (targetMateria) {
@@ -653,7 +662,7 @@ export const FluxogramaController: EndpointController = {
                 for (const materiaObrigatoria of materiasObrigatoriasNaoEncontradas) {
                     equivalenciesProcessed++;
                     const equivalenciasParaMateria = allEquivalencies?.filter(eq =>
-                        eq.id_materia === materiaObrigatoria.id_materia
+                        eq.codigo_materia_origem === materiaObrigatoria.codigo
                     ) || [];
 
                     logger.debug(`Processing equivalencies for mandatory subject "${materiaObrigatoria.nome}" (${materiaObrigatoria.codigo}) - Found ${equivalenciasParaMateria.length} equivalencies`);
@@ -707,7 +716,7 @@ export const FluxogramaController: EndpointController = {
                         for (const eq of allEquivalencies) {
                             if (!eq.expressao || !eq.expressao.toUpperCase().includes(disciplinaOptativa.codigo)) continue;
 
-                            const obrigatoria = materiasPendentesFinais.find((m: any) => m.id_materia === eq.id_materia);
+                            const obrigatoria = materiasPendentesFinais.find((m: any) => m.codigo === eq.codigo_materia_origem);
                             if (!obrigatoria) continue;
 
                             const codigosEquivalentes = extractSubjectCodes(eq.expressao);

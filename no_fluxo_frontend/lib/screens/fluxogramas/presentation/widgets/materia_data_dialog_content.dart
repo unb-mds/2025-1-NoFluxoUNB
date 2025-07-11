@@ -583,23 +583,37 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                 } else {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: equivalencias.map((e) {
-                      return Row(
-                        children: [
-                          Icon(Icons.compare_arrows,
-                              color: Colors.amber, size: 20),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              "${e.codigoMateriaEquivalente} - ${e.nomeMateriaEquivalente}",
-                              style: TextStyle(
-                                fontSize: getProportionateFontSize(14),
-                                color: Colors.white.withOpacity(0.8),
+                    children: equivalencias.expand((e) {
+                      // Usar os arrays de códigos e nomes equivalentes
+                      List<Widget> equivalentesWidgets = [];
+
+                      for (int i = 0; i < e.codigosEquivalentes.length; i++) {
+                        final codigo = e.codigosEquivalentes[i];
+                        final nome = i < e.nomesEquivalentes.length
+                            ? e.nomesEquivalentes[i]
+                            : '';
+
+                        equivalentesWidgets.add(
+                          Row(
+                            children: [
+                              Icon(Icons.compare_arrows,
+                                  color: Colors.amber, size: 20),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  "${codigo}${nome.isNotEmpty ? ' - $nome' : ''}",
+                                  style: TextStyle(
+                                    fontSize: getProportionateFontSize(14),
+                                    color: Colors.white.withOpacity(0.8),
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      );
+                        );
+                      }
+
+                      return equivalentesWidgets;
                     }).toList(),
                   );
                 }
