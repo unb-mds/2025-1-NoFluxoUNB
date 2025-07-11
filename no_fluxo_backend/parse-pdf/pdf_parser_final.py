@@ -92,12 +92,6 @@ padrao_disciplina_cump = re.compile(
     re.MULTILINE | re.IGNORECASE
 )
 
-# --- Padrão para disciplinas CUMP formato alternativo (formato: -- nome -- CUMP codigo carga -- -) ---
-padrao_disciplina_cump_alt = re.compile(
-    r'--\s+([A-ZÀ-Ÿ\sÇÃÕÁÉÍÓÚÂÊÎÔÛ0-9\-]+?)\s+--\s+CUMP\s+([A-Z]{2,}\d{3,})\s+(\d+)\s+--\s+-\s*([*&#e@§%]?)',
-    re.MULTILINE | re.IGNORECASE
-)
-
 # --- Padrão para equivalências ---
 padrao_equivalencias = re.compile(
     r'Cumpriu\s+([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9\-]+?)\s*\((\d+)h\)\s*através\s*de\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9\-]+?)\s*\((\d+)h\)',
@@ -382,16 +376,6 @@ def extrair_dados_academicos(texto_total):
     disciplinas_ignoradas = 0
     
     print("[DISCIPLINAS] Processando disciplinas...")
-    
-    # Debug: mostrar linhas que contêm "INTRODUCAO A ALGEBRA LINEAR"
-    algebra_linhas = [linha for linha in linhas if "INTRODUCAO A ALGEBRA LINEAR" in linha.upper()]
-    if algebra_linhas:
-        print(f"[DEBUG ALGEBRA] Encontradas {len(algebra_linhas)} linhas contendo 'INTRODUCAO A ALGEBRA LINEAR':")
-        for i, linha in enumerate(algebra_linhas):
-            print(f"  {i+1}. {repr(linha)}")
-    else:
-        print("[DEBUG ALGEBRA] Nenhuma linha contendo 'INTRODUCAO A ALGEBRA LINEAR' encontrada")
-    
     for i, linha in enumerate(linhas):
         # Primeiro, tenta o formato SIGAA (linha única)
         match_sigaa = padrao_disciplina_sigaa.search(linha)
@@ -485,13 +469,11 @@ def extrair_dados_academicos(texto_total):
                 
                 print(f"[DEBUG] Linha {i}: {repr(linha[:80])}")
                 print(f"[DEBUG] Linha {i+1}: {repr(linha_seguinte[:80])}")
-                print(f"[DEBUG] Grupos linha 1: {match_alt_linha1.groups()}")
                 
                 # Buscar linha 2 (professor, dados) na próxima linha
                 match_alt_linha2 = padrao_disciplina_alt_linha2.search(linha_seguinte)
                 
                 if match_alt_linha2:
-                    print(f"[DEBUG] Grupos linha 2: {match_alt_linha2.groups()}")
                     # Extrair dados da linha 1
                     ano_periodo, nome = match_alt_linha1.groups()
                     
@@ -551,37 +533,6 @@ def extrair_dados_academicos(texto_total):
         }
         disciplinas.append(disciplina_data)
         print(f"  -> CUMP: {codigo} - {nome.strip()[:30]}...")
-    
-    # Extrair disciplinas CUMP formato alternativo
-    print("[CUMP] Procurando disciplinas CUMP formato alternativo (-- nome -- CUMP codigo carga -- -)...")
-    disciplinas_cump_alt = padrao_disciplina_cump_alt.findall(texto_total)
-    print(f"[CUMP] Encontradas {len(disciplinas_cump_alt)} disciplinas CUMP (formato alternativo)")
-    
-    # Debug: mostrar algumas linhas que contêm "CUMP" para verificar o padrão
-    linhas_cump_debug = [linha for linha in texto_total.splitlines() if "CUMP" in linha.upper()]
-    if linhas_cump_debug:
-        print(f"[DEBUG CUMP] Encontradas {len(linhas_cump_debug)} linhas contendo 'CUMP':")
-        for i, linha in enumerate(linhas_cump_debug[:3]):  # Mostrar apenas as primeiras 3
-            print(f"  {i+1}. {repr(linha)}")
-    else:
-        print("[DEBUG CUMP] Nenhuma linha contendo 'CUMP' encontrada")
-    
-    for disc in disciplinas_cump_alt:
-        nome, codigo, carga_h, prefixo = disc
-        
-        disciplina_data = {
-            "tipo_dado": "Disciplina CUMP",
-            "nome": limpar_nome_disciplina(nome.strip()),
-            "status": 'CUMP',
-            "mencao": '-',
-            "creditos": int(int(carga_h) / 15) if carga_h.isdigit() else 0,
-            "codigo": codigo,
-            "carga_horaria": int(carga_h) if carga_h.isdigit() else 0,
-            "ano_periodo": "N/A",  # Não disponível no formato alternativo
-            "prefixo": prefixo
-        }
-        disciplinas.append(disciplina_data)
-        print(f"  -> CUMP (formato alternativo): {codigo} - {nome.strip()[:30]}...")
     
     # Extrair disciplinas pendentes (formato novo)
     # Primeiro, tenta o padrão normal (status no final ou sem status)
