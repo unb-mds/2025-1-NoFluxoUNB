@@ -214,9 +214,11 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
       DadosFluxogramaUser dadosFluxograma = DadosFluxogramaUser(
           nomeCurso: "",
           ira: 0,
+          anoAtual: "",
           dadosFluxograma: [],
           matricula: "",
           semestreAtual: 0,
+          horasIntegralizadas: 0,
           matrizCurricular: "");
 
       dadosFluxograma.nomeCurso = _dadosValidacao!['curso_extraido'];
@@ -229,6 +231,11 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
       dadosFluxograma.semestreAtual = _dadosExtraidos!["numero_semestre"];
 
+      dadosFluxograma.anoAtual = _dadosExtraidos!["semestre_atual"];
+
+      dadosFluxograma.horasIntegralizadas =
+          _dadosValidacao!["horas_integralizadas"];
+
       dadosFluxograma.dadosFluxograma = List.generate(20, (index) => []);
 
       for (var materiaCasada in _disciplinasCasadas!) {
@@ -236,9 +243,6 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
         nivel ??= 0;
 
-        if (materiaCasada["nome"] == "INTRODUÇÃO A ALGEBRA LINEAR") {
-          print(materiaCasada);
-        }
         try {
           dadosFluxograma.dadosFluxograma[nivel]
               .add(DadosMateria.fromJson(materiaCasada));
@@ -1256,7 +1260,9 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
     required Color cor,
     required bool isFound,
   }) {
-    disciplinas.sort((a, b) => a['nivel'].compareTo(b['nivel']));
+    disciplinas.sort((a, b) => a['nivel'] != null
+        ? a['nivel'].compareTo(b['nivel'])
+        : a['nome'].compareTo(b['nome']));
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -1388,6 +1394,54 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
                               fontSize: 12,
                               fontStyle: FontStyle.italic,
                             ),
+                          ),
+                        ],
+                        if (disciplina['ano_periodo'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Ano/Período: ${disciplina['ano_periodo']}',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12),
+                          ),
+                        ],
+                        if (disciplina['turma'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Turma: ${disciplina['turma']}',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12),
+                          ),
+                        ],
+                        if (disciplina['frequencia'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Frequência: ${disciplina['frequencia']}',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12),
+                          ),
+                        ],
+                        if (disciplina['tipo_dado'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Tipo de dado: ${disciplina['tipo_dado']}',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12),
+                          ),
+                        ],
+                        if (disciplina['carga_horaria'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Carga horária: ${disciplina['carga_horaria']}',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12),
+                          ),
+                        ],
+                        if (disciplina['status'] != null) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            'Status: ${disciplina['status']}',
+                            style:
+                                TextStyle(color: Colors.white70, fontSize: 12),
                           ),
                         ],
                       ],

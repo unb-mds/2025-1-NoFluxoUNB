@@ -79,7 +79,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   }
 
   // Função para obter dimensões responsivas
-  double _getResponsiveFontSize(BuildContext context, {double baseSize = 16.0}) {
+  double _getResponsiveFontSize(BuildContext context,
+      {double baseSize = 16.0}) {
     final screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth < 600) return baseSize * 0.8; // Mobile
     if (screenWidth < 900) return baseSize * 0.9; // Tablet
@@ -187,7 +188,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                             .toList());
                     if (equivalenciaResult.isEquivalente) {
                       for (var v in equivalenciaResult.equivalentes) {
-                        // equiv.equivalenteA = v; // Remover todas as linhas que usam equivalenteA
+                        // equiv.equivalenteA = v;
                       }
                     }
                     return equivalenciaResult.isEquivalente;
@@ -287,12 +288,12 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         },
       );
 
-      // Calcular zoom automático baseado no número de semestres
-      double autoZoomLevel = _calculateOptimalZoom();
+      // Zoom out all the way for screenshot
+      double minZoomLevel = 0.1; // Minimum zoom to capture entire fluxogram
 
-      // Aplicar zoom automático temporariamente
+      // Aplicar zoom mínimo temporariamente
       setState(() {
-        zoomLevel = autoZoomLevel;
+        zoomLevel = minZoomLevel;
       });
 
       // Aguardar um pouco para o layout se ajustar
@@ -481,10 +482,9 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                           child: Center(
                             child: Container(
                               constraints: BoxConstraints(
-                                maxWidth: isMobile ? double.infinity : 1280
-                              ),
+                                  maxWidth: isMobile ? double.infinity : 1280),
                               padding: EdgeInsets.symmetric(
-                                  horizontal: responsivePadding, 
+                                  horizontal: responsivePadding,
                                   vertical: isMobile ? 24 : 48),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -539,19 +539,25 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                           icon: Icon(
                                             Icons.refresh,
                                             color: Colors.white,
-                                            size: _getResponsiveFontSize(context, baseSize: 22),
+                                            size: _getResponsiveFontSize(
+                                                context,
+                                                baseSize: 22),
                                           ),
                                           label: Text(
-                                            isMobile ? 'REENVIAR' : 'ENVIAR FLUXOGRAMA NOVAMENTE',
+                                            isMobile
+                                                ? 'REENVIAR'
+                                                : 'ENVIAR FLUXOGRAMA NOVAMENTE',
                                             style: GoogleFonts.poppins(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold,
-                                              fontSize: _getResponsiveFontSize(context, baseSize: 16),
+                                              fontSize: _getResponsiveFontSize(
+                                                  context,
+                                                  baseSize: 16),
                                             ),
                                           ),
                                           style: ElevatedButton.styleFrom(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: isMobile ? 16 : 28, 
+                                                horizontal: isMobile ? 16 : 28,
                                                 vertical: isMobile ? 10 : 14),
                                             backgroundColor:
                                                 const Color(0xFFFF3CA5),
