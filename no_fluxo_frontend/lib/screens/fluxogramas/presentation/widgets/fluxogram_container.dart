@@ -17,6 +17,9 @@ class FluxogramContainer extends StatefulWidget {
   final bool isAnonymous;
   final Function(String, String) onShowPrerequisiteChain;
   final Function(BuildContext, MateriaModel) onShowMateriaDialog;
+  final GlobalKey? containerKey;
+  final GlobalKey? contentKey;
+  final Function(ScrollController, ScrollController)? onScrollControllersReady;
 
   const FluxogramContainer({
     super.key,
@@ -26,6 +29,9 @@ class FluxogramContainer extends StatefulWidget {
     required this.onShowPrerequisiteChain,
     required this.onShowMateriaDialog,
     this.isAnonymous = false,
+    this.containerKey,
+    this.contentKey,
+    this.onScrollControllersReady,
   });
 
   @override
@@ -39,6 +45,40 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
   final ScrollController _verticalScrollController = ScrollController();
   final ScrollController _connectionsVerticalScrollController =
       ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _updateScrollControllersInParent();
+  }
+
+  @override
+  void didUpdateWidget(FluxogramContainer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Update scroll controllers if showConnections changed
+    if (oldWidget.showConnections != widget.showConnections) {
+      _updateScrollControllersInParent();
+    }
+  }
+
+  void _updateScrollControllersInParent() {
+    // Pass scroll controllers to parent if callback is provided
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.onScrollControllersReady != null) {
+        if (widget.showConnections) {
+          widget.onScrollControllersReady!(
+            _connectionsScrollController,
+            _connectionsVerticalScrollController,
+          );
+        } else {
+          widget.onScrollControllersReady!(
+            _scrollController,
+            _verticalScrollController,
+          );
+        }
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -84,6 +124,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
               physics: const BouncingScrollPhysics(),
               child: Center(
                 child: Container(
+                  key: widget.containerKey,
                   padding:
                       const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
                   decoration: BoxDecoration(
@@ -93,6 +134,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                   child: Transform.scale(
                     scale: widget.zoomLevel,
                     child: PrerequisiteConnectionsWidget(
+                      key: widget.contentKey,
                       courseData: widget.courseData,
                       zoomLevel: widget.zoomLevel,
                       selectedSubjectCode: selectedSubjectCode,
@@ -135,6 +177,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
               physics: const BouncingScrollPhysics(),
               child: Center(
                 child: Container(
+                  key: widget.containerKey,
                   padding:
                       const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
                   decoration: BoxDecoration(
@@ -144,6 +187,7 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
                   child: Transform.scale(
                     scale: widget.zoomLevel,
                     child: Row(
+                      key: widget.contentKey,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         for (int semester = 1;

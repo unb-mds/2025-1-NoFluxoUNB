@@ -72,6 +72,12 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   String? errorMessage;
 
   final ScreenshotController screenshotController = ScreenshotController();
+  final GlobalKey _fluxogramContainerKey = GlobalKey();
+  final GlobalKey _fluxogramContentKey = GlobalKey();
+
+  // Scroll controllers for centering before screenshot
+  ScrollController? _currentHorizontalScrollController;
+  ScrollController? _currentVerticalScrollController;
 
   @override
   void initState() {
@@ -288,12 +294,18 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         },
       );
 
-      // Zoom out all the way for screenshot
-      double minZoomLevel = 0.1; // Minimum zoom to capture entire fluxogram
+      // Centralizar scroll antes de calcular zoom
+      await _centerFluxogramScroll();
 
-      // Aplicar zoom mínimo temporariamente
+      // Aguardar scroll se posicionar
+      await Future.delayed(const Duration(milliseconds: 400));
+
+      // Calcular zoom ótimo baseado nas dimensões reais
+      double optimalZoomLevel = _calculateOptimalScreenshotZoom();
+
+      // Aplicar zoom ótimo temporariamente
       setState(() {
-        zoomLevel = minZoomLevel;
+        zoomLevel = optimalZoomLevel;
       });
 
       // Aguardar um pouco para o layout se ajustar
@@ -444,6 +456,91 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
     // Garantir que o zoom não fique muito baixo
     return baseZoom.clamp(0.35, 0.9);
+  }
+
+  /// Calcula o zoom ótimo para screenshot baseado nas dimensões reais do container e conteúdo
+  double _calculateOptimalScreenshotZoom() {
+    try {
+      // Obter as dimensões do container
+      final containerRenderBox = _fluxogramContainerKey.currentContext
+          ?.findRenderObject() as RenderBox?;
+      if (containerRenderBox == null) return 0.5;
+
+      // Obter as dimensões do conteúdo (sem zoom aplicado)
+      final contentRenderBox =
+          _fluxogramContentKey.currentContext?.findRenderObject() as RenderBox?;
+      if (contentRenderBox == null) return 0.5;
+
+      final containerSize = containerRenderBox.size;
+      final contentSize = contentRenderBox.size;
+
+      // Calcular o padding do container (32px cada lado)
+      const containerPadding = 64.0; // 32px horizontal + 32px horizontal
+      const containerPaddingVertical = 64.0; // 32px vertical + 32px vertical
+
+      // Dimensões úteis do container (sem padding)
+      final availableWidth = containerSize.width - containerPadding;
+      final availableHeight = containerSize.height - containerPaddingVertical;
+
+      // Calcular o zoom baseado na razão de aspecto
+      final scaleX = availableWidth / contentSize.width;
+      final scaleY = availableHeight / contentSize.height;
+
+      // Usar o menor dos dois para garantir que não corte
+      double optimalZoom = scaleX < scaleY ? scaleX : scaleY;
+
+      // Adicionar uma pequena margem de segurança (95% do zoom ótimo)
+      optimalZoom *= 0.45;
+
+      // Garantir limites mínimo e máximo
+      return optimalZoom.clamp(0.1, 2.0);
+    } catch (e) {
+      log.warning('Erro ao calcular zoom ótimo: $e');
+      // Fallback para zoom baseado em semestres
+      return _calculateOptimalZoom();
+    }
+  }
+
+  /// Centers the fluxogram scroll position for optimal screenshot framing
+  Future<void> _centerFluxogramScroll() async {
+    try {
+      if (_currentHorizontalScrollController != null &&
+          _currentHorizontalScrollController!.hasClients) {
+        // Calculate center position for horizontal scroll
+        final maxScrollExtent =
+            _currentHorizontalScrollController!.position.maxScrollExtent;
+        final centerPosition = maxScrollExtent / 2;
+
+        await _currentHorizontalScrollController!.animateTo(
+          centerPosition,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+
+      if (_currentVerticalScrollController != null &&
+          _currentVerticalScrollController!.hasClients) {
+        // Calculate center position for vertical scroll
+        final maxScrollExtent =
+            _currentVerticalScrollController!.position.maxScrollExtent;
+        final centerPosition = maxScrollExtent / 2;
+
+        await _currentVerticalScrollController!.animateTo(
+          centerPosition,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    } catch (e) {
+      log.warning('Erro ao centralizar scroll: $e');
+    }
+  }
+
+  /// Callback to receive scroll controllers from FluxogramContainer
+  void _onScrollControllersReady(
+      ScrollController horizontal, ScrollController vertical) {
+    _currentHorizontalScrollController = horizontal;
+    _currentVerticalScrollController = vertical;
   }
 
   @override
@@ -609,6 +706,10 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                         courseData: currentCourseData,
                                         isAnonymous: isAnonymous,
                                         showConnections: showConnections,
+                                        containerKey: _fluxogramContainerKey,
+                                        contentKey: _fluxogramContentKey,
+                                        onScrollControllersReady:
+                                            _onScrollControllersReady,
                                         onShowPrerequisiteChain:
                                             _showPrerequisiteChainDialog,
                                         onShowMateriaDialog:
