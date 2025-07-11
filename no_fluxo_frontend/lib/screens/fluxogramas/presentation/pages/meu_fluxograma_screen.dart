@@ -1,7 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,8 +22,9 @@ import '../widgets/progress_summary_section.dart';
 import '../widgets/progress_tools_section.dart';
 import '../widgets/fluxogram_container.dart';
 import '../widgets/prerequisite_chain_dialog.dart';
-import '../widgets/prerequisite_indicator_widget.dart';
 import '../widgets/tool_modals.dart';
+import '../widgets/optativas_modal.dart';
+import '../widgets/optativas_adicionadas_section.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
@@ -34,6 +33,17 @@ import 'package:universal_html/html.dart' as html;
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/materia_data_dialog_content.dart';
+
+// Modelo para optativas adicionadas
+class OptativaAdicionada {
+  final MateriaModel materia;
+  final int semestre;
+
+  OptativaAdicionada({
+    required this.materia,
+    required this.semestre,
+  });
+}
 
 var log = Environment.getLogger("MeuFluxogramaScreen");
 
@@ -55,6 +65,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   Map<String, dynamic>? prerequisiteVisualizationData;
   bool isAnonymous = false;
   bool isInteractingWithFluxogram = false;
+  bool showOptativasModal = false;
+  List<OptativaAdicionada> optativasAdicionadas = [];
 
   bool loading = false;
   String? errorMessage;
@@ -393,8 +405,11 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                     onSaveFluxograma: saveFluxogramAsImage,
-                                    onAddMateria: () {},
-                                    onAddOptativa: () {},
+                                    onAddOptativa: () {
+                                      setState(() {
+                                        showOptativasModal = true;
+                                      });
+                                    },
                                   ),
                                   if (!isAnonymous) ...[
                                     Row(
@@ -507,6 +522,22 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                     isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                   ),
+                                  OptativasAdicionadasSection(
+                                    optativasAdicionadas: optativasAdicionadas
+                                        .map((opt) => opt.materia)
+                                        .toList(),
+                                    onOptativaClicked: (materia) {
+                                      // Encontrar a optativa adicionada correspondente
+                                      final optativaAdicionada =
+                                          optativasAdicionadas.firstWhere(
+                                        (opt) =>
+                                            opt.materia.codigoMateria ==
+                                            materia.codigoMateria,
+                                      );
+                                      _showOptativaDataDialog(
+                                          context, optativaAdicionada);
+                                    },
+                                  ),
                                   ProgressToolsSection(
                                     isAnonymous: isAnonymous,
                                     onShowToolModal: (title) =>
@@ -521,6 +552,57 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                     ],
                   ),
                 ),
+                // Modal de optativas
+                if (showOptativasModal)
+                  OptativasModal(
+                    optativasDisponiveis: currentCourseData?.materias
+                            .where((materia) => materia.nivel == 0)
+                            .toList() ??
+                        [],
+                    onOptativaSelecionada: (optativa, semestre) {
+                      // Verificar se a optativa já foi adicionada
+                      bool jaAdicionada = optativasAdicionadas.any((opt) =>
+                          opt.materia.codigoMateria == optativa.codigoMateria);
+
+                      if (jaAdicionada) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'A optativa ${optativa.codigoMateria} já foi adicionada!',
+                            ),
+                            backgroundColor: Colors.orange,
+                          ),
+                        );
+                        setState(() {
+                          showOptativasModal = false;
+                        });
+                        return;
+                      }
+
+                      setState(() {
+                        optativasAdicionadas.add(OptativaAdicionada(
+                          materia: optativa,
+                          semestre: semestre,
+                        ));
+                        showOptativasModal = false;
+                      });
+
+                      // Mostrar mensagem de sucesso
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Optativa ${optativa.codigoMateria} - ${optativa.nomeMateria} adicionada ao ${semestre}º semestre!',
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    },
+                    onCancelOptativa: () {
+                      setState(() {
+                        showOptativasModal = false;
+                      });
+                    },
+                  ),
               ],
             );
           }),
@@ -555,6 +637,125 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     Utils.showCustomizedDialog(
       context: context,
       child: MateriaDataDialogContent(materia: materia),
+    );
+  }
+
+  /// Mostrar dialog de optativa quando clicada
+  void _showOptativaDataDialog(
+      BuildContext context, OptativaAdicionada optativa) {
+    Utils.showCustomizedDialog(
+      context: context,
+      child: Container(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              optativa.materia.codigoMateria,
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              optativa.materia.nomeMateria,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Créditos: ${optativa.materia.creditos}',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Semestre: ${optativa.semestre}º',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Ementa:',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              optativa.materia.ementa,
+              style: GoogleFonts.poppins(
+                fontSize: 12,
+                color: Colors.white.withOpacity(0.8),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    _removerOptativa(optativa);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red.shade600,
+                  ),
+                  child: Text(
+                    'Remover',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey.shade700,
+                  ),
+                  child: Text(
+                    'Fechar',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Remover optativa da lista
+  void _removerOptativa(OptativaAdicionada optativa) {
+    setState(() {
+      optativasAdicionadas.removeWhere(
+          (opt) => opt.materia.codigoMateria == optativa.materia.codigoMateria);
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Optativa ${optativa.materia.codigoMateria} removida com sucesso!',
+        ),
+        backgroundColor: Colors.orange,
+      ),
     );
   }
 }

@@ -36,54 +36,31 @@ class FluxogramaLegendControls extends StatelessWidget {
               spacing: 16,
               runSpacing: 8,
               children: [
-                _buildLegendItem(
-                  const Color(0xFF4ADE80),
-                  const Color(0xFF22C55E),
-                  'Concluídas',
-                ),
-                // Only show current/selected status for logged-in users
-                if (!isAnonymous || !SharedPreferencesHelper.isAnonimo) ...[
+                // Only show full legend for logged-in users
+                if (!isAnonymous && !SharedPreferencesHelper.isAnonimo) ...[
+                  _buildLegendItem(
+                    const Color(0xFF4ADE80),
+                    const Color(0xFF22C55E),
+                    'Concluídas',
+                  ),
                   _buildLegendItem(
                     const Color(0xFFA78BFA),
                     const Color(0xFF8B5CF6),
                     'Em Curso',
                   ),
-                ],
-                if (!isAnonymous) ...[
                   _buildLegendItem(
                     const Color(0xFFFB7185),
                     const Color(0xFFE11D48),
                     'Selecionadas',
                   ),
+                  _buildLegendItem(
+                    Colors.white.withOpacity(0.1),
+                    Colors.white.withOpacity(0.1),
+                    'Futuras',
+                    isDashed: true,
+                  ),
                 ],
-                _buildLegendItem(
-                  Colors.white.withOpacity(0.1),
-                  Colors.white.withOpacity(0.1),
-                  isAnonymous ? 'Disponíveis' : 'Futuras',
-                  isDashed: true,
-                ),
-                // Only show prerequisite chains for logged-in users
-                /* if (!isAnonymous)
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Checkbox(
-                        value: showPrereqChains,
-                        onChanged: (value) =>
-                            onShowPrereqChainsChanged(value ?? false),
-                        fillColor: MaterialStateProperty.all(
-                            Colors.white.withOpacity(0.2)),
-                        checkColor: Colors.white,
-                      ),
-                      Text(
-                        'Cadeias de Pré-requisito',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ), */
+                // Always show visual connections
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
