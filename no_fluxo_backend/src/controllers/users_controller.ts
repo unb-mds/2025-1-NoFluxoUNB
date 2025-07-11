@@ -18,7 +18,7 @@ export const UsersController: EndpointController = {
                 return res.status(400).json({ error: "Email e nome completo são obrigatórios" });
             }
 
-            var { data: userExistsResult, error: userExistsError } = await SupabaseWrapper.get().from("users").select("*").eq("email", email);
+            const { data: userExistsResult, error: userExistsError } = await SupabaseWrapper.get().from("users").select("*").eq("email", email);
 
             if (userExistsError) {
                 logger.error(`Erro ao buscar usuário: ${JSON.stringify(userExistsError)}`);
@@ -30,7 +30,7 @@ export const UsersController: EndpointController = {
                 return res.status(400).json({ error: "Usuário já cadastrado" });
             }
 
-            var { data: userCreatedResult, error: userCreatedError } = await SupabaseWrapper.get().from("users").insert({
+            const { data: userCreatedResult, error: userCreatedError } = await SupabaseWrapper.get().from("users").insert({
                 email,
                 nome_completo
             }).select("*").single();
@@ -54,7 +54,7 @@ export const UsersController: EndpointController = {
                 return res.status(400).json({ error: "Email é obrigatório" });
             }
 
-            var { data: userResult, error: userError } = await SupabaseWrapper.get().from("users").select("*,dados_users(*)").eq("email", email);
+            const { data: userResult, error: userError } = await SupabaseWrapper.get().from("users").select("*,dados_users(*)").eq("email", email);
 
             if (userError) {
                 logger.error(`Erro ao buscar usuário: ${JSON.stringify(userError)}`);
@@ -78,7 +78,7 @@ export const UsersController: EndpointController = {
                 return res.status(400).json({ error: "Email e nome completo são obrigatórios" });
             }
 
-            var { data: userExistsResult, error: userExistsError } = await SupabaseWrapper.get().from("users").select("*").eq("email", email);
+            const { data: userExistsResult, error: userExistsError } = await SupabaseWrapper.get().from("users").select("*").eq("email", email);
 
             if (userExistsError) {
                 logger.error(`Erro ao buscar usuário: ${JSON.stringify(userExistsError)}`);
@@ -90,7 +90,7 @@ export const UsersController: EndpointController = {
                 return res.status(400).json({ error: "Usuário já cadastrado" });
             }
 
-            var { data: userCreatedResult, error: userCreatedError } = await SupabaseWrapper.get().from("users").insert({
+            const { data: userCreatedResult, error: userCreatedError } = await SupabaseWrapper.get().from("users").insert({
                 email,
                 nome_completo
             }).select("*").single();

@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  no-fluxo-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: no-fluxo-backend
+    # No ports exposed - nginx handles external traffic
+    environment:
+      - NODE_ENV=production
+      - PORT=3325
+      - PYTHONUNBUFFERED=1  # Ensure Python output is not buffered
+      - PYTHONIOENCODING=utf-8  # Set proper encoding for Python output
+      - GIT_DISCOVERY_ACROSS_FILESYSTEM=1  # Allow git to work across filesystem boundaries
+    env_file:
+      - no_fluxo_backend/.env
+    volumes:
+      # Mount the entire repository for git operations (includes .git automatically)
+      - .:/app:rw  # Make the mount read-write
+      # Override dist with Docker volume to maintain permissions
+      - dist_data:/app/no_fluxo_backend/dist
+      # Persist the fork repository across container restarts
+      - fork_data:/app/fork_repo
+      # Use Docker volume for logs to maintain proper permissions
+      - logs_data:/app/no_fluxo_backend/logs
+      # Python local packages directory
+      - python_local:/app/.local
+      # Mount node_modules as volume to avoid permission issues and improve performance
+      - node_modules_data:/app/no_fluxo_backend/node_modules
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3325/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - no-fluxo-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: no-fluxo-nginx
+    ports:
+      - "80:80"       # HTTP (for redirects)
+      - "3325:3325"   # Backend HTTPS (main port)
+      - "4652:4652"   # AI Agent HTTPS  
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      # Mount your actual Let's Encrypt certificates
+      - /etc/letsencrypt/live/no-fluxo-api.shop/fullchain.pem:/etc/ssl/certs/cert.pem:ro
+      - /etc/letsencrypt/live/no-fluxo-api.shop/privkey.pem:/etc/ssl/private/key.pem:ro
+    depends_on:
+      - no-fluxo-backend
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "2"
+    networks:
+      - no-fluxo-network
+
+networks:
+  no-fluxo-network:
+    driver: bridge
+
+volumes:
+  fork_data:
+    driver: local
+  logs_data:
+    driver: local
+  dist_data:
+    driver: local
+  python_local:
+    driver: local
+  node_modules_data:
+    driver: local 

@@ -2,7 +2,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
-    '@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   plugins: ['@typescript-eslint'],
   parserOptions: {
@@ -24,5 +24,23 @@ module.exports = {
     'prefer-const': 'error',
     'no-var': 'error',
     'no-console': 'warn',
+    'no-irregular-whitespace': 'error',
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
+  },
+  // Configuração para CI/CD - mais tolerante
+  overrides: [
+    {
+      files: ['**/*.test.ts', '**/*.spec.ts'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        'no-console': 'off',
+      }
+    }
+  ]
 }; 

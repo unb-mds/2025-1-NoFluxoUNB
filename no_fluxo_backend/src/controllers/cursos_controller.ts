@@ -1,9 +1,7 @@
 import { EndpointController, RequestType } from "../interfaces";
-import { Pair, Utils } from "../utils";
+import { Pair } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
-import axios from 'axios';
-import FormData from 'form-data';
 import { createControllerLogger } from '../utils/controller_logger';
 
 
@@ -14,22 +12,22 @@ export const CursosController: EndpointController = {
             const logger = createControllerLogger("CursosController", "all-cursos");
             logger.info(`Buscando todos os cursos`);
 
-            var cursos = await SupabaseWrapper.get().from("cursos").select("*");
+            const cursos = await SupabaseWrapper.get().from("cursos").select("*");
 
             if (cursos.error) {
                 logger.error(`Erro ao buscar cursos: ${cursos.error.message}`);
                 return res.status(500).json({ error: cursos.error.message });
             }
 
-            // get creditos por curso
-            var creditosPorCurso = await SupabaseWrapper.get().from("creditos_por_curso").select("*");
+            // get creditos por curso
+            const creditosPorCurso = await SupabaseWrapper.get().from("creditos_por_curso").select("*");
 
             if (creditosPorCurso.error) {
                 logger.error(`Erro ao buscar creditos por curso: ${creditosPorCurso.error.message}`);
                 return res.status(500).json({ error: creditosPorCurso.error.message });
             }
 
-            var creditosPorIdCurso: { [key: number]: number } = {};
+            const creditosPorIdCurso: { [key: number]: number } = {};
 
             logger.info(`Creditos por curso: ${JSON.stringify(creditosPorCurso.data).substring(0, 300)}`);
 

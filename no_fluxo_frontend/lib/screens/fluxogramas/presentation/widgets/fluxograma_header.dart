@@ -7,14 +7,12 @@ class FluxogramaHeader extends StatelessWidget {
   final CursoModel? courseData;
   final bool isAnonymous;
   final VoidCallback onSaveFluxograma;
-  final VoidCallback onAddMateria;
   final VoidCallback onAddOptativa;
 
   const FluxogramaHeader({
     super.key,
     required this.courseData,
     required this.onSaveFluxograma,
-    required this.onAddMateria,
     required this.onAddOptativa,
     this.isAnonymous = false,
   });
@@ -87,14 +85,6 @@ class FluxogramaHeader extends StatelessWidget {
                         onSaveFluxograma,
                       ),
                       if (!isAnonymous) ...[
-                        const SizedBox(width: 12),
-                        _buildActionButton(
-                          'ADICIONAR MATÉRIA',
-                          Icons.add,
-                          const Color(0xFF8B5CF6),
-                          const Color(0xFF7C3AED),
-                          onAddMateria,
-                        ),
                         const SizedBox(width: 12),
                         _buildActionButton(
                           'ADICIONAR OPTATIVA',

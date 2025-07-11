@@ -33,7 +33,11 @@ export const Utils = {
             return false;
         }
 
-        var { data, error } = await SupabaseWrapper.get().auth.getUser(authorization);
+        let token = authorization;
+        if (typeof token === "string" && token.startsWith("Bearer ")) {
+            token = token.slice(7);
+        }
+        var { data, error } = await SupabaseWrapper.get().auth.getUser(token);
         if (error) {
             utilsLogger.error(`Erro ao verificar autorização: ${error.message}`);
             return false;
@@ -63,9 +67,6 @@ export const Utils = {
             return false;
         }
 
-
-
         return true;
     }
-
-};
+}

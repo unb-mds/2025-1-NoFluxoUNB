@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../cache/shared_preferences_helper.dart';
+
 class FluxogramaLegendControls extends StatelessWidget {
   final double zoomLevel;
-  final bool showPrereqChains;
   final bool showConnections;
   final bool isAnonymous;
   final ValueChanged<double> onZoomChanged;
-  final ValueChanged<bool> onShowPrereqChainsChanged;
   final ValueChanged<bool> onShowConnectionsChanged;
 
   const FluxogramaLegendControls({
     super.key,
     required this.zoomLevel,
-    required this.showPrereqChains,
     required this.showConnections,
     required this.onZoomChanged,
-    required this.onShowPrereqChainsChanged,
     required this.onShowConnectionsChanged,
     this.isAnonymous = false,
   });
@@ -38,13 +36,13 @@ class FluxogramaLegendControls extends StatelessWidget {
               spacing: 16,
               runSpacing: 8,
               children: [
-                _buildLegendItem(
-                  const Color(0xFF4ADE80),
-                  const Color(0xFF22C55E),
-                  'Concluídas',
-                ),
-                // Only show current/selected status for logged-in users
-                if (!isAnonymous) ...[
+                // Only show full legend for logged-in users
+                if (!isAnonymous && !SharedPreferencesHelper.isAnonimo) ...[
+                  _buildLegendItem(
+                    const Color(0xFF4ADE80),
+                    const Color(0xFF22C55E),
+                    'Concluídas',
+                  ),
                   _buildLegendItem(
                     const Color(0xFFA78BFA),
                     const Color(0xFF8B5CF6),
@@ -55,35 +53,14 @@ class FluxogramaLegendControls extends StatelessWidget {
                     const Color(0xFFE11D48),
                     'Selecionadas',
                   ),
-                ],
-                _buildLegendItem(
-                  Colors.white.withOpacity(0.1),
-                  Colors.white.withOpacity(0.1),
-                  isAnonymous ? 'Disponíveis' : 'Futuras',
-                  isDashed: true,
-                ),
-                // Only show prerequisite chains for logged-in users
-                if (!isAnonymous)
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Checkbox(
-                        value: showPrereqChains,
-                        onChanged: (value) =>
-                            onShowPrereqChainsChanged(value ?? false),
-                        fillColor: MaterialStateProperty.all(
-                            Colors.white.withOpacity(0.2)),
-                        checkColor: Colors.white,
-                      ),
-                      Text(
-                        'Cadeias de Pré-requisito',
-                        style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
+                  _buildLegendItem(
+                    Colors.white.withOpacity(0.1),
+                    Colors.white.withOpacity(0.1),
+                    'Futuras',
+                    isDashed: true,
                   ),
+                ],
+                // Always show visual connections
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [

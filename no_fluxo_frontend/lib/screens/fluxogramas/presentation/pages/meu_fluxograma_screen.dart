@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:dartz/dartz.dart' show Left;
+import 'package:go_router/go_router.dart';
+
 import 'package:mobile_app/environment.dart';
 import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart';
 import '../../../../utils/utils.dart';
@@ -11,31 +11,39 @@ import '../../../../widgets/graffiti_background.dart';
 import '../../../../cache/shared_preferences_helper.dart';
 import '../../../../models/user_model.dart';
 import '../../../../widgets/splash_widget.dart';
-import '../../data/course_data.dart';
-import '../../data/course_subject.dart';
+
 import '../../data/materia_model.dart';
 import '../../data/prerequisite_tree_model.dart';
 import '../../services/meu_fluxograma_service.dart';
-import '../widgets/course_card_widget.dart';
+
 import '../widgets/fluxograma_header.dart';
 import '../widgets/fluxograma_legend_controls.dart';
 import '../widgets/progress_summary_section.dart';
 import '../widgets/progress_tools_section.dart';
 import '../widgets/fluxogram_container.dart';
 import '../widgets/prerequisite_chain_dialog.dart';
-import '../widgets/prerequisite_indicator_widget.dart';
 import '../widgets/tool_modals.dart';
-import 'dart:ui';
-import 'dart:typed_data';
-import 'package:go_router/go_router.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
+import '../widgets/optativas_modal.dart';
+import '../widgets/optativas_adicionadas_section.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
+import 'package:universal_html/html.dart' as html;
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/materia_data_dialog_content.dart';
+
+// Modelo para optativas adicionadas
+class OptativaAdicionada {
+  final MateriaModel materia;
+  final int semestre;
+
+  OptativaAdicionada({
+    required this.materia,
+    required this.semestre,
+  });
+}
 
 var log = Environment.getLogger("MeuFluxogramaScreen");
 
@@ -55,11 +63,14 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   List<CursoModel> matrizesCurriculares = [];
   PrerequisiteTree? prerequisiteTree;
   Map<String, dynamic>? prerequisiteVisualizationData;
+  bool isAnonymous = false;
+  bool isInteractingWithFluxogram = false;
+  bool showOptativasModal = false;
+  List<OptativaAdicionada> optativasAdicionadas = [];
 
   bool loading = false;
   String? errorMessage;
 
-  // Screenshot controller for PDF generation
   final ScreenshotController screenshotController = ScreenshotController();
 
   @override
@@ -72,21 +83,34 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
 
     loading = true;
     try {
-      var courseName =
-          SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
-              (widget.courseName ?? '');
+      var courseName = widget.courseName ??
+          (SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
+              "");
+
+      if (courseName == "") {
+        courseName =
+            SharedPreferencesHelper.currentUser?.dadosFluxograma?.nomeCurso ??
+                "";
+      }
+
+      if (courseName == "") {
+        context.go("/upload-historico");
+        return false;
+      }
 
       final loadedCourseData =
           await MeuFluxogramaService.getCourseData(courseName);
+      isAnonymous =
+          SharedPreferencesHelper.isAnonimo || widget.courseName != null;
 
-      loadedCourseData.fold(
-        (error) {
+      await loadedCourseData.fold(
+        (error) async {
           errorMessage = error;
           return false;
         },
-        (cursos) {
+        (cursos) async {
           matrizesCurriculares = cursos;
-          if (SharedPreferencesHelper.isAnonimo) {
+          if (isAnonymous) {
             currentCourseData = cursos[0];
           } else {
             currentCourseData = cursos.firstWhere((curso) =>
@@ -107,26 +131,62 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                   .toList() ??
               List<DadosMateria>.from([]);
 
-          var materiasAprovadas = listMaterias
-              .where((e) =>
-                  e.mencao == 'SS' || e.mencao == 'MS' || e.mencao == 'MM')
-              .toList();
+          var materiasCursadasPorCodigo = Map<String, DadosMateria>.fromEntries(
+              listMaterias.map((e) => MapEntry(e.codigoMateria, e)));
 
-          var materiasCurrent =
-              listMaterias.where((e) => e.status == "MATR").toList();
+          List<MateriaModel> materiasCursadasAsMateriaModel = [];
 
-          var materiasEquivalentesAprovadas = currentCourseData?.equivalencias
-                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
-                      materiasAprovadas.map((e) => e.codigoMateria))))
-                  .toList() ??
-              [];
+          var materiasCursadasAsMateriaModelResponse =
+              await MeuFluxogramaService.getMateriasCursadasAsMateriaModel(
+                  listMaterias.map((e) => e.codigoMateria).toList(),
+                  currentCourseData?.idCurso ?? 0);
 
-          var materiasEquivalentesCurrent = currentCourseData?.equivalencias
-                  .where((e) => e.isMateriaEquivalente(Set<String>.from(
-                      materiasCurrent.map((e) => e.codigoMateria))))
-                  .toList() ??
-              [];
+          materiasCursadasAsMateriaModelResponse.fold((l) {
+            log.severe(l, StackTrace.current);
+          }, (r) {
+            materiasCursadasAsMateriaModel = r;
 
+            for (var materia in materiasCursadasAsMateriaModel) {
+              materia.mencao =
+                  materiasCursadasPorCodigo[materia.codigoMateria]?.mencao;
+              materia.professor =
+                  materiasCursadasPorCodigo[materia.codigoMateria]?.professor;
+            }
+          });
+
+          var materiasEquivalentesAprovadas =
+              currentCourseData?.equivalencias.where((equiv) {
+                    var equivalenciaResult = equiv.isMateriaEquivalente(
+                        materiasCursadasAsMateriaModel
+                            .where((e) =>
+                                e.mencao == 'SS' ||
+                                e.mencao == 'MS' ||
+                                e.mencao == 'MM')
+                            .toList());
+                    if (equivalenciaResult.isEquivalente) {
+                      for (var v in equivalenciaResult.equivalentes) {
+                        equiv.equivalenteA = v;
+                      }
+                    }
+                    return equivalenciaResult.isEquivalente;
+                  }).toList() ??
+                  [];
+
+          var materiasEquivalentesCurrent =
+              currentCourseData?.equivalencias.where((equiv) {
+                    var equivalenciaResult = equiv.isMateriaEquivalente(
+                        materiasCursadasAsMateriaModel
+                            .where((e) => e.mencao == 'MATR')
+                            .toList());
+
+                    if (equivalenciaResult.isEquivalente) {
+                      for (var v in equivalenciaResult.equivalentes) {
+                        equiv.equivalenteA = v;
+                      }
+                    }
+                    return equivalenciaResult.isEquivalente;
+                  }).toList() ??
+                  [];
           for (var materia in SharedPreferencesHelper
                   .currentUser?.dadosFluxograma?.dadosFluxograma
                   .expand((e) => e) ??
@@ -150,11 +210,28 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
           for (var materia in materiasEquivalentesAprovadas) {
             materiasPorCodigo[materia.materia.codigoMateria]?.status =
                 'completed';
+            materiasPorCodigo[materia.materia.codigoMateria]
+                ?.materiaEquivalenteCursada = materia.equivalenteA;
           }
 
           for (var materia in materiasEquivalentesCurrent) {
             materiasPorCodigo[materia.materia.codigoMateria]?.status =
                 'current';
+            materiasPorCodigo[materia.materia.codigoMateria]
+                ?.materiaEquivalenteCursada = materia.equivalenteA;
+          }
+
+          for (var materia
+              in currentCourseData?.materias ?? List<MateriaModel>.from([])) {
+            if (materiasPorCodigo.containsKey(materia.codigoMateria)) {
+              materia.status = materiasPorCodigo[materia.codigoMateria]?.status;
+              materia.mencao = materiasPorCodigo[materia.codigoMateria]?.mencao;
+              materia.professor =
+                  materiasPorCodigo[materia.codigoMateria]?.professor;
+              materia.materiaEquivalenteCursada =
+                  materiasPorCodigo[materia.codigoMateria]
+                      ?.materiaEquivalenteCursada;
+            }
           }
 
           // Build prerequisite tree and visualization data
@@ -163,6 +240,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
             prerequisiteVisualizationData =
                 currentCourseData!.getAllPrerequisiteVisualizationData();
           }
+
+          // update data
         },
       );
 
@@ -174,8 +253,8 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     }
   }
 
-  Future<void> saveFluxogramAsPdf() async {
-    bool closed = false;
+  Future<void> saveFluxogramAsImage() async {
+    bool dialogClosed = false;
     try {
       // Show loading indicator
       showDialog(
@@ -183,7 +262,7 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: SplashWidget(),
           );
         },
       );
@@ -198,84 +277,85 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
         throw Exception('Erro ao capturar imagem do fluxograma');
       }
 
-      // Create PDF document
-      final pdf = pw.Document();
+      // Create filename with timestamp
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final courseName =
+          currentCourseData?.nomeCurso.replaceAll(' ', '_') ?? 'curso';
+      final fileName = 'fluxograma_${courseName}_$timestamp.png';
 
-      // Convert image to PDF format
-      final image = pw.MemoryImage(imageBytes);
+      if (kIsWeb) {
+        // Web platform - use browser download
+        final blob = html.Blob([imageBytes]);
+        final url = html.Url.createObjectUrlFromBlob(blob);
+        html.AnchorElement(href: url)
+          ..setAttribute('download', fileName)
+          ..click();
+        html.Url.revokeObjectUrl(url);
 
-      pdf.addPage(
-        pw.Page(
-          pageFormat: PdfPageFormat.a4.landscape,
-          margin: const pw.EdgeInsets.all(32),
-          build: (pw.Context context) {
-            return pw.Center(
-              child: pw.Column(
-                children: [
-                  pw.Text(
-                    'Fluxograma - ${currentCourseData?.nomeCurso ?? 'Curso'}',
-                    style: pw.TextStyle(
-                      fontSize: 18,
-                      fontWeight: pw.FontWeight.bold,
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Expanded(
-                    child: pw.Image(
-                      image,
-                      fit: pw.BoxFit.contain,
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Text(
-                    'Gerado em: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                    style: const pw.TextStyle(
-                      fontSize: 12,
-                      color: PdfColors.grey700,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
-      );
+        // Close loading dialog
+        dialogClosed = true;
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
 
-      // Close loading dialog
-      if (context.mounted) {
-        Navigator.of(context).pop();
-      }
+        // Show success message
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Fluxograma baixado: $fileName'),
+              backgroundColor: Colors.green,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
+      } else {
+        // Mobile platforms - save to device storage
+        Directory? directory;
+        if (Platform.isAndroid) {
+          directory = await getExternalStorageDirectory();
+        } else {
+          directory = await getApplicationDocumentsDirectory();
+        }
 
-      // Save or share the PDF
-      await Printing.layoutPdf(
-        onLayout: (PdfPageFormat format) async => pdf.save(),
-        name:
-            'fluxograma_${currentCourseData?.nomeCurso?.replaceAll(' ', '_') ?? 'curso'}.pdf',
-      );
+        if (directory == null) {
+          throw Exception('Não foi possível acessar o diretório de downloads');
+        }
 
-      // Show success message
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Fluxograma salvo como PDF com sucesso!'),
-            backgroundColor: Colors.green,
-          ),
-        );
+        final filePath = '${directory.path}/$fileName';
+        final file = File(filePath);
+        await file.writeAsBytes(imageBytes);
+
+        // Close loading dialog
+        dialogClosed = true;
+        if (context.mounted) {
+          Navigator.of(context).pop();
+        }
+
+        // Show success message
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Fluxograma salvo em: $fileName'),
+              backgroundColor: Colors.green,
+              duration: const Duration(seconds: 4),
+            ),
+          );
+        }
       }
     } catch (e) {
-      if (!closed) {
+      if (!dialogClosed) {
         if (context.mounted) {
           Navigator.of(context).pop();
         }
       }
 
-      log.severe('Erro ao salvar PDF: $e');
+      log.severe('Erro ao salvar imagem: $e');
 
       // Show error message
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Erro ao salvar PDF: $e'),
+            content: Text('Erro ao salvar imagem: $e'),
             backgroundColor: Colors.red,
           ),
         );
@@ -309,6 +389,9 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                       const AppNavbar(isFluxogramasPage: true),
                       Expanded(
                         child: SingleChildScrollView(
+                          physics: isInteractingWithFluxogram
+                              ? const NeverScrollableScrollPhysics()
+                              : const AlwaysScrollableScrollPhysics(),
                           child: Center(
                             child: Container(
                               constraints: const BoxConstraints(maxWidth: 1280),
@@ -318,27 +401,90 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   FluxogramaHeader(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
-                                    onSaveFluxograma: saveFluxogramAsPdf,
-                                    onAddMateria: () {},
-                                    onAddOptativa: () {},
+                                    onSaveFluxograma: saveFluxogramAsImage,
+                                    onAddOptativa: () {
+                                      setState(() {
+                                        showOptativasModal = true;
+                                      });
+                                    },
                                   ),
+                                  if (!isAnonymous) ...[
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        ElevatedButton.icon(
+                                          onPressed: () async {
+                                            final user = SharedPreferencesHelper
+                                                .currentUser;
+                                            if (user == null) return;
+                                            final result =
+                                                await MeuFluxogramaService
+                                                    .deleteFluxogramaUser(
+                                                        user.idUser.toString(),
+                                                        user.token ?? '');
+                                            result.fold((l) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                      'Erro ao remover fluxograma: ' +
+                                                          l),
+                                                  backgroundColor: Colors.red,
+                                                ),
+                                              );
+                                            }, (r) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                      'Fluxograma removido com sucesso!'),
+                                                  backgroundColor: Colors.green,
+                                                ),
+                                              );
+                                              context.go('/upload-historico');
+                                            });
+                                          },
+                                          icon: const Icon(
+                                            Icons.refresh,
+                                            color: Colors.white,
+                                            size: 22,
+                                          ),
+                                          label: Text(
+                                            'ENVIAR FLUXOGRAMA NOVAMENTE',
+                                            style: GoogleFonts.poppins(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 28, vertical: 14),
+                                            backgroundColor:
+                                                const Color(0xFFFF3CA5),
+                                            foregroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                            ),
+                                            elevation: 8,
+                                            shadowColor:
+                                                Colors.black.withOpacity(0.3),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 16),
+                                  ],
                                   FluxogramaLegendControls(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     zoomLevel: zoomLevel,
-                                    showPrereqChains: showPrereqChains,
                                     showConnections: showConnections,
                                     onZoomChanged: (newZoom) {
                                       setState(() {
                                         zoomLevel = newZoom;
-                                      });
-                                    },
-                                    onShowPrereqChainsChanged: (value) {
-                                      setState(() {
-                                        showPrereqChains = value;
                                       });
                                     },
                                     onShowConnectionsChanged: (value) {
@@ -347,31 +493,53 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                       });
                                     },
                                   ),
-                                  Screenshot(
-                                    controller: screenshotController,
-                                    child: FluxogramContainer(
-                                      courseData: currentCourseData,
-                                      zoomLevel: zoomLevel,
-                                      isAnonymous:
-                                          SharedPreferencesHelper.isAnonimo,
-                                      showPrereqChains: showPrereqChains,
-                                      showConnections: showConnections,
-                                      onShowPrerequisiteChain:
-                                          _showPrerequisiteChainDialog,
-                                      onBuildPrerequisiteIndicator:
-                                          _buildPrerequisiteIndicator,
-                                      onShowMateriaDialog:
-                                          _showMateriaDataDialog,
+                                  MouseRegion(
+                                    onEnter: (_) {
+                                      /* setState(() {
+                                        isInteractingWithFluxogram = true;
+                                      }); */
+                                    },
+                                    onExit: (_) {
+                                      /* setState(() {
+                                        isInteractingWithFluxogram = false;
+                                      }); */
+                                    },
+                                    child: Screenshot(
+                                      controller: screenshotController,
+                                      child: FluxogramContainer(
+                                        zoomLevel: zoomLevel,
+                                        courseData: currentCourseData,
+                                        isAnonymous: isAnonymous,
+                                        showConnections: showConnections,
+                                        onShowPrerequisiteChain:
+                                            _showPrerequisiteChainDialog,
+                                        onShowMateriaDialog:
+                                            _showMateriaDataDialog,
+                                      ),
                                     ),
                                   ),
                                   ProgressSummarySection(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     courseData: currentCourseData,
                                   ),
+                                  OptativasAdicionadasSection(
+                                    optativasAdicionadas: optativasAdicionadas
+                                        .map((opt) => opt.materia)
+                                        .toList(),
+                                    onOptativaClicked: (materia) {
+                                      // Encontrar a optativa adicionada correspondente
+                                      final optativaAdicionada =
+                                          optativasAdicionadas.firstWhere(
+                                        (opt) =>
+                                            opt.materia.codigoMateria ==
+                                            materia.codigoMateria,
+                                      );
+                                      _showOptativaDataDialog(
+                                          context, optativaAdicionada);
+                                    },
+                                  ),
                                   ProgressToolsSection(
-                                    isAnonymous:
-                                        SharedPreferencesHelper.isAnonimo,
+                                    isAnonymous: isAnonymous,
                                     onShowToolModal: (title) =>
                                         _showToolModal(context, title: title),
                                   ),
@@ -384,6 +552,57 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                     ],
                   ),
                 ),
+                // Modal de optativas
+                if (showOptativasModal)
+                  OptativasModal(
+                    optativasDisponiveis: currentCourseData?.materias
+                            .where((materia) => materia.nivel == 0)
+                            .toList() ??
+                        [],
+                    onOptativaSelecionada: (optativa, semestre) {
+                      // Verificar se a optativa já foi adicionada
+                      bool jaAdicionada = optativasAdicionadas.any((opt) =>
+                          opt.materia.codigoMateria == optativa.codigoMateria);
+
+                      if (jaAdicionada) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'A optativa ${optativa.codigoMateria} já foi adicionada!',
+                            ),
+                            backgroundColor: Colors.orange,
+                          ),
+                        );
+                        setState(() {
+                          showOptativasModal = false;
+                        });
+                        return;
+                      }
+
+                      setState(() {
+                        optativasAdicionadas.add(OptativaAdicionada(
+                          materia: optativa,
+                          semestre: semestre,
+                        ));
+                        showOptativasModal = false;
+                      });
+
+                      // Mostrar mensagem de sucesso
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Optativa ${optativa.codigoMateria} - ${optativa.nomeMateria} adicionada ao ${semestre}º semestre!',
+                          ),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                    },
+                    onCancelOptativa: () {
+                      setState(() {
+                        showOptativasModal = false;
+                      });
+                    },
+                  ),
               ],
             );
           }),
@@ -421,11 +640,122 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
     );
   }
 
-  /// Build prerequisite indicator for course cards
-  Widget _buildPrerequisiteIndicator(MateriaModel subject) {
-    return PrerequisiteIndicatorWidget(
-      subject: subject,
-      getPrerequisiteChainData: _getPrerequisiteChainData,
+  /// Mostrar dialog de optativa quando clicada
+  void _showOptativaDataDialog(
+      BuildContext context, OptativaAdicionada optativa) {
+    Utils.showCustomizedDialog(
+      context: context,
+      child: Container(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              optativa.materia.codigoMateria,
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              optativa.materia.nomeMateria,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Créditos: ${optativa.materia.creditos}',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Semestre: ${optativa.semestre}º',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                color: Colors.white.withOpacity(0.7),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Ementa:',
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              optativa.materia.ementa,
+              style: GoogleFonts.poppins(
+                fontSize: 12,
+                color: Colors.white.withOpacity(0.8),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    _removerOptativa(optativa);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red.shade600,
+                  ),
+                  child: Text(
+                    'Remover',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey.shade700,
+                  ),
+                  child: Text(
+                    'Fechar',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Remover optativa da lista
+  void _removerOptativa(OptativaAdicionada optativa) {
+    setState(() {
+      optativasAdicionadas.removeWhere(
+          (opt) => opt.materia.codigoMateria == optativa.materia.codigoMateria);
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Optativa ${optativa.materia.codigoMateria} removida com sucesso!',
+        ),
+        backgroundColor: Colors.orange,
+      ),
     );
   }
 }

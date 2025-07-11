@@ -6,6 +6,7 @@
   "scripts": {
     "setup-tesseract": "node scripts/setup-tesseract.js",
     "build": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && tsc",
+    "build-docker": "pip install --user -r AI-agent/requirements.txt && pip install --user -r parse-pdf/requirements.txt && tsc",
     "build-and-start": "npm run build && npm run start",
     "start": "node dist/index.js",
     "dev": "pip install -r AI-agent/requirements.txt && pip install -r parse-pdf/requirements.txt && nodemon src/index.ts",
@@ -47,8 +48,8 @@
     "@types/jest": "^29.5.8",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.10.0",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^6.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.54.0",
     "jest": "^29.7.0",
     "nodemon": "^3.0.2",
@@ -73,6 +74,8 @@
       "lcov",
       "html"
     ],
-    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ]
   }
 }

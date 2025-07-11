@@ -164,7 +164,7 @@ export const FluxogramaController: EndpointController = {
             }
 
             for (const curso of data) {
-                // get equivalencias
+                // get equivalencias
                 const { data: equivalencias, error: errorEquivalencias } = await SupabaseWrapper.get()
                     .from("equivalencias")
                     .select("id_equivalencia,id_materia,expressao,materias(*)")
@@ -176,7 +176,7 @@ export const FluxogramaController: EndpointController = {
                     return res.status(500).json({ error: errorEquivalencias.message });
                 }
 
-                var materias_id = [];
+                const materias_id = [];
 
                 for (const materia of curso.materias_por_curso) {
                     materias_id.push(materia.materias.id_materia);
@@ -193,7 +193,7 @@ export const FluxogramaController: EndpointController = {
                     return res.status(500).json({ error: errorPreRequisitos.message });
                 }
 
-                var preRequisitosCodigosComId = [];
+                const preRequisitosCodigosComId = [];
 
                 for (const preRequisito_ of preRequisitos) {
                     const preRequisito: any = preRequisito_;
@@ -216,6 +216,8 @@ export const FluxogramaController: EndpointController = {
 
             return res.status(200).json(data);
         }),
+
+        
 
         "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger("FluxogramaController", "read_pdf");
@@ -653,14 +655,14 @@ export const FluxogramaController: EndpointController = {
         }),
 
         "upload-dados-fluxograma": new Pair(RequestType.POST, async (req: Request, res: Response) => {
-            var log = createControllerLogger("FluxogramaController", "upload-dados-fluxograma");
+            const log = createControllerLogger("FluxogramaController", "upload-dados-fluxograma");
             log.info("Upload fluxograma chamado");
             try {
                 if (!await Utils.checkAuthorization(req as Request)) {
                     return res.status(401).json({ error: "Usuário não autorizado" });
                 }
 
-                var userId = req.headers["user-id"] || req.headers["User-ID"];
+                const userId = req.headers["user-id"] || req.headers["User-ID"];
 
                 const { fluxograma, periodo_letivo } = req.body;
 
@@ -679,6 +681,30 @@ export const FluxogramaController: EndpointController = {
             } catch (error: any) {
                 log.error(`Erro ao salvar fluxograma: ${error.message}`);
                 return res.status(500).json({ error: error.message || "Erro ao salvar fluxograma" });
+            }
+        }),
+        // --- NOVO ENDPOINT DELETE ---
+        "delete-fluxograma": new Pair(RequestType.DELETE, async (req: Request, res: Response) => {
+            const log = createControllerLogger("FluxogramaController", "delete-fluxograma");
+            log.info("Remoção de fluxograma chamada");
+            try {
+                if (!await Utils.checkAuthorization(req as Request)) {
+                    return res.status(401).json({ error: "Usuário não autorizado" });
+                }
+                const userId = req.headers["user-id"] || req.headers["User-ID"];
+                if (!userId) {
+                    return res.status(400).json({ error: "User ID não informado" });
+                }
+                // Remove o registro do usuário (ou zera o campo fluxograma_atual)
+                const { error } = await SupabaseWrapper.get()
+                    .from("dados_users")
+                    .delete()
+                    .eq("id_user", userId);
+                if (error) throw error;
+                return res.status(200).json({ success: true });
+            } catch (error: any) {
+                log.error(`Erro ao remover fluxograma: ${error.message}`);
+                return res.status(500).json({ error: error.message || "Erro ao remover fluxograma" });
             }
         })
     }

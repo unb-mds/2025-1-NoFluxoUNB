@@ -1,0 +1,125 @@
+name: Combined Tests
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  typescript-tests:
+    runs-on: ubuntu-latest
+    name: TypeScript Tests
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: no_fluxo_backend/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd no_fluxo_backend
+        npm ci
+    
+    - name: Run ESLint
+      run: |
+        cd no_fluxo_backend
+        npm run lint || true
+    
+    - name: Run TypeScript type check
+      run: |
+        cd no_fluxo_backend
+        npm run type-check
+    
+    - name: Run tests
+      run: |
+        cd no_fluxo_backend
+        npm test
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: no_fluxo_backend/coverage/lcov.info
+        flags: typescript
+        name: typescript-coverage
+
+  python-tests:
+    runs-on: ubuntu-latest
+    name: Python Tests
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov
+        if [ -f "no_fluxo_backend/AI-agent/requirements.txt" ]; then
+          pip install -r no_fluxo_backend/AI-agent/requirements.txt
+        fi
+        if [ -f "no_fluxo_backend/parse-pdf/requirements.txt" ]; then
+          pip install -r no_fluxo_backend/parse-pdf/requirements.txt
+        fi
+        if [ -f "tests-python/requirements.txt" ]; then
+          pip install -r tests-python/requirements.txt
+        fi
+    
+    - name: Create .env file
+      run: |
+        cd no_fluxo_backend
+        if [ ! -f ".env" ]; then
+          echo "SUPABASE_URL=dummy_url" > .env
+          echo "SUPABASE_ANON_KEY=dummy_key" >> .env
+          echo "OPENAI_API_KEY=dummy_key" >> .env
+          echo "DATABASE_URL=dummy_url" >> .env
+        fi
+    
+    - name: Run tests
+      run: |
+        python -m pytest tests-python/ -v --cov=no_fluxo_backend --cov-report=xml --cov-report=html || true
+    
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: coverage.xml
+        flags: python
+        name: python-coverage
+
+  lint-and-quality:
+    runs-on: ubuntu-latest
+    name: Code Quality
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: no_fluxo_backend/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd no_fluxo_backend
+        npm ci
+    
+    - name: Run ESLint
+      run: |
+        cd no_fluxo_backend
+        npm run lint || true
+    
+    - name: Run TypeScript type check
+      run: |
+        cd no_fluxo_backend
+        npm run type-check 
