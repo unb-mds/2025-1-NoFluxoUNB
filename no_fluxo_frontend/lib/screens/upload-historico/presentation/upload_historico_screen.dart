@@ -236,8 +236,15 @@ class _UploadHistoricoScreenState extends State<UploadHistoricoScreen>
 
         nivel ??= 0;
 
-        dadosFluxograma.dadosFluxograma[nivel]
-            .add(DadosMateria.fromJson(materiaCasada));
+        if (materiaCasada["nome"] == "INTRODUÇÃO A ALGEBRA LINEAR") {
+          print(materiaCasada);
+        }
+        try {
+          dadosFluxograma.dadosFluxograma[nivel]
+              .add(DadosMateria.fromJson(materiaCasada));
+        } catch (e) {
+          print(e);
+        }
       }
 
       final uploadResult =

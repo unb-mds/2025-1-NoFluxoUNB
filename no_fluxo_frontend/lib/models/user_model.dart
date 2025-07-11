@@ -30,6 +30,17 @@ class DadosMateria {
       'status': status,
     };
   }
+
+  bool isMateriaCursada() {
+    return status == 'APR' || status == 'CUMP';
+  }
+
+  bool isMateriaAprovada() {
+    return mencao == 'SS' || mencao == 'MM' || mencao == 'MS' || (status == "APR" && mencao != "-" || status == "CUMP");
+  }
+  bool isMateriaCurrent() {
+    return status == 'MATR' ;
+  }
 }
 
 class DadosFluxogramaUser {

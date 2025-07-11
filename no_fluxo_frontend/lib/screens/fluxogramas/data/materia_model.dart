@@ -1,3 +1,5 @@
+import 'package:mobile_app/cache/shared_preferences_helper.dart';
+
 class MateriaModel {
   String ementa;
   int idMateria;
@@ -35,6 +37,26 @@ class MateriaModel {
   /// Check if this materia has any prerequisites
   bool hasPrerequisites() {
     return preRequisitos.isNotEmpty;
+  }
+
+  bool hasAnyPrerequisitesNotCompletedOrCurrent() {
+    if (preRequisitos.isNotEmpty) {
+      var dadosAluno = SharedPreferencesHelper.currentUser?.dadosFluxograma;
+
+      var preRequisitosCumpridos = Set<String>.from(
+          preRequisitos.map((materia) => materia.codigoMateria));
+
+      if (dadosAluno != null) {
+        for (var materia in dadosAluno.dadosFluxograma.expand((m) => m)) {
+          if (materia.isMateriaAprovada() || materia.isMateriaCurrent()) {
+            preRequisitosCumpridos.remove(materia.codigoMateria);
+          }
+        }
+      }
+      return preRequisitosCumpridos.isEmpty;
+    }
+
+    return false;
   }
 
   /// Check if a specific materia is a prerequisite for this one

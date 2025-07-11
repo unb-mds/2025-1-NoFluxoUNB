@@ -39,6 +39,10 @@ class CourseCardWidget extends StatelessWidget {
         startColor = AppColors.completedStart;
         endColor = AppColors.completedEnd;
         break;
+      case "can_be_next":
+        startColor = AppColors.readyStart;
+        endColor = AppColors.readyEnd;
+        break;
       case 'selected':
         if (isAnonymous && SharedPreferencesHelper.isAnonimo) {
           // For anonymous users, treat selected as future
@@ -57,7 +61,7 @@ class CourseCardWidget extends StatelessWidget {
         startColor = AppColors.optativeStart;
         endColor = AppColors.optativeEnd;
         break;
-      default: // future or current (treated as future for anonymous)
+      default:
         // Check if prerequisites are completed for future subjects
         if (canBeTaken && displayStatus == 'future' && !isAnonymous) {
           startColor = AppColors.readyStart;
@@ -171,33 +175,12 @@ class CourseCardWidget extends StatelessWidget {
   /// Verifica se a matéria será liberada após a conclusão das matérias em curso
   /// (simulação de conclusão das matérias roxas)
   bool _canSubjectBeTaken() {
-    if (allSubjects == null || !subject.hasPrerequisites()) {
-      return false;
-    }
-
-    // Se a matéria já foi concluída, cursada ou está sendo cursada, não precisa verificar
     if (subject.status == 'completed' ||
         subject.status == 'current' ||
         subject.status == 'selected') {
       return false;
     }
 
-    // SIMULAÇÃO: Considerar matérias em curso como se fossem concluídas
-    for (MateriaModel prerequisite in subject.preRequisitos) {
-      var prerequisiteInList = allSubjects!.firstWhere(
-        (materia) => materia.codigoMateria == prerequisite.codigoMateria,
-        orElse: () => prerequisite,
-      );
-
-      // Simular: se está em curso (current), considerar como se fosse ser concluída
-      bool willBeCompleted = prerequisiteInList.status == 'completed' ||
-          prerequisiteInList.status == 'current';
-
-      if (!willBeCompleted) {
-        return false;
-      }
-    }
-
-    return true;
+    return subject.hasAnyPrerequisitesNotCompletedOrCurrent();
   }
 }
