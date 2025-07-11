@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key, this.isLogin = true});
-  
+
   final bool isLogin;
 
   @override
@@ -16,11 +16,12 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: AppNavbarDrawer(
+        links: AppNavbar.navLinks(context, isDrawer: true),
+      ),
       body: Stack(
         children: [
           const AnimatedBackground(),
@@ -44,9 +45,11 @@ class _AuthPageState extends State<AuthPage> {
                             children: [
                               const SizedBox(height: 30),
                               if (widget.isLogin)
-                                LoginForm(onToggleView: () => context.go('/signup'))
+                                LoginForm(
+                                    onToggleView: () => context.go('/signup'))
                               else
-                                SignupForm(onToggleView: () => context.go('/login')),
+                                SignupForm(
+                                    onToggleView: () => context.go('/login')),
                             ],
                           ),
                         ),
