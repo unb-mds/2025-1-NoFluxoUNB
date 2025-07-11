@@ -3,7 +3,6 @@ import 'package:mobile_app/config/size_config.dart';
 import 'package:mobile_app/config/app_colors.dart';
 import 'package:mobile_app/screens/fluxogramas/data/materia_model.dart';
 import 'package:mobile_app/screens/fluxogramas/data/curso_model.dart'; // Added import for CursoModel
-import 'package:mobile_app/screens/fluxogramas/presentation/widgets/curso_model_provider.dart'; // Added import for CursoModelProvider
 
 class MateriaDataDialogContent extends StatefulWidget {
   const MateriaDataDialogContent({
@@ -502,15 +501,51 @@ class _MateriaDataDialogContentState extends State<MateriaDataDialogContent>
                   } else {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: coreqs
-                          .map((c) => Text(
-                                "${c.codigoMateriaCoRequisito} - ${c.nomeMateriaCoRequisito}",
+                      children: coreqs.map((c) {
+                        final materiaCoreq = widget.curso.materias.firstWhere(
+                          (m) => m.codigoMateria == c.codigoMateriaCoRequisito,
+                          orElse: () => MateriaModel(
+                            ementa: '',
+                            idMateria: 0,
+                            nomeMateria: c.nomeMateriaCoRequisito,
+                            codigoMateria: c.codigoMateriaCoRequisito,
+                            nivel: 0,
+                            creditos: 0,
+                          ),
+                        );
+                        if (materiaCoreq == null) {
+                          return Text(
+                            "${c.codigoMateriaCoRequisito} - ${c.nomeMateriaCoRequisito}",
+                            style: TextStyle(
+                              fontSize: getProportionateFontSize(14),
+                              color: Colors.white,
+                            ),
+                          );
+                        }
+                        return Row(
+                          children: [
+                            Icon(
+                              materiaCoreq.status == 'completed'
+                                  ? Icons.check_circle
+                                  : Icons.cancel,
+                              color: materiaCoreq.status == 'completed'
+                                  ? const Color(0xFF22C55E)
+                                  : const Color(0xFFEF4444),
+                              size: 20,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                "${materiaCoreq.codigoMateria} - ${materiaCoreq.nomeMateria} (Nível ${materiaCoreq.nivel})",
                                 style: TextStyle(
                                   fontSize: getProportionateFontSize(14),
-                                  color: Colors.white,
+                                  color: Colors.white.withOpacity(0.8),
                                 ),
-                              ))
-                          .toList(),
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
                     );
                   }
                 },
