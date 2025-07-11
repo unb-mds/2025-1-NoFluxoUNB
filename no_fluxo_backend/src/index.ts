@@ -127,7 +127,6 @@ const controllers: EndpointController[] = [
     CursosController,
     MateriasController
 ];
-
 router.get('/', (req: Request, res: Response) => {
     logger.info(`\b[GET][/]`);
 
@@ -135,13 +134,26 @@ router.get('/', (req: Request, res: Response) => {
         status: 'online',
         timestamp: new Date().toISOString(),
         version: '1.0.0',
+        serverInfo: {
+            nodeVersion: process.version,
+            platform: process.platform,
+            memoryUsage: process.memoryUsage(),
+            uptime: process.uptime()
+        },
         endpoints: controllers.map(controller => ({
             name: controller.name,
+            description: `${controller.name} API endpoints`,
             routes: Object.keys(controller.routes).map(route => ({
                 path: `/${controller.name}/${route}`,
-                method: controller.routes[route].key
-            }))
-        }))
+                method: controller.routes[route].key,
+                fullPath: `${req.protocol}://${req.get('host')}/${controller.name}/${route}`
+            })),
+            totalRoutes: Object.keys(controller.routes).length
+        })),
+        documentation: {
+            swagger: `${req.protocol}://${req.get('host')}/api-docs`,
+            postman: `${req.protocol}://${req.get('host')}/postman-collection`
+        }
     });
 });
 
