@@ -59,7 +59,6 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
   bool loading = false;
   String? errorMessage;
 
-  // Screenshot controller for PDF generation
   final ScreenshotController screenshotController = ScreenshotController();
 
   @override
@@ -481,18 +480,19 @@ class _MeuFluxogramaScreenState extends State<MeuFluxogramaScreen> {
                                   ),
                                   MouseRegion(
                                     onEnter: (_) {
-                                      setState(() {
+                                      /* setState(() {
                                         isInteractingWithFluxogram = true;
-                                      });
+                                      }); */
                                     },
                                     onExit: (_) {
-                                      setState(() {
+                                      /* setState(() {
                                         isInteractingWithFluxogram = false;
-                                      });
+                                      }); */
                                     },
                                     child: Screenshot(
                                       controller: screenshotController,
                                       child: FluxogramContainer(
+                                        zoomLevel: zoomLevel,
                                         courseData: currentCourseData,
                                         isAnonymous: isAnonymous,
                                         showConnections: showConnections,

@@ -9,7 +9,7 @@ class MateriaModel {
   String? mencao;
   String? professor;
   MateriaModel? materiaEquivalenteCursada;
-  List<MateriaModel> prerequisitos = [];
+  List<MateriaModel> preRequisitos = [];
 
   MateriaModel({
     required this.ementa,
@@ -25,35 +25,35 @@ class MateriaModel {
 
   /// Get prerequisite codes as a list of strings
   List<String> getPrerequisiteCodes() {
-    return prerequisitos.map((materia) => materia.codigoMateria).toList();
+    return preRequisitos.map((materia) => materia.codigoMateria).toList();
   }
 
   /// Get prerequisite names as a list of strings
   List<String> getPrerequisiteNames() {
-    return prerequisitos.map((materia) => materia.nomeMateria).toList();
+    return preRequisitos.map((materia) => materia.nomeMateria).toList();
   }
 
   /// Check if this materia has any prerequisites
   bool hasPrerequisites() {
-    return prerequisitos.isNotEmpty;
+    return preRequisitos.isNotEmpty;
   }
 
   /// Check if a specific materia is a prerequisite for this one
   bool hasPrerequisite(String codigoMateria) {
-    return prerequisitos
+    return preRequisitos
         .any((materia) => materia.codigoMateria == codigoMateria);
   }
 
   /// Get the total number of prerequisite credits
   int getTotalPrerequisiteCredits() {
-    return prerequisitos.fold(0, (sum, materia) => sum + materia.creditos);
+    return preRequisitos.fold(0, (sum, materia) => sum + materia.creditos);
   }
 
   /// Check if this materia can be taken based on completed prerequisite codes
   bool canBeTaken(Set<String> completedMateriasCodes) {
     if (!hasPrerequisites()) return true;
 
-    return prerequisitos.every((prerequisite) =>
+    return preRequisitos.every((prerequisite) =>
         completedMateriasCodes.contains(prerequisite.codigoMateria));
   }
 

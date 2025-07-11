@@ -79,57 +79,7 @@ class MeuFluxogramaService {
     }
   }
 
-  /// Get prerequisites for a specific materia within a course
-  static Future<Either<String, List<MateriaModel>>> getPrerequisitesForMateria(
-      int idMateria, int idCurso) async {
-    try {
-      // First get the course data
-      var courseResult = await http.get(Uri.parse(
-          '${Environment.apiUrl}/fluxograma/fluxograma-by-id?id_curso=$idCurso'));
-
-      if (courseResult.statusCode != 200) {
-        return Left('Failed to get course data: ${courseResult.body}');
-      }
-
-      var courseJson = jsonDecode(courseResult.body);
-      var curso = CursoModel.fromJson(courseJson[0]); // Assumes first result
-
-      // Find the materia and return its prerequisites
-      var materia = curso.materias.firstWhere((m) => m.idMateria == idMateria,
-          orElse: () => throw Exception('Materia not found'));
-
-      return Right(materia.prerequisitos);
-    } catch (e, stackTrace) {
-      log.severe(e, stackTrace);
-      return Left(e.toString());
-    }
-  }
-
-  /// Get direct prerequisites only (not transitive)
-  static Future<Either<String, List<MateriaModel>>>
-      getDirectPrerequisitesForMateria(
-          String codigoMateria, int idCurso) async {
-    try {
-      // First get the course data
-      var courseResult = await http.get(Uri.parse(
-          '${Environment.apiUrl}/fluxograma/fluxograma-by-id?id_curso=$idCurso'));
-
-      if (courseResult.statusCode != 200) {
-        return Left('Failed to get course data: ${courseResult.body}');
-      }
-
-      var courseJson = jsonDecode(courseResult.body);
-      var curso = CursoModel.fromJson(courseJson[0]); // Assumes first result
-
-      // Get direct prerequisites for the materia
-      var directPrerequisites = curso.getDirectPrerequisites(codigoMateria);
-
-      return Right(directPrerequisites);
-    } catch (e, stackTrace) {
-      log.severe(e, stackTrace);
-      return Left(e.toString());
-    }
-  }
+  
 
   static Future<Either<String, MateriaModel>> getMateriaData(
       int idMateria) async {

@@ -83,10 +83,7 @@ class CursoModel {
             ? List<EquivalenciaModel>.from(json["equivalencias"]
                 .map((equiv) => EquivalenciaModel.fromJson(equiv)))
             : [],
-        preRequisitos: json["pre_requisitos"] != null
-            ? List<PreRequisitoModel>.from(json["pre_requisitos"].map(
-                (preRequisito) => PreRequisitoModel.fromJson(preRequisito)))
-            : []);
+        preRequisitos: []);
 
     int maxSemestre = 0;
     for (var materia in curso.materias) {
@@ -94,6 +91,25 @@ class CursoModel {
         maxSemestre = materia.nivel;
       }
     }
+
+    var preRequisitos = json["pre_requisitos"] != null
+        ? List<PreRequisitoModel>.from(json["pre_requisitos"]
+            .map((preRequisito) => PreRequisitoModel.fromJson(preRequisito)))
+        : List<PreRequisitoModel>.from([]);
+
+    var preRequisitosInCurso = List<PreRequisitoModel>.from([]);
+
+    var materiasInCursoFromCodigo = Set<String>.from(
+        curso.materias.map((materia) => materia.codigoMateria));
+
+    for (var preRequisito in preRequisitos) {
+      if (materiasInCursoFromCodigo
+          .contains(preRequisito.codigoMateriaRequisito)) {
+        preRequisitosInCurso.add(preRequisito);
+      }
+    }
+
+    curso.preRequisitos = preRequisitosInCurso;
 
     curso.semestres = maxSemestre;
 
@@ -112,7 +128,7 @@ class CursoModel {
   void populatePrerequisites() {
     // Clear existing prerequisites
     for (var materia in materias) {
-      materia.prerequisitos.clear();
+      materia.preRequisitos.clear();
     }
 
     // Build prerequisite relationships using the existing preRequisitos data
@@ -149,7 +165,7 @@ class CursoModel {
       // Add direct prerequisites
       for (var prereqCode in directPrerequisites) {
         if (materiaMap.containsKey(prereqCode)) {
-          materia.prerequisitos.add(materiaMap[prereqCode]!);
+          materia.preRequisitos.add(materiaMap[prereqCode]!);
         }
       }
 
@@ -160,11 +176,11 @@ class CursoModel {
 
       // Add all prerequisites to the materia (avoiding duplicates)
       Set<String> existingCodes =
-          materia.prerequisitos.map((m) => m.codigoMateria).toSet();
+          materia.preRequisitos.map((m) => m.codigoMateria).toSet();
       for (var prereqCode in allPrerequisites) {
         if (materiaMap.containsKey(prereqCode) &&
             !existingCodes.contains(prereqCode)) {
-          materia.prerequisitos.add(materiaMap[prereqCode]!);
+          materia.preRequisitos.add(materiaMap[prereqCode]!);
         }
       }
     }

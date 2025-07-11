@@ -10,6 +10,7 @@ import 'prerequisite_connections_widget.dart';
 
 class FluxogramContainer extends StatefulWidget {
   final CursoModel? courseData;
+  final double zoomLevel;
   final bool showConnections;
   final bool isAnonymous;
   final Function(String, String) onShowPrerequisiteChain;
@@ -18,6 +19,7 @@ class FluxogramContainer extends StatefulWidget {
   const FluxogramContainer({
     super.key,
     required this.courseData,
+    required this.zoomLevel,
     required this.showConnections,
     required this.onShowPrerequisiteChain,
     required this.onShowMateriaDialog,
@@ -30,24 +32,6 @@ class FluxogramContainer extends StatefulWidget {
 
 class _FluxogramContainerState extends State<FluxogramContainer> {
   String? selectedSubjectCode;
-  late TransformationController _transformationController;
-
-  @override
-  void initState() {
-    super.initState();
-    _transformationController = TransformationController();
-  }
-
-  @override
-  void dispose() {
-    _transformationController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void didUpdateWidget(FluxogramContainer oldWidget) {
-    super.didUpdateWidget(oldWidget);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,58 +47,68 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
       return _buildEmptyState(context);
     }
 
-    return Container(
-      margin: const EdgeInsets.only(bottom: 32),
-      height: 600, // Fixed height for the interactive viewer
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(24),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.4),
-            borderRadius: BorderRadius.circular(24),
-          ),
-          child: InteractiveViewer(
-            transformationController: _transformationController,
-            boundaryMargin: const EdgeInsets.all(200),
-            minScale: 0.5,
-            maxScale: 3.0,
-            constrained: false,
+    if (widget.showConnections) {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 32),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Center(
             child: Container(
               padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
-              child: widget.showConnections
-                  ? _buildConnectionsView()
-                  : _buildSemesterView(),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Transform.scale(
+                scale: widget.zoomLevel,
+                child: PrerequisiteConnectionsWidget(
+                  courseData: widget.courseData,
+                  zoomLevel: widget.zoomLevel,
+                  selectedSubjectCode: selectedSubjectCode,
+                  isAnonymous: widget.isAnonymous,
+                  onSubjectSelectionChanged: (subjectCode) {
+                    setState(() {
+                      selectedSubjectCode = subjectCode;
+                    });
+                  },
+                  onShowMateriaDialog: widget.onShowMateriaDialog,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(24),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 32),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              child: Transform.scale(
+                scale: widget.zoomLevel,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (int semester = 1;
+                        semester <= (widget.courseData?.semestres ?? 0);
+                        semester++)
+                      _buildSemesterColumn(semester),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildConnectionsView() {
-    return PrerequisiteConnectionsWidget(
-      courseData: widget.courseData,
-      zoomLevel: 1.0,
-      selectedSubjectCode: selectedSubjectCode,
-      isAnonymous: widget.isAnonymous,
-      onSubjectSelectionChanged: (subjectCode) {
-        setState(() {
-          selectedSubjectCode = subjectCode;
-        });
-      },
-      onShowMateriaDialog: widget.onShowMateriaDialog,
-    );
-  }
-
-  Widget _buildSemesterView() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        for (int semester = 1;
-            semester <= (widget.courseData?.semestres ?? 0);
-            semester++)
-          _buildSemesterColumn(semester),
-      ],
     );
   }
 
