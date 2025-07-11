@@ -2,14 +2,14 @@ name: Python Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, dev ]
     paths:
       - 'tests-python/**'
       - 'coleta_dados/**'
       - 'ai_agent/**'
       - '.github/workflows/python-tests.yml'
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, dev ]
     paths:
       - 'tests-python/**'
       - 'coleta_dados/**'
