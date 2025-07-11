@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/gestures.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
 import '../../data/curso_model.dart';
@@ -36,12 +37,8 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
   final ScrollController _scrollController = ScrollController();
   final ScrollController _connectionsScrollController = ScrollController();
   final ScrollController _verticalScrollController = ScrollController();
-  final ScrollController _connectionsVerticalScrollController = ScrollController();
-  
-  bool _isDragging = false;
-  bool _isHovering = false;
-  Offset? _lastPanPosition;
-  Offset? _lastHoverPosition;
+  final ScrollController _connectionsVerticalScrollController =
+      ScrollController();
 
   @override
   void dispose() {
@@ -50,81 +47,6 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
     _verticalScrollController.dispose();
     _connectionsVerticalScrollController.dispose();
     super.dispose();
-  }
-
-  void _handlePanStart(DragStartDetails details) {
-    _isDragging = true;
-    _lastPanPosition = details.globalPosition;
-  }
-
-  void _handlePanUpdate(DragUpdateDetails details, ScrollController horizontalController, ScrollController verticalController) {
-    if (!_isDragging || _lastPanPosition == null) return;
-    
-    // Sensibilidade do scroll
-    const double scrollSensitivity = 2.0;
-    
-    // Calcular a diferença de posição
-    final delta = details.globalPosition - _lastPanPosition!;
-    
-    // Scroll horizontal
-    if (delta.dx.abs() > 1) {
-      double newHorizontalOffset = horizontalController.offset - (delta.dx * scrollSensitivity);
-      newHorizontalOffset = newHorizontalOffset.clamp(0.0, horizontalController.position.maxScrollExtent);
-      horizontalController.jumpTo(newHorizontalOffset);
-    }
-    
-    // Scroll vertical
-    if (delta.dy.abs() > 1) {
-      double newVerticalOffset = verticalController.offset - (delta.dy * scrollSensitivity);
-      newVerticalOffset = newVerticalOffset.clamp(0.0, verticalController.position.maxScrollExtent);
-      verticalController.jumpTo(newVerticalOffset);
-    }
-    
-    _lastPanPosition = details.globalPosition;
-  }
-
-  void _handlePanEnd(DragEndDetails details) {
-    _isDragging = false;
-    _lastPanPosition = null;
-  }
-
-  void _handleHoverEnter(PointerEvent event) {
-    _isHovering = true;
-    _lastHoverPosition = event.position;
-  }
-
-  void _handleHoverUpdate(PointerEvent event, ScrollController horizontalController, ScrollController verticalController) {
-    if (!_isHovering || _lastHoverPosition == null) return;
-    
-    // Sensibilidade menor para hover
-    const double hoverSensitivity = 0.5;
-    
-    // Calcular a diferença de posição
-    final delta = event.position - _lastHoverPosition!;
-    
-    // Só fazer scroll se o movimento for significativo
-    if (delta.distance > 5) {
-      // Scroll horizontal
-      if (delta.dx.abs() > 2) {
-        double newHorizontalOffset = horizontalController.offset - (delta.dx * hoverSensitivity);
-        newHorizontalOffset = newHorizontalOffset.clamp(0.0, horizontalController.position.maxScrollExtent);
-        horizontalController.jumpTo(newHorizontalOffset);
-      }
-      
-      // Scroll vertical
-      if (delta.dy.abs() > 2) {
-        double newVerticalOffset = verticalController.offset - (delta.dy * hoverSensitivity);
-        newVerticalOffset = newVerticalOffset.clamp(0.0, verticalController.position.maxScrollExtent);
-        verticalController.jumpTo(newVerticalOffset);
-      }
-      
-      _lastHoverPosition = event.position;
-    }
-  }
-
-  void _handleHoverExit(PointerEvent event) {
-    _isHovering = false;
-    _lastHoverPosition = null;
   }
 
   @override
@@ -144,53 +66,43 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
     if (widget.showConnections) {
       return Container(
         margin: const EdgeInsets.only(bottom: 32),
-        child: MouseRegion(
-          cursor: _isDragging
-              ? SystemMouseCursors.grabbing
-              : SystemMouseCursors.grab,
-          onEnter: _handleHoverEnter,
-          onHover: (event) => _handleHoverUpdate(
-              event,
-              _connectionsScrollController,
-              _connectionsVerticalScrollController),
-          onExit: _handleHoverExit,
-          child: GestureDetector(
-            onPanStart: _handlePanStart,
-            onPanUpdate: (details) => _handlePanUpdate(
-                details,
-                _connectionsScrollController,
-                _connectionsVerticalScrollController),
-            onPanEnd: _handlePanEnd,
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            scrollbars: false,
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+            },
+          ),
+          child: SingleChildScrollView(
+            controller: _connectionsVerticalScrollController,
+            scrollDirection: Axis.vertical,
+            physics: const BouncingScrollPhysics(),
             child: SingleChildScrollView(
-              controller: _connectionsVerticalScrollController,
-              scrollDirection: Axis.vertical,
+              controller: _connectionsScrollController,
+              scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              child: SingleChildScrollView(
-                controller: _connectionsScrollController,
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                child: Center(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 32, horizontal: 32),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Transform.scale(
-                      scale: widget.zoomLevel,
-                      child: PrerequisiteConnectionsWidget(
-                        courseData: widget.courseData,
-                        zoomLevel: widget.zoomLevel,
-                        selectedSubjectCode: selectedSubjectCode,
-                        isAnonymous: widget.isAnonymous,
-                        onSubjectSelectionChanged: (subjectCode) {
-                          setState(() {
-                            selectedSubjectCode = subjectCode;
-                          });
-                        },
-                        onShowMateriaDialog: widget.onShowMateriaDialog,
-                      ),
+              child: Center(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Transform.scale(
+                    scale: widget.zoomLevel,
+                    child: PrerequisiteConnectionsWidget(
+                      courseData: widget.courseData,
+                      zoomLevel: widget.zoomLevel,
+                      selectedSubjectCode: selectedSubjectCode,
+                      isAnonymous: widget.isAnonymous,
+                      onSubjectSelectionChanged: (subjectCode) {
+                        setState(() {
+                          selectedSubjectCode = subjectCode;
+                        });
+                      },
+                      onShowMateriaDialog: widget.onShowMateriaDialog,
                     ),
                   ),
                 ),
@@ -205,46 +117,40 @@ class _FluxogramContainerState extends State<FluxogramContainer> {
       borderRadius: BorderRadius.circular(24),
       child: Container(
         margin: const EdgeInsets.only(bottom: 32),
-        child: MouseRegion(
-          cursor: _isDragging
-              ? SystemMouseCursors.grabbing
-              : SystemMouseCursors.grab,
-          onEnter: _handleHoverEnter,
-          onHover: (event) => _handleHoverUpdate(
-              event, _scrollController, _verticalScrollController),
-          onExit: _handleHoverExit,
-          child: GestureDetector(
-            onPanStart: _handlePanStart,
-            onPanUpdate: (details) => _handlePanUpdate(
-                details, _scrollController, _verticalScrollController),
-            onPanEnd: _handlePanEnd,
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            scrollbars: false,
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+            },
+          ),
+          child: SingleChildScrollView(
+            controller: _verticalScrollController,
+            scrollDirection: Axis.vertical,
+            physics: const BouncingScrollPhysics(),
             child: SingleChildScrollView(
-              controller: _verticalScrollController,
-              scrollDirection: Axis.vertical,
+              controller: _scrollController,
+              scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                child: Center(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 32, horizontal: 32),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                    child: Transform.scale(
-                      scale: widget.zoomLevel,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          for (int semester = 1;
-                              semester <= (widget.courseData?.semestres ?? 0);
-                              semester++)
-                            _buildSemesterColumn(semester),
-                        ],
-                      ),
+              child: Center(
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 32, horizontal: 32),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.4),
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  child: Transform.scale(
+                    scale: widget.zoomLevel,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        for (int semester = 1;
+                            semester <= (widget.courseData?.semestres ?? 0);
+                            semester++)
+                          _buildSemesterColumn(semester),
+                      ],
                     ),
                   ),
                 ),
