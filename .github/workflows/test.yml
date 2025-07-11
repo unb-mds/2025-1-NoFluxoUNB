@@ -1,0 +1,60 @@
+name: Testes Unitários
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v4
+
+    - name: Configurar Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Instalar dependências
+      run: |
+        cd no_fluxo_backend
+        npm ci
+
+    - name: Verificar tipos TypeScript
+      run: |
+        cd no_fluxo_backend
+        npm run type-check
+
+    - name: Rodar linter
+      run: |
+        cd no_fluxo_backend
+        npm run lint
+
+    - name: Rodar testes unitários
+      run: |
+        cd no_fluxo_backend
+        npm test
+
+    - name: Gerar relatório de cobertura
+      run: |
+        cd no_fluxo_backend
+        npm run test:coverage
+      if: matrix.node-version == '20.x'
+
+    - name: Upload relatório de cobertura
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./no_fluxo_backend/coverage/lcov.info
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+      if: matrix.node-version == '20.x' 
