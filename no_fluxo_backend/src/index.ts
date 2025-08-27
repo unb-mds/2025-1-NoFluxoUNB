@@ -230,7 +230,7 @@ const app: Express = express();
 const allowedOrigins = new Set<string>([
     'https://www.no-fluxo.com',
     'https://no-fluxo.com',
-    'https://no-fluxo-api.shop',
+    'https://simplifica-pbl.space',
     'http://localhost:3000',
     'http://localhost:5000',
 ]);

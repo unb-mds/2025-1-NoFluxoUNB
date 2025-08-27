@@ -79,8 +79,8 @@ FORK_URL=https://github.com/yourusername/2025-1-NoFluxoUNB.git
 
 ## URLs
 
-- **Main API**: `https://localhost:443/` (or `https://no-fluxo-api.shop/`)
-- **AI Agent**: `https://localhost:4652/` (or `https://no-fluxo-api.shop:4652/`)
+- **Main API**: `https://localhost:443/` (or `https://simplifica-pbl.space/`)
+- **AI Agent**: `https://localhost:4652/` (or `https://simplifica-pbl.space:4652/`)
 
 ## Development
 
