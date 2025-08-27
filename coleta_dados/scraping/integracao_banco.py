@@ -210,6 +210,7 @@ def processar_matrizes():
             nome_curso = remover_acentos(matriz['curso']).replace('Ç', 'C').upper().strip()
             periodo_letivo = matriz.get('periodo_letivo_vigor', None)
             key_curso = (nome_curso, periodo_letivo)
+            print(f"Cursos existentes: {cursos_existentes}")
             if key_curso not in cursos_existentes:
                 print(f"  ❌ Curso não encontrado: {nome_curso} - {periodo_letivo}")
                 continue
