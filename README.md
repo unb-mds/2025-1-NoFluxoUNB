@@ -47,6 +47,7 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
 
 ## 2. 🧩 Links Importantes
 
+- 💻 [NoFluxo (Acesse aqui)](https://www.no-fluxo.com)
 - 🧩 [Protótipo de alta fidelidade](https://www.figma.com/design/uy5ZwJGkuzjRaeREouMSlI/-arquivado--Prototipo-e-IDV-No-FLX-UnB?node-id=0-1&p=f&t=wMKM19zNX9jK3v7F-0)  
 - 🗺️ [Story Map Público](https://miro.com/app/board/uXjVIC_JkAY=/?moveToWidget=3458764599792494680&cot=14)  
 - 📋 [Board do Projeto no GitHub](https://github.com/orgs/unb-mds/projects/29)
@@ -58,6 +59,7 @@ Dessa forma, o estudante consegue um planejamento acadêmico **assertivo e perso
 ## 3. Como Rodar o Projeto Localmente
 
 Para configurar e executar o projeto na sua máquina local, siga o passo a passo detalhado no arquivo [CONTRIBUTING.md](./CONTRIBUTING.md)
+
 
  ## 4. 👥 Equipe
 

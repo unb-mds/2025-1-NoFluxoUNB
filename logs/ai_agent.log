@@ -9506,3 +9506,1152 @@ requests.exceptions.SSLError: HTTPSConnectionPool(host='ragflow.arthrok.shop', p
 [DEBUG] OUTGOING RESPONSE: 200 for POST http://localhost:4652/assistente
 [DEBUG]   Response size: 5215
 [INFO] 127.0.0.1 - - [11/Jul/2025 04:03:51] "POST /assistente HTTP/1.1" 200 -
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 59810
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://172.29.106.137:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 59821
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 115-713-435
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 81122
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://172.29.106.137:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 81139
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 115-713-435
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 82288
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4652
+ * Running on http://172.29.106.137:4652
+[INFO] [33mPress CTRL+C to quit[0m
+[INFO]  * Restarting with stat
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 82300
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[WARNING]  * Debugger is active!
+[INFO]  * Debugger PIN: 115-713-435
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 83559
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 87795
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 89283
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 89716
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 93096
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 94916
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 95644
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 97988
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 98249
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 98608
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 98859
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 99220
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 99849
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 7283
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 7563
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 7744
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 9704
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 10347
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress
+[INFO] Root logger configured successfully with file and console handlers
+[INFO] Module logger initialized successfully
+[INFO] FUNCTION EXIT: setup_logging() - completed successfully
+[INFO] Main application logger initialized
+[INFO] Initializing Flask application
+[INFO] Flask application instance created
+[INFO] Configuring CORS for Flask application
+[INFO] CORS configuration completed
+[INFO] Flask application and CORS initialized successfully
+[INFO] ============================================================
+[INFO] MAIN EXECUTION START
+[INFO] ============================================================
+[INFO] Parsing command line arguments
+[INFO] FUNCTION ENTRY: parse_arguments()
+[DEBUG] Creating argument parser
+[DEBUG] Default arguments from environment:
+[DEBUG]   Port: 5000
+[DEBUG]   Debug: True
+[DEBUG]   Log level: DEBUG
+[DEBUG] Parsing command line arguments
+[INFO] Parsed arguments:
+[INFO]   Host: 0.0.0.0
+[INFO]   Port: 4652
+[INFO]   Debug: True
+[INFO]   Log level: DEBUG
+[INFO] FUNCTION EXIT: parse_arguments() - completed successfully
+[INFO] Updating log level from DEBUG to DEBUG
+[INFO] Log level updated successfully
+[INFO] ==================================================
+[INFO] AI AGENT SERVER STARTUP
+[INFO] ==================================================
+[INFO] Host: 0.0.0.0
+[INFO] Port: 4652
+[INFO] Debug mode: True
+[INFO] Log level: DEBUG
+[INFO] Environment: development
+[INFO] Process ID: 10619
+[INFO] Working directory: /Users/otaviomaya/Documents/GitHub/2025-1-NoFluxoUNB/no_fluxo_backend
+[INFO] ==================================================
+[INFO] Starting Flask application server
+[DEBUG] Flask server configuration:
+[DEBUG]   Host: 0.0.0.0 (0.0.0.0 makes server accessible on local network)
+[DEBUG]   Port: 4652
+[DEBUG]   Debug mode: True
+[DEBUG] Note: For production, use a WSGI server like Gunicorn or Waitress

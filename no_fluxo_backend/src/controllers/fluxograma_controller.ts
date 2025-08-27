@@ -275,13 +275,13 @@ export const FluxogramaController: EndpointController = {
                 form.append('pdf', pdfFile.data, pdfFile.name);
 
                 logger.info(`Enviando PDF para processamento: ${pdfFile.name}`);
-                // Envia para o Python com timeout de 30 segundos
+                // Envia para o Python com timeout ampliado (até 2 minutos) para PDFs grandes
                 const response = await axios.post(
                     'http://127.0.0.1:3001/upload-pdf',
                     form,
                     {
                         headers: form.getHeaders(),
-                        timeout: 30000, // 30 segundos
+                        timeout: 120000, // 120 segundos
                         maxContentLength: Infinity,
                         maxBodyLength: Infinity
                     }
@@ -368,6 +368,8 @@ export const FluxogramaController: EndpointController = {
                         .select("nome_curso, matriz_curricular")
                         .order("nome_curso");
 
+                    logger.info(`Cursos encontrados: ${todosCursos}`);
+
                     if (todosCursos) {
                         const cursosFiltrados = todosCursos.filter(curso =>
                             palavrasChave.some((palavra: string) =>
@@ -402,11 +404,16 @@ export const FluxogramaController: EndpointController = {
                         .select("*,materias_por_curso(id_materia,nivel,materias(*))")
                         .like("nome_curso", "%" + curso_extraido + "%");
 
+
                     if (matriz_curricular) {
                         query = query.eq("matriz_curricular", matriz_curricular);
                     }
 
+                    logger.info("Matriz curricular: " + matriz_curricular);
+
                     const result = await query;
+
+                    logger.info(`curso_extraido: ${curso_extraido}, query result: ${JSON.stringify(result)}`);
                     materiasBanco = result.data;
                     error = result.error;
                 }
@@ -415,6 +422,8 @@ export const FluxogramaController: EndpointController = {
                     logger.error(`Erro ao buscar matérias do curso: ${error.message}`);
                     return res.status(500).json({ error: error.message });
                 }
+
+
 
                 if (!materiasBanco || materiasBanco.length === 0) {
                     logger.error(`Curso não encontrado: ${curso_extraido}`);
