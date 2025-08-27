@@ -1,0 +1,166 @@
+/* Typography System - Based on Flutter Google Fonts usage */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Permanent+Marker&display=swap');
+
+/* Font Families */
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-display: 'Permanent Marker', cursive;
+}
+
+/* Typography Scale */
+.typography-display-large {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.typography-display-medium {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.typography-display-small {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.typography-headline-large {
+  font-family: var(--font-primary);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.typography-headline-medium {
+  font-family: var(--font-primary);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.typography-headline-small {
+  font-family: var(--font-primary);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.typography-title-large {
+  font-family: var(--font-primary);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.typography-title-medium {
+  font-family: var(--font-primary);
+  font-size: clamp(0.9rem, 1.25vw, 1rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.typography-title-small {
+  font-family: var(--font-primary);
+  font-size: clamp(0.8rem, 1vw, 0.875rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.typography-body-large {
+  font-family: var(--font-primary);
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.typography-body-medium {
+  font-family: var(--font-primary);
+  font-size: clamp(0.8rem, 1vw, 0.875rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.typography-body-small {
+  font-family: var(--font-primary);
+  font-size: clamp(0.75rem, 0.8vw, 0.8rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.typography-label-large {
+  font-family: var(--font-primary);
+  font-size: clamp(0.8rem, 1vw, 0.875rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.typography-label-medium {
+  font-family: var(--font-primary);
+  font-size: clamp(0.75rem, 0.8vw, 0.8rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.typography-label-small {
+  font-family: var(--font-primary);
+  font-size: clamp(0.7rem, 0.7vw, 0.75rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Text Colors */
+.text-primary { color: var(--color-primary); }
+.text-white { color: var(--color-white); }
+.text-black { color: var(--color-black); }
+.text-gray { color: var(--color-gray); }
+.text-dark-gray { color: var(--color-dark-gray); }
+
+/* Text Styles */
+.text-bold { font-weight: 700; }
+.text-semibold { font-weight: 600; }
+.text-medium { font-weight: 500; }
+.text-regular { font-weight: 400; }
+.text-light { font-weight: 300; }
+
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Special Text Effects */
+.text-shadow {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}

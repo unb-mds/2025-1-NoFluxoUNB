@@ -1,0 +1,42 @@
+{
+  "name": "no-fluxo-unb-svelte",
+  "version": "1.0.0",
+  "description": "Svelte version of NoFluxoUNB Flutter app",
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear --port 3000",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "lint": "eslint . --ext .js,.ts,.svelte",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@tsconfig/svelte": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-svelte": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-svelte": "^3.0.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-css-only": "^4.0.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^4.0.0",
+    "svelte-check": "^3.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.8.4",
+    "@sveltejs/kit": "^1.0.0",
+    "svelte-routing": "^2.0.0",
+    "svelte-google-fonts": "^1.0.0",
+    "sirv": "^2.0.0"
+  }
+}
