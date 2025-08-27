@@ -233,6 +233,8 @@ const allowedOrigins = new Set<string>([
     'https://simplifica-pbl.space',
     'http://localhost:3000',
     'http://localhost:5000',
+
+
 ]);
 
 app.use(cors({
