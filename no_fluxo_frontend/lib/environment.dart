@@ -146,6 +146,7 @@ class Environment {
       redirectToUrl = "https://no-fluxo.com";
       agentUrl = "https://simplifica-pbl.space:4652";
       ;
+      ;
     }
   }
 
