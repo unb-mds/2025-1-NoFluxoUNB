@@ -145,6 +145,7 @@ class Environment {
       apiUrl = "https://nofluxo.lappis.rocks";
       redirectToUrl = "https://no-fluxo.com";
       agentUrl = "https://simplifica-pbl.space:4652";
+      ;
     }
   }
 
