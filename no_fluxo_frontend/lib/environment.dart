@@ -142,7 +142,7 @@ class Environment {
       redirectToUrl = "http://localhost:5000";
       agentUrl = "http://localhost:4652";
     } else {
-      apiUrl = "https://simplifica-pbl.space:3325";
+      apiUrl = "https://nofluxo.lappis.rocks";
       redirectToUrl = "https://no-fluxo.com";
       agentUrl = "https://simplifica-pbl.space:4652";
     }
