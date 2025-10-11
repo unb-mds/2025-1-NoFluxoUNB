@@ -7,10 +7,7 @@ import 'package:stack_trace/stack_trace.dart';
 
 import 'cache/shared_preferences_helper.dart';
 
-enum EnvironmentType {
-  development,
-  production,
-}
+enum EnvironmentType { development, production }
 
 class Environment {
   static String apiUrl = "http://localhost:3000";
@@ -39,8 +36,9 @@ class Environment {
     }
 
     final logger = getLogger('Environment');
-    logger
-        .info('🌍 Initializing environment - isProd: $isProd, isWeb: $kIsWeb');
+    logger.info(
+      '🌍 Initializing environment - isProd: $isProd, isWeb: $kIsWeb',
+    );
 
     if (isProd) {
       setEnvironmentType(EnvironmentType.production);
@@ -142,9 +140,9 @@ class Environment {
       redirectToUrl = "http://localhost:5000";
       agentUrl = "http://localhost:4652";
     } else {
-      apiUrl = "https://simplifica-pbl.space:3325";
+      apiUrl = "https://nofluxo.lappis.rocks";
       redirectToUrl = "https://no-fluxo.com";
-      agentUrl = "https://simplifica-pbl.space:4652";
+      agentUrl = "https://ai.nofluxo.arthrok.shop";
     }
   }
 
@@ -153,7 +151,7 @@ class Environment {
     return {
       "Authorization": session.session?.accessToken ?? "",
       "User-ID": SharedPreferencesHelper.currentUser?.idUser.toString() ?? "",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     };
   }
 
