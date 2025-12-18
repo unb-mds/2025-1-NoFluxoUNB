@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Rápido - Parser PDF Corrigido</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        .status {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .upload-zone {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .upload-zone:hover {
+            background: #f0f4ff;
+            border-color: #764ba2;
+        }
+        .upload-zone.drag-over {
+            background: #e6efff;
+            border-color: #764ba2;
+            transform: scale(1.02);
+        }
+        .results {
+            margin-top: 30px;
+        }
+        .result-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+        .result-card h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .disc-item {
+            background: white;
+            padding: 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s;
+        }
+        .disc-item:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        .disc-header {
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        .disc-details {
+            font-size: 13px;
+            color: #666;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        .badge.apr { background: #d4edda; color: #155724; }
+        .badge.rep { background: #f8d7da; color: #721c24; }
+        .badge.matr { background: #d1ecf1; color: #0c5460; }
+        .badge.canc { background: #fff3cd; color: #856404; }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔬 Teste Rápido - Parser PDF Corrigido</h1>
+        <p class="subtitle">
+            ✨ Versão corrigida com processamento linha por linha (igual ao Python)<br>
+            📋 Agora extrai disciplinas do formato estruturado PyMuPDF
+        </p>
+
+        <div class="status info" id="info">
+            ℹ️ <strong>Novo algoritmo:</strong> Processa disciplinas linha por linha, detectando cada campo separadamente (nome, ano, turma, status, código, etc.)
+        </div>
+
+        <div class="upload-zone" id="uploadZone">
+            <h2 style="margin-top:0; color:#667eea;">📄 Selecione o PDF</h2>
+            <p style="color:#666;">Arraste e solte ou clique para selecionar</p>
+            <input type="file" id="fileInput" accept="application/pdf">
+            <button class="btn" onclick="document.getElementById('fileInput').click()">
+                Escolher Arquivo PDF
+            </button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="color:#667eea; font-weight:600;">Processando PDF com novo algoritmo...</p>
+            <p style="color:#666; font-size:14px;">Extraindo disciplinas linha por linha</p>
+        </div>
+
+        <div class="results" id="results" style="display:none;">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" id="statDisc">0</div>
+                    <div class="stat-label">Disciplinas</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statEquiv">0</div>
+                    <div class="stat-label">Equivalências</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statIRA">-</div>
+                    <div class="stat-label">IRA</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statSem">-</div>
+                    <div class="stat-label">Semestre</div>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h3>📚 Disciplinas Extraídas</h3>
+                <div id="listDisc"></div>
+            </div>
+
+            <div class="result-card" id="equivCard" style="display:none;">
+                <h3>🔄 Equivalências</h3>
+                <div id="listEquiv"></div>
+            </div>
+
+            <div class="result-card">
+                <h3>💾 Dados Completos (JSON)</h3>
+                <details>
+                    <summary style="cursor:pointer; padding:10px; background:#e9ecef; border-radius:5px;">
+                        <strong>Clique para expandir JSON</strong>
+                    </summary>
+                    <pre id="jsonData"></pre>
+                </details>
+            </div>
+        </div>
+
+        <div class="status error" id="error" style="display:none;"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="../lib/utils/pdf_parser.js"></script>
+
+    <script>
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+        const error = document.getElementById('error');
+
+        // Drag and drop
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('drag-over');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('drag-over');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file?.type === 'application/pdf') {
+                processFile(file);
+            } else {
+                showError('Por favor, selecione um arquivo PDF válido');
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) processFile(file);
+        });
+
+        async function processFile(file) {
+            try {
+                // Reset
+                error.style.display = 'none';
+                results.style.display = 'none';
+                loading.style.display = 'block';
+
+                console.log('🔄 Iniciando processamento...');
+                const startTime = Date.now();
+
+                const parser = new PdfHistoricoParser();
+                const data = await parser.parsePdf(file);
+
+                const endTime = Date.now();
+                console.log(`✅ Processamento concluído em ${endTime - startTime}ms`);
+
+                displayResults(data);
+                loading.style.display = 'none';
+                results.style.display = 'block';
+
+            } catch (err) {
+                console.error('❌ Erro:', err);
+                showError(`Erro ao processar: ${err.message}`);
+                loading.style.display = 'none';
+            }
+        }
+
+        function displayResults(data) {
+            // Stats
+            document.getElementById('statDisc').textContent = data.extracted_data.length;
+            document.getElementById('statEquiv').textContent = data.equivalencias_pdf.length;
+            document.getElementById('statIRA').textContent = data.ira || '-';
+            document.getElementById('statSem').textContent = data.semestre_atual || '-';
+
+            // Disciplinas
+            const listDisc = document.getElementById('listDisc');
+            listDisc.innerHTML = '';
+
+            if (data.extracted_data.length === 0) {
+                listDisc.innerHTML = '<p style="color:#721c24;">⚠️ Nenhuma disciplina foi extraída! Verifique o formato do PDF.</p>';
+            } else {
+                data.extracted_data.forEach(disc => {
+                    const badge = getBadge(disc.status);
+                    const div = document.createElement('div');
+                    div.className = 'disc-item';
+                    div.innerHTML = `
+                        <div class="disc-header">
+                            ${disc.nome} <code style="background:#e9ecef; padding:2px 6px; border-radius:3px;">${disc.codigo}</code>
+                        </div>
+                        <div class="disc-details">
+                            ${badge}
+                            📅 ${disc.ano_periodo} | 
+                            📝 ${disc.mencao || '-'} | 
+                            👥 Turma ${disc.turma || '-'} | 
+                            ⏱️ ${disc.carga_horaria || '-'}h
+                            ${disc.professor ? ` | 👨‍🏫 ${disc.professor}` : ''}
+                        </div>
+                    `;
+                    listDisc.appendChild(div);
+                });
+            }
+
+            // Equivalências
+            if (data.equivalencias_pdf.length > 0) {
+                document.getElementById('equivCard').style.display = 'block';
+                const listEquiv = document.getElementById('listEquiv');
+                listEquiv.innerHTML = '';
+                data.equivalencias_pdf.forEach(eq => {
+                    const div = document.createElement('div');
+                    div.className = 'disc-item';
+                    div.innerHTML = `
+                        <div class="disc-header">
+                            Cumpriu: ${eq.nome_cumprido} <code style="background:#e9ecef; padding:2px 6px; border-radius:3px;">${eq.codigo_cumprido}</code>
+                        </div>
+                        <div class="disc-details">
+                            Através de: ${eq.nome_equivalente} <code style="background:#e9ecef; padding:2px 6px; border-radius:3px;">${eq.codigo_equivalente}</code> | 
+                            ${eq.carga_horaria_cumprida}h → ${eq.carga_horaria_equivalente}h
+                        </div>
+                    `;
+                    listEquiv.appendChild(div);
+                });
+            }
+
+            // JSON
+            document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
+        }
+
+        function getBadge(status) {
+            const badges = {
+                'APR': '<span class="badge apr">✅ APR</span>',
+                'REP': '<span class="badge rep">❌ REP</span>',
+                'REPF': '<span class="badge rep">❌ REPF</span>',
+                'REPMF': '<span class="badge rep">❌ REPMF</span>',
+                'MATR': '<span class="badge matr">📝 MATR</span>',
+                'CANC': '<span class="badge canc">⚠️ CANC</span>',
+                'DISP': '<span class="badge">DISP</span>',
+                'TRANC': '<span class="badge">TRANC</span>'
+            };
+            return badges[status] || `<span class="badge">${status}</span>`;
+        }
+
+        function showError(msg) {
+            error.textContent = '❌ ' + msg;
+            error.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

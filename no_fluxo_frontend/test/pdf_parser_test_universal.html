@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Multi-Curso - Parser Universal UnB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .info-box {
+            background: #e7f3ff;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .info-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin: 5px 0;
+        }
+        .upload-zone {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 50px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .upload-zone:hover {
+            background: #f0f4ff;
+            border-color: #764ba2;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .results {
+            display: none;
+            margin-top: 30px;
+        }
+        .success-badge {
+            background: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .warning-badge {
+            background: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .error-badge {
+            background: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        .stat-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+        .compatibility-check {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .check-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .check-item.pass {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+        }
+        .check-item.fail {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+        }
+        .check-icon {
+            font-size: 24px;
+        }
+        .details-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .details-section h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .disc-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .disc-item {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            max-height: 500px;
+        }
+        .validation-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .validation-summary h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Teste Multi-Curso - Parser Universal UnB</h1>
+        <p class="subtitle">
+            <strong>Validação de Compatibilidade:</strong> Este teste verifica se o parser funciona corretamente<br>
+            com históricos de <strong>qualquer curso</strong> da UnB que use o formato SIGAA padrão.
+        </p>
+
+        <div class="info-box">
+            <h3>📋 O que este teste valida:</h3>
+            <ul>
+                <li>✅ Extração de disciplinas de <strong>qualquer departamento</strong> (CIC, MAT, FIS, ENG, MED, etc.)</li>
+                <li>✅ Códigos de disciplina <strong>variados</strong> (2-4 letras + 3-4 números)</li>
+                <li>✅ Nomes com <strong>acentos, números, hífens e parênteses</strong></li>
+                <li>✅ Turmas em <strong>formatos diversos</strong> (A, B, 01, 02, A1, etc.)</li>
+                <li>✅ Cargas horárias <strong>flexíveis</strong> (15h até 240h)</li>
+                <li>✅ Todos os <strong>status</strong> possíveis do SIGAA</li>
+                <li>✅ Equivalências entre <strong>diferentes departamentos</strong></li>
+            </ul>
+        </div>
+
+        <div class="upload-zone" id="uploadZone">
+            <h2 style="margin-top:0; color:#667eea;">📄 Teste com seu Histórico</h2>
+            <p style="color:#666;">Funciona com <strong>qualquer curso da UnB</strong></p>
+            <input type="file" id="fileInput" accept="application/pdf">
+            <button class="btn" onclick="document.getElementById('fileInput').click()">
+                Selecionar PDF do SIGAA
+            </button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="color:#667eea; font-weight:600;">Validando compatibilidade...</p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="validation-summary" id="summary">
+                <h2 id="summaryTitle">Resultado da Validação</h2>
+                <p id="summaryText" style="font-size:18px; margin:10px 0;"></p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Disciplinas Extraídas</div>
+                    <div class="stat-value" id="statDisc">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Equivalências</div>
+                    <div class="stat-value" id="statEquiv">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">IRA Detectado</div>
+                    <div class="stat-value" id="statIRA">-</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Curso Identificado</div>
+                    <div class="stat-value" id="statCurso" style="font-size:24px;">-</div>
+                </div>
+            </div>
+
+            <div class="compatibility-check">
+                <h3>🔍 Checklist de Compatibilidade</h3>
+                <div id="checkList"></div>
+            </div>
+
+            <div class="details-section">
+                <h3>📚 Disciplinas Detectadas</h3>
+                <div class="disc-list" id="discList"></div>
+            </div>
+
+            <div class="details-section">
+                <h3>🔬 Análise Técnica</h3>
+                <details>
+                    <summary style="cursor:pointer; padding:10px; background:#e0e0e0; border-radius:5px; font-weight:600;">
+                        Clique para ver análise detalhada
+                    </summary>
+                    <div id="analysis" style="margin-top:15px;"></div>
+                </details>
+            </div>
+
+            <div class="details-section">
+                <h3>💾 JSON Completo</h3>
+                <details>
+                    <summary style="cursor:pointer; padding:10px; background:#e0e0e0; border-radius:5px; font-weight:600;">
+                        Clique para ver dados brutos
+                    </summary>
+                    <pre id="jsonData"></pre>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="../lib/utils/pdf_parser.js"></script>
+
+    <script>
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const loading = document.getElementById('loading');
+        const results = document.getElementById('results');
+
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.style.background = '#e6efff';
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.style.background = '';
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.style.background = '';
+            const file = e.dataTransfer.files[0];
+            if (file?.type === 'application/pdf') {
+                processFile(file);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) processFile(file);
+        });
+
+        async function processFile(file) {
+            try {
+                loading.style.display = 'block';
+                results.style.display = 'none';
+
+                console.log('🧪 Iniciando teste de compatibilidade...');
+                const startTime = Date.now();
+
+                const parser = new PdfHistoricoParser();
+                const data = await parser.parsePdf(file);
+
+                const endTime = Date.now();
+                const processingTime = endTime - startTime;
+
+                console.log(`✅ Processamento completo em ${processingTime}ms`);
+
+                validateAndDisplay(data, processingTime);
+                loading.style.display = 'none';
+                results.style.display = 'block';
+
+            } catch (err) {
+                console.error('❌ Erro:', err);
+                loading.style.display = 'none';
+                alert(`Erro ao processar: ${err.message}\n\nVerifique se o PDF é do SIGAA UnB.`);
+            }
+        }
+
+        function validateAndDisplay(data, time) {
+            // Stats
+            document.getElementById('statDisc').textContent = data.extracted_data.length;
+            document.getElementById('statEquiv').textContent = data.equivalencias_pdf.length;
+            document.getElementById('statIRA').textContent = data.ira || '-';
+            document.getElementById('statCurso').textContent = data.curso_extraido || 'N/D';
+
+            // Validação
+            const checks = [
+                {
+                    label: 'Disciplinas extraídas',
+                    pass: data.extracted_data.length > 0,
+                    message: `${data.extracted_data.length} disciplinas encontradas`
+                },
+                {
+                    label: 'Curso identificado',
+                    pass: !!data.curso_extraido,
+                    message: data.curso_extraido || 'Não detectado'
+                },
+                {
+                    label: 'IRA detectado',
+                    pass: !!data.ira,
+                    message: data.ira ? `IRA: ${data.ira}` : 'Não encontrado'
+                },
+                {
+                    label: 'Matriz curricular',
+                    pass: !!data.matriz_curricular,
+                    message: data.matriz_curricular || 'Não encontrada'
+                },
+                {
+                    label: 'Tempo de processamento',
+                    pass: time < 5000,
+                    message: `${time}ms (${time < 3000 ? 'Ótimo' : 'Aceitável'})`
+                }
+            ];
+
+            const checkList = document.getElementById('checkList');
+            checkList.innerHTML = '';
+            
+            let passCount = 0;
+            checks.forEach(check => {
+                if (check.pass) passCount++;
+                const div = document.createElement('div');
+                div.className = `check-item ${check.pass ? 'pass' : 'fail'}`;
+                div.innerHTML = `
+                    <span class="check-icon">${check.pass ? '✅' : '❌'}</span>
+                    <div>
+                        <strong>${check.label}</strong><br>
+                        <span style="color:#666;">${check.message}</span>
+                    </div>
+                `;
+                checkList.appendChild(div);
+            });
+
+            // Summary
+            const summary = document.getElementById('summary');
+            const summaryTitle = document.getElementById('summaryTitle');
+            const summaryText = document.getElementById('summaryText');
+            
+            const score = (passCount / checks.length) * 100;
+            
+            if (score === 100) {
+                summary.style.background = 'linear-gradient(135deg, #4caf50 0%, #45a049 100%)';
+                summaryTitle.textContent = '🎉 Compatibilidade Perfeita!';
+                summaryText.textContent = 'O parser funcionou perfeitamente com seu histórico!';
+            } else if (score >= 60) {
+                summary.style.background = 'linear-gradient(135deg, #ff9800 0%, #f57c00 100%)';
+                summaryTitle.textContent = '⚠️ Compatibilidade Parcial';
+                summaryText.textContent = 'O parser funcionou, mas alguns dados não foram detectados.';
+            } else {
+                summary.style.background = 'linear-gradient(135deg, #f44336 0%, #d32f2f 100%)';
+                summaryTitle.textContent = '❌ Incompatível';
+                summaryText.textContent = 'Este formato de PDF não é compatível com o parser.';
+            }
+
+            // Disciplinas
+            const discList = document.getElementById('discList');
+            discList.innerHTML = '';
+            
+            if (data.extracted_data.length === 0) {
+                discList.innerHTML = '<p style="color:#f44336;">Nenhuma disciplina foi extraída.</p>';
+            } else {
+                data.extracted_data.slice(0, 20).forEach(disc => {
+                    const div = document.createElement('div');
+                    div.className = 'disc-item';
+                    div.innerHTML = `
+                        <strong>${disc.codigo}</strong> - ${disc.nome}<br>
+                        <small>Status: ${disc.status} | Menção: ${disc.mencao || '-'} | ${disc.ano_periodo}</small>
+                    `;
+                    discList.appendChild(div);
+                });
+                
+                if (data.extracted_data.length > 20) {
+                    discList.innerHTML += `<p style="text-align:center;color:#666;">... e mais ${data.extracted_data.length - 20} disciplinas</p>`;
+                }
+            }
+
+            // Análise
+            const analysis = document.getElementById('analysis');
+            const codigosUnicos = new Set(data.extracted_data.map(d => d.codigo.match(/^[A-Z]+/)[0]));
+            const turmasUnicas = new Set(data.extracted_data.map(d => d.turma));
+            const statusUnicos = new Set(data.extracted_data.map(d => d.status));
+            
+            analysis.innerHTML = `
+                <p><strong>Departamentos detectados:</strong> ${[...codigosUnicos].join(', ')}</p>
+                <p><strong>Formatos de turma:</strong> ${[...turmasUnicas].join(', ')}</p>
+                <p><strong>Status encontrados:</strong> ${[...statusUnicos].join(', ')}</p>
+                <p><strong>Carga horária mínima:</strong> ${Math.min(...data.extracted_data.map(d => d.carga_horaria || 0))}h</p>
+                <p><strong>Carga horária máxima:</strong> ${Math.max(...data.extracted_data.map(d => d.carga_horaria || 0))}h</p>
+                <p><strong>Tempo de processamento:</strong> ${time}ms</p>
+                <p><strong>Performance:</strong> ${(data.extracted_data.length / (time / 1000)).toFixed(1)} disciplinas/segundo</p>
+            `;
+
+            // JSON
+            document.getElementById('jsonData').textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</body>
+</html>

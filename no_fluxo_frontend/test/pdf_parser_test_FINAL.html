@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Parser - Teste CORRIGIDO (Formato Real)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9ff;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+        .upload-area:hover {
+            background: #f0f2ff;
+            border-color: #764ba2;
+        }
+        .upload-area.drag-over {
+            background: #e8ebff;
+            border-color: #667eea;
+            transform: scale(1.02);
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        input[type="file"] { display: none; }
+        
+        .results {
+            margin-top: 40px;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+        .card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .info-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .info-value {
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        tbody tr:hover {
+            background: #f8f9ff;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-APR { background: #d4edda; color: #155724; }
+        .status-REP { background: #f8d7da; color: #721c24; }
+        .status-MATR { background: #d1ecf1; color: #0c5460; }
+        .status-TRANC { background: #fff3cd; color: #856404; }
+        .status-CANC { background: #f5c6cb; color: #721c24; }
+        
+        .mencao-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .mencao-SS { background: #d4edda; color: #155724; }
+        .mencao-MS { background: #c3e6cb; color: #155724; }
+        .mencao-MM { background: #fff3cd; color: #856404; }
+        .mencao-MI { background: #f8d7da; color: #721c24; }
+        .mencao-II { background: #f5c6cb; color: #721c24; }
+        .mencao-SR { background: #e2e3e5; color: #383d41; }
+        
+        .alert {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 5px solid #28a745;
+        }
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 5px solid #dc3545;
+        }
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 5px solid #17a2b8;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 PDF Parser - NoFluxo UnB</h1>
+        <p class="subtitle">Parser CORRIGIDO - Extrai disciplinas no formato REAL do SIGAA (2 linhas por disciplina)</p>
+
+        <div class="upload-area" id="uploadArea">
+            <h2 style="color: #667eea; margin-bottom: 10px;">📄 Arraste o PDF aqui ou clique para selecionar</h2>
+            <p style="color: #888;">Histórico escolar da UnB (formato SIGAA)</p>
+            <input type="file" id="fileInput" accept="application/pdf">
+            <button class="btn" onclick="document.getElementById('fileInput').click()">Selecionar Arquivo</button>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="../lib/utils/pdf_parser.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const output = document.getElementById('output');
+
+        // Drag & Drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('drag-over');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('drag-over');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type === 'application/pdf') {
+                processarPdf(file);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) processarPdf(file);
+        });
+
+        async function processarPdf(file) {
+            output.innerHTML = '<div class="spinner"></div><p style="text-align:center;color:#667eea;font-weight:bold;">Processando PDF...</p>';
+
+            try {
+                console.log('=== INICIANDO PROCESSAMENTO ===');
+                const parser = new PdfHistoricoParser();
+                const resultado = await parser.parsePdf(file, '000000000');
+
+                console.log('=== RESULTADO FINAL ===');
+                console.log(resultado);
+
+                mostrarResultado(resultado);
+            } catch (error) {
+                console.error('ERRO:', error);
+                output.innerHTML = `
+                    <div class="alert alert-error">
+                        <h3>❌ Erro ao processar PDF</h3>
+                        <p><strong>Mensagem:</strong> ${error.message}</p>
+                        <p style="margin-top:10px;"><strong>Dica:</strong> Verifique o console do navegador (F12) para mais detalhes</p>
+                    </div>
+                `;
+            }
+        }
+
+        function mostrarResultado(resultado) {
+            const disciplinas = resultado.extracted_data || [];
+            const equivalencias = resultado.equivalencias_pdf || [];
+            
+            const disciplinasRegulares = disciplinas.filter(d => d.tipo_dado === 'Disciplina Regular');
+            const disciplinasPendentes = disciplinas.filter(d => d.tipo_dado === 'Disciplina Pendente');
+
+            output.innerHTML = `
+                <div class="alert alert-success">
+                    <h3>✅ PDF Processado com Sucesso!</h3>
+                    <p><strong>${disciplinas.length}</strong> registros encontrados 
+                    (${disciplinasRegulares.length} regulares, ${disciplinasPendentes.length} pendentes, ${equivalencias.length} equivalências)</p>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Dados Acadêmicos</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Curso</div>
+                            <div class="info-value">${resultado.curso_extraido || 'N/A'}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Matriz Curricular</div>
+                            <div class="info-value">${resultado.matriz_curricular || 'N/A'}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">IRA</div>
+                            <div class="info-value">${resultado.ira !== null ? resultado.ira.toFixed(4) : 'N/A'}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">MP</div>
+                            <div class="info-value">${resultado.media_ponderada !== null ? resultado.media_ponderada.toFixed(4) : 'N/A'}</div>
+                        </div>
+                    </div>
+                </div>
+
+                ${disciplinasRegulares.length > 0 ? `
+                <div class="card">
+                    <h3>📚 Disciplinas Cursadas (${disciplinasRegulares.length})</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ano/Período</th>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Turma</th>
+                                <th>CH</th>
+                                <th>Freq</th>
+                                <th>Menção</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${disciplinasRegulares.map(d => `
+                                <tr>
+                                    <td><strong>${d.ano_periodo}</strong></td>
+                                    <td><code>${d.codigo}</code></td>
+                                    <td>${d.nome}</td>
+                                    <td>${d.turma}</td>
+                                    <td>${d.carga_horaria}h</td>
+                                    <td>${d.frequencia !== null ? d.frequencia.toFixed(1) + '%' : '--'}</td>
+                                    <td><span class="mencao-badge mencao-${d.mencao}">${d.mencao}</span></td>
+                                    <td><span class="status-badge status-${d.status}">${d.status}</span></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                ` : '<div class="alert alert-error"><h3>⚠️ Nenhuma disciplina regular encontrada!</h3></div>'}
+
+                ${disciplinasPendentes.length > 0 ? `
+                <div class="card">
+                    <h3>⏳ Disciplinas Pendentes (${disciplinasPendentes.length})</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>CH</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${disciplinasPendentes.map(d => `
+                                <tr>
+                                    <td><code>${d.codigo}</code></td>
+                                    <td>${d.nome}</td>
+                                    <td>${d.carga_horaria}h</td>
+                                    <td><span class="status-badge status-${d.status}">${d.status}</span></td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                ` : ''}
+
+                ${equivalencias.length > 0 ? `
+                <div class="card">
+                    <h3>🔄 Equivalências (${equivalencias.length})</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Disciplina Cumprida</th>
+                                <th>CH</th>
+                                <th>→</th>
+                                <th>Disciplina Equivalente</th>
+                                <th>CH</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${equivalencias.map(eq => `
+                                <tr>
+                                    <td><code>${eq.codigo_cumprido}</code> - ${eq.nome_cumprido}</td>
+                                    <td>${eq.carga_horaria_cumprida}h</td>
+                                    <td style="text-align:center;">→</td>
+                                    <td><code>${eq.codigo_equivalente}</code> - ${eq.nome_equivalente}</td>
+                                    <td>${eq.carga_horaria_equivalente}h</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                ` : ''}
+
+                <div class="card">
+                    <h3>🔍 Dados JSON Completos</h3>
+                    <button class="btn" onclick="navigator.clipboard.writeText(JSON.stringify(${JSON.stringify(resultado)}, null, 2))">📋 Copiar JSON</button>
+                    <div class="code-block">${JSON.stringify(resultado, null, 2)}</div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

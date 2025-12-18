@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Parser PDF - NoFluxoUNB</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .upload-section {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .upload-box {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 60px 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f8f9ff;
+        }
+        
+        .upload-box:hover {
+            background: #e8ebff;
+            border-color: #764ba2;
+        }
+        
+        .upload-box.dragging {
+            background: #d0d7ff;
+            border-color: #667eea;
+        }
+        
+        .upload-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .results {
+            display: none;
+            padding: 40px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-card .value {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            color: #667eea;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .disciplina {
+            background: #f8f9ff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .disciplina:hover {
+            background: #e8ebff;
+            transform: translateX(5px);
+        }
+        
+        .disciplina-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .disciplina-codigo {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 18px;
+        }
+        
+        .disciplina-mencao {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .disciplina-nome {
+            margin-top: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .disciplina-detalhes {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .disciplina.expanded .disciplina-detalhes {
+            display: block;
+        }
+        
+        .detalhe-item {
+            display: flex;
+            padding: 8px 0;
+        }
+        
+        .detalhe-label {
+            font-weight: bold;
+            width: 150px;
+            color: #666;
+        }
+        
+        .detalhe-valor {
+            color: #333;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            border-left: 4px solid #c62828;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 NoFluxoUNB - Parser de PDF</h1>
+            <p>Teste de extração de dados do histórico escolar</p>
+        </header>
+        
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-icon">📄</div>
+                <h2>Arraste seu PDF aqui</h2>
+                <p style="margin: 15px 0; color: #666;">ou</p>
+                <button class="btn" onclick="document.getElementById('fileInput').click()">
+                    📤 Escolher Arquivo
+                </button>
+                <input type="file" id="fileInput" accept=".pdf" onchange="handleFile(this.files[0])">
+                <p style="margin-top: 20px; font-size: 14px; color: #999;">
+                    Formato: Histórico Escolar SIGAA - UnB
+                </p>
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <h3>Processando PDF...</h3>
+            <p style="color: #666; margin-top: 10px;">Isso pode levar alguns segundos</p>
+        </div>
+        
+        <div class="results" id="results">
+            <button class="btn" onclick="resetar()" style="margin-bottom: 20px;">
+                🔄 Testar Outro PDF
+            </button>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Curso</h3>
+                    <div class="value" id="statCurso">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>IRA</h3>
+                    <div class="value" id="statIra">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Disciplinas</h3>
+                    <div class="value" id="statTotal">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Equivalências</h3>
+                    <div class="value" id="statEquiv">-</div>
+                </div>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="mostrarTab('aprovadas')">
+                    Aprovadas <span id="countAprovadas">0</span>
+                </button>
+                <button class="tab" onclick="mostrarTab('cursando')">
+                    Cursando <span id="countCursando">0</span>
+                </button>
+                <button class="tab" onclick="mostrarTab('reprovadas')">
+                    Reprovadas <span id="countReprovadas">0</span>
+                </button>
+                <button class="tab" onclick="mostrarTab('pendentes')">
+                    Pendentes <span id="countPendentes">0</span>
+                </button>
+            </div>
+            
+            <div id="aprovadas" class="tab-content active"></div>
+            <div id="cursando" class="tab-content"></div>
+            <div id="reprovadas" class="tab-content"></div>
+            <div id="pendentes" class="tab-content"></div>
+        </div>
+    </div>
+    
+    <script src="pdf_parser.js"></script>
+    <script>
+        // Drag & Drop
+        const uploadBox = document.getElementById('uploadBox');
+        
+        uploadBox.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadBox.classList.add('dragging');
+        });
+        
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.classList.remove('dragging');
+        });
+        
+        uploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadBox.classList.remove('dragging');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type === 'application/pdf') {
+                handleFile(file);
+            }
+        });
+        
+        async function handleFile(file) {
+            if (!file) return;
+            
+            document.getElementById('uploadSection').style.display = 'none';
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const uint8Array = new Uint8Array(arrayBuffer);
+                
+                const resultado = await PdfHistoricoParser.parsePdf(uint8Array);
+                
+                mostrarResultados(resultado);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('uploadSection').style.display = 'block';
+                document.getElementById('uploadSection').innerHTML += `
+                    <div class="error">
+                        <strong>❌ Erro ao processar PDF:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        function mostrarResultados(resultado) {
+            // Stats
+            document.getElementById('statCurso').textContent = resultado.curso_extraido || 'N/A';
+            document.getElementById('statIra').textContent = resultado.ira?.toFixed(4) || 'N/A';
+            document.getElementById('statTotal').textContent = resultado.extracted_data.length;
+            document.getElementById('statEquiv').textContent = resultado.equivalencias_pdf.length;
+            
+            // Filtrar disciplinas
+            const aprovadas = resultado.extracted_data.filter(d => d.status === 'APR');
+            const cursando = resultado.extracted_data.filter(d => d.status === 'MATR');
+            const reprovadas = resultado.extracted_data.filter(d => ['REP', 'REPF', 'REPMF'].includes(d.status));
+            const pendentes = resultado.extracted_data.filter(d => d.status === 'PENDENTE');
+            
+            // Counts
+            document.getElementById('countAprovadas').textContent = `(${aprovadas.length})`;
+            document.getElementById('countCursando').textContent = `(${cursando.length})`;
+            document.getElementById('countReprovadas').textContent = `(${reprovadas.length})`;
+            document.getElementById('countPendentes').textContent = `(${pendentes.length})`;
+            
+            // Renderizar
+            renderDisciplinas('aprovadas', aprovadas);
+            renderDisciplinas('cursando', cursando);
+            renderDisciplinas('reprovadas', reprovadas);
+            renderDisciplinas('pendentes', pendentes);
+        }
+        
+        function renderDisciplinas(containerId, disciplinas) {
+            const container = document.getElementById(containerId);
+            
+            if (disciplinas.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#999; padding:40px;">Nenhuma disciplina nesta categoria</p>';
+                return;
+            }
+            
+            container.innerHTML = disciplinas.map((disc, idx) => `
+                <div class="disciplina" onclick="toggleDetalhes(this)">
+                    <div class="disciplina-header">
+                        <span class="disciplina-codigo">${disc.codigo}</span>
+                        <span class="disciplina-mencao">${disc.mencao || '-'}</span>
+                    </div>
+                    <div class="disciplina-nome">${disc.nome}</div>
+                    <div class="disciplina-detalhes">
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Status:</span>
+                            <span class="detalhe-valor">${disc.status}</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Ano/Período:</span>
+                            <span class="detalhe-valor">${disc.ano_periodo || 'N/A'}</span>
+                        </div>
+                        ${disc.turma ? `
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Turma:</span>
+                            <span class="detalhe-valor">${disc.turma}</span>
+                        </div>
+                        ` : ''}
+                        ${disc.carga_horaria ? `
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Carga Horária:</span>
+                            <span class="detalhe-valor">${disc.carga_horaria}h</span>
+                        </div>
+                        ` : ''}
+                        ${disc.frequencia !== null ? `
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Frequência:</span>
+                            <span class="detalhe-valor">${disc.frequencia}%</span>
+                        </div>
+                        ` : ''}
+                        ${disc.professor ? `
+                        <div class="detalhe-item">
+                            <span class="detalhe-label">Professor:</span>
+                            <span class="detalhe-valor">${disc.professor}</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function toggleDetalhes(element) {
+            element.classList.toggle('expanded');
+        }
+        
+        function mostrarTab(tabName) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+        
+        function resetar() {
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('uploadSection').style.display = 'block';
+            document.getElementById('fileInput').value = '';
+        }
+    </script>
+</body>
+</html>

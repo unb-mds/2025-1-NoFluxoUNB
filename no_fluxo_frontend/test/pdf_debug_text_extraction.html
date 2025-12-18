@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEBUG - Extração de Texto PDF</title>
+    <style>
+        body {
+            font-family: monospace;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        .container {
+            background: #252526;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        h1 { color: #4ec9b0; }
+        h2 { color: #dcdcaa; margin-top: 30px; }
+        .btn {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .btn:hover { background: #1177bb; }
+        pre {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid #3c3c3c;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .highlight { background: #264f78; padding: 2px 4px; }
+        .error { color: #f48771; }
+        .success { color: #4ec9b0; }
+        .warning { color: #dcdcaa; }
+        input[type="file"] { margin: 20px 0; }
+        .section {
+            background: #1e1e1e;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            border-left: 3px solid #0e639c;
+        }
+        .line-view {
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        .line-number {
+            color: #858585;
+            margin-right: 10px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 DEBUG - Extração de Texto do PDF</h1>
+        <p>Esta ferramenta mostra EXATAMENTE como o PDF.js está extraindo o texto</p>
+
+        <input type="file" id="fileInput" accept="application/pdf" class="btn">
+        <button class="btn" onclick="document.getElementById('fileInput').click()">Selecionar PDF</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        document.getElementById('fileInput').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const output = document.getElementById('output');
+            output.innerHTML = '<h2>Processando...</h2>';
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                
+                let fullTextSimple = '';
+                let fullTextStructured = '';
+                
+                // Método 1: Extração simples (usado anteriormente)
+                for (let pageNum = 1; pageNum <= Math.min(pdf.numPages, 3); pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    const textContent = await page.getTextContent();
+                    
+                    // Simples: junta tudo com espaços
+                    const pageTextSimple = textContent.items.map(item => item.str).join(' ');
+                    fullTextSimple += pageTextSimple + '\n';
+                    
+                    // Estruturado: organiza por posição Y (linhas)
+                    const pageTextStructured = extractStructuredText(textContent);
+                    fullTextStructured += pageTextStructured + '\n\n';
+                }
+
+                // Mostrar resultados
+                output.innerHTML = `
+                    <h2 class="success">✓ PDF Processado</h2>
+                    <p>Total de páginas: ${pdf.numPages} (mostrando primeiras 3)</p>
+
+                    <h2>1️⃣ Método Simples (ANTIGO - ERRADO)</h2>
+                    <div class="section">
+                        <p class="error">Este método junta tudo em uma linha, perdendo a estrutura!</p>
+                        <pre>${escapeHtml(fullTextSimple.substring(0, 2000))}</pre>
+                    </div>
+
+                    <h2>2️⃣ Método Estruturado (NOVO - CORRETO)</h2>
+                    <div class="section">
+                        <p class="success">Este método preserva linhas separadas, como o PyMuPDF!</p>
+                        <pre class="line-view">${formatWithLineNumbers(fullTextStructured.substring(0, 3000))}</pre>
+                    </div>
+
+                    <h2>3️⃣ Análise de Padrões</h2>
+                    <div class="section">
+                        ${analyzePatterns(fullTextStructured)}
+                    </div>
+
+                    <h2>4️⃣ Teste de Regex</h2>
+                    <div class="section">
+                        ${testRegex(fullTextStructured)}
+                    </div>
+                `;
+
+            } catch (err) {
+                output.innerHTML = `<h2 class="error">Erro: ${err.message}</h2>`;
+                console.error(err);
+            }
+        });
+
+        function extractStructuredText(textContent) {
+            if (!textContent || !textContent.items) return '';
+
+            // Organiza items por posição Y (linha)
+            const lines = [];
+            let currentLine = [];
+            let lastY = null;
+            const Y_THRESHOLD = 5; // Tolerância para considerar mesma linha
+
+            for (const item of textContent.items) {
+                if (!item.str) continue;
+
+                const y = Math.round(item.transform[5]); // Posição Y
+                const x = Math.round(item.transform[4]); // Posição X
+
+                // Nova linha se Y mudou significativamente
+                if (lastY !== null && Math.abs(y - lastY) > Y_THRESHOLD) {
+                    if (currentLine.length > 0) {
+                        // Ordena por X e junta
+                        currentLine.sort((a, b) => a.x - b.x);
+                        lines.push({
+                            y: lastY,
+                            text: currentLine.map(i => i.text).join(' ')
+                        });
+                        currentLine = [];
+                    }
+                }
+
+                currentLine.push({ x, text: item.str });
+                lastY = y;
+            }
+
+            // Adiciona última linha
+            if (currentLine.length > 0) {
+                currentLine.sort((a, b) => a.x - b.x);
+                lines.push({
+                    y: lastY,
+                    text: currentLine.map(i => i.text).join(' ')
+                });
+            }
+
+            // Ordena linhas por Y (de cima para baixo)
+            lines.sort((a, b) => b.y - a.y);
+
+            return lines.map(line => line.text).join('\n');
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/[<>&]/g, (c) => ({
+                '<': '&lt;',
+                '>': '&gt;',
+                '&': '&amp;'
+            }[c]));
+        }
+
+        function formatWithLineNumbers(text) {
+            const lines = text.split('\n');
+            return lines.map((line, i) => 
+                `<span class="line-number">${String(i + 1).padStart(4, ' ')}</span>${escapeHtml(line)}`
+            ).join('\n');
+        }
+
+        function analyzePatterns(text) {
+            const lines = text.split('\n');
+            const patterns = {
+                anoPeriodo: /^\d{4}\.\d$/,
+                codigo: /^[A-Z]{2,}\d{3,}$/,
+                status: /^(MATR|APR|REP|REPF|REPMF|CANC|DISP|TRANC)$/,
+                mencao: /^(SS|MS|MM|MI|II|SR|\-)$/,
+                turma: /^[A-Z0-9]{1,4}$/,
+                numero: /^\d{1,4}$/
+            };
+
+            let html = '<table style="width:100%; border-collapse: collapse;">';
+            html += '<tr><th style="text-align:left; border-bottom: 1px solid #3c3c3c; padding: 8px;">Padrão</th><th style="text-align:left; border-bottom: 1px solid #3c3c3c; padding: 8px;">Matches (primeiros 10)</th></tr>';
+
+            for (const [name, regex] of Object.entries(patterns)) {
+                const matches = lines.filter(line => regex.test(line.trim())).slice(0, 10);
+                html += `<tr>
+                    <td style="padding: 8px; color: #dcdcaa;">${name}</td>
+                    <td style="padding: 8px;">${matches.length > 0 ? matches.join(', ') : '<span class="error">Nenhum</span>'}</td>
+                </tr>`;
+            }
+            html += '</table>';
+
+            return html;
+        }
+
+        function testRegex(text) {
+            const lines = text.split('\n');
+            
+            // Tenta encontrar sequência de disciplina
+            let found = 0;
+            let examples = [];
+            
+            for (let i = 0; i < lines.length && found < 3; i++) {
+                const linha = lines[i].trim();
+                
+                // Procura por ano/período
+                if (/^\d{4}\.\d$/.test(linha)) {
+                    const sequence = [];
+                    for (let j = 0; j < 10 && i+j < lines.length; j++) {
+                        sequence.push(lines[i+j].trim());
+                    }
+                    examples.push(sequence);
+                    found++;
+                }
+            }
+
+            if (examples.length === 0) {
+                return '<p class="error">❌ Nenhuma sequência de disciplina encontrada!</p>';
+            }
+
+            let html = '<p class="success">✓ Sequências encontradas:</p>';
+            examples.forEach((seq, idx) => {
+                html += `<div style="margin: 15px 0; padding: 10px; background: #1e1e1e; border-left: 3px solid #4ec9b0;">
+                    <strong>Exemplo ${idx + 1}:</strong><br>
+                    <pre style="margin: 10px 0;">${seq.join('\n')}</pre>
+                </div>`;
+            });
+
+            return html;
+        }
+    </script>
+</body>
+</html>

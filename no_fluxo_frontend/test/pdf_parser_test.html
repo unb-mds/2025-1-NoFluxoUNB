@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Parser PDF - NoFluxo UnB</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #00447C;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .upload-area {
+            border: 2px dashed #00447C;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        .upload-area:hover {
+            background: #f0f8ff;
+            border-color: #0066B3;
+        }
+        .upload-area.dragging {
+            background: #e6f3ff;
+            border-color: #0066B3;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .btn {
+            background: #00447C;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #0066B3;
+        }
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #00447C;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .result {
+            display: none;
+            margin-top: 30px;
+        }
+        .result-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border-left: 4px solid #00447C;
+        }
+        .result-section h3 {
+            margin-top: 0;
+            color: #00447C;
+        }
+        .disciplina {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .disciplina-header {
+            font-weight: bold;
+            color: #00447C;
+        }
+        .disciplina-info {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #c62828;
+            margin-top: 20px;
+            display: none;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-card {
+            background: #00447C;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Teste de Parser de PDF</h1>
+        <p class="subtitle">Teste o novo parser de histórico escolar que roda no frontend</p>
+
+        <div class="upload-area" id="uploadArea">
+            <h3>📄 Arraste seu PDF aqui ou clique para selecionar</h3>
+            <p>Histórico escolar da UnB em formato PDF</p>
+            <input type="file" id="pdfInput" accept="application/pdf">
+            <button class="btn" onclick="document.getElementById('pdfInput').click()">
+                Selecionar PDF
+            </button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processando PDF...</p>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="result" id="result">
+            <h2>✅ Resultado da Extração</h2>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="statDisciplinas">0</div>
+                    <div class="stat-label">Disciplinas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statIRA">-</div>
+                    <div class="stat-label">IRA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statSemestre">-</div>
+                    <div class="stat-label">Semestre Atual</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="statEquivalencias">0</div>
+                    <div class="stat-label">Equivalências</div>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h3>👤 Informações do Aluno</h3>
+                <p><strong>Curso:</strong> <span id="infoCurso">-</span></p>
+                <p><strong>Matrícula:</strong> <span id="infoMatricula">-</span></p>
+                <p><strong>Matriz Curricular:</strong> <span id="infoMatriz">-</span></p>
+                <p><strong>Média Ponderada:</strong> <span id="infoMP">-</span></p>
+            </div>
+
+            <div class="result-section">
+                <h3>📚 Disciplinas Extraídas (<span id="countDisciplinas">0</span>)</h3>
+                <div id="listaDisciplinas"></div>
+            </div>
+
+            <div class="result-section" id="equivalenciasSection" style="display:none;">
+                <h3>🔄 Equivalências (<span id="countEquivalencias">0</span>)</h3>
+                <div id="listaEquivalencias"></div>
+            </div>
+
+            <div class="result-section">
+                <h3>📊 Dados Completos (JSON)</h3>
+                <details>
+                    <summary>Clique para ver JSON completo</summary>
+                    <pre id="jsonOutput" style="background:#f4f4f4;padding:15px;border-radius:4px;overflow-x:auto;"></pre>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrega PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    
+    <!-- Carrega o parser -->
+    <script src="../lib/utils/pdf_parser.js"></script>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const pdfInput = document.getElementById('pdfInput');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+        const error = document.getElementById('error');
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragging');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragging');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragging');
+            
+            const file = e.dataTransfer.files[0];
+            if (file && file.type === 'application/pdf') {
+                processPdf(file);
+            } else {
+                showError('Por favor, selecione um arquivo PDF válido.');
+            }
+        });
+
+        // File input
+        pdfInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                processPdf(file);
+            }
+        });
+
+        async function processPdf(file) {
+            try {
+                // Reset UI
+                error.style.display = 'none';
+                result.style.display = 'none';
+                loading.style.display = 'block';
+
+                // Processa PDF
+                const parser = new PdfHistoricoParser();
+                const data = await parser.parsePdf(file, 'TESTE123');
+
+                // Mostra resultado
+                displayResult(data);
+                
+            } catch (err) {
+                console.error('Erro ao processar PDF:', err);
+                showError(`Erro ao processar PDF: ${err.message}`);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function displayResult(data) {
+            // Stats
+            document.getElementById('statDisciplinas').textContent = data.extracted_data.length;
+            document.getElementById('statIRA').textContent = data.ira || '-';
+            document.getElementById('statSemestre').textContent = data.semestre_atual || '-';
+            document.getElementById('statEquivalencias').textContent = data.equivalencias_pdf.length;
+
+            // Informações do aluno
+            document.getElementById('infoCurso').textContent = data.curso_extraido || 'Não encontrado';
+            document.getElementById('infoMatricula').textContent = data.matricula || 'Não informada';
+            document.getElementById('infoMatriz').textContent = data.matriz_curricular || 'Não encontrada';
+            document.getElementById('infoMP').textContent = data.media_ponderada || 'Não encontrada';
+
+            // Disciplinas
+            const listaDisciplinas = document.getElementById('listaDisciplinas');
+            const countDisciplinas = document.getElementById('countDisciplinas');
+            listaDisciplinas.innerHTML = '';
+            countDisciplinas.textContent = data.extracted_data.length;
+
+            if (data.extracted_data.length === 0) {
+                listaDisciplinas.innerHTML = '<p>Nenhuma disciplina encontrada.</p>';
+            } else {
+                data.extracted_data.forEach(disc => {
+                    const div = document.createElement('div');
+                    div.className = 'disciplina';
+                    div.innerHTML = `
+                        <div class="disciplina-header">
+                            ${disc.nome} (<code>${disc.codigo}</code>)
+                        </div>
+                        <div class="disciplina-info">
+                            📅 ${disc.ano_periodo} | 
+                            📊 ${disc.status} | 
+                            📝 ${disc.mencao || '-'} | 
+                            👥 Turma ${disc.turma} | 
+                            ⏱️ ${disc.carga_horaria}h | 
+                            📈 ${disc.frequencia !== null ? disc.frequencia + '%' : '-'}
+                        </div>
+                    `;
+                    listaDisciplinas.appendChild(div);
+                });
+            }
+
+            // Equivalências
+            if (data.equivalencias_pdf.length > 0) {
+                document.getElementById('equivalenciasSection').style.display = 'block';
+                const listaEquivalencias = document.getElementById('listaEquivalencias');
+                const countEquivalencias = document.getElementById('countEquivalencias');
+                listaEquivalencias.innerHTML = '';
+                countEquivalencias.textContent = data.equivalencias_pdf.length;
+
+                data.equivalencias_pdf.forEach(eq => {
+                    const div = document.createElement('div');
+                    div.className = 'disciplina';
+                    div.innerHTML = `
+                        <div class="disciplina-header">
+                            Cumpriu: ${eq.nome_cumprido} (<code>${eq.codigo_cumprido}</code>)
+                        </div>
+                        <div class="disciplina-info">
+                            Através de: ${eq.nome_equivalente} (<code>${eq.codigo_equivalente}</code>) | 
+                            ${eq.carga_horaria_cumprida}h → ${eq.carga_horaria_equivalente}h
+                        </div>
+                    `;
+                    listaEquivalencias.appendChild(div);
+                });
+            } else {
+                document.getElementById('equivalenciasSection').style.display = 'none';
+            }
+
+            // JSON completo
+            document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 2);
+
+            // Mostra resultado
+            result.style.display = 'block';
+        }
+
+        function showError(message) {
+            error.textContent = message;
+            error.style.display = 'block';
+        }
+
+        // Info sobre tempo de processamento
+        console.log('%c🚀 Parser de PDF Frontend Carregado!', 'font-size: 16px; color: #00447C; font-weight: bold;');
+        console.log('📄 Teste fazendo upload de um PDF de histórico escolar da UnB');
+    </script>
+</body>
+</html>
