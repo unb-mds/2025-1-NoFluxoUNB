@@ -1,0 +1,286 @@
+@import 'tailwindcss';
+@config '../tailwind.config.ts';
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+		--primary: 243 96% 69.4%;
+		--primary-foreground: 210 40% 98%;
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 243 96% 69.4%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+		--primary: 243 96% 69.4%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--ring: 243 96% 69.4%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply bg-black font-poppins text-foreground;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-poppins font-semibold tracking-tight;
+	}
+}
+
+/* Custom utility classes */
+@layer utilities {
+	.glass {
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	.glass-light {
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.gradient-text {
+		@apply bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent;
+	}
+
+	.gradient-border {
+		@apply relative rounded-lg;
+		background: linear-gradient(135deg, #6c63ff, #e91e63);
+		padding: 2px;
+	}
+
+	.gradient-border > * {
+		@apply rounded-lg bg-background;
+	}
+
+	.text-shadow {
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.text-shadow-lg {
+		text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+	}
+
+	.animate-float {
+		animation: float 3s ease-in-out infinite;
+	}
+
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* Nav link gradient underline */
+.nav-link {
+	position: relative;
+	display: inline-block;
+}
+
+.nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 3px;
+	background: linear-gradient(to right, #9333ea, #e11d48);
+	border-radius: 2px;
+	transition: width 300ms ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+	width: 100%;
+}
+
+/* Auth form shared styles */
+.auth-card {
+	background: white;
+	border-radius: 16px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	padding: 40px 40px 28px;
+	max-width: 440px;
+	width: 100%;
+}
+
+.auth-input {
+	width: 100%;
+	padding: 18px;
+	border: 1px solid #d1d5db;
+	border-radius: 14px;
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	box-sizing: border-box;
+}
+
+.auth-input:focus {
+	outline: none;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.auth-input::placeholder {
+	color: #9ca3af;
+}
+
+.auth-input:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.auth-btn {
+	width: 100%;
+	height: 52px;
+	background: #2563eb;
+	color: white;
+	border: none;
+	border-radius: 14px;
+	font-size: 18px;
+	font-weight: 600;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: background 0.2s;
+}
+
+.auth-btn:hover:not(:disabled) {
+	background: #1d4ed8;
+}
+
+.auth-btn:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.auth-btn-google {
+	width: 100%;
+	height: 52px;
+	background: white;
+	color: #333;
+	border: 1px solid #d1d5db;
+	border-radius: 14px;
+	font-size: 16px;
+	font-weight: 500;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	transition: background 0.2s;
+}
+
+.auth-btn-google:hover:not(:disabled) {
+	background: #f5f5f5;
+}
+
+.auth-btn-visitor {
+	width: 100%;
+	height: 52px;
+	background: rgba(0, 0, 0, 0.87);
+	color: white;
+	border: none;
+	border-radius: 14px;
+	font-size: 16px;
+	font-weight: 600;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.auth-btn-visitor:hover:not(:disabled) {
+	background: rgba(0, 0, 0, 0.95);
+}
+
+.auth-error {
+	background: #fff4e5;
+	border: 1px solid #ffb020;
+	border-radius: 8px;
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 1rem;
+	color: #92400e;
+	font-size: 14px;
+}
+
+.auth-success {
+	background: #e6faf0;
+	border: 1px solid #2dc063;
+	border-radius: 8px;
+	padding: 12px 16px;
+	text-align: center;
+	color: #065f46;
+	font-size: 14px;
+	margin-bottom: 1rem;
+}
+
+.auth-link {
+	color: #6366f1;
+	text-decoration: none;
+	transition: text-decoration 0.2s;
+}
+
+.auth-link:hover {
+	text-decoration: underline;
+}

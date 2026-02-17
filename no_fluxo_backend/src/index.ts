@@ -21,34 +21,43 @@ dotenv.config();
 SupabaseWrapper.init();
 logger.info('Supabase client initialized');
 
-// start the ragflow agent server
-const ragflowAgentProcess = spawn('python', ['ai_agent/app.py', "--port", "4652"], {
-    cwd: path.join(__dirname, '..')
-});
+// Start the ragflow agent server only if not running in Kubernetes (AI_AGENT_URL not set)
+// When AI_AGENT_URL is set, the AI agent runs as a separate Kubernetes service
+const AI_AGENT_URL = process.env.AI_AGENT_URL;
+let ragflowAgentProcess: ReturnType<typeof spawn> | null = null;
 
-ragflowAgentProcess.stdout.on('data', (data) => {
-    logger.info(`\b[RAGFlow Agent] ${data}`);
-});
+if (!AI_AGENT_URL) {
+    logger.info('Starting local RAGFlow Agent (AI_AGENT_URL not set)');
+    ragflowAgentProcess = spawn('python', ['ai_agent/app.py', "--port", "4652"], {
+        cwd: path.join(__dirname, '..')
+    });
 
-ragflowAgentProcess.stderr.on('data', (data) => {
-    var dataString = data.toString();
-    if (dataString[0] == "[") {
-        dataString = "\b" + dataString;
-    }
-    if (dataString.toLowerCase().includes("info")) {
+    ragflowAgentProcess.stdout.on('data', (data) => {
         logger.info(`\b[RAGFlow Agent] ${data}`);
-    } else if (dataString.toLowerCase().includes("warning")) {
-        logger.warn(`\b[RAGFlow Agent] ${data}`);
-    } else {
-        logger.error(`\b[RAGFlow Agent] ${data}`);
-    }
-});
+    });
 
-ragflowAgentProcess.on('close', (code) => {
-    if (code !== 0) {
-        logger.error(`\b[RAGFlow Agent] process exited with code ${code}`);
-    }
-});
+    ragflowAgentProcess.stderr.on('data', (data) => {
+        var dataString = data.toString();
+        if (dataString[0] == "[") {
+            dataString = "\b" + dataString;
+        }
+        if (dataString.toLowerCase().includes("info")) {
+            logger.info(`\b[RAGFlow Agent] ${data}`);
+        } else if (dataString.toLowerCase().includes("warning")) {
+            logger.warn(`\b[RAGFlow Agent] ${data}`);
+        } else {
+            logger.error(`\b[RAGFlow Agent] ${data}`);
+        }
+    });
+
+    ragflowAgentProcess.on('close', (code) => {
+        if (code !== 0) {
+            logger.error(`\b[RAGFlow Agent] process exited with code ${code}`);
+        }
+    });
+} else {
+    logger.info(`Using external AI Agent at: ${AI_AGENT_URL}`);
+}
 
 // Start the Python PDF parser server
 const pythonProcess = spawn('python', ['parse-pdf/pdf_parser_final.py'], {
@@ -81,9 +90,11 @@ pythonProcess.on('close', (code) => {
 
 // Handle Node.js process termination
 const cleanup = () => {
-    logger.info('[PDF Parser] Terminating Python process...');
+    logger.info('[Backend] Terminating child processes...');
     pythonProcess.kill();
-    ragflowAgentProcess.kill();
+    if (ragflowAgentProcess) {
+        ragflowAgentProcess.kill();
+    }
 };
 
 

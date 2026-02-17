@@ -1,0 +1,46 @@
+# Node.js Dockerfile Template
+# Copy to your project as "Dockerfile"
+
+# Use internal registry mirror to avoid Docker Hub egress during in-cluster builds
+FROM registry.kubernetes.crianex.com/library/node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install dependencies first (better caching)
+# Try npm ci first, fall back to npm install if lock file is out of sync
+COPY package*.json ./
+RUN npm ci --omit=dev || (npm install --omit=dev && npm ci --omit=dev)
+
+# Copy source code
+COPY . .
+
+# Build step (uncomment if using TypeScript or build step)
+# RUN npm run build
+
+# Production image
+FROM registry.kubernetes.crianex.com/library/node:20-alpine
+
+WORKDIR /app
+
+# Create non-root user for security
+RUN addgroup -g 1001 -S appgroup && \
+    adduser -u 1001 -S appuser -G appgroup
+
+# Copy from builder
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app .
+
+# Set ownership
+RUN chown -R appuser:appgroup /app
+
+USER appuser
+
+# Application port - replace {{PORT}} with your port
+EXPOSE {{PORT}}
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:{{PORT}}/health || exit 1
+
+# Start command - adjust as needed
+CMD ["node", "index.js"]

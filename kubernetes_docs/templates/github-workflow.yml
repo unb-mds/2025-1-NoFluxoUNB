@@ -1,0 +1,283 @@
+# GitHub Actions Deploy Workflow Template
+# 
+# This workflow builds images directly on the Kubernetes cluster using Kaniko,
+# which is 2-3x faster than building on GitHub Actions runners.
+# Includes real-time log streaming and proper error handling.
+#
+# Uses `jq` to safely construct JSON payloads, preventing issues with secrets
+# containing special characters (newlines, quotes, etc.).
+#
+# Replace placeholders:
+#   {{APP_NAME}}  - Your application name (e.g., myapp)
+#   {{NAMESPACE}} - Kubernetes namespace (e.g., apps)
+#   {{PORT}}      - Your app's port (e.g., 3000)
+#   {{DOMAIN}}    - Your app's domain (e.g., myapp.kubernetes.crianex.com)
+#
+# Optional: For HTTP-only ingress (IoT devices like ESP32), add to deployConfig:
+#   tls: false
+#
+# Optional: For wildcard domains (multi-tenant apps), use domains array:
+#   domains: ["*.myapp.crianex.com", "myapp.crianex.com"]
+#   Note: Wildcards require DNS-01 challenge (domain must be on DigitalOcean DNS)
+#
+# Optional: Prometheus Metrics (see METRICS_* env vars below)
+#   Set METRICS_PORT to enable automatic Prometheus scraping + ServiceMonitor
+#   See: kubernetes/monitoring/APP_METRICS_GUIDE.md
+#
+# Required GitHub Secrets:
+#   DEPLOY_API_KEY - Deploy API authentication key
+#   REPO_TOKEN     - GitHub token with repo access (for private repos only)
+#
+# Required GitHub Variables:
+#   DEPLOY_API_URL - https://deploy.kubernetes.crianex.com
+#
+# Documentation:
+#   - API Reference: deploy-api-server/docs/API_REFERENCE.md
+#   - Build Guide: deploy-api-server/docs/BUILD_GUIDE.md
+#   - App Metrics: kubernetes/monitoring/APP_METRICS_GUIDE.md
+#
+# Note on Docker base images:
+#   If you build in-cluster (Kaniko), make sure your Dockerfile uses base images
+#   mirrored into your internal registry (e.g., registry.kubernetes.crianex.com/library/node:20-alpine)
+#   to avoid Docker Hub timeouts.
+
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  DEPLOY_API_URL: ${{ vars.DEPLOY_API_URL }}
+  APP_NAME: {{APP_NAME}}
+  NAMESPACE: {{NAMESPACE}}
+  PORT: {{PORT}}
+  DOMAIN: {{DOMAIN}}
+  
+  # ============== WILDCARD DOMAINS (Optional) ==============
+  # For multi-tenant apps needing dynamic subdomains, use DOMAINS
+  # instead of DOMAIN. Wildcards (*.example.com) require DNS-01 
+  # challenge - the domain must be hosted on DigitalOcean DNS.
+  # Regular domains can use any DNS provider (including Hostinger).
+  #
+  # Examples:
+  #   Single domain:   DOMAINS: '["myapp.crianex.com"]'
+  #   With wildcard:   DOMAINS: '["*.myapp.crianex.com", "myapp.crianex.com"]'
+  #
+  # Leave empty to use DOMAIN instead (backward compatible).
+  # ===========================================================
+  DOMAINS: ""                   # JSON array of domains (overrides DOMAIN if set)
+  
+  # ============== PROMETHEUS METRICS (Optional) ==============
+  # Set METRICS_PORT to enable automatic Prometheus scraping.
+  # This adds pod annotations + creates a ServiceMonitor resource.
+  # Leave empty to disable metrics collection.
+  # 
+  # Tip: Use a separate port (e.g., 9090) to keep metrics internal.
+  #      If metrics are on the same port as your app AND exposed via
+  #      Ingress, the /metrics endpoint will be publicly accessible.
+  #
+  # Full guide: kubernetes/monitoring/APP_METRICS_GUIDE.md
+  # ===========================================================
+  METRICS_PORT: ""              # Port where /metrics is exposed (e.g., "9090")
+  METRICS_PATH: "/metrics"      # Path to metrics endpoint
+  METRICS_INTERVAL: "30s"       # How often Prometheus scrapes (e.g., "15s", "1m")
+  METRICS_SCHEME: "http"        # Protocol: "http" or "https"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Trigger cluster build
+        id: build
+        env:
+          REPO_TOKEN: ${{ secrets.REPO_TOKEN }}
+        run: |
+          echo "🚀 Starting in-cluster build for ${{ env.APP_NAME }}..."
+          
+          # Build JSON payload safely using jq (handles special characters in secrets)
+          payload=$(jq -n \
+            --arg app "${{ env.APP_NAME }}" \
+            --arg namespace "${{ env.NAMESPACE }}" \
+            --arg repoUrl "https://github.com/${{ github.repository }}" \
+            --arg gitRef "${{ github.sha }}" \
+            --arg gitToken "$REPO_TOKEN" \
+            --arg imageTag "${{ github.sha }}" \
+            --arg domain "${{ env.DOMAIN }}" \
+            --arg domains "${{ env.DOMAINS }}" \
+            --argjson port "${{ env.PORT }}" \
+            --arg metricsPort "${{ env.METRICS_PORT }}" \
+            --arg metricsPath "${{ env.METRICS_PATH }}" \
+            --arg metricsInterval "${{ env.METRICS_INTERVAL }}" \
+            --arg metricsScheme "${{ env.METRICS_SCHEME }}" \
+            '{
+              app: $app,
+              namespace: $namespace,
+              repoUrl: $repoUrl,
+              gitRef: $gitRef,
+              gitToken: $gitToken,
+              imageTag: $imageTag,
+              cache: true,
+              deploy: true,
+              deployConfig: (
+                {
+                  port: $port,
+                  replicas: 2,
+                  healthPath: "/health"
+                }
+                # Use domains array if provided, otherwise use single domain
+                + (if ($domains|length) > 0 then {
+                    domains: ($domains | fromjson)
+                  } else {
+                    domain: $domain
+                  } end)
+                # Add metrics config if METRICS_PORT is set
+                + (if ($metricsPort|length) > 0 then {
+                    metrics: {
+                      port: ($metricsPort | tonumber),
+                      path: $metricsPath,
+                      scrapeInterval: $metricsInterval,
+                      scheme: $metricsScheme
+                    }
+                  } else {} end)
+              )
+            }')
+          
+          http_response=$(curl -s -w "\n%{http_code}" -X POST "${{ env.DEPLOY_API_URL }}/build" \
+            -H "Content-Type: application/json" \
+            -H "X-API-Key: ${{ secrets.DEPLOY_API_KEY }}" \
+            -d "$payload")
+          
+          http_code=$(echo "$http_response" | tail -n1)
+          response=$(echo "$http_response" | sed '$d')
+          
+          echo "HTTP Code: $http_code"
+          echo "Response: $response"
+          
+          if [ "$http_code" -lt 200 ] || [ "$http_code" -ge 300 ]; then
+            echo "❌ API request failed with HTTP $http_code"
+            echo "$response" | jq . 2>/dev/null || echo "$response"
+            exit 1
+          fi
+          
+          jobName=$(echo $response | jq -r '.jobName')
+          image=$(echo $response | jq -r '.image')
+          echo "job_name=$jobName" >> $GITHUB_OUTPUT
+          echo "image=$image" >> $GITHUB_OUTPUT
+          echo "📦 Build job started: $jobName"
+          echo "🖼️ Image: $image"
+
+      - name: Stream build logs
+        run: |
+          echo "📋 Streaming build logs..."
+          echo "================================================"
+          
+          last_line_count=0
+          timeout=900
+          start_time=$(date +%s)
+          
+          while true; do
+            current_time=$(date +%s)
+            elapsed=$((current_time - start_time))
+            if [ $elapsed -ge $timeout ]; then
+              echo "❌ Build timed out after ${timeout}s"
+              exit 1
+            fi
+            
+            # Get current logs and print new lines
+            logs=$(curl -sf "${{ env.DEPLOY_API_URL }}/build/${{ steps.build.outputs.job_name }}/logs" \
+              -H "X-API-Key: ${{ secrets.DEPLOY_API_KEY }}" 2>/dev/null | jq -r '.logs // ""')
+            
+            if [ -n "$logs" ]; then
+              current_line_count=$(echo "$logs" | wc -l)
+              if [ "$current_line_count" -gt "$last_line_count" ]; then
+                echo "$logs" | tail -n +$((last_line_count + 1))
+                last_line_count=$current_line_count
+              fi
+            fi
+            
+            # Check build status
+            status_response=$(curl -sf "${{ env.DEPLOY_API_URL }}/build/${{ steps.build.outputs.job_name }}" \
+              -H "X-API-Key: ${{ secrets.DEPLOY_API_KEY }}" 2>/dev/null || echo '{"status":"pending"}')
+            
+            status=$(echo "$status_response" | jq -r '.status')
+            
+            if [ "$status" = "succeeded" ]; then
+              # Print any remaining logs
+              logs=$(curl -sf "${{ env.DEPLOY_API_URL }}/build/${{ steps.build.outputs.job_name }}/logs" \
+                -H "X-API-Key: ${{ secrets.DEPLOY_API_KEY }}" 2>/dev/null | jq -r '.logs // ""')
+              if [ -n "$logs" ]; then
+                current_line_count=$(echo "$logs" | wc -l)
+                if [ "$current_line_count" -gt "$last_line_count" ]; then
+                  echo "$logs" | tail -n +$((last_line_count + 1))
+                fi
+              fi
+              echo ""
+              echo "================================================"
+              echo "✅ Build succeeded!"
+              exit 0
+            elif [ "$status" = "failed" ]; then
+              echo ""
+              echo "================================================"
+              echo "❌ Build failed!"
+              exit 1
+            fi
+            
+            sleep 3
+          done
+
+      - name: Wait for deployment to be ready
+        run: |
+          echo "⏳ Waiting for deployment to be ready..."
+          
+          APP_NAME="${{ env.APP_NAME }}"
+          NAMESPACE="${{ env.NAMESPACE }}"
+          TIMEOUT=300
+          POLL_INTERVAL=5
+          
+          start_time=$(date +%s)
+          last_status=""
+          
+          while true; do
+            current_time=$(date +%s)
+            elapsed=$((current_time - start_time))
+            
+            if [ $elapsed -ge $TIMEOUT ]; then
+              echo ""
+              echo "❌ Deployment timed out after ${TIMEOUT}s"
+              echo ""
+              echo "📊 Final deployment status:"
+              curl -sf "${{ env.DEPLOY_API_URL }}/api/apps/${NAMESPACE}/${APP_NAME}" \
+                -H "X-API-Key: ${{ secrets.DEPLOY_API_KEY }}" | jq .
+              exit 1
+            fi
+            
+            # Get deployment status
+            response=$(curl -sf "${{ env.DEPLOY_API_URL }}/api/apps/${NAMESPACE}/${APP_NAME}" \
+              -H "X-API-Key: ${{ secrets.DEPLOY_API_KEY }}" 2>/dev/null || echo '{"app":{}}')
+            
+            ready=$(echo "$response" | jq -r '.app.readyReplicas // 0')
+            desired=$(echo "$response" | jq -r '.app.replicas // 0')
+            available=$(echo "$response" | jq -r '.app.availableReplicas // 0')
+            
+            # Print status update if changed
+            current_status="${ready}/${desired}"
+            if [ "$current_status" != "$last_status" ]; then
+              echo "[${elapsed}s] Ready: ${ready}/${desired} | Available: ${available}"
+              last_status="$current_status"
+            fi
+            
+            # Check if deployment is ready
+            if [ "$ready" -eq "$desired" ] && [ "$ready" -gt 0 ]; then
+              echo ""
+              echo "================================================"
+              echo "✅ Deployment successful! ${ready}/${desired} replicas ready"
+              echo "🌐 URL: https://${{ env.DOMAIN }}"
+              echo "================================================"
+              exit 0
+            fi
+            
+            sleep $POLL_INTERVAL
+          done

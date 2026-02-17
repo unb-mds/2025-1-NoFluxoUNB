@@ -1,0 +1,3 @@
+# Add these lines to your project's .gitignore
+.env.local
+.deploy/

@@ -1,0 +1,41 @@
+# Python Dockerfile Template
+# Copy to your project as "Dockerfile"
+
+# Use internal registry mirror to avoid Docker Hub egress during in-cluster builds
+FROM registry.kubernetes.crianex.com/library/python:3.12-slim AS builder
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# Production image
+FROM registry.kubernetes.crianex.com/library/python:3.12-slim
+
+WORKDIR /app
+
+# Create non-root user
+RUN useradd -r -u 1001 appuser
+
+# Copy dependencies from builder
+COPY --from=builder /root/.local /home/appuser/.local
+ENV PATH=/home/appuser/.local/bin:$PATH
+
+# Copy source code
+COPY . .
+
+# Set ownership
+RUN chown -R appuser:appuser /app
+
+USER appuser
+
+# Application port - replace 8000 with your port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" || exit 1
+
+# Start command - adjust as needed
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

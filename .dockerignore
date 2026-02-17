@@ -39,4 +39,20 @@ no_fluxo_frontend/test/
 
 # Outros
 coverage/
-.nyc_output/ 
+.nyc_output/
+
+# Kubernetes deployment files
+.env.local
+.deploy/
+scripts/deploy/
+kubernetes_docs/
+
+# Directories not needed in builds
+documentation/
+documentacao/
+prototipo/
+tests-*
+coleta_dados/
+assets/
+no_fluxo_frontend/
+no_fluxo_frontend_svelte/
