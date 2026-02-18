@@ -12,7 +12,7 @@ export function cn(...inputs: ClassValue[]) {
 
 // shadcn-svelte type helpers
 
-export type WithElementRef<T extends HTMLAttributes<HTMLElement>> = T & {
+export type WithElementRef<T> = T & {
 	ref?: HTMLElement | null;
 };
 

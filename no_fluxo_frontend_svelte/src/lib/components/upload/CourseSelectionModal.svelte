@@ -38,8 +38,7 @@
 	>
 		<div
 			class="modal"
-			use:clickOutside
-			onclickoutside={onclose}
+			use:clickOutside={{ onClickOutside: onclose }}
 			transition:fly={{ y: 30, duration: 250 }}
 		>
 			<!-- Header -->

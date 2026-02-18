@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { Component } from 'svelte';
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	type IconComponent = new (...args: any[]) => any;
 
 	interface Props {
-		icon: Component;
+		icon: IconComponent;
 		title: string;
 		description: string;
 		gradientFrom: string;

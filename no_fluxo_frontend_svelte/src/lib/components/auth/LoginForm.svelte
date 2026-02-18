@@ -23,7 +23,7 @@
 	let emailError = $derived.by(() => {
 		if (!emailTouched || !email) return '';
 		const result = loginSchema.shape.email.safeParse(email);
-		return result.success ? '' : result.error.errors[0]?.message ?? '';
+		return result.success ? '' : result.error.issues[0]?.message ?? '';
 	});
 
 	let passwordError = $derived.by(() => {
@@ -56,7 +56,7 @@
 
 		const parsed = loginSchema.safeParse({ email, password, rememberMe });
 		if (!parsed.success) {
-			localError = parsed.error.errors[0]?.message ?? 'Dados inválidos';
+			localError = parsed.error.issues[0]?.message ?? 'Dados inválidos';
 			return;
 		}
 

@@ -12,7 +12,7 @@
 	let emailError = $derived.by(() => {
 		if (!emailTouched || !email) return '';
 		const result = passwordRecoverySchema.shape.email.safeParse(email);
-		return result.success ? '' : result.error.errors[0]?.message ?? '';
+		return result.success ? '' : result.error.issues[0]?.message ?? '';
 	});
 
 	async function handleSubmit(e: SubmitEvent) {
@@ -26,7 +26,7 @@
 
 		const parsed = passwordRecoverySchema.safeParse({ email });
 		if (!parsed.success) {
-			localError = parsed.error.errors[0]?.message ?? 'Email inválido';
+			localError = parsed.error.issues[0]?.message ?? 'Email inválido';
 			return;
 		}
 

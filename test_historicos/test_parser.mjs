@@ -21,8 +21,8 @@ const EXPECTED = {
     mp: 3.2191,
     matriz: '2017.1',
     suspensoes: ['2020.1', '2024.1'],
-    minDisciplinas: 35,
-    pendentes: 24,
+    minDisciplinas: 47,
+    pendentes: 22,
   },
   'historico_211029503 (1).txt': {
     curso: 'ENGENHARIA DE SOFTWARE',
@@ -30,16 +30,16 @@ const EXPECTED = {
     mp: 3.7437,
     matriz: null, // detailed format may not have it easily
     suspensoes: [],
-    minDisciplinas: 20,
-    pendentes: 0,
+    minDisciplinas: 28,
+    pendentes: 25,
   },
   'historico_211029503-2 copy.txt': {
     curso: 'ENGENHARIA DE SOFTWARE',
     ira: 3.4674,
     mp: 3.7171,
     suspensoes: [],
-    minDisciplinas: 18,
-    pendentes: 0,
+    minDisciplinas: 21,
+    pendentes: 29,
   },
   'historico_222006202 (1).txt': {
     curso: 'ENGENHARIA DE SOFTWARE',
@@ -47,27 +47,65 @@ const EXPECTED = {
     mp: 3.5094,
     matriz: '2017.1',
     suspensoes: [],
-    minDisciplinas: 25,
-    pendentes: 0,
+    minDisciplinas: 34,
+    pendentes: 31,
     equivalencias: 1,
   },
-  'historico_222037700.txt': {
+  'historico_222037700-1.txt': {
     curso: 'ENGENHARIA DE SOFTWARE',
     ira: 4.3664,
     mp: 4.0855,
     matriz: '2017.1',
     suspensoes: [],
-    minDisciplinas: 30,
-    pendentes: 0,
-    equivalencias: 1,
+    minDisciplinas: 38,
+    pendentes: 25,
+    equivalencias: 2,
+  },
+  'historico_222038485.txt': {
+    curso: 'GESTÃO DE POLÍTICAS PÚBLICAS',
+    ira: 4.1975,
+    mp: 4.1099,
+    matriz: '2019.2',
+    suspensoes: [],
+    minDisciplinas: 32,
+    pendentes: 6,
+  },
+  'historico_231014508-5_250711_141618.txt': {
+    curso: 'DIREITO',
+    ira: 4.9209,
+    mp: 4.9015,
+    matriz: '2019.2',
+    suspensoes: [],
+    minDisciplinas: 43,
+    pendentes: 31,
+  },
+  'historico_231026330.txt': {
+    curso: 'ENGENHARIA DE SOFTWARE',
+    ira: 3.5551,
+    mp: 3.4828,
+    matriz: '2017.1',
+    suspensoes: [],
+    minDisciplinas: 35,
+    pendentes: 18,
+    equivalencias: 5,
+  },
+  'historico_232014010 (7).txt': {
+    curso: 'CIÊNCIA DA COMPUTAÇÃO',
+    ira: 3.9034,
+    mp: 3.8421,
+    matriz: '2025.1',
+    suspensoes: [],
+    minDisciplinas: 40,
+    pendentes: 19,
+    equivalencias: 4,
   },
   'historico_232021516.txt': {
     curso: 'ENGENHARIA',
     ira: 0.0,
     mp: 0.0,
     suspensoes: [],
-    minDisciplinas: 5,
-    pendentes: 20,
+    minDisciplinas: 6,
+    pendentes: 21,
   },
 };
 
@@ -232,10 +270,10 @@ for (const txtFile of txtFiles) {
     
     if (expected.pendentes > 0) {
       assert(
-        `Has pending disciplines (expected ~${expected.pendentes})`,
-        pendenteDisciplinas.length > 0,
+        `Pending disciplines count matches (expected ${expected.pendentes})`,
+        pendenteDisciplinas.length === expected.pendentes,
         pendenteDisciplinas.length,
-        `>= 1`
+        expected.pendentes
       );
     }
     

@@ -13,10 +13,12 @@ import { parsePdf, type ParsedPdfResult } from './pdf/pdfParser';
 export type UploadPdfResponse = ParsedPdfResult;
 
 export interface CasarDisciplinasResponse {
-	disciplinas_casadas: unknown[];
-	materias_concluidas: unknown[];
-	materias_pendentes: unknown[];
-	materias_optativas: unknown[];
+	disciplinas_casadas: Record<string, unknown>[];
+	materias_concluidas: Record<string, unknown>[];
+	materias_pendentes: Record<string, unknown>[];
+	materias_optativas: Record<string, unknown>[];
+	curso_extraido?: string;
+	matriz_curricular?: string;
 	resumo: {
 		percentual_conclusao_obrigatorias: number;
 		total_disciplinas: number;

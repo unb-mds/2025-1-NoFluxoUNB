@@ -11,7 +11,7 @@
 		error?: string;
 		disabled?: boolean;
 		required?: boolean;
-		autocomplete?: string;
+		autocomplete?: HTMLInputElement['autocomplete'];
 		class?: string;
 		onchange?: (value: string) => void;
 		oninput?: (value: string) => void;

@@ -9,8 +9,99 @@ import {
 } from '$lib/services/upload.service';
 import { authStore } from '$lib/stores/auth';
 import { ROUTES } from '$lib/config/routes';
+import type { DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
+import { dadosFluxogramaUserToJson } from '$lib/factories';
 
 export type UploadState = 'initial' | 'uploading' | 'processing' | 'success' | 'error';
+
+/**
+ * Convert a CasarDisciplinasResponse into a DadosMateria[][] grouped by ano_periodo (semester).
+ * This bridges the discipline-matching output with the fluxograma rendering format.
+ */
+function convertCasarResponseToDadosFluxograma(
+	response: CasarDisciplinasResponse
+): DadosMateria[][] {
+	const byPeriod = new Map<string, DadosMateria[]>();
+
+	// 1) Map all matched disciplines from the transcript
+	for (const disc of response.disciplinas_casadas) {
+		// Use the DB-matched code (codigo_materia) if available, else transcript code
+		const code = (disc.codigo_materia as string) || (disc.codigo as string) || '';
+		if (!code) continue;
+
+		const status = String(disc.status ?? '-');
+		const mencao = String(disc.mencao ?? '-');
+		const period = String(disc.ano_periodo ?? 'sem_periodo');
+
+		const materia: DadosMateria = {
+			codigoMateria: code,
+			mencao,
+			professor: String(disc.professor ?? ''),
+			status,
+			anoPeriodo: disc.ano_periodo != null ? String(disc.ano_periodo) : null,
+			frequencia: disc.frequencia != null ? String(disc.frequencia) : null,
+			tipoDado: disc.tipo_dado != null ? String(disc.tipo_dado) : null,
+			turma: disc.turma != null ? String(disc.turma) : null
+		};
+
+		if (!byPeriod.has(period)) {
+			byPeriod.set(period, []);
+		}
+		byPeriod.get(period)!.push(materia);
+	}
+
+	// 2) Add mandatory subjects completed by equivalency (not already in disciplinas_casadas)
+	const existingCodes = new Set<string>();
+	for (const arr of byPeriod.values()) {
+		for (const m of arr) {
+			existingCodes.add(m.codigoMateria);
+		}
+	}
+
+	for (const matConcluida of response.materias_concluidas) {
+		const rec = matConcluida as Record<string, unknown>;
+		if (rec.status_fluxograma !== 'concluida_equivalencia') continue;
+
+		const code = String(rec.codigo ?? '');
+		if (!code || existingCodes.has(code)) continue;
+
+		const materia: DadosMateria = {
+			codigoMateria: code,
+			mencao: '-',
+			professor: '',
+			status: 'CUMP', // Treated as completed via equivalency
+			anoPeriodo: null,
+			frequencia: null,
+			tipoDado: 'equivalencia',
+			turma: null
+		};
+
+		const period = 'equivalencias';
+		if (!byPeriod.has(period)) {
+			byPeriod.set(period, []);
+		}
+		byPeriod.get(period)!.push(materia);
+		existingCodes.add(code);
+	}
+
+	// 3) Sort periods chronologically and return as nested array
+	const sortedPeriods = [...byPeriod.keys()].sort((a, b) => {
+		if (a === 'sem_periodo' || a === 'equivalencias') return 1;
+		if (b === 'sem_periodo' || b === 'equivalencias') return -1;
+		return a.localeCompare(b);
+	});
+
+	console.log('[UploadStore] convertCasarResponseToDadosFluxograma:', {
+		totalDisciplinasCasadas: response.disciplinas_casadas.length,
+		totalEquivalencias: response.materias_concluidas.filter(
+			(m) => (m as Record<string, unknown>).status_fluxograma === 'concluida_equivalencia'
+		).length,
+		periods: sortedPeriods,
+		totalDadosMaterias: [...byPeriod.values()].reduce((sum, arr) => sum + arr.length, 0)
+	});
+
+	return sortedPeriods.map((period) => byPeriod.get(period)!);
+}
 
 export interface UploadStoreState {
 	state: UploadState;
@@ -185,28 +276,54 @@ function createUploadStore() {
 			}
 
 			try {
+				// Convert CasarDisciplinasResponse → DadosFluxogramaUser
+				const dadosFluxograma = convertCasarResponseToDadosFluxograma(
+					currentState.disciplinasCasadas
+				);
+
+				const fluxogramaUser: DadosFluxogramaUser = {
+					nomeCurso:
+						currentState.disciplinasCasadas.curso_extraido ??
+						currentState.extractedData?.curso_extraido ??
+						'',
+					ira: currentState.disciplinasCasadas.dados_validacao?.ira ?? 0,
+					matricula: currentState.extractedData?.matricula ?? '',
+					horasIntegralizadas:
+						currentState.disciplinasCasadas.dados_validacao?.horas_integralizadas ?? 0,
+					suspensoes: currentState.extractedData?.suspensoes ?? [],
+					anoAtual: currentState.extractedData?.semestre_atual ?? '',
+					matrizCurricular:
+						currentState.disciplinasCasadas.matriz_curricular ??
+						currentState.extractedData?.matriz_curricular ??
+						'',
+					semestreAtual: currentState.extractedData?.numero_semestre ?? 0,
+					dadosFluxograma
+				};
+
+				console.log('[UploadStore] saveAndNavigate — DadosFluxogramaUser built:', {
+					nomeCurso: fluxogramaUser.nomeCurso,
+					matrizCurricular: fluxogramaUser.matrizCurricular,
+					ira: fluxogramaUser.ira,
+					semestreAtual: fluxogramaUser.semestreAtual,
+					totalSemesters: dadosFluxograma.length,
+					totalMaterias: dadosFluxograma.reduce((sum, sem) => sum + sem.length, 0)
+				});
+
+				// Save to DB in the proper format (dadosFluxogramaUserToJson)
+				const jsonData = dadosFluxogramaUserToJson(fluxogramaUser);
 				await uploadService.saveFluxogramaToDB(
 					user.idUser,
-					currentState.disciplinasCasadas,
+					jsonData,
 					currentState.extractedData?.numero_semestre ?? undefined
 				);
 
-				// Update auth store with fluxograma data
-				authStore.updateDadosFluxograma({
-					nomeCurso: currentState.extractedData?.curso_extraido ?? '',
-					ira: currentState.disciplinasCasadas.dados_validacao?.ira ?? 0,
-					matricula: currentState.extractedData?.matricula ?? '',
-					horasIntegralizadas: currentState.disciplinasCasadas.dados_validacao?.horas_integralizadas ?? 0,
-					suspensoes: currentState.extractedData?.suspensoes ?? [],
-					anoAtual: currentState.extractedData?.semestre_atual ?? '',
-					matrizCurricular: currentState.extractedData?.matriz_curricular ?? '',
-					semestreAtual: currentState.extractedData?.numero_semestre ?? 0,
-					dadosFluxograma: []
-				});
+				// Update auth store with populated data
+				authStore.updateDadosFluxograma(fluxogramaUser);
 
 				toast.success('Fluxograma salvo com sucesso!');
 				goto(ROUTES.MEU_FLUXOGRAMA);
 			} catch (err) {
+				console.error('[UploadStore] saveAndNavigate error:', err);
 				const message = err instanceof Error ? err.message : 'Erro ao salvar fluxograma.';
 				toast.error(message);
 			}

@@ -242,10 +242,10 @@ function extrairDisciplinasDaLinha(text, linhas) {
   const usedLines = new Set();
 
   const reSituacao = /\b(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
-  const reDataLine = /^(\d{4}\.?\d?|--)\s+([*&#e@§%]*)\s*([A-Z]{2,}\d{3,})(.*?)\s{2,}(\d{2,3})\s+(\S{1,4})\s+(\d{1,3}[,.]?\d*|--)\s+(SS|MS|MM|MI|II|SR|-|---)\s+(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
+  const reDataLine = /^(\d{4}\.?\d?|--)\s+([*&#e@§%]*)\s*([A-Z]{2,}\d{3,})(.*?)\s{2,}(\d{2,3})\s+(\S{1,4})\s+(\d{1,3}[,.]?\d*|--)\s+(SS|MS|MM|MI|II|SR|-{1,3})\s+(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
   
   // NEW: Format with professor + data on separate line
-  const reProfessorDataLine = /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+(?:\([0-9]+h\))?(?:\s*,\s*(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+\([0-9]+h\))*)\s+(\d{2,3})\s+(\S{1,4})\s+(\d{1,3}[,.]?\d*|--)\s+(SS|MS|MM|MI|II|SR|-|---)\s+(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
+  const reProfessorDataLine = /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+(?:\([0-9]+h\))?(?:\s*,\s*(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+\([0-9]+h\))*)\s+(\d{2,3})\s+(\S{1,4})\s+(\d{1,3}[,.]?\d*|--)\s+(SS|MS|MM|MI|II|SR|-{1,3})\s+(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
   
   // Regex to match period+code+name line (without trailing data)
   const reNameLine = /^(\d{4}\.?\d?|--)\s+([*&#e@§%]*)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-ÿ][A-ZÀ-ÿ\s0-9-]+?)\s*$/;
@@ -486,58 +486,148 @@ function extrairDisciplinasDetalhado(text, linhas) {
 function extrairDisciplinasPendentes(text) {
   const disciplinas = [];
   
-  // Find the pending section
-  const pendMatch = text.match(/Componentes Curriculares Obrigat[óo]rios Pendentes:\s*(\d+)/i);
-  if (!pendMatch) return disciplinas;
+  // Find ALL occurrences of the pending header (handles page breaks and concatenated text)
+  const pendRegex = /Componentes\s*Curriculares\s*Obrigat[óo]rios\s*Pendentes:\s*(\d+)/gi;
+  const allMatches = [...text.matchAll(pendRegex)];
+  if (allMatches.length === 0) return disciplinas;
   
-  const pendIdx = text.indexOf(pendMatch[0]);
-  const pendSection = text.substring(pendIdx);
-  const linhas = pendSection.split('\n');
+  // Detect if pending section uses detailed format (with EMENTA sections)
+  const isDetailedPending = (() => {
+    const firstIdx = allMatches[0].index + allMatches[0][0].length;
+    const sample = text.substring(firstIdx, firstIdx + 2000);
+    return /EMENTA:/i.test(sample);
+  })();
   
-  // Skip header lines ("Código    Componente Curricular    CH")
-  const reHeader = /^C[óo]digo\s+Componente/i;
-  let started = false;
+  const seenCodes = new Set();
   
-  for (const linha of linhas) {
-    if (reHeader.test(linha.trim())) {
-      started = true;
-      continue;
-    }
-    if (!started) continue;
+  for (const pendMatch of allMatches) {
+    const pendIdx = pendMatch.index + pendMatch[0].length;
+    const pendSection = text.substring(pendIdx);
+    const linhas = pendSection.split('\n');
     
-    // Stop at "Observações:", "Equivalências:", "Para verificar", etc. 
-    if (/^(Observações|Equivalências|Para verificar|Atenção|SIGAA|Componentes Curriculares Optativos)/i.test(linha.trim())) {
-      break;
-    }
+    // Skip header lines ("Código    Componente Curricular    CH")
+    const reHeader = /^C[óo]digo\s+Componente/i;
+    let started = false;
     
-    // Try to match: CODE    NAME    [Matriculado|Matriculado em Equivalente]    CH h
-    const m = linha.match(
-      /^\s*([A-Z]{2,}\d{3,}|ENADE|-)\s+(.+?)\s+(?:(Matriculado(?:\s+em\s+Equivalente)?)\s+)?(\d+)\s*h/i
-    );
-    if (m) {
-      const [, codigo, nome, matriculado, chStr] = m;
-      if (codigo === '-') continue; // Skip "CADEIA DE SELETIVIDADE" entries
-
-      // Skip professor lines that accidentally match
-      if (/^(?:Dr\.|Dra\.|MSc\.|Prof\.)\s/i.test(nome.trim())) continue;
-      if (/\(\d+h\)/i.test(nome)) continue;
+    for (let i = 0; i < linhas.length; i++) {
+      const linha = linhas[i];
+      const trimmed = linha.trim();
       
-      disciplinas.push({
-        tipo_dado: 'Disciplina Pendente',
-        nome: limparNomeDisciplina(nome),
-        status: matriculado ? 'MATR' : 'PENDENTE',
-        mencao: '-',
-        creditos: Math.floor(parseInt(chStr) / 15),
-        codigo: codigo === 'ENADE' ? 'ENADE' : codigo,
-        carga_horaria: parseInt(chStr),
-        ano_periodo: '',
-        prefixo: '',
-        professor: '',
-        turma: '',
-        frequencia: null,
-        nota: null,
-        ...(matriculado ? { observacao: matriculado } : {}),
-      });
+      if (reHeader.test(trimmed)) {
+        started = true;
+        continue;
+      }
+      if (!started) continue;
+      
+      // Stop at next section markers (with optional missing spaces for concatenated text)
+      if (/^(Observa[çc][õo]es|Equival[êe]ncias|Para\s*verificar|Aten[çc][ãa]o|SIGAA|Componentes\s*Curriculares)/i.test(trimmed)) {
+        break;
+      }
+      
+      // Skip page break noise lines
+      if (/^(Página|e o\s*c[óo]digo|UnB|DEG|SAA|Campus|Credenciada|na seção|Hist[óo]rico|Nome:\s|Matr[ií]cula)/i.test(trimmed)) {
+        continue;
+      }
+      
+      if (isDetailedPending) {
+        // Detailed format: NAME  CH h (then EMENTA + code on subsequent lines)
+        const detMatch = trimmed.match(
+          /^([A-ZÀ-ÿ][A-ZÀ-ÿ\s0-9-]+?)\s{2,}(\d{1,3})\s*h\s*$/
+        );
+        if (detMatch) {
+          const [, nome, chStr] = detMatch;
+          // Skip CADEIA entries and headers
+          if (/^CADEIA/i.test(nome.trim())) continue;
+          if (/^C[óo]digo/i.test(nome.trim())) continue;
+          
+          // Search forward for code in EMENTA lines
+          let codigo = '';
+          for (let j = i + 1; j < Math.min(i + 40, linhas.length); j++) {
+            const codeLine = linhas[j].trim();
+            // Check for discipline code at start of line
+            const codeMatch = codeLine.match(/^([A-Z]{2,}\d{3,})/);
+            if (codeMatch) {
+              codigo = codeMatch[1];
+              break;
+            }
+            // Check for ENADE
+            if (/^ENADE$/i.test(codeLine)) {
+              codigo = 'ENADE';
+              break;
+            }
+            // Check for dash (CADEIA code)
+            if (/^-$/.test(codeLine)) {
+              codigo = '-';
+              break;
+            }
+            // Stop if we hit another discipline header or section marker
+            if (/^[A-ZÀ-ÿ][A-ZÀ-ÿ\s0-9-]+?\s{2,}\d{1,3}\s*h\s*$/.test(codeLine)) break;
+            if (/^(Observa|Equival[êe]ncias|Para\s*verificar|Aten)/i.test(codeLine)) break;
+          }
+          
+          if (!codigo || codigo === '-') continue; // skip CADEIA and no-code
+          if (seenCodes.has(codigo) && codigo !== 'ENADE') continue;
+          seenCodes.add(codigo);
+          
+          disciplinas.push({
+            tipo_dado: 'Disciplina Pendente',
+            nome: limparNomeDisciplina(nome),
+            status: 'PENDENTE',
+            mencao: '-',
+            creditos: Math.floor(parseInt(chStr) / 15),
+            codigo: codigo === 'ENADE' ? 'ENADE' : codigo,
+            carga_horaria: parseInt(chStr),
+            ano_periodo: '',
+            prefixo: '',
+            professor: '',
+            turma: '',
+            frequencia: null,
+            nota: null,
+          });
+        }
+      } else {
+        // Simple format: CODE  NAME  [Matriculado|Matriculado em Equivalente]  CH h
+        const m = linha.match(
+          /^\s*([A-Z]{2,}\d{3,}|ENADE|-)\s+(.+?)\s+(?:(Matriculado(?:\s+em\s+Equivalente)?)\s+)?(\d+)\s*h/i
+        );
+        if (m) {
+          let [, codigo, nome, matriculado, chStr] = m;
+          if (codigo === '-') continue; // Skip "CADEIA DE SELETIVIDADE" entries
+
+          // Skip professor lines that accidentally match
+          if (/^(?:Dr\.|Dra\.|MSc\.|Prof\.)\s/i.test(nome.trim())) continue;
+          if (/\(\d+h\)/i.test(nome)) continue;
+          
+          // Handle concatenated Matriculado in name (e.g. "NAMEMatriculadoemEquivalente")
+          if (!matriculado) {
+            const matrMatch = nome.match(/\s*(Matriculado(?:\s*em\s*Equivalente)?)\s*$/i);
+            if (matrMatch) {
+              nome = nome.substring(0, nome.length - matrMatch[0].length);
+              matriculado = matrMatch[1];
+            }
+          }
+          
+          if (seenCodes.has(codigo) && codigo !== 'ENADE') continue;
+          seenCodes.add(codigo);
+          
+          disciplinas.push({
+            tipo_dado: 'Disciplina Pendente',
+            nome: limparNomeDisciplina(nome),
+            status: matriculado ? 'MATR' : 'PENDENTE',
+            mencao: '-',
+            creditos: Math.floor(parseInt(chStr) / 15),
+            codigo: codigo === 'ENADE' ? 'ENADE' : codigo,
+            carga_horaria: parseInt(chStr),
+            ano_periodo: '',
+            prefixo: '',
+            professor: '',
+            turma: '',
+            frequencia: null,
+            nota: null,
+            ...(matriculado ? { observacao: matriculado } : {}),
+          });
+        }
+      }
     }
   }
   
@@ -551,7 +641,7 @@ function extrairDisciplinasPendentes(text) {
 function extrairEquivalencias(text) {
   const equivalencias = [];
   const reEquiv =
-    /Cumpriu\s+([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9-]+?)\s*\((\d+)h\)\s*atrav[eé]s\s*de\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9-]+?)\s*\((\d+)h\)/gi;
+    /Cumpriu\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9-]+?)\s*\((\d+)h\)\s*atrav[eé]s\s*de\s*([A-Z]{2,}\d{3,})\s*-\s*([A-ZÀ-Ÿ\s0-9-]+?)\s*\((\d+)h\)/gi;
   
   let eqMatch;
   while ((eqMatch = reEquiv.exec(text)) !== null) {

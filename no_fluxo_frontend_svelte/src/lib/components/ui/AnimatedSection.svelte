@@ -35,7 +35,7 @@
 	const config = flyConfigs[animation] || flyConfigs['slide-up'];
 </script>
 
-<div use:inview oninview={handleInView} class={className}>
+<div use:inview={{ onInView: handleInView }} class={className}>
 	{#if isVisible}
 		<div in:fly={{ ...config, duration, delay, opacity: 0 }}>
 			{@render children()}

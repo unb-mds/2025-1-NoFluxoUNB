@@ -39,11 +39,11 @@
 			} else if (event === 'SIGNED_IN' && session?.user?.email) {
 				const currentUser = authStore.getUser();
 				if (!currentUser) {
-					const result = await authService.databaseSearchUser(session.user.email);
-					if (result.success) {
-						authStore.setUser(result.user);
+				const result = await authService.databaseSearchUser();
+						if (result.success) {
+							authStore.setUser(result.user);
+						}
 					}
-				}
 			} else if (event === 'TOKEN_REFRESHED' && session?.access_token) {
 				authStore.updateToken(session.access_token);
 			}
@@ -52,7 +52,7 @@
 		// Initial session check
 		authService.getSession().then(async (session) => {
 			if (session?.user?.email) {
-				const result = await authService.databaseSearchUser(session.user.email);
+				const result = await authService.databaseSearchUser();
 				if (result.success) {
 					authStore.setUser(result.user);
 				} else {
