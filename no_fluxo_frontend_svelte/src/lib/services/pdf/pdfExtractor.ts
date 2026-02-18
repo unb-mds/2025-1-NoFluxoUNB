@@ -32,7 +32,7 @@ const CHAR_WIDTH_ESTIMATE = 6;
 /** Maximum number of spaces inserted for a single gap. */
 const MAX_SPACES = 10;
 
-interface PositionedTextItem {
+export interface PositionedTextItem {
 	text: string;
 	x: number;
 	y: number;
@@ -160,6 +160,42 @@ export async function extractTextFromPdf(file: File): Promise<string> {
 	const elapsed = (performance.now() - startTime).toFixed(0);
 	console.log(`${LOG_PREFIX} Text extraction complete — ${allLines.length} lines, ${result.length} chars in ${elapsed}ms`);
 	return result;
+}
+
+/**
+ * Extracts positioned text items from a PDF file, one array per page.
+ * Each item retains its x, y coordinates and width from PDF.js.
+ * This is used by the position-based discipline extractor.
+ */
+export async function extractPositionedItems(file: File): Promise<PositionedTextItem[][]> {
+	const pdfjs = await getPdfjs();
+	const arrayBuffer = await file.arrayBuffer();
+	const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+
+	const pages: PositionedTextItem[][] = [];
+
+	for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+		const page = await pdf.getPage(pageNum);
+		const textContent = await page.getTextContent();
+
+		const items: PositionedTextItem[] = [];
+		for (const item of textContent.items) {
+			if (!('str' in item)) continue;
+			const textItem = item as TextItem;
+			const text = textItem.str.trim();
+			if (!text) continue;
+			items.push({
+				text,
+				x: textItem.transform[4],
+				y: textItem.transform[5],
+				width: textItem.width
+			});
+		}
+
+		pages.push(items);
+	}
+
+	return pages;
 }
 
 /**

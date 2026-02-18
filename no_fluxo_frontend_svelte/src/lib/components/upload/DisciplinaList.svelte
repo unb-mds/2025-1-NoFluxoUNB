@@ -62,10 +62,10 @@
 					{#each items as item}
 						<li class="flex items-center gap-3 px-4 py-2.5 text-sm">
 							<span class="font-mono text-xs text-gray-500">
-								{item.codigo ?? item.codigo_materia ?? '—'}
-							</span>
-							<span class="text-gray-300">
-								{item.nome ?? item.nome_materia ?? 'Disciplina'}
+							{item.codigo || item.codigo_materia || '—'}
+						</span>
+						<span class="text-gray-300">
+							{item.nome || item.nome_materia || 'Disciplina'}
 							</span>
 						</li>
 					{/each}

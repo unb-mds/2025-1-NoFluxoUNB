@@ -107,8 +107,15 @@
 		}
 	}
 
-	function handleTouchEnd() {
+	function handleTouchEnd(e: TouchEvent) {
 		isDragging = false;
+		
+		// If touch ended on the container background (not a SubjectCard),
+		// clear the hover state to hide connections
+		const target = e.target as HTMLElement;
+		if (!target.closest('.subject-card')) {
+			store.setHoveredSubject(null);
+		}
 	}
 
 	// Sync bind_container

@@ -62,6 +62,43 @@
 	function navigateToCourse(curso: MinimalCursoModel) {
 		goto(ROUTES.meuFluxograma(curso.nomeCurso));
 	}
+
+	// Generate page numbers with ellipsis
+	// Returns array of page numbers or 'ellipsis' strings
+	let paginationItems = $derived.by(() => {
+		const total = totalPages;
+		const current = currentPage;
+		const items: (number | 'ellipsis')[] = [];
+
+		if (total <= 7) {
+			// Show all pages if 7 or fewer
+			for (let i = 1; i <= total; i++) items.push(i);
+			return items;
+		}
+
+		// Always show first page
+		items.push(1);
+
+		if (current <= 3) {
+			// Near start: 1 2 3 4 ... N-1 N
+			items.push(2, 3, 4);
+			items.push('ellipsis');
+			items.push(total - 1, total);
+		} else if (current >= total - 2) {
+			// Near end: 1 2 ... N-3 N-2 N-1 N
+			items.push(2);
+			items.push('ellipsis');
+			items.push(total - 3, total - 2, total - 1, total);
+		} else {
+			// Middle: 1 ... N-1 N N+1 ... X
+			items.push('ellipsis');
+			items.push(current - 1, current, current + 1);
+			items.push('ellipsis');
+			items.push(total);
+		}
+
+		return items;
+	});
 </script>
 
 <PageMeta
@@ -143,7 +180,7 @@
 
 		<!-- Pagination -->
 		{#if totalPages > 1}
-			<div class="mt-6 flex items-center justify-center gap-2">
+			<div class="mt-6 flex items-center justify-center gap-1 sm:gap-2">
 				<button
 					onclick={() => (currentPage = Math.max(1, currentPage - 1))}
 					disabled={currentPage <= 1}
@@ -152,13 +189,17 @@
 					<ChevronLeft class="h-4 w-4" />
 				</button>
 
-				{#each Array(totalPages) as _, i}
-					<button
-						onclick={() => (currentPage = i + 1)}
-						class="flex h-9 w-9 items-center justify-center rounded-lg border text-sm font-medium transition-colors {currentPage === i + 1 ? 'border-purple-500/50 bg-purple-500/20 text-purple-300' : 'border-white/10 bg-black/40 text-white/50 hover:bg-white/10 hover:text-white'}"
-					>
-						{i + 1}
-					</button>
+				{#each paginationItems as item, idx}
+					{#if item === 'ellipsis'}
+						<span class="flex h-9 w-6 items-center justify-center text-white/40">…</span>
+					{:else}
+						<button
+							onclick={() => (currentPage = item)}
+							class="flex h-9 w-9 items-center justify-center rounded-lg border text-sm font-medium transition-colors {currentPage === item ? 'border-purple-500/50 bg-purple-500/20 text-purple-300' : 'border-white/10 bg-black/40 text-white/50 hover:bg-white/10 hover:text-white'}"
+						>
+							{item}
+						</button>
+					{/if}
 				{/each}
 
 				<button

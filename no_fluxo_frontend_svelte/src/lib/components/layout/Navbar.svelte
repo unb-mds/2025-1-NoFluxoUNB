@@ -118,71 +118,77 @@
 			{/if}
 		</button>
 	</nav>
-
-	<!-- Mobile Drawer -->
-	{#if mobileMenuOpen}
-		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div class="mobile-drawer-overlay" onclick={closeMobileMenu} onkeydown={(e) => e.key === 'Escape' && closeMobileMenu()}>
-		</div>
-		<div class="mobile-drawer">
-			<div class="flex flex-col gap-1 p-4">
-				{#if isAuthenticated}
-					<!-- User info -->
-					<div class="mb-4 border-b border-white/10 pb-4">
-						<p class="font-marker text-lg text-white">{user?.nomeCompleto || 'Usuário'}</p>
-						<p class="text-sm text-white/60">{user?.email}</p>
-					</div>
-
-					{#each navLinks as link}
-						<a
-							href={link.href}
-							class="mobile-nav-item"
-							class:active={isActive(link.href)}
-							onclick={closeMobileMenu}
-						>
-							<svelte:component this={link.icon} class="h-5 w-5" />
-							<span>{link.label}</span>
-						</a>
-					{/each}
-
-					<a
-						href={ROUTES.MEU_FLUXOGRAMA}
-						class="mobile-nav-item"
-						onclick={closeMobileMenu}
-					>
-						<LayoutDashboard class="h-5 w-5" />
-						<span>Meu Fluxograma</span>
-					</a>
-
-					<hr class="my-3 border-white/10" />
-
-					<button
-						onclick={() => { handleLogout(); closeMobileMenu(); }}
-						class="mobile-nav-item text-red-400"
-					>
-						<LogOut class="h-5 w-5" />
-						<span>Sair</span>
-					</button>
-				{:else}
-					<a href={ROUTES.LOGIN} class="mobile-nav-item" onclick={closeMobileMenu}>
-						Entrar
-					</a>
-					<a
-						href={ROUTES.SIGNUP}
-						class="mt-2 block rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-3 text-center font-marker font-bold text-white"
-						onclick={closeMobileMenu}
-					>
-						Criar Conta
-					</a>
-				{/if}
-			</div>
-
-			<div class="mt-auto border-t border-white/10 p-4 text-center text-sm text-white/40">
-				NoFluxoUNB © {new Date().getFullYear()}
-			</div>
-		</div>
-	{/if}
 </header>
+
+<!-- Mobile Drawer Portal (outside header to avoid stacking context issues) -->
+{#if mobileMenuOpen}
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div
+		class="fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm"
+		onclick={closeMobileMenu}
+		onkeydown={(e) => e.key === 'Escape' && closeMobileMenu()}
+		role="button"
+		tabindex="-1"
+		aria-label="Fechar menu"
+	></div>
+	<div class="mobile-drawer-portal">
+		<div class="flex flex-col gap-1 p-4">
+			{#if isAuthenticated}
+				<!-- User info -->
+				<div class="mb-4 border-b border-white/10 pb-4">
+					<p class="font-marker text-lg text-white">{user?.nomeCompleto || 'Usuário'}</p>
+					<p class="text-sm text-white/60">{user?.email}</p>
+				</div>
+
+				{#each navLinks as link}
+					<a
+						href={link.href}
+						class="mobile-nav-item"
+						class:active={isActive(link.href)}
+						onclick={closeMobileMenu}
+					>
+						<svelte:component this={link.icon} class="h-5 w-5" />
+						<span>{link.label}</span>
+					</a>
+				{/each}
+
+				<a
+					href={ROUTES.MEU_FLUXOGRAMA}
+					class="mobile-nav-item"
+					onclick={closeMobileMenu}
+				>
+					<LayoutDashboard class="h-5 w-5" />
+					<span>Meu Fluxograma</span>
+				</a>
+
+				<hr class="my-3 border-white/10" />
+
+				<button
+					onclick={() => { handleLogout(); closeMobileMenu(); }}
+					class="mobile-nav-item text-red-400"
+				>
+					<LogOut class="h-5 w-5" />
+					<span>Sair</span>
+				</button>
+			{:else}
+				<a href={ROUTES.LOGIN} class="mobile-nav-item" onclick={closeMobileMenu}>
+					Entrar
+				</a>
+				<a
+					href={ROUTES.SIGNUP}
+					class="mt-2 block rounded-full bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-3 text-center font-marker font-bold text-white"
+					onclick={closeMobileMenu}
+				>
+					Criar Conta
+				</a>
+			{/if}
+		</div>
+
+		<div class="mt-auto border-t border-white/10 p-4 text-center text-sm text-white/40">
+			NoFluxoUNB © {new Date().getFullYear()}
+		</div>
+	</div>
+{/if}
 
 <style>
 	.navbar-glass {
@@ -210,22 +216,14 @@
 		}
 	}
 
-	/* Mobile overlay */
-	.mobile-drawer-overlay {
-		position: fixed;
-		inset: 0;
-		background: rgba(0, 0, 0, 0.5);
-		z-index: 40;
-	}
-
 	/* Mobile drawer - slides from right */
-	.mobile-drawer {
+	.mobile-drawer-portal {
 		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		width: 280px;
-		z-index: 50;
+		z-index: 9999;
 		display: flex;
 		flex-direction: column;
 		background: linear-gradient(180deg, #0a0a0a 0%, #1a0a2e 100%);

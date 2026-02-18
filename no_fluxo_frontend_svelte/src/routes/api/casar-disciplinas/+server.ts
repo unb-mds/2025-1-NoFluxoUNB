@@ -110,6 +110,9 @@ function processMatchedDiscipline(
 
 	const disciplinaCasada = {
 		...disciplina,
+		nome: materiaBanco.materias.nome_materia || disciplina.nome,
+		nome_materia: materiaBanco.materias.nome_materia,
+		codigo_materia: materiaBanco.materias.codigo_materia,
 		id_materia: materiaBanco.id_materia,
 		encontrada_no_banco: true,
 		nivel: materiaBanco.nivel,

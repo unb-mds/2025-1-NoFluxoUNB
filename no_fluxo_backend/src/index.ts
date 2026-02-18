@@ -4,126 +4,39 @@ import express, { Express, Request, Response } from 'express';
 import dotenv from "dotenv";
 import { Utils } from './utils';
 import { EndpointController, RequestType } from './interfaces';
-import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
 import cors from "cors";
 import { FluxogramaController } from './controllers/fluxograma_controller';
 import { TestesController } from './controllers/testes_controller';
 import logger from './logger';
 import { UsersController } from './controllers/users_controller';
-import { spawn } from 'child_process';
-import path from 'path';
 import { CursosController } from './controllers/cursos_controller';
 import { MateriasController } from './controllers/materias_controller';
+import { AssistenteController } from './controllers/assistente_controller';
 
 dotenv.config();
 
 SupabaseWrapper.init();
 logger.info('Supabase client initialized');
 
-// Start the ragflow agent server only if not running in Kubernetes (AI_AGENT_URL not set)
-// When AI_AGENT_URL is set, the AI agent runs as a separate Kubernetes service
-const AI_AGENT_URL = process.env.AI_AGENT_URL;
-let ragflowAgentProcess: ReturnType<typeof spawn> | null = null;
-
-if (!AI_AGENT_URL) {
-    logger.info('Starting local RAGFlow Agent (AI_AGENT_URL not set)');
-    ragflowAgentProcess = spawn('python', ['ai_agent/app.py', "--port", "4652"], {
-        cwd: path.join(__dirname, '..')
-    });
-
-    ragflowAgentProcess.stdout.on('data', (data) => {
-        logger.info(`\b[RAGFlow Agent] ${data}`);
-    });
-
-    ragflowAgentProcess.stderr.on('data', (data) => {
-        var dataString = data.toString();
-        if (dataString[0] == "[") {
-            dataString = "\b" + dataString;
-        }
-        if (dataString.toLowerCase().includes("info")) {
-            logger.info(`\b[RAGFlow Agent] ${data}`);
-        } else if (dataString.toLowerCase().includes("warning")) {
-            logger.warn(`\b[RAGFlow Agent] ${data}`);
-        } else {
-            logger.error(`\b[RAGFlow Agent] ${data}`);
-        }
-    });
-
-    ragflowAgentProcess.on('close', (code) => {
-        if (code !== 0) {
-            logger.error(`\b[RAGFlow Agent] process exited with code ${code}`);
-        }
-    });
-} else {
-    logger.info(`Using external AI Agent at: ${AI_AGENT_URL}`);
-}
-
-// Start the Python PDF parser server
-const pythonProcess = spawn('python', ['parse-pdf/pdf_parser_final.py'], {
-    cwd: path.join(__dirname, '..')
-});
-
-pythonProcess.stdout.on('data', (data) => {
-    logger.info(`\b[PDF Parser] ${data}`);
-});
-
-pythonProcess.stderr.on('data', (data) => {
-    var dataString = data.toString();
-    if (dataString[0] == "[") {
-        dataString = "\b" + dataString;
-    }
-    if (dataString.toLowerCase().includes("info")) {
-        logger.info(`\b[PDF Parser] ${data}`);
-    } else if (dataString.toLowerCase().includes("warning")) {
-        logger.warn(`\b[PDF Parser] ${data}`);
-    } else {
-        logger.error(`\b[PDF Parser] ${data}`);
-    }
-});
-
-pythonProcess.on('close', (code) => {
-    if (code !== 0) {
-        logger.error(`\b[PDF Parser] process exited with code ${code}`);
-    }
-});
-
-// Handle Node.js process termination
-const cleanup = () => {
-    logger.info('[Backend] Terminating child processes...');
-    pythonProcess.kill();
-    if (ragflowAgentProcess) {
-        ragflowAgentProcess.kill();
-    }
-};
-
-
-// Handle normal exit
-process.on('exit', cleanup);
-
 // Handle CTRL+C
 process.on('SIGINT', () => {
-    cleanup();
     process.exit(0);
 });
 
 process.on('SIGTERM', () => {
-    cleanup();
     process.exit(0);
 });
-
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
     logger.error('Uncaught Exception:', err);
-    cleanup();
     process.exit(1);
 });
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (reason, promise) => {
     logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
-    cleanup();
     process.exit(1);
 });
 
@@ -136,7 +49,8 @@ const controllers: EndpointController[] = [
     TestesController,
     UsersController,
     CursosController,
-    MateriasController
+    MateriasController,
+    AssistenteController,
 ];
 router.get('/', (req: Request, res: Response) => {
     logger.info(`\b[GET][/]`);
@@ -166,6 +80,11 @@ router.get('/', (req: Request, res: Response) => {
             postman: `${req.protocol}://${req.get('host')}/postman-collection`
         }
     });
+});
+
+// Health check endpoint for Kubernetes probes
+router.get('/health', (req: Request, res: Response) => {
+    res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
 controllers.forEach(controller => {
@@ -265,7 +184,6 @@ app.use(cors({
 // Make sure OPTIONS preflight is handled quickly
 app.options('*', cors());
 
-app.use(fileUpload())
 app.use(bodyParser.json({ limit: 500 * 1024 * 1024, }));
 app.use(bodyParser.urlencoded({ extended: true, limit: 500 * 1024 * 1024 }));
 

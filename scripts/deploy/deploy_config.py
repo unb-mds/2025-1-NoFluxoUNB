@@ -41,8 +41,10 @@ class AppConfig:
     build_arg_static: Mapping[str, str] | None = None
 
     # --- Runtime env vars (injected into the K8s deployment) ---
-    # Keys to read from the environment
+    # Keys to read from the environment (required — deploy fails if missing)
     deploy_env_keys: Sequence[str] = ()
+    # Keys to read from the environment (optional — skipped silently if missing)
+    deploy_env_optional_keys: Sequence[str] = ()
     # Static env vars (hardcoded values)
     deploy_env_static: Mapping[str, str] | None = None
 
@@ -73,35 +75,45 @@ APPS: dict[str, AppConfig] = {
             "SUPABASE_SERVICE_ROLE_KEY",
             "SUPABASE_ANON_KEY",
         ),
-        deploy_env_static={
-            "NODE_ENV": "production",
-            "PORT": "3325",
-            "AI_AGENT_URL": "https://ai-nofluxo.crianex.com",
-        },
-    ),
-
-    # ── AI Agent ───────────────────────────────────────────────────────────
-    "ai-agent": AppConfig(
-        key="ai-agent",
-        app_name="nofluxo-ai-agent",
-        namespace="non-business-apps",
-        image_name="nofluxo-ai-agent",
-        dockerfile="k8s.ai-agent.Dockerfile",
-        build_context=".",
-        port=4652,
-        replicas=1,
-        health_path="/health",
-        domain="ai-nofluxo.crianex.com",
-        app_class="non-business",
-        deploy_env_keys=(
+        deploy_env_optional_keys=(
             "RAGFLOW_API_KEY",
-            "RAGFLOW_URL",
-            "SUPABASE_URL",
-            "SUPABASE_ANON_KEY",
+            "RAGFLOW_BASE_URL",
+            "RAGFLOW_AGENT_ID",
         ),
         deploy_env_static={
             "NODE_ENV": "production",
-            "AI_AGENT_PORT": "4652",
+            "PORT": "3325",
+        },
+    ),
+
+    # ── Frontend (SvelteKit) ────────────────────────────────────────────────
+    "frontend": AppConfig(
+        key="frontend",
+        app_name="nofluxo-frontend",
+        namespace="non-business-apps",
+        image_name="nofluxo-frontend",
+        dockerfile="k8s.frontend-svelte.Dockerfile",
+        build_context=".",
+        port=3000,
+        replicas=1,
+        health_path="/health",
+        domain="no-fluxo.crianex.com",
+        app_class="non-business",
+        env_folder="no_fluxo_frontend_svelte",
+        # PUBLIC_* vars are baked at build time via $env/static/public
+        build_arg_keys=(
+            "PUBLIC_SUPABASE_URL",
+            "PUBLIC_SUPABASE_ANON_KEY",
+        ),
+        build_arg_static={
+            "PUBLIC_API_URL": "https://api-nofluxo.crianex.com",
+            "PUBLIC_REDIRECT_URL": "https://no-fluxo.crianex.com",
+            "PUBLIC_ENVIRONMENT": "production",
+        },
+        deploy_env_static={
+            "NODE_ENV": "production",
+            "PORT": "3000",
+            "HOST": "0.0.0.0",
         },
     ),
 }

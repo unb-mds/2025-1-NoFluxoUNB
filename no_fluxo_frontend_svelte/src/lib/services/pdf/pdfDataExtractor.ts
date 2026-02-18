@@ -107,6 +107,15 @@ export function limparNomeDisciplina(nome: string): string {
   cleaned = cleaned.replace(/^[^a-zA-ZÀ-ÿ0-9]+/, '');
   cleaned = cleaned.replace(/[^a-zA-ZÀ-ÿ0-9]+$/, '');
   cleaned = cleaned.replace(/\s{2,}/g, ' ');
+
+  // Fix missing spaces from PDF.js concatenation:
+  // Insert space between a lowercase/accented letter and an uppercase letter: "EAMBIENTE" → "E AMBIENTE"
+  cleaned = cleaned.replace(/([a-zà-ÿ])([A-ZÀ-Ÿ])/g, '$1 $2');
+  // Insert space between a letter and a digit: "CÁLCULO1" → "CÁLCULO 1", "DIGITAL1" → "DIGITAL 1"
+  cleaned = cleaned.replace(/([A-Za-zÀ-ÿ])(\d)/g, '$1 $2');
+  // Insert space between a digit and a letter: "1EXPERIMENTAL" → "1 EXPERIMENTAL"
+  cleaned = cleaned.replace(/(\d)([A-Za-zÀ-ÿ])/g, '$1 $2');
+
   return cleaned.trim();
 }
 
@@ -197,6 +206,43 @@ export function calcularNumeroSemestre(
   return count > 0 ? count + 1 : 1;
 }
 
+// ─── Helpers for name/professor line detection ───
+
+/** Full metadata exclusion pattern — used both for skipping data lines and for prevLine name checks */
+const RE_METADATA_LINE =
+  /^(SIGAA|UnB|DEG|SAA|Campus|Credenciada|na seção|Histórico|Dados|Nome:|Data de|Nacionalidade|Nº do|Curso:|Status:|Índices|Ênfase|IRA:|Currículo|Reconhecimento|Ano \/|Forma de|Período Letivo Atual|Suspensões|Prorrogações|Tipo Saída|Data de Saída|Trabalho|Data da|Componentes Curriculares|Ano\/Período|Letivo\s+Componente|Legenda|SIGLA|Para verificar|Página|e o código|Carga Horária|Obrigatórias|Exigido|Integralizado|Pendente\s|Código\s+Componente|Observações|Atenção|Menções|Equivalências|Matrícula|Perfil|INGRESSANTE|Optativos|Complementares|Total|REP\s|REPF\s|REPMF\s|TRANC\s|CUMP\s|APR\s|CANC\s|DISP\s|MATR\s|Nenhum|Descrição|Fecha|Turma|Frequência|\d+\s*h\s*$)/i;
+
+/** Detects professor lines: starts with Dr./Dra./MSc./Prof. or contains "(XXh)" pattern */
+function isProfessorLine(line: string): boolean {
+  if (/^(?:Dr\.|Dra\.|MSc\.|Prof\.)\s/i.test(line)) return true;
+  if (/\(\d+h\)/i.test(line)) return true;
+  // Raw name followed by (Xh) — e.g. "HARINEIDE MADEIRA MACEDO (12h), Dra."
+  if (/^[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+\(\d+h\)/i.test(line)) return true;
+  return false;
+}
+
+/** Checks if a line is a valid candidate for a discipline name (for i-1 / i-2 lookup) */
+function isValidNameLine(
+  line: string,
+  reDataLine: RegExp,
+  reSituacao: RegExp
+): boolean {
+  if (line.length <= 2) return false;
+  if (!/^[A-ZÀ-ÿ]/.test(line)) return false;
+  if (reDataLine.test(line)) return false;
+  if (reSituacao.test(line)) return false;
+  if (RE_METADATA_LINE.test(line)) return false;
+  if (/^\d{4}\.\d/.test(line)) return false;
+  if (isProfessorLine(line)) return false;
+  // Skip lines that look like pending discipline entries: "CODE  NAME  CH h" or "CODE-NAME..."
+  if (/^[A-Z]{2,}\d{3,}[\s-]+[A-ZÀ-ÿ]/.test(line)) return false;
+  // Skip lines with only dashes/symbols
+  if (/^[-–—*#&@§%\s]+$/.test(line)) return false;
+  // Skip lines that contain period + hours pattern (e.g. "2023.2 15h")
+  if (/\d{4}\.\d\s+\d+\s*h/i.test(line)) return false;
+  return true;
+}
+
 // ─── Core discipline extraction (Formats A/B/C) ───
 
 /**
@@ -219,130 +265,185 @@ function extrairDisciplinasDaLinha(
   const reDataLine =
     /^(\d{4}\.?\d?|--)\s+([*&#e@§%]*)\s*([A-Z]{2,}\d{3,})(.*?)\s{2,}(\d{2,3})\s+(\S{1,4})\s+(\d{1,3}[,.]?\d*|--)\s+(SS|MS|MM|MI|II|SR|-|---)\s+(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
 
+  // NEW: Format with professor + data on separate line:
+  // "Dr. NAME (XXh)  CH  TURMA  FREQ  NOTA  SITUACAO"
+  const reProfessorDataLine =
+    /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+(?:\([0-9]+h\))?(?:\s*,\s*(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+\([0-9]+h\))*)\s+(\d{2,3})\s+(\S{1,4})\s+(\d{1,3}[,.]?\d*|--)\s+(SS|MS|MM|MI|II|SR|-|---)\s+(APR|REP|REPF|REPMF|CANC|DISP|TRANC|MATR|CUMP)\b/;
+
+  // Regex to match period+code+name line (without trailing data)
+  const reNameLine = /^(\d{4}\.?\d?|--)\s+([*&#e@§%]*)\s*([A-Z]{2,}\d{3,})\s+([A-ZÀ-ÿ][A-ZÀ-ÿ\s0-9-]+?)\s*$/;
+
   for (let i = 0; i < linhas.length; i++) {
     if (usedLines.has(i)) continue;
     const line = linhas[i];
 
     // Skip header/footer/legend lines
-    if (
-      /^(SIGAA|UnB|DEG|SAA|Campus|Credenciada|na seção|Histórico|Dados|Nome:|Data de|Nacionalidade|Nº do|Curso:|Status:|Índices|Ênfase|IRA:|Currículo|Reconhecimento|Ano \/|Forma de|Período Letivo Atual|Suspensões|Prorrogações|Tipo Saída|Data de Saída|Trabalho|Data da|Componentes Curriculares Cursados|Ano\/Período|Letivo\s+Componente|Legenda|SIGLA|Para verificar|Página|e o código|Carga Horária|Obrigatórias|Exigido|Integralizado|Pendente\s|Código\s+Componente|Observações|Atenção|Menções)/i.test(
-        line.trim()
-      )
-    ) {
+    if (RE_METADATA_LINE.test(line.trim())) {
       continue;
     }
 
-    const match = line.match(reDataLine);
-    if (!match) continue;
+    // Try main format first
+    let match = line.match(reDataLine);
+    if (match) {
+      const [
+        ,
+        periodo,
+        prefixo,
+        codigo,
+        middleText,
+        chStr,
+        turma,
+        freq,
+        nota,
+        situacao,
+      ] = match;
 
-    const [
-      ,
-      periodo,
-      prefixo,
-      codigo,
-      middleText,
-      chStr,
-      turma,
-      freq,
-      nota,
-      situacao,
-    ] = match;
+      usedLines.add(i);
 
-    usedLines.add(i);
+      // Determine discipline name and professor
+      let nome = '';
+      let professor = '';
 
-    // Determine discipline name and professor
-    let nome = '';
-    let professor = '';
+      const middleTrimmed = middleText.trim();
 
-    const middleTrimmed = middleText.trim();
-
-    if (middleTrimmed) {
-      // Check for embedded professor (Format C): "Dr. NAME(XXh)"
-      const profMatch = middleTrimmed.match(
-        /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.]+?)\s*\((\d+)h\)/i
-      );
-      if (profMatch) {
-        professor = limparNomeProfessor(profMatch[1]);
-        const afterProf = middleTrimmed.substring(profMatch[0].length).trim();
-        if (afterProf) nome = afterProf;
-      } else {
-        // middleText is the discipline name (Format B)
-        nome = middleTrimmed;
+      if (middleTrimmed) {
+        // Check for embedded professor (Format C): "Dr. NAME(XXh)"
+        const profMatch = middleTrimmed.match(
+          /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.]+?)\s*\((\d+)h\)/i
+        );
+        if (profMatch) {
+          professor = limparNomeProfessor(profMatch[1]);
+          const afterProf = middleTrimmed.substring(profMatch[0].length).trim();
+          if (afterProf) nome = afterProf;
+        } else if (/^(?:Dr\.|Dra\.|MSc\.|Prof\.)/i.test(middleTrimmed)) {
+          // Professor name without (Xh) — treat as professor, not name
+          professor = middleTrimmed;
+        } else {
+          // middleText is the discipline name (Format B)
+          nome = middleTrimmed;
+        }
       }
+
+      // If no name found, look at previous lines (Format A or C with name above)
+      // Try i-1 first; if it's a professor line, try i-2 (professor between name and data)
+      if (!nome && i > 0) {
+        const prevLine = linhas[i - 1].trim();
+
+        if (isValidNameLine(prevLine, reDataLine, reSituacao)) {
+          nome = prevLine;
+          usedLines.add(i - 1);
+        } else if (isProfessorLine(prevLine) && i > 1) {
+          // Professor is between name and data line — try i-2
+          if (!professor) professor = prevLine;
+          usedLines.add(i - 1);
+          const prevPrevLine = linhas[i - 2].trim();
+          if (isValidNameLine(prevPrevLine, reDataLine, reSituacao)) {
+            nome = prevPrevLine;
+            usedLines.add(i - 2);
+          }
+        }
+      }
+
+      // Check for multi-professor format in middle text
+      if (!nome && middleTrimmed) {
+        const multiProfMatch = middleTrimmed.match(
+          /^((?:(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.]+?\s*\(\d+h\)(?:\s*,\s*)?)+)/i
+        );
+        if (multiProfMatch) {
+          professor = multiProfMatch[1].trim();
+        }
+      }
+
+      // Check line after for professor (Format A)
+      if (!professor && i + 1 < linhas.length && !usedLines.has(i + 1)) {
+        const nextLine = linhas[i + 1].trim();
+        const profLineMatch = nextLine.match(
+          /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+(?:\(\d+h\)(?:\s*,\s*(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+\(\d+h\))*)?)/i
+        );
+        if (profLineMatch) {
+          professor = profLineMatch[1].trim();
+          usedLines.add(i + 1);
+        }
+      }
+
+      // Clean up name
+      nome = limparNomeDisciplina(nome);
+
+      // Handle menção
+      const mencao = nota === '---' || nota === '-' ? '-' : nota;
+
+      // Parse carga horaria
+      const cargaH = parseInt(chStr) || 0;
+
+      // Normalize periodo
+      let anoPeriodo = periodo === '--' ? '' : periodo;
+      if (anoPeriodo && !/^\d{4}\.\d$/.test(anoPeriodo)) {
+        if (/^\d{4}\.$/.test(anoPeriodo)) {
+          anoPeriodo = anoPeriodo + '0';
+        }
+      }
+
+      disciplinas.push({
+        tipo_dado: 'Disciplina Regular',
+        nome,
+        status: situacao,
+        mencao,
+        creditos: cargaH > 0 ? Math.floor(cargaH / 15) : 0,
+        codigo,
+        carga_horaria: cargaH,
+        ano_periodo: anoPeriodo,
+        prefixo: prefixo || '',
+        professor: limparNomeProfessor(professor),
+        turma,
+        frequencia: freq !== '--' ? freq : null,
+        nota: null,
+      });
+      continue;
     }
 
-    // If no name found, look at previous line (Format A or C with name above)
-    if (!nome && i > 0) {
-      const prevLine = linhas[i - 1].trim();
-      if (
-        prevLine.length > 2 &&
-        /^[A-ZÀ-ÿ]/.test(prevLine) &&
-        !reDataLine.test(prevLine) &&
-        !reSituacao.test(prevLine) &&
-        !/^(SIGAA|UnB|DEG|SAA|Campus|Credenciada|Legenda|Para verificar|Página|Histórico|Nome:|Componentes|Ano\/Período|Letivo\s+Component|SIGLA|Código|Observações|Atenção|Menções|Carga Horária|Obrigatórias|Exigido|Integralizado|Pendente\s|Equivalências)/i.test(
-          prevLine
-        ) &&
-        !/^\d{4}\.\d/.test(prevLine)
-      ) {
-        nome = prevLine;
-        usedLines.add(i - 1);
-      }
-    }
-
-    // Check for multi-professor format in middle text
-    if (!nome && middleTrimmed) {
-      const multiProfMatch = middleTrimmed.match(
-        /^((?:(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.]+?\s*\(\d+h\)(?:\s*,\s*)?)+)/i
-      );
-      if (multiProfMatch) {
-        professor = multiProfMatch[1].trim();
-      }
-    }
-
-    // Check line after for professor (Format A)
-    if (!professor && i + 1 < linhas.length && !usedLines.has(i + 1)) {
+    // NEW: Try professor+data on separate line (Format E)
+    // Check if current line is "period+code+name" and next is "professor+data"
+    const nameMatch = line.match(reNameLine);
+    if (nameMatch && i + 1 < linhas.length && !usedLines.has(i + 1)) {
+      const [, periodo, prefixo, codigo, nomePrevio] = nameMatch;
       const nextLine = linhas[i + 1].trim();
-      const profLineMatch = nextLine.match(
-        /^((?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+(?:\(\d+h\)(?:\s*,\s*(?:Dr\.|Dra\.|MSc\.|Prof\.)\s+[A-ZÀ-ÿ][A-ZÀ-ÿ\s.,]+\(\d+h\))*)?)/i
-      );
-      if (profLineMatch) {
-        professor = profLineMatch[1].trim();
+      const profDataMatch = nextLine.match(reProfessorDataLine);
+
+      if (profDataMatch) {
+        const [, professorText, chStr, turma, freq, nota, situacao] = profDataMatch;
+
+        usedLines.add(i);
         usedLines.add(i + 1);
+
+        const nome = limparNomeDisciplina(nomePrevio);
+        const professor = limparNomeProfessor(professorText);
+        const mencao = nota === '---' || nota === '-' ? '-' : nota;
+        const cargaH = parseInt(chStr) || 0;
+
+        let anoPeriodo = periodo === '--' ? '' : periodo;
+        if (anoPeriodo && !/^\d{4}\.\d$/.test(anoPeriodo)) {
+          if (/^\d{4}\.$/.test(anoPeriodo)) {
+            anoPeriodo = anoPeriodo + '0';
+          }
+        }
+
+        disciplinas.push({
+          tipo_dado: 'Disciplina Regular',
+          nome,
+          status: situacao,
+          mencao,
+          creditos: cargaH > 0 ? Math.floor(cargaH / 15) : 0,
+          codigo,
+          carga_horaria: cargaH,
+          ano_periodo: anoPeriodo,
+          prefixo: prefixo || '',
+          professor,
+          turma,
+          frequencia: freq !== '--' ? freq : null,
+          nota: null,
+        });
       }
     }
-
-    // Clean up name
-    nome = limparNomeDisciplina(nome);
-
-    // Handle menção
-    const mencao = nota === '---' || nota === '-' ? '-' : nota;
-
-    // Parse carga horaria
-    const cargaH = parseInt(chStr) || 0;
-
-    // Normalize periodo
-    let anoPeriodo = periodo === '--' ? '' : periodo;
-    if (anoPeriodo && !/^\d{4}\.\d$/.test(anoPeriodo)) {
-      if (/^\d{4}\.$/.test(anoPeriodo)) {
-        anoPeriodo = anoPeriodo + '0';
-      }
-    }
-
-    disciplinas.push({
-      tipo_dado: 'Disciplina Regular',
-      nome,
-      status: situacao,
-      mencao,
-      creditos: cargaH > 0 ? Math.floor(cargaH / 15) : 0,
-      codigo,
-      carga_horaria: cargaH,
-      ano_periodo: anoPeriodo,
-      prefixo: prefixo || '',
-      professor: limparNomeProfessor(professor),
-      turma,
-      frequencia: freq !== '--' ? freq : null,
-      nota: null,
-    });
   }
 
   return disciplinas;
@@ -453,6 +554,11 @@ function extrairDisciplinasPendentes(text: string): DisciplinaExtraida[] {
     if (m) {
       const [, codigo, nome, matriculado, chStr] = m;
       if (codigo === '-') continue; // Skip "CADEIA DE SELETIVIDADE" entries
+
+      // Skip professor lines that accidentally match (e.g. "DSC0172  Dr. NAME  60 h")
+      if (/^(?:Dr\.|Dra\.|MSc\.|Prof\.)\s/i.test(nome.trim())) continue;
+      // Skip lines where the "name" contains (Xh) professor patterns
+      if (/\(\d+h\)/i.test(nome)) continue;
 
       disciplinas.push({
         tipo_dado: 'Disciplina Pendente',

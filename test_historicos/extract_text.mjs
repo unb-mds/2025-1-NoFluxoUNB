@@ -116,7 +116,8 @@ async function extractTextFromPdf(filePath) {
 const outputDir = path.join(__dirname, 'extracted_texts');
 fs.mkdirSync(outputDir, { recursive: true });
 
-const pdfFiles = fs.readdirSync(__dirname).filter(f => f.endsWith('.pdf'));
+const pdfDir = path.join(__dirname, 'historicos');
+const pdfFiles = fs.readdirSync(pdfDir).filter(f => f.endsWith('.pdf'));
 console.log(`\n${'='.repeat(70)}`);
 console.log(`  PDF TEXT EXTRACTION — ${pdfFiles.length} files found`);
 console.log(`${'='.repeat(70)}\n`);
@@ -124,7 +125,7 @@ console.log(`${'='.repeat(70)}\n`);
 const results = [];
 
 for (const pdfFile of pdfFiles) {
-  const filePath = path.join(__dirname, pdfFile);
+  const filePath = path.join(pdfDir, pdfFile);
   console.log(`\n--- Processing: ${pdfFile} ---`);
 
   try {

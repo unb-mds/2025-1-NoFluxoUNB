@@ -1,62 +1,39 @@
 # NoFluxo Backend Kubernetes Dockerfile
-# Node.js + TypeScript + PDF Parser
+# Node.js + TypeScript
 
-FROM registry.kubernetes.crianex.com/library/node:20-bullseye AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install Python for PDF parser
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    python3-dev \
-    && rm -rf /var/lib/apt/lists/* \
-    && ln -s /usr/bin/python3 /usr/bin/python
-
-# Install Node.js dependencies
+# Install Node.js dependencies (include dev for tsc)
 COPY no_fluxo_backend/package*.json ./
-RUN npm ci --omit=dev || (npm install --omit=dev && npm ci --omit=dev)
-
-# Install Python dependencies for PDF parser
-COPY no_fluxo_backend/parse-pdf/requirements.txt ./parse-pdf/
-RUN pip3 install --no-cache-dir -r parse-pdf/requirements.txt
+RUN npm ci
 
 # Copy source code
 COPY no_fluxo_backend/src/ ./src/
-COPY no_fluxo_backend/parse-pdf/ ./parse-pdf/
 COPY no_fluxo_backend/tsconfig.json ./
 
 # Build TypeScript
-RUN npm run build
+RUN npx tsc
 
 # Production image
-FROM registry.kubernetes.crianex.com/library/node:20-bullseye-slim
+FROM node:20-alpine
 
 WORKDIR /app
 
-# Install Python runtime for PDF parser
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    wget \
-    && rm -rf /var/lib/apt/lists/* \
-    && ln -s /usr/bin/python3 /usr/bin/python
+# Install wget for healthcheck
+RUN apk add --no-cache wget
 
 # Create non-root user
-RUN useradd -r -u 1001 -m appuser
-
-# Copy Python packages (use shell to handle if dir doesn't exist)
-RUN mkdir -p /usr/local/lib/python3.11/dist-packages
-COPY --from=builder /usr/local/lib/python3.11/dist-packages/ /usr/local/lib/python3.11/dist-packages/
+RUN adduser -D -u 1001 appuser
 
 # Copy from builder
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/parse-pdf ./parse-pdf
 COPY no_fluxo_backend/package.json ./
 
-# Create log directories
-RUN mkdir -p logs parse-pdf/logs \
+# Create log directory
+RUN mkdir -p logs \
     && chown -R appuser:appuser /app
 
 USER appuser

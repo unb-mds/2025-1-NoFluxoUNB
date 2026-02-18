@@ -182,6 +182,45 @@ def run_cmd(cmd: list[str], *, cwd: Path | None = None) -> None:
         raise CommandError(cmd=cmd, exit_code=exit_code, stdout=out, stderr="")
 
 
+BUILDX_BUILDER_NAME = "deploy-local-multiarch"
+
+
+def _ensure_buildx_builder(docker_bin: str) -> str:
+    """Ensure a buildx builder with the docker-container driver exists.
+
+    The default 'docker' driver does not support multi-platform builds.
+    This creates (or reuses) a builder named 'deploy-local-multiarch' that
+    uses the 'docker-container' driver, which supports multi-arch.
+    Returns the builder name to use with --builder.
+    """
+    # Check if our builder already exists
+    try:
+        result = subprocess.run(
+            [docker_bin, "buildx", "inspect", BUILDX_BUILDER_NAME],
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            # Builder exists; make sure it's running
+            subprocess.run(
+                [docker_bin, "buildx", "inspect", BUILDX_BUILDER_NAME, "--bootstrap"],
+                capture_output=True, text=True,
+            )
+            return BUILDX_BUILDER_NAME
+    except Exception:
+        pass
+
+    # Create a new builder with docker-container driver
+    print(f"Creating buildx builder '{BUILDX_BUILDER_NAME}' (docker-container driver) for multi-platform builds...")
+    subprocess.run(
+        [docker_bin, "buildx", "create",
+         "--name", BUILDX_BUILDER_NAME,
+         "--driver", "docker-container",
+         "--bootstrap"],
+        check=True,
+    )
+    return BUILDX_BUILDER_NAME
+
+
 def docker_build(
     docker_bin: str,
     *,
@@ -196,10 +235,14 @@ def docker_build(
 
     When platforms is specified (e.g. "linux/amd64,linux/arm64"), uses buildx.
     Multi-arch builds require --push (local daemon can only store one arch).
+    A dedicated buildx builder with the docker-container driver is automatically
+    created if needed (the default docker driver cannot do multi-platform builds).
     """
     if platforms:
+        builder = _ensure_buildx_builder(docker_bin)
         cmd: list[str] = [
             docker_bin, "buildx", "build",
+            "--builder", builder,
             "--platform", platforms,
             "-t", image_ref,
             "-f", str(dockerfile),
@@ -278,6 +321,10 @@ def _collect_deploy_env(cfg: AppConfig) -> dict[str, str] | None:
         env.update(cfg.deploy_env_static)
     for key in cfg.deploy_env_keys:
         env[key] = require_env(key)
+    for key in cfg.deploy_env_optional_keys:
+        value = os.environ.get(key, "").strip()
+        if value:
+            env[key] = value
     return env or None
 
 
@@ -297,6 +344,11 @@ def _deploy_payload(cfg: AppConfig, *, build_id: str, deploy_env: dict[str, str]
         deploy_config["domain"] = cfg.domain
     if deploy_env:
         deploy_config["env"] = deploy_env
+
+    # Include appClass for node scheduling (business vs non-business)
+    app_class = getattr(cfg, 'app_class', 'business')
+    if app_class:
+        deploy_config["appClass"] = app_class
 
     return {
         "app": cfg.app_name,
@@ -583,7 +635,7 @@ def build_parser() -> argparse.ArgumentParser:
     # ── NOTE: Update choices below to match the keys in deploy_config.APPS ──
     parser.add_argument(
         "target",
-        choices=["backend", "ai-agent", "all"],
+        choices=["backend", "frontend", "all"],
         help="Which app to deploy (must match a key in deploy_config.APPS, or 'all')",
     )
 
@@ -634,7 +686,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 
-    repo_root = Path(__file__).resolve().parents[1]
+    repo_root = Path(__file__).resolve().parents[2]
 
     # Load repo root .env.local for deploy API credentials
     load_env_files(repo_root, cfg=None, env_file=args.env_file)

@@ -15,7 +15,7 @@ interface AssistenteResponse {
 }
 
 export class AssistenteService {
-	private readonly endpoint = '/assistente';
+	private readonly endpoint = '/assistente/analyze';
 
 	/**
 	 * Send a message to the AI assistant
@@ -23,7 +23,7 @@ export class AssistenteService {
 	 * @returns The AI response text
 	 */
 	async sendMessage(message: string): Promise<string> {
-		const url = `${config.agentUrl}${this.endpoint}`;
+		const url = `${config.apiUrl}${this.endpoint}`;
 
 		try {
 			const response = await fetch(url, {

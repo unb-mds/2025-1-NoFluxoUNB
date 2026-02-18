@@ -82,43 +82,106 @@
 			: 'text-white'
 	);
 
+	// Track if this is a touch device interaction
+	let isTouchInteraction = $state(false);
+
 	function handleMouseEnter() {
-		store.setHoveredSubject(materia.codigoMateria);
+		// Don't trigger hover on touch devices (touch followed by mouse events)
+		if (!isTouchInteraction) {
+			store.setHoveredSubject(materia.codigoMateria);
+		}
 	}
 
 	function handleMouseLeave() {
-		store.setHoveredSubject(null);
+		// Don't clear hover on touch devices - it's managed by long-press
+		if (!isTouchInteraction) {
+			store.setHoveredSubject(null);
+		}
 	}
 
-	// Long-press detection
+	// Long-press and drag detection for mobile
 	let longPressTimer: ReturnType<typeof setTimeout> | null = null;
 	let didLongPress = false;
+	let startX = 0;
+	let startY = 0;
+	let didDrag = false;
+	const DRAG_THRESHOLD = 10; // pixels
 
-	function handlePointerDown() {
+	function handleTouchStart(e: TouchEvent) {
+		isTouchInteraction = true;
 		didLongPress = false;
+		didDrag = false;
+		
+		const touch = e.touches[0];
+		startX = touch.clientX;
+		startY = touch.clientY;
+
 		longPressTimer = setTimeout(() => {
 			didLongPress = true;
+			// On long-press, show connections (set hover state) and keep them visible
+			store.setHoveredSubject(materia.codigoMateria);
+			// Also trigger onlongpress callback if not anonymous
 			if (!store.state.isAnonymous) {
 				onlongpress?.();
 			}
 		}, 500);
 	}
 
-	function handlePointerUp() {
+	function handleTouchMove(e: TouchEvent) {
 		if (longPressTimer) {
-			clearTimeout(longPressTimer);
-			longPressTimer = null;
+			const touch = e.touches[0];
+			const deltaX = Math.abs(touch.clientX - startX);
+			const deltaY = Math.abs(touch.clientY - startY);
+			
+			// If user moved finger, cancel long-press and mark as drag
+			if (deltaX > DRAG_THRESHOLD || deltaY > DRAG_THRESHOLD) {
+				clearTimeout(longPressTimer);
+				longPressTimer = null;
+				didDrag = true;
+			}
 		}
-		if (!didLongPress) {
-			onclick?.();
-		}
-		didLongPress = false;
 	}
 
-	function handlePointerLeave() {
+	function handleTouchEnd() {
 		if (longPressTimer) {
 			clearTimeout(longPressTimer);
 			longPressTimer = null;
+		}
+		
+		// Only trigger click if it wasn't a drag and wasn't a long-press
+		if (!didDrag && !didLongPress) {
+			// Clear any previous hover state when clicking a new block
+			store.setHoveredSubject(null);
+			onclick?.();
+		}
+		
+		didLongPress = false;
+		didDrag = false;
+		
+		// Reset touch interaction flag after a short delay
+		// This allows subsequent mouse events to work on hybrid devices
+		setTimeout(() => {
+			isTouchInteraction = false;
+		}, 300);
+	}
+
+	function handleTouchCancel() {
+		if (longPressTimer) {
+			clearTimeout(longPressTimer);
+			longPressTimer = null;
+		}
+		didLongPress = false;
+		didDrag = false;
+		setTimeout(() => {
+			isTouchInteraction = false;
+		}, 300);
+	}
+
+	// Desktop pointer events (for right-click context menu and normal click)
+	function handleClick() {
+		// For non-touch (mouse) interactions, handle click directly
+		if (!isTouchInteraction) {
+			onclick?.();
 		}
 	}
 
@@ -133,12 +196,14 @@
 <button
 	class={cardClasses}
 	data-subject-code={materia.codigoMateria}
-	onpointerdown={handlePointerDown}
-	onpointerup={handlePointerUp}
-	onpointerleave={handlePointerLeave}
+	onclick={handleClick}
 	oncontextmenu={handleContextMenu}
 	onmouseenter={handleMouseEnter}
 	onmouseleave={handleMouseLeave}
+	ontouchstart={handleTouchStart}
+	ontouchmove={handleTouchMove}
+	ontouchend={handleTouchEnd}
+	ontouchcancel={handleTouchCancel}
 	role="button"
 	tabindex="0"
 >
