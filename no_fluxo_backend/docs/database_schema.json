@@ -1,0 +1,2595 @@
+{
+  "enums": [],
+  "views": [
+    {
+      "view_name": "creditos_por_curso",
+      "is_updatable": "NO",
+      "view_definition": " SELECT c.id_curso,\n    c.nome_curso,\n    floor((sum(\n        CASE\n            WHEN (mpc.nivel > 0) THEN m.carga_horaria\n            ELSE (0)::bigint\n        END) / 15.0)) AS creditos_obrigatorios,\n    floor((sum(\n        CASE\n            WHEN (mpc.nivel = 0) THEN m.carga_horaria\n            ELSE (0)::bigint\n        END) / 15.0)) AS creditos_optativos,\n    floor((sum(m.carga_horaria) / 15.0)) AS creditos_totais\n   FROM ((cursos c\n     LEFT JOIN materias_por_curso mpc ON ((mpc.id_curso = c.id_curso)))\n     LEFT JOIN materias m ON ((m.id_materia = mpc.id_materia)))\n  GROUP BY c.id_curso, c.nome_curso\n  ORDER BY c.id_curso;",
+      "is_insertable_into": "NO"
+    },
+    {
+      "view_name": "vw_equivalencias_com_materias",
+      "is_updatable": "NO",
+      "view_definition": " WITH codigos_explodidos AS (\n         SELECT e.id_equivalencia,\n            e.id_curso,\n            e.matriz_curricular,\n            e.curriculo,\n            e.data_vigencia,\n            e.fim_vigencia,\n            e.expressao,\n            m_origem.codigo_materia AS codigo_materia_origem,\n            m_origem.nome_materia AS nome_materia_origem,\n            c.nome_curso,\n            regexp_split_to_table(regexp_replace(e.expressao, '[\\(\\)]'::text, ''::text, 'g'::text), '\\s+(OU|ou|E|e)\\s+'::text) AS codigo_equivalente\n           FROM ((equivalencias e\n             LEFT JOIN materias m_origem ON ((e.id_materia = m_origem.id_materia)))\n             LEFT JOIN cursos c ON ((e.id_curso = c.id_curso)))\n        ), materias_equivalentes AS (\n         SELECT ce.id_equivalencia,\n            ce.codigo_materia_origem,\n            ce.nome_materia_origem,\n            ce.expressao,\n            ce.codigo_equivalente,\n            m.nome_materia AS nome_materia_equivalente,\n            ce.id_curso,\n            ce.nome_curso,\n            ce.matriz_curricular,\n            ce.curriculo,\n            ce.data_vigencia,\n            ce.fim_vigencia\n           FROM (codigos_explodidos ce\n             LEFT JOIN materias m ON ((m.codigo_materia = ce.codigo_equivalente)))\n        )\n SELECT materias_equivalentes.id_equivalencia,\n    materias_equivalentes.codigo_materia_origem,\n    materias_equivalentes.nome_materia_origem,\n    materias_equivalentes.codigo_equivalente AS codigo_materia_equivalente,\n    materias_equivalentes.nome_materia_equivalente,\n    materias_equivalentes.expressao,\n    materias_equivalentes.id_curso,\n    materias_equivalentes.nome_curso,\n    materias_equivalentes.matriz_curricular,\n    materias_equivalentes.curriculo,\n    materias_equivalentes.data_vigencia,\n    materias_equivalentes.fim_vigencia\n   FROM materias_equivalentes;",
+      "is_insertable_into": "NO"
+    },
+    {
+      "view_name": "vw_pre_requisitos_detalhado",
+      "is_updatable": "NO",
+      "view_definition": " SELECT pr.id_pre_requisito,\n    pr.id_materia,\n    m1.codigo_materia,\n    m1.nome_materia,\n    pr.id_materia_requisito,\n    m2.codigo_materia AS codigo_requisito,\n    m2.nome_materia AS nome_requisito,\n    mpc.id_curso,\n    c.nome_curso,\n    c.matriz_curricular\n   FROM ((((pre_requisitos pr\n     JOIN materias m1 ON ((pr.id_materia = m1.id_materia)))\n     JOIN materias m2 ON ((pr.id_materia_requisito = m2.id_materia)))\n     JOIN materias_por_curso mpc ON ((mpc.id_materia = pr.id_materia)))\n     JOIN cursos c ON ((mpc.id_curso = c.id_curso)));",
+      "is_insertable_into": "NO"
+    }
+  ],
+  "tables": [
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_co_requisito",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia_corequisito",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        }
+      ],
+      "table_name": "co_requisitos",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_co_requisito",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia_corequisito",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "co_requisitos_backup",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_curso",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "BY DEFAULT",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "nome_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "matriz_curricular",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "data_inicio_matriz",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "numeric",
+          "data_type": "numeric",
+          "column_name": "creditos",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "classificacao",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "tipo_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "cursos",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_dado_user",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "BY DEFAULT",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "fluxograma_atual",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'{}'::text",
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_user",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "users",
+            "foreign_column": "id_user"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "semestre_atual",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 9,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "dados_users",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_dado_user",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "fluxograma_atual",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_user",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "semestre_atual",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "dados_users_backup",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_equivalencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "expressao",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "matriz_curricular",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "curriculo",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "data_vigencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "fim_vigencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "equivalencia_backup1",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_equivalencia",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "cursos",
+            "foreign_column": "id_curso"
+          }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "expressao",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "matriz_curricular",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "curriculo",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "data_vigencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "fim_vigencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "equivalencias",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "BY DEFAULT",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "nome_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "codigo_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "carga_horaria",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "ementa",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "departamento",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "materias",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia_curso",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "BY DEFAULT",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "cursos",
+            "foreign_column": "id_curso"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "nivel",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "materias_por_curso",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_pre_requisito",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia_requisito",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "materias",
+            "foreign_column": "id_materia"
+          }
+        }
+      ],
+      "table_name": "pre_requisitos",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_user",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "BY DEFAULT",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "email",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "nome_completo",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "uuid",
+          "data_type": "uuid",
+          "column_name": "auth_id",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "users",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_user",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "email",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "nome_completo",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "users_backup",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    }
+  ],
+  "indexes": [
+    {
+      "index_name": "co_requisitos_pkey",
+      "table_name": "co_requisitos",
+      "index_definition": "CREATE UNIQUE INDEX co_requisitos_pkey ON public.co_requisitos USING btree (id_co_requisito)"
+    },
+    {
+      "index_name": "cursos_pkey",
+      "table_name": "cursos",
+      "index_definition": "CREATE UNIQUE INDEX cursos_pkey ON public.cursos USING btree (id_curso)"
+    },
+    {
+      "index_name": "dados_users_id_user_unique",
+      "table_name": "dados_users",
+      "index_definition": "CREATE UNIQUE INDEX dados_users_id_user_unique ON public.dados_users USING btree (id_user)"
+    },
+    {
+      "index_name": "dados_users_pkey",
+      "table_name": "dados_users",
+      "index_definition": "CREATE UNIQUE INDEX dados_users_pkey ON public.dados_users USING btree (id_dado_user)"
+    },
+    {
+      "index_name": "equivalencias_pkey",
+      "table_name": "equivalencias",
+      "index_definition": "CREATE UNIQUE INDEX equivalencias_pkey ON public.equivalencias USING btree (id_equivalencia)"
+    },
+    {
+      "index_name": "materias_codigo_materia_key",
+      "table_name": "materias",
+      "index_definition": "CREATE UNIQUE INDEX materias_codigo_materia_key ON public.materias USING btree (codigo_materia)"
+    },
+    {
+      "index_name": "materias_pkey",
+      "table_name": "materias",
+      "index_definition": "CREATE UNIQUE INDEX materias_pkey ON public.materias USING btree (id_materia)"
+    },
+    {
+      "index_name": "materias_por_curso_pkey",
+      "table_name": "materias_por_curso",
+      "index_definition": "CREATE UNIQUE INDEX materias_por_curso_pkey ON public.materias_por_curso USING btree (id_materia_curso)"
+    },
+    {
+      "index_name": "pre_requisitos_pkey",
+      "table_name": "pre_requisitos",
+      "index_definition": "CREATE UNIQUE INDEX pre_requisitos_pkey ON public.pre_requisitos USING btree (id_pre_requisito)"
+    },
+    {
+      "index_name": "idx_users_auth_id",
+      "table_name": "users",
+      "index_definition": "CREATE INDEX idx_users_auth_id ON public.users USING btree (auth_id)"
+    },
+    {
+      "index_name": "users_auth_id_key",
+      "table_name": "users",
+      "index_definition": "CREATE UNIQUE INDEX users_auth_id_key ON public.users USING btree (auth_id)"
+    },
+    {
+      "index_name": "users_pkey",
+      "table_name": "users",
+      "index_definition": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id_user)"
+    }
+  ],
+  "policies": [
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "co_requisitos",
+      "policy_name": "co_requisitos_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "cursos",
+      "policy_name": "cursos_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "DELETE",
+      "permissive": "PERMISSIVE",
+      "table_name": "dados_users",
+      "policy_name": "dados_users_delete_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "INSERT",
+      "permissive": "PERMISSIVE",
+      "table_name": "dados_users",
+      "policy_name": "dados_users_insert_own",
+      "using_expression": null,
+      "with_check_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "dados_users",
+      "policy_name": "dados_users_select_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "UPDATE",
+      "permissive": "PERMISSIVE",
+      "table_name": "dados_users",
+      "policy_name": "dados_users_update_own",
+      "using_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))",
+      "with_check_expression": "(id_user IN ( SELECT users.id_user\n   FROM users\n  WHERE (users.auth_id = auth.uid())))"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "equivalencias",
+      "policy_name": "equivalencias_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "materias",
+      "policy_name": "materias_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "materias_por_curso",
+      "policy_name": "materias_por_curso_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "pre_requisitos",
+      "policy_name": "pre_requisitos_select_public",
+      "using_expression": "true",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "INSERT",
+      "permissive": "PERMISSIVE",
+      "table_name": "users",
+      "policy_name": "users_insert_own",
+      "using_expression": null,
+      "with_check_expression": "(auth_id = auth.uid())"
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "SELECT",
+      "permissive": "PERMISSIVE",
+      "table_name": "users",
+      "policy_name": "users_select_own",
+      "using_expression": "(auth_id = auth.uid())",
+      "with_check_expression": null
+    },
+    {
+      "roles": [
+        "public"
+      ],
+      "command": "UPDATE",
+      "permissive": "PERMISSIVE",
+      "table_name": "users",
+      "policy_name": "users_update_own",
+      "using_expression": "(auth_id = auth.uid())",
+      "with_check_expression": "(auth_id = auth.uid())"
+    }
+  ],
+  "triggers": [],
+  "functions": [
+    {
+      "config": null,
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.atualizar_creditos_cursos()\n RETURNS void\n LANGUAGE plpgsql\nAS $function$\r\nDECLARE\r\n    curso_row RECORD;\r\n    total_carga_horaria INTEGER;\r\n    total_creditos INTEGER;\r\nBEGIN\r\n    FOR curso_row IN SELECT id_curso FROM cursos LOOP\r\n        -- Soma a carga horária total das matérias do curso atual\r\n        SELECT SUM(m.carga_horaria)\r\n        INTO total_carga_horaria\r\n        FROM materias_por_curso mpc\r\n        JOIN materias m ON m.id_materia = mpc.id_materia\r\n        WHERE mpc.id_curso = curso_row.id_curso;\r\n\r\n        -- Se o curso não tiver matérias, pula\r\n        IF total_carga_horaria IS NULL THEN\r\n            CONTINUE;\r\n        END IF;\r\n\r\n        -- Calcula os créditos inteiros (1 crédito = 15 horas)\r\n        total_creditos := FLOOR(total_carga_horaria / 15.0);\r\n\r\n        -- Atualiza a coluna creditos como número inteiro\r\n        UPDATE cursos\r\n        SET creditos = total_creditos\r\n        WHERE id_curso = curso_row.id_curso;\r\n    END LOOP;\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "void",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n    curso_row RECORD;\r\n    total_carga_horaria INTEGER;\r\n    total_creditos INTEGER;\r\nBEGIN\r\n    FOR curso_row IN SELECT id_curso FROM cursos LOOP\r\n        -- Soma a carga horária total das matérias do curso atual\r\n        SELECT SUM(m.carga_horaria)\r\n        INTO total_carga_horaria\r\n        FROM materias_por_curso mpc\r\n        JOIN materias m ON m.id_materia = mpc.id_materia\r\n        WHERE mpc.id_curso = curso_row.id_curso;\r\n\r\n        -- Se o curso não tiver matérias, pula\r\n        IF total_carga_horaria IS NULL THEN\r\n            CONTINUE;\r\n        END IF;\r\n\r\n        -- Calcula os créditos inteiros (1 crédito = 15 horas)\r\n        total_creditos := FLOOR(total_carga_horaria / 15.0);\r\n\r\n        -- Atualiza a coluna creditos como número inteiro\r\n        UPDATE cursos\r\n        SET creditos = total_creditos\r\n        WHERE id_curso = curso_row.id_curso;\r\n    END LOOP;\r\nEND;\r\n",
+      "function_oid": 33403,
+      "function_name": "atualizar_creditos_cursos",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "id_curso_input bigint",
+      "definition": "CREATE OR REPLACE FUNCTION public.calcular_creditos_por_curso(id_curso_input bigint)\n RETURNS integer\n LANGUAGE plpgsql\nAS $function$\r\nDECLARE\r\n    total_horas INTEGER;\r\nBEGIN\r\n    SELECT SUM(horas)\r\n    INTO total_horas\r\n    FROM (\r\n        SELECT DISTINCT\r\n            LOWER(TRIM(m.nome_materia)) AS nome_normalizado,\r\n            CAST(NULLIF(REGEXP_REPLACE(m.carga_horaria, '[^0-9]', '', 'g'), '') AS INTEGER) AS horas\r\n        FROM materias m\r\n        JOIN materias_por_curso mpc ON m.id_materia = mpc.id_materia\r\n        WHERE mpc.id_curso = id_curso_input\r\n          AND mpc.nivel > 0\r\n          AND m.carga_horaria IS NOT NULL\r\n          AND REGEXP_REPLACE(m.carga_horaria, '[^0-9]', '', 'g') <> ''\r\n    ) AS materias_unicas;\r\n\r\n    IF total_horas IS NULL THEN\r\n        RETURN 0;\r\n    END IF;\r\n\r\n    RETURN FLOOR(total_horas / 15);\r\nEND;\r\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "integer",
+      "returns_set": false,
+      "source_code": "\r\nDECLARE\r\n    total_horas INTEGER;\r\nBEGIN\r\n    SELECT SUM(horas)\r\n    INTO total_horas\r\n    FROM (\r\n        SELECT DISTINCT\r\n            LOWER(TRIM(m.nome_materia)) AS nome_normalizado,\r\n            CAST(NULLIF(REGEXP_REPLACE(m.carga_horaria, '[^0-9]', '', 'g'), '') AS INTEGER) AS horas\r\n        FROM materias m\r\n        JOIN materias_por_curso mpc ON m.id_materia = mpc.id_materia\r\n        WHERE mpc.id_curso = id_curso_input\r\n          AND mpc.nivel > 0\r\n          AND m.carga_horaria IS NOT NULL\r\n          AND REGEXP_REPLACE(m.carga_horaria, '[^0-9]', '', 'g') <> ''\r\n    ) AS materias_unicas;\r\n\r\n    IF total_horas IS NULL THEN\r\n        RETURN 0;\r\n    END IF;\r\n\r\n    RETURN FLOOR(total_horas / 15);\r\nEND;\r\n",
+      "function_oid": 31814,
+      "function_name": "calcular_creditos_por_curso",
+      "function_type": "function",
+      "argument_types": "id_curso_input bigint",
+      "parallel_safety": "UNSAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": false,
+      "comment": "Exports the complete database schema as JSON including tables, views, functions (with full source code), triggers (with function definitions), all constraints, indexes, policies, enums, sequences, and extensions.",
+      "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.export_schema()\n RETURNS jsonb\n LANGUAGE plpgsql\n SECURITY DEFINER\nAS $function$\nBEGIN\n    RETURN jsonb_build_object(\n        'exported_at', NOW(),\n        'postgres_version', version(),\n        \n        -- TABLES WITH DETAILED COLUMNS\n        'tables', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'table_name', t.table_name,\n                'table_type', t.table_type,\n                'table_comment', obj_description(pc.oid, 'pg_class'),\n                'columns', (\n                    SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                        'column_name', c.column_name,\n                        'data_type', c.data_type,\n                        'udt_name', c.udt_name,\n                        'is_nullable', c.is_nullable,\n                        'column_default', c.column_default,\n                        'is_identity', c.is_identity,\n                        'identity_generation', c.identity_generation,\n                        'ordinal_position', c.ordinal_position,\n                        'character_maximum_length', c.character_maximum_length,\n                        'numeric_precision', c.numeric_precision,\n                        'numeric_scale', c.numeric_scale,\n                        'datetime_precision', c.datetime_precision,\n                        'is_updatable', c.is_updatable,\n                        'column_comment', col_description(pc.oid, c.ordinal_position)\n                    ) ORDER BY c.ordinal_position), '[]'::jsonb)\n                    FROM information_schema.columns c \n                    WHERE c.table_name = t.table_name \n                    AND c.table_schema = 'public'\n                )\n            ) ORDER BY t.table_name), '[]'::jsonb)\n            FROM information_schema.tables t\n            JOIN pg_class pc ON pc.relname = t.table_name AND pc.relnamespace = 'public'::regnamespace\n            WHERE t.table_schema = 'public'\n            AND t.table_type = 'BASE TABLE'\n        ),\n        \n        -- VIEWS WITH DEFINITIONS\n        'views', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'view_name', table_name,\n                'view_definition', view_definition,\n                'is_updatable', is_updatable,\n                'is_insertable_into', is_insertable_into\n            ) ORDER BY table_name), '[]'::jsonb)\n            FROM information_schema.views\n            WHERE table_schema = 'public'\n        ),\n\n        -- MATERIALIZED VIEWS WITH DEFINITIONS\n        'materialized_views', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'view_name', matviewname,\n                'view_definition', definition,\n                'is_populated', ispopulated\n            ) ORDER BY matviewname), '[]'::jsonb)\n            FROM pg_matviews\n            WHERE schemaname = 'public'\n        ),\n        \n        -- FUNCTIONS AND PROCEDURES (with full definitions and source code)\n        'functions', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'function_name', p.proname,\n                'function_oid', p.oid::bigint,\n                'return_type', pg_get_function_result(p.oid),\n                'arguments', pg_get_function_arguments(p.oid),\n                'argument_types', pg_get_function_identity_arguments(p.oid),\n                'function_type', CASE \n                    WHEN p.prokind = 'f' THEN 'function'\n                    WHEN p.prokind = 'p' THEN 'procedure'\n                    WHEN p.prokind = 'a' THEN 'aggregate'\n                    WHEN p.prokind = 'w' THEN 'window'\n                    ELSE 'unknown'\n                END,\n                'volatility', CASE p.provolatile\n                    WHEN 'i' THEN 'IMMUTABLE'\n                    WHEN 's' THEN 'STABLE'\n                    WHEN 'v' THEN 'VOLATILE'\n                END,\n                'parallel_safety', CASE p.proparallel\n                    WHEN 's' THEN 'SAFE'\n                    WHEN 'r' THEN 'RESTRICTED'\n                    WHEN 'u' THEN 'UNSAFE'\n                END,\n                'security_definer', p.prosecdef,\n                'strict', p.proisstrict,\n                'returns_set', p.proretset,\n                'language', l.lanname,\n                'source_code', p.prosrc,\n                'definition', pg_get_functiondef(p.oid),\n                'config', p.proconfig,\n                'comment', obj_description(p.oid, 'pg_proc')\n            ) ORDER BY p.proname), '[]'::jsonb)\n            FROM pg_proc p\n            JOIN pg_namespace n ON p.pronamespace = n.oid\n            JOIN pg_language l ON p.prolang = l.oid\n            WHERE n.nspname = 'public'\n            AND p.prokind IN ('f', 'p')\n        ),\n        \n        -- TRIGGERS WITH FULL DEFINITIONS (including the trigger function definition)\n        -- Only triggers on PUBLIC schema tables\n        'triggers', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'trigger_name', tg.tgname,\n                'table_name', tab.relname,\n                'table_schema', ns.nspname,\n                'trigger_type', CASE \n                    WHEN tg.tgtype & 2 = 2 THEN 'BEFORE'\n                    WHEN tg.tgtype & 64 = 64 THEN 'INSTEAD OF'\n                    ELSE 'AFTER'\n                END,\n                'trigger_events', concat_ws(' OR ',\n                    CASE WHEN tg.tgtype & 4 = 4 THEN 'INSERT' END,\n                    CASE WHEN tg.tgtype & 8 = 8 THEN 'DELETE' END,\n                    CASE WHEN tg.tgtype & 16 = 16 THEN 'UPDATE' END,\n                    CASE WHEN tg.tgtype & 32 = 32 THEN 'TRUNCATE' END\n                ),\n                'for_each', CASE WHEN tg.tgtype & 1 = 1 THEN 'ROW' ELSE 'STATEMENT' END,\n                'trigger_function_name', p.proname,\n                'trigger_function_schema', fn.nspname,\n                'trigger_function_definition', pg_get_functiondef(p.oid),\n                'trigger_function_source', p.prosrc,\n                'is_enabled', CASE tg.tgenabled\n                    WHEN 'O' THEN true\n                    WHEN 'D' THEN false\n                    WHEN 'R' THEN true  -- replica\n                    WHEN 'A' THEN true  -- always\n                    ELSE true\n                END,\n                'trigger_definition', pg_get_triggerdef(tg.oid),\n                -- NOTE: tg.tgqual can reference both OLD and NEW, which makes pg_get_expr error\n                -- (\"expression contains variables of more than one relation\"). We extract WHEN()\n                -- from the full trigger definition instead (best-effort).\n                'condition', substring(pg_get_triggerdef(tg.oid) from 'WHEN \\\\((.*)\\\\) EXECUTE')\n            ) ORDER BY tab.relname, tg.tgname), '[]'::jsonb)\n            FROM pg_trigger tg\n            JOIN pg_class tab ON tg.tgrelid = tab.oid\n            JOIN pg_namespace ns ON tab.relnamespace = ns.oid\n            JOIN pg_proc p ON tg.tgfoid = p.oid\n            JOIN pg_namespace fn ON p.pronamespace = fn.oid\n            WHERE ns.nspname = 'public'\n            AND NOT tg.tgisinternal  -- exclude system triggers\n        ),\n        \n        -- TRIGGERS ON auth.users (critical for signup flows)\n        -- These triggers fire when users sign up and typically create profiles\n        'auth_triggers', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'trigger_name', tg.tgname,\n                'table_name', tab.relname,\n                'table_schema', ns.nspname,\n                'trigger_type', CASE \n                    WHEN tg.tgtype & 2 = 2 THEN 'BEFORE'\n                    WHEN tg.tgtype & 64 = 64 THEN 'INSTEAD OF'\n                    ELSE 'AFTER'\n                END,\n                'trigger_events', concat_ws(' OR ',\n                    CASE WHEN tg.tgtype & 4 = 4 THEN 'INSERT' END,\n                    CASE WHEN tg.tgtype & 8 = 8 THEN 'DELETE' END,\n                    CASE WHEN tg.tgtype & 16 = 16 THEN 'UPDATE' END,\n                    CASE WHEN tg.tgtype & 32 = 32 THEN 'TRUNCATE' END\n                ),\n                'for_each', CASE WHEN tg.tgtype & 1 = 1 THEN 'ROW' ELSE 'STATEMENT' END,\n                'trigger_function_name', p.proname,\n                'trigger_function_schema', fn.nspname,\n                'trigger_function_definition', CASE \n                    WHEN fn.nspname = 'public' THEN pg_get_functiondef(p.oid)\n                    ELSE NULL  -- Can't always get definition for non-public functions\n                END,\n                'trigger_function_source', CASE \n                    WHEN fn.nspname = 'public' THEN p.prosrc\n                    ELSE NULL\n                END,\n                'is_enabled', CASE tg.tgenabled\n                    WHEN 'O' THEN true\n                    WHEN 'D' THEN false\n                    WHEN 'R' THEN true\n                    WHEN 'A' THEN true\n                    ELSE true\n                END,\n                'trigger_definition', pg_get_triggerdef(tg.oid)\n            ) ORDER BY tg.tgname), '[]'::jsonb)\n            FROM pg_trigger tg\n            JOIN pg_class tab ON tg.tgrelid = tab.oid\n            JOIN pg_namespace ns ON tab.relnamespace = ns.oid\n            JOIN pg_proc p ON tg.tgfoid = p.oid\n            JOIN pg_namespace fn ON p.pronamespace = fn.oid\n            WHERE ns.nspname = 'auth'\n            AND tab.relname = 'users'\n            AND NOT tg.tgisinternal\n        ),\n        \n        -- FOREIGN KEYS (public schema only)\n        'foreign_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'foreign_table_name', ccu.table_name,\n                'foreign_column_name', ccu.column_name,\n                'update_rule', rc.update_rule,\n                'delete_rule', rc.delete_rule,\n                'match_option', rc.match_option\n            ) ORDER BY tc.table_name, tc.constraint_name), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            JOIN information_schema.constraint_column_usage ccu\n                ON ccu.constraint_name = tc.constraint_name\n                AND ccu.table_schema = tc.table_schema\n            JOIN information_schema.referential_constraints rc\n                ON rc.constraint_name = tc.constraint_name\n                AND rc.constraint_schema = tc.table_schema\n            WHERE tc.constraint_type = 'FOREIGN KEY'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- FOREIGN KEYS REFERENCING auth.users\n        -- These are critical for user profile tables that link to auth.users\n        'auth_foreign_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', con.conname,\n                'table_schema', nsp.nspname,\n                'table_name', rel.relname,\n                'column_name', att.attname,\n                'foreign_table_schema', fnsp.nspname,\n                'foreign_table_name', frel.relname,\n                'foreign_column_name', fatt.attname,\n                'on_delete', CASE con.confdeltype\n                    WHEN 'a' THEN 'NO ACTION'\n                    WHEN 'r' THEN 'RESTRICT'\n                    WHEN 'c' THEN 'CASCADE'\n                    WHEN 'n' THEN 'SET NULL'\n                    WHEN 'd' THEN 'SET DEFAULT'\n                END,\n                'on_update', CASE con.confupdtype\n                    WHEN 'a' THEN 'NO ACTION'\n                    WHEN 'r' THEN 'RESTRICT'\n                    WHEN 'c' THEN 'CASCADE'\n                    WHEN 'n' THEN 'SET NULL'\n                    WHEN 'd' THEN 'SET DEFAULT'\n                END\n            ) ORDER BY rel.relname), '[]'::jsonb)\n            FROM pg_constraint con\n            JOIN pg_class rel ON con.conrelid = rel.oid\n            JOIN pg_namespace nsp ON rel.relnamespace = nsp.oid\n            JOIN pg_class frel ON con.confrelid = frel.oid\n            JOIN pg_namespace fnsp ON frel.relnamespace = fnsp.oid\n            JOIN pg_attribute att ON att.attrelid = rel.oid AND att.attnum = ANY(con.conkey)\n            JOIN pg_attribute fatt ON fatt.attrelid = frel.oid AND fatt.attnum = ANY(con.confkey)\n            WHERE con.contype = 'f'\n            AND fnsp.nspname = 'auth'\n            AND frel.relname = 'users'\n        ),\n        \n        -- PRIMARY KEYS\n        'primary_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'ordinal_position', kcu.ordinal_position\n            ) ORDER BY tc.table_name, kcu.ordinal_position), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            WHERE tc.constraint_type = 'PRIMARY KEY'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- UNIQUE CONSTRAINTS\n        'unique_constraints', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'ordinal_position', kcu.ordinal_position\n            ) ORDER BY tc.table_name, tc.constraint_name, kcu.ordinal_position), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            WHERE tc.constraint_type = 'UNIQUE'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- CHECK CONSTRAINTS\n        'check_constraints', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', cc.constraint_name,\n                'table_name', tc.table_name,\n                'check_clause', cc.check_clause\n            ) ORDER BY tc.table_name, cc.constraint_name), '[]'::jsonb)\n            FROM information_schema.check_constraints cc\n            JOIN information_schema.table_constraints tc\n                ON cc.constraint_name = tc.constraint_name\n                AND cc.constraint_schema = tc.table_schema\n            WHERE cc.constraint_schema = 'public'\n            AND tc.constraint_type = 'CHECK'\n        ),\n        \n        -- INDEXES (with full definition)\n        'indexes', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'index_name', indexname,\n                'table_name', tablename,\n                'index_definition', indexdef\n            ) ORDER BY tablename, indexname), '[]'::jsonb)\n            FROM pg_indexes\n            WHERE schemaname = 'public'\n        ),\n        \n        -- SEQUENCES (with current values and settings)\n        'sequences', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'sequence_name', sq.relname,\n                'data_type', sq.seqtypid::regtype::text,\n                'start_value', sq.seqstart,\n                'min_value', sq.seqmin,\n                'max_value', sq.seqmax,\n                'increment_by', sq.seqincrement,\n                'cycle', sq.seqcycle,\n                'cache_size', sq.seqcache,\n                'owned_by', sq.owned_by\n            ) ORDER BY sq.relname), '[]'::jsonb)\n            FROM (\n                SELECT \n                    s.relname,\n                    s.oid as seq_oid,\n                    seq.seqtypid,\n                    seq.seqstart,\n                    seq.seqmin,\n                    seq.seqmax,\n                    seq.seqincrement,\n                    seq.seqcycle,\n                    seq.seqcache,\n                    (\n                        SELECT a.attrelid::regclass || '.' || a.attname\n                        FROM pg_depend d\n                        JOIN pg_attribute a ON d.refobjid = a.attrelid AND d.refobjsubid = a.attnum\n                        WHERE d.objid = s.oid AND d.deptype = 'a'\n                        LIMIT 1\n                    ) as owned_by\n                FROM pg_class s\n                JOIN pg_sequence seq ON s.oid = seq.seqrelid\n                JOIN pg_namespace n ON s.relnamespace = n.oid\n                WHERE n.nspname = 'public'\n                AND s.relkind = 'S'\n            ) sq\n        ),\n        \n        -- RLS POLICIES (with roles)\n        'policies', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'policy_name', pol.polname,\n                'table_name', tab.relname,\n                'command', CASE pol.polcmd \n                    WHEN 'r' THEN 'SELECT'\n                    WHEN 'a' THEN 'INSERT'\n                    WHEN 'w' THEN 'UPDATE'\n                    WHEN 'd' THEN 'DELETE'\n                    WHEN '*' THEN 'ALL'\n                END,\n                'permissive', CASE pol.polpermissive \n                    WHEN true THEN 'PERMISSIVE'\n                    ELSE 'RESTRICTIVE'\n                END,\n                'roles', COALESCE(\n                    (SELECT array_agg(r.rolname) FROM pg_roles r WHERE r.oid = ANY(pol.polroles)),\n                    ARRAY['public']\n                ),\n                'using_expression', pg_get_expr(pol.polqual, pol.polrelid),\n                'with_check_expression', pg_get_expr(pol.polwithcheck, pol.polrelid)\n            ) ORDER BY tab.relname, pol.polname), '[]'::jsonb)\n            FROM pg_policy pol\n            JOIN pg_class tab ON pol.polrelid = tab.oid\n            JOIN pg_namespace nsp ON tab.relnamespace = nsp.oid\n            WHERE nsp.nspname = 'public'\n        ),\n        \n        -- ENUMS\n        'enums', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'enum_name', t.typname,\n                'enum_values', (\n                    SELECT array_agg(e.enumlabel ORDER BY e.enumsortorder)\n                    FROM pg_enum e\n                    WHERE e.enumtypid = t.oid\n                )\n            ) ORDER BY t.typname), '[]'::jsonb)\n            FROM pg_type t\n            JOIN pg_namespace n ON t.typnamespace = n.oid\n            WHERE n.nspname = 'public'\n            AND t.typtype = 'e'\n        ),\n        \n        -- EXTENSIONS\n        'extensions', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'extension_name', e.extname,\n                'schema', n.nspname,\n                'version', e.extversion,\n                'relocatable', e.extrelocatable\n            ) ORDER BY e.extname), '[]'::jsonb)\n            FROM pg_extension e\n            JOIN pg_namespace n ON e.extnamespace = n.oid\n        ),\n        \n        -- TABLE STATS (row counts and sizes)\n        'table_stats', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'table_name', relname,\n                'estimated_rows', reltuples::bigint,\n                'total_size_bytes', pg_total_relation_size(oid),\n                'table_size_bytes', pg_table_size(oid),\n                'indexes_size_bytes', pg_indexes_size(oid)\n            ) ORDER BY relname), '[]'::jsonb)\n            FROM pg_class\n            WHERE relnamespace = 'public'::regnamespace\n            AND relkind = 'r'\n        ),\n        \n        -- RLS ENABLED TABLES\n        'rls_enabled_tables', (\n            SELECT COALESCE(jsonb_agg(relname ORDER BY relname), '[]'::jsonb)\n            FROM pg_class c\n            JOIN pg_namespace n ON c.relnamespace = n.oid\n            WHERE n.nspname = 'public'\n            AND c.relkind = 'r'\n            AND c.relrowsecurity = true\n        )\n    );\nEND;\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "jsonb",
+      "returns_set": false,
+      "source_code": "\nBEGIN\n    RETURN jsonb_build_object(\n        'exported_at', NOW(),\n        'postgres_version', version(),\n        \n        -- TABLES WITH DETAILED COLUMNS\n        'tables', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'table_name', t.table_name,\n                'table_type', t.table_type,\n                'table_comment', obj_description(pc.oid, 'pg_class'),\n                'columns', (\n                    SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                        'column_name', c.column_name,\n                        'data_type', c.data_type,\n                        'udt_name', c.udt_name,\n                        'is_nullable', c.is_nullable,\n                        'column_default', c.column_default,\n                        'is_identity', c.is_identity,\n                        'identity_generation', c.identity_generation,\n                        'ordinal_position', c.ordinal_position,\n                        'character_maximum_length', c.character_maximum_length,\n                        'numeric_precision', c.numeric_precision,\n                        'numeric_scale', c.numeric_scale,\n                        'datetime_precision', c.datetime_precision,\n                        'is_updatable', c.is_updatable,\n                        'column_comment', col_description(pc.oid, c.ordinal_position)\n                    ) ORDER BY c.ordinal_position), '[]'::jsonb)\n                    FROM information_schema.columns c \n                    WHERE c.table_name = t.table_name \n                    AND c.table_schema = 'public'\n                )\n            ) ORDER BY t.table_name), '[]'::jsonb)\n            FROM information_schema.tables t\n            JOIN pg_class pc ON pc.relname = t.table_name AND pc.relnamespace = 'public'::regnamespace\n            WHERE t.table_schema = 'public'\n            AND t.table_type = 'BASE TABLE'\n        ),\n        \n        -- VIEWS WITH DEFINITIONS\n        'views', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'view_name', table_name,\n                'view_definition', view_definition,\n                'is_updatable', is_updatable,\n                'is_insertable_into', is_insertable_into\n            ) ORDER BY table_name), '[]'::jsonb)\n            FROM information_schema.views\n            WHERE table_schema = 'public'\n        ),\n\n        -- MATERIALIZED VIEWS WITH DEFINITIONS\n        'materialized_views', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'view_name', matviewname,\n                'view_definition', definition,\n                'is_populated', ispopulated\n            ) ORDER BY matviewname), '[]'::jsonb)\n            FROM pg_matviews\n            WHERE schemaname = 'public'\n        ),\n        \n        -- FUNCTIONS AND PROCEDURES (with full definitions and source code)\n        'functions', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'function_name', p.proname,\n                'function_oid', p.oid::bigint,\n                'return_type', pg_get_function_result(p.oid),\n                'arguments', pg_get_function_arguments(p.oid),\n                'argument_types', pg_get_function_identity_arguments(p.oid),\n                'function_type', CASE \n                    WHEN p.prokind = 'f' THEN 'function'\n                    WHEN p.prokind = 'p' THEN 'procedure'\n                    WHEN p.prokind = 'a' THEN 'aggregate'\n                    WHEN p.prokind = 'w' THEN 'window'\n                    ELSE 'unknown'\n                END,\n                'volatility', CASE p.provolatile\n                    WHEN 'i' THEN 'IMMUTABLE'\n                    WHEN 's' THEN 'STABLE'\n                    WHEN 'v' THEN 'VOLATILE'\n                END,\n                'parallel_safety', CASE p.proparallel\n                    WHEN 's' THEN 'SAFE'\n                    WHEN 'r' THEN 'RESTRICTED'\n                    WHEN 'u' THEN 'UNSAFE'\n                END,\n                'security_definer', p.prosecdef,\n                'strict', p.proisstrict,\n                'returns_set', p.proretset,\n                'language', l.lanname,\n                'source_code', p.prosrc,\n                'definition', pg_get_functiondef(p.oid),\n                'config', p.proconfig,\n                'comment', obj_description(p.oid, 'pg_proc')\n            ) ORDER BY p.proname), '[]'::jsonb)\n            FROM pg_proc p\n            JOIN pg_namespace n ON p.pronamespace = n.oid\n            JOIN pg_language l ON p.prolang = l.oid\n            WHERE n.nspname = 'public'\n            AND p.prokind IN ('f', 'p')\n        ),\n        \n        -- TRIGGERS WITH FULL DEFINITIONS (including the trigger function definition)\n        -- Only triggers on PUBLIC schema tables\n        'triggers', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'trigger_name', tg.tgname,\n                'table_name', tab.relname,\n                'table_schema', ns.nspname,\n                'trigger_type', CASE \n                    WHEN tg.tgtype & 2 = 2 THEN 'BEFORE'\n                    WHEN tg.tgtype & 64 = 64 THEN 'INSTEAD OF'\n                    ELSE 'AFTER'\n                END,\n                'trigger_events', concat_ws(' OR ',\n                    CASE WHEN tg.tgtype & 4 = 4 THEN 'INSERT' END,\n                    CASE WHEN tg.tgtype & 8 = 8 THEN 'DELETE' END,\n                    CASE WHEN tg.tgtype & 16 = 16 THEN 'UPDATE' END,\n                    CASE WHEN tg.tgtype & 32 = 32 THEN 'TRUNCATE' END\n                ),\n                'for_each', CASE WHEN tg.tgtype & 1 = 1 THEN 'ROW' ELSE 'STATEMENT' END,\n                'trigger_function_name', p.proname,\n                'trigger_function_schema', fn.nspname,\n                'trigger_function_definition', pg_get_functiondef(p.oid),\n                'trigger_function_source', p.prosrc,\n                'is_enabled', CASE tg.tgenabled\n                    WHEN 'O' THEN true\n                    WHEN 'D' THEN false\n                    WHEN 'R' THEN true  -- replica\n                    WHEN 'A' THEN true  -- always\n                    ELSE true\n                END,\n                'trigger_definition', pg_get_triggerdef(tg.oid),\n                -- NOTE: tg.tgqual can reference both OLD and NEW, which makes pg_get_expr error\n                -- (\"expression contains variables of more than one relation\"). We extract WHEN()\n                -- from the full trigger definition instead (best-effort).\n                'condition', substring(pg_get_triggerdef(tg.oid) from 'WHEN \\\\((.*)\\\\) EXECUTE')\n            ) ORDER BY tab.relname, tg.tgname), '[]'::jsonb)\n            FROM pg_trigger tg\n            JOIN pg_class tab ON tg.tgrelid = tab.oid\n            JOIN pg_namespace ns ON tab.relnamespace = ns.oid\n            JOIN pg_proc p ON tg.tgfoid = p.oid\n            JOIN pg_namespace fn ON p.pronamespace = fn.oid\n            WHERE ns.nspname = 'public'\n            AND NOT tg.tgisinternal  -- exclude system triggers\n        ),\n        \n        -- TRIGGERS ON auth.users (critical for signup flows)\n        -- These triggers fire when users sign up and typically create profiles\n        'auth_triggers', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'trigger_name', tg.tgname,\n                'table_name', tab.relname,\n                'table_schema', ns.nspname,\n                'trigger_type', CASE \n                    WHEN tg.tgtype & 2 = 2 THEN 'BEFORE'\n                    WHEN tg.tgtype & 64 = 64 THEN 'INSTEAD OF'\n                    ELSE 'AFTER'\n                END,\n                'trigger_events', concat_ws(' OR ',\n                    CASE WHEN tg.tgtype & 4 = 4 THEN 'INSERT' END,\n                    CASE WHEN tg.tgtype & 8 = 8 THEN 'DELETE' END,\n                    CASE WHEN tg.tgtype & 16 = 16 THEN 'UPDATE' END,\n                    CASE WHEN tg.tgtype & 32 = 32 THEN 'TRUNCATE' END\n                ),\n                'for_each', CASE WHEN tg.tgtype & 1 = 1 THEN 'ROW' ELSE 'STATEMENT' END,\n                'trigger_function_name', p.proname,\n                'trigger_function_schema', fn.nspname,\n                'trigger_function_definition', CASE \n                    WHEN fn.nspname = 'public' THEN pg_get_functiondef(p.oid)\n                    ELSE NULL  -- Can't always get definition for non-public functions\n                END,\n                'trigger_function_source', CASE \n                    WHEN fn.nspname = 'public' THEN p.prosrc\n                    ELSE NULL\n                END,\n                'is_enabled', CASE tg.tgenabled\n                    WHEN 'O' THEN true\n                    WHEN 'D' THEN false\n                    WHEN 'R' THEN true\n                    WHEN 'A' THEN true\n                    ELSE true\n                END,\n                'trigger_definition', pg_get_triggerdef(tg.oid)\n            ) ORDER BY tg.tgname), '[]'::jsonb)\n            FROM pg_trigger tg\n            JOIN pg_class tab ON tg.tgrelid = tab.oid\n            JOIN pg_namespace ns ON tab.relnamespace = ns.oid\n            JOIN pg_proc p ON tg.tgfoid = p.oid\n            JOIN pg_namespace fn ON p.pronamespace = fn.oid\n            WHERE ns.nspname = 'auth'\n            AND tab.relname = 'users'\n            AND NOT tg.tgisinternal\n        ),\n        \n        -- FOREIGN KEYS (public schema only)\n        'foreign_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'foreign_table_name', ccu.table_name,\n                'foreign_column_name', ccu.column_name,\n                'update_rule', rc.update_rule,\n                'delete_rule', rc.delete_rule,\n                'match_option', rc.match_option\n            ) ORDER BY tc.table_name, tc.constraint_name), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            JOIN information_schema.constraint_column_usage ccu\n                ON ccu.constraint_name = tc.constraint_name\n                AND ccu.table_schema = tc.table_schema\n            JOIN information_schema.referential_constraints rc\n                ON rc.constraint_name = tc.constraint_name\n                AND rc.constraint_schema = tc.table_schema\n            WHERE tc.constraint_type = 'FOREIGN KEY'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- FOREIGN KEYS REFERENCING auth.users\n        -- These are critical for user profile tables that link to auth.users\n        'auth_foreign_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', con.conname,\n                'table_schema', nsp.nspname,\n                'table_name', rel.relname,\n                'column_name', att.attname,\n                'foreign_table_schema', fnsp.nspname,\n                'foreign_table_name', frel.relname,\n                'foreign_column_name', fatt.attname,\n                'on_delete', CASE con.confdeltype\n                    WHEN 'a' THEN 'NO ACTION'\n                    WHEN 'r' THEN 'RESTRICT'\n                    WHEN 'c' THEN 'CASCADE'\n                    WHEN 'n' THEN 'SET NULL'\n                    WHEN 'd' THEN 'SET DEFAULT'\n                END,\n                'on_update', CASE con.confupdtype\n                    WHEN 'a' THEN 'NO ACTION'\n                    WHEN 'r' THEN 'RESTRICT'\n                    WHEN 'c' THEN 'CASCADE'\n                    WHEN 'n' THEN 'SET NULL'\n                    WHEN 'd' THEN 'SET DEFAULT'\n                END\n            ) ORDER BY rel.relname), '[]'::jsonb)\n            FROM pg_constraint con\n            JOIN pg_class rel ON con.conrelid = rel.oid\n            JOIN pg_namespace nsp ON rel.relnamespace = nsp.oid\n            JOIN pg_class frel ON con.confrelid = frel.oid\n            JOIN pg_namespace fnsp ON frel.relnamespace = fnsp.oid\n            JOIN pg_attribute att ON att.attrelid = rel.oid AND att.attnum = ANY(con.conkey)\n            JOIN pg_attribute fatt ON fatt.attrelid = frel.oid AND fatt.attnum = ANY(con.confkey)\n            WHERE con.contype = 'f'\n            AND fnsp.nspname = 'auth'\n            AND frel.relname = 'users'\n        ),\n        \n        -- PRIMARY KEYS\n        'primary_keys', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'ordinal_position', kcu.ordinal_position\n            ) ORDER BY tc.table_name, kcu.ordinal_position), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            WHERE tc.constraint_type = 'PRIMARY KEY'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- UNIQUE CONSTRAINTS\n        'unique_constraints', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', tc.constraint_name,\n                'table_name', tc.table_name,\n                'column_name', kcu.column_name,\n                'ordinal_position', kcu.ordinal_position\n            ) ORDER BY tc.table_name, tc.constraint_name, kcu.ordinal_position), '[]'::jsonb)\n            FROM information_schema.table_constraints tc\n            JOIN information_schema.key_column_usage kcu\n                ON tc.constraint_name = kcu.constraint_name\n                AND tc.table_schema = kcu.table_schema\n            WHERE tc.constraint_type = 'UNIQUE'\n            AND tc.table_schema = 'public'\n        ),\n        \n        -- CHECK CONSTRAINTS\n        'check_constraints', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'constraint_name', cc.constraint_name,\n                'table_name', tc.table_name,\n                'check_clause', cc.check_clause\n            ) ORDER BY tc.table_name, cc.constraint_name), '[]'::jsonb)\n            FROM information_schema.check_constraints cc\n            JOIN information_schema.table_constraints tc\n                ON cc.constraint_name = tc.constraint_name\n                AND cc.constraint_schema = tc.table_schema\n            WHERE cc.constraint_schema = 'public'\n            AND tc.constraint_type = 'CHECK'\n        ),\n        \n        -- INDEXES (with full definition)\n        'indexes', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'index_name', indexname,\n                'table_name', tablename,\n                'index_definition', indexdef\n            ) ORDER BY tablename, indexname), '[]'::jsonb)\n            FROM pg_indexes\n            WHERE schemaname = 'public'\n        ),\n        \n        -- SEQUENCES (with current values and settings)\n        'sequences', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'sequence_name', sq.relname,\n                'data_type', sq.seqtypid::regtype::text,\n                'start_value', sq.seqstart,\n                'min_value', sq.seqmin,\n                'max_value', sq.seqmax,\n                'increment_by', sq.seqincrement,\n                'cycle', sq.seqcycle,\n                'cache_size', sq.seqcache,\n                'owned_by', sq.owned_by\n            ) ORDER BY sq.relname), '[]'::jsonb)\n            FROM (\n                SELECT \n                    s.relname,\n                    s.oid as seq_oid,\n                    seq.seqtypid,\n                    seq.seqstart,\n                    seq.seqmin,\n                    seq.seqmax,\n                    seq.seqincrement,\n                    seq.seqcycle,\n                    seq.seqcache,\n                    (\n                        SELECT a.attrelid::regclass || '.' || a.attname\n                        FROM pg_depend d\n                        JOIN pg_attribute a ON d.refobjid = a.attrelid AND d.refobjsubid = a.attnum\n                        WHERE d.objid = s.oid AND d.deptype = 'a'\n                        LIMIT 1\n                    ) as owned_by\n                FROM pg_class s\n                JOIN pg_sequence seq ON s.oid = seq.seqrelid\n                JOIN pg_namespace n ON s.relnamespace = n.oid\n                WHERE n.nspname = 'public'\n                AND s.relkind = 'S'\n            ) sq\n        ),\n        \n        -- RLS POLICIES (with roles)\n        'policies', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'policy_name', pol.polname,\n                'table_name', tab.relname,\n                'command', CASE pol.polcmd \n                    WHEN 'r' THEN 'SELECT'\n                    WHEN 'a' THEN 'INSERT'\n                    WHEN 'w' THEN 'UPDATE'\n                    WHEN 'd' THEN 'DELETE'\n                    WHEN '*' THEN 'ALL'\n                END,\n                'permissive', CASE pol.polpermissive \n                    WHEN true THEN 'PERMISSIVE'\n                    ELSE 'RESTRICTIVE'\n                END,\n                'roles', COALESCE(\n                    (SELECT array_agg(r.rolname) FROM pg_roles r WHERE r.oid = ANY(pol.polroles)),\n                    ARRAY['public']\n                ),\n                'using_expression', pg_get_expr(pol.polqual, pol.polrelid),\n                'with_check_expression', pg_get_expr(pol.polwithcheck, pol.polrelid)\n            ) ORDER BY tab.relname, pol.polname), '[]'::jsonb)\n            FROM pg_policy pol\n            JOIN pg_class tab ON pol.polrelid = tab.oid\n            JOIN pg_namespace nsp ON tab.relnamespace = nsp.oid\n            WHERE nsp.nspname = 'public'\n        ),\n        \n        -- ENUMS\n        'enums', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'enum_name', t.typname,\n                'enum_values', (\n                    SELECT array_agg(e.enumlabel ORDER BY e.enumsortorder)\n                    FROM pg_enum e\n                    WHERE e.enumtypid = t.oid\n                )\n            ) ORDER BY t.typname), '[]'::jsonb)\n            FROM pg_type t\n            JOIN pg_namespace n ON t.typnamespace = n.oid\n            WHERE n.nspname = 'public'\n            AND t.typtype = 'e'\n        ),\n        \n        -- EXTENSIONS\n        'extensions', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'extension_name', e.extname,\n                'schema', n.nspname,\n                'version', e.extversion,\n                'relocatable', e.extrelocatable\n            ) ORDER BY e.extname), '[]'::jsonb)\n            FROM pg_extension e\n            JOIN pg_namespace n ON e.extnamespace = n.oid\n        ),\n        \n        -- TABLE STATS (row counts and sizes)\n        'table_stats', (\n            SELECT COALESCE(jsonb_agg(jsonb_build_object(\n                'table_name', relname,\n                'estimated_rows', reltuples::bigint,\n                'total_size_bytes', pg_total_relation_size(oid),\n                'table_size_bytes', pg_table_size(oid),\n                'indexes_size_bytes', pg_indexes_size(oid)\n            ) ORDER BY relname), '[]'::jsonb)\n            FROM pg_class\n            WHERE relnamespace = 'public'::regnamespace\n            AND relkind = 'r'\n        ),\n        \n        -- RLS ENABLED TABLES\n        'rls_enabled_tables', (\n            SELECT COALESCE(jsonb_agg(relname ORDER BY relname), '[]'::jsonb)\n            FROM pg_class c\n            JOIN pg_namespace n ON c.relnamespace = n.oid\n            WHERE n.nspname = 'public'\n            AND c.relkind = 'r'\n            AND c.relrowsecurity = true\n        )\n    );\nEND;\n",
+      "function_oid": 192713,
+      "function_name": "export_schema",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": true
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, internal, smallint, internal, internal, internal, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gin_extract_query_trgm(text, internal, smallint, internal, internal, internal, internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gin_extract_query_trgm$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gin_extract_query_trgm",
+      "function_oid": 31864,
+      "function_name": "gin_extract_query_trgm",
+      "function_type": "function",
+      "argument_types": "text, internal, smallint, internal, internal, internal, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gin_extract_value_trgm(text, internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gin_extract_value_trgm$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gin_extract_value_trgm",
+      "function_oid": 31863,
+      "function_name": "gin_extract_value_trgm",
+      "function_type": "function",
+      "argument_types": "text, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, smallint, text, integer, internal, internal, internal, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gin_trgm_consistent(internal, smallint, text, integer, internal, internal, internal, internal)\n RETURNS boolean\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gin_trgm_consistent$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "gin_trgm_consistent",
+      "function_oid": 31865,
+      "function_name": "gin_trgm_consistent",
+      "function_type": "function",
+      "argument_types": "internal, smallint, text, integer, internal, internal, internal, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, smallint, text, integer, internal, internal, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gin_trgm_triconsistent(internal, smallint, text, integer, internal, internal, internal)\n RETURNS \"char\"\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gin_trgm_triconsistent$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "\"char\"",
+      "returns_set": false,
+      "source_code": "gin_trgm_triconsistent",
+      "function_oid": 31877,
+      "function_name": "gin_trgm_triconsistent",
+      "function_type": "function",
+      "argument_types": "internal, smallint, text, integer, internal, internal, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_compress(internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_compress$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gtrgm_compress",
+      "function_oid": 31839,
+      "function_name": "gtrgm_compress",
+      "function_type": "function",
+      "argument_types": "internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, text, smallint, oid, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_consistent(internal, text, smallint, oid, internal)\n RETURNS boolean\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_consistent$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "gtrgm_consistent",
+      "function_oid": 31837,
+      "function_name": "gtrgm_consistent",
+      "function_type": "function",
+      "argument_types": "internal, text, smallint, oid, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_decompress(internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_decompress$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gtrgm_decompress",
+      "function_oid": 31840,
+      "function_name": "gtrgm_decompress",
+      "function_type": "function",
+      "argument_types": "internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, text, smallint, oid, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_distance(internal, text, smallint, oid, internal)\n RETURNS double precision\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_distance$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "double precision",
+      "returns_set": false,
+      "source_code": "gtrgm_distance",
+      "function_oid": 31838,
+      "function_name": "gtrgm_distance",
+      "function_type": "function",
+      "argument_types": "internal, text, smallint, oid, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "cstring",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_in(cstring)\n RETURNS gtrgm\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_in$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "gtrgm",
+      "returns_set": false,
+      "source_code": "gtrgm_in",
+      "function_oid": 31834,
+      "function_name": "gtrgm_in",
+      "function_type": "function",
+      "argument_types": "cstring",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": false,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_options(internal)\n RETURNS void\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE\nAS '$libdir/pg_trgm', $function$gtrgm_options$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "void",
+      "returns_set": false,
+      "source_code": "gtrgm_options",
+      "function_oid": 31892,
+      "function_name": "gtrgm_options",
+      "function_type": "function",
+      "argument_types": "internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "gtrgm",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_out(gtrgm)\n RETURNS cstring\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_out$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "cstring",
+      "returns_set": false,
+      "source_code": "gtrgm_out",
+      "function_oid": 31835,
+      "function_name": "gtrgm_out",
+      "function_type": "function",
+      "argument_types": "gtrgm",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, internal, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_penalty(internal, internal, internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_penalty$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gtrgm_penalty",
+      "function_oid": 31841,
+      "function_name": "gtrgm_penalty",
+      "function_type": "function",
+      "argument_types": "internal, internal, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_picksplit(internal, internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_picksplit$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gtrgm_picksplit",
+      "function_oid": 31842,
+      "function_name": "gtrgm_picksplit",
+      "function_type": "function",
+      "argument_types": "internal, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "gtrgm, gtrgm, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_same(gtrgm, gtrgm, internal)\n RETURNS internal\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_same$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "internal",
+      "returns_set": false,
+      "source_code": "gtrgm_same",
+      "function_oid": 31844,
+      "function_name": "gtrgm_same",
+      "function_type": "function",
+      "argument_types": "gtrgm, gtrgm, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "internal, internal",
+      "definition": "CREATE OR REPLACE FUNCTION public.gtrgm_union(internal, internal)\n RETURNS gtrgm\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$gtrgm_union$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "gtrgm",
+      "returns_set": false,
+      "source_code": "gtrgm_union",
+      "function_oid": 31843,
+      "function_name": "gtrgm_union",
+      "function_type": "function",
+      "argument_types": "internal, internal",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "real",
+      "definition": "CREATE OR REPLACE FUNCTION public.set_limit(real)\n RETURNS real\n LANGUAGE c\n STRICT\nAS '$libdir/pg_trgm', $function$set_limit$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "set_limit",
+      "function_oid": 31816,
+      "function_name": "set_limit",
+      "function_type": "function",
+      "argument_types": "real",
+      "parallel_safety": "UNSAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.show_limit()\n RETURNS real\n LANGUAGE c\n STABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$show_limit$function$\n",
+      "volatility": "STABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "show_limit",
+      "function_oid": 31817,
+      "function_name": "show_limit",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text",
+      "definition": "CREATE OR REPLACE FUNCTION public.show_trgm(text)\n RETURNS text[]\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$show_trgm$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "text[]",
+      "returns_set": false,
+      "source_code": "show_trgm",
+      "function_oid": 31818,
+      "function_name": "show_trgm",
+      "function_type": "function",
+      "argument_types": "text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.similarity(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$similarity$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "similarity",
+      "function_oid": 31819,
+      "function_name": "similarity",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.similarity_dist(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$similarity_dist$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "similarity_dist",
+      "function_oid": 31827,
+      "function_name": "similarity_dist",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.similarity_op(text, text)\n RETURNS boolean\n LANGUAGE c\n STABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$similarity_op$function$\n",
+      "volatility": "STABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "similarity_op",
+      "function_oid": 31820,
+      "function_name": "similarity_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.strict_word_similarity(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$strict_word_similarity$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "strict_word_similarity",
+      "function_oid": 31880,
+      "function_name": "strict_word_similarity",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.strict_word_similarity_commutator_op(text, text)\n RETURNS boolean\n LANGUAGE c\n STABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$strict_word_similarity_commutator_op$function$\n",
+      "volatility": "STABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "strict_word_similarity_commutator_op",
+      "function_oid": 31882,
+      "function_name": "strict_word_similarity_commutator_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.strict_word_similarity_dist_commutator_op(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$strict_word_similarity_dist_commutator_op$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "strict_word_similarity_dist_commutator_op",
+      "function_oid": 31886,
+      "function_name": "strict_word_similarity_dist_commutator_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.strict_word_similarity_dist_op(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$strict_word_similarity_dist_op$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "strict_word_similarity_dist_op",
+      "function_oid": 31885,
+      "function_name": "strict_word_similarity_dist_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.strict_word_similarity_op(text, text)\n RETURNS boolean\n LANGUAGE c\n STABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$strict_word_similarity_op$function$\n",
+      "volatility": "STABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "strict_word_similarity_op",
+      "function_oid": 31881,
+      "function_name": "strict_word_similarity_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": false,
+      "comment": null,
+      "language": "plpgsql",
+      "arguments": "",
+      "definition": "CREATE OR REPLACE FUNCTION public.update_updated_at()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nBEGIN\n  NEW.updated_at = NOW();\n  RETURN NEW;\nEND;\n$function$\n",
+      "volatility": "VOLATILE",
+      "return_type": "trigger",
+      "returns_set": false,
+      "source_code": "\nBEGIN\n  NEW.updated_at = NOW();\n  RETURN NEW;\nEND;\n",
+      "function_oid": 17189,
+      "function_name": "update_updated_at",
+      "function_type": "function",
+      "argument_types": "",
+      "parallel_safety": "UNSAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.word_similarity(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$word_similarity$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "word_similarity",
+      "function_oid": 31822,
+      "function_name": "word_similarity",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.word_similarity_commutator_op(text, text)\n RETURNS boolean\n LANGUAGE c\n STABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$word_similarity_commutator_op$function$\n",
+      "volatility": "STABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "word_similarity_commutator_op",
+      "function_oid": 31824,
+      "function_name": "word_similarity_commutator_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.word_similarity_dist_commutator_op(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$word_similarity_dist_commutator_op$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "word_similarity_dist_commutator_op",
+      "function_oid": 31830,
+      "function_name": "word_similarity_dist_commutator_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.word_similarity_dist_op(text, text)\n RETURNS real\n LANGUAGE c\n IMMUTABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$word_similarity_dist_op$function$\n",
+      "volatility": "IMMUTABLE",
+      "return_type": "real",
+      "returns_set": false,
+      "source_code": "word_similarity_dist_op",
+      "function_oid": 31829,
+      "function_name": "word_similarity_dist_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    },
+    {
+      "config": null,
+      "strict": true,
+      "comment": null,
+      "language": "c",
+      "arguments": "text, text",
+      "definition": "CREATE OR REPLACE FUNCTION public.word_similarity_op(text, text)\n RETURNS boolean\n LANGUAGE c\n STABLE PARALLEL SAFE STRICT\nAS '$libdir/pg_trgm', $function$word_similarity_op$function$\n",
+      "volatility": "STABLE",
+      "return_type": "boolean",
+      "returns_set": false,
+      "source_code": "word_similarity_op",
+      "function_oid": 31823,
+      "function_name": "word_similarity_op",
+      "function_type": "function",
+      "argument_types": "text, text",
+      "parallel_safety": "SAFE",
+      "security_definer": false
+    }
+  ],
+  "sequences": [
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "co_requisitos_id_co_requisito_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "cursos_id_curso_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "dados_users_id_dado_user_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "equivalencias_id_equivalencia_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "materias_id_materia_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "materias_por_curso_id_materia_curso_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "pre_requisitos_id_pre_requisito_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
+      "sequence_name": "users_id_user_seq"
+    }
+  ],
+  "extensions": [
+    {
+      "schema": "graphql",
+      "version": "1.5.11",
+      "relocatable": false,
+      "extension_name": "pg_graphql"
+    },
+    {
+      "schema": "extensions",
+      "version": "1.10",
+      "relocatable": true,
+      "extension_name": "pg_stat_statements"
+    },
+    {
+      "schema": "public",
+      "version": "1.6",
+      "relocatable": true,
+      "extension_name": "pg_trgm"
+    },
+    {
+      "schema": "extensions",
+      "version": "1.3",
+      "relocatable": true,
+      "extension_name": "pgcrypto"
+    },
+    {
+      "schema": "pg_catalog",
+      "version": "1.0",
+      "relocatable": false,
+      "extension_name": "plpgsql"
+    },
+    {
+      "schema": "vault",
+      "version": "0.3.1",
+      "relocatable": false,
+      "extension_name": "supabase_vault"
+    },
+    {
+      "schema": "extensions",
+      "version": "1.1",
+      "relocatable": true,
+      "extension_name": "uuid-ossp"
+    }
+  ],
+  "exported_at": "2026-02-16T06:18:23.09767+00:00",
+  "table_stats": [
+    {
+      "table_name": "co_requisitos",
+      "estimated_rows": 203,
+      "table_size_bytes": 40960,
+      "total_size_bytes": 57344,
+      "indexes_size_bytes": 16384
+    },
+    {
+      "table_name": "co_requisitos_backup",
+      "estimated_rows": 270,
+      "table_size_bytes": 16384,
+      "total_size_bytes": 16384,
+      "indexes_size_bytes": 0
+    },
+    {
+      "table_name": "cursos",
+      "estimated_rows": 270,
+      "table_size_bytes": 106496,
+      "total_size_bytes": 147456,
+      "indexes_size_bytes": 40960
+    },
+    {
+      "table_name": "dados_users",
+      "estimated_rows": 99,
+      "table_size_bytes": 450560,
+      "total_size_bytes": 483328,
+      "indexes_size_bytes": 32768
+    },
+    {
+      "table_name": "dados_users_backup",
+      "estimated_rows": -1,
+      "table_size_bytes": 8192,
+      "total_size_bytes": 8192,
+      "indexes_size_bytes": 0
+    },
+    {
+      "table_name": "equivalencia_backup1",
+      "estimated_rows": 37132,
+      "table_size_bytes": 3039232,
+      "total_size_bytes": 3039232,
+      "indexes_size_bytes": 0
+    },
+    {
+      "table_name": "equivalencias",
+      "estimated_rows": 8090,
+      "table_size_bytes": 892928,
+      "total_size_bytes": 1114112,
+      "indexes_size_bytes": 221184
+    },
+    {
+      "table_name": "materias",
+      "estimated_rows": 21127,
+      "table_size_bytes": 8192000,
+      "total_size_bytes": 9355264,
+      "indexes_size_bytes": 1163264
+    },
+    {
+      "table_name": "materias_por_curso",
+      "estimated_rows": 75465,
+      "table_size_bytes": 6086656,
+      "total_size_bytes": 8462336,
+      "indexes_size_bytes": 2375680
+    },
+    {
+      "table_name": "pre_requisitos",
+      "estimated_rows": 20889,
+      "table_size_bytes": 1179648,
+      "total_size_bytes": 1687552,
+      "indexes_size_bytes": 507904
+    },
+    {
+      "table_name": "users",
+      "estimated_rows": 162,
+      "table_size_bytes": 81920,
+      "total_size_bytes": 131072,
+      "indexes_size_bytes": 49152
+    },
+    {
+      "table_name": "users_backup",
+      "estimated_rows": -1,
+      "table_size_bytes": 16384,
+      "total_size_bytes": 16384,
+      "indexes_size_bytes": 0
+    }
+  ],
+  "foreign_keys": [
+    {
+      "table_name": "co_requisitos",
+      "column_name": "id_materia",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "fk_materia_coreq",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "co_requisitos",
+      "column_name": "id_materia_corequisito",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "fk_materia_corequisito",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "dados_users",
+      "column_name": "id_user",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "dados_users_id_user_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id_user"
+    },
+    {
+      "table_name": "equivalencias",
+      "column_name": "id_curso",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "equivalencias_id_curso_fkey",
+      "foreign_table_name": "cursos",
+      "foreign_column_name": "id_curso"
+    },
+    {
+      "table_name": "equivalencias",
+      "column_name": "id_materia",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "equivalencias_id_materia_fkey",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_curso",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "materias_por_curso_id_curso_fkey",
+      "foreign_table_name": "cursos",
+      "foreign_column_name": "id_curso"
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_materia",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "materias_por_curso_id_materia_fkey",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "pre_requisitos",
+      "column_name": "id_materia",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "fk_materia_prereq",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "pre_requisitos",
+      "column_name": "id_materia_requisito",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "fk_materia_requisito",
+      "foreign_table_name": "materias",
+      "foreign_column_name": "id_materia"
+    }
+  ],
+  "primary_keys": [
+    {
+      "table_name": "co_requisitos",
+      "column_name": "id_co_requisito",
+      "constraint_name": "co_requisitos_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "cursos",
+      "column_name": "id_curso",
+      "constraint_name": "cursos_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "dados_users",
+      "column_name": "id_dado_user",
+      "constraint_name": "dados_users_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "equivalencias",
+      "column_name": "id_equivalencia",
+      "constraint_name": "equivalencias_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "materias",
+      "column_name": "id_materia",
+      "constraint_name": "materias_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_materia_curso",
+      "constraint_name": "materias_por_curso_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "pre_requisitos",
+      "column_name": "id_pre_requisito",
+      "constraint_name": "pre_requisitos_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "users",
+      "column_name": "id_user",
+      "constraint_name": "users_pkey",
+      "ordinal_position": 1
+    }
+  ],
+  "auth_triggers": [],
+  "postgres_version": "PostgreSQL 15.8 on aarch64-unknown-linux-gnu, compiled by gcc (GCC) 13.2.0, 64-bit",
+  "auth_foreign_keys": [
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "identities",
+      "column_name": "user_id",
+      "table_schema": "auth",
+      "constraint_name": "identities_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "mfa_factors",
+      "column_name": "user_id",
+      "table_schema": "auth",
+      "constraint_name": "mfa_factors_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "oauth_authorizations",
+      "column_name": "user_id",
+      "table_schema": "auth",
+      "constraint_name": "oauth_authorizations_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "oauth_consents",
+      "column_name": "user_id",
+      "table_schema": "auth",
+      "constraint_name": "oauth_consents_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "one_time_tokens",
+      "column_name": "user_id",
+      "table_schema": "auth",
+      "constraint_name": "one_time_tokens_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "sessions",
+      "column_name": "user_id",
+      "table_schema": "auth",
+      "constraint_name": "sessions_user_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    },
+    {
+      "on_delete": "CASCADE",
+      "on_update": "NO ACTION",
+      "table_name": "users",
+      "column_name": "auth_id",
+      "table_schema": "public",
+      "constraint_name": "users_auth_id_fkey",
+      "foreign_table_name": "users",
+      "foreign_column_name": "id",
+      "foreign_table_schema": "auth"
+    }
+  ],
+  "check_constraints": [
+    {
+      "table_name": "co_requisitos",
+      "check_clause": "id_co_requisito IS NOT NULL",
+      "constraint_name": "2200_26775_1_not_null"
+    },
+    {
+      "table_name": "co_requisitos",
+      "check_clause": "id_materia IS NOT NULL",
+      "constraint_name": "2200_26775_2_not_null"
+    },
+    {
+      "table_name": "co_requisitos",
+      "check_clause": "id_materia_corequisito IS NOT NULL",
+      "constraint_name": "2200_26775_3_not_null"
+    },
+    {
+      "table_name": "cursos",
+      "check_clause": "id_curso IS NOT NULL",
+      "constraint_name": "2200_18849_1_not_null"
+    },
+    {
+      "table_name": "cursos",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_18849_2_not_null"
+    },
+    {
+      "table_name": "dados_users",
+      "check_clause": "id_dado_user IS NOT NULL",
+      "constraint_name": "2200_18982_1_not_null"
+    },
+    {
+      "table_name": "dados_users",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_18982_2_not_null"
+    },
+    {
+      "table_name": "equivalencias",
+      "check_clause": "id_equivalencia IS NOT NULL",
+      "constraint_name": "2200_26862_1_not_null"
+    },
+    {
+      "table_name": "equivalencias",
+      "check_clause": "id_materia IS NOT NULL",
+      "constraint_name": "2200_26862_2_not_null"
+    },
+    {
+      "table_name": "equivalencias",
+      "check_clause": "expressao IS NOT NULL",
+      "constraint_name": "2200_26862_4_not_null"
+    },
+    {
+      "table_name": "materias",
+      "check_clause": "id_materia IS NOT NULL",
+      "constraint_name": "2200_18861_1_not_null"
+    },
+    {
+      "table_name": "materias",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_18861_2_not_null"
+    },
+    {
+      "table_name": "materias_por_curso",
+      "check_clause": "id_materia_curso IS NOT NULL",
+      "constraint_name": "2200_18873_1_not_null"
+    },
+    {
+      "table_name": "materias_por_curso",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_18873_2_not_null"
+    },
+    {
+      "table_name": "pre_requisitos",
+      "check_clause": "id_pre_requisito IS NOT NULL",
+      "constraint_name": "2200_26759_1_not_null"
+    },
+    {
+      "table_name": "pre_requisitos",
+      "check_clause": "id_materia IS NOT NULL",
+      "constraint_name": "2200_26759_2_not_null"
+    },
+    {
+      "table_name": "pre_requisitos",
+      "check_clause": "id_materia_requisito IS NOT NULL",
+      "constraint_name": "2200_26759_3_not_null"
+    },
+    {
+      "table_name": "users",
+      "check_clause": "id_user IS NOT NULL",
+      "constraint_name": "2200_18893_1_not_null"
+    },
+    {
+      "table_name": "users",
+      "check_clause": "created_at IS NOT NULL",
+      "constraint_name": "2200_18893_2_not_null"
+    }
+  ],
+  "materialized_views": [],
+  "rls_enabled_tables": [
+    "co_requisitos",
+    "co_requisitos_backup",
+    "cursos",
+    "dados_users",
+    "dados_users_backup",
+    "equivalencia_backup1",
+    "equivalencias",
+    "materias",
+    "materias_por_curso",
+    "pre_requisitos",
+    "users",
+    "users_backup"
+  ],
+  "unique_constraints": [
+    {
+      "table_name": "dados_users",
+      "column_name": "id_user",
+      "constraint_name": "dados_users_id_user_unique",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "materias",
+      "column_name": "codigo_materia",
+      "constraint_name": "materias_codigo_materia_key",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "users",
+      "column_name": "auth_id",
+      "constraint_name": "users_auth_id_key",
+      "ordinal_position": 1
+    }
+  ],
+  "export_method": "rpc",
+  "supabase_url": "lijmhbstgdinsukovyfl.supabase.co"
+}

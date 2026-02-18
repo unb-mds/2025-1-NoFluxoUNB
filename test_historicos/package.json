@@ -1,0 +1,15 @@
+{
+  "name": "test-historicos",
+  "version": "1.0.0",
+  "description": "Test PDF extraction and pattern analysis for histórico acadêmico",
+  "type": "module",
+  "scripts": {
+    "extract": "node extract_text.mjs",
+    "analyze": "node analyze_patterns.mjs",
+    "test-parser": "node test_parser.mjs",
+    "all": "node extract_text.mjs && node analyze_patterns.mjs && node test_parser.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "5.4.624"
+  }
+}

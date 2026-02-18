@@ -2,8 +2,6 @@ import { EndpointController, RequestType } from "../interfaces";
 import { Pair, Utils } from "../utils";
 import { Request, Response } from "express";
 import { SupabaseWrapper } from "../supabase_wrapper";
-import axios from 'axios';
-import FormData from 'form-data';
 import { createControllerLogger } from '../utils/controller_logger';
 
 // Helper interfaces for better type safety
@@ -260,47 +258,6 @@ export const FluxogramaController: EndpointController = {
         }),
 
 
-
-        "read_pdf": new Pair(RequestType.POST, async (req: Request, res: Response) => {
-            const logger = createControllerLogger("FluxogramaController", "read_pdf");
-            logger.info("Iniciando leitura de PDF");
-            try {
-                if (!req.files || !req.files.pdf) {
-                    logger.error("Arquivo PDF não enviado");
-                    return res.status(400).json({ error: "Arquivo PDF não enviado." });
-                }
-
-                const pdfFile = Array.isArray(req.files.pdf) ? req.files.pdf[0] : req.files.pdf;
-                const form = new FormData();
-                form.append('pdf', pdfFile.data, pdfFile.name);
-
-                logger.info(`Enviando PDF para processamento: ${pdfFile.name}`);
-                // Envia para o Python com timeout ampliado (até 2 minutos) para PDFs grandes
-                const response = await axios.post(
-                    'http://127.0.0.1:3001/upload-pdf',
-                    form,
-                    {
-                        headers: form.getHeaders(),
-                        timeout: 120000, // 120 segundos
-                        maxContentLength: Infinity,
-                        maxBodyLength: Infinity
-                    }
-                );
-
-                logger.info("PDF processado com sucesso");
-                // Retorna a resposta do Python para o frontend
-                return res.status(200).json(response.data);
-            } catch (error: any) {
-                logger.error(`Erro ao processar PDF: ${error.message}`);
-                if (error.code === 'ECONNREFUSED') {
-                    return res.status(500).json({ error: 'Serviço de processamento de PDF não está disponível. Por favor, tente novamente em alguns instantes.' });
-                }
-                if (error.code === 'ETIMEDOUT' || error.code === 'ECONNABORTED') {
-                    return res.status(500).json({ error: 'O processamento do PDF demorou muito tempo. Por favor, tente novamente.' });
-                }
-                return res.status(500).json({ error: error.message || "Erro ao processar PDF" });
-            }
-        }),
 
         "casar_disciplinas": new Pair(RequestType.POST, async (req: Request, res: Response) => {
             const logger = createControllerLogger("FluxogramaController", "casar_disciplinas");

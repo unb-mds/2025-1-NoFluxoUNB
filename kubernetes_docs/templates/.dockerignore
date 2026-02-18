@@ -1,0 +1,90 @@
+# Git
+.git
+.gitignore
+.github
+
+# Documentation
+*.md
+README*
+LICENSE
+CHANGELOG*
+docs/
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.docker
+
+# Kubernetes manifests (not needed in image)
+k8s/
+kubernetes/
+helm/
+
+# Environment files
+.env
+.env.*
+*.env
+
+# IDE and editors
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Go
+vendor/
+
+# Build outputs
+dist/
+build/
+out/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test files
+*.test
+*_test.go
+test/
+tests/
+__tests__/
+*.spec.js
+*.spec.ts
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Secrets (should never be in image!)
+*.pem
+*.key
+*.crt
+secrets/

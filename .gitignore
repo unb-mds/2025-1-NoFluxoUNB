@@ -76,3 +76,6 @@ test_*.json
 debug_*
 # dados do scraping (debug)
 debug_html/
+# Kubernetes local deployment
+.env.local
+.deploy/
