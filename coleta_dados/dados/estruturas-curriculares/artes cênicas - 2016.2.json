@@ -1,7 +1,16 @@
 {
   "curso": "ARTES CÊNICAS",
   "tipo_curso": "Licenciatura",
+  "curriculo": "5711/-3",
   "periodo_letivo_vigor": "2016.2",
+  "prazos_cargas": {
+    "total_minima": "2880h",
+    "subtotal_ch_aula": "2010h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2010h",
+    "ch_optativa_minima": "870h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

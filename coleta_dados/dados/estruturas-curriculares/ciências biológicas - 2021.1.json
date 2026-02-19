@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIAS BIOLÓGICAS",
   "tipo_curso": "Licenciatura",
+  "curriculo": "2259/2",
   "periodo_letivo_vigor": "2021.1",
+  "prazos_cargas": {
+    "total_minima": "3330h",
+    "subtotal_ch_aula": "2340h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2340h",
+    "ch_optativa_minima": "780h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -367,11 +376,6 @@
           "ch": "60"
         },
         {
-          "codigo": "CEL0001",
-          "nome": "ENGENHARIA GENETICA",
-          "ch": "90"
-        },
-        {
           "codigo": "CEL0015",
           "nome": "TOPICOS EM BIOFISICA 1",
           "ch": "60"
@@ -437,11 +441,6 @@
           "ch": "60"
         },
         {
-          "codigo": "CEL0095",
-          "nome": "BIOLOGIA MOLECULAR",
-          "ch": "60"
-        },
-        {
           "codigo": "CEL0098",
           "nome": "PESQUISA EM IMUNOLOGIA",
           "ch": "90"
@@ -470,6 +469,11 @@
           "codigo": "CEL0117",
           "nome": "TOPICOS EM MICROBIOLOGIA",
           "ch": "60"
+        },
+        {
+          "codigo": "CEL0191",
+          "nome": "NOBEL LECTURES",
+          "ch": "15"
         },
         {
           "codigo": "CEM0097",

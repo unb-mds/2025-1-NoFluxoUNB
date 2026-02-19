@@ -1,7 +1,16 @@
 {
   "curso": "FILOSOFIA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "3352/1",
   "periodo_letivo_vigor": "2016.1",
+  "prazos_cargas": {
+    "total_minima": "3030h",
+    "subtotal_ch_aula": "1920h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1920h",
+    "ch_optativa_minima": "900h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

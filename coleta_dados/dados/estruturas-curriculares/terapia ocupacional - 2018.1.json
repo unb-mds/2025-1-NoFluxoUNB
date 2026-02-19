@@ -1,7 +1,16 @@
 {
   "curso": "TERAPIA OCUPACIONAL",
   "tipo_curso": "Bacharelado",
+  "curriculo": "7145/1",
   "periodo_letivo_vigor": "2018.1",
+  "prazos_cargas": {
+    "total_minima": "3510h",
+    "subtotal_ch_aula": "2520h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2520h",
+    "ch_optativa_minima": "840h",
+    "ch_complementar_minima": "150h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -365,101 +374,6 @@
           "codigo": "CFS0041",
           "nome": "FUNDAMENTOS DE FISIOLOGIA 1",
           "ch": "60"
-        },
-        {
-          "codigo": "DEG0200",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "15"
-        },
-        {
-          "codigo": "DEG0201",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "30"
-        },
-        {
-          "codigo": "DEG0202",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "45"
-        },
-        {
-          "codigo": "DEG0203",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "DEG0205",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "90"
-        },
-        {
-          "codigo": "DEG0206",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "120"
-        },
-        {
-          "codigo": "DEG0207",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "150"
-        },
-        {
-          "codigo": "DEG0208",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "180"
-        },
-        {
-          "codigo": "DEG0209",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "210"
-        },
-        {
-          "codigo": "DEG0210",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "240"
-        },
-        {
-          "codigo": "DEG0211",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "270"
-        },
-        {
-          "codigo": "DEG0212",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "300"
-        },
-        {
-          "codigo": "DEG0213",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "330"
-        },
-        {
-          "codigo": "DEG0214",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "360"
-        },
-        {
-          "codigo": "DEG0215",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "390"
-        },
-        {
-          "codigo": "DEG0216",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "420"
-        },
-        {
-          "codigo": "DEG0217",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "450"
-        },
-        {
-          "codigo": "DEG0218",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "480"
-        },
-        {
-          "codigo": "DEG0219",
-          "nome": "ATIVIDADE COMPLEMENTAR",
-          "ch": "510"
         },
         {
           "codigo": "DEG0229",
@@ -1454,6 +1368,11 @@
         {
           "codigo": "PAD0067",
           "nome": "TOPICOS ESPECIAIS EM POLITICAS DE EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "PCL0004",
+          "nome": "PSICOLOGIA COMUNITARIA",
           "ch": "60"
         },
         {

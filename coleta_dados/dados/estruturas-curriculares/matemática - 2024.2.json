@@ -1,7 +1,16 @@
 {
   "curso": "MATEMÁTICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1341/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "2520h",
+    "subtotal_ch_aula": "1500h",
+    "subtotal_ch_orientacao": "255h",
+    "ch_obrigatoria_total": "1755h",
+    "ch_optativa_minima": "765h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

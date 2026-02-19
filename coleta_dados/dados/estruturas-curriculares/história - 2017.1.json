@@ -1,7 +1,16 @@
 {
   "curso": "HISTÓRIA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "3476/-2",
   "periodo_letivo_vigor": "2017.1",
+  "prazos_cargas": {
+    "total_minima": "2955h",
+    "subtotal_ch_aula": "2025h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2025h",
+    "ch_optativa_minima": "720h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

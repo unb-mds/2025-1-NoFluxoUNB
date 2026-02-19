@@ -1,7 +1,16 @@
 {
   "curso": "GEOGRAFIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "3841/-2",
   "periodo_letivo_vigor": "2005.1",
+  "prazos_cargas": {
+    "total_minima": "2520h",
+    "subtotal_ch_aula": "1350h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1350h",
+    "ch_optativa_minima": "1170h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

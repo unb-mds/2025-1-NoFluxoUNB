@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA DE COMPUTAÇÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1741/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3780h",
+    "subtotal_ch_aula": "2040h",
+    "subtotal_ch_orientacao": "420h",
+    "ch_obrigatoria_total": "2460h",
+    "ch_optativa_minima": "1320h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -740,6 +749,11 @@
           "codigo": "ENE0459",
           "nome": "ENGENHARIA E MUDANCAS CLIMATICAS",
           "ch": "30"
+        },
+        {
+          "codigo": "ENE0477",
+          "nome": "AUTOMACAO PREDIAL COM IOT",
+          "ch": "60"
         },
         {
           "codigo": "ENM0080",

@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO",
   "tipo_curso": "Engenheiro de Controle e Automação",
+  "curriculo": "6912/1",
   "periodo_letivo_vigor": "2018.2",
+  "prazos_cargas": {
+    "total_minima": "4110h",
+    "subtotal_ch_aula": "2040h",
+    "subtotal_ch_orientacao": "300h",
+    "ch_obrigatoria_total": "2340h",
+    "ch_optativa_minima": "1770h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

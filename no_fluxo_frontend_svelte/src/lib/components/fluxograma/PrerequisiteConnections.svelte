@@ -204,35 +204,39 @@
 		style="z-index: 5;"
 	>
 		<defs>
+			<!-- markerUnits="userSpaceOnUse" + ref na ponta: seta fica alinhada ao fim da linha -->
 			<marker
 				id="arrow-prereq"
-				markerWidth="8"
-				markerHeight="6"
-				refX="8"
-				refY="3"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
 				orient="auto"
 			>
-				<polygon points="0 0, 8 3, 0 6" fill="#a78bfa" />
+				<polygon points="0 0, 9 4, 0 8" fill="#a78bfa" />
 			</marker>
 			<marker
 				id="arrow-dep"
-				markerWidth="8"
-				markerHeight="6"
-				refX="8"
-				refY="3"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
 				orient="auto"
 			>
-				<polygon points="0 0, 8 3, 0 6" fill="#2dd4bf" />
+				<polygon points="0 0, 9 4, 0 8" fill="#2dd4bf" />
 			</marker>
 			<marker
 				id="arrow-coreq"
-				markerWidth="8"
-				markerHeight="6"
-				refX="8"
-				refY="3"
+				markerUnits="userSpaceOnUse"
+				markerWidth="10"
+				markerHeight="8"
+				refX="9"
+				refY="4"
 				orient="auto"
 			>
-				<polygon points="0 0, 8 3, 0 6" fill="#10b981" />
+				<polygon points="0 0, 9 4, 0 8" fill="#10b981" />
 			</marker>
 		</defs>
 

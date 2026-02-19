@@ -1,7 +1,16 @@
 {
   "curso": "FONOAUDIOLOGIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "60852/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3510h",
+    "subtotal_ch_aula": "2790h",
+    "subtotal_ch_orientacao": "300h",
+    "ch_obrigatoria_total": "3090h",
+    "ch_optativa_minima": "360h",
+    "ch_complementar_minima": "60h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

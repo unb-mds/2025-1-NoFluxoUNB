@@ -1,7 +1,16 @@
 {
   "curso": "LÍNGUAS ESTRANGEIRAS APLICADAS - MSI",
   "tipo_curso": "Bacharelado",
+  "curriculo": "4090/1",
   "periodo_letivo_vigor": "2010.1",
+  "prazos_cargas": {
+    "total_minima": "2880h",
+    "subtotal_ch_aula": "780h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "780h",
+    "ch_optativa_minima": "2100h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

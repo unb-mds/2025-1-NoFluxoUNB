@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "434/2",
   "periodo_letivo_vigor": "2022.2",
+  "prazos_cargas": {
+    "total_minima": "2850h",
+    "subtotal_ch_aula": "1380h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1380h",
+    "ch_optativa_minima": "1470h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

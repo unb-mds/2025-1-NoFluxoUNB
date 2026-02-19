@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6351/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3750h",
+    "subtotal_ch_aula": "2340h",
+    "subtotal_ch_orientacao": "300h",
+    "ch_obrigatoria_total": "2640h",
+    "ch_optativa_minima": "1110h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

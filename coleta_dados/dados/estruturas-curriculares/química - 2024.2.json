@@ -1,7 +1,16 @@
 {
   "curso": "QUÍMICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "1503/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3225h",
+    "subtotal_ch_aula": "2265h",
+    "subtotal_ch_orientacao": "330h",
+    "ch_obrigatoria_total": "2595h",
+    "ch_optativa_minima": "630h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

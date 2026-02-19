@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIAS SOCIAIS - SOCIOLOGIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "3123/2",
   "periodo_letivo_vigor": "2023.2",
+  "prazos_cargas": {
+    "total_minima": "2670h",
+    "subtotal_ch_aula": "1110h",
+    "subtotal_ch_orientacao": "270h",
+    "ch_obrigatoria_total": "1380h",
+    "ch_optativa_minima": "1080h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

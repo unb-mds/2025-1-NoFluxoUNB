@@ -1,7 +1,16 @@
 {
   "curso": "ENFERMAGEM",
-  "tipo_curso": "Bacharelado",
+  "tipo_curso": "Enfermeiro",
+  "curriculo": "7412/-2",
   "periodo_letivo_vigor": "2010.2",
+  "prazos_cargas": {
+    "total_minima": "4020h",
+    "subtotal_ch_aula": "2370h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2370h",
+    "ch_optativa_minima": "1650h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

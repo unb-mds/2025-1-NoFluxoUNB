@@ -1,7 +1,16 @@
 {
   "curso": "ARTES CÊNICAS",
   "tipo_curso": "Licenciatura",
+  "curriculo": "5720/1",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3255h",
+    "subtotal_ch_aula": "1815h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1815h",
+    "ch_optativa_minima": "1230h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -298,7 +307,7 @@
         },
         {
           "codigo": "CEN0273",
-          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS 1  TEATRO DE MASCARAS",
+          "nome": "PRATICA DOCENTE EM TEATRO DE FORMAS ANIMADAS 1 - TEATRO DE MASCARAS",
           "ch": "90"
         },
         {

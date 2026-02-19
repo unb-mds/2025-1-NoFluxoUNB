@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - LÍNGUA FRANCESA E RESPECTIVA LITERATURA",
-  "tipo_curso": "Licenciatura",
+  "tipo_curso": "Bacharelado",
+  "curriculo": "4219/1",
   "periodo_letivo_vigor": "2016.2",
+  "prazos_cargas": {
+    "total_minima": "2700h",
+    "subtotal_ch_aula": "1440h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1440h",
+    "ch_optativa_minima": "1260h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -57,16 +66,6 @@
           "ch": "90"
         },
         {
-          "codigo": "PED0058",
-          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "ch": "90"
-        },
-        {
-          "codigo": "LIP0099",
-          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0100",
           "nome": "MORFOLOGIA DO PORTUGUES",
           "ch": "60"
@@ -82,11 +81,6 @@
           "ch": "90"
         },
         {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0050",
           "nome": "FILOLOGIA ROMANICA 1",
           "ch": "60"
@@ -94,6 +88,11 @@
         {
           "codigo": "TEL0080",
           "nome": "CONTEXTOS CULTURAIS DA LITERATURA FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
           "ch": "60"
         }
       ]
@@ -112,6 +111,11 @@
           "ch": "60"
         },
         {
+          "codigo": "TEL0029",
+          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
+          "ch": "60"
+        },
+        {
           "codigo": "TEL0032",
           "nome": "LITERATURA FRANCESA - PANORAMA",
           "ch": "60"
@@ -119,11 +123,6 @@
         {
           "codigo": "LET0412",
           "nome": "FRANCES: DA LEXICOLOGIA A LEXICOGRAFIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0085",
-          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
           "ch": "60"
         }
       ]
@@ -142,16 +141,6 @@
           "ch": "60"
         },
         {
-          "codigo": "MTC0012",
-          "nome": "DIDATICA FUNDAMENTAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCACAO",
-          "ch": "60"
-        },
-        {
           "codigo": "TEL0033",
           "nome": "LITERATURA FRANCESA - ROMANCE",
           "ch": "60"
@@ -162,11 +151,6 @@
       "nivel": "7° NIVEL",
       "materias": [
         {
-          "codigo": "LET0093",
-          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 1",
-          "ch": "60"
-        },
-        {
           "codigo": "LET0317",
           "nome": "FONETICA E FONOLOGIA DO FRANCES",
           "ch": "60"
@@ -175,6 +159,11 @@
           "codigo": "TEL0034",
           "nome": "LITERATURA FRANCESA - TEATRO",
           "ch": "60"
+        },
+        {
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
         }
       ]
     },
@@ -182,8 +171,8 @@
       "nivel": "8° NIVEL",
       "materias": [
         {
-          "codigo": "LET0096",
-          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 2",
+          "codigo": "LET0043",
+          "nome": "ESTAGIO DE BACHAREL EM FRANCES",
           "ch": "60"
         },
         {
@@ -195,15 +184,10 @@
           "codigo": "TEL0035",
           "nome": "LITERATURA FRANCESA - POESIA",
           "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "9° NIVEL",
-      "materias": [
+        },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "codigo": "TEL0036",
+          "nome": "LITERATURA FRANCESA - CRITICA",
           "ch": "60"
         }
       ]
@@ -467,11 +451,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FED0133",
-          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
-          "ch": "60"
-        },
-        {
           "codigo": "FEF0105",
           "nome": "PRATICA DESPORTIVA",
           "ch": "30"
@@ -667,11 +646,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LET0043",
-          "nome": "ESTAGIO DE BACHAREL EM FRANCES",
-          "ch": "60"
-        },
-        {
           "codigo": "LET0044",
           "nome": "LINGUA ALEMA INSTRUMENTAL 1",
           "ch": "60"
@@ -779,6 +753,16 @@
         {
           "codigo": "LET0088",
           "nome": "LINGUA INGLESA 5",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0093",
+          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0096",
+          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 2",
           "ch": "60"
         },
         {
@@ -1522,11 +1506,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0086",
-          "nome": "REDACAO OFICIAL",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0087",
           "nome": "GREGO 5",
           "ch": "60"
@@ -1569,6 +1548,11 @@
         {
           "codigo": "LIP0098",
           "nome": "ESTUDO DAS GRAMATICAS DO PORTUGUES CONTEMPORANEO",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0099",
+          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
           "ch": "60"
         },
         {
@@ -1762,6 +1746,11 @@
           "ch": "60"
         },
         {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
           "codigo": "LIP0175",
           "nome": "LINGUAS DE SINAIS BRASILEIRA - INTERMEDIARIO",
           "ch": "60"
@@ -1787,53 +1776,8 @@
           "ch": "60"
         },
         {
-          "codigo": "MTC0013",
-          "nome": "DIDATICA 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0017",
-          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0018",
-          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0021",
-          "nome": "CURRICULO",
-          "ch": "60"
-        },
-        {
-          "codigo": "MTC0022",
-          "nome": "CURRICULOS E PROGRAMAS 2",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0027",
-          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0028",
-          "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
-          "ch": "90"
-        },
-        {
-          "codigo": "MTC0029",
-          "nome": "ENSINO SUPLETIVO 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "MTC0030",
-          "nome": "ENSINO SUPLETIVO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "MTC0035",
-          "nome": "AVALIACAO ESCOLAR",
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
           "ch": "60"
         },
         {
@@ -1842,39 +1786,14 @@
           "ch": "60"
         },
         {
-          "codigo": "MTC0143",
-          "nome": "DIDATICA FUNDAMENTAL",
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
           "ch": "60"
         },
         {
-          "codigo": "PAD0011",
-          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "codigo": "PED0058",
+          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
           "ch": "90"
-        },
-        {
-          "codigo": "PAD0017",
-          "nome": "LEGISLACAO DO ENSINO 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "PAD0018",
-          "nome": "LEGISLACAO DO ENSINO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "PAD0019",
-          "nome": "HIGIENE ESCOLAR",
-          "ch": "60"
-        },
-        {
-          "codigo": "PAD0022",
-          "nome": "PLANEJAMENTO EDUCACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "PAD0031",
-          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
-          "ch": "60"
         },
         {
           "codigo": "PED0060",
@@ -1917,68 +1836,13 @@
           "ch": "60"
         },
         {
-          "codigo": "TEF0012",
-          "nome": "PSICOLOGIA DA EDUCACAO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0013",
-          "nome": "SOCIOLOGIA DA EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0014",
-          "nome": "SOCIOLOGIA DA EDUCACAO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0015",
-          "nome": "HISTORIA DA EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0016",
-          "nome": "HISTORIA DA EDUCACAO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0019",
-          "nome": "POLITICAS DE EDUCACAO COMPARADA",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0020",
-          "nome": "FILOSOFIA DA EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0022",
-          "nome": "FILOSOFIA DA EDUCACAO 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0024",
-          "nome": "ECONOMIA DA EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0027",
-          "nome": "ORIENTACAO EDUCACIONAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0038",
-          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
+          "codigo": "TEF0011",
+          "nome": "PSICOLOGIA DA EDUCACAO",
           "ch": "60"
         },
         {
           "codigo": "TEF0065",
           "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0069",
-          "nome": "ORIENTACAO VOCACIONAL",
           "ch": "60"
         },
         {
@@ -2102,18 +1966,8 @@
           "ch": "60"
         },
         {
-          "codigo": "TEL0029",
-          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
-          "ch": "60"
-        },
-        {
           "codigo": "TEL0031",
           "nome": "ESTETICA E LITERATURA",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEL0036",
-          "nome": "LITERATURA FRANCESA - CRITICA",
           "ch": "60"
         },
         {
@@ -2437,23 +2291,13 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0099",
-          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0100",
           "nome": "MORFOLOGIA DO PORTUGUES",
           "ch": "60"
         },
         {
-          "codigo": "LIP0050",
-          "nome": "FILOLOGIA ROMANICA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEL0080",
-          "nome": "CONTEXTOS CULTURAIS DA LITERATURA FRANCESA",
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
           "ch": "60"
         },
         {
@@ -2462,8 +2306,8 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0085",
-          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
           "ch": "60"
         },
         {
@@ -2507,16 +2351,6 @@
           "ch": "90"
         },
         {
-          "codigo": "PED0058",
-          "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
-          "ch": "90"
-        },
-        {
-          "codigo": "LIP0099",
-          "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0100",
           "nome": "MORFOLOGIA DO PORTUGUES",
           "ch": "60"
@@ -2527,11 +2361,6 @@
           "ch": "90"
         },
         {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0050",
           "nome": "FILOLOGIA ROMANICA 1",
           "ch": "60"
@@ -2539,6 +2368,11 @@
         {
           "codigo": "TEL0080",
           "nome": "CONTEXTOS CULTURAIS DA LITERATURA FRANCESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "LIP0085",
+          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
           "ch": "60"
         },
         {
@@ -2552,6 +2386,11 @@
           "ch": "60"
         },
         {
+          "codigo": "TEL0029",
+          "nome": "FUNDAMENTOS DE HISTORIA LITERARIA",
+          "ch": "60"
+        },
+        {
           "codigo": "TEL0032",
           "nome": "LITERATURA FRANCESA - PANORAMA",
           "ch": "60"
@@ -2559,11 +2398,6 @@
         {
           "codigo": "LET0412",
           "nome": "FRANCES: DA LEXICOLOGIA A LEXICOGRAFIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "LIP0085",
-          "nome": "OFICINA DE PRODUCAO DE TEXTOS",
           "ch": "60"
         },
         {
@@ -2577,23 +2411,8 @@
           "ch": "60"
         },
         {
-          "codigo": "MTC0012",
-          "nome": "DIDATICA FUNDAMENTAL",
-          "ch": "60"
-        },
-        {
-          "codigo": "TEF0011",
-          "nome": "PSICOLOGIA DA EDUCACAO",
-          "ch": "60"
-        },
-        {
           "codigo": "TEL0033",
           "nome": "LITERATURA FRANCESA - ROMANCE",
-          "ch": "60"
-        },
-        {
-          "codigo": "LET0093",
-          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 1",
           "ch": "60"
         },
         {
@@ -2607,8 +2426,13 @@
           "ch": "60"
         },
         {
-          "codigo": "LET0096",
-          "nome": "ESTAGIO SUPERVISIONADO DE FRANCES 2",
+          "codigo": "LIP0086",
+          "nome": "REDACAO OFICIAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0043",
+          "nome": "ESTAGIO DE BACHAREL EM FRANCES",
           "ch": "60"
         },
         {
@@ -2622,8 +2446,8 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "codigo": "TEL0036",
+          "nome": "LITERATURA FRANCESA - CRITICA",
           "ch": "60"
         }
       ]

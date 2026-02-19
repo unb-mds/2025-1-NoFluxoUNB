@@ -1,7 +1,16 @@
 {
   "curso": "EDUCAÇÃO FÍSICA - CICLO BÁSICO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1000/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "1605h",
+    "subtotal_ch_aula": "1440h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1440h",
+    "ch_optativa_minima": "120h",
+    "ch_complementar_minima": "45h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -42,11 +51,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FEF0464",
-          "nome": "CORPO E CULTURA",
-          "ch": "60"
-        },
-        {
           "codigo": "FEF0465",
           "nome": "CRESCIMENTO, DESENVOLVIMENTO E APRENDIZAGEM MOTORA",
           "ch": "60"
@@ -64,6 +68,11 @@
         {
           "codigo": "FEF0468",
           "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0476",
+          "nome": "POLITICAS PUBLICAS DE SAUDE, ESPORTE E LAZER",
           "ch": "60"
         }
       ]
@@ -112,6 +121,11 @@
           "ch": "60"
         },
         {
+          "codigo": "FEF0464",
+          "nome": "CORPO E CULTURA",
+          "ch": "60"
+        },
+        {
           "codigo": "FEF0474",
           "nome": "EPIDEMIOLOGIA E SAUDE EM EDUCACAO FISICA",
           "ch": "60"
@@ -119,11 +133,6 @@
         {
           "codigo": "FEF0475",
           "nome": "MEDIDAS E AVALIACAO EM EDUCACAO FISICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0476",
-          "nome": "POLITICAS PUBLICAS DE SAUDE, ESPORTE E LAZER",
           "ch": "60"
         },
         {
@@ -212,11 +221,6 @@
           "ch": "60"
         },
         {
-          "codigo": "FEF0464",
-          "nome": "CORPO E CULTURA",
-          "ch": "60"
-        },
-        {
           "codigo": "FEF0465",
           "nome": "CRESCIMENTO, DESENVOLVIMENTO E APRENDIZAGEM MOTORA",
           "ch": "60"
@@ -234,6 +238,11 @@
         {
           "codigo": "FEF0468",
           "nome": "CIENCIA E PESQUISA EM EDUCACAO FISICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FEF0476",
+          "nome": "POLITICAS PUBLICAS DE SAUDE, ESPORTE E LAZER",
           "ch": "60"
         },
         {
@@ -272,6 +281,11 @@
           "ch": "60"
         },
         {
+          "codigo": "FEF0464",
+          "nome": "CORPO E CULTURA",
+          "ch": "60"
+        },
+        {
           "codigo": "FEF0474",
           "nome": "EPIDEMIOLOGIA E SAUDE EM EDUCACAO FISICA",
           "ch": "60"
@@ -279,11 +293,6 @@
         {
           "codigo": "FEF0475",
           "nome": "MEDIDAS E AVALIACAO EM EDUCACAO FISICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FEF0476",
-          "nome": "POLITICAS PUBLICAS DE SAUDE, ESPORTE E LAZER",
           "ch": "60"
         },
         {

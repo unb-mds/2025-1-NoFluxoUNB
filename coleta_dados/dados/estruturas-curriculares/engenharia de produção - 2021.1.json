@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA DE PRODUÇÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6017/2",
   "periodo_letivo_vigor": "2021.1",
+  "prazos_cargas": {
+    "total_minima": "3600h",
+    "subtotal_ch_aula": "2265h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2265h",
+    "ch_optativa_minima": "1335h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

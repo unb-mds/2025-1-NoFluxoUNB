@@ -1,5 +1,5 @@
 -- Auto-generated migration from backend/scripts/export_schema.ts
--- Exported at: 2026-02-16T06:18:23.09767+00:00
+-- Exported at: 2026-02-19T00:41:08.399221+00:00
 -- NOTE: This is a best-effort baseline for local Supabase tests.
 -- Includes: 12 tables, 3 views, 35 functions, 0 triggers, 13 policies
 

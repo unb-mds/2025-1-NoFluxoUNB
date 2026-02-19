@@ -1,7 +1,16 @@
 {
   "curso": "JORNALISMO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "850/2",
   "periodo_letivo_vigor": "2021.2",
+  "prazos_cargas": {
+    "total_minima": "3000h",
+    "subtotal_ch_aula": "1770h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1770h",
+    "ch_optativa_minima": "1230h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

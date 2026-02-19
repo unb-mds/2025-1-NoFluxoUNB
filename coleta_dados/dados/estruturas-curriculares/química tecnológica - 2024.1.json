@@ -1,7 +1,16 @@
 {
   "curso": "QUÍMICA TECNOLÓGICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1589/2",
   "periodo_letivo_vigor": "2024.1",
+  "prazos_cargas": {
+    "total_minima": "3300h",
+    "subtotal_ch_aula": "1860h",
+    "subtotal_ch_orientacao": "480h",
+    "ch_obrigatoria_total": "2340h",
+    "ch_optativa_minima": "960h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

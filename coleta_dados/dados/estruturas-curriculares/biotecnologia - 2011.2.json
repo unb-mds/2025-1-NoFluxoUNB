@@ -1,7 +1,16 @@
 {
   "curso": "BIOTECNOLOGIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "2771/-2",
   "periodo_letivo_vigor": "2011.2",
+  "prazos_cargas": {
+    "total_minima": "3210h",
+    "subtotal_ch_aula": "2190h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2190h",
+    "ch_optativa_minima": "1020h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

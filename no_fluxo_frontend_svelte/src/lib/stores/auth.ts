@@ -1,6 +1,7 @@
 import { writable, derived, get } from 'svelte/store';
 import { browser } from '$app/environment';
 import type { AuthState, UserModel } from '$lib/types/auth';
+import { normalizeDadosFluxogramaFromStored } from '$lib/factories';
 
 const STORAGE_KEY = 'nofluxo_user';
 const ANON_KEY = 'nofluxo_anonimo';
@@ -14,14 +15,20 @@ function getInitialState(): AuthState {
 		if (storedUser && storedUser !== 'null') {
 			try {
 				const rawUser = JSON.parse(storedUser);
+				// Normalize fluxograma so codigoMateria/status/mencao are always in the expected shape
+				const dadosFluxograma = normalizeDadosFluxogramaFromStored(
+					rawUser.dadosFluxograma ?? rawUser.dados_fluxograma ?? null
+				);
 				// Handle both old snake_case and new camelCase formats from localStorage
-				const user: UserModel = rawUser.idUser !== undefined ? rawUser : {
-					idUser: rawUser.id_user ?? 0,
-					email: rawUser.email ?? '',
-					nomeCompleto: rawUser.nome_completo ?? '',
-					token: rawUser.token ?? null,
-					dadosFluxograma: rawUser.dados_fluxograma ?? null
-				};
+				const user: UserModel = rawUser.idUser !== undefined
+					? { ...rawUser, dadosFluxograma: dadosFluxograma ?? rawUser.dadosFluxograma ?? null }
+					: {
+							idUser: rawUser.id_user ?? 0,
+							email: rawUser.email ?? '',
+							nomeCompleto: rawUser.nome_completo ?? '',
+							token: rawUser.token ?? null,
+							dadosFluxograma: dadosFluxograma ?? rawUser.dados_fluxograma ?? null
+						};
 				return {
 					user,
 					isAuthenticated: true,

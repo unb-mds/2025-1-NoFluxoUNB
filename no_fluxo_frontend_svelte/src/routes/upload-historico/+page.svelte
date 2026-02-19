@@ -97,7 +97,7 @@
 	<CourseSelectionModal
 		open={$uploadStore.showCourseSelection}
 		courseError={$uploadStore.courseSelectionError}
-		onselect={(course) => uploadStore.retryWithSelectedCourse(course)}
+		onselect={(courseName, selected) => uploadStore.retryWithSelectedCourse(courseName, selected)}
 		onclose={() => uploadStore.dismissCourseSelection()}
 	/>
 {/if}

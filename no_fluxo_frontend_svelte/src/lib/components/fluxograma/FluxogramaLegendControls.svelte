@@ -31,6 +31,20 @@
 				<span class="text-xs text-white/70">{item.label}</span>
 			</div>
 		{/each}
+		{#if !store.state.isAnonymous}
+			<div class="mx-2 h-4 w-px bg-white/20"></div>
+			<div class="flex items-center gap-1.5" title="Pré-requisitos cumpridos e quantas disciplinas dependem desta">
+				<div class="flex h-5 min-w-5 items-center justify-center rounded-full bg-green-500/80 px-1 text-[9px] font-bold text-white">✓</div>
+				<span class="text-xs text-white/70">Pré-reqs ok</span>
+			</div>
+			<div class="flex items-center gap-1.5" title="Falta cumprir pré-requisito">
+				<div class="flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-500/80 px-1 text-[9px] font-bold text-white">!</div>
+				<span class="text-xs text-white/70">Falta pré-req</span>
+			</div>
+			<div class="flex items-center gap-1.5" title="Número = quantas disciplinas têm esta como pré-requisito">
+				<span class="text-xs text-white/50">(número = dependentes)</span>
+			</div>
+		{/if}
 		{#if store.state.showConnections}
 			<div class="mx-2 h-4 w-px bg-white/20"></div>
 			<div class="flex items-center gap-1.5">

@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - LÍNGUA INGLESA E RESPECTIVA LITERATURA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "4324/3",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3240h",
+    "subtotal_ch_aula": "1470h",
+    "subtotal_ch_orientacao": "300h",
+    "ch_obrigatoria_total": "1770h",
+    "ch_optativa_minima": "1260h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

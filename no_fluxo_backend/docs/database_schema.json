@@ -2148,7 +2148,7 @@
       "extension_name": "uuid-ossp"
     }
   ],
-  "exported_at": "2026-02-16T06:18:23.09767+00:00",
+  "exported_at": "2026-02-19T00:41:08.399221+00:00",
   "table_stats": [
     {
       "table_name": "co_requisitos",
@@ -2174,8 +2174,8 @@
     {
       "table_name": "dados_users",
       "estimated_rows": 99,
-      "table_size_bytes": 450560,
-      "total_size_bytes": 483328,
+      "table_size_bytes": 565248,
+      "total_size_bytes": 598016,
       "indexes_size_bytes": 32768
     },
     {
@@ -2223,8 +2223,8 @@
     {
       "table_name": "users",
       "estimated_rows": 162,
-      "table_size_bytes": 81920,
-      "total_size_bytes": 131072,
+      "table_size_bytes": 90112,
+      "total_size_bytes": 139264,
       "indexes_size_bytes": 49152
     },
     {

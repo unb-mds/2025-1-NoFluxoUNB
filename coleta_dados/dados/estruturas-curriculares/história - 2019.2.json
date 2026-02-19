@@ -1,7 +1,16 @@
 {
   "curso": "HISTÓRIA",
-  "tipo_curso": "Bacharelado",
+  "tipo_curso": "Licenciatura",
+  "curriculo": "3425/-2",
   "periodo_letivo_vigor": "2019.2",
+  "prazos_cargas": {
+    "total_minima": "2955h",
+    "subtotal_ch_aula": "2025h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2025h",
+    "ch_optativa_minima": "720h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -15,6 +24,16 @@
           "codigo": "HIS0084",
           "nome": "INTRODUCAO AO ESTUDO DA HISTORIA",
           "ch": "60"
+        },
+        {
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
+          "ch": "60"
         }
       ]
     },
@@ -22,13 +41,13 @@
       "nivel": "2° NIVEL",
       "materias": [
         {
-          "codigo": "HIS0088",
-          "nome": "HISTORIA ANTIGA 1",
+          "codigo": "HIS0132",
+          "nome": "HISTORIA DA AFRICA",
           "ch": "60"
         },
         {
-          "codigo": "HIS0132",
-          "nome": "HISTORIA DA AFRICA",
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
           "ch": "60"
         }
       ]
@@ -55,6 +74,11 @@
           "codigo": "HIS0100",
           "nome": "HISTORIA DO BRASIL 1",
           "ch": "60"
+        },
+        {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
         }
       ]
     },
@@ -74,6 +98,11 @@
         {
           "codigo": "HIS0102",
           "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
           "ch": "60"
         },
         {
@@ -102,9 +131,9 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0113",
-          "nome": "TEORIA DA HISTORIA",
-          "ch": "60"
+          "codigo": "HIS0201",
+          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
+          "ch": "90"
         }
       ]
     },
@@ -117,13 +146,18 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0115",
-          "nome": "METODOLOGIA DA HISTORIA",
+          "codigo": "HIS0129",
+          "nome": "HISTORIA DO BRASIL 4",
           "ch": "60"
         },
         {
-          "codigo": "HIS0129",
-          "nome": "HISTORIA DO BRASIL 4",
+          "codigo": "HIS0205",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
         }
       ]
@@ -137,19 +171,9 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0028",
-          "nome": "PRATICA DE PESQUISA HISTORICA",
-          "ch": "90"
-        },
-        {
-          "codigo": "HIS0126",
-          "nome": "HISTORIA DA AMERICA 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0212",
-          "nome": "HISTORIOGRAFIA",
-          "ch": "60"
+          "codigo": "HIS0210",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
+          "ch": "120"
         }
       ]
     },
@@ -157,9 +181,24 @@
       "nivel": "8° NIVEL",
       "materias": [
         {
+          "codigo": "HIS0007",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
+          "ch": "165"
+        },
+        {
           "codigo": "HIS0010",
           "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
           "ch": "90"
+        }
+      ]
+    },
+    {
+      "nivel": "9° NIVEL",
+      "materias": [
+        {
+          "codigo": "HIS0088",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
         }
       ]
     },
@@ -877,6 +916,11 @@
           "ch": "60"
         },
         {
+          "codigo": "FED0133",
+          "nome": "SEMINARIO INTERDISCIPLINAR EM EDUCACAO",
+          "ch": "60"
+        },
+        {
           "codigo": "FEF0105",
           "nome": "PRATICA DESPORTIVA",
           "ch": "30"
@@ -1232,11 +1276,6 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0007",
-          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
-          "ch": "165"
-        },
-        {
           "codigo": "HIS0008",
           "nome": "HISTORIA DA AFRICA COLONIAL",
           "ch": "60"
@@ -1270,6 +1309,11 @@
           "codigo": "HIS0022",
           "nome": "LABORATORIO DE ENSINO DE HISTORIA DA AFRICA",
           "ch": "60"
+        },
+        {
+          "codigo": "HIS0028",
+          "nome": "PRATICA DE PESQUISA HISTORICA",
+          "ch": "90"
         },
         {
           "codigo": "HIS0029",
@@ -1497,6 +1541,11 @@
           "ch": "60"
         },
         {
+          "codigo": "HIS0126",
+          "nome": "HISTORIA DA AMERICA 3",
+          "ch": "60"
+        },
+        {
           "codigo": "HIS0133",
           "nome": "HISTORIA DOS PAISES ARABES",
           "ch": "90"
@@ -1702,11 +1751,6 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0201",
-          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
-          "ch": "90"
-        },
-        {
           "codigo": "HIS0202",
           "nome": "HISTORIA DAS IDEIAS",
           "ch": "60"
@@ -1715,11 +1759,6 @@
           "codigo": "HIS0203",
           "nome": "HISTORIA E HISTORIOGRAFIA DA AFRICA",
           "ch": "60"
-        },
-        {
-          "codigo": "HIS0205",
-          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
-          "ch": "120"
         },
         {
           "codigo": "HIS0207",
@@ -1732,9 +1771,9 @@
           "ch": "30"
         },
         {
-          "codigo": "HIS0210",
-          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
-          "ch": "120"
+          "codigo": "HIS0212",
+          "nome": "HISTORIOGRAFIA",
+          "ch": "60"
         },
         {
           "codigo": "ICB0098",
@@ -2322,11 +2361,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0174",
-          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
-          "ch": "60"
-        },
-        {
           "codigo": "MAT0022",
           "nome": "MATEMATICA 1",
           "ch": "60"
@@ -2357,8 +2391,53 @@
           "ch": "90"
         },
         {
-          "codigo": "MTC0012",
-          "nome": "DIDATICA FUNDAMENTAL",
+          "codigo": "MTC0013",
+          "nome": "DIDATICA 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0017",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0018",
+          "nome": "METODOLOGIA DO ENSINO DE 1 GRAU 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0021",
+          "nome": "CURRICULO",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0022",
+          "nome": "CURRICULOS E PROGRAMAS 2",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0027",
+          "nome": "TECNICAS AUDIOVISUAIS DE EDUCACAO",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0028",
+          "nome": "RADIO E TELEVISAO EM EDUCACAO 1",
+          "ch": "90"
+        },
+        {
+          "codigo": "MTC0029",
+          "nome": "ENSINO SUPLETIVO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0030",
+          "nome": "ENSINO SUPLETIVO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0035",
+          "nome": "AVALIACAO ESCOLAR",
           "ch": "60"
         },
         {
@@ -2382,6 +2461,11 @@
           "ch": "60"
         },
         {
+          "codigo": "MTC0143",
+          "nome": "DIDATICA FUNDAMENTAL",
+          "ch": "60"
+        },
+        {
           "codigo": "MUS0236",
           "nome": "MUSICA E SOCIEDADE 1",
           "ch": "60"
@@ -2397,18 +2481,38 @@
           "ch": "60"
         },
         {
-          "codigo": "PAD0028",
-          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "codigo": "PAD0011",
+          "nome": "PRINCIPIOS E METODOS DE ADMINISTRACAO ESCOLAR",
+          "ch": "90"
+        },
+        {
+          "codigo": "PAD0017",
+          "nome": "LEGISLACAO DO ENSINO 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0018",
+          "nome": "LEGISLACAO DO ENSINO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0019",
+          "nome": "HIGIENE ESCOLAR",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0022",
+          "nome": "PLANEJAMENTO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "PAD0031",
+          "nome": "POLITICAS PUBLICAS DE EDUCACAO",
           "ch": "60"
         },
         {
           "codigo": "PCL0015",
           "nome": "PSICOLOGIA DA PERSONALIDADE 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "PCL0020",
-          "nome": "ETICA PROFISSIONAL",
           "ch": "60"
         },
         {
@@ -2445,16 +2549,6 @@
           "codigo": "PED0058",
           "nome": "FUNDAMENTOS DE DESENVOLVIMENTO E APRENDIZAGEM",
           "ch": "90"
-        },
-        {
-          "codigo": "PED0060",
-          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
-          "ch": "60"
-        },
-        {
-          "codigo": "PED0071",
-          "nome": "PSICOLOGIA: CURSO E PROFISSAO",
-          "ch": "60"
         },
         {
           "codigo": "POL0010",
@@ -2782,6 +2876,21 @@
           "ch": "60"
         },
         {
+          "codigo": "TEF0012",
+          "nome": "PSICOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0013",
+          "nome": "SOCIOLOGIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0014",
+          "nome": "SOCIOLOGIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
           "codigo": "TEF0015",
           "nome": "HISTORIA DA EDUCACAO",
           "ch": "60"
@@ -2792,8 +2901,33 @@
           "ch": "60"
         },
         {
+          "codigo": "TEF0019",
+          "nome": "POLITICAS DE EDUCACAO COMPARADA",
+          "ch": "60"
+        },
+        {
           "codigo": "TEF0021",
           "nome": "FILOSOFIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0022",
+          "nome": "FILOSOFIA DA EDUCACAO 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0024",
+          "nome": "ECONOMIA DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0027",
+          "nome": "ORIENTACAO EDUCACIONAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0038",
+          "nome": "INTRODUCAO A EDUCACAO ESPECIAL",
           "ch": "60"
         },
         {
@@ -2804,6 +2938,11 @@
         {
           "codigo": "TEF0065",
           "nome": "DINAMICA PSICOSSOCIAL DA EDUCACAO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEF0069",
+          "nome": "ORIENTACAO VOCACIONAL",
           "ch": "60"
         },
         {
@@ -2982,13 +3121,23 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0088",
-          "nome": "HISTORIA ANTIGA 1",
+          "codigo": "PAD0028",
+          "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PED0060",
+          "nome": "DESENVOLVIMENTO PSICOLOGICO E ENSINO",
           "ch": "60"
         },
         {
           "codigo": "HIS0132",
           "nome": "HISTORIA DA AFRICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "MTC0012",
+          "nome": "DIDATICA FUNDAMENTAL",
           "ch": "60"
         },
         {
@@ -3012,6 +3161,11 @@
           "ch": "60"
         },
         {
+          "codigo": "HIS0113",
+          "nome": "TEORIA DA HISTORIA",
+          "ch": "60"
+        },
+        {
           "codigo": "HIS0093",
           "nome": "HISTORIA MODERNA 1",
           "ch": "60"
@@ -3024,6 +3178,11 @@
         {
           "codigo": "HIS0102",
           "nome": "HISTORIA DO BRASIL 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "HIS0115",
+          "nome": "METODOLOGIA DA HISTORIA",
           "ch": "60"
         },
         {
@@ -3047,18 +3206,13 @@
           "ch": "60"
         },
         {
-          "codigo": "HIS0113",
-          "nome": "TEORIA DA HISTORIA",
-          "ch": "60"
+          "codigo": "HIS0201",
+          "nome": "FUNDAMENTOS DO ENSINO DE HISTORIA",
+          "ch": "90"
         },
         {
           "codigo": "HIS0107",
           "nome": "HISTORIA CONTEMPORANEA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0115",
-          "nome": "METODOLOGIA DA HISTORIA",
           "ch": "60"
         },
         {
@@ -3067,29 +3221,39 @@
           "ch": "60"
         },
         {
+          "codigo": "HIS0205",
+          "nome": "LABORATORIO DE ENSINO DE HISTORIA",
+          "ch": "120"
+        },
+        {
+          "codigo": "LIP0174",
+          "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
+          "ch": "60"
+        },
+        {
           "codigo": "HIS0003",
           "nome": "TRABALHO DE CONCLUSAO DE CURSO 1",
           "ch": "60"
         },
         {
-          "codigo": "HIS0028",
-          "nome": "PRATICA DE PESQUISA HISTORICA",
-          "ch": "90"
+          "codigo": "HIS0210",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 1",
+          "ch": "120"
         },
         {
-          "codigo": "HIS0126",
-          "nome": "HISTORIA DA AMERICA 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "HIS0212",
-          "nome": "HISTORIOGRAFIA",
-          "ch": "60"
+          "codigo": "HIS0007",
+          "nome": "PRATICA DE ENSINO DE HISTORIA 2",
+          "ch": "165"
         },
         {
           "codigo": "HIS0010",
           "nome": "TRABALHO DE CONCLUSAO DE CURSO 2",
           "ch": "90"
+        },
+        {
+          "codigo": "HIS0088",
+          "nome": "HISTORIA ANTIGA 1",
+          "ch": "60"
         }
       ]
     }

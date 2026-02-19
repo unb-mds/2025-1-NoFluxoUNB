@@ -1,7 +1,16 @@
 {
   "curso": "ARTES CÊNICAS - INTERPRETAÇÃO TEATRAL",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5371/-2",
   "periodo_letivo_vigor": "2019.2",
+  "prazos_cargas": {
+    "total_minima": "2880h",
+    "subtotal_ch_aula": "1620h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1620h",
+    "ch_optativa_minima": "1260h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -133,7 +142,7 @@
       "materias": [
         {
           "codigo": "CEN0002",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTEREPRETACAO TEATRAL 1",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTERPRETACAO TEATRAL 1",
           "ch": "30"
         },
         {
@@ -148,7 +157,7 @@
       "materias": [
         {
           "codigo": "CEN0004",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTEREPRETACAO TEATRAL 2",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTERPRETACAO TEATRAL 2",
           "ch": "30"
         },
         {
@@ -1468,7 +1477,7 @@
         },
         {
           "codigo": "CEN0002",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTEREPRETACAO TEATRAL 1",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTERPRETACAO TEATRAL 1",
           "ch": "30"
         },
         {
@@ -1478,7 +1487,7 @@
         },
         {
           "codigo": "CEN0004",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTEREPRETACAO TEATRAL 2",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTERPRETACAO TEATRAL 2",
           "ch": "30"
         },
         {
@@ -1588,7 +1597,7 @@
         },
         {
           "codigo": "CEN0002",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTEREPRETACAO TEATRAL 1",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTERPRETACAO TEATRAL 1",
           "ch": "30"
         },
         {
@@ -1598,7 +1607,7 @@
         },
         {
           "codigo": "CEN0004",
-          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTEREPRETACAO TEATRAL 2",
+          "nome": "TRABALHO DE CONCLUSAO DE CURSO EM INTERPRETACAO TEATRAL 2",
           "ch": "30"
         },
         {

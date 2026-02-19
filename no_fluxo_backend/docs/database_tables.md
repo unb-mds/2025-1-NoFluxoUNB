@@ -1,6 +1,6 @@
 # Database Schema
 
-> **Exported at:** 2026-02-16T06:18:23.09767+00:00
+> **Exported at:** 2026-02-19T00:41:08.399221+00:00
 > **Export method:** rpc
 > **Supabase:** lijmhbstgdinsukovyfl.supabase.co
 
@@ -318,12 +318,12 @@
 | `co_requisitos` | 203 | 56 KB |
 | `co_requisitos_backup` | 270 | 16 KB |
 | `cursos` | 270 | 144 KB |
-| `dados_users` | 99 | 472 KB |
+| `dados_users` | 99 | 584 KB |
 | `dados_users_backup` | -1 | 8 KB |
 | `equivalencia_backup1` | 37132 | 2.9 MB |
 | `equivalencias` | 8090 | 1.1 MB |
 | `materias` | 21127 | 8.9 MB |
 | `materias_por_curso` | 75465 | 8.1 MB |
 | `pre_requisitos` | 20889 | 1.6 MB |
-| `users` | 162 | 128 KB |
+| `users` | 162 | 136 KB |
 | `users_backup` | -1 | 16 KB |

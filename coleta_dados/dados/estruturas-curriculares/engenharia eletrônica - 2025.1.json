@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA ELETRÔNICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6131/3",
   "periodo_letivo_vigor": "2025.1",
+  "prazos_cargas": {
+    "total_minima": "3795h",
+    "subtotal_ch_aula": "2895h",
+    "subtotal_ch_orientacao": "480h",
+    "ch_obrigatoria_total": "3375h",
+    "ch_optativa_minima": "420h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

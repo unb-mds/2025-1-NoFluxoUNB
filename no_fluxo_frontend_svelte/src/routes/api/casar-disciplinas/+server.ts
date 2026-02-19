@@ -51,9 +51,18 @@ function extractSubjectCodes(expression: string): string[] {
 }
 
 function getStatusPriority(status: string): number {
-	if (status === 'APR' || status === 'CUMP') return 3;
-	if (status === 'MATR') return 2;
+	const s = String(status ?? '').trim().toUpperCase();
+	if (s === 'APR' || s === 'CUMP') return 3;
+	if (s === 'MATR') return 2;
 	return 1;
+}
+
+function isStatusCompleted(status: string): boolean {
+	return ['APR', 'CUMP'].includes(String(status ?? '').trim().toUpperCase());
+}
+
+function isStatusMatriculado(status: string): boolean {
+	return String(status ?? '').trim().toUpperCase() === 'MATR';
 }
 
 function findSubjectMatch(
@@ -108,8 +117,12 @@ function processMatchedDiscipline(
 		(d) => d.id_materia === materiaBanco.id_materia
 	);
 
+	// Usar código da matriz (codigo_materia) como "codigo" na resposta para o fluxograma
+	// bater com as células do grid (curso usa codigo_materia); codigo_historico preserva o do PDF.
 	const disciplinaCasada = {
 		...disciplina,
+		codigo: materiaBanco.materias.codigo_materia,
+		codigo_historico: disciplina.codigo,
 		nome: materiaBanco.materias.nome_materia || disciplina.nome,
 		nome_materia: materiaBanco.materias.nome_materia,
 		codigo_materia: materiaBanco.materias.codigo_materia,
@@ -142,13 +155,12 @@ function checkEquivalencies(
 	for (const eq of equivalencias) {
 		const codigosEquivalentes = extractSubjectCodes(eq.expressao);
 		for (const codigoEq of codigosEquivalentes) {
-			const encontrada = disciplinasCasadas.find(
-				(d) =>
-					d.codigo === codigoEq && (d.status === 'APR' || d.status === 'CUMP')
-			);
-			if (encontrada) {
-				return true;
-			}
+			const codigoUpper = codigoEq.toUpperCase();
+			const encontrada = disciplinasCasadas.find((d) => {
+				const dCodigo = String(d.codigo ?? '').trim().toUpperCase();
+				return dCodigo === codigoUpper && isStatusCompleted(d.status as string);
+			});
+			if (encontrada) return true;
 		}
 	}
 	return false;
@@ -168,7 +180,9 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		}
 
 		const curso_extraido = dados_extraidos.curso_extraido;
-		const matriz_curricular = dados_extraidos.matriz_curricular;
+		const matriz_curricular = typeof dados_extraidos.matriz_curricular === 'string'
+			? dados_extraidos.matriz_curricular.trim()
+			: dados_extraidos.matriz_curricular;
 		const media_ponderada = dados_extraidos.media_ponderada;
 		const frequencia_geral = dados_extraidos.frequencia_geral;
 
@@ -237,21 +251,57 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 				}
 			}
 		} else {
-			// Normal course search — use curso_selecionado if provided
-			const cursoNome = dados_extraidos.curso_selecionado || curso_extraido;
-
-			let query = supabase
-				.from('cursos')
-				.select('*,materias_por_curso(id_materia,nivel,materias(*))')
-				.like('nome_curso', '%' + cursoNome + '%');
-
-			if (matriz_curricular) {
-				query = query.eq('matriz_curricular', matriz_curricular);
+			// Seleção explícita pelo usuário (modal de múltiplas matrizes)
+			const idCursoSelecionado = dados_extraidos.id_curso_selecionado;
+			if (idCursoSelecionado != null && idCursoSelecionado !== '') {
+				const { data: cursoPorId, error: errId } = await supabase
+					.from('cursos')
+					.select('*,materias_por_curso(id_materia,nivel,materias(*))')
+					.eq('id_curso', Number(idCursoSelecionado))
+					.maybeSingle();
+				if (!errId && cursoPorId) {
+					materiasBanco = [cursoPorId];
+					console.log(`${LOG_PREFIX} Course selected by id_curso: ${cursoPorId.nome_curso} (${cursoPorId.matriz_curricular})`);
+				}
 			}
 
-			const result = await query;
-			materiasBanco = result.data;
-			error = result.error;
+			if (!materiasBanco || materiasBanco.length === 0) {
+				const cursoNome = dados_extraidos.curso_selecionado || curso_extraido;
+
+				let query = supabase
+					.from('cursos')
+					.select('*,materias_por_curso(id_materia,nivel,materias(*))')
+					.like('nome_curso', '%' + cursoNome + '%');
+
+				if (matriz_curricular) {
+					query = query.eq('matriz_curricular', matriz_curricular);
+				}
+
+				let result = await query;
+				materiasBanco = result.data;
+				error = result.error;
+
+				// Se veio matriz do PDF mas não achou nada, buscar só por nome e escolher pela matriz (match flexível)
+				if (matriz_curricular && (!materiasBanco || materiasBanco.length === 0)) {
+					const fallback = await supabase
+						.from('cursos')
+						.select('*,materias_por_curso(id_materia,nivel,materias(*))')
+						.like('nome_curso', '%' + cursoNome + '%');
+					const fallbackData = fallback.data;
+					if (fallbackData && fallbackData.length > 0) {
+						const matrizNorm = (v: unknown) =>
+							(typeof v === 'string' ? v.trim() : String(v ?? '')).toLowerCase();
+						const matrizBuscada = matrizNorm(matriz_curricular);
+						const match = fallbackData.find(
+							(c: Record<string, unknown>) => matrizNorm(c.matriz_curricular) === matrizBuscada
+						);
+						if (match) {
+							materiasBanco = [match];
+							console.log(`${LOG_PREFIX} Matched matrix by normalized comparison: "${match.matriz_curricular}"`);
+						}
+					}
+				}
+			}
 		}
 
 		if (error) {
@@ -274,7 +324,40 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			);
 		}
 
-		const curso = materiasBanco[0] as Record<string, unknown>;
+		// Se há vários cursos (ex.: mesmo nome com matrizes 2017.2 e 2019.2), usar a matriz do PDF
+		// ou pedir seleção ao usuário — nunca pegar o primeiro arbitrariamente
+		let curso: Record<string, unknown>;
+		if (materiasBanco.length > 1) {
+			const matrizNorm = (v: unknown) =>
+				(typeof v === 'string' ? v.trim() : String(v ?? '')).toLowerCase();
+			const matrizBuscada = matrizNorm(matriz_curricular);
+			const byMatrix = (materiasBanco as Record<string, unknown>[]).find(
+				(c) => matrizNorm(c.matriz_curricular) === matrizBuscada
+			);
+			if (byMatrix && matrizBuscada) {
+				curso = byMatrix;
+				console.log(`${LOG_PREFIX} Multiple courses: selected by matrix "${curso.matriz_curricular}"`);
+			} else {
+				// Matriz do PDF não bateu ou não veio no PDF: pedir seleção
+				const cursosParaEscolha = (materiasBanco as Record<string, unknown>[]).map((c) => ({
+					nome_curso: c.nome_curso,
+					matriz_curricular: c.matriz_curricular,
+					id_curso: c.id_curso
+				}));
+				return json(
+					{
+						type: 'COURSE_SELECTION',
+						error: 'Mais de uma matriz curricular encontrada para este curso',
+						message: 'Selecione a matriz curricular do seu histórico',
+						cursos_disponiveis: cursosParaEscolha,
+						matriz_extraida_pdf: matriz_curricular || null
+					},
+					{ status: 400 }
+				);
+			}
+		} else {
+			curso = materiasBanco[0] as Record<string, unknown>;
+		}
 		const materiasBancoList = curso.materias_por_curso as MateriasBanco[];
 		const materiasObrigatorias = materiasBancoList.filter((m) => m.nivel > 0);
 		const materiasOptativas = materiasBancoList.filter((m) => m.nivel === 0);
@@ -301,8 +384,10 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 
 		// Initialize result arrays
 		const disciplinasCasadas: Record<string, unknown>[] = [];
+		// Obrigatórias (materias_por_curso.nivel > 0): concluídas e pendentes
 		const materiasConcluidas: Record<string, unknown>[] = [];
 		const materiasPendentes: Record<string, unknown>[] = [];
+		// Optativas (nivel === 0)
 		const materiasOptativasConcluidas: Record<string, unknown>[] = [];
 		const materiasOptativasPendentes: Record<string, unknown>[] = [];
 
@@ -363,11 +448,13 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 
 			// 3. Try equivalency matching
 			if (!materiaBanco && allEquivalencies) {
+				const codigoUpper = String(disciplina.codigo ?? '').trim().toUpperCase();
+				const nomeUpper = String(disciplina.nome ?? '').trim().toUpperCase();
 				const equivalenciasMatch = (allEquivalencies as EquivalenciaData[]).filter(
 					(eq) =>
 						eq.expressao &&
-						(eq.expressao.includes(disciplina.codigo) ||
-							eq.expressao.includes(disciplina.nome))
+						(eq.expressao.toUpperCase().includes(codigoUpper) ||
+							eq.expressao.toUpperCase().includes(nomeUpper))
 				);
 
 				if (equivalenciasMatch.length > 0) {
@@ -400,11 +487,13 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 
 		console.log(`${LOG_PREFIX} Matching done — Found: ${foundCount}, Not found: ${notFoundCount}`);
 
-		// Classify matched disciplines
+		// Classify matched disciplines (só obrigatórias e optativas; nao_encontrada não entra nas listas de resumo)
 		for (const disciplinaCasada of disciplinasCasadas) {
-			const isCompleted =
-				disciplinaCasada.status === 'APR' || disciplinaCasada.status === 'CUMP';
-			const isElective = disciplinaCasada.tipo === 'optativa';
+			const tipo = disciplinaCasada.tipo as string;
+			if (tipo === 'nao_encontrada') continue;
+
+			const isCompleted = isStatusCompleted(disciplinaCasada.status as string);
+			const isElective = tipo === 'optativa';
 
 			if (isCompleted) {
 				const completedSubject = { ...disciplinaCasada, status_fluxograma: 'concluida' };
@@ -414,7 +503,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 					materiasConcluidas.push(completedSubject);
 				}
 			} else {
-				const isInProgress = disciplinaCasada.status === 'MATR';
+				const isInProgress = isStatusMatriculado(disciplinaCasada.status as string);
 				const statusFluxograma = isInProgress ? 'em_andamento' : 'pendente';
 				const pendingSubject = { ...disciplinaCasada, status_fluxograma: statusFluxograma };
 				if (isElective) {
@@ -466,11 +555,10 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 				let encontrada: Record<string, unknown> | undefined;
 				for (const eq of equivalenciasParaMateria) {
 					const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-					encontrada = disciplinasCasadas.find(
-						(d) =>
-							codigosEquivalentes.includes(d.codigo as string) &&
-							(d.status === 'APR' || d.status === 'CUMP')
-					);
+					encontrada = disciplinasCasadas.find((d) => {
+						const dc = String(d.codigo ?? '').trim().toUpperCase();
+						return codigosEquivalentes.includes(dc) && isStatusCompleted(d.status as string);
+					});
 					if (encontrada) break;
 				}
 				materiasConcluidasPorEquivalencia.push({
@@ -508,11 +596,10 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 					if (!obrigatoria) continue;
 
 					const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-					const encontrada = disciplinasCasadas.find(
-						(d) =>
-							codigosEquivalentes.includes(d.codigo as string) &&
-							(d.status === 'APR' || d.status === 'CUMP')
-					);
+					const encontrada = disciplinasCasadas.find((d) => {
+						const dc = String(d.codigo ?? '').trim().toUpperCase();
+						return codigosEquivalentes.includes(dc) && isStatusCompleted(d.status as string);
+					});
 
 					if (encontrada) {
 						materiasConcluidasPorEquivalencia.push({
@@ -541,10 +628,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		// Calculate integrated hours
 		let horasIntegralizadas = 0;
 		for (const disciplina of disciplinasCasadas) {
-			if (
-				(disciplina.status === 'APR' || disciplina.status === 'CUMP') &&
-				disciplina.carga_horaria
-			) {
+			if (isStatusCompleted(disciplina.status as string) && disciplina.carga_horaria) {
 				horasIntegralizadas += disciplina.carga_horaria as number;
 			}
 		}
@@ -576,11 +660,13 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			matriz_curricular,
 			resumo: {
 				total_disciplinas: disciplinasCasadas.length,
+				total_obrigatorias: totalObrigatorias,
 				total_obrigatorias_concluidas: todasMateriasConcluidas.length,
 				total_obrigatorias_pendentes: todasMateriasPendentes.length,
 				total_optativas: todasMateriasOptativas.length,
 				percentual_conclusao_obrigatorias: percentualConclusao
 			}
+			// total_disciplinas = todas casadas (obrig + optativas). Para resumo/progresso use total_obrigatorias (só nivel > 0).
 		});
 	} catch (err: unknown) {
 		const message = err instanceof Error ? err.message : 'Erro ao casar disciplinas';

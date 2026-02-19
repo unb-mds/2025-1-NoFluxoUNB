@@ -1,7 +1,16 @@
 {
   "curso": "ARQUIVOLOGIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "8192/2",
   "periodo_letivo_vigor": "2020.2",
+  "prazos_cargas": {
+    "total_minima": "2400h",
+    "subtotal_ch_aula": "1320h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1320h",
+    "ch_optativa_minima": "1080h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

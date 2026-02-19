@@ -1,7 +1,16 @@
 {
   "curso": "MEDICINA",
   "tipo_curso": "Médico",
+  "curriculo": "7111/1",
   "periodo_letivo_vigor": "2016.1",
+  "prazos_cargas": {
+    "total_minima": "7890h",
+    "subtotal_ch_aula": "7110h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "7110h",
+    "ch_optativa_minima": "780h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

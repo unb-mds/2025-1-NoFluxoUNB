@@ -1,7 +1,16 @@
 {
   "curso": "ARTES VISUAIS",
   "tipo_curso": "Licenciatura",
+  "curriculo": "4936/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3225h",
+    "subtotal_ch_aula": "2655h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2655h",
+    "ch_optativa_minima": "360h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

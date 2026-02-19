@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIA DA COMPUTAÇÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1856/2",
   "periodo_letivo_vigor": "2021.2",
+  "prazos_cargas": {
+    "total_minima": "3210h",
+    "subtotal_ch_aula": "2010h",
+    "subtotal_ch_orientacao": "90h",
+    "ch_obrigatoria_total": "2100h",
+    "ch_optativa_minima": "1110h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIAS SOCIAIS - ANTROPOLOGIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "3131/1",
   "periodo_letivo_vigor": "2019.2",
+  "prazos_cargas": {
+    "total_minima": "2520h",
+    "subtotal_ch_aula": "1650h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1650h",
+    "ch_optativa_minima": "870h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

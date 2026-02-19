@@ -1,7 +1,16 @@
 {
   "curso": "ARQUITETURA E URBANISMO",
   "tipo_curso": "Arquiteto e Urbanista",
+  "curriculo": "5673/-2",
   "periodo_letivo_vigor": "2010.1",
+  "prazos_cargas": {
+    "total_minima": "3750h",
+    "subtotal_ch_aula": "3120h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "3120h",
+    "ch_optativa_minima": "540h",
+    "ch_complementar_minima": "90h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

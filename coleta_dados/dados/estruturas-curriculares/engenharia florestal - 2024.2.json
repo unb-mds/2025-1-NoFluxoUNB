@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA FLORESTAL",
-  "tipo_curso": "Bacharelado",
+  "tipo_curso": "Engenheiro Florestal",
+  "curriculo": "6521/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3900h",
+    "subtotal_ch_aula": "2685h",
+    "subtotal_ch_orientacao": "585h",
+    "ch_obrigatoria_total": "3270h",
+    "ch_optativa_minima": "630h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

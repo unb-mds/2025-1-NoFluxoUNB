@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6351/3",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3600h",
+    "subtotal_ch_aula": "2220h",
+    "subtotal_ch_orientacao": "450h",
+    "ch_obrigatoria_total": "2670h",
+    "ch_optativa_minima": "930h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -555,6 +564,11 @@
           "codigo": "ENE0459",
           "nome": "ENGENHARIA E MUDANCAS CLIMATICAS",
           "ch": "30"
+        },
+        {
+          "codigo": "ENE0477",
+          "nome": "AUTOMACAO PREDIAL COM IOT",
+          "ch": "60"
         },
         {
           "codigo": "EPR0059",

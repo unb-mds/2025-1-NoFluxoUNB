@@ -1,7 +1,16 @@
 {
   "curso": "MATEMÁTICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "1325/1",
   "periodo_letivo_vigor": "2017.2",
+  "prazos_cargas": {
+    "total_minima": "2820h",
+    "subtotal_ch_aula": "1980h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1980h",
+    "ch_optativa_minima": "630h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

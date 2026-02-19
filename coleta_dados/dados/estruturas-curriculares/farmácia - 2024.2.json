@@ -1,7 +1,16 @@
 {
   "curso": "FARMÁCIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "7013/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "4155h",
+    "subtotal_ch_aula": "3330h",
+    "subtotal_ch_orientacao": "345h",
+    "ch_obrigatoria_total": "3675h",
+    "ch_optativa_minima": "450h",
+    "ch_complementar_minima": "30h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -127,11 +136,6 @@
           "ch": "30"
         },
         {
-          "codigo": "FCE0246",
-          "nome": "FARMACOLOGIA BASICA",
-          "ch": "60"
-        },
-        {
           "codigo": "FCE0282",
           "nome": "INTERACAO PARASITO-HOSPEDEIRO",
           "ch": "30"
@@ -160,6 +164,11 @@
           "codigo": "FCE0938",
           "nome": "PRATICAS E INTERACAO PARASITO-HOSPEDEIRO",
           "ch": "30"
+        },
+        {
+          "codigo": "FCTS0004",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
         }
       ]
     },
@@ -210,11 +219,6 @@
           "codigo": "FCE0259",
           "nome": "QUIMICA FARMACEUTICA",
           "ch": "60"
-        },
-        {
-          "codigo": "FCE0918",
-          "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO E MICROBIOLOGICO DE ALIMENTOS",
-          "ch": "90"
         },
         {
           "codigo": "FCE0924",
@@ -281,6 +285,11 @@
     {
       "nivel": "8° NIVEL",
       "materias": [
+        {
+          "codigo": "FCE0918",
+          "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO E MICROBIOLOGICO DE ALIMENTOS",
+          "ch": "90"
+        },
         {
           "codigo": "FCE0925",
           "nome": "INOVACAO E EMPREENDEDORISMO FARMACEUTICO",
@@ -1247,11 +1256,6 @@
           "ch": "30"
         },
         {
-          "codigo": "FCE0246",
-          "nome": "FARMACOLOGIA BASICA",
-          "ch": "60"
-        },
-        {
           "codigo": "FCE0282",
           "nome": "INTERACAO PARASITO-HOSPEDEIRO",
           "ch": "30"
@@ -1280,6 +1284,11 @@
           "codigo": "FCE0938",
           "nome": "PRATICAS E INTERACAO PARASITO-HOSPEDEIRO",
           "ch": "30"
+        },
+        {
+          "codigo": "FCTS0004",
+          "nome": "FARMACOLOGIA BASICA",
+          "ch": "60"
         },
         {
           "codigo": "FCE0920",
@@ -1320,11 +1329,6 @@
           "codigo": "FCE0259",
           "nome": "QUIMICA FARMACEUTICA",
           "ch": "60"
-        },
-        {
-          "codigo": "FCE0918",
-          "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO E MICROBIOLOGICO DE ALIMENTOS",
-          "ch": "90"
         },
         {
           "codigo": "FCE0924",
@@ -1379,6 +1383,11 @@
         {
           "codigo": "FCE0949",
           "nome": "ASPECTOS TECNOLOGICOS EM FARMACOTECNICA  3",
+          "ch": "90"
+        },
+        {
+          "codigo": "FCE0918",
+          "nome": "CONTROLE DE QUALIDADE FISICO-QUIMICO E MICROBIOLOGICO DE ALIMENTOS",
           "ch": "90"
         },
         {

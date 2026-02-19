@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - TRADUÇÃO - ESPANHOL",
   "tipo_curso": "Bacharelado",
+  "curriculo": "4626/2",
   "periodo_letivo_vigor": "2025.1",
+  "prazos_cargas": {
+    "total_minima": "2400h",
+    "subtotal_ch_aula": "1410h",
+    "subtotal_ch_orientacao": "180h",
+    "ch_obrigatoria_total": "1590h",
+    "ch_optativa_minima": "810h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -590,6 +599,51 @@
           "codigo": "LET0444",
           "nome": "LINGUISTICA DE CORPUS",
           "ch": "60"
+        },
+        {
+          "codigo": "LET0856",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "75"
+        },
+        {
+          "codigo": "LET0857",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "15"
+        },
+        {
+          "codigo": "LET0858",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "30"
+        },
+        {
+          "codigo": "LET0859",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "45"
+        },
+        {
+          "codigo": "LET0860",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "60"
+        },
+        {
+          "codigo": "LET0861",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "90"
+        },
+        {
+          "codigo": "LET0863",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "120"
+        },
+        {
+          "codigo": "LET0864",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "150"
+        },
+        {
+          "codigo": "LET0867",
+          "nome": "ATIVIDADES COMPLEMENTARES",
+          "ch": "210"
         },
         {
           "codigo": "LIP0025",

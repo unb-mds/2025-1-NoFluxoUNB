@@ -1,7 +1,16 @@
 {
   "curso": "NUTRIÇÃO",
-  "tipo_curso": "Bacharelado",
+  "tipo_curso": "Nutricionista",
+  "curriculo": "7510/-2",
   "periodo_letivo_vigor": "2012.1",
+  "prazos_cargas": {
+    "total_minima": "3600h",
+    "subtotal_ch_aula": "2565h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2565h",
+    "ch_optativa_minima": "1035h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

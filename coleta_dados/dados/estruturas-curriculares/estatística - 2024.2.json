@@ -1,7 +1,16 @@
 {
   "curso": "ESTATÍSTICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1716/3",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3000h",
+    "subtotal_ch_aula": "1800h",
+    "subtotal_ch_orientacao": "240h",
+    "ch_obrigatoria_total": "2040h",
+    "ch_optativa_minima": "960h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

@@ -1,7 +1,16 @@
 {
   "curso": "GEOLOGIA",
   "tipo_curso": "Geólogo",
+  "curriculo": "1228/2",
   "periodo_letivo_vigor": "2025.1",
+  "prazos_cargas": {
+    "total_minima": "3960h",
+    "subtotal_ch_aula": "3450h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "3450h",
+    "ch_optativa_minima": "510h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

@@ -1,7 +1,16 @@
 {
   "curso": "MEDICINA VETERINÁRIA",
   "tipo_curso": "Médico Veterinário",
+  "curriculo": "6181/1",
   "periodo_letivo_vigor": "2016.1",
+  "prazos_cargas": {
+    "total_minima": "4200h",
+    "subtotal_ch_aula": "3330h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "3330h",
+    "ch_optativa_minima": "870h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -1374,16 +1383,6 @@
         {
           "codigo": "ICB0143",
           "nome": "HISTOLOGIA ANIMAL 1",
-          "ch": "75"
-        },
-        {
-          "codigo": "ICB0250",
-          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 1",
-          "ch": "75"
-        },
-        {
-          "codigo": "ICB0251",
-          "nome": "DESENVOLVIMENTO EMBRIONARIO E EVOLUCAO EM ANIMAIS E VEGETAIS 2",
           "ch": "75"
         },
         {

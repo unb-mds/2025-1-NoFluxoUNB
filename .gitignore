@@ -46,7 +46,8 @@ venv
 ai_agent/logs/
 prompts/logs/
 
-# Dados temporários
+# Dados temporários / coleta (apenas a pasta de dados, não o código em coleta_dados/scraping)
+coleta_dados/dados/
 dados_finais_*/
 dados_temporarios/
 tmp/

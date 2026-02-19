@@ -1,7 +1,16 @@
 {
   "curso": "MATEMÁTICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "1325/2",
   "periodo_letivo_vigor": "2025.1",
+  "prazos_cargas": {
+    "total_minima": "3225h",
+    "subtotal_ch_aula": "2085h",
+    "subtotal_ch_orientacao": "330h",
+    "ch_obrigatoria_total": "2415h",
+    "ch_optativa_minima": "600h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -24,6 +33,11 @@
         {
           "codigo": "PAD0028",
           "nome": "ORGANIZACAO DA EDUCACAO BRASILEIRA",
+          "ch": "60"
+        },
+        {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
           "ch": "60"
         }
       ]
@@ -57,9 +71,9 @@
           "ch": "30"
         },
         {
-          "codigo": "PPB0067",
-          "nome": "APRENDIZAGEM NO ENSINO",
-          "ch": "60"
+          "codigo": "MAT0163",
+          "nome": "DIDATICA DA MATEMATICA",
+          "ch": "90"
         }
       ]
     },
@@ -82,8 +96,13 @@
           "ch": "60"
         },
         {
-          "codigo": "MAT0163",
-          "nome": "DIDATICA DA MATEMATICA",
+          "codigo": "MAT0111",
+          "nome": "GEOMETRIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0164",
+          "nome": "CURRICULO E AVALIACAO EM MATEMATICA",
           "ch": "90"
         }
       ]
@@ -97,8 +116,8 @@
           "ch": "60"
         },
         {
-          "codigo": "MAT0111",
-          "nome": "GEOMETRIA 1",
+          "codigo": "MAT0114",
+          "nome": "GEOMETRIA 2",
           "ch": "60"
         },
         {
@@ -107,8 +126,8 @@
           "ch": "75"
         },
         {
-          "codigo": "MAT0164",
-          "nome": "CURRICULO E AVALIACAO EM MATEMATICA",
+          "codigo": "MAT0166",
+          "nome": "ESTRATEGIAS PARA O ENSINO DE GEOMETRIA",
           "ch": "90"
         },
         {
@@ -122,29 +141,14 @@
       "nivel": "5° NIVEL",
       "materias": [
         {
-          "codigo": "MAT0114",
-          "nome": "GEOMETRIA 2",
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
           "ch": "60"
         },
         {
           "codigo": "MAT0147",
           "nome": "PRATICAS DE EXTENSAO 3",
           "ch": "75"
-        },
-        {
-          "codigo": "MAT0166",
-          "nome": "ESTRATEGIAS PARA O ENSINO DE GEOMETRIA",
-          "ch": "90"
-        }
-      ]
-    },
-    {
-      "nivel": "6° NIVEL",
-      "materias": [
-        {
-          "codigo": "MAT0045",
-          "nome": "ANALISE 1",
-          "ch": "60"
         },
         {
           "codigo": "MAT0165",
@@ -154,17 +158,12 @@
       ]
     },
     {
-      "nivel": "7° NIVEL",
+      "nivel": "6° NIVEL",
       "materias": [
         {
           "codigo": "MAT0075",
           "nome": "CALCULO DE PROBABILIDADE 1",
           "ch": "90"
-        },
-        {
-          "codigo": "MAT0148",
-          "nome": "PRATICAS DE EXTENSAO 4",
-          "ch": "75"
         },
         {
           "codigo": "MAT0170",
@@ -174,7 +173,7 @@
       ]
     },
     {
-      "nivel": "8° NIVEL",
+      "nivel": "7° NIVEL",
       "materias": [
         {
           "codigo": "MAT0028",
@@ -182,8 +181,8 @@
           "ch": "90"
         },
         {
-          "codigo": "MAT0169",
-          "nome": "PRATICAS DE EXTENSAO 5",
+          "codigo": "MAT0148",
+          "nome": "PRATICAS DE EXTENSAO 4",
           "ch": "75"
         },
         {
@@ -194,12 +193,17 @@
       ]
     },
     {
-      "nivel": "9° NIVEL",
+      "nivel": "8° NIVEL",
       "materias": [
         {
           "codigo": "LIP0174",
           "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
+        },
+        {
+          "codigo": "MAT0169",
+          "nome": "PRATICAS DE EXTENSAO 5",
+          "ch": "75"
         },
         {
           "codigo": "MAT0172",
@@ -707,6 +711,11 @@
           "ch": "60"
         },
         {
+          "codigo": "PPB0067",
+          "nome": "APRENDIZAGEM NO ENSINO",
+          "ch": "60"
+        },
+        {
           "codigo": "IFD0171",
           "nome": "FISICA 1",
           "ch": "60"
@@ -732,9 +741,9 @@
           "ch": "30"
         },
         {
-          "codigo": "PPB0067",
-          "nome": "APRENDIZAGEM NO ENSINO",
-          "ch": "60"
+          "codigo": "MAT0163",
+          "nome": "DIDATICA DA MATEMATICA",
+          "ch": "90"
         },
         {
           "codigo": "IFD0175",
@@ -752,8 +761,13 @@
           "ch": "60"
         },
         {
-          "codigo": "MAT0163",
-          "nome": "DIDATICA DA MATEMATICA",
+          "codigo": "MAT0111",
+          "nome": "GEOMETRIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "MAT0164",
+          "nome": "CURRICULO E AVALIACAO EM MATEMATICA",
           "ch": "90"
         },
         {
@@ -762,8 +776,8 @@
           "ch": "60"
         },
         {
-          "codigo": "MAT0111",
-          "nome": "GEOMETRIA 1",
+          "codigo": "MAT0114",
+          "nome": "GEOMETRIA 2",
           "ch": "60"
         },
         {
@@ -772,8 +786,8 @@
           "ch": "75"
         },
         {
-          "codigo": "MAT0164",
-          "nome": "CURRICULO E AVALIACAO EM MATEMATICA",
+          "codigo": "MAT0166",
+          "nome": "ESTRATEGIAS PARA O ENSINO DE GEOMETRIA",
           "ch": "90"
         },
         {
@@ -782,24 +796,14 @@
           "ch": "60"
         },
         {
-          "codigo": "MAT0114",
-          "nome": "GEOMETRIA 2",
+          "codigo": "MAT0045",
+          "nome": "ANALISE 1",
           "ch": "60"
         },
         {
           "codigo": "MAT0147",
           "nome": "PRATICAS DE EXTENSAO 3",
           "ch": "75"
-        },
-        {
-          "codigo": "MAT0166",
-          "nome": "ESTRATEGIAS PARA O ENSINO DE GEOMETRIA",
-          "ch": "90"
-        },
-        {
-          "codigo": "MAT0045",
-          "nome": "ANALISE 1",
-          "ch": "60"
         },
         {
           "codigo": "MAT0165",
@@ -812,11 +816,6 @@
           "ch": "90"
         },
         {
-          "codigo": "MAT0148",
-          "nome": "PRATICAS DE EXTENSAO 4",
-          "ch": "75"
-        },
-        {
           "codigo": "MAT0170",
           "nome": "ESTAGIO SUPERVISIONADO 1",
           "ch": "135"
@@ -827,8 +826,8 @@
           "ch": "90"
         },
         {
-          "codigo": "MAT0169",
-          "nome": "PRATICAS DE EXTENSAO 5",
+          "codigo": "MAT0148",
+          "nome": "PRATICAS DE EXTENSAO 4",
           "ch": "75"
         },
         {
@@ -840,6 +839,11 @@
           "codigo": "LIP0174",
           "nome": "LINGUA DE SINAIS BRASILEIRA - BASICO",
           "ch": "60"
+        },
+        {
+          "codigo": "MAT0169",
+          "nome": "PRATICAS DE EXTENSAO 5",
+          "ch": "75"
         },
         {
           "codigo": "MAT0172",

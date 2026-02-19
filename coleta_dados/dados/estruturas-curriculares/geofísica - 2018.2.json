@@ -1,7 +1,16 @@
 {
   "curso": "GEOFÍSICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1236/1",
   "periodo_letivo_vigor": "2018.2",
+  "prazos_cargas": {
+    "total_minima": "3450h",
+    "subtotal_ch_aula": "2415h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2415h",
+    "ch_optativa_minima": "1035h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

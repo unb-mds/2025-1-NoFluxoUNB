@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA - TROMPA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5568/-2",
   "periodo_letivo_vigor": "2013.1",
+  "prazos_cargas": {
+    "total_minima": "1230h",
+    "subtotal_ch_aula": "900h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "900h",
+    "ch_optativa_minima": "330h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

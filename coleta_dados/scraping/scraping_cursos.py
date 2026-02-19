@@ -3,8 +3,12 @@ import urllib.parse
 from html.parser import HTMLParser
 import json
 import time
+import os
 import pandas as pd
 import re
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DADOS_DIR = os.path.join(SCRIPT_DIR, '..', 'dados')
 
 class CursoParser(HTMLParser):
     def __init__(self):
@@ -48,7 +52,8 @@ def scrape_cursos():
     base_url = "https://sigaa.unb.br/sigaa/public/curso/lista.jsf?nivel=G&aba=p-graduacao"
     
     # Carregar cursos do JSON
-    with open('dados/cursos-de-graduacao.json', 'r', encoding='utf-8') as f:
+    path_cursos = os.path.join(DADOS_DIR, 'cursos-de-graduacao.json')
+    with open(path_cursos, 'r', encoding='utf-8') as f:
         cursos = json.load(f)
     
     # Criar lista para armazenar resultados
@@ -117,8 +122,9 @@ def scrape_cursos():
     df = pd.DataFrame(resultados)
     
     # Salvar resultados
-    df.to_csv('dados/cursos_ativos.csv', index=False, encoding='utf-8-sig')
-    print("Scraping concluído! Resultados salvos em 'dados/cursos_ativos.csv'")
+    path_saida = os.path.join(DADOS_DIR, 'cursos_ativos.csv')
+    df.to_csv(path_saida, index=False, encoding='utf-8-sig')
+    print(f"Scraping concluído! Resultados salvos em '{path_saida}'")
 
 if __name__ == "__main__":
     scrape_cursos() 

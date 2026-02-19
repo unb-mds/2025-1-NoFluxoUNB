@@ -39,11 +39,13 @@ export interface UserModel {
 }
 
 export function isMateriaCursada(dadosMateria: DadosMateria): boolean {
-	return dadosMateria.status === 'APR' || dadosMateria.status === 'CUMP';
+	const status = String(dadosMateria.status ?? '').trim().toUpperCase();
+	return status === 'APR' || status === 'CUMP';
 }
 
 export function isMateriaAprovada(dadosMateria: DadosMateria): boolean {
-	const { mencao, status } = dadosMateria;
+	const mencao = String(dadosMateria.mencao ?? '-').trim().toUpperCase();
+	const status = String(dadosMateria.status ?? '-').trim().toUpperCase();
 	return (
 		mencao === 'SS' ||
 		mencao === 'MM' ||
@@ -54,7 +56,7 @@ export function isMateriaAprovada(dadosMateria: DadosMateria): boolean {
 }
 
 export function isMateriaCurrent(dadosMateria: DadosMateria): boolean {
-	return dadosMateria.status === 'MATR';
+	return String(dadosMateria.status ?? '').trim().toUpperCase() === 'MATR';
 }
 
 export function isMateriaCompletedOrCurrent(dadosMateria: DadosMateria): boolean {
@@ -66,7 +68,8 @@ export function getCompletedSubjectCodes(dados: DadosFluxogramaUser): Set<string
 	for (const semester of dados.dadosFluxograma) {
 		for (const materia of semester) {
 			if (isMateriaAprovada(materia)) {
-				completed.add(materia.codigoMateria);
+				const code = materia.codigoMateria ?? (materia as unknown as { codigo?: string }).codigo ?? '';
+				if (code) completed.add(code);
 			}
 		}
 	}

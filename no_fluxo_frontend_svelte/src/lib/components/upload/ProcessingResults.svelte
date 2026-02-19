@@ -10,34 +10,44 @@
 
 	let { data, extractedData = null }: Props = $props();
 
+	// Total só de obrigatórias (nivel > 0), sem optativas; vem do backend ou soma concluídas + pendentes
+	let totalObrigatorias = $derived(
+		data.resumo.total_obrigatorias ??
+			(data.resumo.total_obrigatorias_concluidas ?? 0) + (data.resumo.total_obrigatorias_pendentes ?? 0)
+	);
+
 	let stats = $derived([
 		{
-			label: 'Total de Disciplinas',
-			value: data.resumo.total_disciplinas,
+			label: 'Total de Obrigatórias',
+			value: totalObrigatorias,
 			icon: BookOpen,
 			color: 'text-purple-400',
-			bg: 'bg-purple-500/10'
+			bg: 'bg-purple-500/10',
+			title: 'Matérias obrigatórias (nivel > 0): concluídas + pendentes'
 		},
 		{
-			label: 'Concluídas',
+			label: 'Concluídas (obrig.)',
 			value: data.resumo.total_obrigatorias_concluidas,
 			icon: CheckCircle,
 			color: 'text-emerald-400',
-			bg: 'bg-emerald-500/10'
+			bg: 'bg-emerald-500/10',
+			title: 'Obrigatórias concluídas (APR/CUMP ou por equivalência)'
 		},
 		{
-			label: 'Pendentes',
+			label: 'Pendentes (obrig.)',
 			value: data.resumo.total_obrigatorias_pendentes,
 			icon: AlertTriangle,
 			color: 'text-orange-400',
-			bg: 'bg-orange-500/10'
+			bg: 'bg-orange-500/10',
+			title: 'Obrigatórias ainda não concluídas'
 		},
 		{
 			label: 'Optativas',
 			value: data.resumo.total_optativas,
 			icon: Star,
 			color: 'text-blue-400',
-			bg: 'bg-blue-500/10'
+			bg: 'bg-blue-500/10',
+			title: 'Matérias optativas (nivel = 0)'
 		}
 	]);
 
@@ -50,7 +60,7 @@
 	<!-- Stats Grid -->
 	<div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
 		{#each stats as stat}
-			<div class="rounded-xl border border-white/5 p-3 text-center {stat.bg}">
+			<div class="rounded-xl border border-white/5 p-3 text-center {stat.bg}" title={stat.title}>
 				<div class="mx-auto mb-1.5 flex h-8 w-8 items-center justify-center rounded-full {stat.bg}">
 					<stat.icon class="h-4 w-4 {stat.color}" />
 				</div>

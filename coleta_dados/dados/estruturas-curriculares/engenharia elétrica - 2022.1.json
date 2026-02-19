@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA ELÉTRICA",
   "tipo_curso": "Engenheiro Eletricista",
+  "curriculo": "6335/2",
   "periodo_letivo_vigor": "2022.1",
+  "prazos_cargas": {
+    "total_minima": "3720h",
+    "subtotal_ch_aula": "2835h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2835h",
+    "ch_optativa_minima": "885h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -810,6 +819,11 @@
           "codigo": "ENE0459",
           "nome": "ENGENHARIA E MUDANCAS CLIMATICAS",
           "ch": "30"
+        },
+        {
+          "codigo": "ENE0477",
+          "nome": "AUTOMACAO PREDIAL COM IOT",
+          "ch": "60"
         },
         {
           "codigo": "ENM0068",

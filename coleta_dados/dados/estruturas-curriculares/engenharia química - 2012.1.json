@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA QUÍMICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "60844/-2",
   "periodo_letivo_vigor": "2012.1",
+  "prazos_cargas": {
+    "total_minima": "3960h",
+    "subtotal_ch_aula": "2835h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2835h",
+    "ch_optativa_minima": "1125h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

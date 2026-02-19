@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5622/-3",
   "periodo_letivo_vigor": "2006.1",
+  "prazos_cargas": {
+    "total_minima": "1320h",
+    "subtotal_ch_aula": "240h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "240h",
+    "ch_optativa_minima": "1080h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "6° NIVEL",

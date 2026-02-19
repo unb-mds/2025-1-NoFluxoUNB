@@ -1,7 +1,16 @@
 {
   "curso": "EDUCAÇÃO DO CAMPO - MATEMÁTICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "761/1",
   "periodo_letivo_vigor": "2019.1",
+  "prazos_cargas": {
+    "total_minima": "3510h",
+    "subtotal_ch_aula": "2580h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2580h",
+    "ch_optativa_minima": "720h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

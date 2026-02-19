@@ -1,7 +1,16 @@
 {
   "curso": "TEATRO",
   "tipo_curso": "Licenciatura",
+  "curriculo": "5151/-2",
   "periodo_letivo_vigor": "3013.2",
+  "prazos_cargas": {
+    "total_minima": "2820h",
+    "subtotal_ch_aula": "1635h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1635h",
+    "ch_optativa_minima": "1185h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

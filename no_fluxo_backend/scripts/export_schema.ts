@@ -1430,8 +1430,10 @@ export async function exportSchema(): Promise<DatabaseSchema> {
     }
 }
 
-// Run if called directly (ESM-compatible check)
-const isMainModule = import.meta.url === `file://${process.argv[1]}`;
+// Run if called directly (ESM-compatible; normaliza caminhos para Windows e tsx)
+const currentScriptPath = path.resolve(__filename);
+const runScriptPath = process.argv[1] ? path.resolve(process.cwd(), process.argv[1]) : '';
+const isMainModule = runScriptPath !== '' && path.resolve(currentScriptPath) === path.resolve(runScriptPath);
 if (isMainModule) {
     exportSchema()
         .then(() => {

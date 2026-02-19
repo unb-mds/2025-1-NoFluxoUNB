@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIAS CONTÁBEIS",
   "tipo_curso": "Bacharelado",
+  "curriculo": "8516/2",
   "periodo_letivo_vigor": "2021.2",
+  "prazos_cargas": {
+    "total_minima": "3060h",
+    "subtotal_ch_aula": "2130h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2130h",
+    "ch_optativa_minima": "930h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -415,6 +424,16 @@
           "codigo": "CCA0186",
           "nome": "TOPICOS EM CONTABILIDADE 6",
           "ch": "30"
+        },
+        {
+          "codigo": "CCA0190",
+          "nome": "ACCOUNTING TOPICS 1",
+          "ch": "30"
+        },
+        {
+          "codigo": "CCA0191",
+          "nome": "ACCOUNTING TOPICS 2",
+          "ch": "60"
         },
         {
           "codigo": "CCA0227",

@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIA DA COMPUTAÇÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1856/3",
   "periodo_letivo_vigor": "2025.1",
+  "prazos_cargas": {
+    "total_minima": "3210h",
+    "subtotal_ch_aula": "2010h",
+    "subtotal_ch_orientacao": "90h",
+    "ch_obrigatoria_total": "2100h",
+    "ch_optativa_minima": "1110h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -412,11 +421,6 @@
           "ch": "90"
         },
         {
-          "codigo": "CIC0258",
-          "nome": "TOPICOS ESPECIAIS EM PROGRAMACAO COMPETITIVA",
-          "ch": "60"
-        },
-        {
           "codigo": "CIC0259",
           "nome": "ESTUDOS EM CODIFICACAO E CRIPTOGRAFIA",
           "ch": "60"
@@ -470,6 +474,11 @@
           "codigo": "CIC0299",
           "nome": "INTRODUCAO AO AMBIENTE UNIVERSITARIO NA COMPUTACAO",
           "ch": "15"
+        },
+        {
+          "codigo": "CIC0303",
+          "nome": "ESTUDOS EM PROGRAMACAO COMPETITIVA",
+          "ch": "60"
         },
         {
           "codigo": "DEG0200",
@@ -585,16 +594,6 @@
           "codigo": "DEX0199",
           "nome": "ATIVIDADE DE EXTENSAO",
           "ch": "60"
-        },
-        {
-          "codigo": "DEX0200",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "90"
-        },
-        {
-          "codigo": "DEX0201",
-          "nome": "ATIVIDADE DE EXTENSAO",
-          "ch": "120"
         },
         {
           "codigo": "DEX0202",

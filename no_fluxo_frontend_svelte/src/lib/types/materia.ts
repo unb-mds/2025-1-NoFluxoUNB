@@ -70,8 +70,14 @@ export function canBeTaken(materia: MateriaModel, completedMateriasCodes: Set<st
 	if (!hasPrerequisites(materia)) return true;
 
 	return materia.preRequisitos!.every((prereq) =>
-		completedMateriasCodes.has(prereq.codigoMateria)
+		setHasCodeIgnoreCase(completedMateriasCodes, prereq.codigoMateria)
 	);
+}
+
+function setHasCodeIgnoreCase(codes: Set<string>, code: string): boolean {
+	if (codes.has(code)) return true;
+	const codeUpper = code.trim().toUpperCase();
+	return [...codes].some((c) => c.trim().toUpperCase() === codeUpper);
 }
 
 export function determineSubjectStatus(
@@ -82,7 +88,8 @@ export function determineSubjectStatus(
 ): SubjectStatusValue {
 	const code = materia.codigoMateria;
 
-	if (completedCodes.has(code)) {
+	// Concluída tem prioridade: no histórico ou por equivalência (com ou sem diferença de casing)
+	if (setHasCodeIgnoreCase(completedCodes, code)) {
 		return SubjectStatusEnum.COMPLETED;
 	}
 
@@ -94,6 +101,7 @@ export function determineSubjectStatus(
 		return SubjectStatusEnum.FAILED;
 	}
 
+	// Só é "disponível" se não for concluída, não estiver cursando e não estiver reprovada
 	if (canBeTaken(materia, completedCodes)) {
 		return SubjectStatusEnum.AVAILABLE;
 	}

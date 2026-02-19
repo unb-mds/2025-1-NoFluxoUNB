@@ -1,7 +1,16 @@
 {
   "curso": "GESTÃO DE AGRONEGÓCIOS",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6262/1",
   "periodo_letivo_vigor": "2014.2",
+  "prazos_cargas": {
+    "total_minima": "3000h",
+    "subtotal_ch_aula": "2010h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2010h",
+    "ch_optativa_minima": "990h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

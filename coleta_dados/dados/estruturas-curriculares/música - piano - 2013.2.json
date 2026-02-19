@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA - PIANO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5592/1",
   "periodo_letivo_vigor": "2013.2",
+  "prazos_cargas": {
+    "total_minima": "2070h",
+    "subtotal_ch_aula": "1680h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1680h",
+    "ch_optativa_minima": "390h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

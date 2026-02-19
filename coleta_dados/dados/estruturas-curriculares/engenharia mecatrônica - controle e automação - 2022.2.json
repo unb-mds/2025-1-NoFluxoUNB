@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA MECATRÔNICA - CONTROLE E AUTOMAÇÃO",
   "tipo_curso": "Engenheiro de Controle e Automação",
+  "curriculo": "6912/2",
   "periodo_letivo_vigor": "2022.2",
+  "prazos_cargas": {
+    "total_minima": "3900h",
+    "subtotal_ch_aula": "2850h",
+    "subtotal_ch_orientacao": "420h",
+    "ch_obrigatoria_total": "3270h",
+    "ch_optativa_minima": "630h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -377,6 +386,11 @@
           "ch": "60"
         },
         {
+          "codigo": "ENE0082",
+          "nome": "NOCOES DE INTELIGENCIA ARTIFICIAL",
+          "ch": "60"
+        },
+        {
           "codigo": "ENE0154",
           "nome": "INTELIGENCIA COMPUTACIONAL",
           "ch": "60"
@@ -399,6 +413,11 @@
         {
           "codigo": "ENE0345",
           "nome": "PRINCIPIOS DE CONTROLE DE ROBOS",
+          "ch": "60"
+        },
+        {
+          "codigo": "ENE0477",
+          "nome": "AUTOMACAO PREDIAL COM IOT",
           "ch": "60"
         },
         {

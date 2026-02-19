@@ -1,7 +1,16 @@
 {
   "curso": "EDUCAÇÃO FÍSICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "7323/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3255h",
+    "subtotal_ch_aula": "2445h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2445h",
+    "ch_optativa_minima": "600h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

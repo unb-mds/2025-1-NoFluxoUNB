@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - LÍNGUA PORTUGUESA E RESPECTIVA LITERATURA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "4910/2",
   "periodo_letivo_vigor": "2024.1",
+  "prazos_cargas": {
+    "total_minima": "3300h",
+    "subtotal_ch_aula": "1980h",
+    "subtotal_ch_orientacao": "390h",
+    "ch_obrigatoria_total": "2370h",
+    "ch_optativa_minima": "720h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

@@ -1,7 +1,16 @@
 {
   "curso": "QUÍMICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1449/2",
   "periodo_letivo_vigor": "2025.2",
+  "prazos_cargas": {
+    "total_minima": "3150h",
+    "subtotal_ch_aula": "2190h",
+    "subtotal_ch_orientacao": "435h",
+    "ch_obrigatoria_total": "2625h",
+    "ch_optativa_minima": "525h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

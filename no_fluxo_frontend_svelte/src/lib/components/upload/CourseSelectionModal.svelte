@@ -4,20 +4,26 @@
 	import { fade, fly } from 'svelte/transition';
 	import type { CourseSelectionError } from '$lib/services/upload.service';
 
+	interface SelectedCourse {
+		nome_curso: string;
+		id_curso?: number;
+		matriz_curricular?: string;
+	}
+
 	interface Props {
 		open: boolean;
 		courseError: CourseSelectionError;
-		onselect: (courseName: string) => void;
+		onselect: (courseName: string, selected?: SelectedCourse) => void;
 		onclose: () => void;
 	}
 
 	let { open, courseError, onselect, onclose }: Props = $props();
 
-	let selectedCourse = $state<string | null>(null);
+	let selectedCourse = $state<SelectedCourse | null>(null);
 
 	function handleConfirm() {
 		if (selectedCourse) {
-			onselect(selectedCourse);
+			onselect(selectedCourse.nome_curso, selectedCourse);
 		}
 	}
 
@@ -53,22 +59,29 @@
 			<div class="max-h-64 overflow-y-auto px-6 py-4">
 				<div class="space-y-2">
 					{#each courseError.cursos_disponiveis as curso}
+						{@const option = { nome_curso: curso.nome_curso, id_curso: curso.id_curso, matriz_curricular: curso.matriz_curricular }}
+						{@const optionKey = curso.id_curso != null ? String(curso.id_curso) : `${curso.nome_curso}|${curso.matriz_curricular ?? ''}`}
 						<label
 							class="course-option"
-							class:selected={selectedCourse === curso.nome_curso}
+							class:selected={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
 						>
 							<input
 								type="radio"
 								name="course"
-								value={curso.nome_curso}
-								bind:group={selectedCourse}
+								value={optionKey}
 								class="sr-only"
+								checked={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
+								onchange={() => selectedCourse = option}
 							/>
 							<div
 								class="radio-dot"
-								class:active={selectedCourse === curso.nome_curso}
+								class:active={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
 							></div>
-							<span class="text-sm text-gray-200">{curso.nome_curso}</span>
+							<span class="text-sm text-gray-200">
+								{curso.nome_curso}{#if curso.matriz_curricular}
+									<span class="text-gray-400"> — {curso.matriz_curricular}</span>
+								{/if}
+							</span>
 						</label>
 					{/each}
 				</div>

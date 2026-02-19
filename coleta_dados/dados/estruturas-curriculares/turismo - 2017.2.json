@@ -1,7 +1,16 @@
 {
   "curso": "TURISMO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6271/1",
   "periodo_letivo_vigor": "2017.2",
+  "prazos_cargas": {
+    "total_minima": "2640h",
+    "subtotal_ch_aula": "1800h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1800h",
+    "ch_optativa_minima": "810h",
+    "ch_complementar_minima": "30h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

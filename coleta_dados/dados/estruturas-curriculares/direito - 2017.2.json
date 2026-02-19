@@ -1,7 +1,16 @@
 {
   "curso": "DIREITO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "8885/-2",
   "periodo_letivo_vigor": "2017.2",
+  "prazos_cargas": {
+    "total_minima": "3840h",
+    "subtotal_ch_aula": "3150h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "3150h",
+    "ch_optativa_minima": "390h",
+    "ch_complementar_minima": "300h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

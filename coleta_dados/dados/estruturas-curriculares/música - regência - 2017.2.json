@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA - REGÊNCIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5622/1",
   "periodo_letivo_vigor": "2017.2",
+  "prazos_cargas": {
+    "total_minima": "3330h",
+    "subtotal_ch_aula": "2250h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2250h",
+    "ch_optativa_minima": "1080h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

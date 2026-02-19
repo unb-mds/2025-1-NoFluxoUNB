@@ -1,7 +1,16 @@
 {
   "curso": "PSICOLOGIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "2712/-2",
   "periodo_letivo_vigor": "2017.1",
+  "prazos_cargas": {
+    "total_minima": "3420h",
+    "subtotal_ch_aula": "1410h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1410h",
+    "ch_optativa_minima": "2010h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

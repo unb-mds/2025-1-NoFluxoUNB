@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIAS CONTÁBEIS",
   "tipo_curso": "Bacharelado",
+  "curriculo": "8516/1",
   "periodo_letivo_vigor": "2019.2",
+  "prazos_cargas": {
+    "total_minima": "3000h",
+    "subtotal_ch_aula": "1860h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1860h",
+    "ch_optativa_minima": "1140h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -12,18 +21,23 @@
           "ch": "60"
         },
         {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
           "codigo": "FDD0004",
           "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
           "ch": "60"
         },
         {
-          "codigo": "MAT0022",
-          "nome": "MATEMATICA 1",
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
           "ch": "60"
         },
         {
-          "codigo": "LIP0153",
-          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
           "ch": "60"
         }
       ]
@@ -47,21 +61,6 @@
           "ch": "60"
         },
         {
-          "codigo": "ECO0019",
-          "nome": "INTRODUCAO A ECONOMIA",
-          "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "3° NIVEL",
-      "materias": [
-        {
-          "codigo": "CCA0018",
-          "nome": "CUSTOS",
-          "ch": "60"
-        },
-        {
           "codigo": "EST0019",
           "nome": "ESTATISTICA APLICADA",
           "ch": "90"
@@ -74,16 +73,11 @@
       ]
     },
     {
-      "nivel": "4° NIVEL",
+      "nivel": "3° NIVEL",
       "materias": [
         {
-          "codigo": "CCA0040",
-          "nome": "CONTABILIDADE GERAL 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0069",
-          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
           "ch": "60"
         },
         {
@@ -99,11 +93,11 @@
       ]
     },
     {
-      "nivel": "5° NIVEL",
+      "nivel": "4° NIVEL",
       "materias": [
         {
-          "codigo": "CCA0021",
-          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
           "ch": "60"
         },
         {
@@ -112,8 +106,38 @@
           "ch": "60"
         },
         {
+          "codigo": "CCA0069",
+          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0015",
+          "nome": "LEGISLACAO SOCIAL",
+          "ch": "60"
+        }
+      ]
+    },
+    {
+      "nivel": "5° NIVEL",
+      "materias": [
+        {
+          "codigo": "CCA0021",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "ch": "60"
+        },
+        {
           "codigo": "CCA0081",
           "nome": "TEORIA CONTABIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0091",
+          "nome": "EXECUCAO DA GESTAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "FDD0141",
+          "nome": "LEGISLACAO TRIBUTARIA",
           "ch": "60"
         }
       ]
@@ -127,13 +151,18 @@
           "ch": "60"
         },
         {
+          "codigo": "CCA0044",
+          "nome": "CONTROLADORIA",
+          "ch": "60"
+        },
+        {
           "codigo": "CCA0074",
           "nome": "ANALISE ECONOMICO-FINANCEIRA 2",
           "ch": "60"
         },
         {
-          "codigo": "CCA0091",
-          "nome": "EXECUCAO DA GESTAO PUBLICA",
+          "codigo": "CCA0099",
+          "nome": "CONTROLE E AVALIACAO DA GESTAO PUBLICA",
           "ch": "60"
         }
       ]
@@ -147,41 +176,6 @@
           "ch": "60"
         },
         {
-          "codigo": "CCA0044",
-          "nome": "CONTROLADORIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0099",
-          "nome": "CONTROLE E AVALIACAO DA GESTAO PUBLICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0015",
-          "nome": "LEGISLACAO SOCIAL",
-          "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "8° NIVEL",
-      "materias": [
-        {
-          "codigo": "CCA0089",
-          "nome": "ANALISE DA LIQUIDEZ",
-          "ch": "60"
-        },
-        {
-          "codigo": "FDD0141",
-          "nome": "LEGISLACAO TRIBUTARIA",
-          "ch": "60"
-        }
-      ]
-    },
-    {
-      "nivel": "9° NIVEL",
-      "materias": [
-        {
           "codigo": "CCA0056",
           "nome": "AVALIACAO DE PROJETOS DE INVESTIMENTO",
           "ch": "60"
@@ -192,15 +186,20 @@
           "ch": "60"
         },
         {
-          "codigo": "CCA0085",
-          "nome": "CONTABILIDADE DE COMPANHIAS ABERTAS",
+          "codigo": "CCA0089",
+          "nome": "ANALISE DA LIQUIDEZ",
           "ch": "60"
         }
       ]
     },
     {
-      "nivel": "10° NIVEL",
+      "nivel": "8° NIVEL",
       "materias": [
+        {
+          "codigo": "CCA0085",
+          "nome": "CONTABILIDADE DE COMPANHIAS ABERTAS",
+          "ch": "60"
+        },
         {
           "codigo": "CCA0107",
           "nome": "LABORATORIO CONTABIL - EMPRESARIAL",
@@ -214,7 +213,7 @@
       ]
     },
     {
-      "nivel": "11° NIVEL",
+      "nivel": "9° NIVEL",
       "materias": [
         {
           "codigo": "CCA0093",
@@ -304,11 +303,6 @@
         {
           "codigo": "ADM0320",
           "nome": "ANALISE ORGANIZACIONAL, SISTEMAS E METODOS",
-          "ch": "60"
-        },
-        {
-          "codigo": "ADM0343",
-          "nome": "MATEMATICA FINANCEIRA E ANALISE DE INVESTIMENTO",
           "ch": "60"
         },
         {
@@ -1137,11 +1131,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0096",
-          "nome": "LEITURA E PRODUCAO DE TEXTOS",
-          "ch": "60"
-        },
-        {
           "codigo": "LIP0099",
           "nome": "FONETICA E FONOLOGIA DO PORTUGUES",
           "ch": "60"
@@ -1242,11 +1231,6 @@
           "ch": "60"
         },
         {
-          "codigo": "LIP0153",
-          "nome": "PORTUGUES INSTRUMENTAL 1",
-          "ch": "60"
-        },
-        {
           "codigo": "CCA0107",
           "nome": "LABORATORIO CONTABIL - EMPRESARIAL",
           "ch": "90"
@@ -1262,18 +1246,23 @@
           "ch": "60"
         },
         {
+          "codigo": "ECO0019",
+          "nome": "INTRODUCAO A ECONOMIA",
+          "ch": "60"
+        },
+        {
           "codigo": "FDD0004",
           "nome": "INSTITUICOES DE DIREITO PUBLICO E PRIVADO",
           "ch": "60"
         },
         {
-          "codigo": "MAT0022",
-          "nome": "MATEMATICA 1",
+          "codigo": "LIP0096",
+          "nome": "LEITURA E PRODUCAO DE TEXTOS",
           "ch": "60"
         },
         {
-          "codigo": "LIP0153",
-          "nome": "PORTUGUES INSTRUMENTAL 1",
+          "codigo": "MAT0022",
+          "nome": "MATEMATICA 1",
           "ch": "60"
         },
         {
@@ -1292,16 +1281,6 @@
           "ch": "60"
         },
         {
-          "codigo": "ECO0019",
-          "nome": "INTRODUCAO A ECONOMIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0018",
-          "nome": "CUSTOS",
-          "ch": "60"
-        },
-        {
           "codigo": "EST0019",
           "nome": "ESTATISTICA APLICADA",
           "ch": "90"
@@ -1312,13 +1291,8 @@
           "ch": "60"
         },
         {
-          "codigo": "CCA0040",
-          "nome": "CONTABILIDADE GERAL 3",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0069",
-          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
+          "codigo": "CCA0018",
+          "nome": "CUSTOS",
           "ch": "60"
         },
         {
@@ -1332,8 +1306,8 @@
           "ch": "60"
         },
         {
-          "codigo": "CCA0021",
-          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "codigo": "CCA0040",
+          "nome": "CONTABILIDADE GERAL 3",
           "ch": "60"
         },
         {
@@ -1342,38 +1316,8 @@
           "ch": "60"
         },
         {
-          "codigo": "CCA0081",
-          "nome": "TEORIA CONTABIL",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0024",
-          "nome": "AUDITORIA 1",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0074",
-          "nome": "ANALISE ECONOMICO-FINANCEIRA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0091",
-          "nome": "EXECUCAO DA GESTAO PUBLICA",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0026",
-          "nome": "AUDITORIA 2",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0044",
-          "nome": "CONTROLADORIA",
-          "ch": "60"
-        },
-        {
-          "codigo": "CCA0099",
-          "nome": "CONTROLE E AVALIACAO DA GESTAO PUBLICA",
+          "codigo": "CCA0069",
+          "nome": "SISTEMAS DE INFORMACOES CONTABEIS",
           "ch": "60"
         },
         {
@@ -1382,13 +1326,48 @@
           "ch": "60"
         },
         {
-          "codigo": "CCA0089",
-          "nome": "ANALISE DA LIQUIDEZ",
+          "codigo": "CCA0021",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0081",
+          "nome": "TEORIA CONTABIL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0091",
+          "nome": "EXECUCAO DA GESTAO PUBLICA",
           "ch": "60"
         },
         {
           "codigo": "FDD0141",
           "nome": "LEGISLACAO TRIBUTARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0024",
+          "nome": "AUDITORIA 1",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0044",
+          "nome": "CONTROLADORIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0074",
+          "nome": "ANALISE ECONOMICO-FINANCEIRA 2",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0099",
+          "nome": "CONTROLE E AVALIACAO DA GESTAO PUBLICA",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0026",
+          "nome": "AUDITORIA 2",
           "ch": "60"
         },
         {
@@ -1399,6 +1378,11 @@
         {
           "codigo": "CCA0061",
           "nome": "CONTABILIDADE FISCAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "CCA0089",
+          "nome": "ANALISE DA LIQUIDEZ",
           "ch": "60"
         },
         {

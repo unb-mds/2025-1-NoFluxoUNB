@@ -1,7 +1,16 @@
 {
   "curso": "CIÊNCIAS NATURAIS",
   "tipo_curso": "Licenciatura",
+  "curriculo": "2291/-2",
   "periodo_letivo_vigor": "2014.1",
+  "prazos_cargas": {
+    "total_minima": "3135h",
+    "subtotal_ch_aula": "2175h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2175h",
+    "ch_optativa_minima": "750h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

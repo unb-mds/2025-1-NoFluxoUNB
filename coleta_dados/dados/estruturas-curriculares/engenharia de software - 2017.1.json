@@ -1,7 +1,16 @@
 {
   "curso": "ENGENHARIA DE SOFTWARE",
   "tipo_curso": "Bacharelado",
+  "curriculo": "6360/1",
   "periodo_letivo_vigor": "2017.1",
+  "prazos_cargas": {
+    "total_minima": "3480h",
+    "subtotal_ch_aula": "2580h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2580h",
+    "ch_optativa_minima": "900h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -628,7 +637,7 @@
         },
         {
           "codigo": "FGA0123",
-          "nome": "CALCULO PARA ENGENHARIA 1",
+          "nome": "CALCULO 1 PARA ENGENHARIA",
           "ch": "60"
         },
         {
@@ -638,7 +647,7 @@
         },
         {
           "codigo": "FGA0126",
-          "nome": "CALCULO PARA ENGENHARIA 2",
+          "nome": "CALCULO 2 PARA ENGENHARIA",
           "ch": "60"
         },
         {
@@ -648,7 +657,7 @@
         },
         {
           "codigo": "FGA0128",
-          "nome": "CALCULO PARA ENGENHARIA 3",
+          "nome": "CALCULO 3 PARA ENGENHARIA",
           "ch": "60"
         },
         {

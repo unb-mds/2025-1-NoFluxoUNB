@@ -1,7 +1,16 @@
 {
   "curso": "DESIGN - PROGRAMAÇÃO VISUAL",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5380/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "2940h",
+    "subtotal_ch_aula": "1590h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1590h",
+    "ch_optativa_minima": "1350h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

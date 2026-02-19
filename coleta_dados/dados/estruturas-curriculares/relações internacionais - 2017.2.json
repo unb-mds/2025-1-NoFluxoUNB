@@ -1,7 +1,16 @@
 {
   "curso": "RELAÇÕES INTERNACIONAIS",
   "tipo_curso": "Bacharelado",
+  "curriculo": "3727/1",
   "periodo_letivo_vigor": "2017.2",
+  "prazos_cargas": {
+    "total_minima": "2790h",
+    "subtotal_ch_aula": "1710h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1710h",
+    "ch_optativa_minima": "1080h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -1129,7 +1138,7 @@
         {
           "codigo": "LET0157",
           "nome": "LINGUA ESTRANGEIRA 1",
-          "ch": "0"
+          "ch": "60"
         },
         {
           "codigo": "LET0158",

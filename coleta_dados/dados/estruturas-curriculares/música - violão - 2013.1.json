@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA - VIOLÃO",
   "tipo_curso": "Bacharelado",
+  "curriculo": "5282/-2",
   "periodo_letivo_vigor": "2013.1",
+  "prazos_cargas": {
+    "total_minima": "2070h",
+    "subtotal_ch_aula": "1620h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1620h",
+    "ch_optativa_minima": "450h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

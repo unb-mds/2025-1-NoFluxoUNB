@@ -1,7 +1,16 @@
 {
   "curso": "MÚSICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "5509/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3240h",
+    "subtotal_ch_aula": "1735h",
+    "subtotal_ch_orientacao": "170h",
+    "ch_obrigatoria_total": "1905h",
+    "ch_optativa_minima": "810h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

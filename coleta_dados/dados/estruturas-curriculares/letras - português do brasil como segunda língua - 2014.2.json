@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - PORTUGUÊS DO BRASIL COMO SEGUNDA LÍNGUA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "4430/-2",
   "periodo_letivo_vigor": "2014.2",
+  "prazos_cargas": {
+    "total_minima": "2460h",
+    "subtotal_ch_aula": "1980h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1980h",
+    "ch_optativa_minima": "480h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

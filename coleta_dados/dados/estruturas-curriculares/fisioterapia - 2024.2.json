@@ -1,7 +1,16 @@
 {
   "curso": "FISIOTERAPIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "7137/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "4500h",
+    "subtotal_ch_aula": "3165h",
+    "subtotal_ch_orientacao": "330h",
+    "ch_obrigatoria_total": "3495h",
+    "ch_optativa_minima": "735h",
+    "ch_complementar_minima": "270h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

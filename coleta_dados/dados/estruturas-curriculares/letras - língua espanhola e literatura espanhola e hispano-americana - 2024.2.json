@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - LÍNGUA ESPANHOLA E LITERATURA ESPANHOLA E HISPANO-AMERICANA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "4154/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3300h",
+    "subtotal_ch_aula": "1860h",
+    "subtotal_ch_orientacao": "330h",
+    "ch_obrigatoria_total": "2190h",
+    "ch_optativa_minima": "900h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

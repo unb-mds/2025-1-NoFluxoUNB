@@ -1,7 +1,16 @@
 {
   "curso": "SAÚDE COLETIVA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "7153/2",
   "periodo_letivo_vigor": "2024.2",
+  "prazos_cargas": {
+    "total_minima": "3270h",
+    "subtotal_ch_aula": "2565h",
+    "subtotal_ch_orientacao": "135h",
+    "ch_obrigatoria_total": "2700h",
+    "ch_optativa_minima": "465h",
+    "ch_complementar_minima": "105h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -417,13 +426,33 @@
           "ch": "60"
         },
         {
+          "codigo": "FCE0019",
+          "nome": "SAUDE, CUIDADO E RECONHECIMENTO",
+          "ch": "60"
+        },
+        {
           "codigo": "FCE0021",
           "nome": "APRIMORAMENTO DA PERFORMANCE COMUNICATIVA: ATIVIDADE PRATICA",
           "ch": "30"
         },
         {
+          "codigo": "FCE0044",
+          "nome": "ANTROPOLOGIA DA SAUDE E ADOECIMENTO",
+          "ch": "60"
+        },
+        {
           "codigo": "FCE0051",
           "nome": "PRONTUARIO ELETRONICO DO PACIENTE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0094",
+          "nome": "LABORATORIO DE ESCRITA ETNOGRAFICA EM SAUDE",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0095",
+          "nome": "PESQUISA EM SAUDE E MARCADORES SOCIAIS DA DIFERENCA",
           "ch": "30"
         },
         {
@@ -435,6 +464,11 @@
           "codigo": "FCE0110",
           "nome": "ARTETERAPIA: CRIATIVIDADE, ARTE E SAUDE",
           "ch": "30"
+        },
+        {
+          "codigo": "FCE0136",
+          "nome": "ADVOCACIA EM SAUDE: SOCIEDADE CIVIL E REIVINDICACAO DO DIREITO A SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0138",
@@ -457,6 +491,16 @@
           "ch": "30"
         },
         {
+          "codigo": "FCE0158",
+          "nome": "RECONSTRUCAO OCUPACIONAL E TRANSFORMACAO SOCIAL",
+          "ch": "30"
+        },
+        {
+          "codigo": "FCE0167",
+          "nome": "GENERO, RACA, SEXUALIDADE: SAUDE E DIREITOS HUMANOS",
+          "ch": "60"
+        },
+        {
           "codigo": "FCE0198",
           "nome": "BIOFISICA",
           "ch": "60"
@@ -477,6 +521,11 @@
           "ch": "60"
         },
         {
+          "codigo": "FCE0237",
+          "nome": "RACIONALIDADES MEDICAS",
+          "ch": "60"
+        },
+        {
           "codigo": "FCE0241",
           "nome": "SEMINARIO INTEGRATIVO 3",
           "ch": "30"
@@ -492,6 +541,11 @@
           "ch": "30"
         },
         {
+          "codigo": "FCE0275",
+          "nome": "SOCIOLOGIA DO CORPO",
+          "ch": "60"
+        },
+        {
           "codigo": "FCE0280",
           "nome": "SEMINARIO INTEGRATIVO 5",
           "ch": "30"
@@ -502,9 +556,24 @@
           "ch": "30"
         },
         {
+          "codigo": "FCE0327",
+          "nome": "PENSAMENTO SOCIAL E SAUDE MENTAL",
+          "ch": "60"
+        },
+        {
+          "codigo": "FCE0328",
+          "nome": "CONTEXTO SOCIAL E PRATICAS EM SAUDE COLETIVA",
+          "ch": "30"
+        },
+        {
           "codigo": "FCE0331",
           "nome": "SEMINARIO INTEGRATIVO 6",
           "ch": "30"
+        },
+        {
+          "codigo": "FCE0335",
+          "nome": "PROMOCAO DA SAUDE CONCEITOS E CONTEXTOS",
+          "ch": "60"
         },
         {
           "codigo": "FCE0339",
@@ -520,6 +589,11 @@
           "codigo": "FCE0344",
           "nome": "TOPICOS ESPECIAIS EM SAUDE COLETIVA 2",
           "ch": "30"
+        },
+        {
+          "codigo": "FCE0345",
+          "nome": "PRATICAS INTEGRADAS DE SAUDE",
+          "ch": "60"
         },
         {
           "codigo": "FCE0349",

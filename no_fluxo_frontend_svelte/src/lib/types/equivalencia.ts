@@ -127,11 +127,14 @@ export function evaluateExpressionWithTracking(
 	}
 
 	const subjectCode = expression.trim();
-	const contains = materias.has(subjectCode);
+	// Comparação case-insensitive: histórico pode vir "mat0035" e a expressão "MAT0035"
+	const codeNorm = subjectCode.toUpperCase();
+	const found = [...materias].find((m) => m.trim().toUpperCase() === codeNorm);
+	const contains = !!found;
 
 	return {
 		isTrue: contains,
-		matchingMaterias: contains ? new Set([subjectCode]) : new Set()
+		matchingMaterias: contains && found ? new Set([found]) : new Set()
 	};
 }
 
@@ -192,6 +195,26 @@ export function hasValidEquivalence(
 	}
 
 	return false;
+}
+
+/**
+ * Returns the set of subject codes (codigoMateriaOrigem) that are considered
+ * completed by equivalence: the user has not completed that exact subject,
+ * but has completed one or more subjects that satisfy its equivalence expression.
+ * Used so the fluxograma marks "MATEMÁTICA DISCRETA 2" as concluída when the user
+ * completed e.g. MAT0035 (which satisfies the equivalence expression).
+ */
+export function getCompletedByEquivalenceCodes(
+	equivalencias: EquivalenciaModel[],
+	completedCodes: Set<string>
+): Set<string> {
+	const result = new Set<string>();
+	for (const equiv of equivalencias) {
+		if (evaluateExpression(equiv.expressao.trim(), completedCodes)) {
+			result.add(equiv.codigoMateriaOrigem);
+		}
+	}
+	return result;
 }
 
 export function extractSubjectCodesFromExpression(expression: string): string[] {

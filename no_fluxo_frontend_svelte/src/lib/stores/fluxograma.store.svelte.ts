@@ -19,6 +19,7 @@ import {
 	type DadosFluxogramaUser,
 	findSubjectInFluxograma
 } from '$lib/types/user';
+import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
 import { getSubjectsBySemester } from '$lib/types/curso';
 import { captureScreenshot } from '$lib/utils/screenshot';
 import { toast } from 'svelte-sonner';
@@ -75,10 +76,16 @@ function createFluxogramaStore() {
 		return user?.dadosFluxograma ?? null;
 	});
 
-	// Computed: completed subject codes
+	// Computed: completed subject codes (histórico + concluídas por equivalência)
 	const completedCodes = $derived.by(() => {
 		if (!userFluxograma) return new Set<string>();
-		return getCompletedSubjectCodes(userFluxograma);
+		const base = getCompletedSubjectCodes(userFluxograma);
+		const courseData = state.courseData;
+		const byEquiv =
+			courseData?.equivalencias && courseData.equivalencias.length > 0
+				? getCompletedByEquivalenceCodes(courseData.equivalencias, base)
+				: new Set<string>();
+		return new Set([...base, ...byEquiv]);
 	});
 
 	// Computed: current subject codes

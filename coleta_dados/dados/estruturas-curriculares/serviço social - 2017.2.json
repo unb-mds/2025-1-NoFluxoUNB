@@ -1,7 +1,16 @@
 {
   "curso": "SERVIÇO SOCIAL",
   "tipo_curso": "Bacharelado",
+  "curriculo": "3522/1",
   "periodo_letivo_vigor": "2017.2",
+  "prazos_cargas": {
+    "total_minima": "3000h",
+    "subtotal_ch_aula": "2040h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2040h",
+    "ch_optativa_minima": "960h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

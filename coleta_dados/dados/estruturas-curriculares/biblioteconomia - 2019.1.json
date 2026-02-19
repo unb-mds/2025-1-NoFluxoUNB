@@ -1,7 +1,16 @@
 {
   "curso": "BIBLIOTECONOMIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "8222/1",
   "periodo_letivo_vigor": "2019.1",
+  "prazos_cargas": {
+    "total_minima": "2700h",
+    "subtotal_ch_aula": "1440h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1440h",
+    "ch_optativa_minima": "1260h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

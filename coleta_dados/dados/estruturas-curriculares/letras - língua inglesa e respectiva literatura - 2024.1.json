@@ -1,7 +1,16 @@
 {
   "curso": "LETRAS - LÍNGUA INGLESA E RESPECTIVA LITERATURA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "4316/2",
   "periodo_letivo_vigor": "2024.1",
+  "prazos_cargas": {
+    "total_minima": "2400h",
+    "subtotal_ch_aula": "780h",
+    "subtotal_ch_orientacao": "300h",
+    "ch_obrigatoria_total": "1080h",
+    "ch_optativa_minima": "1320h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
@@ -537,6 +546,11 @@
           "ch": "60"
         },
         {
+          "codigo": "LET0933",
+          "nome": "RELACOES ETNICO-RACIAIS, LINGUA E JUSTICA",
+          "ch": "60"
+        },
+        {
           "codigo": "LIP0025",
           "nome": "INTRODUCAO A SEMANTICA",
           "ch": "60"
@@ -989,6 +1003,31 @@
         {
           "codigo": "TEL0179",
           "nome": "LITERATURAS DE EXPRESSAO EM LINGUA INGLESA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0201",
+          "nome": "LITERATURAS INDIGENAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0216",
+          "nome": "TEORIA DO TEXTO DRAMATICO",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0219",
+          "nome": "TOPICOS EM TEORIA LITERARIA",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0220",
+          "nome": "TEORIAS CRITICAS CONTEMPORANEAS",
+          "ch": "60"
+        },
+        {
+          "codigo": "TEL0231",
+          "nome": "EXPERIENCIA E TEORIA LITERARIA",
           "ch": "60"
         },
         {

@@ -1,7 +1,16 @@
 {
   "curso": "FÍSICA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "1112/-2",
   "periodo_letivo_vigor": "2014.2",
+  "prazos_cargas": {
+    "total_minima": "2640h",
+    "subtotal_ch_aula": "1980h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1980h",
+    "ch_optativa_minima": "660h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

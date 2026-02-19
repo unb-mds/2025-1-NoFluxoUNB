@@ -22,10 +22,12 @@ export interface CasarDisciplinasResponse {
 	resumo: {
 		percentual_conclusao_obrigatorias: number;
 		total_disciplinas: number;
+		total_obrigatorias: number;
 		total_obrigatorias_concluidas: number;
 		total_obrigatorias_pendentes: number;
 		total_optativas: number;
 	};
+	// total_disciplinas = todas casadas (inclui optativas). total_obrigatorias = só nivel > 0 (concluídas + pendentes obrig.)
 	dados_validacao: {
 		ira?: number;
 		media_ponderada?: number;
@@ -36,8 +38,9 @@ export interface CasarDisciplinasResponse {
 export interface CourseSelectionError {
 	type: 'COURSE_SELECTION';
 	message: string;
-	cursos_disponiveis: { nome_curso: string; id_curso: number }[];
+	cursos_disponiveis: { nome_curso: string; id_curso?: number; matriz_curricular?: string }[];
 	palavras_chave_encontradas?: string[];
+	matriz_extraida_pdf?: string | null;
 }
 
 class UploadService {

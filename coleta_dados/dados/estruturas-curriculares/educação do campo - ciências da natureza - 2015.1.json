@@ -1,7 +1,16 @@
 {
   "curso": "EDUCAÇÃO DO CAMPO - CIÊNCIAS DA NATUREZA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "9636/-2",
   "periodo_letivo_vigor": "2015.1",
+  "prazos_cargas": {
+    "total_minima": "3525h",
+    "subtotal_ch_aula": "2595h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2595h",
+    "ch_optativa_minima": "720h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

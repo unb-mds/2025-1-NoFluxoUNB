@@ -9,9 +9,11 @@
 	interface Props {
 		courseData: CursoModel;
 		userFluxograma: DadosFluxogramaUser | null;
+		/** Se informado, usa este total (ex.: inclui concluídas por equivalência); senão usa só histórico */
+		effectiveCompletedCount?: number;
 	}
 
-	let { courseData, userFluxograma }: Props = $props();
+	let { courseData, userFluxograma, effectiveCompletedCount }: Props = $props();
 
 	let totalCredits = $derived(courseData.totalCreditos ?? 0);
 
@@ -24,6 +26,9 @@
 	});
 
 	let completedCount = $derived.by(() => {
+		if (effectiveCompletedCount !== undefined && effectiveCompletedCount !== null) {
+			return effectiveCompletedCount;
+		}
 		if (!userFluxograma) return 0;
 		return getCompletedSubjectCodes(userFluxograma).size;
 	});

@@ -1,7 +1,16 @@
 {
   "curso": "FÍSICA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "1147/-2",
   "periodo_letivo_vigor": "2017.1",
+  "prazos_cargas": {
+    "total_minima": "2670h",
+    "subtotal_ch_aula": "1830h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1830h",
+    "ch_optativa_minima": "840h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

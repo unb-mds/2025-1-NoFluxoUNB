@@ -1,7 +1,16 @@
 {
   "curso": "SAÚDE COLETIVA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "7161/1",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3225h",
+    "subtotal_ch_aula": "1830h",
+    "subtotal_ch_orientacao": "45h",
+    "ch_obrigatoria_total": "1875h",
+    "ch_optativa_minima": "1350h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

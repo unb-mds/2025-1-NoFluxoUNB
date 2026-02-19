@@ -1,7 +1,16 @@
 {
   "curso": "PEDAGOGIA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "9296/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3330h",
+    "subtotal_ch_aula": "1785h",
+    "subtotal_ch_orientacao": "225h",
+    "ch_obrigatoria_total": "2010h",
+    "ch_optativa_minima": "840h",
+    "ch_complementar_minima": "240h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

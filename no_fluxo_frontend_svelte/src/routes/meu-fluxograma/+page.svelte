@@ -120,6 +120,7 @@
 			<ProgressSummarySection
 				courseData={store.state.courseData}
 				userFluxograma={store.userFluxograma}
+				effectiveCompletedCount={store.completedCodes.size}
 			/>
 
 			<!-- Legend and controls -->

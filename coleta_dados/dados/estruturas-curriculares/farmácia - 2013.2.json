@@ -1,7 +1,16 @@
 {
   "curso": "FARMÁCIA",
   "tipo_curso": "Bacharelado",
+  "curriculo": "7692/-2",
   "periodo_letivo_vigor": "2013.2",
+  "prazos_cargas": {
+    "total_minima": "4380h",
+    "subtotal_ch_aula": "2820h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "2820h",
+    "ch_optativa_minima": "1560h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

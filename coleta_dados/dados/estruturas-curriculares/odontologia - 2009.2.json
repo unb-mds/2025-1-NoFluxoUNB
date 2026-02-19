@@ -1,7 +1,16 @@
 {
   "curso": "ODONTOLOGIA",
   "tipo_curso": "Cirurgião Dentista",
+  "curriculo": "7218/-2",
   "periodo_letivo_vigor": "2009.2",
+  "prazos_cargas": {
+    "total_minima": "1635h",
+    "subtotal_ch_aula": "600h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "600h",
+    "ch_optativa_minima": "1035h",
+    "ch_complementar_minima": "0h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",

@@ -20,6 +20,65 @@ def remover_acentos(texto):
     return unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
 
 
+def extract_curriculo(relatorio_html):
+    """Extrai o Código (curriculo) da tabela Estrutura Curricular, ex.: 60810/2"""
+    soup = BeautifulSoup(relatorio_html, 'html.parser')
+    for th in soup.find_all('th'):
+        texto = th.get_text(strip=True)
+        if texto.startswith('Código') or texto.lower().startswith('codigo'):
+            td = th.find_next_sibling('td')
+            if td:
+                return td.get_text(strip=True)
+    return ''
+
+
+def _valor_celula(th):
+    """Retorna o texto da célula <td> irmã do <th>, normalizado (strip)."""
+    td = th.find_next_sibling('td')
+    return td.get_text(strip=True) if td else ''
+
+
+def extract_prazos_cargas(relatorio_html):
+    """
+    Extrai a seção Prazos e Cargas Horárias da tabela.
+    Retorna dict com: total_minima, subtotal_ch_aula, subtotal_ch_orientacao,
+    ch_obrigatoria_total, ch_optativa_minima, ch_complementar_minima.
+    Valores no formato da página (ex: "3210h", "2010h").
+    """
+    soup = BeautifulSoup(relatorio_html, 'html.parser')
+    out = {
+        'total_minima': '',
+        'subtotal_ch_aula': '',
+        'subtotal_ch_orientacao': '',
+        'ch_obrigatoria_total': '',
+        'ch_optativa_minima': '',
+        'ch_complementar_minima': ''
+    }
+    for th in soup.find_all('th'):
+        texto = th.get_text(strip=True)
+        t_lower = texto.lower()
+        val = _valor_celula(th)
+        if 'total m' in t_lower and 'nima' in t_lower and 'optativa' not in t_lower and 'complementar' not in t_lower and 'obrigat' not in t_lower:
+            out['total_minima'] = val
+        elif 'subtotal de ch de aula' in t_lower:
+            out['subtotal_ch_aula'] = val
+        elif 'subtotal de ch de orienta' in t_lower or 'orientação acadêmica' in t_lower:
+            out['subtotal_ch_orientacao'] = val
+        elif texto.strip() == 'Total:':
+            out['ch_obrigatoria_total'] = val
+        elif 'carga horária optativa m' in t_lower:
+            out['ch_optativa_minima'] = val
+        elif 'carga horária complementar m' in t_lower:
+            out['ch_complementar_minima'] = val
+    # Total: pode ser a linha com th "Total:" logo após Subtotal de Orientação
+    if not out['ch_obrigatoria_total']:
+        for th in soup.find_all('th'):
+            if th.get_text(strip=True) == 'Total:':
+                out['ch_obrigatoria_total'] = _valor_celula(th)
+                break
+    return out
+
+
 def extract_dados_por_nivel(relatorio_html):
     soup = BeautifulSoup(relatorio_html, 'html.parser')
     texto = soup.get_text(separator=' ', strip=True).lower()
@@ -183,7 +242,9 @@ def scrape_estruturas():
         for idx, (btn_name, btn_value, estrutura_id, id_arquivo, periodo_letivo) in enumerate(relatorios):
             relatorio_html = acessar_relatorio(session, soup, btn_name, btn_value, estrutura_id, estrutura_url)
             print(f"Relatório encontrado e baixado para: {nome_curso} - {id_arquivo if id_arquivo else f'estructura{idx+1}'}")
+            curriculo = extract_curriculo(relatorio_html)
             dados_por_nivel = extract_dados_por_nivel(relatorio_html)
+            prazos_cargas = extract_prazos_cargas(relatorio_html)
 
             periodo_letivo_vigor = ''
             relatorio_soup = BeautifulSoup(relatorio_html, 'html.parser')
@@ -198,8 +259,10 @@ def scrape_estruturas():
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     'curso': nome_curso,
-                    'tipo_curso': tipo_curso,  # <<<<< ADICIONADO
+                    'tipo_curso': tipo_curso,
+                    'curriculo': curriculo,
                     'periodo_letivo_vigor': periodo_letivo_vigor,
+                    'prazos_cargas': prazos_cargas,
                     'niveis': dados_por_nivel
                 }, f, ensure_ascii=False, indent=2)
             print(f"Dados organizados por nível salvos em: {output_path}")

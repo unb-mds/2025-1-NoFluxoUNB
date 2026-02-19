@@ -93,6 +93,99 @@ export function dadosFluxogramaUserToJson(
 	};
 }
 
+/**
+ * Normalize fluxograma data from localStorage/raw source.
+ * Accepts either snake_case (dados_fluxograma, codigo) or camelCase (dadosFluxograma, codigoMateria)
+ * and returns a DadosFluxogramaUser so getCompletedSubjectCodes() and the UI always get the expected shape.
+ */
+export function normalizeDadosFluxogramaFromStored(
+	payload: unknown
+): DadosFluxogramaUser | null {
+	if (payload == null || typeof payload !== 'object') return null;
+	const raw = payload as Record<string, unknown>;
+	// Snake_case format (e.g. from DB or old localStorage)
+	if (Array.isArray(raw.dados_fluxograma) && !raw.dadosFluxograma) {
+		return createDadosFluxogramaUserFromJson(raw);
+	}
+	// CamelCase format (e.g. from setUser/updateDadosFluxograma)
+	if (Array.isArray(raw.dadosFluxograma)) {
+		const dadosFluxograma = (raw.dadosFluxograma as unknown[][]).map((semester) =>
+			Array.isArray(semester)
+				? (semester as Record<string, unknown>[]).map((m) => {
+						const mm = m as Record<string, unknown>;
+						return createDadosMateriaFromJson({
+							codigo: (mm.codigoMateria ?? mm.codigo) ?? '',
+							mencao: mm.mencao,
+							professor: mm.professor,
+							status: mm.status,
+							ano_periodo: mm.anoPeriodo,
+							frequencia: mm.frequencia,
+							tipo_dado: mm.tipoDado,
+							turma: mm.turma
+						});
+					})
+				: []
+		);
+		return {
+			nomeCurso: String(raw.nomeCurso ?? ''),
+			ira: Number(raw.ira ?? 0),
+			matricula: String(raw.matricula ?? ''),
+			horasIntegralizadas: Number(raw.horasIntegralizadas ?? 0),
+			suspensoes: Array.isArray(raw.suspensoes) ? (raw.suspensoes as string[]) : [],
+			anoAtual: String(raw.anoAtual ?? ''),
+			matrizCurricular: String(raw.matrizCurricular ?? ''),
+			semestreAtual: Number(raw.semestreAtual ?? 0),
+			dadosFluxograma
+		};
+	}
+	return null;
+}
+
+/**
+ * Build DadosFluxogramaUser from the casar-disciplinas API response.
+ * Converts disciplinas_casadas (flat list with codigo, status, mencao) into
+ * the 2D array format so getCompletedSubjectCodes() and the fluxograma UI work.
+ */
+export function buildDadosFluxogramaUserFromCasarResponse(
+	response: {
+		disciplinas_casadas: Record<string, unknown>[];
+		dados_validacao?: { ira?: number; horas_integralizadas?: number };
+		curso_extraido?: string;
+		matriz_curricular?: string;
+	},
+	meta: {
+		nomeCurso: string;
+		matricula: string;
+		anoAtual: string;
+		matrizCurricular: string;
+		semestreAtual: number;
+		suspensoes: string[];
+	}
+): DadosFluxogramaUser {
+	const disciplinas = response.disciplinas_casadas ?? [];
+	// Usar codigo_materia (código da matriz) quando existir, para o fluxograma bater com o grid do curso
+	const dadosFluxograma: DadosMateria[][] = [
+		disciplinas.map((d) => {
+			const raw = d as Record<string, unknown>;
+			return createDadosMateriaFromJson({
+				...raw,
+				codigo: raw.codigo_materia ?? raw.codigo
+			});
+		})
+	];
+	return {
+		nomeCurso: meta.nomeCurso,
+		ira: Number(response.dados_validacao?.ira ?? 0),
+		matricula: meta.matricula,
+		horasIntegralizadas: Number(response.dados_validacao?.horas_integralizadas ?? 0),
+		suspensoes: meta.suspensoes,
+		anoAtual: meta.anoAtual,
+		matrizCurricular: meta.matrizCurricular,
+		semestreAtual: meta.semestreAtual,
+		dadosFluxograma
+	};
+}
+
 // ============================================================================
 // UserModel Factory
 // ============================================================================
@@ -112,7 +205,29 @@ export function createUserModelFromJson(json: Record<string, unknown>): UserMode
 				? JSON.parse(dadosUsers[0].fluxograma_atual)
 				: dadosUsers[0].fluxograma_atual;
 
-		dadosFluxograma = createDadosFluxogramaUserFromJson(fluxogramaData);
+		// Support both formats: DadosFluxogramaUser (dados_fluxograma) or old CasarDisciplinasResponse (disciplinas_casadas)
+		if (
+			fluxogramaData &&
+			Array.isArray(fluxogramaData.disciplinas_casadas) &&
+			!Array.isArray(fluxogramaData.dados_fluxograma)
+		) {
+			const meta = {
+				nomeCurso: String(fluxogramaData.curso_extraido ?? ''),
+				matricula: '',
+				anoAtual: '',
+				matrizCurricular: String(fluxogramaData.matriz_curricular ?? ''),
+				semestreAtual: 0,
+				suspensoes: [] as string[]
+			};
+			dadosFluxograma = buildDadosFluxogramaUserFromCasarResponse(
+				fluxogramaData as Parameters<typeof buildDadosFluxogramaUserFromCasarResponse>[0],
+				meta
+			);
+		} else {
+			dadosFluxograma = createDadosFluxogramaUserFromJson(
+				fluxogramaData as Record<string, unknown>
+			);
+		}
 	}
 
 	return {

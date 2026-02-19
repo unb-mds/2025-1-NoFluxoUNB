@@ -1,5 +1,5 @@
 -- Database Functions Export
--- Exported at: 2026-02-16T06:18:23.09767+00:00
+-- Exported at: 2026-02-19T00:41:08.399221+00:00
 -- Source: lijmhbstgdinsukovyfl.supabase.co
 -- Total functions: 35
 

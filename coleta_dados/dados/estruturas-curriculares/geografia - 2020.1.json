@@ -1,7 +1,16 @@
 {
   "curso": "GEOGRAFIA",
   "tipo_curso": "Licenciatura",
+  "curriculo": "3867/2",
   "periodo_letivo_vigor": "2020.1",
+  "prazos_cargas": {
+    "total_minima": "3300h",
+    "subtotal_ch_aula": "1680h",
+    "subtotal_ch_orientacao": "0h",
+    "ch_obrigatoria_total": "1680h",
+    "ch_optativa_minima": "360h",
+    "ch_complementar_minima": "210h"
+  },
   "niveis": [
     {
       "nivel": "1° NIVEL",
