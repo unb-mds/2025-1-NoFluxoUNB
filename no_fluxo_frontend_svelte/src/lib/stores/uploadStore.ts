@@ -9,8 +9,16 @@ import {
 } from '$lib/services/upload.service';
 import { authStore } from '$lib/stores/auth';
 import { ROUTES } from '$lib/config/routes';
+<<<<<<< Updated upstream
 import type { DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
 import { dadosFluxogramaUserToJson } from '$lib/factories';
+=======
+import {
+	buildDadosFluxogramaUserFromCasarResponse,
+	dadosFluxogramaUserToJson
+} from '$lib/factories';
+import { supabaseDataService } from '$lib/services/supabase-data.service';
+>>>>>>> Stashed changes
 
 export type UploadState = 'initial' | 'uploading' | 'processing' | 'success' | 'error';
 
@@ -213,7 +221,10 @@ function createUploadStore() {
 			}
 		},
 
-		async retryWithSelectedCourse(courseName: string) {
+		async retryWithSelectedCourse(
+			courseName: string,
+			selected?: { id_curso?: number; nome_curso: string; matriz_curricular?: string }
+		) {
 			const currentState = get({ subscribe });
 			if (!currentState.extractedData) {
 				toast.error('Dados do PDF não encontrados. Tente novamente.');
@@ -232,7 +243,8 @@ function createUploadStore() {
 				startProgressSimulation(55, 85, 3000);
 				const dataWithCourse = {
 					...currentState.extractedData,
-					curso_selecionado: courseName
+					curso_selecionado: courseName,
+					...(selected?.id_curso != null && { id_curso_selecionado: selected.id_curso })
 				};
 				const result = await uploadService.casarDisciplinas(dataWithCourse);
 				stopProgressSimulation();
@@ -276,6 +288,7 @@ function createUploadStore() {
 			}
 
 			try {
+<<<<<<< Updated upstream
 				// Convert CasarDisciplinasResponse → DadosFluxogramaUser
 				const dadosFluxograma = convertCasarResponseToDadosFluxograma(
 					currentState.disciplinasCasadas
@@ -319,7 +332,31 @@ function createUploadStore() {
 
 				// Update auth store with populated data
 				authStore.updateDadosFluxograma(fluxogramaUser);
+=======
+				const cd = currentState.disciplinasCasadas;
+				const ext = currentState.extractedData;
+				const meta = {
+					nomeCurso: ext?.curso_extraido ?? '',
+					matricula: ext?.matricula ?? '',
+					anoAtual: ext?.semestre_atual ?? '',
+					matrizCurricular: ext?.matriz_curricular ?? '',
+					semestreAtual: ext?.numero_semestre ?? 0,
+					suspensoes: ext?.suspensoes ?? []
+				};
+				const dados = buildDadosFluxogramaUserFromCasarResponse(
+					cd as { disciplinas_casadas: Record<string, unknown>[]; dados_validacao?: { ira?: number; horas_integralizadas?: number } },
+					meta
+				);
 
+				// Save in the format expected when loading user (snake_case DadosFluxogramaUser)
+				await supabaseDataService.saveFluxogramaData(
+					user.idUser,
+					dadosFluxogramaUserToJson(dados),
+					meta.semestreAtual || undefined
+				);
+>>>>>>> Stashed changes
+
+				authStore.updateDadosFluxograma(dados);
 				toast.success('Fluxograma salvo com sucesso!');
 				goto(ROUTES.MEU_FLUXOGRAMA);
 			} catch (err) {

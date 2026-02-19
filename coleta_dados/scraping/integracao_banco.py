@@ -8,6 +8,7 @@ from datetime import datetime
 import unicodedata
 
 print("Iniciando script...")
+# Normalização: id_curso = código antes da / (ex: 8150), usado como PK em cursos e nas FKs (matrizes, equivalencias).
 
 SUPABASE_URL = "https://lijmhbstgdinsukovyfl.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxpam1oYnN0Z2RpbnN1a292eWZsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzgzOTM3MywiZXhwIjoyMDYzNDE1MzczfQ._o2wq5p0C6YBIrTGJsNl6xdg4l8Ju7CbwvaaeCWbeAc"
@@ -75,29 +76,40 @@ def ch_to_int(val):
 
 def parse_curriculo(curriculo_str):
     """
-    Parse do campo curriculo no formato "6360/1 - 2017.1" ou "60810/2".
-    Retorna: dict com codigo_curso_base, matriz_versao, matriz_ano (ou None se não houver).
+    Regra de ouro: o que vem ANTES da / é o código do curso (base). O que vem DEPOIS é o identificador da matriz.
+    Ex: "8150/-2", "6360/1 - 2017.1" -> codigo_curso_base="8150" ou "6360", matriz_versao="-2" ou "1".
+    Retorna: dict com codigo_curso_base, matriz_versao, matriz_ano (ou None).
     """
     if not curriculo_str or not isinstance(curriculo_str, str):
         return {'codigo_curso_base': None, 'matriz_versao': None, 'matriz_ano': None}
     s = curriculo_str.strip()
-    # Formato "6360/1 - 2017.1"
-    m = re.match(r'^(\d+)/(\d+)\s*-\s*(\d{4}\.[12])$', s)
-    if m:
-        return {
-            'codigo_curso_base': m.group(1),
-            'matriz_versao': m.group(2),
-            'matriz_ano': m.group(3)
-        }
-    # Formato "60810/2" (sem ano)
-    m = re.match(r'^(\d+)/(\d+)$', s)
-    if m:
-        return {
-            'codigo_curso_base': m.group(1),
-            'matriz_versao': m.group(2),
-            'matriz_ano': None
-        }
+    # Sempre: código base = antes da primeira /
+    if '/' in s:
+        codigo_curso_base = s.split('/', 1)[0].strip()
+        resto = s.split('/', 1)[1].strip()
+        # matriz_versao = sufixo (ex: "-2" ou "1"); resto pode ser " - 2017.2" após a versão
+        if ' - ' in resto and re.search(r'\d{4}\.[12]\s*$', resto):
+            parts = re.split(r'\s+-\s+', resto, 1)
+            matriz_versao = parts[0].strip()
+            matriz_ano = parts[1].strip() if len(parts) > 1 and re.match(r'^\d{4}\.[12]$', parts[1].strip()) else None
+        else:
+            matriz_versao = resto
+            matriz_ano = None
+        if not codigo_curso_base or not codigo_curso_base.isdigit():
+            return {'codigo_curso_base': None, 'matriz_versao': None, 'matriz_ano': None}
+        return {'codigo_curso_base': codigo_curso_base, 'matriz_versao': matriz_versao, 'matriz_ano': matriz_ano}
     return {'codigo_curso_base': None, 'matriz_versao': None, 'matriz_ano': None}
+
+
+def extrair_codigo_base(curriculo_str):
+    """Retorna apenas o código base (antes da /). Ex: '8150/-2' -> '8150'. None se inválido."""
+    if not curriculo_str or not isinstance(curriculo_str, str):
+        return None
+    s = curriculo_str.strip()
+    if '/' in s:
+        base = s.split('/', 1)[0].strip()
+        return base if base.isdigit() else None
+    return None
 
 
 def build_dados_matriz(curriculo_str, periodo_letivo_vigor):
@@ -108,31 +120,44 @@ def build_dados_matriz(curriculo_str, periodo_letivo_vigor):
     curriculo_str = (curriculo_str or '').strip()
     periodo_letivo_vigor = (periodo_letivo_vigor or '').strip()
     curriculo_completo = f"{curriculo_str} - {periodo_letivo_vigor}".strip(' - ') if curriculo_str or periodo_letivo_vigor else ''
+    # versao = identificador da matriz (sufixo após /), ex: "-2" ou "1"
     versao = None
     if curriculo_str and '/' in curriculo_str:
-        versao = curriculo_str.split('/', 1)[1].strip()
+        sufixo = curriculo_str.split('/', 1)[1].strip()
+        versao = sufixo.split(' - ')[0].strip() if ' - ' in sufixo else sufixo
     ano_vigor = periodo_letivo_vigor if periodo_letivo_vigor else None
-    return {'curriculo_completo': curriculo_completo, 'versao': versao, 'ano_vigor': ano_vigor}
+    return {'curriculo_completo': curriculo_completo, 'versao': versao or '', 'ano_vigor': ano_vigor}
 
 
-def get_or_create_curso(nome_curso, tipo_curso):
-    """Insere ou busca em public.cursos (apenas nome_curso e tipo_curso). Retorna id_curso."""
+def get_or_create_curso(codigo_base, nome_curso, tipo_curso):
+    """
+    id_curso = código base (ex: 8150), usado como PK em public.cursos e refletido nas FKs (matrizes, equivalencias).
+    Se o curso já existir (id_curso = codigo_base): atualiza nome_curso e tipo_curso. Retorna id_curso (integer).
+    Tabela cursos: id_curso (PK, integer/bigint, sem IDENTITY) = código do curso.
+    """
+    if not codigo_base:
+        raise ValueError("codigo_base é obrigatório para get_or_create_curso")
+    id_curso = to_int(codigo_base)
+    if id_curso is None:
+        raise ValueError(f"codigo_base deve ser numérico: {codigo_base}")
+    result = executar_operacao(supabase.table('cursos').select('id_curso', 'nome_curso', 'tipo_curso').eq('id_curso', id_curso).execute)
+    if result.data:
+        row = result.data[0]
+        updates = {}
+        if nome_curso and (row.get('nome_curso') or '') != nome_curso:
+            updates['nome_curso'] = nome_curso
+        if tipo_curso is not None and row.get('tipo_curso') != tipo_curso:
+            updates['tipo_curso'] = tipo_curso
+        if updates:
+            executar_operacao(supabase.table('cursos').update(updates).eq('id_curso', id_curso).execute)
+        return id_curso
     insert_data = {
+        'id_curso': id_curso,
         'nome_curso': nome_curso,
         'tipo_curso': tipo_curso
     }
-    try:
-        res = executar_operacao(supabase.table('cursos').insert(insert_data).execute)
-        return res.data[0]['id_curso']
-    except Exception:
-        result = executar_operacao(supabase.table('cursos').select('id_curso', 'tipo_curso').eq('nome_curso', nome_curso).execute)
-        if not result.data:
-            raise
-        id_curso = result.data[0]['id_curso']
-        tipo_atual = result.data[0].get('tipo_curso')
-        if tipo_curso and tipo_atual is None:
-            executar_operacao(supabase.table('cursos').update({'tipo_curso': tipo_curso}).eq('id_curso', id_curso).execute)
-        return id_curso
+    executar_operacao(supabase.table('cursos').insert(insert_data).execute)
+    return id_curso
 
 
 def prazos_cargas_to_ints(prazos_cargas):
@@ -148,13 +173,17 @@ def prazos_cargas_to_ints(prazos_cargas):
 def get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos_cargas):
     """
     Insere ou busca em public.matrizes. Usa prazos_cargas para colunas de carga horária.
-    Retorna id_matriz.
+    Retorna id_matriz. Busca primeiro por curriculo_completo (UNIQUE) para evitar duplicata.
     """
-    # Schema: matrizes (curriculo_completo, versao NOT NULL; ch_obrigatoria_exigida, ch_optativa_exigida, ch_complementar_exigida, ch_total_exigida)
+    curriculo_completo = curriculo_completo or ''
+    # Busca primeiro: evita duplicate key e não dispara retry do tenacity
+    result = executar_operacao(supabase.table('matrizes').select('id_matriz').eq('curriculo_completo', curriculo_completo).execute)
+    if result.data:
+        return result.data[0]['id_matriz']
     ch = prazos_cargas_to_ints(prazos_cargas or {})
     insert_data = {
         'id_curso': id_curso,
-        'curriculo_completo': curriculo_completo or '',
+        'curriculo_completo': curriculo_completo,
         'versao': versao or '',
         'ano_vigor': ano_vigor,
         'ch_obrigatoria_exigida': ch.get('ch_obrigatoria_total'),
@@ -167,12 +196,10 @@ def get_or_create_matriz(id_curso, curriculo_completo, versao, ano_vigor, prazos
         res = executar_operacao(supabase.table('matrizes').insert(insert_data).execute)
         return res.data[0]['id_matriz']
     except Exception:
-        result = executar_operacao(supabase.table('matrizes').select('id_matriz').eq('id_curso', id_curso).eq('curriculo_completo', curriculo_completo or '').execute)
-        if not result.data:
-            result = executar_operacao(supabase.table('matrizes').select('id_matriz').eq('id_curso', id_curso).eq('ano_vigor', ano_vigor).execute)
-        if not result.data:
-            raise
-        return result.data[0]['id_matriz']
+        result = executar_operacao(supabase.table('matrizes').select('id_matriz').eq('curriculo_completo', curriculo_completo).execute)
+        if result.data:
+            return result.data[0]['id_matriz']
+        raise
 
 # Carregar departamentos das matérias a partir dos arquivos turmas_depto_*.json
 DEPARTAMENTOS_MATERIAS = {}
@@ -187,29 +214,35 @@ for arquivo in os.listdir(PASTA_TURMAS_DEPTO):
                 if cod and depto:
                     DEPARTAMENTOS_MATERIAS[cod] = depto
 
-print(f"[DEBUG] Total de códigos de matérias com departamento encontrados: {len(DEPARTAMENTOS_MATERIAS)}")
-for cod, depto in list(DEPARTAMENTOS_MATERIAS.items())[:10]:
-    print(f"[DEBUG] Exemplo: {cod} => {depto}")
-
-# Atualizar get_or_create_materia para preencher departamento
+# Cache codigo_materia -> id_materia para evitar SELECT por matéria (reduz milhares de chamadas à API)
+CACHE_ID_MATERIA = {}
+try:
+    res = executar_operacao(supabase.table('materias').select('codigo_materia', 'id_materia').execute)
+    for r in (res.data or []):
+        if r.get('codigo_materia'):
+            CACHE_ID_MATERIA[r['codigo_materia']] = r['id_materia']
+    print(f"[Cache] {len(CACHE_ID_MATERIA)} matérias carregadas (codigo -> id_materia).")
+except Exception:
+    pass
 
 def get_or_create_materia(materia):
     codigo = materia['codigo']
     departamento = DEPARTAMENTOS_MATERIAS.get(codigo, '')
-    print(f"[DEBUG] Matéria {codigo} - departamento encontrado: '{departamento}'")
-    # Sempre verifica no banco antes de tentar inserir
+    # Usar cache para evitar SELECT em toda matéria
+    id_materia = CACHE_ID_MATERIA.get(codigo)
+    if id_materia is not None:
+        # Atualiza ementa/departamento só se necessário (opcional: pode fazer em lote depois)
+        return id_materia
     result = executar_operacao(supabase.table('materias').select('id_materia', 'ementa', 'departamento').eq('codigo_materia', codigo).execute)
     if result.data:
         id_materia = result.data[0]['id_materia']
+        CACHE_ID_MATERIA[codigo] = id_materia
         ementa_atual = result.data[0].get('ementa', '')
         departamento_atual = result.data[0].get('departamento', '')
-        # Atualiza ementa se diferente
         if materia.get('ementa', '') and materia.get('ementa', '') != ementa_atual:
             executar_operacao(supabase.table('materias').update({'ementa': materia.get('ementa', '')}).eq('id_materia', id_materia).execute)
-        # Atualiza departamento se diferente
         if departamento and (not departamento_atual or departamento != departamento_atual):
             executar_operacao(supabase.table('materias').update({'departamento': departamento}).eq('id_materia', id_materia).execute)
-            print(f"[DEBUG] Atualizado departamento da matéria {codigo}: {departamento}")
         return id_materia
     insert_data = {
         'nome_materia': materia['nome'],
@@ -219,7 +252,9 @@ def get_or_create_materia(materia):
         'departamento': departamento
     }
     res = executar_operacao(supabase.table('materias').insert(insert_data).execute)
-    return res.data[0]['id_materia']
+    id_materia = res.data[0]['id_materia']
+    CACHE_ID_MATERIA[codigo] = id_materia
+    return id_materia
 
 def nivel_to_int(nivel_nome):
     """Converte '1° NIVEL' -> 1, 'OPTATIVAS' -> 0. Sempre retorna inteiro."""
@@ -235,24 +270,41 @@ def nivel_to_int(nivel_nome):
 
 
 def get_or_create_materia_por_curso(id_materia, id_matriz, nivel):
-    """
-    Vincula matéria à matriz (grade). nivel: inteiro (0 = optativas, 1+ = nível).
-    Tabela public.materias_por_curso: id_materia (FK), id_matriz (FK), nivel (integer).
-    """
+    """Vincula matéria à matriz. nivel: inteiro. (Para uso unitário; em lote use insert_materias_por_curso_batch.)"""
     nivel_int = int(nivel) if isinstance(nivel, int) else nivel_to_int(nivel)
-    insert_data = {
-        'id_materia': id_materia,
-        'id_matriz': id_matriz,
-        'nivel': nivel_int
-    }
+    insert_data = {'id_materia': id_materia, 'id_matriz': id_matriz, 'nivel': nivel_int}
     try:
         res = executar_operacao(supabase.table('materias_por_curso').insert(insert_data).execute)
         return res.data[0].get('id_materia_curso') or res.data[0].get('id') if res.data else None
     except Exception:
         result = executar_operacao(supabase.table('materias_por_curso').select('id_materia_curso').eq('id_materia', id_materia).eq('id_matriz', id_matriz).eq('nivel', nivel_int).execute)
-        if result.data:
-            return result.data[0].get('id_materia_curso') or result.data[0].get('id')
-        return None
+        return result.data[0].get('id_materia_curso') if result.data else None
+
+
+def insert_materias_por_curso_batch(linhas, id_matriz, tamanho_lote=80):
+    """
+    Insere em lote (id_materia, id_matriz, nivel). linhas = list of (id_materia, nivel_int).
+    Ignora duplicatas (já existentes para esta matriz). Reduz drasticamente chamadas à API.
+    """
+    if not linhas:
+        return
+    # Buscar já existentes para esta matriz (1 chamada)
+    try:
+        res = executar_operacao(supabase.table('materias_por_curso').select('id_materia', 'nivel').eq('id_matriz', id_matriz).execute)
+        existentes = {(r['id_materia'], r['nivel']) for r in (res.data or [])}
+    except Exception:
+        existentes = set()
+    to_insert = [{'id_materia': id_m, 'id_matriz': id_matriz, 'nivel': niv} for (id_m, niv) in linhas if (id_m, niv) not in existentes]
+    for i in range(0, len(to_insert), tamanho_lote):
+        lote = to_insert[i : i + tamanho_lote]
+        try:
+            executar_operacao(supabase.table('materias_por_curso').insert(lote).execute)
+        except Exception:
+            for row in lote:
+                try:
+                    executar_operacao(supabase.table('materias_por_curso').insert(row).execute)
+                except Exception:
+                    pass
 
 def _eh_requisito_unico(expr):
     """Retorna True se a expressão for uma única disciplina (sem operadores E, OU ou parênteses)."""
@@ -271,9 +323,91 @@ def _codigos_na_expressao(expr):
     return re.findall(r'[A-Z]{2,}\d{2,}[A-Z0-9]*', expr.upper()) or re.findall(r'[A-Z]+\d+', expr.upper())
 
 
+def build_expressao_logica(expr):
+    """
+    Converte a string de expressão (ex: '(CIC0100 OU CIC0101)', '(A E B)', 'ADM0023')
+    em um objeto JSONB: {"operador": "OU"|"E"|null, "materias": ["CIC0100", "CIC0101"]}.
+    Usado em expressao_logica das tabelas equivalencias, pre_requisitos e co_requisitos.
+    """
+    if not expr or not isinstance(expr, str):
+        return None
+    e = expr.strip()
+    if not e:
+        return None
+    materias = _codigos_na_expressao(e)
+    e_upper = e.upper()
+    if ' OU ' in e_upper:
+        operador = 'OU'
+    elif ' E ' in e_upper:
+        operador = 'E'
+    else:
+        operador = None
+    return {'operador': operador, 'materias': materias}
+
+
+def _id_materia_from_cache(codigo):
+    """Retorna id_materia do cache; tenta codigo, upper e lower para evitar falha por casing."""
+    if not codigo:
+        return None
+    return (
+        CACHE_ID_MATERIA.get(codigo)
+        or CACHE_ID_MATERIA.get(codigo.upper())
+        or CACHE_ID_MATERIA.get(codigo.lower())
+    )
+
+
+def _codigos_em_expressoes_mat_det(mat_det):
+    """Retorna set de códigos de matérias que aparecem em pre_requisitos, co_requisitos, equivalências e equivalencias_especificas."""
+    codigos = set()
+    for campo, key in [
+        ('pre_requisitos', None),
+        ('co_requisitos', None),
+        ('equivalencias', None),
+        ('equivalencias_especificas', 'expressao')
+    ]:
+        val = mat_det.get(campo)
+        if not val or val == '-':
+            continue
+        if isinstance(val, list):
+            for item in val:
+                expr = item.get(key, item.get('expressao', '')) if isinstance(item, dict) else str(item)
+                codigos.update(_codigos_na_expressao(expr))
+        else:
+            codigos.update(_codigos_na_expressao(str(val)))
+    return codigos
+
+
+def ensure_materias_existem(codigos, materias_detalhadas_dict=None):
+    """
+    Garante que todas as matérias com os códigos existam no banco (e no CACHE_ID_MATERIA).
+    Cria com dados de materias_detalhadas_dict[codigo] ou registro mínimo. Não insere em pre/co/equiv.
+    """
+    if not codigos:
+        return
+    detalhes = materias_detalhadas_dict or {}
+    for cod in codigos:
+        if not cod:
+            continue
+        if _id_materia_from_cache(cod) is not None:
+            continue
+        mat = detalhes.get(cod) or detalhes.get(cod.upper()) or detalhes.get(cod.lower())
+        if isinstance(mat, dict):
+            get_or_create_materia({
+                'nome': mat.get('nome', cod),
+                'codigo': cod,
+                'carga_horaria': ch_to_int(mat.get('carga_horaria', mat.get('ch', 0))),
+                'ementa': mat.get('ementa', '')
+            })
+        else:
+            get_or_create_materia({'nome': cod, 'codigo': cod, 'carga_horaria': 0, 'ementa': ''})
+
+
 def get_or_create_pre_requisito(id_materia, expressao_original, id_materia_requisito=None):
-    """Salva expressao_original; id_materia_requisito só se for matéria única (senão None)."""
+    """Salva expressao_original e expressao_logica (JSONB); id_materia_requisito quando for matéria única."""
     payload = {'id_materia': id_materia, 'expressao_original': expressao_original}
+    logica = build_expressao_logica(expressao_original)
+    if logica is not None:
+        payload['expressao_logica'] = logica
     if id_materia_requisito is not None:
         payload['id_materia_requisito'] = id_materia_requisito
     try:
@@ -285,8 +419,11 @@ def get_or_create_pre_requisito(id_materia, expressao_original, id_materia_requi
 
 
 def get_or_create_co_requisito(id_materia, expressao_original, id_materia_corequisito=None):
-    """Salva expressao_original; id_materia_corequisito só se for matéria única (senão None)."""
+    """Salva expressao_original e expressao_logica (JSONB); id_materia_corequisito quando for matéria única."""
     payload = {'id_materia': id_materia, 'expressao_original': expressao_original}
+    logica = build_expressao_logica(expressao_original)
+    if logica is not None:
+        payload['expressao_logica'] = logica
     if id_materia_corequisito is not None:
         payload['id_materia_corequisito'] = id_materia_corequisito
     try:
@@ -296,15 +433,13 @@ def get_or_create_co_requisito(id_materia, expressao_original, id_materia_corequ
         result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expressao_original).execute)
         return result.data[0]['id_co_requisito'] if result.data else None
 
+
 def get_or_create_equivalencia(id_materia, id_curso, expressao_original, curriculo=None, data_vigencia=None):
-    """Schema equivalencias: id_materia, id_curso, curriculo, data_vigencia, fim_vigencia, expressao_original, id_matriz (sem coluna expressao)."""
-    payload = {
-        'id_materia': id_materia,
-        'id_curso': id_curso,
-        'expressao_original': expressao_original,
-        'curriculo': curriculo,
-        'data_vigencia': data_vigencia
-    }
+    """Schema equivalencias: id_materia, id_curso, curriculo, data_vigencia, fim_vigencia, expressao_original, expressao_logica."""
+    payload = {'id_materia': id_materia, 'id_curso': id_curso, 'expressao_original': expressao_original, 'curriculo': curriculo, 'data_vigencia': data_vigencia}
+    logica = build_expressao_logica(expressao_original)
+    if logica is not None:
+        payload['expressao_logica'] = logica
     try:
         res = executar_operacao(supabase.table('equivalencias').insert(payload).execute)
         return res.data[0]['id_equivalencia']
@@ -325,12 +460,13 @@ for arquivo in os.listdir(PASTA_MATERIAS):
         for mat in materias:
             materias_detalhadas[mat['codigo']] = mat
 
-# Cache de cursos existentes (por nome_curso)
+# Cache de cursos existentes (id_curso = código base numérico)
 cursos_existentes = set()
 try:
-    res = executar_operacao(supabase.table('cursos').select('nome_curso').execute)
+    res = executar_operacao(supabase.table('cursos').select('id_curso').execute)
     for c in (res.data or []):
-        cursos_existentes.add(c['nome_curso'])
+        if c.get('id_curso') is not None:
+            cursos_existentes.add(c['id_curso'])
 except Exception:
     pass
 
@@ -341,18 +477,30 @@ for m in res.data:
 
 def processar_matrizes():
     print("Processando matrizes curriculares...")
+    # Cache da lista de cursos (evita N chamadas na equivalências específicas)
+    try:
+        res_cursos = executar_operacao(supabase.table('cursos').select('id_curso', 'nome_curso').execute)
+        CACHE_CURSOS_LISTA = list(res_cursos.data or [])
+    except Exception:
+        CACHE_CURSOS_LISTA = []
+    total_arquivos = len([f for f in os.listdir(PASTA_MATRIZES) if f.endswith('.json')])
     for i, arquivo in enumerate(os.listdir(PASTA_MATRIZES), 1):
-        print(f"\n[{i}/{len(os.listdir(PASTA_MATRIZES))}] Processando: {arquivo}")
         if not arquivo.endswith('.json'):
             continue
+        print(f"\r[{i}/{total_arquivos}] {arquivo[:50]}...", end='', flush=True)
         with open(os.path.join(PASTA_MATRIZES, arquivo), 'r', encoding='utf-8') as f:
             matriz = json.load(f)
             nome_curso = remover_acentos(matriz['curso']).replace('Ç', 'C').upper().strip()
             tipo_curso = matriz.get('tipo_curso')
             periodo_letivo = matriz.get('periodo_letivo_vigor')
             curriculo_str = matriz.get('curriculo') or ''
-            id_curso = get_or_create_curso(nome_curso, tipo_curso)
-            cursos_existentes.add(nome_curso)
+            codigo_base = extrair_codigo_base(curriculo_str)
+            if not codigo_base:
+                continue
+            id_curso = get_or_create_curso(codigo_base, nome_curso, tipo_curso)
+            if not any(c.get('id_curso') == id_curso for c in CACHE_CURSOS_LISTA):
+                CACHE_CURSOS_LISTA.append({'id_curso': id_curso, 'nome_curso': nome_curso})
+            cursos_existentes.add(id_curso)
             dados_mat = build_dados_matriz(curriculo_str, periodo_letivo)
             prazos_cargas = matriz.get('prazos_cargas') or {}
             id_matriz = get_or_create_matriz(
@@ -362,26 +510,37 @@ def processar_matrizes():
                 dados_mat['ano_vigor'],
                 prazos_cargas
             )
-            print(f"Curso: {nome_curso} (id: {id_curso}) | Matriz: {dados_mat['curriculo_completo']} (id: {id_matriz})")
-            relacoes_curso = 0
-            relacoes_criadas_curso = 0
-            encontrou_materias = False
+            # Coletar todas as (id_materia, nivel) e garantir que existam no banco
+            linhas_matriz = []
             for nivel in matriz['niveis']:
-                nivel_nome = nivel.get('nivel', '')
-                nivel_int = nivel_to_int(nivel_nome)
+                nivel_int = nivel_to_int(nivel.get('nivel', ''))
                 for materia in nivel['materias']:
-                    encontrou_materias = True
                     codigo = materia['codigo']
                     mat_det = materias_detalhadas.get(codigo, {})
-                    ch_val = mat_det.get('carga_horaria', materia.get('carga_horaria', materia.get('ch', 0)))
                     dados_materia = {
                         'nome': mat_det.get('nome', materia['nome']),
                         'codigo': codigo,
-                        'carga_horaria': ch_to_int(ch_val),
+                        'carga_horaria': ch_to_int(mat_det.get('carga_horaria', materia.get('carga_horaria', materia.get('ch', 0)))),
                         'ementa': mat_det.get('ementa', materia.get('ementa', ''))
                     }
                     id_materia = get_or_create_materia(dados_materia)
-                    get_or_create_materia_por_curso(id_materia, id_matriz, nivel_int)
+                    linhas_matriz.append((id_materia, nivel_int))
+            # Garantir que todas as matérias referenciadas em pre/co/equiv existam antes de inserir relações
+            for nivel in matriz['niveis']:
+                for materia in nivel['materias']:
+                    mat_det = materias_detalhadas.get(materia['codigo'], {})
+                    codigos_ref = _codigos_em_expressoes_mat_det(mat_det)
+                    ensure_materias_existem(codigos_ref, materias_detalhadas)
+            insert_materias_por_curso_batch(linhas_matriz, id_matriz)
+            # Pré/co-requisitos e equivalências (só após matérias existirem no banco)
+            for nivel in matriz['niveis']:
+                nivel_int = nivel_to_int(nivel.get('nivel', ''))
+                for materia in nivel['materias']:
+                    codigo = materia['codigo']
+                    id_materia = CACHE_ID_MATERIA.get(codigo)
+                    if id_materia is None:
+                        continue
+                    mat_det = materias_detalhadas.get(codigo, {})
                     # Pré-requisitos: expressao_original sempre; id_materia_requisito só se for matéria única
                     pre = mat_det.get('pre_requisitos', None)
                     if pre and pre != '-' and pre is not None:
@@ -390,13 +549,13 @@ def processar_matrizes():
                         if _eh_requisito_unico(expr):
                             codigos_pre = _codigos_na_expressao(expr)
                             if codigos_pre:
-                                res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', codigos_pre[0]).execute)
-                                if res.data:
-                                    id_pre = res.data[0]['id_materia']
-                        result = executar_operacao(supabase.table('pre_requisitos').select('id_pre_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
-                        if not result.data:
-                            get_or_create_pre_requisito(id_materia, expr, id_pre)
-                    # Co-requisitos: expressao_original sempre; id_materia_corequisito só se matéria única
+                                id_pre = _id_materia_from_cache(codigos_pre[0])
+                        # Só insere se a matéria (e, quando único, a referenciada) já existir no banco
+                        if id_pre is not None or not _eh_requisito_unico(expr):
+                            result = executar_operacao(supabase.table('pre_requisitos').select('id_pre_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
+                            if not result.data:
+                                get_or_create_pre_requisito(id_materia, expr, id_pre)
+                    # Co-requisitos: id_materia_corequisito só quando matéria única; só insere se referenciadas existirem
                     co = mat_det.get('co_requisitos', None)
                     if co and co != '-' and co is not None:
                         expr = (co or '').strip()
@@ -404,29 +563,25 @@ def processar_matrizes():
                         if _eh_requisito_unico(expr):
                             codigos_co = _codigos_na_expressao(expr)
                             if codigos_co:
-                                res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', codigos_co[0]).execute)
-                                if res.data:
-                                    id_co = res.data[0]['id_materia']
-                        result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
-                        if not result.data:
-                            get_or_create_co_requisito(id_materia, expr, id_co)
+                                id_co = _id_materia_from_cache(codigos_co[0])
+                        if id_co is not None or not _eh_requisito_unico(expr):
+                            result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
+                            if not result.data:
+                                get_or_create_co_requisito(id_materia, expr, id_co)
                     # Equivalências: expressao + expressao_original
                     eq = mat_det.get('equivalencias', None)
                     if eq and eq != '-' and eq is not None:
                         expr_eq = (eq or '').strip()
-                        codigos_eq = _codigos_na_expressao(expr_eq)
-                        for cod in codigos_eq:
-                            res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', cod).execute)
-                            if res.data:
-                                result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao_original', expr_eq).is_('id_curso', None).execute)
-                                if not result.data:
-                                    executar_operacao(supabase.table('equivalencias').insert({
-                                        'id_materia': id_materia,
-                                        'id_curso': None,
-                                        'expressao_original': expr_eq,
-                                        'curriculo': None,
-                                        'data_vigencia': None
-                                    }).execute)
+                        result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao_original', expr_eq).is_('id_curso', 'null').execute)
+                        if not result.data:
+                            executar_operacao(supabase.table('equivalencias').insert({
+                                'id_materia': id_materia,
+                                'id_curso': None,
+                                'expressao_original': expr_eq,
+                                'expressao_logica': build_expressao_logica(expr_eq),
+                                'curriculo': None,
+                                'data_vigencia': None
+                            }).execute)
                     # Equivalências específicas (com expressao_original)
                     equiv_esp = mat_det.get('equivalencias_especificas', None)
                     if equiv_esp and isinstance(equiv_esp, list):
@@ -436,9 +591,13 @@ def processar_matrizes():
                             match = re.search(r'(\d{4}\.\d)', curriculo_raw)
                             periodo_letivo_esp = match.group(1) if match else ''
                             id_curso_esp = None
-                            if nome_curso_esp:
-                                res_cursos = executar_operacao(supabase.table('cursos').select('id_curso', 'nome_curso').execute)
-                                for curso in (res_cursos.data or []):
+                            codigo_base_esp = extrair_codigo_base(curriculo_raw)
+                            if codigo_base_esp:
+                                id_c = to_int(codigo_base_esp)
+                                if id_c is not None and any(c.get('id_curso') == id_c for c in CACHE_CURSOS_LISTA):
+                                    id_curso_esp = id_c
+                            if id_curso_esp is None and nome_curso_esp:
+                                for curso in CACHE_CURSOS_LISTA:
                                     nome_curso_banco = remover_acentos((curso.get('nome_curso') or '').strip().upper())
                                     if nome_curso_banco == nome_curso_esp:
                                         id_curso_esp = curso['id_curso']
@@ -464,47 +623,51 @@ def processar_matrizes():
                                             'id_materia': id_materia,
                                             'id_curso': id_curso_esp,
                                             'expressao_original': expr_esp,
+                                            'expressao_logica': build_expressao_logica(expr_esp),
                                             'curriculo': curriculo_raw,
                                             'data_vigencia': data_vigencia_eq,
                                             'fim_vigencia': fim_vigencia_eq
                                         }).execute
                                     )
                     relacoes_curso += 1
-    print("Matrizes curriculares processadas!")
+    print("\nMatrizes curriculares processadas!")
 
 def processar_materias():
-    print("Processando matérias...")
-    # Carregar todos os códigos de matérias já existentes no banco
-    materias_existentes = set()
-    res = executar_operacao(supabase.table('materias').select('codigo_materia').execute)
-    for m in res.data:
-        materias_existentes.add(m['codigo_materia'])
-    for arquivo in sorted(os.listdir(PASTA_MATERIAS)):
-        if not arquivo.endswith('.json'):
-            continue
-        print(f"Processando arquivo: {arquivo}")
+    print("Processando matérias (pré/co-requisitos e equivalências)...")
+    lista_arquivos = sorted([f for f in os.listdir(PASTA_MATERIAS) if f.endswith('.json')])
+    try:
+        res_c = executar_operacao(supabase.table('cursos').select('id_curso', 'nome_curso').execute)
+        cache_cursos = list(res_c.data or [])
+    except Exception:
+        cache_cursos = []
+    # Fase 1: garantir que todas as matérias (e as referenciadas em expressões) existam no banco
+    print("  Fase 1: garantindo que todas as matérias existam no banco...")
+    for idx, arquivo in enumerate(lista_arquivos, 1):
+        print(f"\r[Matérias {idx}/{len(lista_arquivos)}] {arquivo[:40]}...", end='', flush=True)
         with open(os.path.join(PASTA_MATERIAS, arquivo), 'r', encoding='utf-8') as f:
             materias = json.load(f)
             for materia in materias:
                 codigo = materia['codigo']
-                if codigo in materias_existentes:
-                    print(f"[DEBUG] Matéria já existe no banco: {codigo}")
-                    # Buscar id_materia do banco
-                    res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', codigo).execute)
-                    if res.data:
-                        id_materia = res.data[0]['id_materia']
-                    else:
-                        continue
-                else:
-                    print(f"[DEBUG MAT] Processando matéria: {codigo} - {materia.get('nome')}")
-                    id_materia = get_or_create_materia({
-                        'nome': materia['nome'],
-                        'codigo': codigo,
-                        'carga_horaria': ch_to_int(materia.get('carga_horaria', materia.get('ch', 0))),
-                        'ementa': materia.get('ementa', '')
-                    })
-                    materias_existentes.add(codigo)
-                # Pré-requisitos: expressao_original sempre; id_materia_requisito só se matéria única
+                get_or_create_materia({
+                    'nome': materia['nome'],
+                    'codigo': codigo,
+                    'carga_horaria': ch_to_int(materia.get('carga_horaria', materia.get('ch', 0))),
+                    'ementa': materia.get('ementa', '')
+                })
+                codigos_ref = _codigos_em_expressoes_mat_det(materia)
+                ensure_materias_existem(codigos_ref, materias_detalhadas)
+    # Fase 2: inserir pré/co-requisitos e equivalências (matérias já existem)
+    print("\n  Fase 2: inserindo pré/co-requisitos e equivalências...")
+    for idx, arquivo in enumerate(lista_arquivos, 1):
+        print(f"\r[Matérias {idx}/{len(lista_arquivos)}] {arquivo[:40]}...", end='', flush=True)
+        with open(os.path.join(PASTA_MATERIAS, arquivo), 'r', encoding='utf-8') as f:
+            materias = json.load(f)
+            for materia in materias:
+                codigo = materia['codigo']
+                id_materia = _id_materia_from_cache(codigo)
+                if id_materia is None:
+                    continue
+                # Pré-requisitos: expressao_original + expressao_logica; id_materia_requisito só se matéria única (já no banco)
                 pre = materia.get('pre_requisitos', '')
                 if pre and pre != '-':
                     expr = (pre or '').strip()
@@ -512,13 +675,13 @@ def processar_materias():
                     if _eh_requisito_unico(expr):
                         codigos_pre = _codigos_na_expressao(expr)
                         if codigos_pre:
-                            res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', codigos_pre[0]).execute)
-                            if res.data:
-                                id_pre = res.data[0]['id_materia']
-                    result = executar_operacao(supabase.table('pre_requisitos').select('id_pre_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
-                    if not result.data:
-                        get_or_create_pre_requisito(id_materia, expr, id_pre)
-                # Co-requisitos: expressao_original sempre; id_materia_corequisito só se matéria única
+                            id_pre = _id_materia_from_cache(codigos_pre[0])
+                    # Só insere se (requisito único com id no banco) ou (expressão composta)
+                    if id_pre is not None or not _eh_requisito_unico(expr):
+                        result = executar_operacao(supabase.table('pre_requisitos').select('id_pre_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
+                        if not result.data:
+                            get_or_create_pre_requisito(id_materia, expr, id_pre)
+                # Co-requisitos
                 co = materia.get('co_requisitos', '')
                 if co and co != '-':
                     expr = (co or '').strip()
@@ -526,44 +689,43 @@ def processar_materias():
                     if _eh_requisito_unico(expr):
                         codigos_co = _codigos_na_expressao(expr)
                         if codigos_co:
-                            res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', codigos_co[0]).execute)
-                            if res.data:
-                                id_co = res.data[0]['id_materia']
-                    result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
-                    if not result.data:
-                        get_or_create_co_requisito(id_materia, expr, id_co)
-                # Equivalências: expressao + expressao_original
+                            id_co = _id_materia_from_cache(codigos_co[0])
+                    if id_co is not None or not _eh_requisito_unico(expr):
+                        result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
+                        if not result.data:
+                            get_or_create_co_requisito(id_materia, expr, id_co)
+                # Equivalências: expressao_original + expressao_logica
                 eq = materia.get('equivalencias', '')
                 if eq and eq != '-':
                     expr_eq = (eq or '').strip()
-                    codigos = _codigos_na_expressao(expr_eq)
-                    for cod in codigos:
-                        res = executar_operacao(supabase.table('materias').select('id_materia').eq('codigo_materia', cod).execute)
-                        if res.data:
-                            result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao_original', expr_eq).is_('id_curso', None).execute)
-                            if not result.data:
-                                executar_operacao(supabase.table('equivalencias').insert({
-                                    'id_materia': id_materia,
-                                    'id_curso': None,
-                                    'expressao_original': expr_eq,
-                                    'curriculo': None,
-                                    'data_vigencia': None
-                                }).execute)
-                # Equivalências específicas (expressao_original)
+                    result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao_original', expr_eq).is_('id_curso', 'null').execute)
+                    if not result.data:
+                        executar_operacao(supabase.table('equivalencias').insert({
+                            'id_materia': id_materia,
+                            'id_curso': None,
+                            'expressao_original': expr_eq,
+                            'expressao_logica': build_expressao_logica(expr_eq),
+                            'curriculo': None,
+                            'data_vigencia': None
+                        }).execute)
+                # Equivalências específicas (usa cache de cursos)
                 equiv_esp = materia.get('equivalencias_especificas', None)
                 if equiv_esp and isinstance(equiv_esp, list):
                     for eqesp in equiv_esp:
                         nome_curso_esp = remover_acentos(eqesp.get('matriz_curricular', '').strip().split(' - ')[0].upper())
                         curriculo_raw = eqesp.get('curriculo', '').strip()
-                        match = re.search(r'(\d{4}\.\d)', curriculo_raw)
-                        periodo_letivo_esp = match.group(1) if match else ''
                         id_curso_esp = None
-                        res_cursos = executar_operacao(supabase.table('cursos').select('id_curso', 'nome_curso').execute)
-                        for curso in (res_cursos.data or []):
-                            nome_curso_banco = remover_acentos((curso.get('nome_curso') or '').strip().upper())
-                            if nome_curso_banco == nome_curso_esp:
-                                id_curso_esp = curso['id_curso']
-                                break
+                        codigo_base_esp = extrair_codigo_base(curriculo_raw)
+                        if codigo_base_esp:
+                            id_c = to_int(codigo_base_esp)
+                            if id_c is not None and any(c.get('id_curso') == id_c for c in cache_cursos):
+                                id_curso_esp = id_c
+                        if id_curso_esp is None:
+                            for curso in cache_cursos:
+                                nome_curso_banco = remover_acentos((curso.get('nome_curso') or '').strip().upper())
+                                if nome_curso_banco == nome_curso_esp:
+                                    id_curso_esp = curso['id_curso']
+                                    break
                         data_vigencia_eq = periodo_letivo_to_date(eqesp.get('data_vigencia', '').strip())
                         fim_vigencia_eq = periodo_letivo_to_date(eqesp.get('fim_vigencia', '').strip()) if eqesp.get('fim_vigencia') else None
                         expr_esp = eqesp.get('expressao', '').strip()
@@ -583,12 +745,13 @@ def processar_materias():
                                         'id_materia': id_materia,
                                         'id_curso': id_curso_esp,
                                         'expressao_original': expr_esp,
+                                        'expressao_logica': build_expressao_logica(expr_esp),
                                         'curriculo': curriculo_raw,
                                         'data_vigencia': data_vigencia_eq,
                                         'fim_vigencia': fim_vigencia_eq
                                     }).execute
                                 )
-    print("Matérias processadas!")
+    print("\nMatérias processadas!")
 
 def periodo_letivo_to_date(periodo):
     if not periodo or not re.match(r'\d{4}\.\d', periodo):
