@@ -230,24 +230,33 @@ def get_or_create_materia(materia):
     departamento = DEPARTAMENTOS_MATERIAS.get(codigo, '')
     # Usar cache para evitar SELECT em toda matéria
     id_materia = CACHE_ID_MATERIA.get(codigo)
+    ch_novo = ch_to_int(materia.get('carga_horaria', materia.get('ch', 0)))
     if id_materia is not None:
-        # Atualiza ementa/departamento só se necessário (opcional: pode fazer em lote depois)
+        # Preencher carga_horária quando existir e for > 0 (evita matérias com 0 créditos)
+        if ch_novo and ch_novo > 0:
+            try:
+                executar_operacao(supabase.table('materias').update({'carga_horaria': ch_novo}).eq('id_materia', id_materia).execute)
+            except Exception:
+                pass
         return id_materia
-    result = executar_operacao(supabase.table('materias').select('id_materia', 'ementa', 'departamento').eq('codigo_materia', codigo).execute)
+    result = executar_operacao(supabase.table('materias').select('id_materia', 'ementa', 'departamento', 'carga_horaria').eq('codigo_materia', codigo).execute)
     if result.data:
         id_materia = result.data[0]['id_materia']
         CACHE_ID_MATERIA[codigo] = id_materia
         ementa_atual = result.data[0].get('ementa', '')
         departamento_atual = result.data[0].get('departamento', '')
+        ch_atual = result.data[0].get('carga_horaria') or 0
         if materia.get('ementa', '') and materia.get('ementa', '') != ementa_atual:
             executar_operacao(supabase.table('materias').update({'ementa': materia.get('ementa', '')}).eq('id_materia', id_materia).execute)
         if departamento and (not departamento_atual or departamento != departamento_atual):
             executar_operacao(supabase.table('materias').update({'departamento': departamento}).eq('id_materia', id_materia).execute)
+        if ch_novo and ch_novo > 0 and (not ch_atual or ch_atual == 0):
+            executar_operacao(supabase.table('materias').update({'carga_horaria': ch_novo}).eq('id_materia', id_materia).execute)
         return id_materia
     insert_data = {
         'nome_materia': materia['nome'],
         'codigo_materia': codigo,
-        'carga_horaria': ch_to_int(materia.get('carga_horaria')),
+        'carga_horaria': ch_to_int(materia.get('carga_horaria', materia.get('ch', 0))),
         'ementa': materia.get('ementa', ''),
         'departamento': departamento
     }
@@ -284,27 +293,36 @@ def get_or_create_materia_por_curso(id_materia, id_matriz, nivel):
 def insert_materias_por_curso_batch(linhas, id_matriz, tamanho_lote=80):
     """
     Insere em lote (id_materia, id_matriz, nivel). linhas = list of (id_materia, nivel_int).
-    Ignora duplicatas (já existentes para esta matriz). Reduz drasticamente chamadas à API.
+    A constraint unique_materia_grade_matriz é (id_matriz, id_materia): uma matéria por matriz.
+    Mantém a primeira ocorrência de cada id_materia (primeiro nivel visto). Ignora duplicatas.
     """
     if not linhas:
         return
-    # Buscar já existentes para esta matriz (1 chamada)
     try:
-        res = executar_operacao(supabase.table('materias_por_curso').select('id_materia', 'nivel').eq('id_matriz', id_matriz).execute)
-        existentes = {(r['id_materia'], r['nivel']) for r in (res.data or [])}
+        res = executar_operacao(supabase.table('materias_por_curso').select('id_materia').eq('id_matriz', id_matriz).execute)
+        existentes_ids = {r['id_materia'] for r in (res.data or [])}
     except Exception:
-        existentes = set()
-    to_insert = [{'id_materia': id_m, 'id_matriz': id_matriz, 'nivel': niv} for (id_m, niv) in linhas if (id_m, niv) not in existentes]
+        existentes_ids = set()
+    # Uma linha por id_materia (primeiro nivel encontrado); evita violar unique (id_matriz, id_materia)
+    seen = set()
+    to_insert = []
+    for (id_m, niv) in linhas:
+        if id_m in existentes_ids or id_m in seen:
+            continue
+        seen.add(id_m)
+        to_insert.append({'id_materia': id_m, 'id_matriz': id_matriz, 'nivel': niv})
     for i in range(0, len(to_insert), tamanho_lote):
         lote = to_insert[i : i + tamanho_lote]
         try:
             executar_operacao(supabase.table('materias_por_curso').insert(lote).execute)
-        except Exception:
-            for row in lote:
-                try:
-                    executar_operacao(supabase.table('materias_por_curso').insert(row).execute)
-                except Exception:
-                    pass
+        except Exception as e:
+            # Duplicata (ex.: inserção concorrente): ignora; fallback linha a linha só se necessário
+            if '23505' not in str(e) and 'duplicate key' not in str(e).lower():
+                for row in lote:
+                    try:
+                        executar_operacao(supabase.table('materias_por_curso').insert(row).execute)
+                    except Exception:
+                        pass
 
 def _eh_requisito_unico(expr):
     """Retorna True se a expressão for uma única disciplina (sem operadores E, OU ou parênteses)."""
@@ -314,6 +332,15 @@ def _eh_requisito_unico(expr):
     if ' E ' in e or ' OU ' in e or '(' in e or ')' in e:
         return False
     return True
+
+
+def _id_materia_requisito_unico(expr):
+    """Se a expressão tiver exatamente um código de matéria, retorna id_materia; senão None.
+    Assim preenchemos id_materia_requisito/id_materia_corequisito mesmo com parênteses, ex: ((BOT0008))."""
+    codigos = _codigos_na_expressao(expr)
+    if len(codigos) != 1:
+        return None
+    return _id_materia_from_cache(codigos[0])
 
 
 def _codigos_na_expressao(expr):
@@ -525,13 +552,38 @@ def processar_matrizes():
                     }
                     id_materia = get_or_create_materia(dados_materia)
                     linhas_matriz.append((id_materia, nivel_int))
-            # Garantir que todas as matérias referenciadas em pre/co/equiv existam antes de inserir relações
+            # Garantir que todas as matérias referenciadas em pre/co/equiv existam (uma vez por matriz)
+            codigos_ref_matriz = set()
             for nivel in matriz['niveis']:
                 for materia in nivel['materias']:
                     mat_det = materias_detalhadas.get(materia['codigo'], {})
-                    codigos_ref = _codigos_em_expressoes_mat_det(mat_det)
-                    ensure_materias_existem(codigos_ref, materias_detalhadas)
+                    codigos_ref_matriz.update(_codigos_em_expressoes_mat_det(mat_det))
+            ensure_materias_existem(codigos_ref_matriz, materias_detalhadas)
             insert_materias_por_curso_batch(linhas_matriz, id_matriz)
+            # Buscar em 3 chamadas (não N) todos os pre/co/requisitos e equivalências já existentes para as matérias desta matriz
+            id_materias_matriz = list({CACHE_ID_MATERIA.get(m['codigo']) for nivel in matriz['niveis'] for m in nivel['materias'] if CACHE_ID_MATERIA.get(m['codigo']) is not None})
+            pre_existentes = set()
+            co_existentes = set()
+            equiv_existentes = set()
+            if id_materias_matriz:
+                try:
+                    r_pre = executar_operacao(supabase.table('pre_requisitos').select('id_materia', 'expressao_original').in_('id_materia', id_materias_matriz).execute)
+                    for row in (r_pre.data or []):
+                        pre_existentes.add((row['id_materia'], (row.get('expressao_original') or '').strip()))
+                except Exception:
+                    pass
+                try:
+                    r_co = executar_operacao(supabase.table('co_requisitos').select('id_materia', 'expressao_original').in_('id_materia', id_materias_matriz).execute)
+                    for row in (r_co.data or []):
+                        co_existentes.add((row['id_materia'], (row.get('expressao_original') or '').strip()))
+                except Exception:
+                    pass
+                try:
+                    r_eq = executar_operacao(supabase.table('equivalencias').select('id_materia', 'expressao_original', 'id_curso', 'curriculo').in_('id_materia', id_materias_matriz).execute)
+                    for row in (r_eq.data or []):
+                        equiv_existentes.add((row['id_materia'], (row.get('expressao_original') or '').strip(), row.get('id_curso'), row.get('curriculo')))
+                except Exception:
+                    pass
             # Pré/co-requisitos e equivalências (só após matérias existirem no banco)
             for nivel in matriz['niveis']:
                 nivel_int = nivel_to_int(nivel.get('nivel', ''))
@@ -541,39 +593,32 @@ def processar_matrizes():
                     if id_materia is None:
                         continue
                     mat_det = materias_detalhadas.get(codigo, {})
-                    # Pré-requisitos: expressao_original sempre; id_materia_requisito só se for matéria única
+                    # Pré-requisitos: id_materia_requisito preenchido quando há exatamente uma matéria na expressão (ex: ((BOT0008)))
                     pre = mat_det.get('pre_requisitos', None)
                     if pre and pre != '-' and pre is not None:
                         expr = (pre or '').strip()
-                        id_pre = None
-                        if _eh_requisito_unico(expr):
-                            codigos_pre = _codigos_na_expressao(expr)
-                            if codigos_pre:
-                                id_pre = _id_materia_from_cache(codigos_pre[0])
-                        # Só insere se a matéria (e, quando único, a referenciada) já existir no banco
-                        if id_pre is not None or not _eh_requisito_unico(expr):
-                            result = executar_operacao(supabase.table('pre_requisitos').select('id_pre_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
-                            if not result.data:
+                        codigos_pre = _codigos_na_expressao(expr)
+                        id_pre = _id_materia_requisito_unico(expr)
+                        if id_pre is not None or len(codigos_pre) != 1:
+                            if (id_materia, expr) not in pre_existentes:
                                 get_or_create_pre_requisito(id_materia, expr, id_pre)
-                    # Co-requisitos: id_materia_corequisito só quando matéria única; só insere se referenciadas existirem
+                                pre_existentes.add((id_materia, expr))
+                    # Co-requisitos: id_materia_corequisito preenchido quando há exatamente uma matéria na expressão
                     co = mat_det.get('co_requisitos', None)
                     if co and co != '-' and co is not None:
                         expr = (co or '').strip()
-                        id_co = None
-                        if _eh_requisito_unico(expr):
-                            codigos_co = _codigos_na_expressao(expr)
-                            if codigos_co:
-                                id_co = _id_materia_from_cache(codigos_co[0])
-                        if id_co is not None or not _eh_requisito_unico(expr):
-                            result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
-                            if not result.data:
+                        codigos_co = _codigos_na_expressao(expr)
+                        id_co = _id_materia_requisito_unico(expr)
+                        if id_co is not None or len(codigos_co) != 1:
+                            if (id_materia, expr) not in co_existentes:
                                 get_or_create_co_requisito(id_materia, expr, id_co)
+                                co_existentes.add((id_materia, expr))
                     # Equivalências: expressao + expressao_original
                     eq = mat_det.get('equivalencias', None)
                     if eq and eq != '-' and eq is not None:
                         expr_eq = (eq or '').strip()
-                        result = executar_operacao(supabase.table('equivalencias').select('id_equivalencia').eq('id_materia', id_materia).eq('expressao_original', expr_eq).is_('id_curso', 'null').execute)
-                        if not result.data:
+                        chave_equiv = (id_materia, expr_eq, None, None)
+                        if chave_equiv not in equiv_existentes:
                             executar_operacao(supabase.table('equivalencias').insert({
                                 'id_materia': id_materia,
                                 'id_curso': None,
@@ -582,6 +627,7 @@ def processar_matrizes():
                                 'curriculo': None,
                                 'data_vigencia': None
                             }).execute)
+                            equiv_existentes.add(chave_equiv)
                     # Equivalências específicas (com expressao_original)
                     equiv_esp = mat_det.get('equivalencias_especificas', None)
                     if equiv_esp and isinstance(equiv_esp, list):
@@ -608,16 +654,8 @@ def processar_matrizes():
                             fim_vigencia_eq = periodo_letivo_to_date(fim_vigencia_raw) if fim_vigencia_raw else None
                             expr_esp = eqesp.get('expressao', '').strip()
                             if id_curso_esp and curriculo_raw and data_vigencia_eq and expr_esp:
-                                result = executar_operacao(
-                                    supabase.table('equivalencias')
-                                    .select('id_equivalencia')
-                                    .eq('id_materia', id_materia)
-                                    .eq('id_curso', id_curso_esp)
-                                    .eq('expressao_original', expr_esp)
-                                    .eq('curriculo', curriculo_raw)
-                                    .execute
-                                )
-                                if not result.data:
+                                chave_esp = (id_materia, expr_esp, id_curso_esp, curriculo_raw)
+                                if chave_esp not in equiv_existentes:
                                     executar_operacao(
                                         supabase.table('equivalencias').insert({
                                             'id_materia': id_materia,
@@ -629,7 +667,7 @@ def processar_matrizes():
                                             'fim_vigencia': fim_vigencia_eq
                                         }).execute
                                     )
-                    relacoes_curso += 1
+                                    equiv_existentes.add(chave_esp)
     print("\nMatrizes curriculares processadas!")
 
 def processar_materias():
@@ -667,30 +705,23 @@ def processar_materias():
                 id_materia = _id_materia_from_cache(codigo)
                 if id_materia is None:
                     continue
-                # Pré-requisitos: expressao_original + expressao_logica; id_materia_requisito só se matéria única (já no banco)
+                # Pré-requisitos: id_materia_requisito preenchido quando há exatamente uma matéria na expressão
                 pre = materia.get('pre_requisitos', '')
                 if pre and pre != '-':
                     expr = (pre or '').strip()
-                    id_pre = None
-                    if _eh_requisito_unico(expr):
-                        codigos_pre = _codigos_na_expressao(expr)
-                        if codigos_pre:
-                            id_pre = _id_materia_from_cache(codigos_pre[0])
-                    # Só insere se (requisito único com id no banco) ou (expressão composta)
-                    if id_pre is not None or not _eh_requisito_unico(expr):
+                    codigos_pre = _codigos_na_expressao(expr)
+                    id_pre = _id_materia_requisito_unico(expr)
+                    if id_pre is not None or len(codigos_pre) != 1:
                         result = executar_operacao(supabase.table('pre_requisitos').select('id_pre_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
                         if not result.data:
                             get_or_create_pre_requisito(id_materia, expr, id_pre)
-                # Co-requisitos
+                # Co-requisitos: id_materia_corequisito preenchido quando há exatamente uma matéria na expressão
                 co = materia.get('co_requisitos', '')
                 if co and co != '-':
                     expr = (co or '').strip()
-                    id_co = None
-                    if _eh_requisito_unico(expr):
-                        codigos_co = _codigos_na_expressao(expr)
-                        if codigos_co:
-                            id_co = _id_materia_from_cache(codigos_co[0])
-                    if id_co is not None or not _eh_requisito_unico(expr):
+                    codigos_co = _codigos_na_expressao(expr)
+                    id_co = _id_materia_requisito_unico(expr)
+                    if id_co is not None or len(codigos_co) != 1:
                         result = executar_operacao(supabase.table('co_requisitos').select('id_co_requisito').eq('id_materia', id_materia).eq('expressao_original', expr).execute)
                         if not result.data:
                             get_or_create_co_requisito(id_materia, expr, id_co)
