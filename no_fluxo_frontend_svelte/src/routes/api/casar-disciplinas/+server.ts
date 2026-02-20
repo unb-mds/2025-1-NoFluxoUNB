@@ -1,5 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 const LOG_PREFIX = '[CasarDisciplinas]';
 
@@ -65,6 +66,19 @@ function isStatusMatriculado(status: string): boolean {
 	return String(status ?? '').trim().toUpperCase() === 'MATR';
 }
 
+/** Compara ano_periodo (ex: "2024.1", "2023.2"). Retorna &gt; 0 se a &gt; b, &lt; 0 se a &lt; b. */
+function compareAnoPeriodo(a: string, b: string): number {
+	const parse = (s: string) => {
+		const t = String(s ?? '').trim();
+		const [y, sem] = t.split(/[./]/).map(Number);
+		return { ano: y || 0, semestre: sem || 0 };
+	};
+	const pa = parse(a);
+	const pb = parse(b);
+	if (pa.ano !== pb.ano) return pa.ano - pb.ano;
+	return pa.semestre - pb.semestre;
+}
+
 function findSubjectMatch(
 	disciplina: DisciplinaHistorico,
 	materiasObrigatorias: MateriasBanco[],
@@ -118,11 +132,12 @@ function processMatchedDiscipline(
 	);
 
 	// Usar código da matriz (codigo_materia) como "codigo" na resposta para o fluxograma
-	// bater com as células do grid (curso usa codigo_materia); codigo_historico preserva o do PDF.
+	// bater com as células do grid; codigo_historico/nome_historico = disciplina cursada no PDF (ex.: equivalente).
 	const disciplinaCasada = {
 		...disciplina,
 		codigo: materiaBanco.materias.codigo_materia,
 		codigo_historico: disciplina.codigo,
+		nome_historico: disciplina.nome,
 		nome: materiaBanco.materias.nome_materia || disciplina.nome,
 		nome_materia: materiaBanco.materias.nome_materia,
 		codigo_materia: materiaBanco.materias.codigo_materia,
@@ -166,6 +181,149 @@ function checkEquivalencies(
 	return false;
 }
 
+/** Curso + uma matriz + lista de matérias (materias_por_curso). Schema: cursos → matrizes → materias_por_curso. */
+type CursoComMaterias = Record<string, unknown> & { materias_por_curso: MateriasBanco[]; matriz_curricular: string };
+
+/**
+ * Parse do campo Currículo do histórico (ex.: "60810/1" ou "8150/-2 - 2017.2").
+ * Regra: antes da "/" = código do curso (id_curso no banco); depois da "/" = versão da matriz.
+ * O ano (ex. " - 2017.2") é só visual; a comparação usa apenas código + versão.
+ */
+function parseMatrizCurricular(matrizCurricular: string): { codigo_curso: number; versao: string } | null {
+	const s = (matrizCurricular ?? '').trim();
+	if (!s || !s.includes('/')) return null;
+	const [antes, resto] = s.split('/', 2).map((x) => x.trim());
+	const versao = resto.includes(' - ') ? resto.split(' - ')[0].trim() : resto;
+	if (!antes || !/^\d+$/.test(antes) || !versao) return null;
+	const codigo_curso = parseInt(antes, 10);
+	return { codigo_curso, versao };
+}
+
+/**
+ * Busca por código do curso + versão da matriz (forma correta: id_curso = código, matriz.versao = versão).
+ */
+async function getCursoComMateriasPorCodigoEVersao(
+	supabase: SupabaseClient,
+	codigo_curso: number,
+	versao: string
+): Promise<{ data: CursoComMaterias | null; error: { message: string } | null }> {
+	const { data: curso, error: errCurso } = await supabase
+		.from('cursos')
+		.select('*')
+		.eq('id_curso', codigo_curso)
+		.maybeSingle();
+	if (errCurso) return { data: null, error: errCurso };
+	if (!curso) return { data: null, error: null };
+
+	const { data: matriz, error: errMatriz } = await supabase
+		.from('matrizes')
+		.select('id_matriz, curriculo_completo')
+		.eq('id_curso', codigo_curso)
+		.eq('versao', versao)
+		.maybeSingle();
+	if (errMatriz) return { data: null, error: errMatriz };
+	if (!matriz) return { data: null, error: null };
+
+	const { data: mpc, error: errMpc } = await supabase
+		.from('materias_por_curso')
+		.select('id_materia, nivel, materias(id_materia, nome_materia, codigo_materia)')
+		.eq('id_matriz', matriz.id_matriz);
+	if (errMpc) return { data: null, error: errMpc };
+
+	return {
+		data: {
+			...curso,
+			matriz_curricular: matriz.curriculo_completo ?? `${codigo_curso}/${versao}`,
+			materias_por_curso: (mpc ?? []) as unknown as MateriasBanco[]
+		},
+		error: null
+	};
+}
+
+/**
+ * Busca cursos com matérias por matriz (cursos → matrizes → materias_por_curso).
+ * Se matriz_curricular vier no formato "8150/-2 - 2017.2", usa codigo_curso + versao (busca correta).
+ */
+async function getCursosComMateriasPorMatriz(
+	supabase: SupabaseClient,
+	opts: { nome_curso?: string; id_curso?: number; nome_curso_like?: string; matriz_curricular?: string }
+): Promise<{ data: CursoComMaterias[] | null; error: { message: string } | null }> {
+	// Preferência: quando temos matriz no formato "codigo/versao", buscar por id_curso (código) + versao
+	if (opts.matriz_curricular) {
+		const parsed = parseMatrizCurricular(opts.matriz_curricular);
+		if (parsed) {
+			const { data: one, error: err } = await getCursoComMateriasPorCodigoEVersao(
+				supabase,
+				parsed.codigo_curso,
+				parsed.versao
+			);
+			if (err) return { data: null, error: err };
+			if (one) return { data: [one], error: null };
+			// Matriz não encontrada com esse código/versão; segue para fallback por nome se tiver
+		}
+	}
+
+	let q = supabase.from('cursos').select('*');
+	if (opts.id_curso != null) q = q.eq('id_curso', opts.id_curso);
+	else if (opts.nome_curso) q = q.eq('nome_curso', opts.nome_curso);
+	else if (opts.nome_curso_like) q = q.like('nome_curso', '%' + opts.nome_curso_like + '%');
+	const { data: cursosList, error: errCursos } = await q;
+	if (errCursos) return { data: null, error: errCursos };
+	const cursos = (cursosList ?? []) as Record<string, unknown>[];
+	if (cursos.length === 0) return { data: [], error: null };
+
+	const norm = (s: string) => (typeof s === 'string' ? s.trim() : String(s ?? '')).toLowerCase();
+	const result: CursoComMaterias[] = [];
+	for (const curso of cursos) {
+		const { data: matrizes, error: errMatrizes } = await supabase
+			.from('matrizes')
+			.select('id_matriz, curriculo_completo, versao')
+			.eq('id_curso', curso.id_curso);
+		if (errMatrizes) return { data: null, error: errMatrizes };
+		let listaMatrizes = (matrizes ?? []) as { id_matriz: number; curriculo_completo: string; versao?: string }[];
+		if (opts.matriz_curricular) {
+			const parsed = parseMatrizCurricular(opts.matriz_curricular);
+			if (parsed) {
+				listaMatrizes = listaMatrizes.filter((m) => m.versao === parsed!.versao);
+			}
+			if (listaMatrizes.length === 0) {
+				listaMatrizes = (matrizes ?? []) as { id_matriz: number; curriculo_completo: string }[];
+				const filtro = listaMatrizes.filter((m) => norm(m.curriculo_completo) === norm(opts.matriz_curricular!));
+				if (filtro.length) listaMatrizes = filtro;
+			}
+		}
+		for (const matriz of listaMatrizes) {
+			const { data: mpc, error: errMpc } = await supabase
+				.from('materias_por_curso')
+				.select('id_materia, nivel, materias(id_materia, nome_materia, codigo_materia)')
+				.eq('id_matriz', matriz.id_matriz);
+			if (errMpc) return { data: null, error: errMpc };
+			result.push({
+				...curso,
+				matriz_curricular: matriz.curriculo_completo,
+				materias_por_curso: (mpc ?? []) as unknown as MateriasBanco[]
+			});
+		}
+	}
+	return { data: result, error: null };
+}
+
+/** Lista para seleção: um item por (curso, matriz) com nome_curso e matriz_curricular. */
+async function getCursosDisponiveis(
+	supabase: SupabaseClient
+): Promise<{ id_curso: number; nome_curso: string; matriz_curricular: string }[]> {
+	const { data: rows } = await supabase
+		.from('matrizes')
+		.select('id_curso, curriculo_completo, cursos(nome_curso)')
+		.order('curriculo_completo');
+	const list = (rows ?? []) as unknown as { id_curso: number; curriculo_completo: string; cursos: { nome_curso: string } | null }[];
+	return list.map((r) => ({
+		id_curso: r.id_curso,
+		nome_curso: String((r.cursos && typeof r.cursos === 'object' && !Array.isArray(r.cursos) ? (r.cursos as { nome_curso?: string }).nome_curso : null) ?? ''),
+		matriz_curricular: r.curriculo_completo ?? ''
+	}));
+}
+
 export const POST: RequestHandler = async ({ request, locals }) => {
 	const supabase = locals.supabase;
 	const startTime = Date.now();
@@ -190,19 +348,16 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		console.log(`${LOG_PREFIX} Course: "${curso_extraido}" | Matrix: "${matriz_curricular}"`);
 		console.log(`${LOG_PREFIX} MP: ${media_ponderada ?? 'N/A'} | Freq: ${frequencia_geral ?? 'N/A'}`);
 
-		// If no course extracted, return available courses
+		// If no course extracted, return available courses (por matriz: nome_curso + curriculo_completo)
 		if (!curso_extraido) {
 			console.warn(`${LOG_PREFIX} No course extracted from PDF — returning available courses`);
-			const { data: todosCursos } = await supabase
-				.from('cursos')
-				.select('nome_curso, matriz_curricular')
-				.order('nome_curso');
+			const cursosDisponiveis = await getCursosDisponiveis(supabase);
 
 			return json(
 				{
 					error: 'Curso não foi extraído do PDF automaticamente',
 					message: 'Por favor, selecione o curso manualmente',
-					cursos_disponiveis: todosCursos || []
+					cursos_disponiveis: cursosDisponiveis
 				},
 				{ status: 400 }
 			);
@@ -215,85 +370,65 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		if (curso_extraido.startsWith('PALAVRAS_CHAVE:')) {
 			const palavrasChave = curso_extraido.replace('PALAVRAS_CHAVE:', '').split(',');
 
-			const { data: todosCursos } = await supabase
-				.from('cursos')
-				.select('nome_curso, matriz_curricular')
-				.order('nome_curso');
+			const todosCursos = await getCursosDisponiveis(supabase);
+			const cursosFiltrados = todosCursos.filter((curso) =>
+				palavrasChave.some((palavra: string) =>
+					curso.nome_curso?.toUpperCase().includes(palavra.toUpperCase())
+				)
+			);
 
-			if (todosCursos) {
-				const cursosFiltrados = todosCursos.filter(
-					(curso: { nome_curso?: string }) =>
-						palavrasChave.some((palavra: string) =>
-							curso.nome_curso?.toUpperCase().includes(palavra.toUpperCase())
-						)
+			if (cursosFiltrados.length === 1) {
+				const cursoSelecionado = cursosFiltrados[0];
+				const { data, error: queryError } = await getCursosComMateriasPorMatriz(supabase, {
+					nome_curso: cursoSelecionado.nome_curso
+				});
+				materiasBanco = data;
+				error = queryError;
+			} else if (cursosFiltrados.length > 1) {
+				return json(
+					{
+						error: 'Múltiplos cursos encontrados',
+						message: 'Por favor, selecione o curso correto',
+						cursos_disponiveis: cursosFiltrados,
+						palavras_chave_encontradas: palavrasChave
+					},
+					{ status: 400 }
 				);
-
-				if (cursosFiltrados.length === 1) {
-					const cursoSelecionado = cursosFiltrados[0];
-
-					const { data, error: queryError } = await supabase
-						.from('cursos')
-						.select('*,materias_por_curso(id_materia,nivel,materias(*))')
-						.eq('nome_curso', cursoSelecionado.nome_curso);
-
-					materiasBanco = data;
-					error = queryError;
-				} else if (cursosFiltrados.length > 1) {
-					return json(
-						{
-							error: 'Múltiplos cursos encontrados',
-							message: 'Por favor, selecione o curso correto',
-							cursos_disponiveis: cursosFiltrados,
-							palavras_chave_encontradas: palavrasChave
-						},
-						{ status: 400 }
-					);
-				}
 			}
 		} else {
 			// Seleção explícita pelo usuário (modal de múltiplas matrizes)
 			const idCursoSelecionado = dados_extraidos.id_curso_selecionado;
 			if (idCursoSelecionado != null && idCursoSelecionado !== '') {
-				const { data: cursoPorId, error: errId } = await supabase
-					.from('cursos')
-					.select('*,materias_por_curso(id_materia,nivel,materias(*))')
-					.eq('id_curso', Number(idCursoSelecionado))
-					.maybeSingle();
-				if (!errId && cursoPorId) {
-					materiasBanco = [cursoPorId];
-					console.log(`${LOG_PREFIX} Course selected by id_curso: ${cursoPorId.nome_curso} (${cursoPorId.matriz_curricular})`);
+				const { data: cursosPorId, error: errId } = await getCursosComMateriasPorMatriz(supabase, {
+					id_curso: Number(idCursoSelecionado),
+					matriz_curricular: matriz_curricular || undefined
+				});
+				if (!errId && cursosPorId?.length) {
+					materiasBanco = cursosPorId;
+					console.log(`${LOG_PREFIX} Course selected by id_curso: ${(materiasBanco[0] as Record<string, unknown>).nome_curso} (${(materiasBanco[0] as Record<string, unknown>).matriz_curricular})`);
 				}
 			}
 
 			if (!materiasBanco || materiasBanco.length === 0) {
 				const cursoNome = dados_extraidos.curso_selecionado || curso_extraido;
 
-				let query = supabase
-					.from('cursos')
-					.select('*,materias_por_curso(id_materia,nivel,materias(*))')
-					.like('nome_curso', '%' + cursoNome + '%');
-
-				if (matriz_curricular) {
-					query = query.eq('matriz_curricular', matriz_curricular);
-				}
-
-				let result = await query;
+				const result = await getCursosComMateriasPorMatriz(supabase, {
+					nome_curso_like: cursoNome,
+					matriz_curricular: matriz_curricular || undefined
+				});
 				materiasBanco = result.data;
 				error = result.error;
 
 				// Se veio matriz do PDF mas não achou nada, buscar só por nome e escolher pela matriz (match flexível)
 				if (matriz_curricular && (!materiasBanco || materiasBanco.length === 0)) {
-					const fallback = await supabase
-						.from('cursos')
-						.select('*,materias_por_curso(id_materia,nivel,materias(*))')
-						.like('nome_curso', '%' + cursoNome + '%');
+					const fallback = await getCursosComMateriasPorMatriz(supabase, { nome_curso_like: cursoNome });
 					const fallbackData = fallback.data;
 					if (fallbackData && fallbackData.length > 0) {
 						const matrizNorm = (v: unknown) =>
 							(typeof v === 'string' ? v.trim() : String(v ?? '')).toLowerCase();
 						const matrizBuscada = matrizNorm(matriz_curricular);
 						const match = fallbackData.find(
-							(c: Record<string, unknown>) => matrizNorm(c.matriz_curricular) === matrizBuscada
+							(c) => matrizNorm(c.matriz_curricular) === matrizBuscada
 						);
 						if (match) {
 							materiasBanco = [match];
@@ -309,16 +444,14 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		}
 
 		if (!materiasBanco || materiasBanco.length === 0) {
-			const { data: todosCursos } = await supabase
-				.from('cursos')
-				.select('nome_curso, matriz_curricular');
+			const cursosDisponiveis = await getCursosDisponiveis(supabase);
 
 			return json(
 				{
 					error: 'Curso não encontrado',
 					curso_buscado: curso_extraido,
 					matriz_curricular_buscada: matriz_curricular,
-					cursos_disponiveis: todosCursos
+					cursos_disponiveis: cursosDisponiveis
 				},
 				{ status: 404 }
 			);
@@ -365,20 +498,36 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 		console.log(`${LOG_PREFIX} Course found: ${curso.nome_curso}`);
 		console.log(`${LOG_PREFIX} Subjects: ${materiasBancoList.length} total (${materiasObrigatorias.length} mandatory, ${materiasOptativas.length} elective)`);
 
-		// Pre-load all equivalencies
-		console.log(`${LOG_PREFIX} Loading equivalencies and other matrices...`);
-		const { data: allEquivalencies } = await supabase
-			.from('vw_equivalencias_com_materias')
-			.select(
-				'id_equivalencia,codigo_materia_origem,nome_materia_origem,codigo_materia_equivalente,nome_materia_equivalente,expressao'
-			)
-			.or(`id_curso.is.null,id_curso.eq.${curso.id_curso}`);
+		// Buscar equivalências no banco: tabela equivalencias, filtrada pelas matérias da matriz atual
+		const materiaIds = materiasBancoList.map((m) => m.id_materia).filter(Boolean);
+		console.log(`${LOG_PREFIX} Loading equivalencies from DB (matérias da matriz: ${materiaIds.length})...`);
+		let allEquivalencies: EquivalenciaData[] = [];
+		if (materiaIds.length > 0) {
+			const { data: equivRows, error: equivErr } = await supabase
+				.from('equivalencias')
+				.select('id_equivalencia, id_materia, expressao_original, materias!equivalencias_id_materia_fkey(codigo_materia, nome_materia)')
+				.in('id_materia', materiaIds);
+			if (equivErr) {
+				console.warn(`${LOG_PREFIX} Erro ao carregar equivalências: ${equivErr.message}`);
+			} else if (equivRows?.length) {
+				allEquivalencies = (equivRows as Record<string, unknown>[]).map((eq) => {
+					const mat = eq.materias as { codigo_materia?: string; nome_materia?: string } | null;
+					return {
+						id_equivalencia: eq.id_equivalencia,
+						codigo_materia_origem: mat?.codigo_materia ?? '',
+						nome_materia_origem: mat?.nome_materia ?? '',
+						codigo_materia_equivalente: '',
+						nome_materia_equivalente: '',
+						expressao: String(eq.expressao_original ?? '')
+					} as EquivalenciaData;
+				});
+			}
+		}
 
-		// Pre-load other course matrices for cross-matrix matching
-		const { data: outrasMatrizes } = await supabase
-			.from('cursos')
-			.select('*,materias_por_curso(id_materia,nivel,materias(*))')
-			.eq('nome_curso', curso.nome_curso as string);
+		// Pre-load other course matrices for cross-matrix matching (mesmo curso, outras matrizes)
+		const { data: outrasMatrizes } = await getCursosComMateriasPorMatriz(supabase, {
+			nome_curso: curso.nome_curso as string
+		});
 
 		console.log(`${LOG_PREFIX} Loaded ${allEquivalencies?.length ?? 0} equivalencies, ${outrasMatrizes?.length ?? 0} course matrices`);
 
@@ -446,23 +595,24 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 				}
 			}
 
-			// 3. Try equivalency matching
+			// 3. Try equivalency matching: disciplina do PDF pode ser equivalente a uma matéria da matriz
 			if (!materiaBanco && allEquivalencies) {
 				const codigoUpper = String(disciplina.codigo ?? '').trim().toUpperCase();
 				const nomeUpper = String(disciplina.nome ?? '').trim().toUpperCase();
-				const equivalenciasMatch = (allEquivalencies as EquivalenciaData[]).filter(
-					(eq) =>
-						eq.expressao &&
-						(eq.expressao.toUpperCase().includes(codigoUpper) ||
-							eq.expressao.toUpperCase().includes(nomeUpper))
-				);
-
-				if (equivalenciasMatch.length > 0) {
+				for (const eq of allEquivalencies as EquivalenciaData[]) {
+					if (!eq.expressao) continue;
+					const codigosNaExpressao = extractSubjectCodes(eq.expressao);
+					const codigoEstaNaExpressao = codigosNaExpressao.some((c) => c === codigoUpper);
+					const nomeBateComEquivalente =
+						eq.nome_materia_equivalente &&
+						String(eq.nome_materia_equivalente).trim().toUpperCase().includes(nomeUpper);
+					if (!codigoEstaNaExpressao && !nomeBateComEquivalente) continue;
 					const targetMateria = materiasBancoList.find(
-						(m) => m.materias.codigo_materia === equivalenciasMatch[0].codigo_materia_origem
+						(m) => m.materias.codigo_materia === eq.codigo_materia_origem
 					);
 					if (targetMateria) {
 						materiaBanco = targetMateria;
+						break;
 					}
 				}
 			}
@@ -496,7 +646,17 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			const isElective = tipo === 'optativa';
 
 			if (isCompleted) {
-				const completedSubject = { ...disciplinaCasada, status_fluxograma: 'concluida' };
+				const codigoHist = String(disciplinaCasada.codigo_historico ?? '').trim();
+				const codigoMat = String(disciplinaCasada.codigo_materia ?? disciplinaCasada.codigo ?? '').trim();
+				const foiCursadaComoEquivalente = codigoHist && codigoHist.toUpperCase() !== codigoMat.toUpperCase();
+				const completedSubject = {
+					...disciplinaCasada,
+					status_fluxograma: foiCursadaComoEquivalente ? 'concluida_equivalencia' : 'concluida',
+					...(foiCursadaComoEquivalente && {
+						codigo_equivalente: disciplinaCasada.codigo_historico,
+						nome_equivalente: disciplinaCasada.nome_historico ?? disciplinaCasada.nome
+					})
+				};
 				if (isElective) {
 					materiasOptativasConcluidas.push(completedSubject);
 				} else {
@@ -552,20 +712,33 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 			);
 
 			if (cumpridaPorEquivalencia) {
-				let encontrada: Record<string, unknown> | undefined;
+				const candidatas: Record<string, unknown>[] = [];
 				for (const eq of equivalenciasParaMateria) {
 					const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-					encontrada = disciplinasCasadas.find((d) => {
+					for (const d of disciplinasCasadas) {
 						const dc = String(d.codigo ?? '').trim().toUpperCase();
-						return codigosEquivalentes.includes(dc) && isStatusCompleted(d.status as string);
-					});
-					if (encontrada) break;
+						if (codigosEquivalentes.includes(dc) && isStatusCompleted(d.status as string)) {
+							candidatas.push(d);
+						}
+					}
 				}
+				// Escolher a tentativa mais recente (maior ano_periodo) para professor/menção
+				const maisRecente = candidatas.length
+					? candidatas.slice().sort((a, b) => {
+							const ap = String(a.ano_periodo ?? '').trim();
+							const bp = String(b.ano_periodo ?? '').trim();
+							return compareAnoPeriodo(bp, ap);
+						})[0]
+					: undefined;
 				materiasConcluidasPorEquivalencia.push({
 					...materiaObrigatoria,
 					status_fluxograma: 'concluida_equivalencia',
-					codigo_equivalente: encontrada?.codigo,
-					nome_equivalente: encontrada?.nome
+					codigo_equivalente: maisRecente?.codigo ?? materiaObrigatoria.codigo,
+					nome_equivalente: maisRecente?.nome ?? materiaObrigatoria.nome,
+					professor: maisRecente?.professor ?? '',
+					mencao: maisRecente?.mencao ?? '-',
+					status: maisRecente?.status ?? 'CUMP',
+					ano_periodo: maisRecente?.ano_periodo ?? null
 				});
 			} else {
 				materiasPendentesFinais.push(materiaObrigatoria);
@@ -581,33 +754,43 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 
 		for (const disciplinaOptativa of optativasParaProcessar) {
 			let marcadaComoEquivalencia = false;
+			const codigoOptUpper = String(disciplinaOptativa.codigo ?? '').trim().toUpperCase();
 
 			if (allEquivalencies) {
 				for (const eq of allEquivalencies as EquivalenciaData[]) {
-					if (
-						!eq.expressao ||
-						!eq.expressao.toUpperCase().includes(disciplinaOptativa.codigo as string)
-					)
-						continue;
+					if (!eq.expressao) continue;
+					const codigosEquivalentes = extractSubjectCodes(eq.expressao);
+					if (!codigosEquivalentes.includes(codigoOptUpper)) continue;
 
 					const obrigatoria = materiasPendentesFinais.find(
 						(m) => m.codigo === eq.codigo_materia_origem
 					);
 					if (!obrigatoria) continue;
 
-					const codigosEquivalentes = extractSubjectCodes(eq.expressao);
-					const encontrada = disciplinasCasadas.find((d) => {
+					const candidatas = disciplinasCasadas.filter((d) => {
 						const dc = String(d.codigo ?? '').trim().toUpperCase();
 						return codigosEquivalentes.includes(dc) && isStatusCompleted(d.status as string);
 					});
+					const maisRecenteOpt =
+						candidatas.length > 0
+							? candidatas.slice().sort((a, b) => {
+									const ap = String(a.ano_periodo ?? '').trim();
+									const bp = String(b.ano_periodo ?? '').trim();
+									return compareAnoPeriodo(bp, ap);
+								})[0]
+							: null;
 
-					if (encontrada) {
+					if (maisRecenteOpt) {
 						materiasConcluidasPorEquivalencia.push({
 							...obrigatoria,
 							status_fluxograma: 'concluida_equivalencia',
 							equivalencia: disciplinaOptativa.nome,
-							codigo_equivalente: disciplinaOptativa.codigo,
-							nome_equivalente: disciplinaOptativa.nome
+							codigo_equivalente: maisRecenteOpt.codigo ?? disciplinaOptativa.codigo,
+							nome_equivalente: maisRecenteOpt.nome ?? disciplinaOptativa.nome,
+							professor: maisRecenteOpt.professor ?? '',
+							mencao: maisRecenteOpt.mencao ?? '-',
+							status: maisRecenteOpt.status ?? 'CUMP',
+							ano_periodo: maisRecenteOpt.ano_periodo ?? null
 						});
 						marcadaComoEquivalencia = true;
 						break;

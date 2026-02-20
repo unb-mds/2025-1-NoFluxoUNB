@@ -13,6 +13,10 @@
 
 	const store = fluxogramaStore;
 	let status = $derived(store.getSubjectStatus(materia));
+	let userData = $derived(store.getSubjectUserData(materia.codigoMateria));
+	let concluidaPorEquivalencia = $derived(
+		status === SubjectStatusEnum.COMPLETED && userData?.tipoDado === 'equivalencia'
+	);
 
 	let isHovered = $derived(store.state.hoveredSubjectCode === materia.codigoMateria);
 	let isSelected = $derived(store.state.selectedSubjectCode === materia.codigoMateria);
@@ -218,6 +222,13 @@
 	<p class="line-clamp-2 text-xs font-medium leading-tight {textColor}">
 		{materia.nomeMateria}
 	</p>
+
+	{#if concluidaPorEquivalencia}
+		<span
+			class="absolute -right-1 -bottom-1 rounded bg-purple-500/90 px-1.5 py-0.5 text-[9px] font-medium text-white"
+			title="Concluída por equivalência"
+		>equiv.</span>
+	{/if}
 
 	<!-- Prerequisite indicator badge -->
 	{#if !store.state.isAnonymous && (hasPrereqs || dependentCount > 0)}

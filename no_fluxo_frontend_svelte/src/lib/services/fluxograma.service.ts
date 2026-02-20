@@ -28,14 +28,38 @@ class FluxogramaService {
 	 */
 	async getAllCursos(): Promise<MinimalCursoModel[]> {
 		const data = await supabaseDataService.getCursosComCreditos();
-		return (data || []).map((c) => ({
-			nomeCurso: c.nome_curso ?? '',
-			matrizCurricular: '',
-			idCurso: c.id_curso,
-			creditos: c.creditos_totais ?? null,
-			classificacao: '',
-			tipoCurso: ''
-		}));
+		return (data || []).map((c: Record<string, unknown>, index: number) => {
+			const creditos =
+				c.creditos_totais != null
+					? Number(c.creditos_totais)
+					: c.ch_total_exigida != null
+						? Math.floor(Number(c.ch_total_exigida) / 15)
+						: c.creditos != null
+							? Number(c.creditos)
+							: null;
+			const rawId = c.id_curso;
+			const idCurso =
+				rawId != null && rawId !== '' && !Number.isNaN(Number(rawId))
+					? Number(rawId)
+					: index;
+			return {
+				nomeCurso: String(c.nome_curso ?? ''),
+				matrizCurricular: String(c.curriculo_completo ?? ''),
+				idCurso,
+				creditos,
+				classificacao: '',
+				tipoCurso: String(c.tipo_curso ?? '')
+			};
+		});
+	}
+
+	/**
+	 * Get full course flowchart data by curriculo_completo (identificador único da matriz).
+	 */
+	async getCourseDataByCurriculoCompleto(curriculoCompleto: string): Promise<CursoModel> {
+		if (!curriculoCompleto?.trim()) throw new Error('curriculo_completo não informado');
+		const raw = await supabaseDataService.getCourseFlowchartDataByCurriculoCompleto(curriculoCompleto.trim());
+		return this.buildCursoModelFromRaw(raw);
 	}
 
 	/**
@@ -43,10 +67,7 @@ class FluxogramaService {
 	 * REPLACES: GET /fluxograma/fluxograma?nome_curso=...
 	 */
 	async getCourseData(courseName: string): Promise<CursoModel> {
-		if (!courseName) {
-			throw new Error('Nome do curso não informado');
-		}
-
+		if (!courseName) throw new Error('Nome do curso não informado');
 		const raw = await supabaseDataService.getCourseFlowchartData(courseName);
 		console.log('[FluxogramaService] Raw data loaded for', courseName, {
 			curso: raw.curso?.nome_curso,
@@ -55,80 +76,64 @@ class FluxogramaService {
 			coRequisitos: raw.coRequisitos?.length ?? 0,
 			equivalencias: raw.equivalencias?.length ?? 0
 		});
+		return this.buildCursoModelFromRaw(raw);
+	}
 
-		// Parse materias using factory
-		const materias: MateriaModel[] = (raw.materias || []).map((mc) => {
-			return createMateriaModelFromJson(mc as Record<string, unknown>);
-		});
-
-		// Parse prerequisites using factory
+	private buildCursoModelFromRaw(raw: {
+		curso: Record<string, unknown>;
+		materias: unknown[];
+		preRequisitos: unknown[];
+		coRequisitos: unknown[];
+		equivalencias: unknown[];
+		matriz?: { curriculo_completo?: string } | null;
+	}): CursoModel {
+		const materias: MateriaModel[] = (raw.materias || []).map((mc) =>
+			createMateriaModelFromJson(mc as Record<string, unknown>)
+		);
 		const preRequisitos: PreRequisitoModel[] = (raw.preRequisitos || []).map((pr) =>
 			createPreRequisitoModelFromJson(pr as Record<string, unknown>)
 		);
-
-		// Parse co-requisites using factory
 		const coRequisitos: CoRequisitoModel[] = (raw.coRequisitos || []).map((cr) =>
 			createCoRequisitoModelFromJson(cr as Record<string, unknown>)
 		);
-
-		// Parse equivalencies using factory
 		const equivalencias: EquivalenciaModel[] = (raw.equivalencias || []).map((eq) =>
 			createEquivalenciaModelFromJson(eq as Record<string, unknown>)
 		);
 
-		// Filter prerequisites to only those within the course
-		const materiaCodes = new Set(
-			materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria)
-		);
-		const preRequisitosInCurso = preRequisitos.filter((pr) =>
-			materiaCodes.has(pr.codigoMateriaRequisito)
-		);
-
-		// Filter corequisites to only those within the course
+		const materiaCodes = new Set(materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria));
+		const preRequisitosInCurso = preRequisitos.filter((pr) => materiaCodes.has(pr.codigoMateriaRequisito));
 		const allMateriaCodes = new Set(materias.map((m) => m.codigoMateria));
-		const coRequisitosInCurso = coRequisitos.filter((cr) =>
-			allMateriaCodes.has(cr.codigoMateriaCoRequisito)
-		);
-
-		console.log('[FluxogramaService] Filtered connection data:', {
-			materiasTotal: materias.length,
-			preRequisitosRaw: preRequisitos.length,
-			preRequisitosInCurso: preRequisitosInCurso.length,
-			coRequisitosRaw: coRequisitos.length,
-			coRequisitosInCurso: coRequisitosInCurso.length,
-			equivalencias: equivalencias.length,
-			samplePreReq: preRequisitosInCurso[0] ?? null,
-			sampleCoReq: coRequisitosInCurso[0] ?? null
-		});
+		const coRequisitosInCurso = coRequisitos.filter((cr) => allMateriaCodes.has(cr.codigoMateriaCoRequisito));
 
 		const maxSemestre = Math.max(...materias.map((m) => m.nivel || 0), 0);
+		const curriculoCompleto =
+			(raw.curso as { curriculo_completo?: string })?.curriculo_completo ??
+			raw.matriz?.curriculo_completo ??
+			(raw.curso.matriz_curricular as string) ??
+			null;
 
 		const curso: CursoModel = {
-			nomeCurso: raw.curso.nome_curso,
-			matrizCurricular: raw.curso.matriz_curricular,
-			idCurso: raw.curso.id_curso,
-			totalCreditos: raw.curso.creditos,
-			tipoCurso: raw.curso.tipo_curso,
-			classificacao: raw.curso.classificacao,
+			nomeCurso: String(raw.curso.nome_curso),
+			matrizCurricular: String(raw.curso.matriz_curricular ?? curriculoCompleto ?? ''),
+			idCurso: Number(raw.curso.id_curso),
+			totalCreditos: (raw.curso as { creditos?: number }).creditos != null ? Number((raw.curso as { creditos?: number }).creditos) : null,
+			tipoCurso: String(raw.curso.tipo_curso ?? ''),
+			classificacao: String(raw.curso.classificacao ?? ''),
 			materias,
 			semestres: maxSemestre,
 			equivalencias,
 			preRequisitos: preRequisitosInCurso,
-			coRequisitos: coRequisitosInCurso
+			coRequisitos: coRequisitosInCurso,
+			curriculoCompleto: curriculoCompleto ?? undefined
 		};
 
-		// Populate prerequisite references on each materia
 		const materiaMap = new Map(materias.map((m) => [m.codigoMateria, m]));
-		for (const materia of materias) {
-			materia.preRequisitos = [];
-		}
+		for (const materia of materias) materia.preRequisitos = [];
 		for (const preReq of preRequisitosInCurso) {
 			const targetMateria = materias.find((m) => m.idMateria === preReq.idMateria);
 			if (targetMateria) {
 				const prereqMateria = materiaMap.get(preReq.codigoMateriaRequisito);
-				if (prereqMateria) {
-					targetMateria.preRequisitos!.push(prereqMateria);
-				}
+				if (prereqMateria) targetMateria.preRequisitos!.push(prereqMateria);
 			}
 		}
 

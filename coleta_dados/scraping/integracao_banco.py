@@ -791,6 +791,175 @@ def periodo_letivo_to_date(periodo):
     mes = '01' if semestre == '1' else '07'
     return f"{ano}-{mes}-01"
 
+
+def processar_uma_matriz(arquivo_path):
+    """
+    Processa um único arquivo de estrutura curricular (ex.: direito - 2019.2.json).
+    arquivo_path: caminho completo ou apenas o nome do arquivo (será buscado em PASTA_MATRIZES).
+    """
+    if not os.path.isabs(arquivo_path) and not os.path.dirname(arquivo_path):
+        arquivo_path = os.path.join(PASTA_MATRIZES, arquivo_path)
+    if not os.path.isfile(arquivo_path):
+        raise FileNotFoundError(f"Arquivo não encontrado: {arquivo_path}")
+    with open(arquivo_path, 'r', encoding='utf-8') as f:
+        matriz = json.load(f)
+    nome_arquivo = os.path.basename(arquivo_path)
+    print(f"Processando: {nome_arquivo}")
+
+    try:
+        res_c = executar_operacao(supabase.table('cursos').select('id_curso', 'nome_curso').execute)
+        cache_cursos_lista = list(res_c.data or [])
+    except Exception:
+        cache_cursos_lista = []
+
+    nome_curso = remover_acentos(matriz['curso']).replace('Ç', 'C').upper().strip()
+    tipo_curso = matriz.get('tipo_curso')
+    periodo_letivo = matriz.get('periodo_letivo_vigor')
+    curriculo_str = matriz.get('curriculo') or ''
+    codigo_base = extrair_codigo_base(curriculo_str)
+    if not codigo_base:
+        raise ValueError(f"Currículo inválido no arquivo: {curriculo_str}")
+    id_curso = get_or_create_curso(codigo_base, nome_curso, tipo_curso)
+    if not any(c.get('id_curso') == id_curso for c in cache_cursos_lista):
+        cache_cursos_lista.append({'id_curso': id_curso, 'nome_curso': nome_curso})
+    dados_mat = build_dados_matriz(curriculo_str, periodo_letivo)
+    prazos_cargas = matriz.get('prazos_cargas') or {}
+    id_matriz = get_or_create_matriz(
+        id_curso,
+        dados_mat['curriculo_completo'],
+        dados_mat['versao'],
+        dados_mat['ano_vigor'],
+        prazos_cargas
+    )
+    linhas_matriz = []
+    for nivel in matriz['niveis']:
+        nivel_int = nivel_to_int(nivel.get('nivel', ''))
+        for materia in nivel['materias']:
+            codigo = materia['codigo']
+            mat_det = materias_detalhadas.get(codigo, {})
+            dados_materia = {
+                'nome': mat_det.get('nome', materia['nome']),
+                'codigo': codigo,
+                'carga_horaria': ch_to_int(mat_det.get('carga_horaria', materia.get('carga_horaria', materia.get('ch', 0)))),
+                'ementa': mat_det.get('ementa', materia.get('ementa', ''))
+            }
+            id_materia = get_or_create_materia(dados_materia)
+            linhas_matriz.append((id_materia, nivel_int))
+    codigos_ref_matriz = set()
+    for nivel in matriz['niveis']:
+        for m in nivel['materias']:
+            mat_det = materias_detalhadas.get(m['codigo'], {})
+            codigos_ref_matriz.update(_codigos_em_expressoes_mat_det(mat_det))
+    ensure_materias_existem(codigos_ref_matriz, materias_detalhadas)
+    insert_materias_por_curso_batch(linhas_matriz, id_matriz)
+
+    id_materias_matriz = list({CACHE_ID_MATERIA.get(m['codigo']) for nivel in matriz['niveis'] for m in nivel['materias'] if CACHE_ID_MATERIA.get(m['codigo']) is not None})
+    pre_existentes = set()
+    co_existentes = set()
+    equiv_existentes = set()
+    if id_materias_matriz:
+        try:
+            r_pre = executar_operacao(supabase.table('pre_requisitos').select('id_materia', 'expressao_original').in_('id_materia', id_materias_matriz).execute)
+            for row in (r_pre.data or []):
+                pre_existentes.add((row['id_materia'], (row.get('expressao_original') or '').strip()))
+        except Exception:
+            pass
+        try:
+            r_co = executar_operacao(supabase.table('co_requisitos').select('id_materia', 'expressao_original').in_('id_materia', id_materias_matriz).execute)
+            for row in (r_co.data or []):
+                co_existentes.add((row['id_materia'], (row.get('expressao_original') or '').strip()))
+        except Exception:
+            pass
+        try:
+            r_eq = executar_operacao(supabase.table('equivalencias').select('id_materia', 'expressao_original', 'id_curso', 'curriculo').in_('id_materia', id_materias_matriz).execute)
+            for row in (r_eq.data or []):
+                equiv_existentes.add((row['id_materia'], (row.get('expressao_original') or '').strip(), row.get('id_curso'), row.get('curriculo')))
+        except Exception:
+            pass
+
+    for nivel in matriz['niveis']:
+        for materia in nivel['materias']:
+            codigo = materia['codigo']
+            id_materia = CACHE_ID_MATERIA.get(codigo)
+            if id_materia is None:
+                continue
+            mat_det = materias_detalhadas.get(codigo, {})
+            pre = mat_det.get('pre_requisitos', None)
+            if pre and pre != '-' and pre is not None:
+                expr = (pre or '').strip()
+                codigos_pre = _codigos_na_expressao(expr)
+                id_pre = _id_materia_requisito_unico(expr)
+                if id_pre is not None or len(codigos_pre) != 1:
+                    if (id_materia, expr) not in pre_existentes:
+                        get_or_create_pre_requisito(id_materia, expr, id_pre)
+                        pre_existentes.add((id_materia, expr))
+            co = mat_det.get('co_requisitos', None)
+            if co and co != '-' and co is not None:
+                expr = (co or '').strip()
+                codigos_co = _codigos_na_expressao(expr)
+                id_co = _id_materia_requisito_unico(expr)
+                if id_co is not None or len(codigos_co) != 1:
+                    if (id_materia, expr) not in co_existentes:
+                        get_or_create_co_requisito(id_materia, expr, id_co)
+                        co_existentes.add((id_materia, expr))
+            eq = mat_det.get('equivalencias', None)
+            if eq and eq != '-' and eq is not None:
+                expr_eq = (eq or '').strip()
+                chave_equiv = (id_materia, expr_eq, None, None)
+                if chave_equiv not in equiv_existentes:
+                    executar_operacao(supabase.table('equivalencias').insert({
+                        'id_materia': id_materia,
+                        'id_curso': None,
+                        'expressao_original': expr_eq,
+                        'expressao_logica': build_expressao_logica(expr_eq),
+                        'curriculo': None,
+                        'data_vigencia': None
+                    }).execute)
+                    equiv_existentes.add(chave_equiv)
+            equiv_esp = mat_det.get('equivalencias_especificas', None)
+            if equiv_esp and isinstance(equiv_esp, list):
+                for eqesp in equiv_esp:
+                    nome_curso_esp = remover_acentos(eqesp.get('matriz_curricular', '').strip().split(' - ')[0].upper())
+                    curriculo_raw = eqesp.get('curriculo', '').strip()
+                    match = re.search(r'(\d{4}\.\d)', curriculo_raw)
+                    periodo_letivo_esp = match.group(1) if match else ''
+                    id_curso_esp = None
+                    codigo_base_esp = extrair_codigo_base(curriculo_raw)
+                    if codigo_base_esp:
+                        id_c = to_int(codigo_base_esp)
+                        if id_c is not None and any(c.get('id_curso') == id_c for c in cache_cursos_lista):
+                            id_curso_esp = id_c
+                    if id_curso_esp is None and nome_curso_esp:
+                        for curso in cache_cursos_lista:
+                            nome_curso_banco = remover_acentos((curso.get('nome_curso') or '').strip().upper())
+                            if nome_curso_banco == nome_curso_esp:
+                                id_curso_esp = curso['id_curso']
+                                break
+                    data_vigencia_raw = eqesp.get('data_vigencia', '').strip()
+                    fim_vigencia_raw = eqesp.get('fim_vigencia', '').strip()
+                    data_vigencia_eq = periodo_letivo_to_date(data_vigencia_raw)
+                    fim_vigencia_eq = periodo_letivo_to_date(fim_vigencia_raw) if fim_vigencia_raw else None
+                    expr_esp = eqesp.get('expressao', '').strip()
+                    if id_curso_esp and curriculo_raw and data_vigencia_eq and expr_esp:
+                        chave_esp = (id_materia, expr_esp, id_curso_esp, curriculo_raw)
+                        if chave_esp not in equiv_existentes:
+                            executar_operacao(
+                                supabase.table('equivalencias').insert({
+                                    'id_materia': id_materia,
+                                    'id_curso': id_curso_esp,
+                                    'expressao_original': expr_esp,
+                                    'expressao_logica': build_expressao_logica(expr_esp),
+                                    'curriculo': curriculo_raw,
+                                    'data_vigencia': data_vigencia_eq,
+                                    'fim_vigencia': fim_vigencia_eq
+                                }).execute
+                            )
+                            equiv_existentes.add(chave_esp)
+
+    print(f"  Curso: {nome_curso} | Matriz: {dados_mat['curriculo_completo']} | id_matriz={id_matriz} | {len(linhas_matriz)} matérias.")
+    return id_matriz
+
+
 if __name__ == "__main__":
     processar_matrizes()
     processar_materias()

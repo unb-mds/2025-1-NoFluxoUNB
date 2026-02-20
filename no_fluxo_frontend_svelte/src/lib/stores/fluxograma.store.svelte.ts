@@ -138,7 +138,7 @@ function createFluxogramaStore() {
 			if (state.isAnonymous || !userFluxograma) {
 				return SubjectStatusEnum.NOT_STARTED;
 			}
-			return determineSubjectStatus(materia, completedCodes, currentCodes, failedCodes);
+			return determineSubjectStatus(materia, completedCodes, currentCodes, failedCodes, state.courseData ?? undefined);
 		},
 
 		getSubjectUserData(codigoMateria: string) {
@@ -181,6 +181,23 @@ function createFluxogramaStore() {
 			} catch (err) {
 				const message =
 					err instanceof Error ? err.message : 'Erro ao carregar dados do curso';
+				state.error = message;
+				toast.error(message);
+			} finally {
+				state.loading = false;
+			}
+		},
+
+		async loadCourseDataByCurriculoCompleto(curriculoCompleto: string, anonymous = false) {
+			state.loading = true;
+			state.error = null;
+			state.isAnonymous = anonymous;
+			try {
+				const data = await fluxogramaService.getCourseDataByCurriculoCompleto(curriculoCompleto);
+				state.courseData = data;
+			} catch (err) {
+				const message =
+					err instanceof Error ? err.message : 'Erro ao carregar dados da matriz';
 				state.error = message;
 				toast.error(message);
 			} finally {

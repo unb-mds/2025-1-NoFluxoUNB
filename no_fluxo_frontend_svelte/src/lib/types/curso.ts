@@ -5,20 +5,29 @@
 import type { MateriaModel } from './materia';
 import type { EquivalenciaModel } from './equivalencia';
 
+import type { ExpressaoLogicaJson } from '$lib/utils/expressao-logica';
+import { evaluateExpressaoLogica } from '$lib/utils/expressao-logica';
+
 export interface PreRequisitoModel {
 	idPreRequisito: number;
 	idMateria: number;
-	idMateriaRequisito: number;
+	idMateriaRequisito: number | null;
 	codigoMateriaRequisito: string;
 	nomeMateriaRequisito: string;
+	/** Exibição e conferência humana. */
+	expressaoOriginal?: string | null;
+	/** Árvore de decisão para validação: { materias: string[], operador: "OU"|"E"|null }. */
+	expressaoLogica?: ExpressaoLogicaJson | null;
 }
 
 export interface CoRequisitoModel {
 	idCoRequisito: number;
 	idMateria: number;
-	idMateriaCoRequisito: number;
+	idMateriaCoRequisito: number | null;
 	codigoMateriaCoRequisito: string;
 	nomeMateriaCoRequisito: string;
+	expressaoOriginal?: string | null;
+	expressaoLogica?: ExpressaoLogicaJson | null;
 }
 
 export type CourseType = 'graduacao' | 'pos-graduacao' | 'tecnico' | 'outro';
@@ -36,6 +45,8 @@ export interface CursoModel {
 	equivalencias: EquivalenciaModel[];
 	preRequisitos: PreRequisitoModel[];
 	coRequisitos: CoRequisitoModel[];
+	/** Identificador único da matriz (ex: "8117/-2 - 2018.2"). Preenchido quando o fluxograma é carregado por matriz. */
+	curriculoCompleto?: string | null;
 }
 
 export interface MinimalCursoModel {
@@ -62,6 +73,25 @@ export function getSubjectsBySemester(curso: CursoModel): Map<number, MateriaMod
 	}
 
 	return semesterMap;
+}
+
+/**
+ * Verifica se todos os pré-requisitos da matéria estão cumpridos (usa expressao_logica quando existir).
+ */
+export function satisfazPreRequisitos(
+	preRequisitosParaMateria: PreRequisitoModel[],
+	completedCodes: Set<string>
+): boolean {
+	for (const pr of preRequisitosParaMateria) {
+		if (pr.expressaoLogica?.materias?.length) {
+			if (!evaluateExpressaoLogica(pr.expressaoLogica, completedCodes)) return false;
+		} else {
+			const code = (pr.codigoMateriaRequisito || '').trim().toUpperCase();
+			const ok = code && [...completedCodes].some((c) => c.trim().toUpperCase() === code);
+			if (!ok) return false;
+		}
+	}
+	return true;
 }
 
 export function getDirectPrerequisites(

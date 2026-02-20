@@ -2,6 +2,9 @@
  * Subject/Course unit type definitions
  */
 
+import type { CursoModel } from './curso';
+import { satisfazPreRequisitos } from './curso';
+
 export interface MateriaModel {
 	ementa: string;
 	idMateria: number;
@@ -84,7 +87,8 @@ export function determineSubjectStatus(
 	materia: MateriaModel,
 	completedCodes: Set<string>,
 	currentCodes: Set<string>,
-	failedCodes: Set<string>
+	failedCodes: Set<string>,
+	curso?: CursoModel | null
 ): SubjectStatusValue {
 	const code = materia.codigoMateria;
 
@@ -101,8 +105,14 @@ export function determineSubjectStatus(
 		return SubjectStatusEnum.FAILED;
 	}
 
-	// Só é "disponível" se não for concluída, não estiver cursando e não estiver reprovada
-	if (canBeTaken(materia, completedCodes)) {
+	// Pré-requisitos: usa expressao_logica (curso) quando existir, senão materia.preRequisitos
+	const prereqsParaMateria = curso?.preRequisitos?.filter((pr) => pr.idMateria === materia.idMateria) ?? [];
+	const podeCursar =
+		prereqsParaMateria.length > 0
+			? satisfazPreRequisitos(prereqsParaMateria, completedCodes)
+			: canBeTaken(materia, completedCodes);
+
+	if (podeCursar) {
 		return SubjectStatusEnum.AVAILABLE;
 	}
 

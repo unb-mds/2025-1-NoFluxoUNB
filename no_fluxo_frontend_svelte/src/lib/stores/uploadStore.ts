@@ -9,16 +9,12 @@ import {
 } from '$lib/services/upload.service';
 import { authStore } from '$lib/stores/auth';
 import { ROUTES } from '$lib/config/routes';
-<<<<<<< Updated upstream
 import type { DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
-import { dadosFluxogramaUserToJson } from '$lib/factories';
-=======
 import {
 	buildDadosFluxogramaUserFromCasarResponse,
 	dadosFluxogramaUserToJson
 } from '$lib/factories';
 import { supabaseDataService } from '$lib/services/supabase-data.service';
->>>>>>> Stashed changes
 
 export type UploadState = 'initial' | 'uploading' | 'processing' | 'success' | 'error';
 
@@ -288,51 +284,6 @@ function createUploadStore() {
 			}
 
 			try {
-<<<<<<< Updated upstream
-				// Convert CasarDisciplinasResponse → DadosFluxogramaUser
-				const dadosFluxograma = convertCasarResponseToDadosFluxograma(
-					currentState.disciplinasCasadas
-				);
-
-				const fluxogramaUser: DadosFluxogramaUser = {
-					nomeCurso:
-						currentState.disciplinasCasadas.curso_extraido ??
-						currentState.extractedData?.curso_extraido ??
-						'',
-					ira: currentState.disciplinasCasadas.dados_validacao?.ira ?? 0,
-					matricula: currentState.extractedData?.matricula ?? '',
-					horasIntegralizadas:
-						currentState.disciplinasCasadas.dados_validacao?.horas_integralizadas ?? 0,
-					suspensoes: currentState.extractedData?.suspensoes ?? [],
-					anoAtual: currentState.extractedData?.semestre_atual ?? '',
-					matrizCurricular:
-						currentState.disciplinasCasadas.matriz_curricular ??
-						currentState.extractedData?.matriz_curricular ??
-						'',
-					semestreAtual: currentState.extractedData?.numero_semestre ?? 0,
-					dadosFluxograma
-				};
-
-				console.log('[UploadStore] saveAndNavigate — DadosFluxogramaUser built:', {
-					nomeCurso: fluxogramaUser.nomeCurso,
-					matrizCurricular: fluxogramaUser.matrizCurricular,
-					ira: fluxogramaUser.ira,
-					semestreAtual: fluxogramaUser.semestreAtual,
-					totalSemesters: dadosFluxograma.length,
-					totalMaterias: dadosFluxograma.reduce((sum, sem) => sum + sem.length, 0)
-				});
-
-				// Save to DB in the proper format (dadosFluxogramaUserToJson)
-				const jsonData = dadosFluxogramaUserToJson(fluxogramaUser);
-				await uploadService.saveFluxogramaToDB(
-					user.idUser,
-					jsonData,
-					currentState.extractedData?.numero_semestre ?? undefined
-				);
-
-				// Update auth store with populated data
-				authStore.updateDadosFluxograma(fluxogramaUser);
-=======
 				const cd = currentState.disciplinasCasadas;
 				const ext = currentState.extractedData;
 				const meta = {
@@ -354,7 +305,6 @@ function createUploadStore() {
 					dadosFluxogramaUserToJson(dados),
 					meta.semestreAtual || undefined
 				);
->>>>>>> Stashed changes
 
 				authStore.updateDadosFluxograma(dados);
 				toast.success('Fluxograma salvo com sucesso!');

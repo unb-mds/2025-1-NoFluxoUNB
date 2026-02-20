@@ -5,6 +5,7 @@
 	import FluxogramaLegendControls from '$lib/components/fluxograma/FluxogramaLegendControls.svelte';
 	import FluxogramContainer from '$lib/components/fluxograma/FluxogramContainer.svelte';
 	import ProgressSummarySection from '$lib/components/fluxograma/ProgressSummarySection.svelte';
+	import IntegralizacaoSection from '$lib/components/fluxograma/IntegralizacaoSection.svelte';
 	import SubjectDetailsModal from '$lib/components/fluxograma/SubjectDetailsModal.svelte';
 	import OptativasModal from '$lib/components/fluxograma/OptativasModal.svelte';
 	import OptativasAdicionadasSection from '$lib/components/fluxograma/OptativasAdicionadasSection.svelte';
@@ -12,11 +13,14 @@
 	import PrerequisiteChainDialog from '$lib/components/fluxograma/PrerequisiteChainDialog.svelte';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { authStore } from '$lib/stores/auth';
+	import { getIntegralizacao } from '$lib/services/integralizacao.service';
+	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { goto } from '$app/navigation';
 	import { ROUTES } from '$lib/config/routes';
 	import { onMount } from 'svelte';
 	import { Upload, Loader2, AlertTriangle } from 'lucide-svelte';
 	import type { MateriaModel } from '$lib/types/materia';
+	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	const store = fluxogramaStore;
 
@@ -24,10 +28,15 @@
 	let selectedSubject = $state<MateriaModel | null>(null);
 	let chainDialogSubject = $state<MateriaModel | null>(null);
 	let showOptativas = $state(false);
+	let integralizacao = $state<IntegralizacaoResult | null>(null);
+	let matrizes = $state<Array<{ curriculoCompleto: string }>>([]);
 
 	let user = $derived(authStore.getUser());
 	let userFluxograma = $derived(user?.dadosFluxograma ?? null);
 	let courseName = $derived(userFluxograma?.nomeCurso ?? '');
+	/** Currículo salvo no casamento (ex.: "60810/1") — mesma regra do casar-disciplinas para achar a matriz. */
+	let matrizCurricular = $derived((userFluxograma as { matrizCurricular?: string } | null)?.matrizCurricular ?? '');
+	let curriculoCompletoAtual = $derived(store.state.courseData?.curriculoCompleto ?? null);
 
 	// Optativas = semester 0
 	let optativas = $derived.by(() => {
@@ -35,18 +44,61 @@
 		return store.state.courseData.materias.filter((m) => m.nivel === 0);
 	});
 
+	$effect(() => {
+		const course = store.state.courseData;
+		const fluxo = userFluxograma;
+		const cc = course?.curriculoCompleto;
+		if (!cc || !fluxo) {
+			if (course?.idCurso && !cc) {
+				supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
+					matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto }));
+				});
+			}
+			integralizacao = null;
+			return;
+		}
+		getIntegralizacao({
+			curriculoCompleto: cc,
+			dadosFluxograma: fluxo,
+			equivalencias: course?.equivalencias
+		}).then((r) => {
+			integralizacao = r;
+		});
+		if (course?.idCurso) {
+			supabaseDataService.getMatrizesByCurso(course.idCurso).then((m) => {
+				matrizes = m.map((x) => ({ curriculoCompleto: x.curriculoCompleto }));
+			});
+		}
+	});
+
 	onMount(() => {
-		if (!userFluxograma || !courseName) {
-			// No user data, redirect to upload
+		if (!userFluxograma) {
 			goto(ROUTES.UPLOAD_HISTORICO);
 			return;
 		}
-		store.loadCourseData(courseName, false);
+		// Mesma regra do casamento: priorizar curriculo (codigo/versao) para achar a matriz correta
+		if (matrizCurricular?.trim()) {
+			store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim(), false);
+		} else if (courseName) {
+			store.loadCourseData(courseName, false);
+		}
 
 		return () => {
 			store.reset();
 		};
 	});
+
+	async function handleMatrizChange(curriculoCompleto: string) {
+		await store.loadCourseDataByCurriculoCompleto(curriculoCompleto, false);
+		if (userFluxograma) {
+			const r = await getIntegralizacao({
+				curriculoCompleto,
+				dadosFluxograma: userFluxograma,
+				equivalencias: store.state.courseData?.equivalencias
+			});
+			integralizacao = r;
+		}
+	}
 
 	function handleSubjectClick(materia: MateriaModel) {
 		selectedSubject = materia;
@@ -86,7 +138,11 @@
 			<h2 class="mb-2 text-lg font-semibold text-white">Erro ao carregar fluxograma</h2>
 			<p class="mb-4 text-sm text-red-300/80">{store.state.error}</p>
 			<button
-				onclick={() => courseName && store.loadCourseData(courseName)}
+				onclick={() =>
+					matrizCurricular?.trim()
+						? store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim())
+						: courseName && store.loadCourseData(courseName)
+				}
 				class="rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
 			>
 				Tentar novamente
@@ -122,6 +178,16 @@
 				userFluxograma={store.userFluxograma}
 				effectiveCompletedCount={store.completedCodes.size}
 			/>
+
+			<!-- Integralização (exigido vs realizado por CH da matriz) -->
+			{#if store.state.courseData && !store.state.isAnonymous}
+				<IntegralizacaoSection
+					integralizacao={integralizacao}
+					matrizes={matrizes}
+					curriculoCompletoAtual={curriculoCompletoAtual}
+					onMatrizChange={handleMatrizChange}
+				/>
+			{/if}
 
 			<!-- Legend and controls -->
 			<FluxogramaLegendControls

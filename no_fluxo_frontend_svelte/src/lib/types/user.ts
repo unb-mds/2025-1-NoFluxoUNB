@@ -16,6 +16,10 @@ export interface DadosMateria {
 	frequencia?: string | null;
 	tipoDado?: string | null;
 	turma?: string | null;
+	/** Quando concluída por equivalência: código da disciplina cursada (equivalente). */
+	codigoEquivalente?: string | null;
+	/** Quando concluída por equivalência: nome da disciplina cursada (equivalente). */
+	nomeEquivalente?: string | null;
 }
 
 export interface DadosFluxogramaUser {
@@ -50,7 +54,7 @@ export function isMateriaAprovada(dadosMateria: DadosMateria): boolean {
 		mencao === 'SS' ||
 		mencao === 'MM' ||
 		mencao === 'MS' ||
-		(status === 'APR' && mencao !== '-') ||
+		status === 'APR' ||
 		status === 'CUMP'
 	);
 }
@@ -104,14 +108,18 @@ export function findSubjectInFluxograma(
 	dados: DadosFluxogramaUser,
 	codigoMateria: string
 ): DadosMateria | null {
+	let fallback: DadosMateria | null = null;
+	const codeUpper = codigoMateria.trim().toUpperCase();
 	for (const semester of dados.dadosFluxograma) {
 		for (const materia of semester) {
-			if (materia.codigoMateria === codigoMateria) {
-				return materia;
-			}
+			const code = materia.codigoMateria ?? (materia as unknown as { codigo?: string }).codigo ?? '';
+			if (code.trim().toUpperCase() !== codeUpper) continue;
+			if (isMateriaAprovada(materia) && materia.tipoDado === 'equivalencia') return materia;
+			if (isMateriaAprovada(materia) && !fallback) fallback = materia;
+			if (!fallback) fallback = materia;
 		}
 	}
-	return null;
+	return fallback;
 }
 
 export function getTotalCreditsCompleted(

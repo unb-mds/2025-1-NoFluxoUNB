@@ -132,33 +132,47 @@ export function limparNomeProfessor(nome: string): string {
 
 // ─── Metadata extractors ───
 
+/**
+ * Extrai o nome do curso para comparação com cursos.nome_curso no banco.
+ * Retorna o nome normalizado (espaços colapsados, trim) para melhor match.
+ */
 export function extrairCurso(texto: string): string | null {
   // Pattern 1: "Curso:\n<NAME>/CAMPUS - ..."
   let m = texto.match(
     /Curso:\s*\n([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)\/[A-Z]+ - [A-ZÀ-ÿ\s]+ - [A-ZÀ-ÿ]+/mi
   );
-  if (m) return m[1].trim();
+  if (m) return m[1].trim().replace(/\s{2,}/g, ' ');
 
   // Pattern 2: "Curso:          NAME/CAMPUS-..."
   m = texto.match(
     /Curso:\s+([A-ZÀ-ÿ][A-ZÀ-ÿ\s]+(?:DE\s+[A-ZÀ-ÿ\s]+)*)\/[A-Z]+\s*-/mi
   );
-  if (m) return m[1].trim();
+  if (m) return m[1].trim().replace(/\s{2,}/g, ' ');
 
   // Pattern 3: "Curso: NAME Status:"
   m = texto.match(/Curso[:\s]+([A-ZÀ-Ÿ\s/\\-]+?)(?:\s+Status:|$)/mi);
-  if (m) return m[1].trim();
+  if (m) return m[1].trim().replace(/\s{2,}/g, ' ');
 
   return null;
 }
 
+/**
+ * Extrai o campo Currículo do histórico (informação principal para achar a estrutura no banco).
+ * Formato: código do curso / versão da matriz (ex.: "60810/1", "8150/-2").
+ * O ano (ex.: " - 2017.2") é opcional e só visual; a comparação no banco usa só código + versão.
+ */
 export function extrairMatrizCurricular(texto: string): string | null {
-  // "Currículo:    6360/1 - 2017.1"
-  let m = texto.match(/Curr[ií]culo:\s*\n?(\d+\/\d+)\s*-\s*(\d{4}\.\d)/mi);
-  if (m) return m[2];
+  // "Currículo: 60810/1" (só código/versão — o mais importante; ano é visual)
+  let m = texto.match(/Curr[ií]culo:\s*\n?(\d+\/-?\d+)(?:\s*-\s*\d{4}\.\d)?/mi);
+  if (m) return m[1].trim();
 
-  m = texto.match(/(\d+\/\d+\s*-\s*(\d{4}\.\d))/m);
-  if (m) return m[2];
+  // "Currículo:    6360/1 - 2017.1" (com ano)
+  m = texto.match(/Curr[ií]culo:\s*\n?(\d+\/-?\d+)\s*-\s*(\d{4}\.\d)/mi);
+  if (m) return `${m[1].trim()} - ${m[2]}`;
+
+  // Sem label: "6360/1 - 2017.1" ou só "60810/1" no texto
+  m = texto.match(/(\d+\/-?\d+)(?:\s*-\s*\d{4}\.\d)?/m);
+  if (m) return m[1].trim();
 
   return null;
 }

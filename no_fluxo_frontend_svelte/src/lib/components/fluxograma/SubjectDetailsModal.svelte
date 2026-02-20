@@ -23,6 +23,11 @@
 	let prereqs = $derived(getDirectPrerequisites(courseData, materia.codigoMateria));
 	let coreqs = $derived(getCorequisites(courseData, materia.codigoMateria));
 
+	/** Pré-requisitos desta matéria (com expressao_original e expressao_logica para exibição). */
+	let prereqModels = $derived.by(() =>
+		courseData.preRequisitos.filter((pr) => pr.idMateria === materia.idMateria)
+	);
+
 	let equivalencias = $derived.by(() => {
 		return courseData.equivalencias.filter(
 			(eq) => eq.codigoMateriaOrigem === materia.codigoMateria
@@ -90,7 +95,7 @@
 						</div>
 					</div>
 					<h2 class="text-lg font-bold text-white">{materia.nomeMateria}</h2>
-					<p class="mt-1 text-sm text-white/50">{materia.creditos} créditos</p>
+					<p class="mt-1 text-sm text-white/50">{materia.creditos > 0 ? `${materia.creditos} créditos` : 'Créditos não informados'}</p>
 				</div>
 				<button
 					onclick={onclose}
@@ -102,17 +107,34 @@
 			</div>
 
 			{#if userData}
-				<div class="mt-3 flex flex-wrap gap-2">
-					{#if userData.mencao && userData.mencao !== '-'}
-						<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
-							Menção: {userData.mencao}
-						</span>
+				<div class="mt-3 space-y-2">
+					{#if userData.tipoDado === 'equivalencia'}
+						<div class="rounded-lg border border-purple-400/40 bg-purple-500/10 px-3 py-2">
+							<p class="text-xs font-semibold uppercase tracking-wider text-purple-300">
+								Concluída por equivalência
+							</p>
+							{#if userData.codigoEquivalente || userData.nomeEquivalente}
+								<p class="mt-1 text-sm text-white/80">
+									Cursada como: {userData.codigoEquivalente ?? ''} {userData.nomeEquivalente ? `— ${userData.nomeEquivalente}` : ''}
+								</p>
+							{/if}
+							{#if userData.anoPeriodo}
+								<p class="mt-0.5 text-xs text-white/50">Período: {userData.anoPeriodo}</p>
+							{/if}
+						</div>
 					{/if}
-					{#if userData.professor}
-						<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
-							Prof: {userData.professor}
-						</span>
-					{/if}
+					<div class="flex flex-wrap gap-2">
+						{#if userData.mencao && userData.mencao !== '-'}
+							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
+								Menção: {userData.mencao}
+							</span>
+						{/if}
+						{#if userData.professor}
+							<span class="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-medium text-white/80">
+								Prof: {userData.professor}
+							</span>
+						{/if}
+					</div>
 				</div>
 			{/if}
 		</div>
@@ -152,7 +174,7 @@
 						</div>
 						<div class="rounded-lg bg-white/5 p-3">
 							<span class="text-xs text-white/50">Créditos</span>
-							<p class="text-sm font-semibold text-white">{materia.creditos}</p>
+							<p class="text-sm font-semibold text-white">{materia.creditos > 0 ? materia.creditos : '—'}</p>
 						</div>
 					</div>
 
@@ -172,22 +194,49 @@
 					{/if}
 				</div>
 			{:else if activeTab === 'prereqs'}
-				<div class="space-y-2">
-					{#if prereqs.length === 0}
+				<div class="space-y-3">
+					{#if prereqModels.length === 0}
 						<p class="py-4 text-center text-sm text-white/50">
 							Esta matéria não possui pré-requisitos.
 						</p>
 					{:else}
-						{#each prereqs as prereq}
-							{@const prereqStatus = store.getSubjectStatus(prereq)}
-							<div class="flex items-center gap-3 rounded-lg bg-white/5 px-3 py-2.5">
-								<div class="h-2.5 w-2.5 shrink-0 rounded-full {statusDotColor[prereqStatus]}"></div>
-								<div class="flex-1">
-									<p class="text-sm font-medium text-white/90">{prereq.nomeMateria}</p>
-									<p class="text-xs text-white/50">
-										{prereq.codigoMateria} · {prereq.creditos} créditos · {getStatusLabel(prereqStatus)}
-									</p>
-								</div>
+						{#each prereqModels as pr}
+							<div class="rounded-lg bg-white/5 px-3 py-2.5">
+								{#if pr.expressaoOriginal}
+									<p class="text-sm font-medium text-white/90">Expressão: {pr.expressaoOriginal}</p>
+									{#if pr.expressaoLogica?.materias?.length}
+										<div class="mt-1.5 flex flex-wrap gap-1">
+											{#each pr.expressaoLogica.materias as cod}
+												{@const prereqMateria = prereqs.find((p) => p.codigoMateria.toUpperCase() === cod.toUpperCase())}
+												{#if prereqMateria}
+													{@const prereqStatus = store.getSubjectStatus(prereqMateria)}
+													<span class="inline-flex items-center gap-1 rounded bg-white/10 px-2 py-0.5 text-xs">
+														<span class="h-1.5 w-1.5 rounded-full {statusDotColor[prereqStatus]}"></span>
+														{cod} · {getStatusLabel(prereqStatus)}
+													</span>
+												{:else}
+													<span class="rounded bg-white/10 px-2 py-0.5 text-xs text-white/80">{cod}</span>
+												{/if}
+											{/each}
+										</div>
+									{/if}
+								{:else}
+									{@const prereq = prereqs.find((p) => p.codigoMateria.toUpperCase() === (pr.codigoMateriaRequisito || '').toUpperCase())}
+									{#if prereq}
+										{@const prereqStatus = store.getSubjectStatus(prereq)}
+										<div class="flex items-center gap-3">
+											<div class="h-2.5 w-2.5 shrink-0 rounded-full {statusDotColor[prereqStatus]}"></div>
+											<div class="flex-1">
+												<p class="text-sm font-medium text-white/90">{prereq.nomeMateria}</p>
+												<p class="text-xs text-white/50">
+													{prereq.codigoMateria} · {prereq.creditos} créditos · {getStatusLabel(prereqStatus)}
+												</p>
+											</div>
+										</div>
+									{:else}
+										<p class="text-sm text-white/80">{pr.codigoMateriaRequisito}</p>
+									{/if}
+								{/if}
 							</div>
 						{/each}
 					{/if}
@@ -201,10 +250,23 @@
 					{:else}
 						{#each equivalencias as eq}
 							<div class="rounded-lg bg-white/5 px-3 py-2.5">
-								<p class="text-sm font-medium text-white/90">{eq.nomeMateriaEquivalente}</p>
-								<p class="text-xs text-white/50">{eq.codigoMateriaEquivalente}</p>
+								<div class="flex flex-wrap items-center gap-1.5">
+									{#if eq.idCurso != null || (eq.curriculo != null && eq.curriculo !== '')}
+										<span class="rounded bg-amber-500/20 px-1.5 py-0.5 text-xs font-medium text-amber-300">
+											Específica para seu currículo
+										</span>
+									{:else}
+										<span class="rounded bg-cyan-500/20 px-1.5 py-0.5 text-xs font-medium text-cyan-300">
+											Geral
+										</span>
+									{/if}
+								</div>
+								<p class="mt-1 text-sm font-medium text-white/90">{eq.nomeMateriaOrigem} ↔ equivalência</p>
 								{#if eq.expressao}
 									<p class="mt-1 text-xs text-purple-300/70">Expressão: {eq.expressao}</p>
+								{/if}
+								{#if eq.curriculo}
+									<p class="mt-0.5 text-xs text-white/50">Currículo: {eq.curriculo}</p>
 								{/if}
 							</div>
 						{/each}

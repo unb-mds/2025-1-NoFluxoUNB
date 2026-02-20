@@ -173,7 +173,7 @@
 	{:else}
 		<!-- Course grid -->
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-			{#each paginated as curso (curso.idCurso)}
+			{#each paginated as curso, i (curso.idCurso != null && !Number.isNaN(Number(curso.idCurso)) ? curso.idCurso : `curso-${i}-${curso.nomeCurso}`)}
 				<CourseCard {curso} onclick={() => navigateToCourse(curso)} />
 			{/each}
 		</div>

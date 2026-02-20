@@ -4,6 +4,7 @@
  */
 
 import type { UserModel, DadosMateria, DadosFluxogramaUser } from '$lib/types/user';
+import { isMateriaAprovada } from '$lib/types/user';
 import type {
 	CursoModel,
 	MinimalCursoModel,
@@ -26,7 +27,19 @@ export function createDadosMateriaFromJson(json: Record<string, unknown>): Dados
 		anoPeriodo: json.ano_periodo != null ? String(json.ano_periodo) : null,
 		frequencia: json.frequencia != null ? String(json.frequencia) : null,
 		tipoDado: json.tipo_dado != null ? String(json.tipo_dado) : null,
-		turma: json.turma != null ? String(json.turma) : null
+		turma: json.turma != null ? String(json.turma) : null,
+		codigoEquivalente:
+			json.codigo_equivalente != null
+				? String(json.codigo_equivalente)
+				: json.codigoEquivalente != null
+					? String(json.codigoEquivalente)
+					: null,
+		nomeEquivalente:
+			json.nome_equivalente != null
+				? String(json.nome_equivalente)
+				: json.nomeEquivalente != null
+					? String(json.nomeEquivalente)
+					: null
 	};
 }
 
@@ -39,7 +52,9 @@ export function dadosMateriaToJson(dados: DadosMateria): Record<string, unknown>
 		ano_periodo: dados.anoPeriodo,
 		frequencia: dados.frequencia,
 		tipo_dado: dados.tipoDado,
-		turma: dados.turma
+		turma: dados.turma,
+		codigo_equivalente: dados.codigoEquivalente ?? undefined,
+		nome_equivalente: dados.nomeEquivalente ?? undefined
 	};
 }
 
@@ -111,7 +126,7 @@ export function normalizeDadosFluxogramaFromStored(
 	if (Array.isArray(raw.dadosFluxograma)) {
 		const dadosFluxograma = (raw.dadosFluxograma as unknown[][]).map((semester) =>
 			Array.isArray(semester)
-				? (semester as Record<string, unknown>[]).map((m) => {
+				? 		(semester as Record<string, unknown>[]).map((m) => {
 						const mm = m as Record<string, unknown>;
 						return createDadosMateriaFromJson({
 							codigo: (mm.codigoMateria ?? mm.codigo) ?? '',
@@ -121,7 +136,9 @@ export function normalizeDadosFluxogramaFromStored(
 							ano_periodo: mm.anoPeriodo,
 							frequencia: mm.frequencia,
 							tipo_dado: mm.tipoDado,
-							turma: mm.turma
+							turma: mm.turma,
+							codigo_equivalente: mm.codigoEquivalente,
+							nome_equivalente: mm.nomeEquivalente
 						});
 					})
 				: []
@@ -145,10 +162,13 @@ export function normalizeDadosFluxogramaFromStored(
  * Build DadosFluxogramaUser from the casar-disciplinas API response.
  * Converts disciplinas_casadas (flat list with codigo, status, mencao) into
  * the 2D array format so getCompletedSubjectCodes() and the fluxograma UI work.
+ * Inclui também materias_concluidas com status_fluxograma 'concluida_equivalencia'
+ * para que todas as concluídas (incl. por equivalência) reflitam no fluxograma.
  */
 export function buildDadosFluxogramaUserFromCasarResponse(
 	response: {
 		disciplinas_casadas: Record<string, unknown>[];
+		materias_concluidas?: Record<string, unknown>[];
 		dados_validacao?: { ira?: number; horas_integralizadas?: number };
 		curso_extraido?: string;
 		matriz_curricular?: string;
@@ -163,16 +183,107 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 	}
 ): DadosFluxogramaUser {
 	const disciplinas = response.disciplinas_casadas ?? [];
-	// Usar codigo_materia (código da matriz) quando existir, para o fluxograma bater com o grid do curso
-	const dadosFluxograma: DadosMateria[][] = [
-		disciplinas.map((d) => {
-			const raw = d as Record<string, unknown>;
-			return createDadosMateriaFromJson({
-				...raw,
-				codigo: raw.codigo_materia ?? raw.codigo
-			});
-		})
-	];
+	const materiasConcluidas = response.materias_concluidas ?? [];
+
+	// Mapa: código da matriz (uppercase) -> dados da equivalência (info mais recente da API)
+	const equivalenciaByCode = new Map<
+		string,
+		{
+			professor: string;
+			mencao: string;
+			status: string;
+			ano_periodo: string | null;
+			codigo_equivalente: string | null;
+			nome_equivalente: string | null;
+		}
+	>();
+	for (const rec of materiasConcluidas) {
+		const r = rec as Record<string, unknown>;
+		if (r.status_fluxograma !== 'concluida_equivalencia') continue;
+		const codigo = String(r.codigo_materia ?? r.codigo ?? '').trim().toUpperCase();
+		if (!codigo) continue;
+		const entry = {
+			professor: (r.professor as string) ?? '',
+			mencao: (r.mencao as string) ?? '-',
+			status: (r.status as string) ?? 'CUMP',
+			ano_periodo: r.ano_periodo != null ? String(r.ano_periodo) : null,
+			codigo_equivalente: r.codigo_equivalente != null ? String(r.codigo_equivalente) : null,
+			nome_equivalente: r.nome_equivalente != null ? String(r.nome_equivalente) : null
+		};
+		// Não sobrescrever entrada que já tem mais dados (ex.: professor/menção da disciplina cursada)
+		const existing = equivalenciaByCode.get(codigo);
+		if (
+			!existing ||
+			(entry.professor && !existing.professor) ||
+			(entry.mencao !== '-' && existing.mencao === '-') ||
+			(entry.codigo_equivalente && !existing.codigo_equivalente)
+		) {
+			equivalenciaByCode.set(codigo, entry);
+		}
+	}
+
+	// Montar lista: disciplinas_casadas com merge de equivalência quando existir
+	const primeiroSemestre: DadosMateria[] = disciplinas.map((d) => {
+		const raw = d as Record<string, unknown>;
+		const codigoMatriz = String(raw.codigo_materia ?? raw.codigo ?? '').trim();
+		const codigoUpper = codigoMatriz.toUpperCase();
+		const codigoHist = String(raw.codigo_historico ?? '').trim();
+		const nomeHist = raw.nome_historico != null ? String(raw.nome_historico) : null;
+		const foiCursadaComoEquivalente =
+			codigoHist.length > 0 && codigoHist.toUpperCase() !== codigoUpper;
+
+		const base = createDadosMateriaFromJson({
+			...raw,
+			codigo: raw.codigo_materia ?? raw.codigo
+		});
+
+		// Dados de equivalência: preferir mapa (materias_concluidas), senão usar os da própria linha
+		const equiv = equivalenciaByCode.get(codigoUpper);
+		const isAprovada = isMateriaAprovada(base);
+		const usarComoEquivalencia =
+			isAprovada && (equiv || (foiCursadaComoEquivalente && (codigoHist || nomeHist)));
+
+		if (usarComoEquivalencia) {
+			const codigoEq = equiv?.codigo_equivalente ?? (codigoHist || null);
+			const nomeEq = equiv?.nome_equivalente ?? nomeHist ?? null;
+			return {
+				...base,
+				tipoDado: 'equivalencia',
+				professor: equiv ? (equiv.professor || base.professor) : base.professor,
+				mencao: equiv && equiv.mencao !== '-' ? equiv.mencao : base.mencao,
+				status: equiv?.status || base.status,
+				anoPeriodo: equiv?.ano_periodo ?? base.anoPeriodo ?? null,
+				codigoEquivalente: codigoEq,
+				nomeEquivalente: nomeEq
+			};
+		}
+		return base;
+	});
+
+	const codigosJaIncluidos = new Set(primeiroSemestre.map((m) => m.codigoMateria.trim().toUpperCase()));
+	// Incluir matérias que estão só em materias_concluidas (não vieram em disciplinas_casadas)
+	for (const rec of materiasConcluidas) {
+		const r = rec as Record<string, unknown>;
+		if (r.status_fluxograma !== 'concluida_equivalencia') continue;
+		const codigo = String(r.codigo_materia ?? r.codigo ?? '').trim();
+		if (!codigo || codigosJaIncluidos.has(codigo.toUpperCase())) continue;
+		primeiroSemestre.push(
+			createDadosMateriaFromJson({
+				codigo,
+				codigo_materia: codigo,
+				status: (r.status as string) ?? 'CUMP',
+				mencao: (r.mencao as string) ?? '-',
+				professor: (r.professor as string) ?? '',
+				ano_periodo: r.ano_periodo != null ? String(r.ano_periodo) : null,
+				tipo_dado: 'equivalencia',
+				codigo_equivalente: r.codigo_equivalente != null ? String(r.codigo_equivalente) : null,
+				nome_equivalente: r.nome_equivalente != null ? String(r.nome_equivalente) : null
+			})
+		);
+		codigosJaIncluidos.add(codigo.toUpperCase());
+	}
+
+	const dadosFluxograma: DadosMateria[][] = [primeiroSemestre];
 	return {
 		nomeCurso: meta.nomeCurso,
 		ira: Number(response.dados_validacao?.ira ?? 0),
@@ -272,13 +383,14 @@ export function userModelToJson(
 
 export function createMateriaModelFromJson(json: Record<string, unknown>): MateriaModel {
 	const materiaData = (json.materias as Record<string, unknown>) ?? json;
+	const cargaHoraria = Number(materiaData.carga_horaria ?? json.carga_horaria ?? 0);
 
 	return {
 		ementa: String(materiaData.ementa ?? ''),
 		idMateria: Number(materiaData.id_materia ?? 0),
 		nomeMateria: String(materiaData.nome_materia ?? ''),
 		codigoMateria: String(materiaData.codigo_materia ?? ''),
-		creditos: Number(materiaData.carga_horaria ?? 0) / 15,
+		creditos: cargaHoraria > 0 ? cargaHoraria / 15 : 0,
 		nivel: Number(json.nivel ?? 0),
 		status: materiaData.status != null ? String(materiaData.status) : null,
 		mencao: materiaData.mencao != null ? String(materiaData.mencao) : null,
@@ -288,25 +400,50 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 }
 
 // ============================================================================
-// PreRequisitoModel Factory
+// PreRequisitoModel Factory (com expressao_original e expressao_logica JSONB)
 // ============================================================================
+
+function parseExpressaoLogica(val: unknown): { materias?: string[]; operador?: 'OU' | 'E' | null } | null {
+	if (val == null) return null;
+	if (typeof val === 'object' && 'materias' in (val as object)) {
+		const o = val as { materias?: unknown[]; operador?: string };
+		return {
+			materias: Array.isArray(o.materias) ? o.materias.map(String) : undefined,
+			operador: o.operador === 'OU' || o.operador === 'E' ? o.operador : null
+		};
+	}
+	if (typeof val === 'string') {
+		try {
+			const parsed = JSON.parse(val) as { materias?: string[]; operador?: string };
+			return {
+				materias: parsed.materias,
+				operador: parsed.operador === 'OU' || parsed.operador === 'E' ? parsed.operador : null
+			};
+		} catch {
+			return null;
+		}
+	}
+	return null;
+}
 
 export function createPreRequisitoModelFromJson(
 	json: Record<string, unknown>
 ): PreRequisitoModel {
-	// The Supabase query JOINs materias via id_materia_requisito, returning
-	// a nested "materias" object with { codigo_materia, nome_materia }
 	const materias = json.materias as Record<string, unknown> | null | undefined;
+	const expressaoLogica = parseExpressaoLogica(json.expressao_logica);
+	const codigoFromLogica = expressaoLogica?.materias?.[0];
 	return {
 		idPreRequisito: Number(json.id_pre_requisito ?? 0),
 		idMateria: Number(json.id_materia ?? 0),
-		idMateriaRequisito: Number(json.id_materia_requisito ?? 0),
+		idMateriaRequisito: json.id_materia_requisito != null ? Number(json.id_materia_requisito) : null,
 		codigoMateriaRequisito: String(
-			materias?.codigo_materia ?? json.codigo_materia_requisito ?? ''
+			materias?.codigo_materia ?? json.codigo_materia_requisito ?? codigoFromLogica ?? ''
 		),
 		nomeMateriaRequisito: String(
 			materias?.nome_materia ?? json.nome_materia_requisito ?? ''
-		)
+		),
+		expressaoOriginal: json.expressao_original != null ? String(json.expressao_original) : null,
+		expressaoLogica: expressaoLogica ?? undefined
 	};
 }
 
@@ -317,19 +454,21 @@ export function createPreRequisitoModelFromJson(
 export function createCoRequisitoModelFromJson(
 	json: Record<string, unknown>
 ): CoRequisitoModel {
-	// The Supabase query JOINs materias via id_materia_corequisito, returning
-	// a nested "materias" object with { codigo_materia, nome_materia }
 	const materias = json.materias as Record<string, unknown> | null | undefined;
+	const expressaoLogica = parseExpressaoLogica(json.expressao_logica);
+	const codigoFromLogica = expressaoLogica?.materias?.[0];
 	return {
 		idCoRequisito: Number(json.id_co_requisito ?? 0),
 		idMateria: Number(json.id_materia ?? 0),
-		idMateriaCoRequisito: Number(json.id_materia_corequisito ?? 0),
+		idMateriaCoRequisito: json.id_materia_corequisito != null ? Number(json.id_materia_corequisito) : null,
 		codigoMateriaCoRequisito: String(
-			materias?.codigo_materia ?? json.codigo_materia_corequisito ?? ''
+			materias?.codigo_materia ?? json.codigo_materia_corequisito ?? codigoFromLogica ?? ''
 		),
 		nomeMateriaCoRequisito: String(
 			materias?.nome_materia ?? json.nome_materia_corequisito ?? ''
-		)
+		),
+		expressaoOriginal: json.expressao_original != null ? String(json.expressao_original) : null,
+		expressaoLogica: expressaoLogica ?? undefined
 	};
 }
 

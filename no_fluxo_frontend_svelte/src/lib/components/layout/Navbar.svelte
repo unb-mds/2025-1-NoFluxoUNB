@@ -141,13 +141,14 @@
 				</div>
 
 				{#each navLinks as link}
+					{@const Icon = link.icon}
 					<a
 						href={link.href}
 						class="mobile-nav-item"
 						class:active={isActive(link.href)}
 						onclick={closeMobileMenu}
 					>
-						<svelte:component this={link.icon} class="h-5 w-5" />
+						<Icon class="h-5 w-5" />
 						<span>{link.label}</span>
 					</a>
 				{/each}
