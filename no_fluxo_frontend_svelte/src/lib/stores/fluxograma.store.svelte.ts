@@ -23,6 +23,7 @@ import { getCompletedByEquivalenceCodes } from '$lib/types/equivalencia';
 import { getSubjectsBySemester } from '$lib/types/curso';
 import { captureScreenshot } from '$lib/utils/screenshot';
 import { toast } from 'svelte-sonner';
+import type { AuthState } from '$lib/types/auth';
 
 export interface FluxogramaState {
 	courseData: CursoModel | null;
@@ -53,6 +54,19 @@ function createFluxogramaStore() {
 
 	let optativasAdicionadas = $state<OptativaAdicionada[]>([]);
 
+	// Mirror the Svelte 4 writable authStore into a $state variable so that
+	// $derived expressions can reactively track auth changes.
+	let authState = $state<AuthState>({
+		user: null,
+		isAuthenticated: false,
+		isAnonymous: false,
+		isLoading: true,
+		error: null
+	});
+	authStore.subscribe((value) => {
+		authState = value;
+	});
+
 	const optativasBySemester = $derived.by(() => {
 		const map = new Map<number, OptativaAdicionada[]>();
 		for (const opt of optativasAdicionadas) {
@@ -70,10 +84,9 @@ function createFluxogramaStore() {
 		return getSubjectsBySemester(state.courseData);
 	});
 
-	// Computed: user progress data
+	// Computed: user progress data (reactive to auth store changes)
 	const userFluxograma = $derived.by(() => {
-		const user = authStore.getUser();
-		return user?.dadosFluxograma ?? null;
+		return authState.user?.dadosFluxograma ?? null;
 	});
 
 	// Computed: completed subject codes (histórico + concluídas por equivalência)

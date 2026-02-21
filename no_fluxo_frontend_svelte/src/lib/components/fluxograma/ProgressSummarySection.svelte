@@ -15,7 +15,15 @@
 
 	let { courseData, userFluxograma, effectiveCompletedCount }: Props = $props();
 
-	let totalCredits = $derived(courseData.totalCreditos ?? 0);
+	let totalCredits = $derived.by(() => {
+		if (courseData.totalCreditos != null && courseData.totalCreditos > 0) {
+			return courseData.totalCreditos;
+		}
+		// Fallback: sum credits from mandatory subjects (nivel > 0) when DB value is missing
+		return courseData.materias
+			.filter((m) => m.nivel > 0)
+			.reduce((sum, m) => sum + m.creditos, 0);
+	});
 
 	let completedCredits = $derived.by(() => {
 		if (!userFluxograma) return 0;

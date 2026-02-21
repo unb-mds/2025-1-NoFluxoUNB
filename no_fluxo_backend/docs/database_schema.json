@@ -2,21 +2,9 @@
   "enums": [],
   "views": [
     {
-      "view_name": "creditos_por_curso",
+      "view_name": "vw_creditos_por_matriz",
       "is_updatable": "NO",
-      "view_definition": " SELECT c.id_curso,\n    c.nome_curso,\n    floor((sum(\n        CASE\n            WHEN (mpc.nivel > 0) THEN m.carga_horaria\n            ELSE (0)::bigint\n        END) / 15.0)) AS creditos_obrigatorios,\n    floor((sum(\n        CASE\n            WHEN (mpc.nivel = 0) THEN m.carga_horaria\n            ELSE (0)::bigint\n        END) / 15.0)) AS creditos_optativos,\n    floor((sum(m.carga_horaria) / 15.0)) AS creditos_totais\n   FROM ((cursos c\n     LEFT JOIN materias_por_curso mpc ON ((mpc.id_curso = c.id_curso)))\n     LEFT JOIN materias m ON ((m.id_materia = mpc.id_materia)))\n  GROUP BY c.id_curso, c.nome_curso\n  ORDER BY c.id_curso;",
-      "is_insertable_into": "NO"
-    },
-    {
-      "view_name": "vw_equivalencias_com_materias",
-      "is_updatable": "NO",
-      "view_definition": " WITH codigos_explodidos AS (\n         SELECT e.id_equivalencia,\n            e.id_curso,\n            e.matriz_curricular,\n            e.curriculo,\n            e.data_vigencia,\n            e.fim_vigencia,\n            e.expressao,\n            m_origem.codigo_materia AS codigo_materia_origem,\n            m_origem.nome_materia AS nome_materia_origem,\n            c.nome_curso,\n            regexp_split_to_table(regexp_replace(e.expressao, '[\\(\\)]'::text, ''::text, 'g'::text), '\\s+(OU|ou|E|e)\\s+'::text) AS codigo_equivalente\n           FROM ((equivalencias e\n             LEFT JOIN materias m_origem ON ((e.id_materia = m_origem.id_materia)))\n             LEFT JOIN cursos c ON ((e.id_curso = c.id_curso)))\n        ), materias_equivalentes AS (\n         SELECT ce.id_equivalencia,\n            ce.codigo_materia_origem,\n            ce.nome_materia_origem,\n            ce.expressao,\n            ce.codigo_equivalente,\n            m.nome_materia AS nome_materia_equivalente,\n            ce.id_curso,\n            ce.nome_curso,\n            ce.matriz_curricular,\n            ce.curriculo,\n            ce.data_vigencia,\n            ce.fim_vigencia\n           FROM (codigos_explodidos ce\n             LEFT JOIN materias m ON ((m.codigo_materia = ce.codigo_equivalente)))\n        )\n SELECT materias_equivalentes.id_equivalencia,\n    materias_equivalentes.codigo_materia_origem,\n    materias_equivalentes.nome_materia_origem,\n    materias_equivalentes.codigo_equivalente AS codigo_materia_equivalente,\n    materias_equivalentes.nome_materia_equivalente,\n    materias_equivalentes.expressao,\n    materias_equivalentes.id_curso,\n    materias_equivalentes.nome_curso,\n    materias_equivalentes.matriz_curricular,\n    materias_equivalentes.curriculo,\n    materias_equivalentes.data_vigencia,\n    materias_equivalentes.fim_vigencia\n   FROM materias_equivalentes;",
-      "is_insertable_into": "NO"
-    },
-    {
-      "view_name": "vw_pre_requisitos_detalhado",
-      "is_updatable": "NO",
-      "view_definition": " SELECT pr.id_pre_requisito,\n    pr.id_materia,\n    m1.codigo_materia,\n    m1.nome_materia,\n    pr.id_materia_requisito,\n    m2.codigo_materia AS codigo_requisito,\n    m2.nome_materia AS nome_requisito,\n    mpc.id_curso,\n    c.nome_curso,\n    c.matriz_curricular\n   FROM ((((pre_requisitos pr\n     JOIN materias m1 ON ((pr.id_materia = m1.id_materia)))\n     JOIN materias m2 ON ((pr.id_materia_requisito = m2.id_materia)))\n     JOIN materias_por_curso mpc ON ((mpc.id_materia = pr.id_materia)))\n     JOIN cursos c ON ((mpc.id_curso = c.id_curso)));",
+      "view_definition": " SELECT m.id_matriz,\n    m.curriculo_completo,\n    c.nome_curso,\n    floor(((m.ch_obrigatoria_exigida)::numeric / 15.0)) AS cred_obrigatorio_exigido,\n    floor(((m.ch_optativa_exigida)::numeric / 15.0)) AS cred_optativo_exigido,\n    floor(((m.ch_complementar_exigida)::numeric / 15.0)) AS cred_complementar_exigido,\n    floor(((m.ch_total_exigida)::numeric / 15.0)) AS cred_total_exigido,\n    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel > 0)), (0)::bigint))::numeric / 15.0)) AS cred_obrigatorio_grade,\n    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel = 0)), (0)::bigint))::numeric / 15.0)) AS cred_optativo_grade\n   FROM (((matrizes m\n     JOIN cursos c ON ((c.id_curso = m.id_curso)))\n     LEFT JOIN materias_por_curso mpc ON ((mpc.id_matriz = m.id_matriz)))\n     LEFT JOIN materias mat ON ((mat.id_materia = mpc.id_materia)))\n  GROUP BY m.id_matriz, m.curriculo_completo, c.nome_curso;",
       "is_insertable_into": "NO"
     }
   ],
@@ -65,7 +53,7 @@
           "data_type": "bigint",
           "column_name": "id_materia_corequisito",
           "is_identity": "NO",
-          "is_nullable": "NO",
+          "is_nullable": "YES",
           "is_updatable": "YES",
           "numeric_scale": 0,
           "column_comment": null,
@@ -79,6 +67,38 @@
             "foreign_table": "materias",
             "foreign_column": "id_materia"
           }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "expressao_original",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "column_name": "expressao_logica",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
         }
       ],
       "table_name": "co_requisitos",
@@ -186,70 +206,6 @@
           "column_comment": null,
           "column_default": null,
           "ordinal_position": 3,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "matriz_curricular",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 4,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "date",
-          "data_type": "date",
-          "column_name": "data_inicio_matriz",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 5,
-          "numeric_precision": null,
-          "datetime_precision": 0,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "numeric",
-          "data_type": "numeric",
-          "column_name": "creditos",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 6,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "classificacao",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 7,
           "numeric_precision": null,
           "datetime_precision": null,
           "identity_generation": null,
@@ -373,228 +329,6 @@
         {
           "udt_name": "int8",
           "data_type": "bigint",
-          "column_name": "id_dado_user",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 1,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "timestamptz",
-          "data_type": "timestamp with time zone",
-          "column_name": "created_at",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 2,
-          "numeric_precision": null,
-          "datetime_precision": 6,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "fluxograma_atual",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 3,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_user",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 4,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "semestre_atual",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 5,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        }
-      ],
-      "table_name": "dados_users_backup",
-      "table_type": "BASE TABLE",
-      "table_comment": null
-    },
-    {
-      "columns": [
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_equivalencia",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 1,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_materia",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 2,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_curso",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 3,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "expressao",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 4,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "matriz_curricular",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 5,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "curriculo",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 6,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "date",
-          "data_type": "date",
-          "column_name": "data_vigencia",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 7,
-          "numeric_precision": null,
-          "datetime_precision": 0,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "date",
-          "data_type": "date",
-          "column_name": "fim_vigencia",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 8,
-          "numeric_precision": null,
-          "datetime_precision": 0,
-          "identity_generation": null,
-          "character_maximum_length": null
-        }
-      ],
-      "table_name": "equivalencia_backup1",
-      "table_type": "BASE TABLE",
-      "table_comment": null
-    },
-    {
-      "columns": [
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
           "column_name": "id_equivalencia",
           "is_identity": "YES",
           "is_nullable": "NO",
@@ -652,9 +386,164 @@
         {
           "udt_name": "text",
           "data_type": "text",
+          "column_name": "curriculo",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "data_vigencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "date",
+          "data_type": "date",
+          "column_name": "fim_vigencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": null,
+          "datetime_precision": 0,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "column_name": "expressao_logica",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 9,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "expressao_original",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 11,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_matriz",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 12,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "matrizes",
+            "foreign_column": "id_matriz"
+          }
+        }
+      ],
+      "table_name": "equivalencias",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_equivalencia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
           "column_name": "expressao",
           "is_identity": "NO",
-          "is_nullable": "NO",
+          "is_nullable": "YES",
           "is_updatable": "YES",
           "numeric_scale": null,
           "column_comment": null,
@@ -730,7 +619,7 @@
           "character_maximum_length": null
         }
       ],
-      "table_name": "equivalencias",
+      "table_name": "equivalencias_backup_temp",
       "table_type": "BASE TABLE",
       "table_comment": null
     },
@@ -763,6 +652,125 @@
           "numeric_scale": null,
           "column_comment": null,
           "column_default": "now()",
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "nome_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "codigo_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "carga_horaria",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "ementa",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "departamento",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "materias",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
           "ordinal_position": 2,
           "numeric_precision": null,
           "datetime_precision": 6,
@@ -850,7 +858,7 @@
           "character_maximum_length": null
         }
       ],
-      "table_name": "materias",
+      "table_name": "materias_backup_temp",
       "table_type": "BASE TABLE",
       "table_comment": null
     },
@@ -910,6 +918,97 @@
           }
         },
         {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "nivel",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_matriz",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "matrizes",
+            "foreign_column": "id_matriz"
+          }
+        }
+      ],
+      "table_name": "materias_por_curso",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "timestamptz",
+          "data_type": "timestamp with time zone",
+          "column_name": "created_at",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": null,
+          "datetime_precision": 6,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_materia",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
           "udt_name": "int8",
           "data_type": "bigint",
           "column_name": "id_curso",
@@ -923,11 +1022,7 @@
           "numeric_precision": 64,
           "datetime_precision": null,
           "identity_generation": null,
-          "character_maximum_length": null,
-          "foreign_key": {
-            "foreign_table": "cursos",
-            "foreign_column": "id_curso"
-          }
+          "character_maximum_length": null
         },
         {
           "udt_name": "int8",
@@ -946,7 +1041,163 @@
           "character_maximum_length": null
         }
       ],
-      "table_name": "materias_por_curso",
+      "table_name": "materias_por_curso_backup_temp",
+      "table_type": "BASE TABLE",
+      "table_comment": null
+    },
+    {
+      "columns": [
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_matriz",
+          "is_identity": "YES",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 1,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": "ALWAYS",
+          "character_maximum_length": null,
+          "is_primary_key": true
+        },
+        {
+          "udt_name": "int8",
+          "data_type": "bigint",
+          "column_name": "id_curso",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 2,
+          "numeric_precision": 64,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null,
+          "foreign_key": {
+            "foreign_table": "cursos",
+            "foreign_column": "id_curso"
+          }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "versao",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 3,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "ano_vigor",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "curriculo_completo",
+          "is_identity": "NO",
+          "is_nullable": "NO",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "ch_obrigatoria_exigida",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 6,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "ch_optativa_exigida",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 7,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "ch_complementar_exigida",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 8,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "int4",
+          "data_type": "integer",
+          "column_name": "ch_total_exigida",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": 0,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 9,
+          "numeric_precision": 32,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        }
+      ],
+      "table_name": "matrizes",
       "table_type": "BASE TABLE",
       "table_comment": null
     },
@@ -994,7 +1245,7 @@
           "data_type": "bigint",
           "column_name": "id_materia_requisito",
           "is_identity": "NO",
-          "is_nullable": "NO",
+          "is_nullable": "YES",
           "is_updatable": "YES",
           "numeric_scale": 0,
           "column_comment": null,
@@ -1008,6 +1259,38 @@
             "foreign_table": "materias",
             "foreign_column": "id_materia"
           }
+        },
+        {
+          "udt_name": "text",
+          "data_type": "text",
+          "column_name": "expressao_original",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": null,
+          "ordinal_position": 4,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
+        },
+        {
+          "udt_name": "jsonb",
+          "data_type": "jsonb",
+          "column_name": "expressao_logica",
+          "is_identity": "NO",
+          "is_nullable": "YES",
+          "is_updatable": "YES",
+          "numeric_scale": null,
+          "column_comment": null,
+          "column_default": "'{}'::jsonb",
+          "ordinal_position": 5,
+          "numeric_precision": null,
+          "datetime_precision": null,
+          "identity_generation": null,
+          "character_maximum_length": null
         }
       ],
       "table_name": "pre_requisitos",
@@ -1101,77 +1384,6 @@
       "table_name": "users",
       "table_type": "BASE TABLE",
       "table_comment": null
-    },
-    {
-      "columns": [
-        {
-          "udt_name": "int8",
-          "data_type": "bigint",
-          "column_name": "id_user",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": 0,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 1,
-          "numeric_precision": 64,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "timestamptz",
-          "data_type": "timestamp with time zone",
-          "column_name": "created_at",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 2,
-          "numeric_precision": null,
-          "datetime_precision": 6,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "email",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 3,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        },
-        {
-          "udt_name": "text",
-          "data_type": "text",
-          "column_name": "nome_completo",
-          "is_identity": "NO",
-          "is_nullable": "YES",
-          "is_updatable": "YES",
-          "numeric_scale": null,
-          "column_comment": null,
-          "column_default": null,
-          "ordinal_position": 4,
-          "numeric_precision": null,
-          "datetime_precision": null,
-          "identity_generation": null,
-          "character_maximum_length": null
-        }
-      ],
-      "table_name": "users_backup",
-      "table_type": "BASE TABLE",
-      "table_comment": null
     }
   ],
   "indexes": [
@@ -1214,6 +1426,26 @@
       "index_name": "materias_por_curso_pkey",
       "table_name": "materias_por_curso",
       "index_definition": "CREATE UNIQUE INDEX materias_por_curso_pkey ON public.materias_por_curso USING btree (id_materia_curso)"
+    },
+    {
+      "index_name": "unique_materia_grade_matriz",
+      "table_name": "materias_por_curso",
+      "index_definition": "CREATE UNIQUE INDEX unique_materia_grade_matriz ON public.materias_por_curso USING btree (id_matriz, id_materia)"
+    },
+    {
+      "index_name": "unique_materia_na_matriz",
+      "table_name": "materias_por_curso",
+      "index_definition": "CREATE UNIQUE INDEX unique_materia_na_matriz ON public.materias_por_curso USING btree (id_matriz, id_materia, nivel)"
+    },
+    {
+      "index_name": "matrizes_curriculo_completo_key",
+      "table_name": "matrizes",
+      "index_definition": "CREATE UNIQUE INDEX matrizes_curriculo_completo_key ON public.matrizes USING btree (curriculo_completo)"
+    },
+    {
+      "index_name": "matrizes_pkey",
+      "table_name": "matrizes",
+      "index_definition": "CREATE UNIQUE INDEX matrizes_pkey ON public.matrizes USING btree (id_matriz)"
     },
     {
       "index_name": "pre_requisitos_pkey",
@@ -2090,6 +2322,17 @@
       "cache_size": 1,
       "start_value": 1,
       "increment_by": 1,
+      "sequence_name": "matrizes_id_matriz_seq"
+    },
+    {
+      "cycle": false,
+      "owned_by": null,
+      "data_type": "bigint",
+      "max_value": 9223372036854776000,
+      "min_value": 1,
+      "cache_size": 1,
+      "start_value": 1,
+      "increment_by": 1,
       "sequence_name": "pre_requisitos_id_pre_requisito_seq"
     },
     {
@@ -2148,13 +2391,13 @@
       "extension_name": "uuid-ossp"
     }
   ],
-  "exported_at": "2026-02-19T00:41:08.399221+00:00",
+  "exported_at": "2026-02-21T02:45:34.066172+00:00",
   "table_stats": [
     {
       "table_name": "co_requisitos",
-      "estimated_rows": 203,
-      "table_size_bytes": 40960,
-      "total_size_bytes": 57344,
+      "estimated_rows": 185,
+      "table_size_bytes": 65536,
+      "total_size_bytes": 81920,
       "indexes_size_bytes": 16384
     },
     {
@@ -2166,59 +2409,73 @@
     },
     {
       "table_name": "cursos",
-      "estimated_rows": 270,
-      "table_size_bytes": 106496,
-      "total_size_bytes": 147456,
-      "indexes_size_bytes": 40960
+      "estimated_rows": 102,
+      "table_size_bytes": 49152,
+      "total_size_bytes": 65536,
+      "indexes_size_bytes": 16384
     },
     {
       "table_name": "dados_users",
       "estimated_rows": 99,
-      "table_size_bytes": 565248,
-      "total_size_bytes": 598016,
+      "table_size_bytes": 581632,
+      "total_size_bytes": 614400,
       "indexes_size_bytes": 32768
     },
     {
-      "table_name": "dados_users_backup",
-      "estimated_rows": -1,
-      "table_size_bytes": 8192,
-      "total_size_bytes": 8192,
-      "indexes_size_bytes": 0
-    },
-    {
-      "table_name": "equivalencia_backup1",
-      "estimated_rows": 37132,
-      "table_size_bytes": 3039232,
-      "total_size_bytes": 3039232,
-      "indexes_size_bytes": 0
-    },
-    {
       "table_name": "equivalencias",
-      "estimated_rows": 8090,
-      "table_size_bytes": 892928,
-      "total_size_bytes": 1114112,
-      "indexes_size_bytes": 221184
+      "estimated_rows": 19445,
+      "table_size_bytes": 3710976,
+      "total_size_bytes": 4169728,
+      "indexes_size_bytes": 458752
+    },
+    {
+      "table_name": "equivalencias_backup_temp",
+      "estimated_rows": 8919,
+      "table_size_bytes": 876544,
+      "total_size_bytes": 876544,
+      "indexes_size_bytes": 0
     },
     {
       "table_name": "materias",
-      "estimated_rows": 21127,
-      "table_size_bytes": 8192000,
-      "total_size_bytes": 9355264,
-      "indexes_size_bytes": 1163264
+      "estimated_rows": 25624,
+      "table_size_bytes": 7438336,
+      "total_size_bytes": 8839168,
+      "indexes_size_bytes": 1400832
+    },
+    {
+      "table_name": "materias_backup_temp",
+      "estimated_rows": 21134,
+      "table_size_bytes": 7200768,
+      "total_size_bytes": 7200768,
+      "indexes_size_bytes": 0
     },
     {
       "table_name": "materias_por_curso",
+      "estimated_rows": 65955,
+      "table_size_bytes": 4923392,
+      "total_size_bytes": 13778944,
+      "indexes_size_bytes": 8855552
+    },
+    {
+      "table_name": "materias_por_curso_backup_temp",
       "estimated_rows": 75465,
-      "table_size_bytes": 6086656,
-      "total_size_bytes": 8462336,
-      "indexes_size_bytes": 2375680
+      "table_size_bytes": 5185536,
+      "total_size_bytes": 5185536,
+      "indexes_size_bytes": 0
+    },
+    {
+      "table_name": "matrizes",
+      "estimated_rows": 235,
+      "table_size_bytes": 65536,
+      "total_size_bytes": 98304,
+      "indexes_size_bytes": 32768
     },
     {
       "table_name": "pre_requisitos",
-      "estimated_rows": 20889,
-      "table_size_bytes": 1179648,
-      "total_size_bytes": 1687552,
-      "indexes_size_bytes": 507904
+      "estimated_rows": 14573,
+      "table_size_bytes": 2064384,
+      "total_size_bytes": 2433024,
+      "indexes_size_bytes": 368640
     },
     {
       "table_name": "users",
@@ -2226,13 +2483,6 @@
       "table_size_bytes": 90112,
       "total_size_bytes": 139264,
       "indexes_size_bytes": 49152
-    },
-    {
-      "table_name": "users_backup",
-      "estimated_rows": -1,
-      "table_size_bytes": 16384,
-      "total_size_bytes": 16384,
-      "indexes_size_bytes": 0
     }
   ],
   "foreign_keys": [
@@ -2287,14 +2537,14 @@
       "foreign_column_name": "id_materia"
     },
     {
-      "table_name": "materias_por_curso",
-      "column_name": "id_curso",
+      "table_name": "equivalencias",
+      "column_name": "id_matriz",
       "delete_rule": "NO ACTION",
       "update_rule": "NO ACTION",
       "match_option": "NONE",
-      "constraint_name": "materias_por_curso_id_curso_fkey",
-      "foreign_table_name": "cursos",
-      "foreign_column_name": "id_curso"
+      "constraint_name": "equivalencias_id_matriz_fkey",
+      "foreign_table_name": "matrizes",
+      "foreign_column_name": "id_matriz"
     },
     {
       "table_name": "materias_por_curso",
@@ -2305,6 +2555,26 @@
       "constraint_name": "materias_por_curso_id_materia_fkey",
       "foreign_table_name": "materias",
       "foreign_column_name": "id_materia"
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_matriz",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "materias_por_curso_id_matriz_fkey",
+      "foreign_table_name": "matrizes",
+      "foreign_column_name": "id_matriz"
+    },
+    {
+      "table_name": "matrizes",
+      "column_name": "id_curso",
+      "delete_rule": "NO ACTION",
+      "update_rule": "NO ACTION",
+      "match_option": "NONE",
+      "constraint_name": "matrizes_id_curso_fkey",
+      "foreign_table_name": "cursos",
+      "foreign_column_name": "id_curso"
     },
     {
       "table_name": "pre_requisitos",
@@ -2362,6 +2632,12 @@
       "table_name": "materias_por_curso",
       "column_name": "id_materia_curso",
       "constraint_name": "materias_por_curso_pkey",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "matrizes",
+      "column_name": "id_matriz",
+      "constraint_name": "matrizes_pkey",
       "ordinal_position": 1
     },
     {
@@ -2470,11 +2746,6 @@
       "constraint_name": "2200_26775_2_not_null"
     },
     {
-      "table_name": "co_requisitos",
-      "check_clause": "id_materia_corequisito IS NOT NULL",
-      "constraint_name": "2200_26775_3_not_null"
-    },
-    {
       "table_name": "cursos",
       "check_clause": "id_curso IS NOT NULL",
       "constraint_name": "2200_18849_1_not_null"
@@ -2505,11 +2776,6 @@
       "constraint_name": "2200_26862_2_not_null"
     },
     {
-      "table_name": "equivalencias",
-      "check_clause": "expressao IS NOT NULL",
-      "constraint_name": "2200_26862_4_not_null"
-    },
-    {
       "table_name": "materias",
       "check_clause": "id_materia IS NOT NULL",
       "constraint_name": "2200_18861_1_not_null"
@@ -2530,6 +2796,26 @@
       "constraint_name": "2200_18873_2_not_null"
     },
     {
+      "table_name": "materias_por_curso",
+      "check_clause": "id_matriz IS NOT NULL",
+      "constraint_name": "2200_18873_8_not_null"
+    },
+    {
+      "table_name": "matrizes",
+      "check_clause": "id_matriz IS NOT NULL",
+      "constraint_name": "2200_195149_1_not_null"
+    },
+    {
+      "table_name": "matrizes",
+      "check_clause": "versao IS NOT NULL",
+      "constraint_name": "2200_195149_3_not_null"
+    },
+    {
+      "table_name": "matrizes",
+      "check_clause": "curriculo_completo IS NOT NULL",
+      "constraint_name": "2200_195149_5_not_null"
+    },
+    {
       "table_name": "pre_requisitos",
       "check_clause": "id_pre_requisito IS NOT NULL",
       "constraint_name": "2200_26759_1_not_null"
@@ -2538,11 +2824,6 @@
       "table_name": "pre_requisitos",
       "check_clause": "id_materia IS NOT NULL",
       "constraint_name": "2200_26759_2_not_null"
-    },
-    {
-      "table_name": "pre_requisitos",
-      "check_clause": "id_materia_requisito IS NOT NULL",
-      "constraint_name": "2200_26759_3_not_null"
     },
     {
       "table_name": "users",
@@ -2561,14 +2842,11 @@
     "co_requisitos_backup",
     "cursos",
     "dados_users",
-    "dados_users_backup",
-    "equivalencia_backup1",
     "equivalencias",
     "materias",
     "materias_por_curso",
     "pre_requisitos",
-    "users",
-    "users_backup"
+    "users"
   ],
   "unique_constraints": [
     {
@@ -2581,6 +2859,42 @@
       "table_name": "materias",
       "column_name": "codigo_materia",
       "constraint_name": "materias_codigo_materia_key",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_matriz",
+      "constraint_name": "unique_materia_grade_matriz",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_materia",
+      "constraint_name": "unique_materia_grade_matriz",
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_matriz",
+      "constraint_name": "unique_materia_na_matriz",
+      "ordinal_position": 1
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "id_materia",
+      "constraint_name": "unique_materia_na_matriz",
+      "ordinal_position": 2
+    },
+    {
+      "table_name": "materias_por_curso",
+      "column_name": "nivel",
+      "constraint_name": "unique_materia_na_matriz",
+      "ordinal_position": 3
+    },
+    {
+      "table_name": "matrizes",
+      "column_name": "curriculo_completo",
+      "constraint_name": "matrizes_curriculo_completo_key",
       "ordinal_position": 1
     },
     {

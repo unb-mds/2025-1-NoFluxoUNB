@@ -304,17 +304,21 @@ export function buildDadosFluxogramaUserFromCasarResponse(
 export function createUserModelFromJson(json: Record<string, unknown>): UserModel {
 	let dadosFluxograma: DadosFluxogramaUser | null = null;
 
-	const dadosUsers = json.dados_users as Array<Record<string, unknown>> | undefined;
-	if (
-		dadosUsers &&
-		dadosUsers.length > 0 &&
-		dadosUsers[0] != null &&
-		dadosUsers[0].fluxograma_atual != null
-	) {
+	// Supabase returns dados_users as a single object (one-to-one via unique id_user)
+	// or as an array (legacy / to-many). Handle both formats.
+	const rawDadosUsers = json.dados_users;
+	const dadosUserRow: Record<string, unknown> | null =
+		rawDadosUsers != null && typeof rawDadosUsers === 'object'
+			? Array.isArray(rawDadosUsers)
+				? (rawDadosUsers.length > 0 ? (rawDadosUsers[0] as Record<string, unknown>) : null)
+				: (rawDadosUsers as Record<string, unknown>)
+			: null;
+
+	if (dadosUserRow != null && dadosUserRow.fluxograma_atual != null) {
 		const fluxogramaData =
-			typeof dadosUsers[0].fluxograma_atual === 'string'
-				? JSON.parse(dadosUsers[0].fluxograma_atual)
-				: dadosUsers[0].fluxograma_atual;
+			typeof dadosUserRow.fluxograma_atual === 'string'
+				? JSON.parse(dadosUserRow.fluxograma_atual)
+				: dadosUserRow.fluxograma_atual;
 
 		// Support both formats: DadosFluxogramaUser (dados_fluxograma) or old CasarDisciplinasResponse (disciplinas_casadas)
 		if (

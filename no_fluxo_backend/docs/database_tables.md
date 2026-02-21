@@ -1,6 +1,6 @@
 # Database Schema
 
-> **Exported at:** 2026-02-19T00:41:08.399221+00:00
+> **Exported at:** 2026-02-21T02:45:34.066172+00:00
 > **Export method:** rpc
 > **Supabase:** lijmhbstgdinsukovyfl.supabase.co
 
@@ -15,6 +15,8 @@
 | `id_co_requisito` | bigint | PK |  |
 | `id_materia` | bigint |  | → `materias.id_materia` |
 | `id_materia_corequisito` | bigint |  | → `materias.id_materia` |
+| `expressao_original` | text |  |  |
+| `expressao_logica` | jsonb |  |  |
 
 ### ✅ `co_requisitos_backup`
 
@@ -31,10 +33,6 @@
 | `id_curso` | bigint | PK |  |
 | `created_at` | timestamp with time zone |  |  |
 | `nome_curso` | text |  |  |
-| `matriz_curricular` | text |  |  |
-| `data_inicio_matriz` | date |  |  |
-| `creditos` | numeric |  |  |
-| `classificacao` | text |  |  |
 | `tipo_curso` | text |  |  |
 
 ### ✅ `dados_users`
@@ -47,29 +45,6 @@
 | `id_user` | bigint |  | → `users.id_user` |
 | `semestre_atual` | bigint |  |  |
 
-### ✅ `dados_users_backup`
-
-| Column | Type | PK | Foreign Key |
-|--------|------|----|-------------|
-| `id_dado_user` | bigint |  |  |
-| `created_at` | timestamp with time zone |  |  |
-| `fluxograma_atual` | text |  |  |
-| `id_user` | bigint |  |  |
-| `semestre_atual` | bigint |  |  |
-
-### ✅ `equivalencia_backup1`
-
-| Column | Type | PK | Foreign Key |
-|--------|------|----|-------------|
-| `id_equivalencia` | bigint |  |  |
-| `id_materia` | bigint |  |  |
-| `id_curso` | bigint |  |  |
-| `expressao` | text |  |  |
-| `matriz_curricular` | text |  |  |
-| `curriculo` | text |  |  |
-| `data_vigencia` | date |  |  |
-| `fim_vigencia` | date |  |  |
-
 ### ✅ `equivalencias`
 
 | Column | Type | PK | Foreign Key |
@@ -77,6 +52,20 @@
 | `id_equivalencia` | bigint | PK |  |
 | `id_materia` | bigint |  | → `materias.id_materia` |
 | `id_curso` | bigint |  | → `cursos.id_curso` |
+| `curriculo` | text |  |  |
+| `data_vigencia` | date |  |  |
+| `fim_vigencia` | date |  |  |
+| `expressao_logica` | jsonb |  |  |
+| `expressao_original` | text |  |  |
+| `id_matriz` | bigint |  | → `matrizes.id_matriz` |
+
+### ✅ `equivalencias_backup_temp`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_equivalencia` | bigint |  |  |
+| `id_materia` | bigint |  |  |
+| `id_curso` | bigint |  |  |
 | `expressao` | text |  |  |
 | `matriz_curricular` | text |  |  |
 | `curriculo` | text |  |  |
@@ -91,6 +80,18 @@
 | `created_at` | timestamp with time zone |  |  |
 | `nome_materia` | text |  |  |
 | `codigo_materia` | text |  |  |
+| `carga_horaria` | integer |  |  |
+| `ementa` | text |  |  |
+| `departamento` | text |  |  |
+
+### ✅ `materias_backup_temp`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_materia` | bigint |  |  |
+| `created_at` | timestamp with time zone |  |  |
+| `nome_materia` | text |  |  |
+| `codigo_materia` | text |  |  |
 | `carga_horaria` | bigint |  |  |
 | `ementa` | text |  |  |
 | `departamento` | text |  |  |
@@ -102,8 +103,32 @@
 | `id_materia_curso` | bigint | PK |  |
 | `created_at` | timestamp with time zone |  |  |
 | `id_materia` | bigint |  | → `materias.id_materia` |
-| `id_curso` | bigint |  | → `cursos.id_curso` |
+| `nivel` | integer |  |  |
+| `id_matriz` | bigint |  | → `matrizes.id_matriz` |
+
+### ✅ `materias_por_curso_backup_temp`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_materia_curso` | bigint |  |  |
+| `created_at` | timestamp with time zone |  |  |
+| `id_materia` | bigint |  |  |
+| `id_curso` | bigint |  |  |
 | `nivel` | bigint |  |  |
+
+### ✅ `matrizes`
+
+| Column | Type | PK | Foreign Key |
+|--------|------|----|-------------|
+| `id_matriz` | bigint | PK |  |
+| `id_curso` | bigint |  | → `cursos.id_curso` |
+| `versao` | text |  |  |
+| `ano_vigor` | text |  |  |
+| `curriculo_completo` | text |  |  |
+| `ch_obrigatoria_exigida` | integer |  |  |
+| `ch_optativa_exigida` | integer |  |  |
+| `ch_complementar_exigida` | integer |  |  |
+| `ch_total_exigida` | integer |  |  |
 
 ### ✅ `pre_requisitos`
 
@@ -112,6 +137,8 @@
 | `id_pre_requisito` | bigint | PK |  |
 | `id_materia` | bigint |  | → `materias.id_materia` |
 | `id_materia_requisito` | bigint |  | → `materias.id_materia` |
+| `expressao_original` | text |  |  |
+| `expressao_logica` | jsonb |  |  |
 
 ### ✅ `users`
 
@@ -123,109 +150,27 @@
 | `nome_completo` | text |  |  |
 | `auth_id` | uuid |  |  |
 
-### ✅ `users_backup`
-
-| Column | Type | PK | Foreign Key |
-|--------|------|----|-------------|
-| `id_user` | bigint |  |  |
-| `created_at` | timestamp with time zone |  |  |
-| `email` | text |  |  |
-| `nome_completo` | text |  |  |
-
 ---
 
 ## Views
 
-### ✅ `creditos_por_curso`
+### ✅ `vw_creditos_por_matriz`
 
 ```sql
- SELECT c.id_curso,
+ SELECT m.id_matriz,
+    m.curriculo_completo,
     c.nome_curso,
-    floor((sum(
-        CASE
-            WHEN (mpc.nivel > 0) THEN m.carga_horaria
-            ELSE (0)::bigint
-        END) / 15.0)) AS creditos_obrigatorios,
-    floor((sum(
-        CASE
-            WHEN (mpc.nivel = 0) THEN m.carga_horaria
-            ELSE (0)::bigint
-        END) / 15.0)) AS creditos_optativos,
-    floor((sum(m.carga_horaria) / 15.0)) AS creditos_totais
-   FROM ((cursos c
-     LEFT JOIN materias_por_curso mpc ON ((mpc.id_curso = c.id_curso)))
-     LEFT JOIN materias m ON ((m.id_materia = mpc.id_materia)))
-  GROUP BY c.id_curso, c.nome_curso
-  ORDER BY c.id_curso;
-```
-
-### ✅ `vw_equivalencias_com_materias`
-
-```sql
- WITH codigos_explodidos AS (
-         SELECT e.id_equivalencia,
-            e.id_curso,
-            e.matriz_curricular,
-            e.curriculo,
-            e.data_vigencia,
-            e.fim_vigencia,
-            e.expressao,
-            m_origem.codigo_materia AS codigo_materia_origem,
-            m_origem.nome_materia AS nome_materia_origem,
-            c.nome_curso,
-            regexp_split_to_table(regexp_replace(e.expressao, '[\(\)]'::text, ''::text, 'g'::text), '\s+(OU|ou|E|e)\s+'::text) AS codigo_equivalente
-           FROM ((equivalencias e
-             LEFT JOIN materias m_origem ON ((e.id_materia = m_origem.id_materia)))
-             LEFT JOIN cursos c ON ((e.id_curso = c.id_curso)))
-        ), materias_equivalentes AS (
-         SELECT ce.id_equivalencia,
-            ce.codigo_materia_origem,
-            ce.nome_materia_origem,
-            ce.expressao,
-            ce.codigo_equivalente,
-            m.nome_materia AS nome_materia_equivalente,
-            ce.id_curso,
-            ce.nome_curso,
-            ce.matriz_curricular,
-            ce.curriculo,
-            ce.data_vigencia,
-            ce.fim_vigencia
-           FROM (codigos_explodidos ce
-             LEFT JOIN materias m ON ((m.codigo_materia = ce.codigo_equivalente)))
-        )
- SELECT materias_equivalentes.id_equivalencia,
-    materias_equivalentes.codigo_materia_origem,
-    materias_equivalentes.nome_materia_origem,
-    materias_equivalentes.codigo_equivalente AS codigo_materia_equivalente,
-    materias_equivalentes.nome_materia_equivalente,
-    materias_equivalentes.expressao,
-    materias_equivalentes.id_curso,
-    materias_equivalentes.nome_curso,
-    materias_equivalentes.matriz_curricular,
-    materias_equivalentes.curriculo,
-    materias_equivalentes.data_vigencia,
-    materias_equivalentes.fim_vigencia
-   FROM materias_equivalentes;
-```
-
-### ✅ `vw_pre_requisitos_detalhado`
-
-```sql
- SELECT pr.id_pre_requisito,
-    pr.id_materia,
-    m1.codigo_materia,
-    m1.nome_materia,
-    pr.id_materia_requisito,
-    m2.codigo_materia AS codigo_requisito,
-    m2.nome_materia AS nome_requisito,
-    mpc.id_curso,
-    c.nome_curso,
-    c.matriz_curricular
-   FROM ((((pre_requisitos pr
-     JOIN materias m1 ON ((pr.id_materia = m1.id_materia)))
-     JOIN materias m2 ON ((pr.id_materia_requisito = m2.id_materia)))
-     JOIN materias_por_curso mpc ON ((mpc.id_materia = pr.id_materia)))
-     JOIN cursos c ON ((mpc.id_curso = c.id_curso)));
+    floor(((m.ch_obrigatoria_exigida)::numeric / 15.0)) AS cred_obrigatorio_exigido,
+    floor(((m.ch_optativa_exigida)::numeric / 15.0)) AS cred_optativo_exigido,
+    floor(((m.ch_complementar_exigida)::numeric / 15.0)) AS cred_complementar_exigido,
+    floor(((m.ch_total_exigida)::numeric / 15.0)) AS cred_total_exigido,
+    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel > 0)), (0)::bigint))::numeric / 15.0)) AS cred_obrigatorio_grade,
+    floor(((COALESCE(sum(mat.carga_horaria) FILTER (WHERE (mpc.nivel = 0)), (0)::bigint))::numeric / 15.0)) AS cred_optativo_grade
+   FROM (((matrizes m
+     JOIN cursos c ON ((c.id_curso = m.id_curso)))
+     LEFT JOIN materias_por_curso mpc ON ((mpc.id_matriz = m.id_matriz)))
+     LEFT JOIN materias mat ON ((mat.id_materia = mpc.id_materia)))
+  GROUP BY m.id_matriz, m.curriculo_completo, c.nome_curso;
 ```
 
 ---
@@ -304,6 +249,10 @@
 | `materias_codigo_materia_key` | `materias` |
 | `materias_pkey` | `materias` |
 | `materias_por_curso_pkey` | `materias_por_curso` |
+| `unique_materia_grade_matriz` | `materias_por_curso` |
+| `unique_materia_na_matriz` | `materias_por_curso` |
+| `matrizes_curriculo_completo_key` | `matrizes` |
+| `matrizes_pkey` | `matrizes` |
 | `pre_requisitos_pkey` | `pre_requisitos` |
 | `idx_users_auth_id` | `users` |
 | `users_auth_id_key` | `users` |
@@ -315,15 +264,16 @@
 
 | Table | Estimated Rows | Size |
 |-------|----------------|------|
-| `co_requisitos` | 203 | 56 KB |
+| `co_requisitos` | 185 | 80 KB |
 | `co_requisitos_backup` | 270 | 16 KB |
-| `cursos` | 270 | 144 KB |
-| `dados_users` | 99 | 584 KB |
-| `dados_users_backup` | -1 | 8 KB |
-| `equivalencia_backup1` | 37132 | 2.9 MB |
-| `equivalencias` | 8090 | 1.1 MB |
-| `materias` | 21127 | 8.9 MB |
-| `materias_por_curso` | 75465 | 8.1 MB |
-| `pre_requisitos` | 20889 | 1.6 MB |
+| `cursos` | 102 | 64 KB |
+| `dados_users` | 99 | 600 KB |
+| `equivalencias` | 19445 | 4 MB |
+| `equivalencias_backup_temp` | 8919 | 856 KB |
+| `materias` | 25624 | 8.4 MB |
+| `materias_backup_temp` | 21134 | 6.9 MB |
+| `materias_por_curso` | 65955 | 13.1 MB |
+| `materias_por_curso_backup_temp` | 75465 | 4.9 MB |
+| `matrizes` | 235 | 96 KB |
+| `pre_requisitos` | 14573 | 2.3 MB |
 | `users` | 162 | 136 KB |
-| `users_backup` | -1 | 16 KB |
