@@ -8,7 +8,7 @@ import google.generativeai as genai
 API_KEY = os.environ.get("GEMINI_API_KEY")
 
 if not API_KEY:
-    raise ValueError("Por favor, configure a variável de ambiente GEMINI_API_KEY (ex: set GEMINI_API_KEY=sua_chave).")
+    raise ValueError("configure a variavel de ambiente GEMINI_API_KEY")
 genai.configure(api_key=API_KEY)
 
 #  Conectar ao Banco Vetorial Local
@@ -60,7 +60,7 @@ def buscar_materias_unb(interesse_do_aluno: str) -> str:
                 
     return json.dumps(lista_final, ensure_ascii=False, indent=2)
 
-# 4. Iniciar o Agente Gemini
+#Iniciar o Agente Gemini
 modelo = genai.GenerativeModel(
     model_name='gemini-2.5-flash',
     tools=[buscar_materias_unb],
@@ -74,7 +74,7 @@ modelo = genai.GenerativeModel(
 
 chat = modelo.start_chat(enable_automatic_function_calling=True)
 
-# 5. Interface do Terminal
+# Interface do Terminal
 print("\n" + "="*60)
 print(" Agente de Recomendação da UnB Iniciado!")
 print("Faça perguntas como: 'Quais matérias de programação Python tem?'")
