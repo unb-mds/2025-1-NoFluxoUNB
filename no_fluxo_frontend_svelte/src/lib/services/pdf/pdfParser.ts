@@ -181,6 +181,16 @@ export async function parsePdf(file: File): Promise<ParsedPdfResult> {
 
 	// 4. Regex-based metadata extraction (these are simple single-line patterns)
 	const curso = extrairCurso(textoTotal);
+	
+	// Debug: Log lines around "Discente" and "Curso" to diagnose extraction issues
+	if (!curso) {
+		const lines = textoTotal.split('\n');
+		console.log(`${LOG_PREFIX} [DEBUG] Course extraction failed. First 25 lines of text:`);
+		for (let i = 0; i < Math.min(lines.length, 25); i++) {
+			console.log(`${LOG_PREFIX} [DEBUG] Line ${i}: "${lines[i]}"`);
+		}
+	}
+	
 	const matrizCurricular = extrairMatrizCurricular(textoTotal);
 	const suspensoes = extrairSuspensoes(textoTotal);
 

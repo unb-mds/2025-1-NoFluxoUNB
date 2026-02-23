@@ -116,7 +116,8 @@ export async function extractTextFromPdf(file: File): Promise<string> {
 	const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
 	console.log(`${LOG_PREFIX} PDF loaded — ${pdf.numPages} page(s)`);
 
-	const allLines: [number, string][] = [];
+	// Store lines as [y, text, pageNum] to avoid interleaving across pages
+	const allLines: [number, string, number][] = [];
 
 	for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
 		const page = await pdf.getPage(pageNum);
@@ -144,17 +145,21 @@ export async function extractTextFromPdf(file: File): Promise<string> {
 		// Group items into lines by Y proximity
 		const lineGroups = groupItemsIntoLines(items);
 
-		// Reconstruct each line and store with Y position
+		// Reconstruct each line and store with Y position and page number
 		for (const [y, lineItems] of lineGroups.entries()) {
 			const lineText = reconstructLine(lineItems);
 			if (lineText.trim()) {
-				allLines.push([y, lineText]);
+				allLines.push([y, lineText, pageNum]);
 			}
 		}
 	}
 
-	// Sort lines by Y descending (PDF.js Y increases upward, so descending = top to bottom)
-	allLines.sort((a, b) => b[0] - a[0]);
+	// Sort lines: page ascending first, then Y descending within each page
+	// This ensures text flows page by page, top to bottom
+	allLines.sort((a, b) => {
+		if (a[2] !== b[2]) return a[2] - b[2]; // page ascending
+		return b[0] - a[0]; // Y descending (top to bottom)
+	});
 
 	const result = allLines.map(([, text]) => text).join('\n');
 	const elapsed = (performance.now() - startTime).toFixed(0);
