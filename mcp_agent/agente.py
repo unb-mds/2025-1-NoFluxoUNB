@@ -1,93 +1,101 @@
+import asyncio
 import os
-import json
-import chromadb
-from chromadb.utils import embedding_functions
-import google.generativeai as genai
+from google import genai
+from google.genai import types
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
 
-# Configurar a API do Gemini
-API_KEY = os.environ.get("GEMINI_API_KEY")
+async def main():
+    chave_api = os.environ.get("GEMINI_API_KEY")
+    if not chave_api:
+        print(" Chave da API não encontrada.")
+        return
 
-if not API_KEY:
-    raise ValueError("configure a variavel de ambiente GEMINI_API_KEY")
-genai.configure(api_key=API_KEY)
-
-#  Conectar ao Banco Vetorial Local
-client = chromadb.PersistentClient(path="./meu_banco_vetorial")
-sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
-collection = client.get_collection(name="materias_unb", embedding_function=sentence_transformer_ef)
-
-#3.0 (TOOL inteligente)
-def generalizar_materias(interesse_do_aluno: str) -> str:
-    """
-    Esta função é uma ferramenta auxiliar para ajudar a generalizar o interesse do aluno.
-    Por exemplo, se o aluno disser "Quero aprender sobre Python", esta função pode transformar isso em "programação Python, desenvolvimento de software, linguagens de programação".
-    Isso ajuda a aumentar as chances de encontrar matérias relevantes mesmo que o aluno use termos mais específicos ou genéricos.
-    """
-
-#3.1 (TOOL)
-def buscar_materias_unb(interesse_do_aluno: str) -> str:
-    """
-    Busca matérias universitárias na base de dados com base no interesse do aluno.
-    Sempre use esta ferramenta quando o aluno pedir recomendações de cursos ou disciplinas.
+    client = genai.Client(api_key=chave_api)
     
-    Args:
-        interesse_do_aluno: O tópico, assunto ou palavra-chave que o aluno quer estudar.
-    """
-    print(f"\n[  Consultando o Vector DB por: '{interesse_do_aluno}'... ]")
-    
-    # Busca as 5 matérias mais relevantes no banco
-    resultados = collection.query(
-        query_texts=[interesse_do_aluno],
-        n_results=5 
+
+    ferramenta_mcp = types.Tool(
+        function_declarations=[
+            types.FunctionDeclaration(
+                name="buscar_materias_unb",
+                description="Busca matérias na base de dados da UnB com base no interesse do aluno.",
+                parameters=types.Schema(
+                    type="OBJECT",
+                    properties={
+                        "interesse": types.Schema(
+                            type="STRING",
+                            description="A palavra-chave ou assunto de interesse (ex: banco de dados, sustentabilidade)."
+                        )
+                    },
+                    required=["interesse"]
+                )
+            )
+        ]
     )
     
-    lista_final = []
+    config = types.GenerateContentConfig(
+        tools=[ferramenta_mcp],
+        temperature=0.2, 
+        system_instruction=(
+            "Você é o Coordenador Acadêmico virtual da Universidade de Brasília (UnB). "
+            "Sua função é ajudar os alunos a encontrarem disciplinas legais para cursar. "
+            "REGRA ABSOLUTA: Sempre que o usuário mencionar um assunto, palavra ou área de interesse "
+            "(exemplo: 'banco de dados', 'inteligencia artificial', 'matemática'), "
+            "você DEVE OBRIGATORIAMENTE acionar a ferramenta 'buscar_materias_unb'. "
+            "Quando a ferramenta devolver o JSON, leia os dados e apresente as opções de forma "
+            "amigável, citando o código, nome da matéria e um resumo da ementa."
+        )
+    )
     
-    if not resultados['documents'][0]:
-        return "Nenhuma matéria encontrada na base de dados para este tema."
+    chat = client.chats.create(model='gemini-2.5-flash', config=config)
 
-    # Extraindo os dados do ChromaDB
-    for i in range(len(resultados['documents'][0])):
-        documento = resultados['documents'][0][i]
-        metadado = resultados['metadatas'][0][i]
-        
-        lista_final.append({
-            "Codigo": metadado.get("codigo"),
-            "Materia": metadado.get("disciplina"),
-            "Departamento": metadado.get("unidade_responsavel"),
-            "Ementa_Resumida": documento[:600] + "..." # Mandamos até 600 caracteres para economizar limite do Gemini
-        })
+    print("Conectando ao Servidor MCP ")
+    
+    server_params = StdioServerParameters(command="python", args=["servidor_mcp.py"])
+    
+    async with stdio_client(server_params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            print(" Agente de IA Pronto (Digite 'sair' paarrrraa sair)")
+            
+            while True:
+                pergunta = input("\nVocê: ")
+                if pergunta.lower() == 'sair': 
+                    break
                 
-    return json.dumps(lista_final, ensure_ascii=False, indent=2)
+                print("Pensando...")
+                resposta = chat.send_message(pergunta)
+                
+                # pedido da IA
+                if resposta.function_calls:
+                    chamada = resposta.function_calls[0]
+                    ferramenta = chamada.name
+                    arg_interesse = chamada.args["interesse"]
+                    
+                    print(f"Agente acionou o banco de dados buscando por: '{arg_interesse}'")
+                    
+                    # servidor MCP que vai bater no Supabase
+                    resultado_mcp = await session.call_tool(
+                        ferramenta, 
+                        arguments={"interesse": arg_interesse}
+                    )
+                    dados_json = resultado_mcp.content[0].text
+                    
+                    print("Dados recebidos do banco formatando a resposta final")
 
-#Iniciar o Agente Gemini
-modelo = genai.GenerativeModel(
-    model_name='gemini-2.5-flash',
-    tools=[buscar_materias_unb],
-    system_instruction=(
-        "Você é um consultor acadêmico amigável da Universidade de Brasília (UnB). "
-        "Sua função é recomendar disciplinas para os alunos com base em seus interesses. "
-        "Use a ferramenta buscar_materias_unb SEMPRE que for recomendar algo. "
-        "Ao responder, cite o nome da matéria, o código, de qual departamento ela é e faça um breve resumo do porquê ela é interessante para o aluno."
-    )
-)
+                    
+                    print(f"\n DEBUG -----o que o servidor devolveu:\n{dados_json}\n")
+                    
+                    # IA ler e falar
+                    resposta_final = chat.send_message(
+                        types.Part.from_function_response(
+                            name=ferramenta,
+                            response={"resultado": dados_json}
+                        )
+                    )
+                    print(f"\n🤖 Coordenador UnB: {resposta_final.text}")
+                else:
+                    print(f"\n🤖 Coordenador UnB: {resposta.text}")
 
-chat = modelo.start_chat(enable_automatic_function_calling=True)
-
-# Interface do Terminal
-print("\n" + "="*60)
-print(" Agente de Recomendação da UnB Iniciado!")
-print("Faça perguntas como: 'Quais matérias de programação Python tem?'")
-print("Digite 'sair' para encerrar.")
-print("="*60 + "\n")
-
-while True:
-    pergunta = input("\nVocê: ")
-    if pergunta.lower() == 'sair':
-        break
-        
-    try:
-        resposta = chat.send_message(pergunta)
-        print(f"\n Agente: {resposta.text}")
-    except Exception as e:
-        print(f"\n Ocorreu um erro: {e}")
+if __name__ == "__main__":
+    asyncio.run(main())

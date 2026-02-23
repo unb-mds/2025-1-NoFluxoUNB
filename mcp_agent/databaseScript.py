@@ -14,29 +14,43 @@ NOME_TABELA = "materias_vetorizadas" # Apontando para a tabela
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-# Carregar o modelo
-print("Carregando o modelo")
+print("Carregando o modelo de IA")
 modelo = SentenceTransformer("all-MiniLM-L6-v2")
 
-# Puxar as matérias da tabela nova que ainda não têm vetor
-print("Buscando materias para vetorizar")
-resposta = supabase.table(NOME_TABELA).select("id_materia, nome_materia, ementa").is_("embedding", "null").limit(5000).execute()
-materias = resposta.data
+tamanho_do_lote = 500
+lotes_processados = 0
 
-if not materias:
-    print("Todas as mateerias ja estão vetorizadas")
-    exit()
+print("\n Iniciando ")
 
-print(f"Vetorizando {len(materias)} matérias e atualizando o banco")
+while True:
+    # 1. Busca 500 matérias vazias
+    resposta = supabase.table(NOME_TABELA).select("*").is_("embedding", "null").limit(tamanho_do_lote).execute()
+    materias = resposta.data
 
-for materia in tqdm(materias):
-    id_mat = materia['id_materia']
-    nome = str(materia.get('nome_materia', '')).strip()
-    ementa = str(materia.get('ementa', '')).strip()
-    
-    texto_busca = f"Disciplina: {nome}. Ementa: {ementa}"
-    vetor = modelo.encode(texto_busca).tolist()
-    
-    supabase.table(NOME_TABELA).update({"embedding": vetor}).eq("id_materia", id_mat).execute()
+    if not materias:
+        print("\n TODAS as matérias do banco estão vetorizadas")
+        break
+        
+    lotes_processados += 1
+    print(f"\nCalculando vetores do lote {lotes_processados}= ({len(materias)})")
 
-print("\nA tabela copiada está vetorizada")
+    lote_para_atualizar = []
+
+
+    for materia in tqdm(materias, desc="Calculando Embeddings"):
+        id_mat = materia['id_materia']
+        nome = str(materia.get('nome_materia', '')).strip()
+        ementa = str(materia.get('ementa', '')).strip()
+        
+        texto_busca = f"Disciplina: {nome}. Ementa: {ementa}"
+        vetor = modelo.encode(texto_busca).tolist()
+        
+        
+        # recriamos o dicionário da matéria adicionando o vetor novo
+        materia_atualizada = materia.copy()
+        materia_atualizada['embedding'] = vetor
+        lote_para_atualizar.append(materia_atualizada)
+
+    #
+    print(" Enviando pacote ")
+    supabase.table(NOME_TABELA).upsert(lote_para_atualizar).execute()

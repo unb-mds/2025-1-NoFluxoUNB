@@ -3,15 +3,10 @@ import json
 import sys
 import warnings
 import os
-import time
 
-from supabase import create_client, Client
 
-SUPABASE_URL = os.environ.get("SUPABASE_URL")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+print("Iniciando o servidor MCP", file=sys.stderr)
 
-time.sleep(5)
-print("Iniciando o servidor MCP para o Recomendador UnB com Supabase")
 warnings.filterwarnings("ignore")
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
@@ -24,6 +19,11 @@ def inicializar_sistemas():
     global supabase_client, modelo_embedding
     if supabase_client is None:
         print("Conectando ao Supabase e carregando modelo", file=sys.stderr)
+        
+        # 2. credenciais reais 
+        SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+        SUPABASE_URL = os.environ.get("SUPABASE_URL")
+        from supabase import create_client, Client
         supabase_client = create_client(SUPABASE_URL, SUPABASE_KEY)
         
         from sentence_transformers import SentenceTransformer
@@ -54,13 +54,12 @@ def buscar_materias_unb(interesse: str) -> str:
     if not dados:
         return "Nenhuma matéria encontrada para este tema."
 
-    # Lendo as chaves
     for item in dados:
         lista_final.append({
             "Codigo": item.get("codigo_materia"),
             "Materia": item.get("nome_materia"),
-            "Departamento": item.get("departamento"),
-            "Ementa_Resumida": item.get("ementa", "")[:600] + "...",
+            "Departamento": item.get("departamento") or "Não informado",
+            "Ementa_Resumida": str(item.get("ementa", ""))[:600] + "...",
             "Score_Similaridade": round(item.get("similaridade", 0), 2)
         })
                 
