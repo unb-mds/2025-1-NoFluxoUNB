@@ -43,8 +43,8 @@ def buscar_materias_unb(interesse: str) -> str:
         "match_materias", 
         {
             "query_embedding": vetor_pergunta,
-            "match_threshold": 0.1, 
-            "match_count": 5        
+            "match_threshold": 0.4, 
+            "match_count": 8        
         }
     ).execute()
     
@@ -59,8 +59,8 @@ def buscar_materias_unb(interesse: str) -> str:
             "Codigo": item.get("codigo_materia"),
             "Materia": item.get("nome_materia"),
             "Departamento": item.get("departamento") or "Não informado",
-            "Ementa_Resumida": str(item.get("ementa", ""))[:600] + "...",
-            "Score_Similaridade": round(item.get("similaridade", 0), 2)
+            "Ementa_Resumida": str(item.get("ementa", ""))[:250] + "..."
+            #"Score_Similaridade": round(item.get("similaridade", 0), 2)
         })
                 
     return json.dumps(lista_final, ensure_ascii=False, indent=2)
