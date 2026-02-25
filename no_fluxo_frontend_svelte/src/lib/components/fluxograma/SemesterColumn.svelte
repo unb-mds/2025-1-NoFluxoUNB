@@ -8,9 +8,10 @@
 		subjects: MateriaModel[];
 		onSubjectClick?: (materia: MateriaModel) => void;
 		onSubjectLongPress?: (materia: MateriaModel) => void;
+		headerOffsetY?: number;
 	}
 
-	let { semester, subjects, onSubjectClick, onSubjectLongPress }: Props = $props();
+	let { semester, subjects, onSubjectClick, onSubjectLongPress, headerOffsetY = 0 }: Props = $props();
 
 	const store = fluxogramaStore;
 
@@ -29,7 +30,10 @@
 </script>
 
 <div class="semester-column flex min-w-[160px] flex-col gap-2">
-	<div class="sticky top-0 z-10 rounded-lg border border-white/10 bg-black/60 px-3 py-2 text-center backdrop-blur-md">
+	<div
+		class="z-10 rounded-lg border border-white/10 bg-black/60 px-3 py-2 text-center backdrop-blur-md"
+		style="transform: translateY({headerOffsetY}px); position: relative;"
+	>
 		<span class="text-xs font-bold uppercase tracking-wider text-white/70">
 			{semester === 0 ? 'Optativas' : `Semestre ${semester}`}
 		</span>

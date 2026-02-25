@@ -17,6 +17,14 @@
 	let containerRef: HTMLElement | null = $state(null);
 	let innerRef: HTMLElement | null = $state(null);
 
+	// Scroll offset for sticky semester headers (compensates for transform: scale)
+	let headerOffsetY = $state(0);
+
+	function handleScroll() {
+		if (!containerRef) return;
+		headerOffsetY = containerRef.scrollTop / store.state.zoomLevel;
+	}
+
 	// Pan/drag state
 	let isDragging = $state(false);
 	let dragStartX = $state(0);
@@ -138,6 +146,7 @@
 	ontouchstart={handleTouchStart}
 	ontouchmove={handleTouchMove}
 	ontouchend={handleTouchEnd}
+	onscroll={handleScroll}
 >
 	<div
 		bind:this={innerRef}
@@ -155,6 +164,7 @@
 				{subjects}
 				{onSubjectClick}
 				{onSubjectLongPress}
+				{headerOffsetY}
 			/>
 		{/each}
 	</div>

@@ -137,16 +137,25 @@
 			<AlertTriangle class="mx-auto mb-3 h-8 w-8 text-red-400" />
 			<h2 class="mb-2 text-lg font-semibold text-white">Erro ao carregar fluxograma</h2>
 			<p class="mb-4 text-sm text-red-300/80">{store.state.error}</p>
-			<button
-				onclick={() =>
-					matrizCurricular?.trim()
-						? store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim())
-						: courseName && store.loadCourseData(courseName)
-				}
-				class="rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
-			>
-				Tentar novamente
-			</button>
+			<div class="flex flex-col items-center gap-3">
+				<button
+					onclick={() =>
+						matrizCurricular?.trim()
+							? store.loadCourseDataByCurriculoCompleto(matrizCurricular.trim())
+							: courseName && store.loadCourseData(courseName)
+					}
+					class="rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+				>
+					Tentar novamente
+				</button>
+				<button
+					onclick={() => goto(ROUTES.UPLOAD_HISTORICO)}
+					class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 px-6 py-2 text-sm font-semibold text-white transition-transform hover:scale-105"
+				>
+					<Upload class="h-4 w-4" />
+					Enviar histórico novamente
+				</button>
+			</div>
 		</div>
 	{:else if !userFluxograma}
 		<div class="mx-auto max-w-md rounded-2xl border border-white/10 bg-black/40 p-8 text-center backdrop-blur-md">
