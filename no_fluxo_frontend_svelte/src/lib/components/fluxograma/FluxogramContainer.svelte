@@ -142,7 +142,7 @@
 	<div
 		bind:this={innerRef}
 		class="relative inline-flex p-4"
-		style="gap: 3rem; transform: scale({store.state.zoomLevel}); transform-origin: top left;"
+		style="gap: {store.state.connectionMode === 'all' ? '6rem' : '3rem'}; transform: scale({store.state.zoomLevel}); transform-origin: top left; transition: gap 0.3s ease;"
 	>
 		<!-- Prerequisite connection lines -->
 		<PrerequisiteConnections container={innerRef} />

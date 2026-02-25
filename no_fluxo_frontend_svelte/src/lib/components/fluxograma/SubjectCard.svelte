@@ -20,9 +20,11 @@
 
 	let isHovered = $derived(store.state.hoveredSubjectCode === materia.codigoMateria);
 	let isSelected = $derived(store.state.selectedSubjectCode === materia.codigoMateria);
+	let connectionsEnabled = $derived(store.state.connectionMode !== 'off');
 
 	// Check if this subject is a prerequisite of the hovered subject
 	let isPrereqOfHovered = $derived.by(() => {
+		if (!connectionsEnabled) return false;
 		const hoveredCode = store.state.hoveredSubjectCode;
 		if (!hoveredCode || !store.state.courseData) return false;
 		const hoveredMateria = store.state.courseData.materias.find(
@@ -34,6 +36,7 @@
 
 	// Check if hovered subject is a prerequisite of this subject
 	let isDependentOfHovered = $derived.by(() => {
+		if (!connectionsEnabled) return false;
 		const hoveredCode = store.state.hoveredSubjectCode;
 		if (!hoveredCode || !materia.preRequisitos) return false;
 		return materia.preRequisitos.some((p) => p.codigoMateria === hoveredCode);
@@ -74,9 +77,11 @@
 				? 'border-white/60 ring-2 ring-white/30'
 				: isHighlighted
 					? 'border-white/40 shadow-lg'
-					: 'border-white/10';
+					: !connectionsEnabled && isHovered
+						? 'border-white/30 shadow-md'
+						: 'border-white/10';
 		const dimmed =
-			store.state.hoveredSubjectCode && !isHighlighted ? 'opacity-40' : 'opacity-100';
+			connectionsEnabled && store.state.hoveredSubjectCode && !isHighlighted ? 'opacity-40' : 'opacity-100';
 		return `${base} bg-gradient-to-br ${gradient} ${borderColor} ${dimmed}`;
 	});
 
@@ -242,10 +247,10 @@
 		</div>
 	{/if}
 
-	{#if isPrereqOfHovered}
+	{#if isPrereqOfHovered && connectionsEnabled}
 		<div class="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-purple-400 ring-2 ring-black"></div>
 	{/if}
-	{#if isDependentOfHovered}
+	{#if isDependentOfHovered && connectionsEnabled}
 		<div class="absolute -right-1 -top-1 h-3 w-3 rounded-full bg-teal-400 ring-2 ring-black"></div>
 	{/if}
 </button>

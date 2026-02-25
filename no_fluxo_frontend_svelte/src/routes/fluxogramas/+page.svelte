@@ -60,7 +60,11 @@
 	});
 
 	function navigateToCourse(curso: MinimalCursoModel) {
-		goto(ROUTES.meuFluxograma(curso.nomeCurso));
+		const url = ROUTES.meuFluxograma(curso.nomeCurso);
+		const params = curso.matrizCurricular
+			? `?matriz=${encodeURIComponent(curso.matrizCurricular)}`
+			: '';
+		goto(url + params);
 	}
 
 	// Generate page numbers with ellipsis

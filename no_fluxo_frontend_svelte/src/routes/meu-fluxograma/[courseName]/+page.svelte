@@ -81,11 +81,15 @@
 
 	onMount(() => {
 		if (courseName) {
-			// If the user is logged in with fluxograma data, show their progress
-			// on this course (completed subjects carry over by matching codes).
 			const user = authStore.getUser();
 			const anonymous = !user?.dadosFluxograma;
-			store.loadCourseData(courseName, anonymous);
+			// If a specific matriz was requested via query param, load it directly
+			const matrizParam = $page.url.searchParams.get('matriz');
+			if (matrizParam) {
+				store.loadCourseDataByCurriculoCompleto(matrizParam, anonymous);
+			} else {
+				store.loadCourseData(courseName, anonymous);
+			}
 		}
 
 		return () => {

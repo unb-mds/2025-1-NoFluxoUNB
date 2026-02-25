@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { MateriaModel } from '$lib/types/materia';
 	import SubjectCard from './SubjectCard.svelte';
+	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 
 	interface Props {
 		semester: number;
@@ -10,6 +11,21 @@
 	}
 
 	let { semester, subjects, onSubjectClick, onSubjectLongPress }: Props = $props();
+
+	const store = fluxogramaStore;
+
+	const BASE_GAP_REM = 0.5;   // default gap when connections are off
+	const MIN_GAP_REM = 1;      // minimum gap in 'all' mode
+	const MAX_GAP_REM = 5;      // maximum gap in 'all' mode
+	const GAP_PER_CONNECTION = 0.25; // extra rem per connection touching this column
+
+	let verticalGap = $derived.by(() => {
+		if (store.state.connectionMode !== 'all') return `${BASE_GAP_REM}rem`;
+
+		const density = store.connectionDensityBySemester.get(semester) ?? 0;
+		const gap = Math.min(MAX_GAP_REM, Math.max(MIN_GAP_REM, MIN_GAP_REM + density * GAP_PER_CONNECTION));
+		return `${gap}rem`;
+	});
 </script>
 
 <div class="semester-column flex min-w-[160px] flex-col gap-2">
@@ -19,7 +35,7 @@
 		</span>
 	</div>
 
-	<div class="flex flex-col gap-2">
+	<div class="flex flex-col" style="gap: {verticalGap}; transition: gap 0.3s ease;">
 		{#each subjects as materia (materia.idMateria)}
 			<SubjectCard
 				{materia}
