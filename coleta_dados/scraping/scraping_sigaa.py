@@ -4,7 +4,7 @@ import json
 import time
 import re
 import os
-
+#ESSE SCRAPING EXTRAI DADOS DAS DISCIPLINAS DE GRADUAÇÃO (TODAS AS DISCIPLINAS DOS CURRICULOS)
 def get_discipline_details(session, discipline_id):
     """
     Busca a ementa de uma disciplina a partir de seu ID.
