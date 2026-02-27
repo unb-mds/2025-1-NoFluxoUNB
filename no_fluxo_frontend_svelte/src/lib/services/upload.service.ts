@@ -1,13 +1,14 @@
 import { supabaseDataService } from './supabase-data.service';
+import { createSupabaseBrowserClient } from '$lib/supabase/client';
 import { parsePdf, type ParsedPdfResult } from './pdf/pdfParser';
 
 /**
  * Upload service — CLIENT-SIDE approach:
  *   - parsePdfLocally()  → runs entirely in the browser (PDF.js + regex)
- *   - casarDisciplinas() → SvelteKit server route /api/casar-disciplinas
+ *   - casarDisciplinas() → Supabase RPC (plpgsql function, single DB round-trip)
  *   - saveFluxograma()   → DIRECT Supabase (via supabaseDataService)
  *
- * See plan 16 (CLIENT-SIDE-PDF-PARSING.md) for architecture details.
+ * See plans 16 (CLIENT-SIDE-PDF-PARSING.md) and 22 (SSR-REMOVAL) for architecture.
  */
 
 export type UploadPdfResponse = ParsedPdfResult;
@@ -54,44 +55,46 @@ class UploadService {
 
 	/**
 	 * Match extracted disciplines with database.
-	 * NOW USES SvelteKit server route instead of Express backend.
+	 * Uses Supabase RPC (plpgsql function) — single database round-trip.
 	 */
 	async casarDisciplinas(
 		dadosExtraidos: unknown
 	): Promise<CasarDisciplinasResponse | CourseSelectionError> {
-		const response = await fetch('/api/casar-disciplinas', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ dados_extraidos: dadosExtraidos })
+		const supabase = createSupabaseBrowserClient();
+		const { data, error } = await supabase.rpc('casar_disciplinas', {
+			p_dados: dadosExtraidos as Record<string, unknown>
 		});
 
-		if (!response.ok) {
-			const errorBody = await response.text();
-			try {
-				const errorData = JSON.parse(errorBody);
-
-				// Check if it's a course selection error (multiple matches)
-				if (errorData.cursos_disponiveis) {
-					return {
-						type: 'COURSE_SELECTION',
-						message: errorData.message,
-						cursos_disponiveis: errorData.cursos_disponiveis,
-						palavras_chave_encontradas: errorData.palavras_chave_encontradas
-					} as CourseSelectionError;
-				}
-
-				throw new Error(
-					errorData.error || `Erro ao processar disciplinas: ${response.status}`
-				);
-			} catch (e) {
-				if (e instanceof SyntaxError) {
-					throw new Error(`Erro ao processar disciplinas: ${response.status}`);
-				}
-				throw e;
-			}
+		if (error) {
+			throw new Error(error.message || 'Erro ao processar disciplinas');
 		}
 
-		return response.json();
+		const result = data as Record<string, unknown>;
+
+		// Check if the response is a course selection prompt
+		if (result?.cursos_disponiveis && !result?.disciplinas_casadas) {
+			return {
+				type: 'COURSE_SELECTION',
+				message: result.message,
+				cursos_disponiveis: result.cursos_disponiveis,
+				palavras_chave_encontradas: result.palavras_chave_encontradas,
+				matriz_extraida_pdf: result.matriz_extraida_pdf
+			} as CourseSelectionError;
+		}
+
+		// Check for business errors returned in the JSON
+		if (result?.error && !result?.disciplinas_casadas) {
+			if (result?.cursos_disponiveis) {
+				return {
+					type: 'COURSE_SELECTION',
+					message: result.message || result.error,
+					cursos_disponiveis: result.cursos_disponiveis
+				} as CourseSelectionError;
+			}
+			throw new Error(result.error as string);
+		}
+
+		return result as unknown as CasarDisciplinasResponse;
 	}
 
 	/**

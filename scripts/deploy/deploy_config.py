@@ -86,7 +86,7 @@ APPS: dict[str, AppConfig] = {
         },
     ),
 
-    # ── Frontend (SvelteKit) ────────────────────────────────────────────────
+    # ── Frontend (SvelteKit static via nginx) ────────────────────────────────
     "frontend": AppConfig(
         key="frontend",
         app_name="nofluxo-frontend",
@@ -96,7 +96,7 @@ APPS: dict[str, AppConfig] = {
         build_context=".",
         port=3000,
         replicas=1,
-        health_path="/health",
+        health_path="/health.json",
         domain="no-fluxo.crianex.com",
         app_class="non-business",
         env_folder="no_fluxo_frontend_svelte",
@@ -110,11 +110,7 @@ APPS: dict[str, AppConfig] = {
             "PUBLIC_REDIRECT_URL": "https://no-fluxo.crianex.com",
             "PUBLIC_ENVIRONMENT": "production",
         },
-        deploy_env_static={
-            "NODE_ENV": "production",
-            "PORT": "3000",
-            "HOST": "0.0.0.0",
-        },
+        # No runtime env vars needed — nginx serves static files
     ),
 }
 

@@ -1,26 +1,63 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import { authService } from '$lib/services/auth.service';
+	import { createSupabaseBrowserClient } from '$lib/supabase/client';
 
 	let status = $state('Processando autenticação...');
 	let error = $state('');
 
 	onMount(async () => {
-		try {
-			const result = await authService.handleOAuthCallback();
+		const code = $page.url.searchParams.get('code');
+		const next = $page.url.searchParams.get('next') || '/fluxogramas';
+		const errorParam = $page.url.searchParams.get('error');
 
-			if (result.success) {
-				status = 'Login realizado com sucesso!';
-				setTimeout(() => {
-					goto('/fluxogramas');
-				}, 1000);
-			} else {
-				error = result.error;
+		if (errorParam) {
+			goto(`/login?error=${errorParam}`);
+			return;
+		}
+
+		if (code) {
+			try {
+				// Exchange the OAuth code for a session client-side (PKCE)
+				const supabase = createSupabaseBrowserClient();
+				const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+
+				if (exchangeError) {
+					console.error('OAuth code exchange error:', exchangeError);
+					goto(`/login?error=${encodeURIComponent(exchangeError.message)}`);
+					return;
+				}
+
+				// Handle user registration/lookup in the database
+				const result = await authService.handleOAuthCallback();
+
+				if (result.success) {
+					status = 'Login realizado com sucesso!';
+					goto(next);
+				} else {
+					error = result.error;
+				}
+			} catch (err) {
+				error = 'Erro ao processar autenticação';
+				console.error(err);
 			}
-		} catch (err) {
-			error = 'Erro ao processar autenticação';
-			console.error(err);
+		} else {
+			// No code param — try the implicit/hash flow
+			try {
+				const result = await authService.handleOAuthCallback();
+
+				if (result.success) {
+					status = 'Login realizado com sucesso!';
+					goto(next);
+				} else {
+					error = result.error;
+				}
+			} catch (err) {
+				error = 'Erro ao processar autenticação';
+				console.error(err);
+			}
 		}
 	});
 </script>

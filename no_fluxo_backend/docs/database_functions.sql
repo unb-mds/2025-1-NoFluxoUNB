@@ -1,7 +1,7 @@
 -- Database Functions Export
--- Exported at: 2026-02-21T02:45:34.066172+00:00
+-- Exported at: 2026-02-27T17:44:42.150435+00:00
 -- Source: lijmhbstgdinsukovyfl.supabase.co
--- Total functions: 35
+-- Total functions: 150
 
 -- =============================================================================
 -- FUNCTIONS
@@ -10,6 +10,150 @@
 -- -----------------------------------------------------------------------------
 -- Other Functions
 -- -----------------------------------------------------------------------------
+
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: integer[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(integer[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
+
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: real[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(real[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
+
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: numeric[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(numeric[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
+
+-- Function: array_to_halfvec
+-- Return type: halfvec
+-- Arguments: double precision[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_halfvec(double precision[], integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_halfvec$function$;
+
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: real[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(real[], integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_sparsevec$function$;
+
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: integer[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(integer[], integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_sparsevec$function$;
+
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: numeric[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(numeric[], integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_sparsevec$function$;
+
+-- Function: array_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: double precision[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_sparsevec(double precision[], integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_sparsevec$function$;
+
+-- Function: array_to_vector
+-- Return type: vector
+-- Arguments: numeric[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_vector(numeric[], integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_vector$function$;
+
+-- Function: array_to_vector
+-- Return type: vector
+-- Arguments: integer[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_vector(integer[], integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_vector$function$;
+
+-- Function: array_to_vector
+-- Return type: vector
+-- Arguments: real[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_vector(real[], integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_vector$function$;
+
+-- Function: array_to_vector
+-- Return type: vector
+-- Arguments: double precision[], integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.array_to_vector(double precision[], integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$array_to_vector$function$;
 
 -- Function: atualizar_creditos_cursos
 -- Return type: void
@@ -50,6 +194,30 @@ BEGIN
 END;
 $function$;
 
+-- Function: binary_quantize
+-- Return type: bit
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.binary_quantize(vector)
+ RETURNS bit
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$binary_quantize$function$;
+
+-- Function: binary_quantize
+-- Return type: bit
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.binary_quantize(halfvec)
+ RETURNS bit
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_binary_quantize$function$;
+
 -- Function: calcular_creditos_por_curso
 -- Return type: integer
 -- Arguments: id_curso_input bigint
@@ -84,6 +252,42 @@ BEGIN
     RETURN FLOOR(total_horas / 15);
 END;
 $function$;
+
+-- Function: cosine_distance
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.cosine_distance(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_cosine_distance$function$;
+
+-- Function: cosine_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.cosine_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$cosine_distance$function$;
+
+-- Function: cosine_distance
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.cosine_distance(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_cosine_distance$function$;
 
 -- Function: export_schema
 -- Return type: jsonb
@@ -717,6 +921,610 @@ CREATE OR REPLACE FUNCTION public.gtrgm_union(internal, internal)
  IMMUTABLE PARALLEL SAFE STRICT
 AS '$libdir/pg_trgm', $function$gtrgm_union$function$;
 
+-- Function: halfvec
+-- Return type: halfvec
+-- Arguments: halfvec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec(halfvec, integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec$function$;
+
+-- Function: halfvec_accum
+-- Return type: double precision[]
+-- Arguments: double precision[], halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_accum(double precision[], halfvec)
+ RETURNS double precision[]
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_accum$function$;
+
+-- Function: halfvec_add
+-- Return type: halfvec
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_add(halfvec, halfvec)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_add$function$;
+
+-- Function: halfvec_avg
+-- Return type: halfvec
+-- Arguments: double precision[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_avg(double precision[])
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_avg$function$;
+
+-- Function: halfvec_cmp
+-- Return type: integer
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_cmp(halfvec, halfvec)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_cmp$function$;
+
+-- Function: halfvec_combine
+-- Return type: double precision[]
+-- Arguments: double precision[], double precision[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_combine(double precision[], double precision[])
+ RETURNS double precision[]
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_combine$function$;
+
+-- Function: halfvec_concat
+-- Return type: halfvec
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_concat(halfvec, halfvec)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_concat$function$;
+
+-- Function: halfvec_eq
+-- Return type: boolean
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_eq(halfvec, halfvec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_eq$function$;
+
+-- Function: halfvec_ge
+-- Return type: boolean
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_ge(halfvec, halfvec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_ge$function$;
+
+-- Function: halfvec_gt
+-- Return type: boolean
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_gt(halfvec, halfvec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_gt$function$;
+
+-- Function: halfvec_in
+-- Return type: halfvec
+-- Arguments: cstring, oid, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_in(cstring, oid, integer)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_in$function$;
+
+-- Function: halfvec_l2_squared_distance
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_l2_squared_distance(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_l2_squared_distance$function$;
+
+-- Function: halfvec_le
+-- Return type: boolean
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_le(halfvec, halfvec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_le$function$;
+
+-- Function: halfvec_lt
+-- Return type: boolean
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_lt(halfvec, halfvec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_lt$function$;
+
+-- Function: halfvec_mul
+-- Return type: halfvec
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_mul(halfvec, halfvec)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_mul$function$;
+
+-- Function: halfvec_ne
+-- Return type: boolean
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_ne(halfvec, halfvec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_ne$function$;
+
+-- Function: halfvec_negative_inner_product
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_negative_inner_product(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_negative_inner_product$function$;
+
+-- Function: halfvec_out
+-- Return type: cstring
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_out(halfvec)
+ RETURNS cstring
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_out$function$;
+
+-- Function: halfvec_recv
+-- Return type: halfvec
+-- Arguments: internal, oid, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_recv(internal, oid, integer)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_recv$function$;
+
+-- Function: halfvec_send
+-- Return type: bytea
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_send(halfvec)
+ RETURNS bytea
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_send$function$;
+
+-- Function: halfvec_spherical_distance
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_spherical_distance(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_spherical_distance$function$;
+
+-- Function: halfvec_sub
+-- Return type: halfvec
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_sub(halfvec, halfvec)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_sub$function$;
+
+-- Function: halfvec_to_float4
+-- Return type: real[]
+-- Arguments: halfvec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_to_float4(halfvec, integer, boolean)
+ RETURNS real[]
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_to_float4$function$;
+
+-- Function: halfvec_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: halfvec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_to_sparsevec(halfvec, integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_to_sparsevec$function$;
+
+-- Function: halfvec_to_vector
+-- Return type: vector
+-- Arguments: halfvec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_to_vector(halfvec, integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_to_vector$function$;
+
+-- Function: halfvec_typmod_in
+-- Return type: integer
+-- Arguments: cstring[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.halfvec_typmod_in(cstring[])
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_typmod_in$function$;
+
+-- Function: hamming_distance
+-- Return type: double precision
+-- Arguments: bit, bit
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.hamming_distance(bit, bit)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$hamming_distance$function$;
+
+-- Function: hnsw_bit_support
+-- Return type: internal
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.hnsw_bit_support(internal)
+ RETURNS internal
+ LANGUAGE c
+AS '$libdir/vector', $function$hnsw_bit_support$function$;
+
+-- Function: hnsw_halfvec_support
+-- Return type: internal
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.hnsw_halfvec_support(internal)
+ RETURNS internal
+ LANGUAGE c
+AS '$libdir/vector', $function$hnsw_halfvec_support$function$;
+
+-- Function: hnsw_sparsevec_support
+-- Return type: internal
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.hnsw_sparsevec_support(internal)
+ RETURNS internal
+ LANGUAGE c
+AS '$libdir/vector', $function$hnsw_sparsevec_support$function$;
+
+-- Function: hnswhandler
+-- Return type: index_am_handler
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.hnswhandler(internal)
+ RETURNS index_am_handler
+ LANGUAGE c
+AS '$libdir/vector', $function$hnswhandler$function$;
+
+-- Function: inner_product
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.inner_product(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_inner_product$function$;
+
+-- Function: inner_product
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.inner_product(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$inner_product$function$;
+
+-- Function: inner_product
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.inner_product(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_inner_product$function$;
+
+-- Function: ivfflat_bit_support
+-- Return type: internal
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.ivfflat_bit_support(internal)
+ RETURNS internal
+ LANGUAGE c
+AS '$libdir/vector', $function$ivfflat_bit_support$function$;
+
+-- Function: ivfflat_halfvec_support
+-- Return type: internal
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.ivfflat_halfvec_support(internal)
+ RETURNS internal
+ LANGUAGE c
+AS '$libdir/vector', $function$ivfflat_halfvec_support$function$;
+
+-- Function: ivfflathandler
+-- Return type: index_am_handler
+-- Arguments: internal
+-- Volatility: VOLATILE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.ivfflathandler(internal)
+ RETURNS index_am_handler
+ LANGUAGE c
+AS '$libdir/vector', $function$ivfflathandler$function$;
+
+-- Function: jaccard_distance
+-- Return type: double precision
+-- Arguments: bit, bit
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.jaccard_distance(bit, bit)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$jaccard_distance$function$;
+
+-- Function: l1_distance
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l1_distance(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_l1_distance$function$;
+
+-- Function: l1_distance
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l1_distance(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_l1_distance$function$;
+
+-- Function: l1_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l1_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$l1_distance$function$;
+
+-- Function: l2_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$l2_distance$function$;
+
+-- Function: l2_distance
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_distance(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_l2_distance$function$;
+
+-- Function: l2_distance
+-- Return type: double precision
+-- Arguments: halfvec, halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_distance(halfvec, halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_l2_distance$function$;
+
+-- Function: l2_norm
+-- Return type: double precision
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_norm(halfvec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_l2_norm$function$;
+
+-- Function: l2_norm
+-- Return type: double precision
+-- Arguments: sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_norm(sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_l2_norm$function$;
+
+-- Function: l2_normalize
+-- Return type: vector
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_normalize(vector)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$l2_normalize$function$;
+
+-- Function: l2_normalize
+-- Return type: halfvec
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_normalize(halfvec)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_l2_normalize$function$;
+
+-- Function: l2_normalize
+-- Return type: sparsevec
+-- Arguments: sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.l2_normalize(sparsevec)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_l2_normalize$function$;
+
+-- Function: match_materias
+-- Return type: TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision)
+-- Arguments: query_embedding vector, match_threshold double precision, match_count integer
+-- Volatility: STABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.match_materias(query_embedding vector, match_threshold double precision, match_count integer)
+ RETURNS TABLE(codigo_materia text, nome_materia text, departamento text, ementa text, similaridade double precision)
+ LANGUAGE sql
+ STABLE
+AS $function$
+  select
+    codigo_materia,
+    nome_materia,
+    departamento,
+    ementa,
+    1 - (embedding <=> query_embedding) as similaridade
+  from materias_vetorizadas
+  where embedding is not null and 1 - (embedding <=> query_embedding) > match_threshold
+  order by embedding <=> query_embedding
+  limit match_count;
+$function$;
+
 -- Function: set_limit
 -- Return type: real
 -- Arguments: real
@@ -789,6 +1597,210 @@ CREATE OR REPLACE FUNCTION public.similarity_op(text, text)
  STABLE PARALLEL SAFE STRICT
 AS '$libdir/pg_trgm', $function$similarity_op$function$;
 
+-- Function: sparsevec
+-- Return type: sparsevec
+-- Arguments: sparsevec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec(sparsevec, integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec$function$;
+
+-- Function: sparsevec_cmp
+-- Return type: integer
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_cmp(sparsevec, sparsevec)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_cmp$function$;
+
+-- Function: sparsevec_eq
+-- Return type: boolean
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_eq(sparsevec, sparsevec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_eq$function$;
+
+-- Function: sparsevec_ge
+-- Return type: boolean
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_ge(sparsevec, sparsevec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_ge$function$;
+
+-- Function: sparsevec_gt
+-- Return type: boolean
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_gt(sparsevec, sparsevec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_gt$function$;
+
+-- Function: sparsevec_in
+-- Return type: sparsevec
+-- Arguments: cstring, oid, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_in(cstring, oid, integer)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_in$function$;
+
+-- Function: sparsevec_l2_squared_distance
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_l2_squared_distance(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_l2_squared_distance$function$;
+
+-- Function: sparsevec_le
+-- Return type: boolean
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_le(sparsevec, sparsevec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_le$function$;
+
+-- Function: sparsevec_lt
+-- Return type: boolean
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_lt(sparsevec, sparsevec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_lt$function$;
+
+-- Function: sparsevec_ne
+-- Return type: boolean
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_ne(sparsevec, sparsevec)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_ne$function$;
+
+-- Function: sparsevec_negative_inner_product
+-- Return type: double precision
+-- Arguments: sparsevec, sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_negative_inner_product(sparsevec, sparsevec)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_negative_inner_product$function$;
+
+-- Function: sparsevec_out
+-- Return type: cstring
+-- Arguments: sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_out(sparsevec)
+ RETURNS cstring
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_out$function$;
+
+-- Function: sparsevec_recv
+-- Return type: sparsevec
+-- Arguments: internal, oid, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_recv(internal, oid, integer)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_recv$function$;
+
+-- Function: sparsevec_send
+-- Return type: bytea
+-- Arguments: sparsevec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_send(sparsevec)
+ RETURNS bytea
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_send$function$;
+
+-- Function: sparsevec_to_halfvec
+-- Return type: halfvec
+-- Arguments: sparsevec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_to_halfvec(sparsevec, integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_to_halfvec$function$;
+
+-- Function: sparsevec_to_vector
+-- Return type: vector
+-- Arguments: sparsevec, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_to_vector(sparsevec, integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_to_vector$function$;
+
+-- Function: sparsevec_typmod_in
+-- Return type: integer
+-- Arguments: cstring[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.sparsevec_typmod_in(cstring[])
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$sparsevec_typmod_in$function$;
+
 -- Function: strict_word_similarity
 -- Return type: real
 -- Arguments: text, text
@@ -849,6 +1861,30 @@ CREATE OR REPLACE FUNCTION public.strict_word_similarity_op(text, text)
  STABLE PARALLEL SAFE STRICT
 AS '$libdir/pg_trgm', $function$strict_word_similarity_op$function$;
 
+-- Function: subvector
+-- Return type: halfvec
+-- Arguments: halfvec, integer, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.subvector(halfvec, integer, integer)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_subvector$function$;
+
+-- Function: subvector
+-- Return type: vector
+-- Arguments: vector, integer, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.subvector(vector, integer, integer)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$subvector$function$;
+
 -- Function: update_updated_at
 -- Return type: trigger
 -- Arguments: (none)
@@ -864,6 +1900,354 @@ BEGIN
   RETURN NEW;
 END;
 $function$;
+
+-- Function: vector
+-- Return type: vector
+-- Arguments: vector, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector(vector, integer, boolean)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector$function$;
+
+-- Function: vector_accum
+-- Return type: double precision[]
+-- Arguments: double precision[], vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_accum(double precision[], vector)
+ RETURNS double precision[]
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_accum$function$;
+
+-- Function: vector_add
+-- Return type: vector
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_add(vector, vector)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_add$function$;
+
+-- Function: vector_avg
+-- Return type: vector
+-- Arguments: double precision[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_avg(double precision[])
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_avg$function$;
+
+-- Function: vector_cmp
+-- Return type: integer
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_cmp(vector, vector)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_cmp$function$;
+
+-- Function: vector_combine
+-- Return type: double precision[]
+-- Arguments: double precision[], double precision[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_combine(double precision[], double precision[])
+ RETURNS double precision[]
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_combine$function$;
+
+-- Function: vector_concat
+-- Return type: vector
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_concat(vector, vector)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_concat$function$;
+
+-- Function: vector_dims
+-- Return type: integer
+-- Arguments: halfvec
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_dims(halfvec)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$halfvec_vector_dims$function$;
+
+-- Function: vector_dims
+-- Return type: integer
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_dims(vector)
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_dims$function$;
+
+-- Function: vector_eq
+-- Return type: boolean
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_eq(vector, vector)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_eq$function$;
+
+-- Function: vector_ge
+-- Return type: boolean
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_ge(vector, vector)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_ge$function$;
+
+-- Function: vector_gt
+-- Return type: boolean
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_gt(vector, vector)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_gt$function$;
+
+-- Function: vector_in
+-- Return type: vector
+-- Arguments: cstring, oid, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_in(cstring, oid, integer)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_in$function$;
+
+-- Function: vector_l2_squared_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_l2_squared_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_l2_squared_distance$function$;
+
+-- Function: vector_le
+-- Return type: boolean
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_le(vector, vector)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_le$function$;
+
+-- Function: vector_lt
+-- Return type: boolean
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_lt(vector, vector)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_lt$function$;
+
+-- Function: vector_mul
+-- Return type: vector
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_mul(vector, vector)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_mul$function$;
+
+-- Function: vector_ne
+-- Return type: boolean
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_ne(vector, vector)
+ RETURNS boolean
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_ne$function$;
+
+-- Function: vector_negative_inner_product
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_negative_inner_product(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_negative_inner_product$function$;
+
+-- Function: vector_norm
+-- Return type: double precision
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_norm(vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_norm$function$;
+
+-- Function: vector_out
+-- Return type: cstring
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_out(vector)
+ RETURNS cstring
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_out$function$;
+
+-- Function: vector_recv
+-- Return type: vector
+-- Arguments: internal, oid, integer
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_recv(internal, oid, integer)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_recv$function$;
+
+-- Function: vector_send
+-- Return type: bytea
+-- Arguments: vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_send(vector)
+ RETURNS bytea
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_send$function$;
+
+-- Function: vector_spherical_distance
+-- Return type: double precision
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_spherical_distance(vector, vector)
+ RETURNS double precision
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_spherical_distance$function$;
+
+-- Function: vector_sub
+-- Return type: vector
+-- Arguments: vector, vector
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_sub(vector, vector)
+ RETURNS vector
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_sub$function$;
+
+-- Function: vector_to_float4
+-- Return type: real[]
+-- Arguments: vector, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_to_float4(vector, integer, boolean)
+ RETURNS real[]
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_to_float4$function$;
+
+-- Function: vector_to_halfvec
+-- Return type: halfvec
+-- Arguments: vector, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_to_halfvec(vector, integer, boolean)
+ RETURNS halfvec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_to_halfvec$function$;
+
+-- Function: vector_to_sparsevec
+-- Return type: sparsevec
+-- Arguments: vector, integer, boolean
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_to_sparsevec(vector, integer, boolean)
+ RETURNS sparsevec
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_to_sparsevec$function$;
+
+-- Function: vector_typmod_in
+-- Return type: integer
+-- Arguments: cstring[]
+-- Volatility: IMMUTABLE
+-- Security definer: NO
+
+CREATE OR REPLACE FUNCTION public.vector_typmod_in(cstring[])
+ RETURNS integer
+ LANGUAGE c
+ IMMUTABLE PARALLEL SAFE STRICT
+AS '$libdir/vector', $function$vector_typmod_in$function$;
 
 -- Function: word_similarity
 -- Return type: real
@@ -926,5 +2310,5 @@ CREATE OR REPLACE FUNCTION public.word_similarity_op(text, text)
 AS '$libdir/pg_trgm', $function$word_similarity_op$function$;
 
 -- =============================================================================
--- End of functions export (35 total)
+-- End of functions export (150 total)
 -- =============================================================================

@@ -1,5 +1,5 @@
 # NoFluxo Frontend (SvelteKit) Kubernetes Dockerfile
-# SvelteKit + adapter-node for SSR
+# adapter-static build → nginx serves pre-built HTML/CSS/JS
 
 # ── Builder ────────────────────────────────────────────────────────────────
 FROM node:20-bullseye AS builder
@@ -13,34 +13,8 @@ WORKDIR /app
 COPY no_fluxo_frontend_svelte/package.json no_fluxo_frontend_svelte/pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-# Add adapter-node for production builds (overrides adapter-auto)
-RUN pnpm add -D @sveltejs/adapter-node
-
-# Copy source code
+# Copy source code (adapter-static is already in svelte.config.js)
 COPY no_fluxo_frontend_svelte/ ./
-
-# Override svelte.config.js to use adapter-node for production
-RUN cat > svelte.config.js <<'SVELTE_CFG'
-import adapter from '@sveltejs/adapter-node';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-const config = {
-	preprocess: vitePreprocess(),
-	kit: {
-		adapter: adapter(),
-		alias: {
-			$components: 'src/lib/components',
-			$lib: 'src/lib',
-			$stores: 'src/lib/stores',
-			$types: 'src/lib/types',
-			$services: 'src/lib/services',
-			$utils: 'src/lib/utils'
-		}
-	}
-};
-
-export default config;
-SVELTE_CFG
 
 # Build-time environment variables (baked into the bundle via $env/static/public)
 ARG PUBLIC_SUPABASE_URL
@@ -49,38 +23,49 @@ ARG PUBLIC_API_URL=https://api-nofluxo.crianex.com
 ARG PUBLIC_REDIRECT_URL=https://no-fluxo.crianex.com
 ARG PUBLIC_ENVIRONMENT=production
 
-# Build the SvelteKit app
+# Build the SvelteKit app (outputs to ./build as static files)
 RUN pnpm build
 
-# ── Production ─────────────────────────────────────────────────────────────
-FROM node:20-bullseye-slim
+# ── Production (nginx) ────────────────────────────────────────────────────
+FROM nginx:1.27-alpine
 
-WORKDIR /app
+# Copy static build output to nginx html root
+COPY --from=builder /app/build /usr/share/nginx/html
 
-# Create non-root user
-RUN useradd -r -u 1001 -m appuser
+# Custom nginx config for SPA routing + pre-compressed files
+RUN cat > /etc/nginx/conf.d/default.conf <<'NGINX_CFG'
+server {
+    listen 3000;
+    server_name _;
+    root /usr/share/nginx/html;
+    index index.html;
 
-# Copy built output and production dependencies
-COPY --from=builder /app/build ./build
-COPY --from=builder /app/package.json /app/pnpm-lock.yaml ./
+    # Serve pre-compressed gzip files (from adapter-static precompress)
+    gzip_static on;
 
-# Install only production runtime dependencies (e.g. clsx, tailwind-merge)
-RUN corepack enable && corepack prepare pnpm@10.12.1 --activate \
-    && pnpm install --prod --frozen-lockfile \
-    && pnpm store prune
+    # Cache static assets aggressively (hashed filenames from Vite)
+    location /_app/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        try_files $uri =404;
+    }
 
-# Change ownership
-RUN chown -R appuser:appuser /app
+    # Health check endpoint (static/health.json → build/health.json)
+    location = /health.json {
+        add_header Content-Type application/json;
+        try_files /health.json =404;
+    }
 
-USER appuser
+    # SPA fallback: all routes → index.html (client-side routing)
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+NGINX_CFG
 
 EXPOSE 3000
 
-ENV PORT=3000
-ENV HOST=0.0.0.0
-ENV NODE_ENV=production
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD wget -qO- http://localhost:3000/health.json || exit 1
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-    CMD node -e "const http = require('http'); const req = http.get('http://localhost:3000/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }); req.on('error', () => process.exit(1))" || exit 1
-
-CMD ["node", "build/index.js"]
+CMD ["nginx", "-g", "daemon off;"]

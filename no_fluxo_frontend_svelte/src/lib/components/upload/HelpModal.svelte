@@ -14,22 +14,23 @@
 		{
 			number: 1,
 			title: 'Acesse o SIGAA',
-			description: 'Entre no portal SIGAA da UnB com seu login e senha.'
+			image: '/help/tela_de_cadastro.png',
+			alt: 'Tela de login do SIGAA'
 		},
 		{
 			number: 2,
-			title: 'Vá para Ensino > Histórico',
-			description: 'No menu superior, clique em "Ensino" e depois em "Histórico".'
+			title: 'Selecione "Emitir Histórico"',
+			description: 'No menu lateral, clique em Ensino e depois em Emitir Histórico.',
+			image: '/help/emitir_historico.png',
+			alt: 'Menu Emitir Histórico no SIGAA'
 		},
 		{
 			number: 3,
-			title: 'Emita o PDF',
-			description: 'Clique no botão "Emitir Histórico" ou "Gerar PDF" para gerar o documento.'
-		},
-		{
-			number: 4,
-			title: 'Baixe o arquivo',
-			description: 'Salve o arquivo PDF no seu computador e faça o upload aqui.'
+			title: 'Faça o upload do PDF para o NoFluxoUNB',
+			description:
+				'Salve o arquivo PDF gerado em seu computador e faça o upload nesta página.',
+			image: '/help/historico_baixado.png',
+			alt: 'Exemplo de histórico acadêmico gerado'
 		}
 	];
 
@@ -40,11 +41,13 @@
 
 {#if open}
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<div
 		class="overlay"
 		role="dialog"
 		aria-modal="true"
 		aria-label="Como obter seu histórico acadêmico"
+		tabindex="0"
 		transition:fade={{ duration: 200 }}
 		onkeydown={handleKeydown}
 	>
@@ -55,7 +58,9 @@
 		>
 			<!-- Header -->
 			<div class="flex items-center justify-between border-b border-white/10 px-6 py-4">
-				<h2 class="text-lg font-bold text-white">Como obter seu histórico</h2>
+				<h2 class="text-lg font-bold text-white md:text-xl">
+					Como obter seu histórico acadêmico
+				</h2>
 				<button
 					type="button"
 					class="rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-white/10 hover:text-white"
@@ -67,16 +72,45 @@
 			</div>
 
 			<!-- Steps -->
-			<div class="space-y-4 px-6 py-5">
+			<div class="space-y-6 px-6 py-5">
 				{#each steps as step}
-					<div class="flex gap-4">
-						<div class="step-number">
-							{step.number}
+					<div class="step-block">
+						<div class="flex items-start gap-3">
+							<div class="step-number">
+								{step.number}
+							</div>
+							<div>
+								<h3 class="text-sm font-semibold text-white md:text-base">
+									{step.title}
+								</h3>
+								{#if step.number === 1}
+									<p class="mt-0.5 text-sm text-gray-400">
+										Entre no
+										<a
+											href="https://sig.unb.br/sigaa/"
+											target="_blank"
+											rel="noopener noreferrer"
+											class="font-medium text-blue-400 underline hover:text-blue-300"
+										>
+											SIGAA
+										</a>
+										com seu login e senha institucional.
+									</p>
+								{:else if step.description}
+									<p class="mt-0.5 text-sm text-gray-400">{step.description}</p>
+								{/if}
+							</div>
 						</div>
-						<div>
-							<h3 class="text-sm font-semibold text-white">{step.title}</h3>
-							<p class="mt-0.5 text-sm text-gray-400">{step.description}</p>
-						</div>
+						{#if step.image}
+							<div class="mt-3 flex justify-center">
+								<img
+									src={step.image}
+									alt={step.alt}
+									class="step-image"
+									loading="lazy"
+								/>
+							</div>
+						{/if}
 					</div>
 				{/each}
 			</div>
@@ -85,7 +119,7 @@
 			<div class="border-t border-white/10 px-6 py-4">
 				<button
 					type="button"
-					class="w-full rounded-lg bg-white/10 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/20"
+					class="entendi-btn"
 					onclick={onclose}
 				>
 					Entendi
@@ -105,7 +139,9 @@
 	}
 
 	.modal {
-		@apply w-full max-w-md overflow-hidden rounded-2xl;
+		@apply w-full max-w-lg overflow-hidden rounded-2xl md:max-w-xl;
+		max-height: 90vh;
+		overflow-y: auto;
 		background: rgba(30, 30, 30, 0.95);
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
@@ -114,5 +150,22 @@
 	.step-number {
 		@apply flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white;
 		background: linear-gradient(135deg, #6c63ff, #e91e63);
+	}
+
+	.step-block {
+		@apply rounded-xl border border-white/5 bg-white/3 p-4;
+	}
+
+	.step-image {
+		@apply max-w-70 rounded-lg border border-white/10 shadow-lg md:max-w-100;
+	}
+
+	.entendi-btn {
+		@apply w-full rounded-lg px-4 py-2.5 text-sm font-medium text-white transition-colors;
+		background: linear-gradient(135deg, rgba(108, 99, 255, 0.4), rgba(233, 30, 99, 0.4));
+	}
+
+	.entendi-btn:hover {
+		background: linear-gradient(135deg, rgba(108, 99, 255, 0.6), rgba(233, 30, 99, 0.6));
 	}
 </style>

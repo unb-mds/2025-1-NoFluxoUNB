@@ -2,6 +2,19 @@ import { createSupabaseBrowserClient } from '$lib/supabase/client';
 import type { MatrizModel } from '$lib/types/matriz';
 import { parseCurriculoCompleto } from '$lib/types/matriz';
 
+/** Simple in-memory cache for public data that rarely changes (courses, matrices). */
+const cache = new Map<string, { data: unknown; ts: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+function cached<T>(key: string, fn: () => Promise<T>): Promise<T> {
+	const entry = cache.get(key);
+	if (entry && Date.now() - entry.ts < CACHE_TTL) return Promise.resolve(entry.data as T);
+	return fn().then((data) => {
+		cache.set(key, { data, ts: Date.now() });
+		return data;
+	});
+}
+
 /**
  * Central data service for all direct Supabase queries.
  * Replaces 9 backend API endpoints with direct database access via RLS.
@@ -75,24 +88,26 @@ export class SupabaseDataService {
 	 * Lista matrizes de um curso (para filtro/troca de matriz).
 	 */
 	async getMatrizesByCurso(idCurso: number) {
-		const { data, error } = await this.supabase
-			.from('matrizes')
-			.select('*')
-			.eq('id_curso', idCurso)
-			.order('ano_vigor', { ascending: false });
+		return cached(`matrizes_${idCurso}`, async () => {
+			const { data, error } = await this.supabase
+				.from('matrizes')
+				.select('*')
+				.eq('id_curso', idCurso)
+				.order('ano_vigor', { ascending: false });
 
-		if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
-		return (data || []).map((row) => ({
-			idMatriz: row.id_matriz,
-			idCurso: row.id_curso,
-			curriculoCompleto: row.curriculo_completo,
-			versao: row.versao ?? '',
-			anoVigor: row.ano_vigor ?? null,
-			chObrigatoriaExigida: row.ch_obrigatoria_exigida ?? null,
-			chOptativaExigida: row.ch_optativa_exigida ?? null,
-			chComplementarExigida: row.ch_complementar_exigida ?? null,
-			chTotalExigida: row.ch_total_exigida ?? null
-		}));
+			if (error) throw new Error(`Erro ao buscar matrizes: ${error.message}`);
+			return (data || []).map((row) => ({
+				idMatriz: row.id_matriz,
+				idCurso: row.id_curso,
+				curriculoCompleto: row.curriculo_completo,
+				versao: row.versao ?? '',
+				anoVigor: row.ano_vigor ?? null,
+				chObrigatoriaExigida: row.ch_obrigatoria_exigida ?? null,
+				chOptativaExigida: row.ch_optativa_exigida ?? null,
+				chComplementarExigida: row.ch_complementar_exigida ?? null,
+				chTotalExigida: row.ch_total_exigida ?? null
+			}));
+		});
 	}
 
 	/**
@@ -125,13 +140,15 @@ export class SupabaseDataService {
 	 * Get all courses — REPLACES: GET /cursos/all-cursos
 	 */
 	async getAllCursos() {
-		const { data, error } = await this.supabase
-			.from('cursos')
-			.select('*')
-			.order('nome_curso');
+		return cached('all_cursos', async () => {
+			const { data, error } = await this.supabase
+				.from('cursos')
+				.select('*')
+				.order('nome_curso');
 
-		if (error) throw new Error(`Erro ao buscar cursos: ${error.message}`);
-		return data;
+			if (error) throw new Error(`Erro ao buscar cursos: ${error.message}`);
+			return data;
+		});
 	}
 
 	/**
@@ -139,18 +156,19 @@ export class SupabaseDataService {
 	 * Se a view retornar uma linha por matriz, deduplicamos por id_curso (primeira matriz) para a lista de cursos.
 	 */
 	async getCursosComCreditos() {
-		const { data, error } = await this.supabase.from('vw_creditos_por_matriz').select('*');
+		return cached('cursos_creditos', async () => {
+			const { data, error } = await this.supabase.from('vw_creditos_por_matriz').select('*');
 
-		if (error) throw new Error(`Erro ao buscar créditos: ${error.message}`);
-		const rows = data ?? [];
-		// Uma linha por curso (primeira matriz de cada): evita duplicata quando a view é por matriz
-		const byCurso = new Map<number, (typeof rows)[0]>();
-		for (const row of rows) {
-			const rawId = row.id_curso;
-			const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
-			if (!Number.isNaN(id) && !byCurso.has(id)) byCurso.set(id, row);
-		}
-		return byCurso.size > 0 ? [...byCurso.values()] : rows;
+			if (error) throw new Error(`Erro ao buscar créditos: ${error.message}`);
+			const rows = data ?? [];
+			const byCurso = new Map<number, (typeof rows)[0]>();
+			for (const row of rows) {
+				const rawId = row.id_curso;
+				const id = rawId != null && rawId !== '' ? Number(rawId) : NaN;
+				if (!Number.isNaN(id) && !byCurso.has(id)) byCurso.set(id, row);
+			}
+			return byCurso.size > 0 ? [...byCurso.values()] : rows;
+		});
 	}
 
 	// ─── Subjects ─────────────────────────────────────────────
@@ -227,6 +245,10 @@ export class SupabaseDataService {
 	 * Carrega fluxograma por id_matriz. Busca curso e grade por id_matriz.
 	 */
 	async getCourseFlowchartDataByMatriz(idMatriz: number, idCurso: number) {
+		return cached(`flowchart_${idMatriz}_${idCurso}`, () => this._fetchFlowchartByMatriz(idMatriz, idCurso));
+	}
+
+	private async _fetchFlowchartByMatriz(idMatriz: number, idCurso: number) {
 		const { data: curso, error: cursoError } = await this.supabase
 			.from('cursos')
 			.select('*')

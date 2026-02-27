@@ -1,0 +1,13 @@
+{
+    "name": "no-fluxo-frontend",
+    "version": "1.0.0",
+    "description": "NoFluxo UNB Frontend Flutter Web App",
+    "scripts": {
+        "build": "bash ./scripts/build.sh",
+        "test-prod": "NO_FLUXO_PROD=true flutter run -d web --dart-define=NO_FLUXO_PROD=true",
+        "test-dev": "flutter run -d web"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
