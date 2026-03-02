@@ -28,7 +28,7 @@ Bem-vindo ao **NoFluxoUnB**, um projeto desenvolvido pela equipe do Squad 03 na 
 
 # Acesse nosso projeto
 
-[https://no-fluxo.crianex.com](https://no-fluxo-crianex.com)
+[https://no-fluxo.crianex.com](https://no-fluxo.crianex.com)
 
 
 ## 1. 📌 Visão Geral
