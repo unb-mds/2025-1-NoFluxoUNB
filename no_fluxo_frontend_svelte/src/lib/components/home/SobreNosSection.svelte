@@ -50,6 +50,7 @@
 			inteligência artificial.
 		</p>
 
+		<!--
 		<div class="sobre-note">
 			<MessageCircle class="h-4 w-4 shrink-0 text-white/70" />
 			<p>
@@ -57,7 +58,7 @@
 				de expansão!
 			</p>
 		</div>
-
+		-->
 		<div class="sobre-features">
 			{#each features as feature}
 				<div class="sobre-feature">
