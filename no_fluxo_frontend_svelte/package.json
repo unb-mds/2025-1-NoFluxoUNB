@@ -4,6 +4,7 @@
   "description": "NoFluxo UNB - Frontend Application built with SvelteKit",
   "type": "module",
   "scripts": {
+    "postinstall": "node scripts/copy-pdf-worker.cjs",
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",

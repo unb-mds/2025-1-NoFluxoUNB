@@ -7,14 +7,14 @@ let pdfjsLoaded = false;
 /**
  * Dynamically imports pdfjs-dist so it is never evaluated during SSR
  * (the library references DOMMatrix at module scope, which doesn't exist in Node).
+ *
+ * Uses worker from static folder (copied by postinstall) — avoids 404s in production
+ * caused by Vite's file hashing and cache mismatches.
  */
 async function getPdfjs() {
 	const pdfjs = await import('pdfjs-dist');
 	if (!pdfjsLoaded) {
-		pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-			'pdfjs-dist/build/pdf.worker.min.mjs',
-			import.meta.url
-		).toString();
+		pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 		pdfjsLoaded = true;
 	}
 	return pdfjs;
