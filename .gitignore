@@ -48,7 +48,7 @@ prompts/logs/
 
 # Dados temporários / coleta (apenas a pasta de dados, não o código em coleta_dados/scraping)
 coleta_dados/dados/
-coleta_dados/dados/estruturas_curriculares/
+coleta_dados/dados/estruturas-curriculares/
 dados_finais_*/
 dados_temporarios/
 tmp/
