@@ -54,15 +54,17 @@ export interface IntegralizacaoResult {
 	codigosConcluidos: string[];
 }
 
-/** Decomposição do curriculo_completo para exibição/filtro: "8117/-2 - 2018.2" -> codigo "8117", versao "-2", ano "2018.2". */
+/** Decomposição do curriculo_completo para exibição/filtro: "8117/-2 - 2018.2" ou "8117/-2 - 2018.2 - DIURNO" -> codigo "8117", versao "-2", ano "2018.2". */
 export function parseCurriculoCompleto(curriculoCompleto: string): {
 	codigoCurso: string;
 	versao: string;
 	ano: string;
 } {
 	const s = (curriculoCompleto || '').trim();
-	const beforeBar = s.split('/')[0]?.trim() ?? '';
-	const afterBar = s.split('/')[1]?.trim() ?? '';
+	// Remove sufixo de turno ( - DIURNO / - NOTURNO) para parsing
+	const sNorm = s.replace(/\s*-\s*(DIURNO|NOTURNO)\s*$/i, '').trim();
+	const beforeBar = sNorm.split('/')[0]?.trim() ?? '';
+	const afterBar = sNorm.split('/')[1]?.trim() ?? '';
 	const match = afterBar.match(/\s*-\s*(\d{4}\.\d)\s*$/);
 	const ano = match ? match[1] : '';
 	const versao = match ? afterBar.replace(/\s*-\s*\d{4}\.\d\s*$/, '').trim() : afterBar;

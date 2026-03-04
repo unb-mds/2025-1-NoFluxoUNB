@@ -16,6 +16,23 @@ def normalize(text):
     return ' '.join(text.strip().lower().split())
 
 
+def normalizar_turno_para_arquivo(turno):
+    """
+    Normaliza o turno para uso no nome do arquivo.
+    Mesmo ano/semestre com turnos diferentes = curriculos diferentes (ex: direito 2019.2 diurno vs noturno).
+    """
+    if not turno or not turno.strip():
+        return 'sem-turno'
+    t = turno.strip().upper()
+    if 'NOTURNO' in t or t == 'NOTURNO':
+        return 'noturno'
+    if 'DIURNO' in t or 'MATUTINO' in t or 'VESPERTINO' in t:
+        return 'diurno'
+    if 'INTEGRAL' in t:
+        return 'integral'
+    return normalize(turno).replace(' ', '-')[:20]
+
+
 def remover_acentos(texto):
     return unicodedata.normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
 
@@ -258,13 +275,20 @@ def scrape_estruturas():
         print("Erro: <tbody> não encontrado na tabela.")
         return
 
-    for tr in tbody.find_all('tr', class_=['linhaImpar', 'linhaPar']):
+    # Cada <tr> com linhaImpar/linhaPar é uma linha de curso (Nome, Grau, Turno, Sede, etc.)
+    # Processar CADA linha individualmente - curriculo muda conforme DIURNO/NOTURNO
+    linhas_curso = tbody.find_all('tr', class_=['linhaImpar', 'linhaPar'])
+    print(f"Total de linhas de curso a processar: {len(linhas_curso)}")
+
+    for idx, tr in enumerate(linhas_curso):
         cols = tr.find_all('td')
         if len(cols) == 0:
             continue
 
         nome_curso = cols[0].get_text(strip=True)
-        tipo_curso = cols[1].get_text(strip=True)  # <<<<<< ADICIONADO
+        tipo_curso = cols[1].get_text(strip=True)
+        turno = cols[2].get_text(strip=True) if len(cols) > 2 else ''
+        turno_arquivo = normalizar_turno_para_arquivo(turno)
 
         link_tag = tr.find('a', href=True, title="Visualizar Página do Curso")
         if not link_tag:
@@ -272,7 +296,7 @@ def scrape_estruturas():
             continue
 
         curso_url = requests.compat.urljoin(base_url, link_tag['href'])
-        print(f"Processando curso: {nome_curso}")
+        print(f"[{idx + 1}/{len(linhas_curso)}] Processando: {nome_curso} ({turno or 'sem turno'})")
         print(f"DEBUG: Link do curso: {curso_url}")
 
         resp = session.get(curso_url)
@@ -337,11 +361,15 @@ def scrape_estruturas():
                     periodo_letivo_vigor = td.get_text(strip=True)
 
             nome_arquivo = periodo_letivo_vigor if periodo_letivo_vigor else (id_arquivo if id_arquivo else f'estructura{idx+1}')
-            output_path = os.path.join(output_dir, f"{normalize(nome_curso)} - {nome_arquivo}.json")
+            nome_base = f"{normalize(nome_curso)} - {nome_arquivo}"
+            if turno_arquivo and turno_arquivo != 'sem-turno':
+                nome_base += f" - {turno_arquivo}"
+            output_path = os.path.join(output_dir, f"{nome_base}.json")
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump({
                     'curso': nome_curso,
                     'tipo_curso': tipo_curso,
+                    'turno': turno,
                     'curriculo': curriculo,
                     'periodo_letivo_vigor': periodo_letivo_vigor,
                     'prazos_cargas': prazos_cargas,

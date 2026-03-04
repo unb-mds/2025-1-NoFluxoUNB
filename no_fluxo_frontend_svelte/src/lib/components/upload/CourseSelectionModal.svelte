@@ -78,7 +78,9 @@
 								class:active={selectedCourse?.id_curso === curso.id_curso || (selectedCourse?.nome_curso === curso.nome_curso && selectedCourse?.matriz_curricular === curso.matriz_curricular)}
 							></div>
 							<span class="text-sm text-gray-200">
-								{curso.nome_curso}{#if curso.matriz_curricular}
+								{curso.nome_curso}{#if curso.turno}
+									<span class="text-gray-500"> ({curso.turno === 'NOTURNO' ? 'Noturno' : curso.turno === 'DIURNO' ? 'Diurno' : curso.turno})</span>
+								{/if}{#if curso.matriz_curricular}
 									<span class="text-gray-400"> — {curso.matriz_curricular}</span>
 								{/if}
 							</span>

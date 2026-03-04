@@ -15,7 +15,7 @@
 	import { supabaseDataService } from '$lib/services/supabase-data.service';
 	import { onMount } from 'svelte';
 	import { Loader2, AlertTriangle, ArrowRightLeft } from 'lucide-svelte';
-	import type { MateriaModel } from '$lib/types/materia';
+	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	const store = fluxogramaStore;
@@ -35,7 +35,7 @@
 		if (!store.state.courseData) return 0;
 		const courseSubjectCodes = new Set(
 			store.state.courseData.materias
-				.filter((m) => m.nivel > 0)
+				.filter((m) => !isOptativa(m))
 				.map((m) => m.codigoMateria)
 		);
 		let count = 0;
@@ -48,7 +48,7 @@
 	// Optativas = semester 0
 	let optativas = $derived.by(() => {
 		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => m.nivel === 0);
+		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
 
 	// Compute integralização when course data loads (for logged-in users)

@@ -19,7 +19,7 @@
 	import { ROUTES } from '$lib/config/routes';
 	import { onMount } from 'svelte';
 	import { Upload, Loader2, AlertTriangle } from 'lucide-svelte';
-	import type { MateriaModel } from '$lib/types/materia';
+	import { isOptativa, type MateriaModel } from '$lib/types/materia';
 	import type { IntegralizacaoResult } from '$lib/types/matriz';
 
 	const store = fluxogramaStore;
@@ -41,7 +41,7 @@
 	// Optativas = semester 0
 	let optativas = $derived.by(() => {
 		if (!store.state.courseData) return [];
-		return store.state.courseData.materias.filter((m) => m.nivel === 0);
+		return store.state.courseData.materias.filter((m) => isOptativa(m));
 	});
 
 	$effect(() => {

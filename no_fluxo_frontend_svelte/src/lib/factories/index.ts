@@ -389,6 +389,7 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 	const materiaData = (json.materias as Record<string, unknown>) ?? json;
 	const cargaHoraria = Number(materiaData.carga_horaria ?? json.carga_horaria ?? 0);
 
+	const tn = json.tipo_natureza as number | null | undefined;
 	return {
 		ementa: String(materiaData.ementa ?? ''),
 		idMateria: Number(materiaData.id_materia ?? 0),
@@ -396,6 +397,7 @@ export function createMateriaModelFromJson(json: Record<string, unknown>): Mater
 		codigoMateria: String(materiaData.codigo_materia ?? ''),
 		creditos: cargaHoraria > 0 ? cargaHoraria / 15 : 0,
 		nivel: Number(json.nivel ?? 0),
+		tipoNatureza: tn !== undefined && tn !== null ? tn : undefined,
 		status: materiaData.status != null ? String(materiaData.status) : null,
 		mencao: materiaData.mencao != null ? String(materiaData.mencao) : null,
 		professor: materiaData.professor != null ? String(materiaData.professor) : null,
@@ -553,7 +555,7 @@ export function createCursoModelFromJson(json: Record<string, unknown>): CursoMo
 	const allCoRequisitos = coRequisitosJson.map(createCoRequisitoModelFromJson);
 
 	const materiasInCursoFromCodigo = new Set(
-		materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria)
+		materias.filter((m) => !(m.tipoNatureza === 1 || (m.tipoNatureza == null && m.nivel === 0))).map((m) => m.codigoMateria)
 	);
 
 	const preRequisitosInCurso = allPreRequisitos.filter((pr) => {

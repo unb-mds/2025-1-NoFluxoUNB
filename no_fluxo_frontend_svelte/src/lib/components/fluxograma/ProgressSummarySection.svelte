@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { CursoModel } from '$lib/types/curso';
+	import { isOptativa } from '$lib/types/materia';
 	import type { DadosFluxogramaUser } from '$lib/types/user';
 	import { getCompletedSubjectCodes, getTotalCreditsCompleted } from '$lib/types/user';
 	import { GraduationCap, TrendingUp, Calendar, MessageSquare } from 'lucide-svelte';
@@ -21,7 +22,7 @@
 		}
 		// Fallback: sum credits from mandatory subjects (nivel > 0) when DB value is missing
 		return courseData.materias
-			.filter((m) => m.nivel > 0)
+			.filter((m) => !isOptativa(m))
 			.reduce((sum, m) => sum + m.creditos, 0);
 	});
 
@@ -41,7 +42,7 @@
 		return getCompletedSubjectCodes(userFluxograma).size;
 	});
 
-	let totalSubjects = $derived(courseData.materias.filter((m) => m.nivel > 0).length);
+	let totalSubjects = $derived(courseData.materias.filter((m) => !isOptativa(m)).length);
 
 	let completionPercent = $derived(
 		totalSubjects > 0 ? Math.round((completedCount / totalSubjects) * 100) : 0

@@ -3,7 +3,7 @@
 	import type { CursoModel } from '$lib/types/curso';
 	import type { EquivalenciaModel } from '$lib/types/equivalencia';
 	import { getDirectPrerequisites, getCorequisites } from '$lib/types/curso';
-	import { getStatusLabel, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
+	import { getStatusLabel, isOptativa, type SubjectStatusValue, SubjectStatusEnum } from '$lib/types/materia';
 	import { fluxogramaStore } from '$lib/stores/fluxograma.store.svelte';
 	import { X, BookOpen, GitBranch, Repeat2 } from 'lucide-svelte';
 
@@ -169,7 +169,7 @@
 						<div class="rounded-lg bg-white/5 p-3">
 							<span class="text-xs text-white/50">Semestre</span>
 							<p class="text-sm font-semibold text-white">
-								{materia.nivel === 0 ? 'Optativa' : `${materia.nivel}º`}
+								{isOptativa(materia) ? 'Optativa' : `${materia.nivel}º`}
 							</p>
 						</div>
 						<div class="rounded-lg bg-white/5 p-3">
@@ -280,13 +280,13 @@
 				<div class="border-t border-white/10 px-6 py-3">
 					<button
 						onclick={() => {
-							const nextSem = materia.nivel > 0 ? materia.nivel : 1;
+							const nextSem = !isOptativa(materia) && materia.nivel > 0 ? materia.nivel : 1;
 							store.addOptativa(materia, nextSem);
 							onclose?.();
 						}}
 						class="w-full rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:from-purple-500 hover:to-purple-600"
 					>
-						Adicionar ao {materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
+						Adicionar ao {!isOptativa(materia) && materia.nivel > 0 ? `${materia.nivel}º` : 'próximo'} semestre
 					</button>
 				</div>
 			{/if}

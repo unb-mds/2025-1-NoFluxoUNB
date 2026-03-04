@@ -50,6 +50,8 @@ export interface CursoModel {
 	coRequisitos: CoRequisitoModel[];
 	/** Identificador único da matriz (ex: "8117/-2 - 2018.2"). Preenchido quando o fluxograma é carregado por matriz. */
 	curriculoCompleto?: string | null;
+	/** DIURNO ou NOTURNO */
+	turno?: string | null;
 }
 
 export interface MinimalCursoModel {
@@ -59,6 +61,8 @@ export interface MinimalCursoModel {
 	creditos: number | null;
 	tipoCurso: CourseType | string;
 	classificacao: CourseClassification | string;
+	/** DIURNO ou NOTURNO */
+	turno?: string | null;
 }
 
 export function getCourseSubjectCodes(curso: CursoModel): Set<string> {

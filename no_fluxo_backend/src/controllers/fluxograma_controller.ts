@@ -27,11 +27,18 @@ interface DisciplinaHistorico {
 interface MateriasBanco {
     id_materia: number;
     nivel: number;
+    tipo_natureza?: number | null; // 0=obrigatória, 1=optativa (prioridade sobre nivel)
     materias: {
         id_materia: number;
         nome_materia: string;
         codigo_materia: string;
     };
+}
+
+/** Optativa: tipo_natureza=1 ou (fallback) nivel=0 */
+function isOptativa(mpc: { tipo_natureza?: number | null; nivel?: number }): boolean {
+    if (mpc.tipo_natureza !== undefined && mpc.tipo_natureza !== null) return mpc.tipo_natureza === 1;
+    return (mpc.nivel ?? 0) === 0;
 }
 
 interface EquivalenciaData {
@@ -252,7 +259,7 @@ function processMatchedDiscipline(
         id_materia: materiaBanco.id_materia,
         encontrada_no_banco: true,
         nivel: materiaBanco.nivel,
-        tipo: materiaBanco.nivel === 0 ? 'optativa' : 'obrigatoria'
+        tipo: isOptativa(materiaBanco) ? 'optativa' : 'obrigatoria'
     };
 
     if (existingIndex >= 0) {
@@ -324,7 +331,7 @@ export const FluxogramaController: EndpointController = {
                 return res.status(400).json({ error: "Nome do curso não informado" });
             }
 
-            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
+            const { data, error } = await SupabaseWrapper.get().from("cursos").select("*,materias_por_curso(nivel,tipo_natureza,materias(*))").like("nome_curso", "%" + req.query.nome_curso + "%");
 
             if (error) {
                 logger.error(`Erro ao buscar fluxograma: ${error.message}`);
@@ -445,7 +452,7 @@ export const FluxogramaController: EndpointController = {
                     logger.warn("Curso não foi extraído do PDF automaticamente");
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("nome_curso, matriz_curricular")
+                        .select("id_curso, nome_curso, matriz_curricular, turno")
                         .order("nome_curso");
 
                     return res.status(400).json({
@@ -466,7 +473,7 @@ export const FluxogramaController: EndpointController = {
 
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("nome_curso, matriz_curricular")
+                        .select("id_curso, nome_curso, matriz_curricular, turno")
                         .order("nome_curso");
 
                     logger.info(`Cursos encontrados: ${todosCursos}`);
@@ -484,7 +491,7 @@ export const FluxogramaController: EndpointController = {
 
                             const { data, error: queryError } = await SupabaseWrapper.get()
                                 .from("cursos")
-                                .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                                .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                                 .eq("nome_curso", cursoSelecionado.nome_curso);
 
                             materiasBanco = data;
@@ -502,7 +509,7 @@ export const FluxogramaController: EndpointController = {
                     // Normal course search
                     let query = SupabaseWrapper.get()
                         .from("cursos")
-                        .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                        .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                         .like("nome_curso", "%" + curso_extraido + "%");
 
 
@@ -530,7 +537,7 @@ export const FluxogramaController: EndpointController = {
                     logger.error(`Curso não encontrado: ${curso_extraido}`);
                     const { data: todosCursos } = await SupabaseWrapper.get()
                         .from("cursos")
-                        .select("nome_curso, matriz_curricular");
+                        .select("id_curso, nome_curso, matriz_curricular, turno");
 
                     return res.status(404).json({
                         error: "Curso não encontrado",
@@ -542,8 +549,8 @@ export const FluxogramaController: EndpointController = {
 
                 const curso = materiasBanco[0];
                 const materiasBancoList = curso.materias_por_curso;
-                const materiasObrigatorias = materiasBancoList.filter((m: any) => m.nivel > 0);
-                const materiasOptativas = materiasBancoList.filter((m: any) => m.nivel === 0);
+                const materiasObrigatorias = materiasBancoList.filter((m: any) => !isOptativa(m));
+                const materiasOptativas = materiasBancoList.filter((m: any) => isOptativa(m));
 
                 logger.info(`Course found: ${curso.nome_curso}`);
                 logger.info(`Total subjects: ${materiasBancoList.length}`);
@@ -562,7 +569,7 @@ export const FluxogramaController: EndpointController = {
                 // PRE-LOAD other course matrices to avoid database queries in loops
                 const { data: outrasMatrizes } = await SupabaseWrapper.get()
                     .from("cursos")
-                    .select("*,materias_por_curso(id_materia,nivel,materias(*))")
+                    .select("*,materias_por_curso(id_materia,nivel,tipo_natureza,materias(*))")
                     .eq("nome_curso", curso.nome_curso);
 
                 logger.info(`Loaded ${outrasMatrizes?.length || 0} course matrices`);
@@ -624,8 +631,8 @@ export const FluxogramaController: EndpointController = {
                             for (const matriz of outrasMatrizes) {
                                 if (matriz.matriz_curricular === curso.matriz_curricular) continue;
 
-                                const obrig = matriz.materias_por_curso.filter((m: any) => m.nivel > 0);
-                                const opt = matriz.materias_por_curso.filter((m: any) => m.nivel === 0);
+                                const obrig = matriz.materias_por_curso.filter((m: any) => !isOptativa(m));
+                                const opt = matriz.materias_por_curso.filter((m: any) => isOptativa(m));
 
                                 materiaBanco = findSubjectMatch(disciplina, obrig, opt);
                                 if (materiaBanco) {
@@ -667,7 +674,7 @@ export const FluxogramaController: EndpointController = {
                         // Process the match
                         if (materiaBanco) {
                             foundCount++;
-                            logger.info(`Processing matched discipline "${disciplina.nome}" - Type: ${materiaBanco.nivel === 0 ? 'elective' : 'mandatory'}`);
+                            logger.info(`Processing matched discipline "${disciplina.nome}" - Type: ${isOptativa(materiaBanco) ? 'elective' : 'mandatory'}`);
                             processMatchedDiscipline(disciplina, materiaBanco, disciplinasCasadas, logger);
                         } else {
                             notFoundCount++;

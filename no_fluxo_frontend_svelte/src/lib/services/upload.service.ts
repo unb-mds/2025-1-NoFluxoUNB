@@ -39,7 +39,7 @@ export interface CasarDisciplinasResponse {
 export interface CourseSelectionError {
 	type: 'COURSE_SELECTION';
 	message: string;
-	cursos_disponiveis: { nome_curso: string; id_curso?: number; matriz_curricular?: string }[];
+	cursos_disponiveis: { nome_curso: string; id_curso?: number; matriz_curricular?: string; turno?: string }[];
 	palavras_chave_encontradas?: string[];
 	matriz_extraida_pdf?: string | null;
 }

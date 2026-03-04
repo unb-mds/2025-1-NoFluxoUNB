@@ -5,7 +5,7 @@ import type {
 	PreRequisitoModel,
 	CoRequisitoModel
 } from '$lib/types/curso';
-import type { MateriaModel } from '$lib/types/materia';
+import { isOptativa, type MateriaModel } from '$lib/types/materia';
 import type { EquivalenciaModel } from '$lib/types/equivalencia';
 import {
 	createMateriaModelFromJson,
@@ -33,11 +33,13 @@ class FluxogramaService {
 			const creditos =
 				c.creditos_totais != null
 					? Number(c.creditos_totais)
-					: c.ch_total_exigida != null
-						? Math.floor(Number(c.ch_total_exigida) / 15)
-						: c.creditos != null
-							? Number(c.creditos)
-							: null;
+					: c.cred_total_exigido != null
+						? Number(c.cred_total_exigido)
+						: c.ch_total_exigida != null
+							? Math.floor(Number(c.ch_total_exigida) / 15)
+							: c.creditos != null
+								? Number(c.creditos)
+								: null;
 			const rawId = c.id_curso;
 			const idCurso =
 				rawId != null && rawId !== '' && !Number.isNaN(Number(rawId))
@@ -49,7 +51,8 @@ class FluxogramaService {
 				idCurso,
 				creditos,
 				classificacao: '',
-				tipoCurso: String(c.tipo_curso ?? '')
+				tipoCurso: String(c.tipo_curso ?? ''),
+				turno: c.turno != null ? String(c.turno) : null
 			};
 		});
 	}
@@ -101,7 +104,7 @@ class FluxogramaService {
 			createEquivalenciaModelFromJson(eq as Record<string, unknown>)
 		);
 
-		const materiaCodes = new Set(materias.filter((m) => m.nivel !== 0).map((m) => m.codigoMateria));
+		const materiaCodes = new Set(materias.filter((m) => !isOptativa(m)).map((m) => m.codigoMateria));
 		const preRequisitosInCurso = preRequisitos.filter((pr) => {
 			if (pr.expressaoLogica) {
 				const codigos = getCodigosFromExpressaoLogica(pr.expressaoLogica);
@@ -131,7 +134,8 @@ class FluxogramaService {
 			equivalencias,
 			preRequisitos: preRequisitosInCurso,
 			coRequisitos: coRequisitosInCurso,
-			curriculoCompleto: curriculoCompleto ?? undefined
+			curriculoCompleto: curriculoCompleto ?? undefined,
+			turno: (raw.curso as { turno?: string | null }).turno ?? null
 		};
 
 		const materiaMap = new Map(materias.map((m) => [m.codigoMateria, m]));

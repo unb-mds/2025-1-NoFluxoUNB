@@ -32,6 +32,9 @@
 
 	<h3 class="mb-1 line-clamp-2 text-sm font-semibold leading-tight text-white">
 		{curso.nomeCurso}
+		{#if curso.turno}
+			<span class="ml-1 font-normal text-white/70">({curso.turno === 'NOTURNO' ? 'Noturno' : curso.turno === 'DIURNO' ? 'Diurno' : curso.turno})</span>
+		{/if}
 	</h3>
 
 	{#if curso.matrizCurricular}

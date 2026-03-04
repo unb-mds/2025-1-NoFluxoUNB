@@ -63,14 +63,17 @@ export class SupabaseDataService {
 		if (!codigoCurso || !/^\d+$/.test(codigoCurso) || versao === undefined) return null;
 		const idCurso = parseInt(codigoCurso, 10);
 
-		const { data: byCodeVersao, error: errCode } = await this.supabase
+		// Pode haver múltiplas matrizes (diurno/noturno, várias versões). Usar limit(1) em vez de maybeSingle().
+		const { data: rows, error: errCode } = await this.supabase
 			.from('matrizes')
 			.select('*')
 			.eq('id_curso', idCurso)
 			.eq('versao', versao)
-			.maybeSingle();
+			.order('ano_vigor', { ascending: false })
+			.limit(1);
 
 		if (errCode) throw new Error(`Erro ao buscar matriz: ${errCode.message}`);
+		const byCodeVersao = rows?.[0] ?? null;
 		if (!byCodeVersao) return null;
 
 		return {
@@ -114,12 +117,12 @@ export class SupabaseDataService {
 
 	/**
 	 * Grade da matriz: disciplinas com carga horária e categoria (obrigatória/optativa).
-	 * nivel >= 1 = obrigatória, nivel === 0 = optativa.
+	 * tipo_natureza: 0=obrigatória, 1=optativa. Fallback: nivel >= 1 = obrigatória, nivel === 0 = optativa.
 	 */
 	async getGradeByMatriz(idMatriz: number): Promise<Array<{ codigoMateria: string; cargaHoraria: number; categoria: 'obrigatoria' | 'optativa' | 'complementar' }>> {
 		const { data, error } = await this.supabase
 			.from('materias_por_curso')
-			.select('id_materia, nivel, materias(codigo_materia, carga_horaria)')
+			.select('id_materia, nivel, tipo_natureza, materias(codigo_materia, carga_horaria)')
 			.eq('id_matriz', idMatriz);
 
 		if (error) throw new Error(`Erro ao buscar grade: ${error.message}`);
@@ -129,8 +132,9 @@ export class SupabaseDataService {
 			const mat = row.materias as { codigo_materia?: string; carga_horaria?: number } | null;
 			const codigo = mat?.codigo_materia ?? '';
 			const ch = Number(mat?.carga_horaria ?? 0);
+			const tn = row.tipo_natureza as number | null | undefined;
 			const nivel = Number(row.nivel ?? 0);
-			const categoria = nivel >= 1 ? 'obrigatoria' : 'optativa';
+			const categoria = (tn !== undefined && tn !== null) ? (tn === 1 ? 'optativa' : 'obrigatoria') : (nivel >= 1 ? 'obrigatoria' : 'optativa');
 			out.push({ codigoMateria: codigo, cargaHoraria: ch, categoria });
 		}
 		return out;
@@ -198,7 +202,7 @@ export class SupabaseDataService {
 
 		const { data, error } = await this.supabase
 			.from('materias')
-			.select('*, materias_por_curso!inner(nivel, id_matriz)')
+			.select('*, materias_por_curso!inner(nivel, tipo_natureza, id_matriz)')
 			.in('codigo_materia', codes)
 			.eq('materias_por_curso.id_matriz', idMatriz);
 
@@ -261,7 +265,7 @@ export class SupabaseDataService {
 
 		const { data: materiasCurso, error: mcError } = await this.supabase
 			.from('materias_por_curso')
-			.select('id_materia_curso, id_materia, nivel, id_matriz, materias(id_materia, codigo_materia, nome_materia, carga_horaria, ementa)')
+			.select('id_materia_curso, id_materia, nivel, tipo_natureza, id_matriz, materias(id_materia, codigo_materia, nome_materia, carga_horaria, ementa)')
 			.eq('id_matriz', idMatriz);
 
 		if (mcError) throw new Error(`Erro ao buscar matérias: ${mcError.message}`);
